@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
-    "i18n:generate": "node scripts/translate.mjs",
-    "prebuild": "node scripts/translate.mjs",
+    "i18n": "node scripts/translate.mjs",
+    "i18n:check": "node scripts/translate.mjs --check",
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "eslint"
@@ -17,6 +17,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@anthropic-ai/sdk": "^0.112.3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

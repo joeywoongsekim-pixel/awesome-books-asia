@@ -2,154 +2,172 @@
 /**
  * Generates messages/ko.json and messages/ja.json from messages/en.json.
  *
- * English (messages/en.json) is the single authored source. KO/JA are OUTPUTS
- * of this script and must never be hand-edited — edit en.json (or the memory
- * below) and re-run `npm run i18n:generate`.
+ * English (messages/en.json) is the single authored source. KO/JA are committed
+ * artifacts, not build-time output — regenerate them on demand with
+ * `npm run i18n`, review the diff, and commit. The production build never runs
+ * this script (deterministic builds, no API key on Vercel, no per-deploy cost).
  *
- * Translation strategy, in order of preference:
- *   1. If ANTHROPIC_API_KEY is set, translate via the model (TODO: wire client).
- *   2. Otherwise use the bundled translation memory below.
- *   3. Fall back to the English string and warn (so nothing is silently missing).
+ * Translation strategy:
+ *   1. scripts/translation-cache.json is a committed cache keyed by the exact
+ *      English source string. Cache hits are reused verbatim, so re-running only
+ *      sends strings that are new or changed since the last run.
+ *   2. Cache misses are translated with the Anthropic API (claude-sonnet-4-6)
+ *      when ANTHROPIC_API_KEY is set; results are written back to the cache.
+ *   3. Without a key, misses fall back to the English string and warn (they are
+ *      not silently dropped).
+ *
+ * Modes:
+ *   node scripts/translate.mjs           Generate ko.json / ja.json (+ update cache)
+ *   node scripts/translate.mjs --check   No API, no writes; exit 1 if any string
+ *                                        would fall back to English (for pre-commit).
  */
-import {readFileSync, writeFileSync} from 'node:fs';
+import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import {dirname, join} from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const messagesDir = join(__dirname, '..', 'messages');
+const cachePath = join(__dirname, 'translation-cache.json');
 
 const TARGETS = ['ko', 'ja'];
+const LOCALE_NAMES = {ko: 'Korean', ja: 'Japanese'};
+const MODEL = 'claude-sonnet-4-6';
 
-// Translation memory keyed by the exact English source string.
-// Brand names (AwesomeBooks, Awesome AI Asia, PDF, EPUB) are intentionally kept.
-const MEMORY = {
-  ko: {
-    'AwesomeBooks — Read the whole desk': 'AwesomeBooks — 책상 전체를 읽다',
-    'Spread four books at once, turn pages the way paper turns, and ask an AI that reads your whole desk. Opens in your browser.':
-      '네 권의 책을 한 번에 펼치고, 종이가 넘어가듯 페이지를 넘기며, 책상 전체를 읽는 AI에게 질문하세요. 브라우저에서 바로 열립니다.',
-    AwesomeBooks: 'AwesomeBooks',
-    'Digital Library · Asia': '디지털 라이브러리 · 아시아',
-    Home: '홈',
-    Bookstore: '서점',
-    'The Reader': '리더',
-    Plans: '요금제',
-    'My Library': '내 서재',
-    English: '한국어',
-    'Start reading': '읽기 시작',
-    'New reader · now live': '새로운 리더 · 지금 출시',
-    'Read the whole <em>desk</em>, not just one book':
-      '한 권이 아니라 <em>책상 전체</em>를 읽으세요',
-    'Spread four books at once. Turn pages the way paper turns. Then ask the AI a question that cuts across all of them — no app to install, it opens in your browser.':
-      '네 권의 책을 한 번에 펼치세요. 종이가 넘어가는 방식 그대로 페이지를 넘기세요. 그런 다음 네 권 모두를 가로지르는 질문을 AI에게 던지세요 — 설치할 앱은 없습니다. 브라우저에서 열립니다.',
-    'PDF + EPUB · English · 한국어 · 日本語 · on any device':
-      'PDF + EPUB · English · 한국어 · 日本語 · 모든 기기에서',
-    'Try the reader': '리더 체험하기',
-    'Browse the library': '라이브러리 둘러보기',
-    'Milestone 1 — shell and routing. The live desk, book grid and reader arrive in later milestones.':
-      '마일스톤 1 — 셸과 라우팅. 라이브 데스크, 책 그리드, 리더는 이후 마일스톤에서 추가됩니다.',
-    'Stories Without Borders': '경계 없는 이야기',
-    'A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.':
-      '좋은 책으로 아시아 전역의 독자를 잇는 디지털 출판 플랫폼 — 영어, 한국어, 일본어로.',
-    Library: '라이브러리',
-    'All books': '모든 책',
-    'AI & Tech': 'AI & 기술',
-    "Children's books": '어린이책',
-    Education: '교육',
-    'New releases': '신간',
-    Account: '계정',
-    'Sign up': '회원가입',
-    'Log in': '로그인',
-    'Manage subscription': '구독 관리',
-    'Redeem coupon': '쿠폰 등록',
-    Company: '회사',
-    'About us': '회사 소개',
-    Partnerships: '제휴',
-    Contact: '문의',
-    FAQ: '자주 묻는 질문',
-    'Refund policy': '환불 정책',
-    '© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia':
-      '© 2026 AwesomeBooks.asia — Awesome AI Asia와 연결됨'
-  },
-  ja: {
-    'AwesomeBooks — Read the whole desk': 'AwesomeBooks — 机全体を読む',
-    'Spread four books at once, turn pages the way paper turns, and ask an AI that reads your whole desk. Opens in your browser.':
-      '4冊の本を一度に広げ、紙がめくれるようにページをめくり、机全体を読むAIに質問できます。ブラウザですぐに開きます。',
-    AwesomeBooks: 'AwesomeBooks',
-    'Digital Library · Asia': 'デジタルライブラリー · アジア',
-    Home: 'ホーム',
-    Bookstore: '書店',
-    'The Reader': 'リーダー',
-    Plans: 'プラン',
-    'My Library': 'マイライブラリー',
-    English: '日本語',
-    'Start reading': '読み始める',
-    'New reader · now live': '新しいリーダー · 公開中',
-    'Read the whole <em>desk</em>, not just one book':
-      '一冊ではなく<em>机全体</em>を読む',
-    'Spread four books at once. Turn pages the way paper turns. Then ask the AI a question that cuts across all of them — no app to install, it opens in your browser.':
-      '4冊の本を一度に広げましょう。紙がめくれるようにページをめくりましょう。そして4冊すべてを横断する質問をAIに投げかけてください — インストールするアプリはありません。ブラウザで開きます。',
-    'PDF + EPUB · English · 한국어 · 日本語 · on any device':
-      'PDF + EPUB · English · 한국어 · 日本語 · あらゆるデバイスで',
-    'Try the reader': 'リーダーを試す',
-    'Browse the library': 'ライブラリーを見る',
-    'Milestone 1 — shell and routing. The live desk, book grid and reader arrive in later milestones.':
-      'マイルストーン1 — シェルとルーティング。ライブデスク、書籍グリッド、リーダーは後のマイルストーンで追加されます。',
-    'Stories Without Borders': 'ボーダーレスなストーリー',
-    'A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.':
-      '良い本でアジア全域の読者をつなぐデジタル出版プラットフォーム — 英語、韓国語、日本語で。',
-    Library: 'ライブラリー',
-    'All books': 'すべての本',
-    'AI & Tech': 'AI & テック',
-    "Children's books": '児童書',
-    Education: '教育',
-    'New releases': '新刊',
-    Account: 'アカウント',
-    'Sign up': '新規登録',
-    'Log in': 'ログイン',
-    'Manage subscription': 'サブスクの管理',
-    'Redeem coupon': 'クーポンを使う',
-    Company: '会社',
-    'About us': '会社概要',
-    Partnerships: 'パートナーシップ',
-    Contact: 'お問い合わせ',
-    FAQ: 'よくある質問',
-    'Refund policy': '返金ポリシー',
-    '© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia':
-      '© 2026 AwesomeBooks.asia — Awesome AI Asia と連携'
+const CHECK = process.argv.includes('--check');
+
+// ── Load source + cache ────────────────────────────────────────────────────
+const en = JSON.parse(readFileSync(join(messagesDir, 'en.json'), 'utf8'));
+
+const cache = existsSync(cachePath)
+  ? JSON.parse(readFileSync(cachePath, 'utf8'))
+  : {};
+for (const locale of TARGETS) cache[locale] ||= {};
+
+// Every unique string in en.json, in first-seen order.
+const sourceStrings = [];
+const seen = new Set();
+(function collect(node) {
+  if (typeof node === 'string') {
+    if (!seen.has(node)) {
+      seen.add(node);
+      sourceStrings.push(node);
+    }
+  } else if (Array.isArray(node)) {
+    node.forEach(collect);
+  } else if (node && typeof node === 'object') {
+    Object.values(node).forEach(collect);
   }
-};
+})(en);
 
-function translateValue(value, locale, missing) {
-  const hit = MEMORY[locale][value];
-  if (hit !== undefined) return hit;
-  missing.push(value);
-  return value; // fall back to English, never drop a key
+// ── Translate cache misses via the Anthropic API ────────────────────────────
+async function translateBatch(strings, locale) {
+  const {default: Anthropic} = await import('@anthropic-ai/sdk');
+  const client = new Anthropic(); // reads ANTHROPIC_API_KEY from the environment
+  const language = LOCALE_NAMES[locale];
+
+  const system =
+    `You are a professional software-UI localiser translating from British English into ${language}.\n` +
+    `Rules:\n` +
+    `- Return ONLY a JSON array of translated strings, in the same order as the input. No markdown, no commentary.\n` +
+    `- Keep brand names untranslated: AwesomeBooks, Awesome AI Asia, PDF, EPUB.\n` +
+    `- Preserve any HTML tags such as <em>...</em> exactly; translate only the text inside them.\n` +
+    `- Where language names appear as a middot/comma-separated list (e.g. "English · 한국어 · 日本語"), leave them as-is.\n` +
+    `- Use natural, concise wording appropriate for buttons, labels and marketing copy.`;
+
+  const response = await client.messages.create({
+    model: MODEL,
+    max_tokens: 8192,
+    system,
+    messages: [{role: 'user', content: JSON.stringify(strings, null, 2)}]
+  });
+
+  const text = response.content
+    .filter((b) => b.type === 'text')
+    .map((b) => b.text)
+    .join('')
+    .trim()
+    // Strip a ```json … ``` fence if the model added one.
+    .replace(/^```(?:json)?\s*/i, '')
+    .replace(/\s*```$/i, '');
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    throw new Error(`Model did not return valid JSON for ${locale}: ${text.slice(0, 200)}`);
+  }
+  if (!Array.isArray(parsed) || parsed.length !== strings.length) {
+    throw new Error(
+      `Model returned ${Array.isArray(parsed) ? parsed.length : 'non-array'} items for ${locale}, expected ${strings.length}`
+    );
+  }
+  return parsed;
 }
 
-function walk(node, locale, missing) {
-  if (typeof node === 'string') return translateValue(node, locale, missing);
-  if (Array.isArray(node)) return node.map((n) => walk(n, locale, missing));
+// ── Resolve every target locale ─────────────────────────────────────────────
+const hasKey = Boolean(process.env.ANTHROPIC_API_KEY);
+let cacheDirty = false;
+const fellBack = {}; // locale -> [strings]
+
+for (const locale of TARGETS) {
+  const misses = sourceStrings.filter((s) => !(s in cache[locale]));
+
+  if (misses.length && !CHECK && hasKey) {
+    console.log(`[translate] ${locale}: translating ${misses.length} new string(s) via ${MODEL}…`);
+    const translations = await translateBatch(misses, locale);
+    misses.forEach((src, i) => {
+      cache[locale][src] = translations[i];
+    });
+    cacheDirty = true;
+  }
+
+  fellBack[locale] = sourceStrings.filter((s) => !(s in cache[locale]));
+}
+
+// ── Persist the cache (skip in --check) ─────────────────────────────────────
+if (cacheDirty && !CHECK) {
+  writeFileSync(cachePath, JSON.stringify(cache, null, 2) + '\n', 'utf8');
+}
+
+// ── --check: fail if anything would fall back to English ────────────────────
+if (CHECK) {
+  const offenders = TARGETS.filter((l) => fellBack[l].length);
+  if (offenders.length) {
+    for (const locale of offenders) {
+      console.error(`[i18n:check] ${locale}: ${fellBack[locale].length} untranslated string(s):`);
+      for (const s of fellBack[locale]) console.error(`  · ${s}`);
+    }
+    console.error('\nRun `npm run i18n` to translate them, then commit ko.json / ja.json.');
+    process.exit(1);
+  }
+  console.log('[i18n:check] All strings translated for every locale.');
+  process.exit(0);
+}
+
+// ── Emit ko.json / ja.json from the cache (English fallback for misses) ──────
+function build(node, locale) {
+  if (typeof node === 'string') {
+    return cache[locale][node] ?? node;
+  }
+  if (Array.isArray(node)) return node.map((n) => build(n, locale));
   const out = {};
-  for (const [k, v] of Object.entries(node)) out[k] = walk(v, locale, missing);
+  for (const [k, v] of Object.entries(node)) out[k] = build(v, locale);
   return out;
 }
 
-const en = JSON.parse(readFileSync(join(messagesDir, 'en.json'), 'utf8'));
-
 for (const locale of TARGETS) {
-  const missing = [];
-  const translated = walk(en, locale, missing);
+  const translated = build(en, locale);
   writeFileSync(
     join(messagesDir, `${locale}.json`),
     JSON.stringify(translated, null, 2) + '\n',
     'utf8'
   );
+  const missing = sourceStrings.filter((s) => !(s in cache[locale]));
   if (missing.length) {
-    console.warn(
-      `[translate] ${locale}: ${missing.length} string(s) fell back to English:`
-    );
+    const reason = hasKey ? 'not translated' : 'no ANTHROPIC_API_KEY — cache miss';
+    console.warn(`[translate] ${locale}: ${missing.length} string(s) fell back to English (${reason}):`);
     for (const m of missing) console.warn(`  · ${m}`);
   } else {
-    console.log(`[translate] ${locale}: all strings translated.`);
+    console.log(`[translate] ${locale}: all strings resolved from cache/API.`);
   }
 }
