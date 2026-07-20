@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — 책상 전체를 읽다",
+    "description": "네 권의 책을 한 번에 펼치고, 종이가 넘어가듯 페이지를 넘기며, 책상 전체를 읽는 AI에게 질문하세요. 브라우저에서 바로 열립니다."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "디지털 라이브러리 · 아시아",
+    "home": "홈",
+    "bookstore": "서점",
+    "reader": "리더",
+    "plans": "요금제",
+    "library": "내 서재",
+    "language": "한국어",
+    "cta": "읽기 시작"
+  },
+  "home": {
+    "badge": "새로운 리더 · 지금 출시",
+    "title": "한 권이 아니라 <em>책상 전체</em>를 읽으세요",
+    "subtitle": "네 권의 책을 한 번에 펼치세요. 종이가 넘어가는 방식 그대로 페이지를 넘기세요. 그런 다음 네 권 모두를 가로지르는 질문을 AI에게 던지세요 — 설치할 앱은 없습니다. 브라우저에서 열립니다.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · 모든 기기에서",
+    "ctaPrimary": "리더 체험하기",
+    "ctaSecondary": "라이브러리 둘러보기",
+    "scaffoldNote": "마일스톤 1 — 셸과 라우팅. 라이브 데스크, 책 그리드, 리더는 이후 마일스톤에서 추가됩니다."
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "경계 없는 이야기",
+    "description": "좋은 책으로 아시아 전역의 독자를 잇는 디지털 출판 플랫폼 — 영어, 한국어, 일본어로.",
+    "library": "라이브러리",
+    "libraryLinks": {
+      "all": "모든 책",
+      "ai": "AI & 기술",
+      "kids": "어린이책",
+      "education": "교육",
+      "new": "신간"
+    },
+    "account": "계정",
+    "accountLinks": {
+      "signup": "회원가입",
+      "login": "로그인",
+      "library": "내 서재",
+      "subscription": "구독 관리",
+      "redeem": "쿠폰 등록"
+    },
+    "company": "회사",
+    "companyLinks": {
+      "about": "회사 소개",
+      "partnerships": "제휴",
+      "contact": "문의",
+      "faq": "자주 묻는 질문",
+      "refund": "환불 정책"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Awesome AI Asia와 연결됨"
+  }
+}

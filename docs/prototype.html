@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AwesomeBooks — Clickable Prototype</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+KR:wght@400;600&family=DM+Sans:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#F5A623;--gold-dk:#C9821A;--gold-deep:#9A6210;--navy:#0A0F2E;
+  --paper:#F7F1E4;--paper-2:#EFE7D6;--ink:#221E18;--ink-mid:#544C3E;--ink-soft:#8A8171;
+  --line:rgba(255,255,255,.09);--panel:#10131F;
+  --serif:'Lora','Noto Serif KR',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#080A14;color:#fff;overflow-x:hidden}
+.desk-bg{
+  position:fixed;inset:0;z-index:0;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(70,105,185,.13) 0%, transparent 62%),
+    radial-gradient(ellipse 50% 34% at 78% 30%, rgba(185,105,25,.11) 0%, transparent 60%),
+    linear-gradient(168deg,#070912 0%,#0C0F1D 40%,#141019 100%);
+}
+.desk-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,transparent 0%,rgba(0,0,0,.5) 100%)}
+.wrap{position:relative;z-index:1}
+
+/* ══ SCREENS ══ */
+.screen{display:none;animation:fadeIn .34s ease both}
+.screen.on{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ══ NAV ══ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:72px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 46px;
+  background:transparent;transition:background .4s,backdrop-filter .4s,height .4s,box-shadow .4s;
+}
+.nav.stuck,.nav.solid{
+  height:64px;background:rgba(9,11,22,.9);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  box-shadow:0 1px 0 rgba(255,255,255,.07);
+}
+.nav.hide{display:none}
+.nav-logo{display:flex;align-items:center;gap:12px;cursor:pointer}
+.nav-mark{width:38px;height:38px;border-radius:10px;background:var(--gold);display:grid;place-items:center;font-family:'Space Mono',monospace;font-weight:700;font-size:13px;color:var(--navy)}
+.nav-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;line-height:1.1}
+.nav-tag{font-size:9.5px;color:rgba(255,255,255,.4);letter-spacing:1.9px;text-transform:uppercase;margin-top:2px}
+.nav-menu{display:flex;gap:4px;list-style:none}
+.nav-menu a{color:rgba(255,255,255,.72);font-size:14px;font-weight:500;padding:8px 15px;border-radius:8px;transition:.2s;cursor:pointer;text-decoration:none}
+.nav-menu a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-menu a.on{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:11px}
+.nav-lang{display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);font-size:12.5px;cursor:pointer;transition:.2s}
+.nav-lang:hover{background:rgba(255,255,255,.08);color:#fff}
+.nav-cta{background:var(--gold);color:var(--navy);font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:9px;cursor:pointer;transition:.2s;white-space:nowrap;text-decoration:none}
+.nav-cta:hover{background:var(--gold-dk);transform:translateY(-1px)}
+
+/* ══ SHARED TYPE ══ */
+.sec{position:relative;padding:104px 46px}
+.sec-in{max-width:1180px;margin:0 auto}
+.eyebrow{display:flex;align-items:center;gap:11px;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:13px}
+.eyebrow::before{content:'';width:28px;height:2px;background:var(--gold)}
+.eyebrow.mid{justify-content:center}
+.h2{font-family:'Playfair Display',serif;font-size:clamp(29px,3.7vw,44px);font-weight:700;line-height:1.2;margin-bottom:14px;letter-spacing:-.4px}
+.lead{font-family:var(--serif);font-size:15.5px;line-height:1.85;color:rgba(255,255,255,.5);max-width:560px}
+.btn-g{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);font-weight:700;font-size:15px;padding:14px 27px;border-radius:10px;cursor:pointer;transition:.2s;box-shadow:0 5px 24px rgba(245,166,35,.34);text-decoration:none}
+.btn-g:hover{background:var(--gold-dk);transform:translateY(-2px)}
+.btn-o{display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:600;font-size:15px;padding:14px 25px;border:1px solid rgba(255,255,255,.24);border-radius:10px;cursor:pointer;transition:.2s;text-decoration:none}
+.btn-o:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.42)}
+
+/* ══ HERO ══ */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
+.hero-glow{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);width:1250px;height:760px;pointer-events:none;background:radial-gradient(ellipse,rgba(255,206,138,.15) 0%,rgba(255,180,100,.05) 45%,transparent 70%);filter:blur(30px)}
+.hero-in{position:relative;z-index:2;width:100%;max-width:1280px;margin:0 auto;padding:132px 46px 92px;display:grid;grid-template-columns:1fr 480px;gap:52px;align-items:center}
+.h-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.12);border:1px solid rgba(245,166,35,.32);color:var(--gold);padding:7px 16px;border-radius:100px;font-size:11.5px;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;margin-bottom:26px}
+.h-badge i{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blip 2s infinite;font-style:normal}
+@keyframes blip{0%,100%{opacity:1}50%{opacity:.35}}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(36px,4.4vw,59px);font-weight:900;line-height:1.12;margin-bottom:22px;letter-spacing:-.6px}
+.h-title em{color:var(--gold);font-style:italic}
+.h-sub{font-family:var(--serif);font-size:16.5px;line-height:1.85;color:rgba(255,255,255,.58);max-width:470px;margin-bottom:16px}
+.h-meta{font-family:'Space Mono',monospace;font-size:11.5px;color:rgba(255,255,255,.32);margin-bottom:34px}
+.h-meta s{text-decoration:none;opacity:.35;margin:0 9px}
+.h-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.h-tags{display:flex;flex-wrap:wrap;gap:8px}
+.h-tag{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.6);padding:5px 14px;border-radius:100px;font-size:12px}
+
+/* mini desk (home hero) */
+.demo{position:relative;perspective:1400px;perspective-origin:50% 42%}
+.demo-shelf{display:flex;justify-content:center;gap:14px;margin-bottom:20px;transform-style:preserve-3d}
+.mb{position:relative;width:132px;height:120px;cursor:pointer;transform:rotateX(20deg) translateZ(-40px);transform-origin:50% 100%;transition:transform .42s cubic-bezier(.34,1.3,.5,1),filter .3s,box-shadow .3s;filter:brightness(.9);border-radius:2px 6px 6px 2px;box-shadow:0 14px 24px rgba(0,0,0,.5)}
+.mb:hover{transform:rotateX(4deg) translateZ(70px) translateY(-8px);filter:brightness(1.08);box-shadow:0 22px 44px rgba(0,0,0,.65),0 0 34px rgba(245,166,35,.28);z-index:5}
+.mb-pg{position:absolute;inset:0;border-radius:2px 6px 6px 2px;overflow:hidden;background:linear-gradient(170deg,#FCF9F1,#F0E8D8);padding:11px 12px 0 15px;box-shadow:inset 5px 0 9px -4px rgba(0,0,0,.3)}
+.mb-pg::before{content:'';position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(to right,rgba(0,0,0,.22),transparent)}
+.mb-pg::after{content:'';position:absolute;left:0;right:0;bottom:0;height:34px;background:linear-gradient(to bottom,transparent,#F1E9D9 76%)}
+.mb-ch{font-family:'Space Mono',monospace;font-size:7px;letter-spacing:1.1px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mb-h{font-family:'Playfair Display',serif;font-size:11.5px;font-weight:700;color:#221E18;line-height:1.24;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mb-t{font-family:var(--serif);font-size:7.4px;line-height:1.75;color:#5B5344;text-align:justify;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.mb-lb{position:absolute;bottom:-19px;left:0;right:0;text-align:center;font-size:9.5px;color:rgba(255,255,255,.4);transform:rotateX(-20deg);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.mb:hover .mb-lb{color:var(--gold)}
+.demo-main{display:flex;justify-content:center;transform-style:preserve-3d;margin-top:30px}
+.demo-cap{text-align:center;margin-top:26px;font-size:12px;color:rgba(255,255,255,.34)}
+.demo-cap b{color:var(--gold);font-weight:600}
+
+/* small spread (hero) */
+.spread-s{position:relative;display:flex;transform:rotateX(8deg);filter:drop-shadow(0 26px 36px rgba(0,0,0,.62));transition:opacity .28s,transform .4s}
+.spread-s.swap{opacity:0;transform:rotateX(8deg) scale(.94)}
+.pg-s{position:relative;width:206px;height:266px;overflow:hidden;background:linear-gradient(174deg,#FDFAF3,#F2EBDC)}
+.pg-s.l{border-radius:6px 0 0 6px;box-shadow:inset -11px 0 18px -11px rgba(0,0,0,.4)}
+.pg-s.r{border-radius:0 6px 6px 0;box-shadow:inset 11px 0 18px -11px rgba(0,0,0,.4)}
+.sp-s{width:9px;background:linear-gradient(to right,rgba(60,45,25,.32),rgba(30,22,12,.48),rgba(60,45,25,.32));z-index:3}
+.pi{padding:20px 20px 14px;height:100%;display:flex;flex-direction:column}
+.pi-ch{font-family:'Space Mono',monospace;font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:8px}
+.pi-h{font-family:'Playfair Display',serif;font-size:14.5px;font-weight:700;color:var(--ink);line-height:1.26;margin-bottom:9px}
+.pi-t{font-family:var(--serif);font-size:8.8px;line-height:1.9;color:#4A4336;text-align:justify;flex:1;overflow:hidden}
+.pi-t p{margin-bottom:7px}
+.pi-fig{margin:8px 0;padding:9px;border-radius:4px;text-align:center;background:linear-gradient(135deg,rgba(245,166,35,.16),rgba(75,127,212,.11));border:1px solid rgba(0,0,0,.06);font-family:'DM Sans',sans-serif;font-size:8px;color:#6B6355;line-height:1.5}
+.pi-fig b{display:block;font-size:16px;margin-bottom:4px;font-weight:400}
+.pi-n{font-family:'Space Mono',monospace;font-size:8px;color:var(--ink-soft);text-align:center;padding-top:7px;border-top:1px solid rgba(0,0,0,.07)}
+.flip-s{position:absolute;top:0;right:0;width:206px;height:266px;transform-style:preserve-3d;transform-origin:left center;transform:rotateY(0);z-index:6;display:none}
+.flip-s.live{display:block}
+.flip-s.go{transition:transform .78s cubic-bezier(.36,.06,.2,1)}
+.ff{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(174deg,#FDFAF3,#F2EBDC);overflow:hidden}
+.ff-a{border-radius:0 6px 6px 0;box-shadow:inset 11px 0 18px -11px rgba(0,0,0,.4)}
+.ff-b{transform:rotateY(180deg);border-radius:6px 0 0 6px;box-shadow:inset -11px 0 18px -11px rgba(0,0,0,.4)}
+.ff-sh{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(0,0,0,.32) 0%,rgba(0,0,0,.05) 24%,transparent 46%);opacity:0;transition:opacity .78s}
+.flip-s.go .ff-a .ff-sh{opacity:.85}
+
+/* ══ PILLARS ══ */
+.pillars{display:flex;flex-direction:column;gap:22px;margin-top:58px}
+.pillar{display:grid;grid-template-columns:1fr 400px;gap:44px;align-items:center;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:20px;padding:40px 44px;transition:.3s}
+.pillar:hover{background:rgba(255,255,255,.055);border-color:rgba(245,166,35,.22)}
+.pillar:nth-child(even){grid-template-columns:400px 1fr}
+.pillar:nth-child(even) .p-txt{order:2}
+.pillar:nth-child(even) .p-vis{order:1}
+.p-no{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:2.4px;color:var(--gold);margin-bottom:13px;text-transform:uppercase}
+.p-h{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;line-height:1.25;margin-bottom:13px}
+.p-d{font-family:var(--serif);font-size:14.5px;line-height:1.9;color:rgba(255,255,255,.52);margin-bottom:16px}
+.p-note{display:inline-flex;align-items:center;gap:8px;background:rgba(245,166,35,.1);border:1px solid rgba(245,166,35,.24);color:var(--gold);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px}
+.p-vis{height:212px;border-radius:14px;position:relative;overflow:hidden;background:linear-gradient(150deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid var(--line);display:grid;place-items:center;perspective:900px}
+.v-desk{display:flex;gap:9px;transform-style:preserve-3d}
+.v-bk{width:52px;height:70px;border-radius:1px 4px 4px 1px;background:linear-gradient(165deg,#FBF6EA,#EADFC9);transform:rotateX(22deg);box-shadow:0 9px 16px rgba(0,0,0,.45);position:relative;animation:vfloat 4.5s ease-in-out infinite}
+.v-bk:nth-child(2){animation-delay:.4s}.v-bk:nth-child(3){animation-delay:.8s}
+.v-bk.main{width:104px;height:78px;transform:rotateX(6deg) translateZ(34px);box-shadow:0 14px 26px rgba(0,0,0,.55),0 0 26px rgba(245,166,35,.3);animation-delay:.2s}
+@keyframes vfloat{0%,100%{translate:0 0}50%{translate:0 -6px}}
+.v-bk::after{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to right,rgba(0,0,0,.2),transparent)}
+.v-bk i{position:absolute;inset:7px 6px auto 9px;height:2px;border-radius:2px;background:rgba(120,105,80,.3);font-style:normal}
+.v-bk i:nth-of-type(2){top:13px;right:16px}.v-bk i:nth-of-type(3){top:19px;right:11px}
+.v-page{position:relative;width:150px;height:150px;transform-style:preserve-3d}
+.v-sheet{position:absolute;inset:0;border-radius:3px;background:linear-gradient(160deg,#FBF6EA,#EBE0CB);box-shadow:0 10px 22px rgba(0,0,0,.45)}
+.v-curl{position:absolute;inset:0;border-radius:3px;transform-origin:left center;background:linear-gradient(160deg,#FDFAF2,#F0E7D4);box-shadow:6px 5px 18px rgba(0,0,0,.4);animation:vcurl 4.4s cubic-bezier(.4,0,.3,1) infinite}
+@keyframes vcurl{0%,12%{transform:rotateY(0)}55%,68%{transform:rotateY(-152deg)}100%{transform:rotateY(0)}}
+.v-ai{display:flex;flex-direction:column;gap:7px;width:246px}
+.v-row{display:flex;align-items:center;gap:8px;padding:7px 11px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid var(--line);font-size:10.5px;color:rgba(255,255,255,.55)}
+.v-row.q{background:rgba(245,166,35,.13);border-color:rgba(245,166,35,.3);color:var(--gold);font-weight:600}
+.v-row s{margin-left:auto;text-decoration:none;font-family:'Space Mono',monospace;font-size:8.5px;opacity:.5}
+
+/* ══ PAPER SHEET ══ */
+.sheet{position:relative;color:var(--ink);background:linear-gradient(172deg,var(--paper) 0%,var(--paper-2) 100%);box-shadow:0 -22px 60px rgba(0,0,0,.5)}
+.sheet::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;background:radial-gradient(circle at 18% 22%,rgba(150,128,92,.055) 0%,transparent 42%),radial-gradient(circle at 78% 68%,rgba(150,128,92,.045) 0%,transparent 38%)}
+.sheet .eyebrow{color:var(--gold-deep)}
+.sheet .eyebrow::before{background:var(--gold-dk)}
+.sheet .h2{color:var(--ink)}
+.sheet .lead{color:var(--ink-mid)}
+
+/* ══ BOOK CARDS ══ */
+.books-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:46px}
+.viewall{color:var(--gold-deep);font-weight:700;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:7px;transition:gap .2s;white-space:nowrap}
+.viewall:hover{gap:11px}
+.books{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.bk{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:15px;overflow:hidden;transition:.3s;cursor:pointer}
+.bk:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(60,45,25,.18);border-color:rgba(245,166,35,.35)}
+.bk-cv{height:176px;position:relative;display:grid;place-items:center;font-size:46px}
+.c1{background:linear-gradient(140deg,#0D2347,#1E3E72)}
+.c2{background:linear-gradient(140deg,#2A1147,#4A2472)}
+.c3{background:linear-gradient(140deg,#0C3020,#1D5E3C)}
+.c4{background:linear-gradient(140deg,#3A1A08,#6B3312)}
+.c5{background:linear-gradient(140deg,#0A2436,#155273)}
+.c6{background:linear-gradient(140deg,#3A0A1C,#6B1636)}
+.bk-lang{position:absolute;top:11px;right:11px;display:flex;gap:4px}
+.bk-lang span{background:rgba(0,0,0,.42);backdrop-filter:blur(6px);color:rgba(255,255,255,.9);font-size:8.5px;font-weight:700;padding:3px 7px;border-radius:4px;letter-spacing:.5px}
+.bk-new{position:absolute;top:11px;left:11px;background:var(--gold);color:var(--navy);font-size:8.5px;font-weight:700;padding:3px 9px;border-radius:4px;letter-spacing:1px;text-transform:uppercase}
+.bk-b{padding:19px}
+.bk-cat{font-size:10.5px;font-weight:700;color:var(--gold-deep);letter-spacing:1.1px;text-transform:uppercase;margin-bottom:6px}
+.bk-t{font-family:'Playfair Display',serif;font-size:16.5px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:5px}
+.bk-a{font-size:12.5px;color:var(--ink-soft);margin-bottom:15px}
+.bk-f{display:flex;align-items:center;justify-content:space-between}
+.bk-p{font-family:'Space Mono',monospace;font-size:15.5px;font-weight:700;color:var(--ink)}
+.bk-p em{font-family:'DM Sans',sans-serif;font-size:10.5px;color:var(--ink-soft);font-weight:400;font-style:normal;margin-right:3px}
+.bk-btn{background:var(--navy);color:#fff;font-size:11.5px;font-weight:600;padding:7px 15px;border-radius:8px;transition:.2s}
+.bk:hover .bk-btn{background:var(--gold);color:var(--navy)}
+
+/* ══ STORE ══ */
+.store-hero{padding:132px 46px 40px;max-width:1180px;margin:0 auto}
+.store-count{font-family:'Space Mono',monospace;font-size:12px;color:rgba(255,255,255,.35);margin-top:6px}
+.filters{display:flex;flex-wrap:wrap;gap:22px;align-items:center;margin:36px 0 8px;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.fgroup{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.flabel{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-right:3px}
+.fpill{padding:6px 15px;border-radius:100px;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.04);color:rgba(255,255,255,.6);font-size:12.5px;cursor:pointer;transition:.2s}
+.fpill:hover{border-color:rgba(245,166,35,.4);color:#fff}
+.fpill.on{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:700}
+.store-grid{max-width:1180px;margin:0 auto;padding:42px 46px 110px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.empty{grid-column:1/-1;text-align:center;padding:70px 0;color:rgba(255,255,255,.3);font-family:var(--serif);font-size:15px}
+
+/* ══ BOOK DETAIL ══ */
+.detail{padding:120px 46px 90px;max-width:1180px;margin:0 auto}
+.crumb{display:flex;align-items:center;gap:9px;font-size:12.5px;color:rgba(255,255,255,.35);margin-bottom:34px}
+.crumb span{cursor:pointer;transition:.2s}
+.crumb span:hover{color:var(--gold)}
+.crumb i{font-style:normal;opacity:.4}
+.d-top{display:grid;grid-template-columns:320px 1fr;gap:60px;align-items:start;margin-bottom:70px}
+.d-cover-wrap{perspective:1100px}
+.d-cover{
+  position:relative;width:280px;height:392px;border-radius:3px 12px 12px 3px;
+  display:grid;place-items:center;font-size:88px;
+  transform:rotateY(-13deg) rotateX(4deg);transform-style:preserve-3d;
+  box-shadow:-14px 22px 54px rgba(0,0,0,.66),0 0 64px rgba(245,166,35,.12);
+  transition:transform .5s cubic-bezier(.34,1.2,.5,1);
+}
+.d-cover:hover{transform:rotateY(-4deg) rotateX(1deg) translateZ(20px)}
+.d-cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(to right,rgba(0,0,0,.45),transparent);border-radius:3px 0 0 3px}
+.d-cover-logo{position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,.1);border-radius:7px;padding:5px 10px;font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.55)}
+.d-cat{font-size:11px;font-weight:700;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.d-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,46px);font-weight:900;line-height:1.14;margin-bottom:10px;letter-spacing:-.6px}
+.d-author{font-family:var(--serif);font-size:15.5px;color:rgba(255,255,255,.45);font-style:italic;margin-bottom:24px}
+.d-blurb{font-family:var(--serif);font-size:15.5px;line-height:1.9;color:rgba(255,255,255,.62);margin-bottom:26px;max-width:560px}
+.d-langs{display:flex;align-items:center;gap:9px;margin-bottom:28px}
+.d-lang{padding:7px 17px;border-radius:9px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);font-size:13px;color:rgba(255,255,255,.6);cursor:pointer;transition:.2s}
+.d-lang:hover{border-color:rgba(245,166,35,.45);color:#fff}
+.d-lang.on{background:rgba(245,166,35,.15);border-color:var(--gold);color:var(--gold);font-weight:700}
+.d-buy{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:26px}
+.d-price{font-family:'Playfair Display',serif;font-size:36px;font-weight:900;color:var(--gold);line-height:1;margin-right:6px}
+.d-price small{font-family:'DM Sans',sans-serif;font-size:12px;color:rgba(255,255,255,.35);font-weight:400;display:block;margin-top:5px;letter-spacing:.3px}
+.d-subnote{font-size:13px;color:rgba(255,255,255,.4);font-family:var(--serif)}
+.d-subnote b{color:var(--gold)}
+.d-cols{display:grid;grid-template-columns:1.3fr 1fr;gap:56px}
+.d-h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:18px}
+.toc{list-style:none;display:flex;flex-direction:column}
+.toc li{display:flex;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);font-family:var(--serif);font-size:14.5px;color:rgba(255,255,255,.62)}
+.toc li s{text-decoration:none;font-family:'Space Mono',monospace;font-size:11px;color:var(--gold);opacity:.75;flex-shrink:0;padding-top:3px}
+.meta-table{display:flex;flex-direction:column}
+.meta-row{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:13.5px}
+.meta-row dt{color:rgba(255,255,255,.35)}
+.meta-row dd{color:rgba(255,255,255,.72);font-family:'Space Mono',monospace;font-size:12.5px;text-align:right}
+.more-books{margin-top:80px;padding-top:56px;border-top:1px solid var(--line)}
+.more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+
+/* ══ READER ══ */
+#s-reader{background:#0B0D18}
+.rd{position:fixed;inset:0;z-index:90;display:none}
+.rd.on{display:block}
+.rd-room{position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 62%,rgba(245,166,35,.13) 0%,transparent 62%),radial-gradient(ellipse 70% 50% at 50% 8%,rgba(70,110,190,.1) 0%,transparent 60%),linear-gradient(170deg,#090B14 0%,#0D0F1C 45%,#151119 100%)}
+.rd-lamp{position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:1100px;height:620px;background:radial-gradient(ellipse,rgba(255,214,150,.16) 0%,transparent 70%);filter:blur(24px);pointer-events:none}
+.rd-tb{position:absolute;top:0;left:0;right:0;height:54px;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:0 20px;background:linear-gradient(to bottom,rgba(8,10,20,.92),transparent);backdrop-filter:blur(10px)}
+.rd-back{display:flex;align-items:center;gap:8px;padding:7px 13px;border-radius:8px;background:rgba(255,255,255,.05);color:rgba(255,255,255,.62);font-size:12.5px;cursor:pointer;transition:.2s}
+.rd-back:hover{background:rgba(255,255,255,.11);color:#fff}
+.rd-title{font-size:13px;font-weight:600}
+.rd-sub{font-size:10px;color:rgba(255,255,255,.35);font-family:'Space Mono',monospace;letter-spacing:1px;text-transform:uppercase}
+.rd-btn{display:flex;align-items:center;gap:7px;padding:7px 13px;border-radius:8px;cursor:pointer;font-size:12.5px;font-weight:500;color:rgba(255,255,255,.62);border:1px solid transparent;background:rgba(255,255,255,.05);transition:.18s}
+.rd-btn:hover{background:rgba(255,255,255,.1);color:#fff}
+.rd-btn.on{background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.4);color:var(--gold)}
+.rd-stage{position:absolute;inset:54px 0 0 0;perspective:2000px;perspective-origin:50% 44%;transition:right .38s cubic-bezier(.4,0,.2,1)}
+.rd-stage.px{right:352px}
+
+.shelf{position:absolute;top:10px;left:0;right:0;height:262px;display:flex;justify-content:center;align-items:flex-start;gap:38px;transform-style:preserve-3d;z-index:5}
+.sbk{position:relative;width:246px;height:244px;transform-style:preserve-3d;transform:rotateX(17deg) translateZ(-70px);transform-origin:50% 100%;transition:transform .42s cubic-bezier(.34,1.3,.5,1),filter .3s,box-shadow .3s;cursor:pointer;filter:brightness(.88);border-radius:2px 7px 7px 2px;box-shadow:0 22px 34px rgba(0,0,0,.55)}
+.sbk:hover{transform:rotateX(3deg) translateZ(150px) translateY(-14px);filter:brightness(1.06);box-shadow:0 34px 62px rgba(0,0,0,.72),0 0 50px rgba(245,166,35,.25);z-index:10}
+.sb-pg{position:absolute;inset:0;background:linear-gradient(172deg,#FCF9F1,#F2EADA);border-radius:2px 7px 7px 2px;overflow:hidden;padding:16px 20px 0 24px;box-shadow:inset 6px 0 11px -5px rgba(0,0,0,.32)}
+.sb-pg::before{content:'';position:absolute;left:0;top:0;bottom:0;width:11px;background:linear-gradient(to right,rgba(0,0,0,.24),transparent)}
+.sb-pg::after{content:'';position:absolute;left:0;right:0;bottom:0;height:72px;background:linear-gradient(to bottom,transparent,#F4ECDD 72%)}
+.sb-ch{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sb-head{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#221E18;line-height:1.26;margin-bottom:9px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.sb-body{font-family:var(--serif);font-size:10.2px;line-height:1.82;color:#4A4438;text-align:justify;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.sb-fig{height:40px;margin:0 0 9px;border-radius:4px;background:linear-gradient(135deg,rgba(245,166,35,.2),rgba(45,111,212,.14));border:1px solid rgba(0,0,0,.07);display:flex;align-items:center;gap:9px;padding:0 11px;overflow:hidden;font-size:9px;color:#6B6355;line-height:1.35}
+.sb-fig b{font-size:17px;flex-shrink:0;font-weight:400}
+.sb-num{position:absolute;bottom:9px;right:14px;z-index:2;font-family:'Space Mono',monospace;font-size:9px;color:#A79C86}
+.sb-lb{position:absolute;bottom:-27px;left:0;right:0;text-align:center;font-size:11px;font-weight:600;color:rgba(255,255,255,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 6px;transition:color .3s;transform:rotateX(-17deg)}
+.sbk:hover .sb-lb{color:var(--gold)}
+.sb-pick{position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotateX(-17deg);background:var(--gold);color:var(--navy);font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:3px 11px;border-radius:100px;white-space:nowrap;opacity:0;transition:.25s;pointer-events:none;z-index:3}
+.sbk:hover .sb-pick{opacity:1;top:-16px}
+
+.main-wrap{position:absolute;left:0;right:0;top:284px;bottom:0;display:flex;justify-content:center;align-items:flex-start;transform-style:preserve-3d;z-index:20;transition:top .45s cubic-bezier(.4,0,.2,1)}
+.spread{position:relative;display:flex;transform-style:preserve-3d;transform:rotateX(7deg);filter:drop-shadow(0 34px 44px rgba(0,0,0,.6));transition:transform .45s cubic-bezier(.4,0,.2,1),opacity .3s}
+.spread.swapping{opacity:0;transform:rotateX(7deg) scale(.94)}
+.page{position:relative;width:352px;height:472px;background:linear-gradient(175deg,#FCF8F0 0%,#F3ECDD 100%);overflow:hidden}
+.page.l{border-radius:7px 0 0 7px;box-shadow:inset -14px 0 22px -14px rgba(0,0,0,.42)}
+.page.r{border-radius:0 7px 7px 0;box-shadow:inset 14px 0 22px -14px rgba(0,0,0,.42)}
+.spine{width:12px;height:472px;background:linear-gradient(to right,rgba(60,45,25,.34),rgba(30,22,12,.5),rgba(60,45,25,.34));position:relative;z-index:3;box-shadow:0 0 14px rgba(0,0,0,.4)}
+.big{padding:38px 40px 34px;height:100%;display:flex;flex-direction:column;position:relative;z-index:2}
+.big-ch{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:2.2px;text-transform:uppercase;color:var(--gold-dk);margin-bottom:14px}
+.big-h{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--ink);line-height:1.28;margin-bottom:15px}
+.big-t{font-family:var(--serif);font-size:12.6px;line-height:1.95;color:#3E382D;text-align:justify;flex:1;overflow:hidden}
+.big-t p{margin-bottom:12px}
+.big-t b{color:var(--ink);box-shadow:inset 0 -7px 0 rgba(245,166,35,.24)}
+.big-fig{margin:14px 0;padding:16px;border-radius:6px;background:linear-gradient(135deg,rgba(245,166,35,.13),rgba(45,111,212,.09));border:1px solid rgba(0,0,0,.07);font-family:'DM Sans',sans-serif;font-size:11px;color:var(--ink-mid);text-align:center;line-height:1.6}
+.big-fig i{font-size:24px;display:block;margin-bottom:7px;font-style:normal}
+.big-n{font-family:'Space Mono',monospace;font-size:10px;color:var(--ink-soft);text-align:center;padding-top:10px;border-top:1px solid rgba(0,0,0,.07)}
+.flipper{position:absolute;top:0;right:0;width:352px;height:472px;transform-style:preserve-3d;transform-origin:left center;transform:rotateY(0);z-index:6;pointer-events:none;display:none}
+.flipper.live{display:block}
+.flipper.snap{transition:transform .5s cubic-bezier(.36,.06,.2,1)}
+.fface{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(175deg,#FCF8F0 0%,#F3ECDD 100%);overflow:hidden}
+.fface.a{border-radius:0 7px 7px 0;box-shadow:inset 14px 0 22px -14px rgba(0,0,0,.42)}
+.fface.b{transform:rotateY(180deg);border-radius:7px 0 0 7px;box-shadow:inset -14px 0 22px -14px rgba(0,0,0,.42)}
+.fshade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(to left,rgba(0,0,0,.34) 0%,rgba(0,0,0,.05) 22%,transparent 45%);opacity:0}
+.corner{position:absolute;bottom:0;right:0;width:74px;height:74px;z-index:8;cursor:grab;background:linear-gradient(315deg,rgba(0,0,0,.1) 0%,transparent 58%);border-radius:0 0 7px 0;transition:.2s}
+.corner:hover{background:linear-gradient(315deg,rgba(0,0,0,.2) 0%,transparent 62%)}
+.corner:active{cursor:grabbing}
+.pgnav{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;cursor:pointer;font-size:19px;color:rgba(255,255,255,.75);transition:.2s;z-index:25;backdrop-filter:blur(6px)}
+.pgnav:hover{background:rgba(255,255,255,.16);color:#fff}
+.pgnav.p{left:-70px}.pgnav.n{right:-70px}
+.prog{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:12px;z-index:25}
+.prog-bar{width:210px;height:3px;background:rgba(255,255,255,.12);border-radius:100px;overflow:hidden}
+.prog-fill{height:100%;background:var(--gold);border-radius:100px;transition:width .35s}
+.prog-t{font-family:'Space Mono',monospace;font-size:10.5px;color:rgba(255,255,255,.42)}
+.grip{position:absolute;top:-28px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:5px 15px;border-radius:100px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.4);font-size:11px;font-weight:500;cursor:grab;z-index:26;transition:.2s;white-space:nowrap}
+.grip:hover{background:rgba(245,166,35,.15);border-color:rgba(245,166,35,.42);color:var(--gold)}
+.mdrop{position:absolute;inset:-16px;border-radius:14px;border:2px dashed rgba(245,166,35,.4);background:rgba(245,166,35,.04);display:none;place-items:center;z-index:30;pointer-events:none}
+body.dragging .mdrop.armed{display:grid}
+.mdrop span{background:rgba(10,13,26,.88);border:1px solid rgba(245,166,35,.4);color:var(--gold);font-size:12px;font-weight:600;padding:7px 17px;border-radius:100px;opacity:0;transition:.2s}
+.mdrop.hot{border-color:var(--gold);background:rgba(245,166,35,.12)}
+.mdrop.hot span{opacity:1}
+.ghost{position:fixed;z-index:200;pointer-events:none;width:158px;padding:13px 15px;border-radius:11px;background:linear-gradient(160deg,#FCF9F1,#EFE6D5);box-shadow:0 20px 48px rgba(0,0,0,.65),0 0 0 1px rgba(245,166,35,.55);transform:translate(-50%,-50%) rotate(-5deg)}
+.ghost b{display:block;font-size:23px;margin-bottom:6px;font-weight:400}
+.ghost i{display:block;font-family:'Playfair Display',serif;font-size:12.5px;font-weight:700;color:#221E18;line-height:1.25;font-style:normal}
+.ghost s{display:block;text-decoration:none;font-family:'Space Mono',monospace;font-size:8.5px;color:#A2977F;margin-top:6px}
+body.dragging{cursor:grabbing}
+body.dragging .corner{pointer-events:none}
+body.dragging .sbk:hover{transform:rotateX(17deg) translateZ(-70px)}
+.sbk.dsrc{opacity:.22;filter:grayscale(1) brightness(.45)}
+.sbk.dhot{box-shadow:0 0 0 2px var(--gold),0 24px 44px rgba(0,0,0,.6),0 0 48px rgba(245,166,35,.42)!important;filter:brightness(1.1)!important;transform:rotateX(12deg) translateZ(20px)!important}
+.spread.dsrc{opacity:.28;filter:grayscale(.65)}
+.rd.focus .shelf{opacity:0;transform:translateY(-60px);pointer-events:none}
+.rd.focus .main-wrap{top:54px}
+.rd.focus .spread{transform:rotateX(3deg) scale(1.14)}
+.shelf{transition:opacity .45s,transform .45s}
+
+/* AI panel */
+.ai{position:absolute;top:54px;right:0;bottom:0;width:352px;z-index:55;background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .38s cubic-bezier(.4,0,.2,1)}
+.ai.open{transform:none}
+.ai-top{padding:17px 18px;border-bottom:1px solid var(--line)}
+.ai-title{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:700;margin-bottom:3px}
+.ai-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blip 2s infinite}
+.ai-note{font-size:11px;color:rgba(255,255,255,.38);line-height:1.5}
+.ai-note b{color:var(--gold)}
+.ai-desk{padding:14px 18px;border-bottom:1px solid var(--line);background:rgba(245,166,35,.03)}
+.ai-dh{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:1.6px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.chip{display:flex;align-items:center;gap:9px;padding:7px 10px;margin-bottom:5px;border-radius:7px;background:rgba(255,255,255,.04);font-size:11.5px;color:rgba(255,255,255,.62)}
+.chip.main{background:rgba(245,166,35,.12);color:var(--gold);font-weight:600}
+.chip s{margin-left:auto;text-decoration:none;font-family:'Space Mono',monospace;font-size:9px;color:rgba(255,255,255,.3);white-space:nowrap}
+.chip.main s{color:rgba(245,166,35,.65)}
+.chip u{text-decoration:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ai-body{flex:1;overflow-y:auto;padding:16px 18px}
+.ai-body::-webkit-scrollbar{width:5px}
+.ai-body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.13);border-radius:4px}
+.ai-sh{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:9px;font-family:'Space Mono',monospace}
+.sugg{padding:11px 13px;margin-bottom:7px;border-radius:9px;background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:12.2px;line-height:1.55;color:rgba(255,255,255,.72);cursor:pointer;transition:.18s}
+.sugg:hover{background:rgba(245,166,35,.1);border-color:rgba(245,166,35,.3);color:#fff}
+.msg{margin-bottom:15px;animation:rise .3s ease both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg-me{background:rgba(245,166,35,.13);border:1px solid rgba(245,166,35,.22);padding:10px 13px;border-radius:10px 10px 3px 10px;font-size:12.5px;line-height:1.6;margin-left:26px}
+.msg-ai{font-size:12.5px;line-height:1.75;color:rgba(255,255,255,.78)}
+.msg-ai p{margin-bottom:9px}
+.msg-ai b{color:var(--gold);font-weight:600}
+.src{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,.07);border:1px solid var(--line);padding:1px 7px;border-radius:5px;font-family:'Space Mono',monospace;font-size:9.5px;color:rgba(255,255,255,.5);margin:0 2px;cursor:pointer;transition:.15s}
+.src:hover{background:rgba(245,166,35,.18);color:var(--gold);border-color:rgba(245,166,35,.35)}
+.think{display:flex;gap:4px;padding:6px 0}
+.think i{width:5px;height:5px;border-radius:50%;background:var(--gold);opacity:.5;animation:bob 1.3s infinite}
+.think i:nth-child(2){animation-delay:.18s}.think i:nth-child(3){animation-delay:.36s}
+@keyframes bob{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-5px);opacity:1}}
+.ai-in{padding:13px 16px;border-top:1px solid var(--line);display:flex;gap:8px}
+.ai-in input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:9px;padding:10px 13px;color:#fff;font-size:12.5px;font-family:'DM Sans',sans-serif;outline:none}
+.ai-in input:focus{border-color:rgba(245,166,35,.45)}
+.ai-in input::placeholder{color:rgba(255,255,255,.25)}
+.ai-send{width:38px;border:none;border-radius:9px;background:var(--gold);color:var(--navy);font-size:15px;cursor:pointer;transition:.18s}
+.ai-send:hover{background:var(--gold-dk)}
+.rd-hint{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(10,13,26,.9);border:1px solid var(--line);backdrop-filter:blur(10px);padding:9px 17px;border-radius:100px;font-size:11.5px;color:rgba(255,255,255,.55);z-index:70;display:flex;align-items:center;gap:8px;animation:rise .5s .8s both}
+.rd-hint b{color:var(--gold)}
+.rd-hint kbd{background:rgba(255,255,255,.1);border:1px solid var(--line);border-radius:4px;padding:1px 6px;font-family:'Space Mono',monospace;font-size:10px}
+
+/* ══ PLANS / PARTNER / FOOTER ══ */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:54px}
+.plan{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:19px;padding:34px 28px;position:relative;transition:.3s}
+.plan:hover{transform:translateY(-5px);background:rgba(255,255,255,.06)}
+.plan.hot{background:linear-gradient(165deg,rgba(245,166,35,.13),rgba(245,166,35,.04));border-color:rgba(245,166,35,.5);box-shadow:0 0 42px rgba(245,166,35,.14)}
+.plan-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-size:10.5px;font-weight:700;padding:5px 15px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;white-space:nowrap}
+.plan-n{font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:15px}
+.plan-p{font-family:'Playfair Display',serif;font-size:40px;font-weight:900;line-height:1;margin-bottom:5px}
+.plan.hot .plan-p{color:var(--gold)}
+.plan-pd{font-size:12.5px;color:rgba(255,255,255,.36);margin-bottom:25px}
+.plan-hr{height:1px;background:rgba(255,255,255,.1);margin-bottom:22px}
+.plan-f{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:29px}
+.plan-f li{display:flex;align-items:flex-start;gap:10px;font-size:13.5px;line-height:1.5;color:rgba(255,255,255,.68)}
+.plan-f li::before{content:'✓';width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:1px;background:rgba(62,155,107,.16);color:#5FCB92;font-size:10px;font-weight:700;display:grid;place-items:center}
+.plan.hot .plan-f li::before{background:rgba(245,166,35,.18);color:var(--gold)}
+.plan-c{display:block;text-align:center;padding:13px;border-radius:10px;font-weight:700;font-size:14.5px;cursor:pointer;transition:.2s}
+.pc-o{border:1.5px solid rgba(255,255,255,.22);color:#fff}
+.pc-o:hover{border-color:var(--gold);color:var(--gold)}
+.pc-g{background:var(--gold);color:var(--navy);box-shadow:0 5px 22px rgba(245,166,35,.32)}
+.pc-g:hover{background:var(--gold-dk);transform:translateY(-2px)}
+.coupon{margin-top:30px;padding:18px 26px;border-radius:13px;text-align:center;background:rgba(245,166,35,.07);border:1px solid rgba(245,166,35,.2);font-size:14px;color:rgba(255,255,255,.62)}
+.coupon b{color:var(--gold)}
+.coupon a{color:var(--gold);font-weight:700;text-decoration:none;margin-left:6px;cursor:pointer}
+.partner{position:relative;padding:92px 46px;text-align:center;overflow:hidden;background:linear-gradient(140deg,#1B1006,#301B09,#1B1006)}
+.partner::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 75% at 50% 50%,rgba(210,130,25,.2) 0%,transparent 65%)}
+.partner-in{position:relative;z-index:1;max-width:620px;margin:0 auto}
+footer{background:#080A14;padding:66px 46px 34px;border-top:1px solid var(--line)}
+.f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:46px;max-width:1180px;margin:0 auto 44px;padding-bottom:44px;border-bottom:1px solid var(--line)}
+.f-name{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:5px}
+.f-tag{font-size:10.5px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:15px}
+.f-d{font-family:var(--serif);font-size:13px;line-height:1.8;color:rgba(255,255,255,.34);max-width:280px}
+.f-ct{font-size:10.5px;font-weight:700;color:rgba(255,255,255,.55);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px}
+.f-l{list-style:none;display:flex;flex-direction:column;gap:10px}
+.f-l a{color:rgba(255,255,255,.34);font-size:13px;transition:.2s;cursor:pointer;text-decoration:none}
+.f-l a:hover{color:var(--gold)}
+.f-bot{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.3);gap:20px;flex-wrap:wrap}
+.f-langs{display:flex;gap:8px}
+.f-langs div{padding:4px 13px;border:1px solid rgba(255,255,255,.12);border-radius:100px;font-size:11px;color:rgba(255,255,255,.4);cursor:pointer;transition:.2s}
+.f-langs div:hover,.f-langs div.on{border-color:var(--gold);color:var(--gold)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:52px}
+.step{position:relative;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:15px;padding:30px 28px;transition:.3s}
+.step:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(60,45,25,.14)}
+.step:not(:last-child)::after{content:'→';position:absolute;right:-19px;top:50%;transform:translateY(-50%);color:rgba(201,130,26,.45);font-size:21px;font-weight:700}
+.st-n{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:2px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:14px}
+.st-i{font-size:32px;display:block;margin-bottom:13px}
+.st-h{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:9px}
+.st-d{font-family:var(--serif);font-size:13.5px;line-height:1.85;color:var(--ink-mid)}
+
+@media(max-width:1080px){
+  .hero-in{grid-template-columns:1fr;text-align:center;padding:118px 26px 80px;gap:56px}
+  .h-sub{margin-left:auto;margin-right:auto}
+  .h-btns,.h-tags{justify-content:center}
+  .eyebrow{justify-content:center}
+  .lead{margin-left:auto;margin-right:auto;text-align:center}
+  .pillar,.pillar:nth-child(even){grid-template-columns:1fr;gap:28px;padding:32px 26px}
+  .pillar .p-txt,.pillar .p-vis{order:unset}
+  .books,.steps,.plans,.store-grid,.more-grid{grid-template-columns:1fr}
+  .step:not(:last-child)::after{display:none}
+  .nav-menu{display:none}
+  .nav,.sec,.partner,footer,.store-hero,.detail{padding-left:24px;padding-right:24px}
+  .d-top,.d-cols{grid-template-columns:1fr;gap:34px}
+  .books-head{flex-direction:column;align-items:flex-start}
+  .f-top{grid-template-columns:1fr 1fr;gap:32px}
+  .rd-stage.px{right:0}
+  .pgnav.p{left:-52px}.pgnav.n{right:-52px}
+}
+</style>
+</head>
+<body>
+
+<div class="desk-bg"></div>
+<div class="wrap">
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <div class="nav-logo" onclick="go('home')">
+    <div class="nav-mark">AW</div>
+    <div>
+      <div class="nav-name">AwesomeBooks</div>
+      <div class="nav-tag">Digital Library · Asia</div>
+    </div>
+  </div>
+  <ul class="nav-menu" id="navMenu">
+    <li><a data-s="home" onclick="go('home')">Home</a></li>
+    <li><a data-s="store" onclick="go('store')">Bookstore</a></li>
+    <li><a onclick="go('home','reader')">The Reader</a></li>
+    <li><a onclick="go('home','plans')">Plans</a></li>
+    <li><a onclick="openReader(0)">My Library</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-lang">🌐 English ▾</div>
+    <div class="nav-cta" onclick="openReader(0)">Start reading →</div>
+  </div>
+</nav>
+
+
+<!-- ══════════ SCREEN: HOME ══════════ -->
+<div class="screen on" id="s-home">
+
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-in">
+      <div>
+        <div class="h-badge"><i></i> New reader · now live</div>
+        <h1 class="h-title">Read the whole <em>desk</em>,<br>not just one book</h1>
+        <p class="h-sub">Spread four books at once. Turn pages the way paper turns. Then ask the AI a question that cuts across all of them — no app to install, it opens in your browser.</p>
+        <div class="h-meta">PDF + EPUB <s>·</s> English · 한국어 · 日本語 <s>·</s> on any device</div>
+        <div class="h-btns">
+          <div class="btn-g" onclick="openReader(0)">📖 Try the reader →</div>
+          <div class="btn-o" onclick="go('store')">Browse the library</div>
+        </div>
+        <div class="h-tags">
+          <div class="h-tag">📚 Four books at once</div>
+          <div class="h-tag">✋ Pages that follow your hand</div>
+          <div class="h-tag">✨ AI that reads your desk</div>
+          <div class="h-tag">🎁 Gift coupons</div>
+        </div>
+      </div>
+
+      <div class="demo">
+        <div class="demo-shelf" id="hShelf"></div>
+        <div class="demo-main">
+          <div class="spread-s" id="hSpread">
+            <div class="pg-s l"><div class="pi" id="hL"></div></div>
+            <div class="sp-s"></div>
+            <div class="pg-s r"><div class="pi" id="hR"></div></div>
+            <div class="flip-s" id="hFlip">
+              <div class="ff ff-a"><div class="pi" id="hFA"></div><div class="ff-sh"></div></div>
+              <div class="ff ff-b"><div class="pi" id="hFB"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="demo-cap">Tap a book above — it <b>comes straight down</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="reader">
+    <div class="sec-in">
+      <div class="eyebrow">What makes it different</div>
+      <h2 class="h2">We redesigned<br>how reading works</h2>
+      <p class="lead">Most e-readers simply move a paper book onto a screen. We started somewhere else — with what only a screen can do.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="p-txt">
+            <div class="p-no">Pillar 01</div>
+            <h3 class="p-h">Four books open<br>on one desk</h3>
+            <p class="p-d">A textbook spread in front of you, references propped up beside it — studying has always worked this way. Keep one book open wide and three standing behind it, then pick any of them up and swap places whenever you like.</p>
+            <div class="p-note">🖐 Pick a book up, drop it anywhere</div>
+          </div>
+          <div class="p-vis"><div class="v-desk">
+            <div class="v-bk"><i></i><i></i><i></i></div>
+            <div class="v-bk main"><i></i><i></i><i></i></div>
+            <div class="v-bk"><i></i><i></i><i></i></div>
+          </div></div>
+        </div>
+
+        <div class="pillar">
+          <div class="p-txt">
+            <div class="p-no">Pillar 02</div>
+            <h3 class="p-h">Pages that follow<br>your hand</h3>
+            <p class="p-d">Not a button that swaps one screen for another. Take hold of the corner and the page lifts as far as you pull it. Let go halfway and it settles back; carry it over and the shadow travels across the paper with it.</p>
+            <div class="p-note">✋ Grab the corner and pull</div>
+          </div>
+          <div class="p-vis"><div class="v-page"><div class="v-sheet"></div><div class="v-curl"></div></div></div>
+        </div>
+
+        <div class="pillar">
+          <div class="p-txt">
+            <div class="p-no">Pillar 03</div>
+            <h3 class="p-h">An AI that reads<br>your desk, not a page</h3>
+            <p class="p-d">Every other reader's assistant answers from inside the one book you have open. Ours sees all four at once. "How do these four explain the same idea differently?" — that question becomes askable for the first time.</p>
+            <div class="p-note">✨ Every answer cites book and page</div>
+          </div>
+          <div class="p-vis"><div class="v-ai">
+            <div class="v-row q">How do all four explain "prompting"?</div>
+            <div class="v-row">🧠 AI Bible — as a five-part structure<s>p.6</s></div>
+            <div class="v-row">📝 Prompt Guide — as seven patterns<s>p.2</s></div>
+            <div class="v-row">🧒 Unplugged — as saying steps in order<s>p.4</s></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sheet">
+    <div class="sec-in">
+      <div class="books-head">
+        <div>
+          <div class="eyebrow">Our library</div>
+          <h2 class="h2">Books you can read today</h2>
+          <p class="lead">AI literacy, education and children's stories — each available in several languages.</p>
+        </div>
+        <div class="viewall" onclick="go('store')">Browse all books →</div>
+      </div>
+      <div class="books" id="homeBooks"></div>
+    </div>
+  </section>
+
+  <section class="sec sheet" style="padding-top:20px">
+    <div class="sec-in" style="text-align:center">
+      <div class="eyebrow mid">Simple</div>
+      <h2 class="h2">How to start</h2>
+      <p class="lead" style="margin:0 auto">Nothing to install and nothing to configure. Three steps and you're reading.</p>
+      <div class="steps" style="text-align:left">
+        <div class="step"><div class="st-n">Step 01</div><span class="st-i">👤</span><div class="st-h">Sign up</div><div class="st-d">Email or Google, a few seconds. You don't need a card just to look around the library.</div></div>
+        <div class="step"><div class="st-n">Step 02</div><span class="st-i">💳</span><div class="st-h">Buy or subscribe</div><div class="st-d">Take a single book, or open the whole library with a subscription. Gift coupon codes go in here too.</div></div>
+        <div class="step"><div class="st-n">Step 03</div><span class="st-i">📖</span><div class="st-h">Open your desk</div><div class="st-d">It opens straight in your browser. Your place and bookmarks save themselves as you read.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="plans">
+    <div class="sec-in" style="text-align:center">
+      <div class="eyebrow mid">Plans</div>
+      <h2 class="h2">Only what you need</h2>
+      <p class="lead" style="margin:0 auto">Start with a single book, or open the entire library.</p>
+      <div class="plans" style="text-align:left">
+        <div class="plan">
+          <div class="plan-n">Single book</div>
+          <div class="plan-p">$7<span style="font-size:19px;color:rgba(255,255,255,.4)">–15</span></div>
+          <div class="plan-pd">one payment · yours to keep</div>
+          <div class="plan-hr"></div>
+          <ul class="plan-f"><li>The book stays yours permanently</li><li>PDF and EPUB both included</li><li>Every language edition</li><li>Read on any device</li></ul>
+          <div class="plan-c pc-o" onclick="go('store')">Choose a book</div>
+        </div>
+        <div class="plan hot">
+          <div class="plan-tag">⭐ Most popular</div>
+          <div class="plan-n">Monthly</div>
+          <div class="plan-p">$9.99</div>
+          <div class="plan-pd">per month · cancel anytime</div>
+          <div class="plan-hr"></div>
+          <ul class="plan-f"><li>Unlimited access to the library</li><li>New titles added automatically</li><li>Four-book desk and AI assistant</li><li>Bookmarks and progress synced</li><li>Early access to new releases</li></ul>
+          <div class="plan-c pc-g" onclick="openReader(0)">Start monthly →</div>
+        </div>
+        <div class="plan">
+          <div class="plan-n">Annual</div>
+          <div class="plan-p">$79<span style="font-size:18px;color:rgba(255,255,255,.4)">.99</span></div>
+          <div class="plan-pd">per year · save 33%</div>
+          <div class="plan-hr"></div>
+          <ul class="plan-f"><li>Everything in Monthly</li><li>Saves $39.89 against monthly</li><li>Makes a straightforward gift</li><li>Invoicing for organisations</li></ul>
+          <div class="plan-c pc-o" onclick="openReader(0)">Get annual →</div>
+        </div>
+      </div>
+      <div class="coupon">🎁 <b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks. <a onclick="openReader(0)">Redeem a coupon →</a></div>
+    </div>
+  </section>
+
+  <section class="partner">
+    <div class="partner-in">
+      <div class="eyebrow mid">For publishers &amp; authors</div>
+      <h2 class="h2">A publishing partner<br>for mutual growth</h2>
+      <p class="lead" style="margin:0 auto 30px;text-align:center">Bring your work to readers right across Asia. Publishers, authors and content creators are all welcome.</p>
+      <div class="btn-o">Talk to us →</div>
+    </div>
+  </section>
+</div>
+
+
+<!-- ══════════ SCREEN: STORE ══════════ -->
+<div class="screen" id="s-store">
+  <div class="store-hero">
+    <div class="eyebrow">The library</div>
+    <h1 class="h2" style="font-size:clamp(32px,4.4vw,50px)">Every book, one shelf</h1>
+    <p class="lead">Buy a single title, or open all of them with a subscription. Every book comes as both PDF and EPUB.</p>
+    <div class="store-count" id="storeCount"></div>
+
+    <div class="filters">
+      <div class="fgroup" id="fCat">
+        <div class="flabel">Subject</div>
+        <div class="fpill on" data-cat="all">All</div>
+        <div class="fpill" data-cat="AI">AI &amp; Tech</div>
+        <div class="fpill" data-cat="EDU">Education</div>
+        <div class="fpill" data-cat="KIDS">Children</div>
+      </div>
+      <div class="fgroup" id="fLang">
+        <div class="flabel">Language</div>
+        <div class="fpill on" data-lang="all">Any</div>
+        <div class="fpill" data-lang="EN">EN</div>
+        <div class="fpill" data-lang="KO">KO</div>
+        <div class="fpill" data-lang="JA">JA</div>
+      </div>
+    </div>
+  </div>
+  <div class="store-grid" id="storeGrid"></div>
+</div>
+
+
+<!-- ══════════ SCREEN: BOOK DETAIL ══════════ -->
+<div class="screen" id="s-book">
+  <div class="detail" id="detailBody"></div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer id="foot">
+  <div class="f-top">
+    <div>
+      <div class="f-name">AwesomeBooks</div>
+      <div class="f-tag">Stories Without Borders</div>
+      <div class="f-d">A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.</div>
+    </div>
+    <div>
+      <div class="f-ct">Library</div>
+      <ul class="f-l"><li><a onclick="go('store')">All books</a></li><li><a onclick="go('store')">AI &amp; Tech</a></li><li><a onclick="go('store')">Children's books</a></li><li><a onclick="go('store')">Education</a></li><li><a onclick="go('store')">New releases</a></li></ul>
+    </div>
+    <div>
+      <div class="f-ct">Account</div>
+      <ul class="f-l"><li><a>Sign up</a></li><li><a>Log in</a></li><li><a onclick="openReader(0)">My Library</a></li><li><a>Manage subscription</a></li><li><a>Redeem coupon</a></li></ul>
+    </div>
+    <div>
+      <div class="f-ct">Company</div>
+      <ul class="f-l"><li><a>About us</a></li><li><a>Partnerships</a></li><li><a>Contact</a></li><li><a>FAQ</a></li><li><a>Refund policy</a></li></ul>
+    </div>
+  </div>
+  <div class="f-bot">
+    <div>© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia</div>
+    <div class="f-langs"><div class="on">English</div><div>한국어</div><div>日本語</div></div>
+  </div>
+</footer>
+
+</div>
+
+
+<!-- ══════════ SCREEN: READER (overlay) ══════════ -->
+<div class="rd" id="rd">
+  <div class="rd-room"></div>
+  <div class="rd-lamp"></div>
+
+  <div class="rd-tb">
+    <div style="display:flex;align-items:center;gap:14px">
+      <div class="rd-back" onclick="closeReader()">← Library</div>
+      <div>
+        <div class="rd-title" id="rdTitle"></div>
+        <div class="rd-sub" id="rdSub">Desk mode · 4 books open</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <div class="rd-btn" id="btnFocus">🎯 Focus</div>
+      <div class="rd-btn" id="btnAI">✨ AI desk</div>
+    </div>
+  </div>
+
+  <div class="rd-stage" id="rdStage">
+    <div class="shelf" id="rdShelf"></div>
+    <div class="main-wrap">
+      <div style="position:relative">
+        <div class="grip" id="grip">⠿ Move this book</div>
+        <div class="mdrop" id="mdrop"><span>Drop here → main</span></div>
+        <div class="pgnav p" id="navP">‹</div>
+        <div class="spread" id="rdSpread">
+          <div class="page l"><div class="big" id="bigL"></div></div>
+          <div class="spine"></div>
+          <div class="page r"><div class="big" id="bigR"></div></div>
+          <div class="flipper" id="flipper">
+            <div class="fface a"><div class="big" id="fA"></div><div class="fshade" id="shA"></div></div>
+            <div class="fface b"><div class="big" id="fB"></div><div class="fshade" id="shB"></div></div>
+          </div>
+          <div class="corner" id="corner"></div>
+        </div>
+        <div class="pgnav n" id="navN">›</div>
+        <div class="prog"><div class="prog-t" id="progL">1</div><div class="prog-bar"><div class="prog-fill" id="progF"></div></div><div class="prog-t" id="progR">6</div></div>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ai" id="aiPanel">
+    <div class="ai-top">
+      <div class="ai-title"><span class="ai-dot"></span> AI desk assistant</div>
+      <div class="ai-note">Not one book — it reads your <b>whole desk</b>.</div>
+    </div>
+    <div class="ai-desk">
+      <div class="ai-dh">◆ On your desk right now</div>
+      <div id="aiDesk"></div>
+    </div>
+    <div class="ai-body" id="aiBody"></div>
+    <div class="ai-in">
+      <input id="aiInput" placeholder="Ask the books on your desk…">
+      <button class="ai-send" id="aiSend">↑</button>
+    </div>
+  </aside>
+
+  <div class="rd-hint" id="rdHint">
+    <span>💡 <b>Pick a book up</b> and drop it anywhere</span><span style="opacity:.4">·</span>
+    <span>Drag the page corner to turn</span><span style="opacity:.4">·</span>
+    <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>←</kbd><kbd>→</kbd>
+  </div>
+</div>
+
+
+<script>
+const $ = id => document.getElementById(id);
+
+/* ═══════════ DATA ═══════════ */
+const BOOKS = [
+{ id:'ai-bible', ic:'🧠', cover:'c1', title:'Awesome AI Bible 2026', author:'Murata Akira',
+  cat:'AI', catLabel:'AI & Technology', price:12, langs:['EN','KO','JA'], isNew:true, level:2,
+  angle:'as a five-part work order — role, context, task, format, constraint',
+  blurb:'The complete guide to generative AI, from your first prompt to organisational policy. Twelve chapters covering ChatGPT, Claude, Gemini and Copilot, with the verification habits that keep the output trustworthy.',
+  pages:583, published:'2026-02',
+  toc:['What generative AI actually is','Choosing between the tools','The structure of a prompt','Why the same prompt differs','Verification and hallucination','Putting it to work','Where not to delegate'],
+  sp:[
+   {ch:'Chapter 03 · Structure of a prompt', h:'A good prompt<br>has structure',
+    x:`<p>What you send a generative model isn't really a question. It is closer to a <b>work order</b>.</p><p>Role, context, task, format, constraint — the more of these you supply, the less your results vary from one run to the next.</p>`},
+   {fig:{i:'🧩',t:'The five parts<br>Role · Context · Task · Format · Constraint'},
+    x:`<p>The part beginners leave out most often is format. Ask a model to "tidy this up" and you get a different shape every time. Say "a table, three columns, forty characters per cell" and the output becomes repeatable.</p><p>Repeatability is what moves prompting from a hobby into work.</p>`},
+   {ch:'Chapter 03 · Structure of a prompt', h:'Is more context<br>always better?',
+    x:`<p>A common mistake. Context is about <b>density, not volume</b>. Pile on unrelated background and the model loses the thread.</p><p>Delete one sentence at a time and watch for the point where the answer gets worse. That is the fastest way to find the floor.</p>`},
+   {fig:{i:'⚖️',t:'Context density test<br>If deleting it changes nothing, delete it'},
+    x:`<p>The principle is identical to briefing a person. Three decision criteria beat the entire project history.</p><p>Much of AI literacy turns out to be <b>the craft of delegation</b>.</p>`},
+   {ch:'Chapter 04 · Tool differences', h:'Same prompt,<br>different answers',
+    x:`<p>ChatGPT, Claude, Gemini and Copilot respond differently to identical input, because their training and alignment differ.</p><p>So when you switch tools, <b>port the prompt as well</b>. Pasting it across unchanged usually costs you quality.</p>`},
+   {fig:{i:'🔧',t:'Porting checklist<br>Length · format instruction · example count'},
+    x:`<p>In practice: fix three reference prompts — summarise, classify, generate — and run them identically on any new tool. The gap between results is your evidence for choosing.</p>`}
+  ]},
+
+{ id:'isekai', ic:'🚀', cover:'c2', title:'Isekai Entrepreneurship', author:'Business × Fantasy Light Novel',
+  cat:'EDU', catLabel:'Education · Isekai', price:9, langs:['EN','KO'], isNew:true, level:3,
+  angle:'as negotiation — getting what you need from someone who does not share your assumptions',
+  blurb:'A quest-driven light novel that teaches initiative, strategy and startup thinking without a textbook in sight. A modern founder wakes up in a kingdom that has never heard of a fixed price.',
+  pages:312, published:'2025-07',
+  toc:['Summoned','The first customer','The guild war','Expansion','The winter','Return'],
+  sp:[
+   {ch:'Chapter 1 · Summoned', h:'The kingdom had<br>no market',
+    x:`<p>When I opened my eyes I was standing in the middle of an unfamiliar square. People held goods and shouted at one another, but <b>nothing carried a price</b>.</p><p>"Does this country not have fixed prices?" The merchant looked back at me. "What is a fixed price?"</p>`},
+   {fig:{i:'⚔️',t:'Quest 01<br>Design a way to discover price'},
+    x:`<p>If every trade requires haggling, then every trade is expensive. I suspected this was why the kingdom was poor.</p>`},
+   {ch:'Chapter 2 · The first customer', h:'Sell it before<br>you build it',
+    x:`<p>I had made nothing yet. Instead I went to the square and <b>asked twenty people</b> what they would pay to know the price of bread in advance.</p><p>Seventeen laughed. Three asked a serious follow-up question. Those three became my first customers.</p>`},
+   {fig:{i:'🍞',t:'Quest 02<br>Take three pre-orders before you build'},
+    x:`<p>The first thing a venture proves is not the product. It is that <b>someone will pay</b>. Seventeen refusals were not failure; they were the data.</p>`},
+   {ch:'Chapter 3 · The guild war', h:'A competitor<br>appeared',
+    x:`<p>Once my price list spread, the merchants' guild moved. They posted <b>lower prices than mine</b> — plainly at a loss.</p><p>I did not lower mine. I added a delivery guarantee instead.</p>`},
+   {fig:{i:'🛡️',t:'Quest 03<br>Find the axis where price is not the fight'},
+    x:`<p>Fight on price and the deeper pocket wins. A game you cannot win is a game whose <b>rules you must change</b>. That is what positioning means.</p>`}
+  ]},
+
+{ id:'unplugged', ic:'🧒', cover:'c3', title:'Unplugged Coding for Kids', author:'AI Literacy Series',
+  cat:'KIDS', catLabel:'Children · Picture Book', price:8, langs:['EN','KO'], isNew:false, level:1, kids:true,
+  angle:'as saying things in order, out loud, with no computer in the room',
+  blurb:'Six lessons that teach sequence, loops, conditions and debugging using nothing but paper and colouring pencils. Written for ages 7–10 and for the adults teaching them.',
+  pages:96, published:'2025-01',
+  toc:['What a computer really is','Saying it in order','Doing it again','What if','Getting it wrong is fine','Making friends with AI'],
+  sp:[
+   {ch:'Lesson 2 · Saying it in order', h:'How to talk<br>to a computer',
+    x:`<p>Computers are very clever, but they <b>cannot guess what you mean</b>. You have to tell them one step at a time.</p><p>Say "make me a sandwich" and a computer does nothing. Take out the bread, spread the jam, put the other slice on top — now it can follow.</p>`},
+   {fig:{i:'🥪',t:'Sandwich activity<br>The teacher becomes the robot'},
+    x:`<p>The children laugh their way through this one. When the teacher rubs the whole jar across the bread without opening it, they spot <b>the missing step</b> immediately.</p>`},
+   {ch:'Lesson 3 · Doing it again', h:'Asking for the same<br>thing many times',
+    x:`<p>"Three steps forward, three steps forward, three steps forward." That takes a while to say. <b>"Three steps forward, four times"</b> is shorter.</p><p>Grown-ups call this a loop.</p>`},
+   {fig:{i:'🔁',t:'Loops with your body<br>Four claps, twice, held on a card'},
+    x:`<p>Draw arrows on paper cards and bundle them with a loop card. The children understand code by <b>holding it in their hands</b>.</p>`},
+   {ch:'Lesson 5 · Getting it wrong', h:'Fixing it is<br>the lesson',
+    x:`<p>Programmers get it wrong every single day. Finding the wrong part and fixing it is called <b>debugging</b>.</p><p>What matters is not avoiding mistakes. It is being able to find where the mistake is.</p>`},
+   {fig:{i:'🐛',t:'Bug hunt<br>Fix a card sequence that was shuffled on purpose'},
+    x:`<p>The real aim of this lesson is not coding. It is <b>a classroom where being wrong is safe</b>.</p>`}
+  ]},
+
+{ id:'sme-ai', ic:'💡', cover:'c4', title:'AI for Small Business', author:'Awesome AI Series',
+  cat:'AI', catLabel:'SME · Productivity', price:14, langs:['EN','JA'], isNew:false, level:3,
+  angle:'as an operations problem — which repeated task to hand over first',
+  blurb:'Reclaim thirty minutes a day. A practical programme for small teams adopting AI one task at a time, with the arithmetic to show whether it actually paid off.',
+  pages:214, published:'2025-11',
+  toc:['Where the time actually goes','Your first automation','Writing and email','Data and reports','Customer conversations','What it costs to run'],
+  sp:[
+   {ch:'Chapter 02 · First automation', h:'Start with one<br>repeated task',
+    x:`<p>AI adoption usually fails because a team tries to change everything. The ones that succeed begin with <b>a single repeated task</b>.</p><p>Meeting notes, first-draft email, sorting enquiries — daily, and harmless if it goes wrong.</p>`},
+   {fig:{i:'⏱️',t:'First candidate test<br>Daily · low risk · fixed format'},
+    x:`<p>Only move on after one clear success. Trust inside an organisation is built from <b>repeated wins</b>, not speed.</p>`},
+   {ch:'Chapter 01 · Where time goes', h:'The thirty-minute<br>audit',
+    x:`<p>For one week, write down every task that took under fifteen minutes and happened more than three times.</p><p>That list, not your instinct, tells you <b>where the hours are going</b>.</p>`},
+   {fig:{i:'📋',t:'The audit sheet<br>Task · frequency · minutes · risk if wrong'},
+    x:`<p>Most teams are surprised. The expensive work is rarely the work that feels expensive.</p>`},
+   {ch:'Chapter 06 · Costs', h:'When not<br>to automate',
+    x:`<p>If a task happens twice a month and takes four minutes, automating it will cost more than it saves — <b>for years</b>.</p><p>Enthusiasm is not a business case.</p>`},
+   {fig:{i:'🧮',t:'Break-even<br>Setup hours ÷ minutes saved per month'},
+    x:`<p>Run the arithmetic before the pilot, not after it. The number is usually decisive.</p>`}
+  ]},
+
+{ id:'little-robot', ic:'🌏', cover:'c5', title:"Little Robot's Big Day", author:'Picture Book Series',
+  cat:'KIDS', catLabel:'Children · Story', price:7, langs:['KO','JA'], isNew:false, level:1, kids:true,
+  angle:'as a story about asking for help when you do not know what to do',
+  blurb:'A small robot leaves the workshop for the first time and learns that asking for help is not a malfunction. For ages 4–7, with a gentle note for grown-ups at the back.',
+  pages:48, published:'2025-01',
+  toc:['The workshop','The wide road','The lost cat','Asking for help','Going home'],
+  sp:[
+   {ch:'1 · The workshop', h:'The door<br>was open',
+    x:`<p>Every morning the little robot swept the same floor. Every morning the door stayed shut.</p><p>Then one morning it <b>was not shut</b>.</p>`},
+   {fig:{i:'🚪',t:'Look closely<br>What can you see through the door?'},
+    x:`<p>Outside there was a smell the robot had no word for. It was rain on warm stone.</p>`},
+   {ch:'2 · The wide road', h:'The road was<br>very wide',
+    x:`<p>The robot had been built to sweep one room. The road was <b>much bigger than one room</b>.</p><p>Its wheels wobbled. It sat down on the kerb.</p>`},
+   {fig:{i:'🛣️',t:'Talk about it<br>When did something feel too big for you?'},
+    x:`<p>A pigeon landed beside it and did not say anything useful at all.</p>`},
+   {ch:'4 · Asking for help', h:'Asking is not<br>the same as breaking',
+    x:`<p>"I do not know the way," said the little robot. It had never said that out loud before.</p><p>The girl with the red umbrella said, "That's alright. <b>I do.</b>"</p>`},
+   {fig:{i:'☂️',t:'For grown-ups<br>Naming what you do not know is a skill'},
+    x:`<p>They walked back together, and the robot's wheels did not wobble once.</p>`}
+  ]},
+
+{ id:'prompt-guide', ic:'📝', cover:'c6', title:'Prompt Engineering Guide', author:'Practical AI Series',
+  cat:'EDU', catLabel:'Education', price:0, langs:['EN','KO','JA'], isNew:false, level:2,
+  angle:'as seven tested patterns you select between, like choosing a tool',
+  blurb:'Seven tested patterns, a regression-test method for prompts, and templates you can copy straight into work. Written for teams who need the same answer twice.',
+  pages:168, published:'2025-09',
+  toc:['Why patterns beat cleverness','The seven patterns','Testing a prompt','Managing prompts as assets','Anti-patterns','Appendix: templates'],
+  sp:[
+   {ch:'Part 02 · Patterns', h:'Seven patterns that<br>hold up at work',
+    x:`<p>Prompting is not an art, it is <b>engineering</b>. A small set of patterns has been tested to death and most real tasks reduce to one of them.</p><p>Few-shot, chain-of-thought, role-play, template-fill, critique-revise, decomposition, self-consistency.</p>`},
+   {fig:{i:'🗂️',t:'Choosing a pattern<br>Ambiguity of task × rigidity of output'},
+    x:`<p>Vague tasks want decomposition; rigid output wants a template. Mix them later — validate one at a time first.</p>`},
+   {ch:'Part 02 · Patterns', h:'Few-shot:<br>the power of examples',
+    x:`<p>Two worked examples will often beat ten lines of careful explanation, because the model is built for <b>pattern inference</b>.</p><p>But the examples must be in exactly the output shape you want. Describe them in prose and the effect halves.</p>`},
+   {fig:{i:'🎯',t:'Example count trial<br>The jump is 0-shot to 2-shot'},
+    x:`<p>Past three examples the gains fall away sharply. <b>Two is usually the best value.</b></p>`},
+   {ch:'Part 05 · Anti-patterns', h:'Things that<br>do nothing',
+    x:`<p>"Do your best." "Like an expert." "Be creative." These <b>emotional modifiers</b> produce no measurable improvement.</p><p>Give a criterion instead: forty characters per item, include a source URL.</p>`},
+   {fig:{i:'🚫',t:'Empty words<br>Best · perfect · expert · creative'},
+    x:`<p>An instruction you cannot measure <b>is not an instruction</b>. Keeping only this rule already lifts prompt quality noticeably.</p>`}
+  ]}
+];
+
+const priceOf = b => b.price === 0 ? 'In subscription' : '$'+b.price;
+
+/* ═══════════ ROUTER ═══════════ */
+let screen = 'home';
+function go(s, anchor){
+  screen = s;
+  document.querySelectorAll('.screen').forEach(el=>el.classList.remove('on'));
+  $('s-'+s).classList.add('on');
+  $('foot').style.display = '';
+  $('nav').classList.toggle('solid', s!=='home');
+  document.querySelectorAll('#navMenu a').forEach(a=>a.classList.toggle('on', a.dataset.s===s));
+  if(anchor){
+    setTimeout(()=>$(anchor)?.scrollIntoView({behavior:'smooth'}), 60);
+  }else{
+    window.scrollTo({top:0,behavior:'instant'});
+  }
+}
+
+/* ═══════════ CARDS ═══════════ */
+function cardHTML(b){
+  return `<div class="bk" onclick="openBook('${b.id}')">
+    <div class="bk-cv ${b.cover}">${b.ic}
+      ${b.isNew?'<div class="bk-new">New</div>':''}
+      <div class="bk-lang">${b.langs.map(l=>`<span>${l}</span>`).join('')}</div>
+    </div>
+    <div class="bk-b">
+      <div class="bk-cat">${b.catLabel}</div>
+      <div class="bk-t">${b.title}</div>
+      <div class="bk-a">${b.author}</div>
+      <div class="bk-f">
+        <div class="bk-p">${b.price?`<em>from</em>$${b.price}`:'In subscription'}</div>
+        <div class="bk-btn">${b.price?'Details →':'Subscribe →'}</div>
+      </div>
+    </div>
+  </div>`;
+}
+$('homeBooks').innerHTML = BOOKS.map(cardHTML).join('');
+
+/* ═══════════ STORE ═══════════ */
+let fCat='all', fLang='all';
+function renderStore(){
+  const list = BOOKS.filter(b=>(fCat==='all'||b.cat===fCat) && (fLang==='all'||b.langs.includes(fLang)));
+  $('storeGrid').innerHTML = list.length
+    ? list.map(cardHTML).join('')
+    : `<div class="empty">Nothing matches those filters yet — try widening the language.</div>`;
+  $('storeCount').textContent = `${list.length} of ${BOOKS.length} titles · PDF + EPUB · 3 languages`;
+}
+$('fCat').onclick = e=>{
+  if(!e.target.dataset.cat) return;
+  fCat = e.target.dataset.cat;
+  $('fCat').querySelectorAll('.fpill').forEach(p=>p.classList.toggle('on',p===e.target));
+  renderStore();
+};
+$('fLang').onclick = e=>{
+  if(!e.target.dataset.lang) return;
+  fLang = e.target.dataset.lang;
+  $('fLang').querySelectorAll('.fpill').forEach(p=>p.classList.toggle('on',p===e.target));
+  renderStore();
+};
+renderStore();
+
+/* ═══════════ BOOK DETAIL ═══════════ */
+function openBook(id){
+  const b = BOOKS.find(x=>x.id===id), i = BOOKS.indexOf(b);
+  const others = BOOKS.filter(x=>x.id!==id).slice(0,3);
+  $('detailBody').innerHTML = `
+    <div class="crumb"><span onclick="go('home')">Home</span><i>›</i><span onclick="go('store')">Bookstore</span><i>›</i><span style="color:rgba(255,255,255,.6)">${b.title}</span></div>
+    <div class="d-top">
+      <div class="d-cover-wrap">
+        <div class="d-cover ${b.cover}">${b.ic}<div class="d-cover-logo">AW BOOKS</div></div>
+      </div>
+      <div>
+        <div class="d-cat">${b.catLabel}</div>
+        <h1 class="d-title">${b.title}</h1>
+        <div class="d-author">${b.author}</div>
+        <p class="d-blurb">${b.blurb}</p>
+        <div class="d-langs">
+          ${b.langs.map((l,n)=>`<div class="d-lang ${n===0?'on':''}" onclick="pickLang(this)">${{EN:'English',KO:'한국어',JA:'日本語'}[l]}</div>`).join('')}
+        </div>
+        <div class="d-buy">
+          <div class="d-price">${priceOf(b)}<small>${b.price?'one payment · yours to keep':'included with any subscription'}</small></div>
+          <div class="btn-g" onclick="openReader(${i})">📖 Read a sample</div>
+          <div class="btn-o" onclick="openReader(${i})">${b.price?'Buy this book':'Subscribe'}</div>
+        </div>
+        <div class="d-subnote">Or read it — and everything else — with a subscription from <b>$9.99 a month</b>.</div>
+      </div>
+    </div>
+    <div class="d-cols">
+      <div>
+        <div class="d-h3">Contents</div>
+        <ul class="toc">${b.toc.map((t,n)=>`<li><s>${String(n+1).padStart(2,'0')}</s>${t}</li>`).join('')}</ul>
+      </div>
+      <div>
+        <div class="d-h3">Details</div>
+        <dl class="meta-table">
+          <div class="meta-row"><dt>Format</dt><dd>PDF + EPUB</dd></div>
+          <div class="meta-row"><dt>Pages</dt><dd>${b.pages}</dd></div>
+          <div class="meta-row"><dt>Editions</dt><dd>${b.langs.join(' · ')}</dd></div>
+          <div class="meta-row"><dt>Published</dt><dd>${b.published}</dd></div>
+          <div class="meta-row"><dt>Publisher</dt><dd>AwesomeBooks</dd></div>
+          <div class="meta-row"><dt>Reader</dt><dd>Four-book desk</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="more-books">
+      <div class="eyebrow">Keep going</div>
+      <h2 class="h2" style="font-size:28px">More from the library</h2>
+      <div class="more-grid">${others.map(cardHTML).join('')}</div>
+    </div>`;
+  go('book');
+}
+function pickLang(el){
+  el.parentElement.querySelectorAll('.d-lang').forEach(x=>x.classList.remove('on'));
+  el.classList.add('on');
+}
+
+/* ═══════════ HOME MINI DESK ═══════════ */
+let hOrder=[0,1,2,3], hBusy=false;
+const miniPage = (b,i) => {
+  const p=b.sp[i]; if(!p) return '';
+  let h = p.ch?`<div class="pi-ch">${p.ch}</div>`:'';
+  if(p.h) h+=`<div class="pi-h">${p.h}</div>`;
+  h+=`<div class="pi-t">`;
+  if(p.fig) h+=`<div class="pi-fig"><b>${p.fig.i}</b>${p.fig.t}</div>`;
+  h+=p.x+`</div><div class="pi-n">${i+1}</div>`;
+  return h;
+};
+function hDraw(){
+  const b=BOOKS[hOrder[0]];
+  $('hL').innerHTML=miniPage(b,0); $('hR').innerHTML=miniPage(b,1);
+  $('hShelf').innerHTML = hOrder.slice(1).map((bi,si)=>{
+    const k=BOOKS[bi];
+    return `<div class="mb" onclick="hSwap(${si+1})">
+      <div class="mb-pg">
+        <div class="mb-ch">${k.ic} ${k.sp[0].ch||''}</div>
+        <div class="mb-h">${(k.sp[0].h||'').replace(/<br>/g,' ')}</div>
+        <div class="mb-t">${k.sp[1].x.replace(/<[^>]+>/g,'')}</div>
+      </div><div class="mb-lb">${k.title}</div></div>`;
+  }).join('');
+}
+function hSwap(s){
+  if(hBusy) return; hBusy=true;
+  $('hSpread').classList.add('swap');
+  setTimeout(()=>{ [hOrder[0],hOrder[s]]=[hOrder[s],hOrder[0]]; hDraw(); $('hSpread').classList.remove('swap'); hBusy=false; },270);
+}
+function hTurn(){
+  if(hBusy||document.hidden||screen!=='home') return;
+  const b=BOOKS[hOrder[0]], f=$('hFlip'); hBusy=true;
+  $('hFA').innerHTML=miniPage(b,1); $('hFB').innerHTML=miniPage(b,0);
+  f.classList.add('live');
+  requestAnimationFrame(()=>{
+    f.classList.add('go'); f.style.transform='rotateY(-172deg)';
+    setTimeout(()=>{ f.classList.remove('go'); f.style.transform='rotateY(0deg)'; f.classList.remove('live'); hBusy=false; },820);
+  });
+}
+setInterval(hTurn,5600);
+hDraw();
+
+/* ═══════════ READER ═══════════ */
+let order=[0,1,2,3], flipping=false, pageDrag=false, ang=0, dir=0, bookDrag=null;
+
+function openReader(mainIdx){
+  order = [mainIdx, ...BOOKS.map((_,i)=>i).filter(i=>i!==mainIdx).slice(0,3)];
+  BOOKS.forEach(b=>b.spread=0);
+  $('rd').classList.add('on');
+  document.body.style.overflow='hidden';
+  drawSpread(); drawShelf(); resetAI();
+  $('rdHint').style.display='';
+}
+function closeReader(){
+  $('rd').classList.remove('on','focus');
+  document.body.style.overflow='';
+}
+const main = () => BOOKS[order[0]];
+
+function bigPage(b,i){
+  const p=b.sp[i]; if(!p) return '';
+  let h = p.ch?`<div class="big-ch">${p.ch}</div>`:'';
+  if(p.h) h+=`<div class="big-h">${p.h}</div>`;
+  h+=`<div class="big-t">`;
+  if(p.fig) h+=`<div class="big-fig"><i>${p.fig.i}</i>${p.fig.t}</div>`;
+  h+=p.x+`</div><div class="big-n">${i+1}</div>`;
+  return h;
+}
+function drawSpread(){
+  const b=main(), l=b.spread*2, r=l+1;
+  $('bigL').innerHTML=bigPage(b,l); $('bigR').innerHTML=bigPage(b,r);
+  $('rdTitle').textContent=b.title;
+  $('progL').textContent=r+1; $('progR').textContent=b.sp.length;
+  $('progF').style.width=((r+1)/b.sp.length*100)+'%';
+  drawDesk();
+}
+function ctxOf(b,idx){
+  let ch=null,h=null;
+  for(let i=idx;i>=0;i--){ if(!ch&&b.sp[i].ch) ch=b.sp[i].ch; if(!h&&b.sp[i].h) h=b.sp[i].h; if(ch&&h) break; }
+  return {ch:ch||b.title, h:(h||'').replace(/<br>/g,' ')};
+}
+function drawShelf(){
+  const sh=$('rdShelf'); sh.innerHTML='';
+  order.slice(1).forEach((bi,si)=>{
+    const slot=si+1, b=BOOKS[bi], pi=b.spread*2+1, p=b.sp[pi]||b.sp[0], c=ctxOf(b,pi);
+    const el=document.createElement('div'); el.className='sbk';
+    el.innerHTML=`<div class="sb-pg">
+      <div class="sb-ch">${b.ic} ${c.ch}</div>
+      ${c.h?`<div class="sb-head">${c.h}</div>`:''}
+      ${p.fig?`<div class="sb-fig"><b>${p.fig.i}</b><span>${p.fig.t}</span></div>`:''}
+      <div class="sb-body">${p.x.replace(/<[^>]+>/g,'')}</div>
+      <div class="sb-num">${pi+1}</div></div>
+      <div class="sb-pick">${b.ic} Bring down</div>
+      <div class="sb-lb">${b.title}</div>`;
+    el.addEventListener('mousedown', e=>startBookDrag(e,slot));
+    sh.appendChild(el);
+  });
+  drawDesk();
+}
+function drawDesk(){
+  $('aiDesk').innerHTML = order.map((bi,i)=>{
+    const b=BOOKS[bi];
+    return `<div class="chip ${i===0?'main':''}"><span>${b.ic}</span><u>${b.title}</u><s>${i===0?'MAIN · ':''}p.${b.spread*2+2}</s></div>`;
+  }).join('');
+}
+
+/* book move */
+function swapSlots(a,b){
+  if(a===b||flipping) return;
+  const m=(a===0||b===0);
+  if(m) $('rdSpread').classList.add('swapping');
+  setTimeout(()=>{
+    [order[a],order[b]]=[order[b],order[a]];
+    drawSpread(); drawShelf();
+    $('rdSpread').classList.remove('swapping');
+  }, m?260:0);
+}
+function startBookDrag(e,from){ if(flipping) return; e.preventDefault(); bookDrag={from,x0:e.clientX,y0:e.clientY,moved:false,ghost:null,over:null}; }
+$('grip').addEventListener('mousedown', e=>startBookDrag(e,0));
+const inR=(e,r)=>e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+
+addEventListener('mousemove', e=>{
+  if(!bookDrag) return;
+  const d=bookDrag;
+  if(!d.moved){
+    if(Math.hypot(e.clientX-d.x0,e.clientY-d.y0)<6) return;
+    d.moved=true; document.body.classList.add('dragging');
+    const b=BOOKS[order[d.from]];
+    const g=document.createElement('div'); g.className='ghost';
+    g.innerHTML=`<b>${b.ic}</b><i>${b.title}</i><s>${d.from===0?'lift to the shelf':'drop it anywhere'}</s>`;
+    document.body.appendChild(g); d.ghost=g;
+    if(d.from===0) $('rdSpread').classList.add('dsrc');
+    else { $('mdrop').classList.add('armed'); document.querySelectorAll('.sbk')[d.from-1].classList.add('dsrc'); }
+    $('rdHint').style.display='none';
+  }
+  d.ghost.style.left=e.clientX+'px'; d.ghost.style.top=e.clientY+'px';
+  let over=null;
+  if(d.from!==0 && inR(e,$('rdSpread').getBoundingClientRect())) over=0;
+  document.querySelectorAll('.sbk').forEach((el,i)=>{ if(inR(e,el.getBoundingClientRect())) over=i+1; });
+  if(over!==d.over){
+    d.over=over;
+    $('mdrop').classList.toggle('hot',over===0);
+    document.querySelectorAll('.sbk').forEach((el,i)=>el.classList.toggle('dhot',over===i+1&&over!==d.from));
+  }
+});
+addEventListener('mouseup', ()=>{
+  if(!bookDrag) return;
+  const d=bookDrag; bookDrag=null;
+  if(!d.moved){ if(d.from!==0) swapSlots(0,d.from); return; }
+  document.body.classList.remove('dragging');
+  d.ghost?.remove();
+  $('mdrop').classList.remove('hot','armed');
+  $('rdSpread').classList.remove('dsrc');
+  document.querySelectorAll('.sbk').forEach(el=>el.classList.remove('dsrc','dhot'));
+  if(d.over!==null) swapSlots(d.from,d.over);
+});
+
+/* page turn */
+const canGo = d => d>0 ? main().spread < Math.ceil(main().sp.length/2)-1 : main().spread>0;
+function prep(d){
+  const b=main(), f=$('flipper'); dir=d;
+  if(d>0){ $('fA').innerHTML=bigPage(b,b.spread*2+1); $('fB').innerHTML=bigPage(b,(b.spread+1)*2);
+    f.style.left='auto'; f.style.right='0'; f.style.transformOrigin='left center'; }
+  else { $('fA').innerHTML=bigPage(b,b.spread*2); $('fB').innerHTML=bigPage(b,(b.spread-1)*2+1);
+    f.style.left='0'; f.style.right='auto'; f.style.transformOrigin='right center'; }
+  f.classList.add('live'); f.classList.remove('snap'); setAng(0);
+}
+function setAng(a){
+  ang=a; const f=$('flipper');
+  f.style.transform=`rotateY(${dir>0?-a:a}deg)`;
+  const t=Math.min(Math.abs(a)/180,1);
+  $('shA').style.opacity=t*.9; $('shB').style.opacity=(1-t)*.55;
+}
+function commit(){
+  const b=main(), f=$('flipper');
+  f.classList.add('snap'); setAng(180); flipping=true;
+  setTimeout(()=>{ b.spread+=dir; drawSpread(); f.classList.remove('live','snap'); f.style.transform='rotateY(0deg)'; flipping=false; },500);
+}
+function cancel(){
+  const f=$('flipper'); f.classList.add('snap'); setAng(0); flipping=true;
+  setTimeout(()=>{ f.classList.remove('live','snap'); flipping=false; },500);
+}
+function turn(d){ if(flipping||!canGo(d)) return; prep(d); requestAnimationFrame(commit); }
+$('corner').addEventListener('mousedown', e=>{
+  if(flipping||!canGo(1)) return;
+  e.preventDefault(); pageDrag=true; prep(1); $('rdHint').style.display='none';
+});
+addEventListener('mousemove', e=>{
+  if(!pageDrag) return;
+  const r=$('rdSpread').getBoundingClientRect();
+  setAng(Math.max(0,Math.min(180,(r.right-e.clientX)/r.width*2*180)));
+});
+addEventListener('mouseup', ()=>{ if(!pageDrag) return; pageDrag=false; ang>78?commit():cancel(); });
+$('navN').onclick=()=>turn(1); $('navP').onclick=()=>turn(-1);
+
+addEventListener('keydown', e=>{
+  if(!$('rd').classList.contains('on')||e.target.tagName==='INPUT') return;
+  if(e.key==='ArrowRight') turn(1);
+  if(e.key==='ArrowLeft') turn(-1);
+  if(e.key>='1'&&e.key<='3') swapSlots(0,+e.key);
+  if(e.key==='Escape'){ $('rd').classList.contains('focus') ? setFocus(false) : closeReader(); }
+});
+
+function setFocus(on){
+  $('rd').classList.toggle('focus',on);
+  $('btnFocus').classList.toggle('on',on);
+  $('rdSub').textContent = on ? 'Focus mode · 1 book' : 'Desk mode · 4 books open';
+}
+$('btnFocus').onclick=()=>setFocus(!$('rd').classList.contains('focus'));
+$('btnAI').onclick=()=>{
+  const o=$('aiPanel').classList.toggle('open');
+  $('btnAI').classList.toggle('on',o);
+  $('rdStage').classList.toggle('px',o);
+};
+
+/* ═══════════ AI (demo, generated from the actual desk) ═══════════ */
+function resetAI(){
+  $('aiBody').innerHTML = `<div class="ai-sh">Suggested cross-book questions</div>
+    <div class="sugg" onclick="ask(0)">How do the books on my desk each frame the same idea?</div>
+    <div class="sugg" onclick="ask(1)">Which of these should I hand to a ten-year-old?</div>
+    <div class="sugg" onclick="ask(2)">Order these four into a term-long curriculum.</div>`;
+}
+const cite = (b,p) => `<span class="src">${b.ic} ${b.title.split(' ').slice(0,2).join(' ')} p.${p}</span>`;
+
+function answerFor(n){
+  const desk = order.map(i=>BOOKS[i]);
+  if(n===0){
+    return `<p>Four different framings sitting side by side — that is the useful part.</p>` +
+      desk.map(b=>`<p><b>${b.title}</b> treats it ${b.angle}. ${cite(b,b.spread*2+2)}</p>`).join('') +
+      `<p style="opacity:.7">→ The gap between <b>${desk[0].title}</b> and <b>${desk[desk.length-1].title}</b> is the widest, which makes them the most useful pair to read against each other.</p>`;
+  }
+  if(n===1){
+    const kid = desk.find(b=>b.kids);
+    const rest = desk.filter(b=>!b.kids);
+    return kid
+      ? `<p><b>${kid.title}</b>, without hesitation. ${cite(kid,kid.spread*2+2)}</p>
+         <p>It is the only book on this desk written for that age, and it deliberately leaves out the abstractions the others lean on.</p>
+         <p>Once they are comfortable, <b>${rest[0].title}</b> is the natural next step — same ideas, adult vocabulary. ${cite(rest[0],rest[0].spread*2+2)}</p>
+         <p style="opacity:.7">→ Skipping straight to the adult titles usually produces recall without understanding.</p>`
+      : `<p>Nothing currently on your desk is written for that age.</p><p>Bring <b>Unplugged Coding for Kids</b> or <b>Little Robot's Big Day</b> down from the library and I can compare them properly.</p>`;
+  }
+  const sorted = [...desk].sort((a,b)=>(a.level||2)-(b.level||2));
+  const weeks = ['Weeks 1–3','Weeks 4–7','Weeks 8–10','Weeks 11–12'];
+  return `<p>The four on your desk separate cleanly by level, so a <b>twelve-week shape</b> falls out almost by itself.</p>` +
+    sorted.map((b,i)=>`<p><b>${weeks[i]}</b> — ${b.title} ${cite(b,b.spread*2+2)}<br><span style="opacity:.62">${b.blurb.split('.')[0]}.</span></p>`).join('') +
+    `<p style="opacity:.7">→ ${sorted[sorted.length-1].title} goes last because the earlier three teach <b>how</b>, and it is the only one that asks <b>why</b>.</p>`;
+}
+const QS = [
+  'How do the books on my desk each frame the same idea?',
+  'Which of these should I hand to a ten-year-old?',
+  'Order these four into a term-long curriculum.'
+];
+function ask(n, custom){
+  const body=$('aiBody');
+  body.querySelectorAll('.sugg,.ai-sh').forEach(e=>e.remove());
+  const q = custom || QS[n];
+  const me=document.createElement('div'); me.className='msg';
+  me.innerHTML=`<div class="msg-me">${q}</div>`; body.appendChild(me);
+  const th=document.createElement('div'); th.className='msg';
+  th.innerHTML=`<div class="think"><i></i><i></i><i></i></div>`; body.appendChild(th);
+  body.scrollTop=body.scrollHeight;
+  setTimeout(()=>{
+    th.remove();
+    const m=document.createElement('div'); m.className='msg';
+    m.innerHTML=`<div class="msg-ai">${custom?customAnswer():answerFor(n)}</div>`;
+    body.appendChild(m); body.scrollTop=body.scrollHeight;
+  },1050);
+}
+function customAnswer(){
+  const names = order.map(i=>BOOKS[i].title).join(', ');
+  return `<p>This is where I would read across <b>${order.length} books</b> on your desk — ${names}.</p>
+  <p style="opacity:.6">※ Prototype: no live model is connected. In the real build, the current page text of every open book is sent along as context.</p>`;
+}
+$('aiSend').onclick=()=>{ const v=$('aiInput').value.trim(); if(!v) return; $('aiInput').value=''; ask(null,v); };
+$('aiInput').addEventListener('keydown', e=>{ if(e.key==='Enter') $('aiSend').click(); });
+
+/* nav scroll */
+addEventListener('scroll', ()=> $('nav').classList.toggle('stuck', scrollY>40));
+document.querySelectorAll('.f-langs div').forEach(d=>{
+  d.onclick=()=>{ document.querySelectorAll('.f-langs div').forEach(x=>x.classList.remove('on')); d.classList.add('on'); };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — 机全体を読む",
+    "description": "4冊の本を一度に広げ、紙がめくれるようにページをめくり、机全体を読むAIに質問できます。ブラウザですぐに開きます。"
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "デジタルライブラリー · アジア",
+    "home": "ホーム",
+    "bookstore": "書店",
+    "reader": "リーダー",
+    "plans": "プラン",
+    "library": "マイライブラリー",
+    "language": "日本語",
+    "cta": "読み始める"
+  },
+  "home": {
+    "badge": "新しいリーダー · 公開中",
+    "title": "一冊ではなく<em>机全体</em>を読む",
+    "subtitle": "4冊の本を一度に広げましょう。紙がめくれるようにページをめくりましょう。そして4冊すべてを横断する質問をAIに投げかけてください — インストールするアプリはありません。ブラウザで開きます。",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · あらゆるデバイスで",
+    "ctaPrimary": "リーダーを試す",
+    "ctaSecondary": "ライブラリーを見る",
+    "scaffoldNote": "マイルストーン1 — シェルとルーティング。ライブデスク、書籍グリッド、リーダーは後のマイルストーンで追加されます。"
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "ボーダーレスなストーリー",
+    "description": "良い本でアジア全域の読者をつなぐデジタル出版プラットフォーム — 英語、韓国語、日本語で。",
+    "library": "ライブラリー",
+    "libraryLinks": {
+      "all": "すべての本",
+      "ai": "AI & テック",
+      "kids": "児童書",
+      "education": "教育",
+      "new": "新刊"
+    },
+    "account": "アカウント",
+    "accountLinks": {
+      "signup": "新規登録",
+      "login": "ログイン",
+      "library": "マイライブラリー",
+      "subscription": "サブスクの管理",
+      "redeem": "クーポンを使う"
+    },
+    "company": "会社",
+    "companyLinks": {
+      "about": "会社概要",
+      "partnerships": "パートナーシップ",
+      "contact": "お問い合わせ",
+      "faq": "よくある質問",
+      "refund": "返金ポリシー"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Awesome AI Asia と連携"
+  }
+}

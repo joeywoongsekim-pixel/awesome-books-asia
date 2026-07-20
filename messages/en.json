@@ -1,0 +1,56 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — Read the whole desk",
+    "description": "Spread four books at once, turn pages the way paper turns, and ask an AI that reads your whole desk. Opens in your browser."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "Digital Library · Asia",
+    "home": "Home",
+    "bookstore": "Bookstore",
+    "reader": "The Reader",
+    "plans": "Plans",
+    "library": "My Library",
+    "language": "English",
+    "cta": "Start reading"
+  },
+  "home": {
+    "badge": "New reader · now live",
+    "title": "Read the whole <em>desk</em>, not just one book",
+    "subtitle": "Spread four books at once. Turn pages the way paper turns. Then ask the AI a question that cuts across all of them — no app to install, it opens in your browser.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · on any device",
+    "ctaPrimary": "Try the reader",
+    "ctaSecondary": "Browse the library",
+    "scaffoldNote": "Milestone 1 — shell and routing. The live desk, book grid and reader arrive in later milestones."
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "Stories Without Borders",
+    "description": "A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.",
+    "library": "Library",
+    "libraryLinks": {
+      "all": "All books",
+      "ai": "AI & Tech",
+      "kids": "Children's books",
+      "education": "Education",
+      "new": "New releases"
+    },
+    "account": "Account",
+    "accountLinks": {
+      "signup": "Sign up",
+      "login": "Log in",
+      "library": "My Library",
+      "subscription": "Manage subscription",
+      "redeem": "Redeem coupon"
+    },
+    "company": "Company",
+    "companyLinks": {
+      "about": "About us",
+      "partnerships": "Partnerships",
+      "contact": "Contact",
+      "faq": "FAQ",
+      "refund": "Refund policy"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia"
+  }
+}
