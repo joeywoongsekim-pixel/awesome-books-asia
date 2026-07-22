@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 import {Link, useRouter} from '../../i18n/navigation';
 import {BOOKS, type Book} from '../../lib/books';
 import BigPage, {ctxOf} from './BigPage';
+import AiPanel from './AiPanel';
 
 const SWAP_MS = 260; // matches .spread opacity transition
 const SNAP_MS = 500; // matches .flipper.snap transform transition
@@ -101,6 +102,7 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
   const [turn, setTurn] = useState<Turn | null>(null);
   const [hintHidden, setHintHidden] = useState(false);
   const [drag, setDrag] = useState<Drag | null>(null);
+  const [aiOpen, setAiOpen] = useState(false);
 
   const spreadRef = useRef<HTMLDivElement>(null);
   const draggingCorner = useRef(false);
@@ -280,13 +282,17 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
           >
             🎯 {t('focusBtn')}
           </button>
-          <button type="button" className="rd-btn">
+          <button
+            type="button"
+            className={`rd-btn${aiOpen ? ' on' : ''}`}
+            onClick={() => setAiOpen((v) => !v)}
+          >
             ✨ {t('aiBtn')}
           </button>
         </div>
       </div>
 
-      <div className="rd-stage">
+      <div className={`rd-stage${aiOpen ? ' px' : ''}`}>
         <div className="shelf">
           {order.slice(1).map((bi, si) => (
             <ShelfBook
@@ -387,6 +393,8 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
           </div>
         </div>
       </div>
+
+      <AiPanel open={aiOpen} order={order} spreadOf={spreadOf} />
 
       {dragging && dragBook && drag && (
         <div className="ghost" style={{left: drag.x, top: drag.y}}>
