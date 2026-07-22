@@ -27,13 +27,13 @@ export default function Nav() {
     .filter(Boolean)
     .join(' ');
 
-  // Routes beyond the home page arrive in later milestones. For now every
-  // menu item resolves to home so the shell has no dead links.
+  // The store route arrives in M3; until then Bookstore anchors to the home
+  // book grid. Reader and Plans anchor to their home sections (per prototype).
   const items = [
     {key: 'home', href: '/'},
-    {key: 'bookstore', href: '/'},
-    {key: 'reader', href: '/'},
-    {key: 'plans', href: '/'}
+    {key: 'bookstore', href: '/#books'},
+    {key: 'reader', href: '/#reader'},
+    {key: 'plans', href: '/#plans'}
   ] as const;
 
   return (

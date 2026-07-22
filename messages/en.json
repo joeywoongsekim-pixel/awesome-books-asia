@@ -21,7 +21,109 @@
     "meta": "PDF + EPUB · English · 한국어 · 日本語 · on any device",
     "ctaPrimary": "Try the reader",
     "ctaSecondary": "Browse the library",
-    "scaffoldNote": "Milestone 1 — shell and routing. The live desk, book grid and reader arrive in later milestones."
+    "tags": {
+      "four": "📚 Four books at once",
+      "pages": "✋ Pages that follow your hand",
+      "ai": "✨ AI that reads your desk",
+      "coupons": "🎁 Gift coupons"
+    },
+    "demoCaption": "Tap a book above — it <b>comes straight down</b>"
+  },
+  "pillars": {
+    "eyebrow": "What makes it different",
+    "title": "We redesigned<br>how reading works",
+    "lead": "Most e-readers simply move a paper book onto a screen. We started somewhere else — with what only a screen can do.",
+    "p1": {
+      "no": "Pillar 01",
+      "title": "Four books open<br>on one desk",
+      "desc": "A textbook spread in front of you, references propped up beside it — studying has always worked this way. Keep one book open wide and three standing behind it, then pick any of them up and swap places whenever you like.",
+      "note": "🖐 Pick a book up, drop it anywhere"
+    },
+    "p2": {
+      "no": "Pillar 02",
+      "title": "Pages that follow<br>your hand",
+      "desc": "Not a button that swaps one screen for another. Take hold of the corner and the page lifts as far as you pull it. Let go halfway and it settles back; carry it over and the shadow travels across the paper with it.",
+      "note": "✋ Grab the corner and pull"
+    },
+    "p3": {
+      "no": "Pillar 03",
+      "title": "An AI that reads<br>your desk, not a page",
+      "desc": "Every other reader's assistant answers from inside the one book you have open. Ours sees all four at once. \"How do these four explain the same idea differently?\" — that question becomes askable for the first time.",
+      "note": "✨ Every answer cites book and page"
+    }
+  },
+  "books": {
+    "eyebrow": "Our library",
+    "title": "Books you can read today",
+    "lead": "AI literacy, education and children's stories — each available in several languages.",
+    "viewAll": "Browse all books →",
+    "new": "New",
+    "priceFrom": "<em>from</em>${price}",
+    "details": "Details →",
+    "subscribe": "Subscribe →",
+    "inSubscription": "In subscription"
+  },
+  "steps": {
+    "eyebrow": "Simple",
+    "title": "How to start",
+    "lead": "Nothing to install and nothing to configure. Three steps and you're reading.",
+    "s1": {
+      "no": "Step 01",
+      "title": "Sign up",
+      "desc": "Email or Google, a few seconds. You don't need a card just to look around the library."
+    },
+    "s2": {
+      "no": "Step 02",
+      "title": "Buy or subscribe",
+      "desc": "Take a single book, or open the whole library with a subscription. Gift coupon codes go in here too."
+    },
+    "s3": {
+      "no": "Step 03",
+      "title": "Open your desk",
+      "desc": "It opens straight in your browser. Your place and bookmarks save themselves as you read."
+    }
+  },
+  "plans": {
+    "eyebrow": "Plans",
+    "title": "Only what you need",
+    "lead": "Start with a single book, or open the entire library.",
+    "single": {
+      "name": "Single book",
+      "pd": "one payment · yours to keep",
+      "f1": "The book stays yours permanently",
+      "f2": "PDF and EPUB both included",
+      "f3": "Every language edition",
+      "f4": "Read on any device",
+      "cta": "Choose a book"
+    },
+    "monthly": {
+      "tag": "⭐ Most popular",
+      "name": "Monthly",
+      "pd": "per month · cancel anytime",
+      "f1": "Unlimited access to the library",
+      "f2": "New titles added automatically",
+      "f3": "Four-book desk and AI assistant",
+      "f4": "Bookmarks and progress synced",
+      "f5": "Early access to new releases",
+      "cta": "Start monthly →"
+    },
+    "annual": {
+      "name": "Annual",
+      "pd": "per year · save 33%",
+      "f1": "Everything in Monthly",
+      "f2": "Saves $39.89 against monthly",
+      "f3": "Makes a straightforward gift",
+      "f4": "Invoicing for organisations",
+      "cta": "Get annual →"
+    },
+    "coupon": "🎁 <b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
+    "couponCta": "Redeem a coupon →"
+  },
+  "partner": {
+    "eyebrow": "For publishers & authors",
+    "title": "A publishing partner<br>for mutual growth",
+    "lead": "Bring your work to readers right across Asia. Publishers, authors and content creators are all welcome.",
+    "cta": "Talk to us →"
   },
   "footer": {
     "brand": "AwesomeBooks",
