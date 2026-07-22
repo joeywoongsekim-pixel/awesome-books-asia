@@ -1752,42 +1752,447 @@ footer {
   margin-top: 32px;
 }
 
-/* ══════════ READER PLACEHOLDER (own chrome; replaced in M4) ══════════ */
-.reader-soon {
+/* ══════════ READER ══════════ */
+.rd {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  /* Desk clusters are fixed-px; these scale them on smaller viewports */
+  --shelf-s: 1;
+  --desk-s: 1;
+}
+.rd-room {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 55% 45% at 50% 62%, rgba(245, 166, 35, 0.13) 0%, transparent 62%),
+    radial-gradient(ellipse 70% 50% at 50% 8%, rgba(70, 110, 190, 0.1) 0%, transparent 60%),
+    linear-gradient(170deg, #090b14 0%, #0d0f1c 45%, #151119 100%);
+}
+.rd-lamp {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  transform: translate(-50%, -50%);
+  width: 1100px;
+  height: 620px;
+  max-width: 100vw;
+  background: radial-gradient(ellipse, rgba(255, 214, 150, 0.16) 0%, transparent 70%);
+  filter: blur(24px);
+  pointer-events: none;
+}
+.rd-tb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 54px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background: linear-gradient(to bottom, rgba(8, 10, 20, 0.92), transparent);
+  backdrop-filter: blur(10px);
+}
+.rd-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.rd-back:hover {
+  background: rgba(255, 255, 255, 0.11);
+  color: #fff;
+}
+.rd-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+.rd-sub {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--font-space-mono), monospace;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.rd-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.62);
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: inherit;
+  transition: 0.18s;
+  white-space: nowrap;
+}
+.rd-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.rd-btn.on {
+  background: rgba(245, 166, 35, 0.15);
+  border-color: rgba(245, 166, 35, 0.4);
+  color: var(--gold);
+}
+.rd-stage {
+  position: absolute;
+  inset: 54px 0 0 0;
+  transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* shelf — perspective sits on the row itself (hit-test lesson from the home
+   mini desk: translateZ(-70px) inside a preserve-3d ancestor puts the books
+   behind the parent's plane and clicks land on the parent). */
+.shelf {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  height: 262px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 38px;
+  perspective: 2000px;
+  perspective-origin: 50% 150%;
+  z-index: 5;
+  transform: scale(var(--shelf-s));
+  transform-origin: top center;
+  transition: opacity 0.45s, transform 0.45s;
+}
+.sbk {
   position: relative;
-  z-index: 1;
-  min-height: 100dvh;
+  width: 246px;
+  height: 244px;
+  transform: rotateX(17deg) translateZ(-70px);
+  transform-origin: 50% 100%;
+  transition: transform 0.42s cubic-bezier(0.34, 1.3, 0.5, 1), filter 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  filter: brightness(0.88);
+  border-radius: 2px 7px 7px 2px;
+  box-shadow: 0 22px 34px rgba(0, 0, 0, 0.55);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.sbk:hover {
+  transform: rotateX(3deg) translateZ(150px) translateY(-14px);
+  filter: brightness(1.06);
+  box-shadow: 0 34px 62px rgba(0, 0, 0, 0.72), 0 0 50px rgba(245, 166, 35, 0.25);
+  z-index: 10;
+}
+.sb-pg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(172deg, #fcf9f1, #f2eada);
+  border-radius: 2px 7px 7px 2px;
+  overflow: hidden;
+  padding: 16px 20px 0 24px;
+  box-shadow: inset 6px 0 11px -5px rgba(0, 0, 0, 0.32);
+}
+.sb-pg::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 11px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.24), transparent);
+}
+.sb-pg::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 72px;
+  background: linear-gradient(to bottom, transparent, #f4ecdd 72%);
+}
+.sb-ch {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold-dk);
+  margin-bottom: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sb-head {
+  font-family: var(--font-playfair), serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #221e18;
+  line-height: 1.26;
+  margin-bottom: 9px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sb-body {
+  font-family: var(--serif);
+  font-size: 10.2px;
+  line-height: 1.82;
+  color: #4a4438;
+  text-align: justify;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.sb-fig {
+  height: 40px;
+  margin: 0 0 9px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.2), rgba(45, 111, 212, 0.14));
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 11px;
+  overflow: hidden;
+  font-size: 9px;
+  color: #6b6355;
+  line-height: 1.35;
+}
+.sb-fig b {
+  font-size: 17px;
+  flex-shrink: 0;
+  font-weight: 400;
+}
+.sb-num {
+  position: absolute;
+  bottom: 9px;
+  right: 14px;
+  z-index: 2;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 9px;
+  color: #a79c86;
+}
+.sb-lb {
+  position: absolute;
+  bottom: -27px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 6px;
+  transition: color 0.3s;
+  transform: rotateX(-17deg);
+}
+.sbk:hover .sb-lb {
+  color: var(--gold);
+}
+.sb-pick {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(-17deg);
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  padding: 3px 11px;
+  border-radius: 100px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: 0.25s;
+  pointer-events: none;
+  z-index: 3;
+}
+.sbk:hover .sb-pick {
+  opacity: 1;
+  top: -16px;
+}
+
+/* main spread */
+.main-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 284px;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  perspective: 2000px;
+  perspective-origin: 50% 19%;
+  z-index: 20;
+  transition: top 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.desk-pos {
+  position: relative;
+  transform: scale(var(--desk-s));
+  transform-origin: top center;
+}
+.spread {
+  position: relative;
+  display: flex;
+  transform-style: preserve-3d;
+  transform: rotateX(7deg);
+  filter: drop-shadow(0 34px 44px rgba(0, 0, 0, 0.6));
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+}
+.spread.swapping {
+  opacity: 0;
+  transform: rotateX(7deg) scale(0.94);
+}
+.page {
+  position: relative;
+  width: 352px;
+  height: 472px;
+  background: linear-gradient(175deg, #fcf8f0 0%, #f3ecdd 100%);
+  overflow: hidden;
+}
+.page.l {
+  border-radius: 7px 0 0 7px;
+  box-shadow: inset -14px 0 22px -14px rgba(0, 0, 0, 0.42);
+}
+.page.r {
+  border-radius: 0 7px 7px 0;
+  box-shadow: inset 14px 0 22px -14px rgba(0, 0, 0, 0.42);
+}
+.spine {
+  width: 12px;
+  height: 472px;
+  background: linear-gradient(to right, rgba(60, 45, 25, 0.34), rgba(30, 22, 12, 0.5), rgba(60, 45, 25, 0.34));
+  position: relative;
+  z-index: 3;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
+}
+.big {
+  padding: 38px 40px 34px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 16px;
-  padding: 80px 24px;
+  position: relative;
+  z-index: 2;
 }
-.rs-ic {
-  font-size: 60px;
-}
-.rs-book {
+.big-ch {
   font-family: var(--font-space-mono), monospace;
-  font-size: 12px;
-  letter-spacing: 1.4px;
+  font-size: 9px;
+  letter-spacing: 2.2px;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--gold-dk);
+  margin-bottom: 14px;
 }
-.rs-title {
+.big-h {
   font-family: var(--font-playfair), serif;
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 900;
-  letter-spacing: -0.5px;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.28;
+  margin-bottom: 15px;
 }
-.rs-desc {
+.big-t {
   font-family: var(--serif);
-  font-size: 15px;
-  line-height: 1.9;
-  color: rgba(255, 255, 255, 0.55);
-  max-width: 520px;
-  margin-bottom: 10px;
+  font-size: 12.6px;
+  line-height: 1.95;
+  color: #3e382d;
+  text-align: justify;
+  flex: 1;
+  overflow: hidden;
+}
+.big-t p {
+  margin-bottom: 12px;
+}
+.big-t b {
+  color: var(--ink);
+  box-shadow: inset 0 -7px 0 rgba(245, 166, 35, 0.24);
+}
+.big-fig {
+  margin: 14px 0;
+  padding: 16px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(245, 166, 35, 0.13), rgba(45, 111, 212, 0.09));
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  font-family: var(--font-dm-sans), sans-serif;
+  font-size: 11px;
+  color: var(--ink-mid);
+  text-align: center;
+  line-height: 1.6;
+}
+.big-fig i {
+  font-size: 24px;
+  display: block;
+  margin-bottom: 7px;
+  font-style: normal;
+}
+.big-n {
+  font-family: var(--font-space-mono), monospace;
+  font-size: 10px;
+  color: var(--ink-soft);
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+/* focus mode */
+.rd.focus .shelf {
+  opacity: 0;
+  transform: scale(var(--shelf-s)) translateY(-60px);
+  pointer-events: none;
+}
+.rd.focus .main-wrap {
+  top: 54px;
+}
+.rd.focus .spread {
+  transform: rotateX(3deg) scale(1.14);
+}
+
+/* reader responsive — scale the fixed-px desk clusters */
+@media (max-width: 900px) {
+  .rd {
+    --shelf-s: 0.8;
+    --desk-s: 0.85;
+  }
+  .main-wrap {
+    top: 240px;
+  }
+}
+@media (max-width: 700px) {
+  .rd {
+    --shelf-s: 0.62;
+    --desk-s: 0.68;
+  }
+  .shelf {
+    gap: 26px;
+  }
+  .main-wrap {
+    top: 200px;
+  }
+}
+@media (max-width: 520px) {
+  .rd {
+    --shelf-s: 0.46;
+    --desk-s: 0.5;
+  }
+  .main-wrap {
+    top: 168px;
+  }
 }
 
 /* ══════════ RESPONSIVE ══════════ */

@@ -152,9 +152,24 @@
     "more": "More from the library"
   },
   "reader": {
-    "soonTitle": "Your desk is being built",
-    "soonDesc": "Page turns that follow your hand, four books on one desk and the assistant that reads the whole desk open here with Milestone 4.",
-    "back": "← Back to the library"
+    "back": "← Library",
+    "deskMode": "Desk mode · 4 books open",
+    "focusMode": "Focus mode · 1 book",
+    "focusBtn": "Focus",
+    "aiBtn": "AI desk",
+    "grip": "Move this book",
+    "dropMain": "Drop here → main",
+    "bringDown": "Bring down",
+    "hintPick": "<b>Pick a book up</b> and drop it anywhere",
+    "hintCorner": "Drag the page corner to turn",
+    "aiTitle": "AI desk assistant",
+    "aiNote": "Not one book — it reads your <b>whole desk</b>.",
+    "aiDeskHeading": "On your desk right now",
+    "aiSuggHeading": "Suggested cross-book questions",
+    "aiPlaceholder": "Ask the books on your desk…",
+    "sugg1": "How do the books on my desk each frame the same idea?",
+    "sugg2": "Which of these should I hand to a ten-year-old?",
+    "sugg3": "Order these four into a term-long curriculum."
   },
   "partner": {
     "eyebrow": "For publishers & authors",
