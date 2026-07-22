@@ -171,7 +171,8 @@
     "sugg2": "이 중 열 살 아이에게 건넬 책은 어느 것인가요?",
     "sugg3": "이 네 권을 한 학기 커리큘럼으로 배열해 주세요.",
     "ghostLift": "선반으로 올리기",
-    "ghostDrop": "아무 데나 놓으세요"
+    "ghostDrop": "아무 데나 놓으세요",
+    "bookmark": "이 페이지 북마크"
   },
   "partner": {
     "eyebrow": "출판사와 작가를 위해",
@@ -208,5 +209,27 @@
       "refund": "환불 정책"
     },
     "copyright": "© 2026 AwesomeBooks.asia — Awesome AI Asia와 연결됨"
+  },
+  "auth": {
+    "loginTitle": "로그인",
+    "signupTitle": "회원가입",
+    "email": "이메일",
+    "password": "비밀번호",
+    "loginBtn": "로그인",
+    "signupBtn": "계정 만들기",
+    "google": "Google로 계속하기",
+    "or": "또는",
+    "noAccount": "아직 계정이 없나요?",
+    "haveAccount": "이미 계정이 있나요?",
+    "checkEmail": "메일함을 확인하세요 — 확인 링크를 보냈습니다.",
+    "signOut": "로그아웃"
+  },
+  "library": {
+    "title": "내 서재",
+    "continue": "이어 읽기",
+    "owned": "내 책",
+    "bookmarks": "북마크",
+    "empty": "아직 아무것도 없습니다 — 서점을 둘러보세요.",
+    "browse": "서점 둘러보기 →"
   }
 }

@@ -84,7 +84,19 @@ function ShelfBook({
   );
 }
 
-export default function Reader({initialIndex}: {initialIndex: number}) {
+export default function Reader({
+  initialIndex,
+  locale,
+  bookId,
+  initialSpread = 0,
+  canSync = false
+}: {
+  initialIndex: number;
+  locale: string;
+  bookId: string | null;
+  initialSpread?: number;
+  canSync?: boolean;
+}) {
   const t = useTranslations('reader');
   const router = useRouter();
 
@@ -94,8 +106,12 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
       .filter((i) => i !== initialIndex)
       .slice(0, 3)
   ]);
-  // Reading position per book (index into spreads), reset when the desk opens.
-  const [spreadOf, setSpreadOf] = useState<Record<number, number>>({});
+  // Reading position per book (index into spreads). The route book resumes
+  // from the signed-in user's saved progress.
+  const [spreadOf, setSpreadOf] = useState<Record<number, number>>(() =>
+    initialSpread ? {[initialIndex]: initialSpread} : {}
+  );
+  const [marked, setMarked] = useState(false);
   const [swapping, setSwapping] = useState(false);
   const [focus, setFocus] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -230,6 +246,45 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
   const dragging = Boolean(drag?.moved);
   const dragBook = drag ? BOOKS[order[drag.from]] : null;
 
+  // ── progress sync (signed-in readers, route book only) ─────────────────
+  const routeSpread = spreadOf[initialIndex] ?? 0;
+  useEffect(() => {
+    if (!canSync || !bookId) return;
+    const id = setTimeout(async () => {
+      const {createSupabaseBrowser} = await import('../../lib/supabase/client');
+      const supabase = createSupabaseBrowser();
+      await supabase.from('reading_progress').upsert(
+        {
+          user_id: (await supabase.auth.getUser()).data.user?.id,
+          book_id: bookId,
+          locale,
+          spread_index: routeSpread,
+          updated_at: new Date().toISOString()
+        },
+        {onConflict: 'user_id,book_id,locale'}
+      );
+    }, 800);
+    return () => clearTimeout(id);
+  }, [routeSpread, canSync, bookId, locale]);
+
+  async function addBookmark() {
+    if (!canSync || !bookId || marked) return;
+    const {createSupabaseBrowser} = await import('../../lib/supabase/client');
+    const supabase = createSupabaseBrowser();
+    const user = (await supabase.auth.getUser()).data.user;
+    if (!user) return;
+    const {error} = await supabase.from('bookmarks').insert({
+      user_id: user.id,
+      book_id: bookId,
+      locale,
+      page_index: (spreadOf[order[0]] ?? 0) * 2 + 1
+    });
+    if (!error) {
+      setMarked(true);
+      setTimeout(() => setMarked(false), 1600);
+    }
+  }
+
   // ── keyboard ───────────────────────────────────────────────────────────
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -275,6 +330,16 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
           </div>
         </div>
         <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+          {canSync && (
+            <button
+              type="button"
+              className={`rd-btn${marked ? ' on' : ''}`}
+              title={t('bookmark')}
+              onClick={addBookmark}
+            >
+              🔖
+            </button>
+          )}
           <button
             type="button"
             className={`rd-btn${focus ? ' on' : ''}`}

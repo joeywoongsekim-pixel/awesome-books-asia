@@ -171,7 +171,8 @@
     "sugg2": "この中で10歳の子に渡すならどれ?",
     "sugg3": "この4冊を1学期のカリキュラムに並べてください。",
     "ghostLift": "棚へ持ち上げる",
-    "ghostDrop": "どこにでも置けます"
+    "ghostDrop": "どこにでも置けます",
+    "bookmark": "このページをブックマーク"
   },
   "partner": {
     "eyebrow": "出版社・著者の方へ",
@@ -208,5 +209,27 @@
       "refund": "返金ポリシー"
     },
     "copyright": "© 2026 AwesomeBooks.asia — Awesome AI Asia と連携"
+  },
+  "auth": {
+    "loginTitle": "ログイン",
+    "signupTitle": "新規登録",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "loginBtn": "ログイン",
+    "signupBtn": "アカウント作成",
+    "google": "Googleで続行",
+    "or": "または",
+    "noAccount": "アカウントをお持ちでないですか?",
+    "haveAccount": "すでにアカウントをお持ちですか?",
+    "checkEmail": "メールをご確認ください — 確認リンクを送信しました。",
+    "signOut": "ログアウト"
+  },
+  "library": {
+    "title": "マイライブラリー",
+    "continue": "続きを読む",
+    "owned": "あなたの本",
+    "bookmarks": "ブックマーク",
+    "empty": "まだ何もありません — 書店をのぞいてみてください。",
+    "browse": "書店を見る →"
   }
 }

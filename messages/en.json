@@ -171,7 +171,8 @@
     "sugg2": "Which of these should I hand to a ten-year-old?",
     "sugg3": "Order these four into a term-long curriculum.",
     "ghostLift": "lift to the shelf",
-    "ghostDrop": "drop it anywhere"
+    "ghostDrop": "drop it anywhere",
+    "bookmark": "Bookmark this page"
   },
   "partner": {
     "eyebrow": "For publishers & authors",
@@ -208,5 +209,27 @@
       "refund": "Refund policy"
     },
     "copyright": "© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia"
+  },
+  "auth": {
+    "loginTitle": "Log in",
+    "signupTitle": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "loginBtn": "Log in",
+    "signupBtn": "Create account",
+    "google": "Continue with Google",
+    "or": "or",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?",
+    "checkEmail": "Check your inbox — we sent a confirmation link.",
+    "signOut": "Sign out"
+  },
+  "library": {
+    "title": "My Library",
+    "continue": "Continue reading",
+    "owned": "Your books",
+    "bookmarks": "Bookmarks",
+    "empty": "Nothing here yet — take a look around the bookstore.",
+    "browse": "Browse the bookstore →"
   }
 }

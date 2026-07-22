@@ -157,7 +157,22 @@
     "Which of these should I hand to a ten-year-old?": "이 중 열 살 아이에게 건넬 책은 어느 것인가요?",
     "Order these four into a term-long curriculum.": "이 네 권을 한 학기 커리큘럼으로 배열해 주세요.",
     "lift to the shelf": "선반으로 올리기",
-    "drop it anywhere": "아무 데나 놓으세요"
+    "drop it anywhere": "아무 데나 놓으세요",
+    "Email": "이메일",
+    "Password": "비밀번호",
+    "Create account": "계정 만들기",
+    "Continue with Google": "Google로 계속하기",
+    "or": "또는",
+    "No account yet?": "아직 계정이 없나요?",
+    "Already have an account?": "이미 계정이 있나요?",
+    "Check your inbox — we sent a confirmation link.": "메일함을 확인하세요 — 확인 링크를 보냈습니다.",
+    "Sign out": "로그아웃",
+    "Continue reading": "이어 읽기",
+    "Your books": "내 책",
+    "Bookmarks": "북마크",
+    "Nothing here yet — take a look around the bookstore.": "아직 아무것도 없습니다 — 서점을 둘러보세요.",
+    "Browse the bookstore →": "서점 둘러보기 →",
+    "Bookmark this page": "이 페이지 북마크"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -317,6 +332,21 @@
     "Which of these should I hand to a ten-year-old?": "この中で10歳の子に渡すならどれ?",
     "Order these four into a term-long curriculum.": "この4冊を1学期のカリキュラムに並べてください。",
     "lift to the shelf": "棚へ持ち上げる",
-    "drop it anywhere": "どこにでも置けます"
+    "drop it anywhere": "どこにでも置けます",
+    "Email": "メールアドレス",
+    "Password": "パスワード",
+    "Create account": "アカウント作成",
+    "Continue with Google": "Googleで続行",
+    "or": "または",
+    "No account yet?": "アカウントをお持ちでないですか?",
+    "Already have an account?": "すでにアカウントをお持ちですか?",
+    "Check your inbox — we sent a confirmation link.": "メールをご確認ください — 確認リンクを送信しました。",
+    "Sign out": "ログアウト",
+    "Continue reading": "続きを読む",
+    "Your books": "あなたの本",
+    "Bookmarks": "ブックマーク",
+    "Nothing here yet — take a look around the bookstore.": "まだ何もありません — 書店をのぞいてみてください。",
+    "Browse the bookstore →": "書店を見る →",
+    "Bookmark this page": "このページをブックマーク"
   }
 }

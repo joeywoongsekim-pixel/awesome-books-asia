@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link, usePathname} from '../i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
+import NavAuth from './NavAuth';
 
 export default function Nav() {
   const t = useTranslations('nav');
@@ -59,8 +60,9 @@ export default function Nav() {
       </ul>
 
       <div className="nav-right">
+        <NavAuth />
         <LanguageSwitcher />
-        <Link href="/" className="nav-cta">
+        <Link href="/read/ai-bible" className="nav-cta">
           {t('cta')} →
         </Link>
       </div>
