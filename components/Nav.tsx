@@ -27,11 +27,10 @@ export default function Nav() {
     .filter(Boolean)
     .join(' ');
 
-  // The store route arrives in M3; until then Bookstore anchors to the home
-  // book grid. Reader and Plans anchor to their home sections (per prototype).
+  // Reader and Plans anchor to their home sections (per prototype).
   const items = [
     {key: 'home', href: '/'},
-    {key: 'bookstore', href: '/#books'},
+    {key: 'bookstore', href: '/books'},
     {key: 'reader', href: '/#reader'},
     {key: 'plans', href: '/#plans'}
   ] as const;

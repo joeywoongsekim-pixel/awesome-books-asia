@@ -29,7 +29,7 @@ export default function Plans() {
                 <li>{t('single.f3')}</li>
                 <li>{t('single.f4')}</li>
               </ul>
-              <Link href="/#books" className="plan-c pc-o">
+              <Link href="/books" className="plan-c pc-o">
                 {t('single.cta')}
               </Link>
             </div>

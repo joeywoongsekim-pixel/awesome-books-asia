@@ -119,6 +119,43 @@
     "coupon": "🎁 <b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
     "couponCta": "Redeem a coupon →"
   },
+  "store": {
+    "eyebrow": "The library",
+    "title": "Every book, one shelf",
+    "lead": "Buy a single title, or open all of them with a subscription. Every book comes as both PDF and EPUB.",
+    "count": "{shown} of {total} titles · PDF + EPUB · 3 languages",
+    "subject": "Subject",
+    "language": "Language",
+    "all": "All",
+    "any": "Any",
+    "catAI": "AI & Tech",
+    "catEDU": "Education",
+    "catKIDS": "Children",
+    "empty": "Nothing matches those filters yet — try widening the language."
+  },
+  "detail": {
+    "sample": "Read a sample",
+    "buy": "Buy this book",
+    "subscribeCta": "Subscribe",
+    "included": "included with any subscription",
+    "subnote": "Or read it — and everything else — with a subscription from <b>$9.99 a month</b>.",
+    "contents": "Contents",
+    "detailsHeading": "Details",
+    "format": "Format",
+    "pages": "Pages",
+    "editions": "Editions",
+    "published": "Published",
+    "publisher": "Publisher",
+    "reader": "Reader",
+    "readerValue": "Four-book desk",
+    "keepGoing": "Keep going",
+    "more": "More from the library"
+  },
+  "reader": {
+    "soonTitle": "Your desk is being built",
+    "soonDesc": "Page turns that follow your hand, four books on one desk and the assistant that reads the whole desk open here with Milestone 4.",
+    "back": "← Back to the library"
+  },
   "partner": {
     "eyebrow": "For publishers & authors",
     "title": "A publishing partner<br>for mutual growth",

@@ -6,8 +6,6 @@ import {routing} from '../../i18n/routing';
 import {fontVariables} from '../fonts';
 import '../globals.css';
 import DeskBackground from '../../components/DeskBackground';
-import Nav from '../../components/Nav';
-import Footer from '../../components/Footer';
 
 // Required by next-intl so every locale is statically known at build time.
 export function generateStaticParams() {
@@ -42,14 +40,14 @@ export default async function LocaleLayout({
   // throws DYNAMIC_SERVER_USAGE 500s on Vercel.
   setRequestLocale(locale);
 
+  // Site chrome (nav + footer) lives in the (site) route group so the reader
+  // route can render with its own chrome, per the spec.
   return (
     <html lang={locale} className={fontVariables}>
       <body>
         <NextIntlClientProvider>
           <DeskBackground />
-          <Nav />
-          <div className="wrap">{children}</div>
-          <Footer />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

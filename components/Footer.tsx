@@ -5,36 +5,36 @@ import FooterLangs from './FooterLangs';
 export default function Footer() {
   const t = useTranslations('footer');
 
-  // Destinations arrive in later milestones; links resolve to home for now.
+  // Account/company destinations arrive in later milestones (M5+).
   const columns = [
     {
       heading: t('library'),
       links: [
-        t('libraryLinks.all'),
-        t('libraryLinks.ai'),
-        t('libraryLinks.kids'),
-        t('libraryLinks.education'),
-        t('libraryLinks.new')
+        {label: t('libraryLinks.all'), href: '/books'},
+        {label: t('libraryLinks.ai'), href: '/books'},
+        {label: t('libraryLinks.kids'), href: '/books'},
+        {label: t('libraryLinks.education'), href: '/books'},
+        {label: t('libraryLinks.new'), href: '/books'}
       ]
     },
     {
       heading: t('account'),
       links: [
-        t('accountLinks.signup'),
-        t('accountLinks.login'),
-        t('accountLinks.library'),
-        t('accountLinks.subscription'),
-        t('accountLinks.redeem')
+        {label: t('accountLinks.signup'), href: '/'},
+        {label: t('accountLinks.login'), href: '/'},
+        {label: t('accountLinks.library'), href: '/'},
+        {label: t('accountLinks.subscription'), href: '/'},
+        {label: t('accountLinks.redeem'), href: '/'}
       ]
     },
     {
       heading: t('company'),
       links: [
-        t('companyLinks.about'),
-        t('companyLinks.partnerships'),
-        t('companyLinks.contact'),
-        t('companyLinks.faq'),
-        t('companyLinks.refund')
+        {label: t('companyLinks.about'), href: '/'},
+        {label: t('companyLinks.partnerships'), href: '/'},
+        {label: t('companyLinks.contact'), href: '/'},
+        {label: t('companyLinks.faq'), href: '/'},
+        {label: t('companyLinks.refund'), href: '/'}
       ]
     }
   ];
@@ -51,9 +51,9 @@ export default function Footer() {
           <div key={col.heading}>
             <div className="f-ct">{col.heading}</div>
             <ul className="f-l">
-              {col.links.map((label) => (
+              {col.links.map(({label, href}) => (
                 <li key={label}>
-                  <Link href="/">{label}</Link>
+                  <Link href={href}>{label}</Link>
                 </li>
               ))}
             </ul>

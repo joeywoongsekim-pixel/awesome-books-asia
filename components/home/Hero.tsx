@@ -21,10 +21,10 @@ export default function Hero() {
           <p className="h-sub">{t('subtitle')}</p>
           <div className="h-meta">{t('meta')}</div>
           <div className="h-btns">
-            <Link href="/" className="btn-g">
+            <Link href="/read/ai-bible" className="btn-g">
               📖 {t('ctaPrimary')} →
             </Link>
-            <Link href="/#books" className="btn-o">
+            <Link href="/books" className="btn-o">
               {t('ctaSecondary')}
             </Link>
           </div>
