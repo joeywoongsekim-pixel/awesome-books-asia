@@ -155,7 +155,9 @@
     "Ask the books on your desk…": "책상 위의 책들에게 물어보세요…",
     "How do the books on my desk each frame the same idea?": "책상 위의 책들은 같은 개념을 각각 어떻게 다루나요?",
     "Which of these should I hand to a ten-year-old?": "이 중 열 살 아이에게 건넬 책은 어느 것인가요?",
-    "Order these four into a term-long curriculum.": "이 네 권을 한 학기 커리큘럼으로 배열해 주세요."
+    "Order these four into a term-long curriculum.": "이 네 권을 한 학기 커리큘럼으로 배열해 주세요.",
+    "lift to the shelf": "선반으로 올리기",
+    "drop it anywhere": "아무 데나 놓으세요"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -313,6 +315,8 @@
     "Ask the books on your desk…": "机の上の本に聞いてみてください…",
     "How do the books on my desk each frame the same idea?": "机の上の本は同じ概念をそれぞれどう扱っている?",
     "Which of these should I hand to a ten-year-old?": "この中で10歳の子に渡すならどれ?",
-    "Order these four into a term-long curriculum.": "この4冊を1学期のカリキュラムに並べてください。"
+    "Order these four into a term-long curriculum.": "この4冊を1学期のカリキュラムに並べてください。",
+    "lift to the shelf": "棚へ持ち上げる",
+    "drop it anywhere": "どこにでも置けます"
   }
 }

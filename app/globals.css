@@ -2308,6 +2308,124 @@ footer {
   }
 }
 
+/* book moving */
+.grip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 15px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: grab;
+  z-index: 26;
+  transition: 0.2s;
+  white-space: nowrap;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.grip:hover {
+  background: rgba(245, 166, 35, 0.15);
+  border-color: rgba(245, 166, 35, 0.42);
+  color: var(--gold);
+}
+.mdrop {
+  position: absolute;
+  inset: -16px;
+  border-radius: 14px;
+  border: 2px dashed rgba(245, 166, 35, 0.4);
+  background: rgba(245, 166, 35, 0.04);
+  display: none;
+  place-items: center;
+  z-index: 30;
+  pointer-events: none;
+}
+.mdrop.armed {
+  display: grid;
+}
+.mdrop span {
+  background: rgba(10, 13, 26, 0.88);
+  border: 1px solid rgba(245, 166, 35, 0.4);
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 17px;
+  border-radius: 100px;
+  opacity: 0;
+  transition: 0.2s;
+}
+.mdrop.hot {
+  border-color: var(--gold);
+  background: rgba(245, 166, 35, 0.12);
+}
+.mdrop.hot span {
+  opacity: 1;
+}
+.ghost {
+  position: fixed;
+  z-index: 200;
+  pointer-events: none;
+  width: 158px;
+  padding: 13px 15px;
+  border-radius: 11px;
+  background: linear-gradient(160deg, #fcf9f1, #efe6d5);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(245, 166, 35, 0.55);
+  transform: translate(-50%, -50%) rotate(-5deg);
+}
+.ghost b {
+  display: block;
+  font-size: 23px;
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+.ghost i {
+  display: block;
+  font-family: var(--font-playfair), serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #221e18;
+  line-height: 1.25;
+  font-style: normal;
+}
+.ghost s {
+  display: block;
+  text-decoration: none;
+  font-family: var(--font-space-mono), monospace;
+  font-size: 8.5px;
+  color: #a2977f;
+  margin-top: 6px;
+}
+.rd.dragging {
+  cursor: grabbing;
+}
+.rd.dragging .corner {
+  pointer-events: none;
+}
+.rd.dragging .sbk:hover {
+  transform: rotateX(17deg) translateZ(-70px);
+}
+.sbk.dsrc {
+  opacity: 0.22;
+  filter: grayscale(1) brightness(0.45);
+}
+.sbk.dhot {
+  box-shadow: 0 0 0 2px var(--gold), 0 24px 44px rgba(0, 0, 0, 0.6), 0 0 48px rgba(245, 166, 35, 0.42) !important;
+  filter: brightness(1.1) !important;
+  transform: rotateX(12deg) translateZ(20px) !important;
+}
+.spread.dsrc {
+  opacity: 0.28;
+  filter: grayscale(0.65);
+}
+
 /* focus mode */
 .rd.focus .shelf {
   opacity: 0;

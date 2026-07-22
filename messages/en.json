@@ -169,7 +169,9 @@
     "aiPlaceholder": "Ask the books on your desk…",
     "sugg1": "How do the books on my desk each frame the same idea?",
     "sugg2": "Which of these should I hand to a ten-year-old?",
-    "sugg3": "Order these four into a term-long curriculum."
+    "sugg3": "Order these four into a term-long curriculum.",
+    "ghostLift": "lift to the shelf",
+    "ghostDrop": "drop it anywhere"
   },
   "partner": {
     "eyebrow": "For publishers & authors",

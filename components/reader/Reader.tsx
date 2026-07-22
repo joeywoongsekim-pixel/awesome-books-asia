@@ -18,16 +18,40 @@ type Turn = {
   snap: boolean;
 };
 
+type Drag = {
+  from: number; // desk slot: 0 = main, 1..3 = shelf
+  x: number;
+  y: number;
+  moved: boolean;
+  over: number | null;
+};
+
+const DRAG_THRESHOLD = 6;
+
+const inRect = (x: number, y: number, r: DOMRect) =>
+  x >= r.left && x <= r.right && y >= r.top && y <= r.bottom;
+
+type DragHandlers = {
+  onPointerDown: (e: React.PointerEvent<HTMLDivElement>) => void;
+  onPointerMove: (e: React.PointerEvent<HTMLDivElement>) => void;
+  onPointerUp: (e: React.PointerEvent<HTMLDivElement>) => void;
+  onPointerCancel: (e: React.PointerEvent<HTMLDivElement>) => void;
+};
+
 function ShelfBook({
   book,
   spread,
   label,
-  onTap
+  isSource,
+  isHot,
+  handlers
 }: {
   book: Book;
   spread: number;
   label: string;
-  onTap: () => void;
+  isSource: boolean;
+  isHot: boolean;
+  handlers: DragHandlers;
 }) {
   // Shelf shows the book's current right-hand page, cropped and faded at the
   // bottom (never scaled down — ~10px type stays readable).
@@ -36,7 +60,7 @@ function ShelfBook({
   const c = ctxOf(book, pi);
 
   return (
-    <div className="sbk" onClick={onTap}>
+    <div className={`sbk${isSource ? ' dsrc' : ''}${isHot ? ' dhot' : ''}`} {...handlers}>
       <div className="sb-pg">
         <div className="sb-ch">
           {book.ic} {c.ch}
@@ -76,6 +100,7 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
   const [busy, setBusy] = useState(false);
   const [turn, setTurn] = useState<Turn | null>(null);
   const [hintHidden, setHintHidden] = useState(false);
+  const [drag, setDrag] = useState<Drag | null>(null);
 
   const spreadRef = useRef<HTMLDivElement>(null);
   const draggingCorner = useRef(false);
@@ -160,6 +185,49 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
     });
   }
 
+  // ── book moving (pointer-event drag from shelf books or the grip) ──────
+  function dragHandlers(from: number): DragHandlers {
+    return {
+      onPointerDown: (e) => {
+        if (busy || turn || drag) return;
+        e.preventDefault();
+        e.currentTarget.setPointerCapture(e.pointerId);
+        setDrag({from, x: e.clientX, y: e.clientY, moved: false, over: null});
+      },
+      onPointerMove: (e) => {
+        // Pointer capture + React's synchronous flush on discrete events keep
+        // this closure's `drag` current between renders.
+        if (!drag || drag.from !== from) return;
+        const moved =
+          drag.moved || Math.hypot(e.clientX - drag.x, e.clientY - drag.y) >= DRAG_THRESHOLD;
+        if (moved && !hintHidden) setHintHidden(true);
+        let over: number | null = null;
+        if (drag.from !== 0) {
+          const sr = document.querySelector('.rd .spread')?.getBoundingClientRect();
+          if (sr && inRect(e.clientX, e.clientY, sr)) over = 0;
+        }
+        document.querySelectorAll('.rd .shelf .sbk').forEach((el, i) => {
+          if (inRect(e.clientX, e.clientY, el.getBoundingClientRect())) over = i + 1;
+        });
+        setDrag({...drag, x: e.clientX, y: e.clientY, moved, over});
+      },
+      onPointerUp: () => {
+        if (!drag || drag.from !== from) return;
+        setDrag(null);
+        if (!drag.moved) {
+          // A tap on a shelf book still brings it straight down.
+          if (drag.from !== 0) swapSlots(0, drag.from);
+        } else if (drag.over !== null && drag.over !== drag.from) {
+          swapSlots(drag.from, drag.over);
+        }
+      },
+      onPointerCancel: () => setDrag(null)
+    };
+  }
+
+  const dragging = Boolean(drag?.moved);
+  const dragBook = drag ? BOOKS[order[drag.from]] : null;
+
   // ── keyboard ───────────────────────────────────────────────────────────
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
@@ -190,7 +258,7 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
   const progressPct = ((right + 1) / main.sp.length) * 100;
 
   return (
-    <div className={`rd${focus ? ' focus' : ''}`}>
+    <div className={`rd${focus ? ' focus' : ''}${dragging ? ' dragging' : ''}`}>
       <div className="rd-room" />
       <div className="rd-lamp" />
 
@@ -226,13 +294,25 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
               book={BOOKS[bi]}
               spread={spreadOf[bi] ?? 0}
               label={t('bringDown')}
-              onTap={() => swapSlots(0, si + 1)}
+              isSource={dragging && drag?.from === si + 1}
+              isHot={dragging && drag?.over === si + 1 && drag?.from !== si + 1}
+              handlers={dragHandlers(si + 1)}
             />
           ))}
         </div>
 
         <div className="main-wrap">
           <div className="desk-pos">
+            <div className="grip" {...dragHandlers(0)}>
+              ⠿ {t('grip')}
+            </div>
+            <div
+              className={`mdrop${dragging && drag?.from !== 0 ? ' armed' : ''}${
+                dragging && drag?.over === 0 ? ' hot' : ''
+              }`}
+            >
+              <span>{t('dropMain')}</span>
+            </div>
             <button
               type="button"
               className="pgnav p"
@@ -242,7 +322,12 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
               ‹
             </button>
 
-            <div className={`spread${swapping ? ' swapping' : ''}`} ref={spreadRef}>
+            <div
+              className={`spread${swapping ? ' swapping' : ''}${
+                dragging && drag?.from === 0 ? ' dsrc' : ''
+              }`}
+              ref={spreadRef}
+            >
               <div className="page l">
                 <BigPage book={main} index={staticLeft} />
               </div>
@@ -302,6 +387,14 @@ export default function Reader({initialIndex}: {initialIndex: number}) {
           </div>
         </div>
       </div>
+
+      {dragging && dragBook && drag && (
+        <div className="ghost" style={{left: drag.x, top: drag.y}}>
+          <b>{dragBook.ic}</b>
+          <i>{dragBook.title}</i>
+          <s>{drag.from === 0 ? t('ghostLift') : t('ghostDrop')}</s>
+        </div>
+      )}
 
       <div className="rd-hint" style={hintHidden ? {display: 'none'} : undefined}>
         <span>
