@@ -4,17 +4,7 @@ import {useState, useRef, useEffect} from 'react';
 import {useLocale} from 'next-intl';
 import {usePathname, useRouter} from '../i18n/navigation';
 import {routing, type Locale} from '../i18n/routing';
-
-const LABELS: Record<Locale, string> = {
-  en: 'English',
-  ko: '한국어',
-  ja: '日本語',
-  fil: 'Filipino',
-  de: 'Deutsch',
-  fr: 'Français',
-  es: 'Español',
-  pt: 'Português'
-};
+import {LOCALE_LABELS, LOCALE_FLAGS} from '../lib/locales';
 
 export default function LanguageSwitcher() {
   const locale = useLocale() as Locale;
@@ -46,7 +36,7 @@ export default function LanguageSwitcher() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        🌐 {LABELS[locale]} ▾
+        {LOCALE_FLAGS[locale]} {LOCALE_LABELS[locale]} ▾
       </button>
       {open && (
         <div className="nav-lang-menu" role="listbox">
@@ -59,7 +49,7 @@ export default function LanguageSwitcher() {
               className={l === locale ? 'on' : undefined}
               onClick={() => switchTo(l)}
             >
-              {LABELS[l]}
+              {LOCALE_FLAGS[l]} {LOCALE_LABELS[l]}
             </button>
           ))}
         </div>

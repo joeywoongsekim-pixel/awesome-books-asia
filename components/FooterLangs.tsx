@@ -3,17 +3,7 @@
 import {useLocale} from 'next-intl';
 import {usePathname, useRouter} from '../i18n/navigation';
 import {routing, type Locale} from '../i18n/routing';
-
-const LABELS: Record<Locale, string> = {
-  en: 'English',
-  ko: '한국어',
-  ja: '日本語',
-  fil: 'Filipino',
-  de: 'Deutsch',
-  fr: 'Français',
-  es: 'Español',
-  pt: 'Português'
-};
+import {LOCALE_LABELS, LOCALE_FLAGS} from '../lib/locales';
 
 export default function FooterLangs() {
   const locale = useLocale() as Locale;
@@ -29,7 +19,7 @@ export default function FooterLangs() {
           className={l === locale ? 'on' : undefined}
           onClick={() => l !== locale && router.replace(pathname, {locale: l})}
         >
-          {LABELS[l]}
+          {LOCALE_FLAGS[l]} {LOCALE_LABELS[l]}
         </button>
       ))}
     </div>
