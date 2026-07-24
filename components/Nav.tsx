@@ -2,6 +2,7 @@
 
 import {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
+import Image from 'next/image';
 import {Link, usePathname} from '../i18n/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavAuth from './NavAuth';
@@ -39,7 +40,7 @@ export default function Nav() {
   return (
     <nav className={className}>
       <Link href="/" className="nav-logo">
-        <div className="nav-mark">ABA</div>
+        <Image src="/logo.jpg" alt="" width={52} height={52} className="nav-mark" />
         <div>
           <div className="nav-name">{t('brand')}</div>
           <div className="nav-tag">{t('tagline')}</div>

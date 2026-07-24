@@ -153,19 +153,12 @@ body {
   cursor: pointer;
   text-decoration: none;
 }
-/* Circular seal mark — the logo circle is the only rounded element. */
+/* Circular seal logo — the logo circle is the only rounded element. */
 .nav-mark {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: var(--aba-navy);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-label);
-  font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.06em;
-  color: var(--aba-cream);
+  object-fit: cover;
   box-shadow: 0 0 0 3px rgb(201 169 106 / 0.4);
 }
 .nav-name {
@@ -480,6 +473,14 @@ footer {
   max-width: 1280px;
   margin: 0 auto 40px;
   padding-bottom: 40px;
+}
+.f-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px rgb(201 169 106 / 0.4);
+  margin-bottom: 16px;
 }
 .f-name {
   font-family: var(--font-heading);
@@ -1411,14 +1412,7 @@ footer {
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: var(--aba-navy);
-  color: var(--aba-cream);
-  display: grid;
-  place-items: center;
-  font-family: var(--font-label);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  object-fit: cover;
   box-shadow: 0 0 0 4px rgb(201 169 106 / 0.4);
   margin-bottom: 22px;
 }

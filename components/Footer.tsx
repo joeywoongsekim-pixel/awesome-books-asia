@@ -1,4 +1,5 @@
 import {useTranslations} from 'next-intl';
+import Image from 'next/image';
 import {Link} from '../i18n/navigation';
 import FooterLangs from './FooterLangs';
 
@@ -43,6 +44,7 @@ export default function Footer() {
     <footer>
       <div className="f-top">
         <div>
+          <Image src="/logo.jpg" alt="" width={56} height={56} className="f-logo" />
           <div className="f-name">{t('brand')}</div>
           <div className="f-tag">Awesome Books Asia · Publishing House</div>
           <div className="f-d">{t('description')}</div>

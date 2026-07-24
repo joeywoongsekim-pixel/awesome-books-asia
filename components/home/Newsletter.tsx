@@ -1,6 +1,7 @@
 'use client';
 
 import {useState} from 'react';
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {useRouter} from '../../i18n/navigation';
 
@@ -15,9 +16,7 @@ export default function Newsletter() {
   return (
     <section className="nlband">
       <div className="nl-in">
-        <div className="nl-logo" aria-hidden="true">
-          ABA
-        </div>
+        <Image src="/logo.jpg" alt="" width={64} height={64} className="nl-logo" />
         <div className="nl-eyebrow">{t('eyebrow')}</div>
         <h2 className="nl-t">{t('title')}</h2>
         <p className="nl-lead">{t('lead')}</p>
