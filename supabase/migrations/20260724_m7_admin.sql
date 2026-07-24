@@ -17,7 +17,10 @@ alter table public.admin_emails enable row level security;
 -- no policies on purpose: the allowlist is managed via SQL only
 
 insert into public.admin_emails (email)
-values ('joey.woongse.kim@gmail.com')
+values
+  ('joey.woongse.kim@awesomeai.asia'),
+  ('akira.murata@awesomeai.asia'),
+  ('contact@awesomebooks.asia')
 on conflict (email) do nothing;
 
 create or replace function public.is_admin()
