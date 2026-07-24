@@ -4,7 +4,7 @@
     "description": "Extiende cuatro libros a la vez, pasa las páginas como si fueran de papel y pregunta a una IA que lee todo tu escritorio. Se abre en tu navegador."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Biblioteca digital · Asia",
     "home": "Inicio",
     "bookstore": "Librería",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Prueba el lector",
     "ctaSecondary": "Explora la biblioteca",
     "tags": {
-      "four": "📚 Cuatro libros a la vez",
-      "pages": "✋ Páginas que siguen tu mano",
-      "ai": "✨ IA que lee tu escritorio",
-      "coupons": "🎁 Cupones de regalo"
+      "four": "Cuatro libros a la vez",
+      "pages": "Páginas que siguen tu mano",
+      "ai": "IA que lee tu escritorio",
+      "coupons": "Cupones de regalo"
     },
-    "demoCaption": "Toca un libro arriba — <b>baja directamente</b>"
+    "demoCaption": "Toca un libro arriba — <b>baja directamente</b>",
+    "announce": "Historias de Asia en los idiomas del mundo",
+    "explore": "Descubre el libro",
+    "month": "El libro del mes"
   },
   "pillars": {
     "eyebrow": "Qué lo hace diferente",
@@ -37,19 +40,19 @@
       "no": "Pilar 01",
       "title": "Cuatro libros abiertos<br>en un escritorio",
       "desc": "El manual abierto delante de ti, las referencias apoyadas al lado: estudiar siempre ha funcionado así. Mantén un libro bien abierto y tres de pie detrás, y coge cualquiera de ellos para intercambiar posiciones cuando quieras.",
-      "note": "🖐 Coge un libro y suéltalo donde quieras"
+      "note": "Coge un libro y suéltalo donde quieras"
     },
     "p2": {
       "no": "Pilar 02",
       "title": "Páginas que siguen<br>tu mano",
       "desc": "No es un botón que cambia una pantalla por otra. Sujeta la esquina y la página se levanta hasta donde tires de ella. Suéltala a medio camino y vuelve a su sitio; llévala hasta el otro lado y la sombra recorre el papel con ella.",
-      "note": "✋ Agarra la esquina y tira"
+      "note": "Agarra la esquina y tira"
     },
     "p3": {
       "no": "Pilar 03",
       "title": "Una IA que lee tu escritorio,<br>no una página",
       "desc": "El asistente de cualquier otro lector responde desde el único libro que tienes abierto. El nuestro ve los cuatro a la vez. \"¿Cómo explican estos cuatro la misma idea de forma distinta?\" — esa pregunta por fin se puede hacer.",
-      "note": "✨ Cada respuesta cita libro y página"
+      "note": "Cada respuesta cita libro y página"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Elige un libro"
     },
     "monthly": {
-      "tag": "⭐ El más popular",
+      "tag": "El más popular",
       "name": "Mensual",
       "pd": "al mes · cancela cuando quieras",
       "f1": "Acceso ilimitado a la biblioteca",
@@ -116,7 +119,7 @@
       "f4": "Facturación para organizaciones",
       "cta": "Consigue el anual →"
     },
-    "coupon": "🎁 <b>¿Te han regalado un cupón?</b> Introduce el código y el libro se abre al instante — cada código funciona una vez y luego se bloquea.",
+    "coupon": "<b>¿Te han regalado un cupón?</b> Introduce el código y el libro se abre al instante — cada código funciona una vez y luego se bloquea.",
     "couponCta": "Canjea un cupón →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Habla con nosotros →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Historias sin fronteras",
     "description": "Una plataforma editorial digital que conecta a lectores de toda Asia con buenos libros, en inglés, coreano y japonés.",
     "library": "Biblioteca",
@@ -231,5 +234,18 @@
     "bookmarks": "Marcadores",
     "empty": "Aún no hay nada aquí: date una vuelta por la librería.",
     "browse": "Explora la librería →"
+  },
+  "newsletter": {
+    "eyebrow": "Boletín",
+    "title": "Una carta breve, una vez al mes",
+    "lead": "Novedades, notas de lectura y en qué están trabajando nuestros editores.",
+    "placeholder": "Tu dirección de correo"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Leer más →"
+  },
+  "recent": {
+    "title": "Vistos recientemente"
   }
 }

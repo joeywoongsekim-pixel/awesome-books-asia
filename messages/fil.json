@@ -4,7 +4,7 @@
     "description": "Ibuka ang apat na libro nang sabay-sabay, magpalipat ng pahina na parang totoong papel, at magtanong sa AI na nakakabasa ng buong mesa mo. Bubukas mismo sa browser mo."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Digital na Aklatan · Asya",
     "home": "Home",
     "bookstore": "Tindahan ng Libro",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Subukan ang reader",
     "ctaSecondary": "Tingnan ang aklatan",
     "tags": {
-      "four": "📚 Apat na libro nang sabay",
-      "pages": "✋ Mga pahinang sumusunod sa kamay mo",
-      "ai": "✨ AI na nagbabasa ng mesa mo",
-      "coupons": "🎁 Mga gift coupon"
+      "four": "Apat na libro nang sabay",
+      "pages": "Mga pahinang sumusunod sa kamay mo",
+      "ai": "AI na nagbabasa ng mesa mo",
+      "coupons": "Mga gift coupon"
     },
-    "demoCaption": "I-tap ang isang libro sa itaas — <b>bababa ito agad</b>"
+    "demoCaption": "I-tap ang isang libro sa itaas — <b>bababa ito agad</b>",
+    "announce": "Mga kuwento ng Asya sa mga wika ng mundo",
+    "explore": "Tingnan ang libro",
+    "month": "Libro ng buwan"
   },
   "pillars": {
     "eyebrow": "Ano ang kaibahan nito",
@@ -37,19 +40,19 @@
       "no": "Haligi 01",
       "title": "Apat na librong bukas<br>sa iisang mesa",
       "desc": "Nakabukas na teksbuk sa harap mo, nakapatong ang mga sangguniang libro sa tabi — ganito talaga tayo mag-aral noon pa man. Panatilihing bukas nang malapad ang isang libro at nakatayo ang tatlo sa likod nito, tapos damputin ang kahit alin at magpalitan ng puwesto kahit kailan mo gusto.",
-      "note": "🖐 Damputin ang libro, ibaba kahit saan"
+      "note": "Damputin ang libro, ibaba kahit saan"
     },
     "p2": {
       "no": "Haligi 02",
       "title": "Mga pahinang sumusunod<br>sa kamay mo",
       "desc": "Hindi ito button na nagpapalit lang ng screen. Hawakan ang sulok at aangat ang pahina hanggang saan mo ito hilahin. Bitawan sa kalagitnaan at babalik ito; dalhin hanggang kabila at sasabay ang anino sa papel.",
-      "note": "✋ Hawakan ang sulok at hilahin"
+      "note": "Hawakan ang sulok at hilahin"
     },
     "p3": {
       "no": "Haligi 03",
       "title": "AI na nagbabasa ng<br>mesa mo, hindi lang pahina",
       "desc": "Ang assistant ng ibang reader, sumasagot lang mula sa isang librong bukas mo. Ang sa amin, nakikita ang apat nang sabay. \"Paano magkakaiba ang paliwanag ng apat na ito sa iisang ideya?\" — sa unang pagkakataon, puwede nang itanong iyan.",
-      "note": "✨ Bawat sagot may banggit na libro at pahina"
+      "note": "Bawat sagot may banggit na libro at pahina"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Pumili ng libro"
     },
     "monthly": {
-      "tag": "⭐ Pinakasikat",
+      "tag": "Pinakasikat",
       "name": "Buwanan",
       "pd": "bawat buwan · kanselahin kahit kailan",
       "f1": "Walang limitasyong access sa aklatan",
@@ -116,7 +119,7 @@
       "f4": "Invoice para sa mga organisasyon",
       "cta": "Kunin ang taunan →"
     },
-    "coupon": "🎁 <b>May gift coupon ka ba?</b> Ilagay ang code at bubukas agad ang libro — isang beses lang gumagana ang bawat code, pagkatapos ay nala-lock na.",
+    "coupon": "<b>May gift coupon ka ba?</b> Ilagay ang code at bubukas agad ang libro — isang beses lang gumagana ang bawat code, pagkatapos ay nala-lock na.",
     "couponCta": "I-redeem ang coupon →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Kausapin kami →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Mga Kuwentong Walang Hangganan",
     "description": "Digital na publishing platform na nag-uugnay sa mga mambabasa sa buong Asya sa magagandang libro — sa Ingles, Korean at Hapon.",
     "library": "Aklatan",
@@ -231,5 +234,18 @@
     "bookmarks": "Mga bookmark",
     "empty": "Wala pang laman dito — tumingin-tingin muna sa tindahan ng libro.",
     "browse": "Pumunta sa tindahan ng libro →"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Isang maikling sulat, isang beses sa isang buwan",
+    "lead": "Mga bagong labas, mga tala sa pagbabasa, at ang kasalukuyang ginagawa ng aming mga editor.",
+    "placeholder": "Ang iyong email address"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Basahin pa →"
+  },
+  "recent": {
+    "title": "Kamakailang tiningnan"
   }
 }

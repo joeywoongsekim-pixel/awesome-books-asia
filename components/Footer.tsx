@@ -44,7 +44,7 @@ export default function Footer() {
       <div className="f-top">
         <div>
           <div className="f-name">{t('brand')}</div>
-          <div className="f-tag">{t('tagline')}</div>
+          <div className="f-tag">Awesome Books Asia · Publishing House</div>
           <div className="f-d">{t('description')}</div>
         </div>
         {columns.map((col) => (

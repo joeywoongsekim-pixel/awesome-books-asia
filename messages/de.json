@@ -4,7 +4,7 @@
     "description": "Breiten Sie vier Bücher gleichzeitig aus, blättern Sie wie auf echtem Papier und fragen Sie eine KI, die Ihren ganzen Schreibtisch liest. Läuft direkt im Browser."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Digitale Bibliothek · Asien",
     "home": "Startseite",
     "bookstore": "Buchladen",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Reader ausprobieren",
     "ctaSecondary": "Bibliothek durchstöbern",
     "tags": {
-      "four": "📚 Vier Bücher gleichzeitig",
-      "pages": "✋ Seiten, die Ihrer Hand folgen",
-      "ai": "✨ KI, die Ihren Schreibtisch liest",
-      "coupons": "🎁 Geschenkgutscheine"
+      "four": "Vier Bücher gleichzeitig",
+      "pages": "Seiten, die Ihrer Hand folgen",
+      "ai": "KI, die Ihren Schreibtisch liest",
+      "coupons": "Geschenkgutscheine"
     },
-    "demoCaption": "Tippen Sie oben auf ein Buch — <b>es kommt direkt herunter</b>"
+    "demoCaption": "Tippen Sie oben auf ein Buch — <b>es kommt direkt herunter</b>",
+    "announce": "Asiatische Geschichten in den Sprachen der Welt",
+    "explore": "Buch entdecken",
+    "month": "Buch des Monats"
   },
   "pillars": {
     "eyebrow": "Was es anders macht",
@@ -37,19 +40,19 @@
       "no": "Säule 01",
       "title": "Vier Bücher offen<br>auf einem Schreibtisch",
       "desc": "Das Lehrbuch aufgeschlagen vor Ihnen, die Nachschlagewerke daneben aufgestellt — so hat Lernen schon immer funktioniert. Halten Sie ein Buch weit geöffnet und drei dahinter aufgestellt, nehmen Sie jederzeit eines in die Hand und tauschen Sie die Plätze.",
-      "note": "🖐 Buch aufnehmen, überall ablegen"
+      "note": "Buch aufnehmen, überall ablegen"
     },
     "p2": {
       "no": "Säule 02",
       "title": "Seiten, die Ihrer<br>Hand folgen",
       "desc": "Kein Knopf, der einfach einen Bildschirm gegen den nächsten tauscht. Fassen Sie die Ecke, und die Seite hebt sich so weit, wie Sie ziehen. Lassen Sie auf halbem Weg los, legt sie sich zurück; ziehen Sie sie hinüber, wandert der Schatten über das Papier mit.",
-      "note": "✋ Ecke greifen und ziehen"
+      "note": "Ecke greifen und ziehen"
     },
     "p3": {
       "no": "Säule 03",
       "title": "Eine KI, die Ihren Schreibtisch<br>liest, nicht eine Seite",
       "desc": "Der Assistent jedes anderen Readers antwortet aus dem einen Buch, das Sie gerade geöffnet haben. Unserer sieht alle vier auf einmal. \"Wie erklären diese vier dieselbe Idee unterschiedlich?\" — diese Frage lässt sich zum ersten Mal stellen.",
-      "note": "✨ Jede Antwort nennt Buch und Seite"
+      "note": "Jede Antwort nennt Buch und Seite"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Buch auswählen"
     },
     "monthly": {
-      "tag": "⭐ Am beliebtesten",
+      "tag": "Am beliebtesten",
       "name": "Monatlich",
       "pd": "pro Monat · jederzeit kündbar",
       "f1": "Unbegrenzter Zugang zur Bibliothek",
@@ -116,7 +119,7 @@
       "f4": "Rechnungsstellung für Organisationen",
       "cta": "Jahresabo holen →"
     },
-    "coupon": "🎁 <b>Einen Geschenkgutschein bekommen?</b> Code eingeben, und das Buch öffnet sich sofort — jeder Code funktioniert einmal, danach ist er gesperrt.",
+    "coupon": "<b>Einen Geschenkgutschein bekommen?</b> Code eingeben, und das Buch öffnet sich sofort — jeder Code funktioniert einmal, danach ist er gesperrt.",
     "couponCta": "Gutschein einlösen →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Sprechen Sie mit uns →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Geschichten ohne Grenzen",
     "description": "Eine digitale Verlagsplattform, die Leser in ganz Asien mit guten Büchern verbindet — auf Englisch, Koreanisch und Japanisch.",
     "library": "Bibliothek",
@@ -231,5 +234,18 @@
     "bookmarks": "Lesezeichen",
     "empty": "Hier ist noch nichts — schauen Sie sich im Buchladen um.",
     "browse": "Zum Buchladen →"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Ein kurzer Brief, einmal im Monat",
+    "lead": "Neuerscheinungen, Lesenotizen und woran unsere Redaktion gerade arbeitet.",
+    "placeholder": "Ihre E-Mail-Adresse"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Mehr lesen →"
+  },
+  "recent": {
+    "title": "Zuletzt angesehen"
   }
 }

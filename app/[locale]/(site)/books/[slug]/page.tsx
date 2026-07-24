@@ -5,6 +5,8 @@ import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
 import {BOOKS, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
+import BookCover from '../../../../../components/BookCover';
+import RecordVisit from '../../../../../components/RecordVisit';
 import LangTabs from '../../../../../components/store/LangTabs';
 
 export function generateStaticParams() {
@@ -32,6 +34,7 @@ function BookDetail({book}: {book: Book}) {
 
   return (
     <div className="detail">
+      <RecordVisit slug={book.id} />
       <div className="crumb">
         <Link href="/">{tNav('home')}</Link>
         <i>›</i>
@@ -42,10 +45,7 @@ function BookDetail({book}: {book: Book}) {
 
       <div className="d-top">
         <div className="d-cover-wrap">
-          <div className={`d-cover ${book.cover}`}>
-            {book.ic}
-            <div className="d-cover-logo">AW BOOKS</div>
-          </div>
+          <BookCover book={book} />
         </div>
         <div>
           <div className="d-cat">{book.catLabel}</div>

@@ -39,7 +39,7 @@ export default function Nav() {
   return (
     <nav className={className}>
       <Link href="/" className="nav-logo">
-        <div className="nav-mark">AW</div>
+        <div className="nav-mark">ABA</div>
         <div>
           <div className="nav-name">{t('brand')}</div>
           <div className="nav-tag">{t('tagline')}</div>

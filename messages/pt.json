@@ -4,7 +4,7 @@
     "description": "Espalhe quatro livros de uma vez, vire as páginas como papel de verdade e pergunte a uma IA que lê a sua mesa inteira. Abre direto no navegador."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Biblioteca digital · Ásia",
     "home": "Início",
     "bookstore": "Livraria",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Experimente o leitor",
     "ctaSecondary": "Explorar a biblioteca",
     "tags": {
-      "four": "📚 Quatro livros de uma vez",
-      "pages": "✋ Páginas que seguem a sua mão",
-      "ai": "✨ IA que lê a sua mesa",
-      "coupons": "🎁 Cupons de presente"
+      "four": "Quatro livros de uma vez",
+      "pages": "Páginas que seguem a sua mão",
+      "ai": "IA que lê a sua mesa",
+      "coupons": "Cupons de presente"
     },
-    "demoCaption": "Toque em um livro acima — <b>ele desce na hora</b>"
+    "demoCaption": "Toque em um livro acima — <b>ele desce na hora</b>",
+    "announce": "Histórias da Ásia nas línguas do mundo",
+    "explore": "Conheça o livro",
+    "month": "Livro do mês"
   },
   "pillars": {
     "eyebrow": "O que o torna diferente",
@@ -37,19 +40,19 @@
       "no": "Pilar 01",
       "title": "Quatro livros abertos<br>numa só mesa",
       "desc": "O livro didático aberto à sua frente, as referências apoiadas ao lado — estudar sempre funcionou assim. Mantenha um livro bem aberto e três em pé atrás dele, depois pegue qualquer um e troque as posições quando quiser.",
-      "note": "🖐 Pegue um livro e solte onde quiser"
+      "note": "Pegue um livro e solte onde quiser"
     },
     "p2": {
       "no": "Pilar 02",
       "title": "Páginas que seguem<br>a sua mão",
       "desc": "Não é um botão que troca uma tela por outra. Segure o canto e a página se levanta até onde você puxar. Solte no meio do caminho e ela volta ao lugar; leve-a até o outro lado e a sombra atravessa o papel junto.",
-      "note": "✋ Segure o canto e puxe"
+      "note": "Segure o canto e puxe"
     },
     "p3": {
       "no": "Pilar 03",
       "title": "Uma IA que lê a sua mesa,<br>não uma página",
       "desc": "O assistente de qualquer outro leitor responde de dentro do único livro que você tem aberto. O nosso vê os quatro ao mesmo tempo. \"Como esses quatro explicam a mesma ideia de formas diferentes?\" — essa pergunta se torna possível pela primeira vez.",
-      "note": "✨ Cada resposta cita livro e página"
+      "note": "Cada resposta cita livro e página"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Escolher um livro"
     },
     "monthly": {
-      "tag": "⭐ Mais popular",
+      "tag": "Mais popular",
       "name": "Mensal",
       "pd": "por mês · cancele quando quiser",
       "f1": "Acesso ilimitado à biblioteca",
@@ -116,7 +119,7 @@
       "f4": "Faturamento para organizações",
       "cta": "Assinar o anual →"
     },
-    "coupon": "🎁 <b>Ganhou um cupom de presente?</b> Digite o código e o livro abre na hora — cada código funciona uma vez e depois trava.",
+    "coupon": "<b>Ganhou um cupom de presente?</b> Digite o código e o livro abre na hora — cada código funciona uma vez e depois trava.",
     "couponCta": "Resgatar um cupom →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Fale conosco →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Histórias sem fronteiras",
     "description": "Uma plataforma de publicação digital que conecta leitores de toda a Ásia a bons livros — em inglês, coreano e japonês.",
     "library": "Biblioteca",
@@ -231,5 +234,18 @@
     "bookmarks": "Marcadores",
     "empty": "Nada por aqui ainda — dê uma olhada na livraria.",
     "browse": "Ver a livraria →"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Uma carta curta, uma vez por mês",
+    "lead": "Lançamentos, notas de leitura e no que nossos editores estão trabalhando.",
+    "placeholder": "Seu endereço de e-mail"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Leia mais →"
+  },
+  "recent": {
+    "title": "Vistos recentemente"
   }
 }

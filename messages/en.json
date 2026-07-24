@@ -4,7 +4,7 @@
     "description": "Spread four books at once, turn pages the way paper turns, and ask an AI that reads your whole desk. Opens in your browser."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Digital Library · Asia",
     "home": "Home",
     "bookstore": "Bookstore",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Try the reader",
     "ctaSecondary": "Browse the library",
     "tags": {
-      "four": "📚 Four books at once",
-      "pages": "✋ Pages that follow your hand",
-      "ai": "✨ AI that reads your desk",
-      "coupons": "🎁 Gift coupons"
+      "four": "Four books at once",
+      "pages": "Pages that follow your hand",
+      "ai": "AI that reads your desk",
+      "coupons": "Gift coupons"
     },
-    "demoCaption": "Tap a book above — it <b>comes straight down</b>"
+    "demoCaption": "Tap a book above — it <b>comes straight down</b>",
+    "announce": "Asian stories in the world's languages",
+    "explore": "Explore the book",
+    "month": "Book of the month"
   },
   "pillars": {
     "eyebrow": "What makes it different",
@@ -37,19 +40,19 @@
       "no": "Pillar 01",
       "title": "Four books open<br>on one desk",
       "desc": "A textbook spread in front of you, references propped up beside it — studying has always worked this way. Keep one book open wide and three standing behind it, then pick any of them up and swap places whenever you like.",
-      "note": "🖐 Pick a book up, drop it anywhere"
+      "note": "Pick a book up, drop it anywhere"
     },
     "p2": {
       "no": "Pillar 02",
       "title": "Pages that follow<br>your hand",
       "desc": "Not a button that swaps one screen for another. Take hold of the corner and the page lifts as far as you pull it. Let go halfway and it settles back; carry it over and the shadow travels across the paper with it.",
-      "note": "✋ Grab the corner and pull"
+      "note": "Grab the corner and pull"
     },
     "p3": {
       "no": "Pillar 03",
       "title": "An AI that reads<br>your desk, not a page",
       "desc": "Every other reader's assistant answers from inside the one book you have open. Ours sees all four at once. \"How do these four explain the same idea differently?\" — that question becomes askable for the first time.",
-      "note": "✨ Every answer cites book and page"
+      "note": "Every answer cites book and page"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Choose a book"
     },
     "monthly": {
-      "tag": "⭐ Most popular",
+      "tag": "Most popular",
       "name": "Monthly",
       "pd": "per month · cancel anytime",
       "f1": "Unlimited access to the library",
@@ -116,7 +119,7 @@
       "f4": "Invoicing for organisations",
       "cta": "Get annual →"
     },
-    "coupon": "🎁 <b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
+    "coupon": "<b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
     "couponCta": "Redeem a coupon →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Talk to us →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Stories Without Borders",
     "description": "A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.",
     "library": "Library",
@@ -231,5 +234,18 @@
     "bookmarks": "Bookmarks",
     "empty": "Nothing here yet — take a look around the bookstore.",
     "browse": "Browse the bookstore →"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "A short letter, once a month",
+    "lead": "New releases, reading notes, and what our editors are working on.",
+    "placeholder": "Your email address"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Read more →"
+  },
+  "recent": {
+    "title": "Recently viewed"
   }
 }

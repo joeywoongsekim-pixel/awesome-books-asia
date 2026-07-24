@@ -4,7 +4,7 @@
     "description": "Étalez quatre livres à la fois, tournez les pages comme du vrai papier et interrogez une IA qui lit tout votre bureau. S'ouvre directement dans votre navigateur."
   },
   "nav": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Bibliothèque numérique · Asie",
     "home": "Accueil",
     "bookstore": "Librairie",
@@ -22,12 +22,15 @@
     "ctaPrimary": "Essayer le lecteur",
     "ctaSecondary": "Parcourir la bibliothèque",
     "tags": {
-      "four": "📚 Quatre livres à la fois",
-      "pages": "✋ Des pages qui suivent votre main",
-      "ai": "✨ Une IA qui lit votre bureau",
-      "coupons": "🎁 Coupons cadeaux"
+      "four": "Quatre livres à la fois",
+      "pages": "Des pages qui suivent votre main",
+      "ai": "Une IA qui lit votre bureau",
+      "coupons": "Coupons cadeaux"
     },
-    "demoCaption": "Touchez un livre ci-dessus — <b>il descend aussitôt</b>"
+    "demoCaption": "Touchez un livre ci-dessus — <b>il descend aussitôt</b>",
+    "announce": "Les histoires d'Asie dans les langues du monde",
+    "explore": "Découvrir le livre",
+    "month": "Le livre du mois"
   },
   "pillars": {
     "eyebrow": "Ce qui change tout",
@@ -37,19 +40,19 @@
       "no": "Pilier 01",
       "title": "Quatre livres ouverts<br>sur un seul bureau",
       "desc": "Le manuel grand ouvert devant vous, les références posées à côté — on a toujours étudié comme ça. Gardez un livre grand ouvert et trois debout derrière, puis saisissez n'importe lequel et échangez leurs places quand vous voulez.",
-      "note": "🖐 Saisissez un livre, posez-le où vous voulez"
+      "note": "Saisissez un livre, posez-le où vous voulez"
     },
     "p2": {
       "no": "Pilier 02",
       "title": "Des pages qui suivent<br>votre main",
       "desc": "Pas un bouton qui remplace un écran par un autre. Saisissez le coin et la page se soulève aussi loin que vous la tirez. Lâchez à mi-chemin, elle se repose ; emportez-la de l'autre côté et l'ombre traverse le papier avec elle.",
-      "note": "✋ Attrapez le coin et tirez"
+      "note": "Attrapez le coin et tirez"
     },
     "p3": {
       "no": "Pilier 03",
       "title": "Une IA qui lit votre bureau,<br>pas une page",
       "desc": "L'assistant des autres liseuses répond depuis le seul livre que vous avez ouvert. Le nôtre voit les quatre à la fois. « Comment ces quatre livres expliquent-ils différemment la même idée ? » — cette question devient enfin possible.",
-      "note": "✨ Chaque réponse cite le livre et la page"
+      "note": "Chaque réponse cite le livre et la page"
     }
   },
   "books": {
@@ -97,7 +100,7 @@
       "cta": "Choisir un livre"
     },
     "monthly": {
-      "tag": "⭐ Le plus populaire",
+      "tag": "Le plus populaire",
       "name": "Mensuel",
       "pd": "par mois · résiliable à tout moment",
       "f1": "Accès illimité à la bibliothèque",
@@ -116,7 +119,7 @@
       "f4": "Facturation pour les organisations",
       "cta": "Passer à l'annuel →"
     },
-    "coupon": "🎁 <b>On vous a offert un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre aussitôt — chaque code ne sert qu'une fois, puis se verrouille.",
+    "coupon": "<b>On vous a offert un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre aussitôt — chaque code ne sert qu'une fois, puis se verrouille.",
     "couponCta": "Utiliser un coupon →"
   },
   "store": {
@@ -181,7 +184,7 @@
     "cta": "Parlons-en →"
   },
   "footer": {
-    "brand": "AwesomeBooks",
+    "brand": "Awesome Books Asia",
     "tagline": "Des histoires sans frontières",
     "description": "Une plateforme d'édition numérique qui relie les lecteurs d'Asie à de bons livres — en anglais, coréen et japonais.",
     "library": "Bibliothèque",
@@ -231,5 +234,18 @@
     "bookmarks": "Marque-pages",
     "empty": "Rien ici pour l'instant — faites un tour à la librairie.",
     "browse": "Voir la librairie →"
+  },
+  "newsletter": {
+    "eyebrow": "Newsletter",
+    "title": "Une courte lettre, une fois par mois",
+    "lead": "Nouveautés, notes de lecture et ce que préparent nos éditeurs.",
+    "placeholder": "Votre adresse e-mail"
+  },
+  "journal": {
+    "title": "Journal",
+    "readMore": "Lire la suite →"
+  },
+  "recent": {
+    "title": "Consultés récemment"
   }
 }
