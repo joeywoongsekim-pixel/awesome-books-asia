@@ -8,7 +8,12 @@ import {routing, type Locale} from '../i18n/routing';
 const LABELS: Record<Locale, string> = {
   en: 'English',
   ko: '한국어',
-  ja: '日本語'
+  ja: '日本語',
+  fil: 'Filipino',
+  de: 'Deutsch',
+  fr: 'Français',
+  es: 'Español',
+  pt: 'Português'
 };
 
 export default function LanguageSwitcher() {

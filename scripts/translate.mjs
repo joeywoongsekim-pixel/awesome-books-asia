@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * Generates messages/ko.json and messages/ja.json from messages/en.json.
+ * Generates the non-English messages/<locale>.json files from messages/en.json.
  *
- * English (messages/en.json) is the single authored source. KO/JA are committed
+ * English (messages/en.json) is the single authored source. The rest are committed
  * artifacts, not build-time output — regenerate them on demand with
  * `npm run i18n`, review the diff, and commit. The production build never runs
  * this script (deterministic builds, no API key on Vercel, no per-deploy cost).
@@ -17,7 +17,7 @@
  *      not silently dropped).
  *
  * Modes:
- *   node scripts/translate.mjs           Generate ko.json / ja.json (+ update cache)
+ *   node scripts/translate.mjs           Generate all locale files (+ update cache)
  *   node scripts/translate.mjs --check   No API, no writes; exit 1 if any string
  *                                        would fall back to English (for pre-commit).
  */
@@ -29,8 +29,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const messagesDir = join(__dirname, '..', 'messages');
 const cachePath = join(__dirname, 'translation-cache.json');
 
-const TARGETS = ['ko', 'ja'];
-const LOCALE_NAMES = {ko: 'Korean', ja: 'Japanese'};
+const TARGETS = ['ko', 'ja', 'fil', 'de', 'fr', 'es', 'pt'];
+const LOCALE_NAMES = {
+  ko: 'Korean',
+  ja: 'Japanese',
+  fil: 'Filipino',
+  de: 'German',
+  fr: 'French',
+  es: 'Spanish',
+  pt: 'Portuguese'
+};
 const MODEL = 'claude-sonnet-4-6';
 
 const CHECK = process.argv.includes('--check');
@@ -137,7 +145,7 @@ if (CHECK) {
       console.error(`[i18n:check] ${locale}: ${fellBack[locale].length} untranslated string(s):`);
       for (const s of fellBack[locale]) console.error(`  · ${s}`);
     }
-    console.error('\nRun `npm run i18n` to translate them, then commit ko.json / ja.json.');
+    console.error('\nRun `npm run i18n` to translate them, then commit the locale files.');
     process.exit(1);
   }
   console.log('[i18n:check] All strings translated for every locale.');

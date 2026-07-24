@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — Basahin ang buong mesa",
+    "description": "Ibuka ang apat na libro nang sabay-sabay, magpalipat ng pahina na parang totoong papel, at magtanong sa AI na nakakabasa ng buong mesa mo. Bubukas mismo sa browser mo."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "Digital na Aklatan · Asya",
+    "home": "Home",
+    "bookstore": "Tindahan ng Libro",
+    "reader": "Ang Reader",
+    "plans": "Mga Plano",
+    "library": "Aking Aklatan",
+    "language": "Filipino",
+    "cta": "Magsimulang magbasa"
+  },
+  "home": {
+    "badge": "Bagong reader · live na",
+    "title": "Basahin ang buong <em>mesa</em>, hindi lang isang libro",
+    "subtitle": "Ibuka ang apat na libro nang sabay-sabay. Magpalipat ng pahina na parang totoong papel. Pagkatapos, tanungin ang AI ng tanong na sumasaklaw sa lahat ng ito — walang app na kailangang i-install, bubukas ito sa browser mo.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · sa kahit anong device",
+    "ctaPrimary": "Subukan ang reader",
+    "ctaSecondary": "Tingnan ang aklatan",
+    "tags": {
+      "four": "📚 Apat na libro nang sabay",
+      "pages": "✋ Mga pahinang sumusunod sa kamay mo",
+      "ai": "✨ AI na nagbabasa ng mesa mo",
+      "coupons": "🎁 Mga gift coupon"
+    },
+    "demoCaption": "I-tap ang isang libro sa itaas — <b>bababa ito agad</b>"
+  },
+  "pillars": {
+    "eyebrow": "Ano ang kaibahan nito",
+    "title": "Muling dinisenyo namin<br>kung paano magbasa",
+    "lead": "Karamihan ng e-reader, inililipat lang ang papel na libro sa screen. Kami, sa iba nagsimula — sa kung ano lang ang kayang gawin ng screen.",
+    "p1": {
+      "no": "Haligi 01",
+      "title": "Apat na librong bukas<br>sa iisang mesa",
+      "desc": "Nakabukas na teksbuk sa harap mo, nakapatong ang mga sangguniang libro sa tabi — ganito talaga tayo mag-aral noon pa man. Panatilihing bukas nang malapad ang isang libro at nakatayo ang tatlo sa likod nito, tapos damputin ang kahit alin at magpalitan ng puwesto kahit kailan mo gusto.",
+      "note": "🖐 Damputin ang libro, ibaba kahit saan"
+    },
+    "p2": {
+      "no": "Haligi 02",
+      "title": "Mga pahinang sumusunod<br>sa kamay mo",
+      "desc": "Hindi ito button na nagpapalit lang ng screen. Hawakan ang sulok at aangat ang pahina hanggang saan mo ito hilahin. Bitawan sa kalagitnaan at babalik ito; dalhin hanggang kabila at sasabay ang anino sa papel.",
+      "note": "✋ Hawakan ang sulok at hilahin"
+    },
+    "p3": {
+      "no": "Haligi 03",
+      "title": "AI na nagbabasa ng<br>mesa mo, hindi lang pahina",
+      "desc": "Ang assistant ng ibang reader, sumasagot lang mula sa isang librong bukas mo. Ang sa amin, nakikita ang apat nang sabay. \"Paano magkakaiba ang paliwanag ng apat na ito sa iisang ideya?\" — sa unang pagkakataon, puwede nang itanong iyan.",
+      "note": "✨ Bawat sagot may banggit na libro at pahina"
+    }
+  },
+  "books": {
+    "eyebrow": "Ang aming aklatan",
+    "title": "Mga librong mababasa mo ngayon",
+    "lead": "AI literacy, edukasyon at mga kuwentong pambata — bawat isa ay available sa iba't ibang wika.",
+    "viewAll": "Tingnan lahat ng libro →",
+    "new": "Bago",
+    "priceFrom": "<em>mula</em>${price}",
+    "details": "Detalye →",
+    "subscribe": "Mag-subscribe →",
+    "inSubscription": "Kasama sa subscription"
+  },
+  "steps": {
+    "eyebrow": "Simple",
+    "title": "Paano magsimula",
+    "lead": "Walang i-install, walang i-configure. Tatlong hakbang at nagbabasa ka na.",
+    "s1": {
+      "no": "Hakbang 01",
+      "title": "Mag-sign up",
+      "desc": "Email o Google, ilang segundo lang. Hindi mo kailangan ng card para lang tumingin-tingin sa aklatan."
+    },
+    "s2": {
+      "no": "Hakbang 02",
+      "title": "Bumili o mag-subscribe",
+      "desc": "Kumuha ng isang libro, o buksan ang buong aklatan gamit ang subscription. Dito rin inilalagay ang mga gift coupon code."
+    },
+    "s3": {
+      "no": "Hakbang 03",
+      "title": "Buksan ang mesa mo",
+      "desc": "Bubukas ito mismo sa browser mo. Awtomatikong nase-save ang kinaroroonan mo at mga bookmark habang nagbabasa ka."
+    }
+  },
+  "plans": {
+    "eyebrow": "Mga Plano",
+    "title": "Kung ano lang ang kailangan mo",
+    "lead": "Magsimula sa isang libro, o buksan ang buong aklatan.",
+    "single": {
+      "name": "Isang libro",
+      "pd": "isang bayad · sa iyo habang-buhay",
+      "f1": "Mananatiling sa iyo ang libro habang-buhay",
+      "f2": "Kasama pareho ang PDF at EPUB",
+      "f3": "Lahat ng edisyon ng wika",
+      "f4": "Basahin sa kahit anong device",
+      "cta": "Pumili ng libro"
+    },
+    "monthly": {
+      "tag": "⭐ Pinakasikat",
+      "name": "Buwanan",
+      "pd": "bawat buwan · kanselahin kahit kailan",
+      "f1": "Walang limitasyong access sa aklatan",
+      "f2": "Awtomatikong naidadagdag ang mga bagong libro",
+      "f3": "Mesa na may apat na libro at AI assistant",
+      "f4": "Naka-sync ang mga bookmark at progreso",
+      "f5": "Maagang access sa mga bagong labas",
+      "cta": "Simulan ang buwanan →"
+    },
+    "annual": {
+      "name": "Taunan",
+      "pd": "bawat taon · makatipid ng 33%",
+      "f1": "Lahat ng nasa Buwanan",
+      "f2": "Makakatipid ng $39.89 kumpara sa buwanan",
+      "f3": "Madaling iregalo",
+      "f4": "Invoice para sa mga organisasyon",
+      "cta": "Kunin ang taunan →"
+    },
+    "coupon": "🎁 <b>May gift coupon ka ba?</b> Ilagay ang code at bubukas agad ang libro — isang beses lang gumagana ang bawat code, pagkatapos ay nala-lock na.",
+    "couponCta": "I-redeem ang coupon →"
+  },
+  "store": {
+    "eyebrow": "Ang aklatan",
+    "title": "Lahat ng libro, iisang istante",
+    "lead": "Bumili ng isang libro, o buksan lahat gamit ang subscription. Bawat libro ay may PDF at EPUB.",
+    "count": "{shown} sa {total} na libro · PDF + EPUB · 3 wika",
+    "subject": "Paksa",
+    "language": "Wika",
+    "all": "Lahat",
+    "any": "Kahit alin",
+    "catAI": "AI at Teknolohiya",
+    "catEDU": "Edukasyon",
+    "catKIDS": "Pambata",
+    "empty": "Walang tumutugma sa mga filter na iyan — subukang palawakin ang wika."
+  },
+  "detail": {
+    "sample": "Magbasa ng sample",
+    "buy": "Bilhin ang librong ito",
+    "subscribeCta": "Mag-subscribe",
+    "included": "kasama sa kahit anong subscription",
+    "subnote": "O basahin ito — at lahat ng iba pa — gamit ang subscription mula <b>$9.99 bawat buwan</b>.",
+    "contents": "Nilalaman",
+    "detailsHeading": "Mga Detalye",
+    "format": "Format",
+    "pages": "Mga pahina",
+    "editions": "Mga edisyon",
+    "published": "Nailathala",
+    "publisher": "Tagapaglathala",
+    "reader": "Reader",
+    "readerValue": "Mesa na may apat na libro",
+    "keepGoing": "Tuloy lang",
+    "more": "Iba pa mula sa aklatan"
+  },
+  "reader": {
+    "back": "← Aklatan",
+    "deskMode": "Desk mode · 4 na librong bukas",
+    "focusMode": "Focus mode · 1 libro",
+    "focusBtn": "Focus",
+    "aiBtn": "AI desk",
+    "grip": "Ilipat ang librong ito",
+    "dropMain": "Ibaba dito → main",
+    "bringDown": "Ibaba",
+    "hintPick": "<b>Damputin ang libro</b> at ibaba kahit saan",
+    "hintCorner": "I-drag ang sulok ng pahina para lumipat",
+    "aiTitle": "AI desk assistant",
+    "aiNote": "Hindi lang isang libro — binabasa nito ang <b>buong mesa mo</b>.",
+    "aiDeskHeading": "Nasa mesa mo ngayon",
+    "aiSuggHeading": "Mga mungkahing tanong sa pagitan ng mga libro",
+    "aiPlaceholder": "Tanungin ang mga libro sa mesa mo…",
+    "sugg1": "Paano tinatalakay ng bawat libro sa mesa ko ang iisang ideya?",
+    "sugg2": "Alin dito ang dapat kong ibigay sa sampung-taong-gulang?",
+    "sugg3": "Ayusin ang apat na ito bilang kurikulum para sa isang semestre.",
+    "ghostLift": "iangat sa istante",
+    "ghostDrop": "ibaba kahit saan",
+    "bookmark": "I-bookmark ang pahinang ito"
+  },
+  "partner": {
+    "eyebrow": "Para sa mga publisher at awtor",
+    "title": "Kasosyo sa paglalathala<br>para sa sama-samang paglago",
+    "lead": "Dalhin ang iyong akda sa mga mambabasa sa buong Asya. Malugod na tinatanggap ang mga publisher, awtor at content creator.",
+    "cta": "Kausapin kami →"
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "Mga Kuwentong Walang Hangganan",
+    "description": "Digital na publishing platform na nag-uugnay sa mga mambabasa sa buong Asya sa magagandang libro — sa Ingles, Korean at Hapon.",
+    "library": "Aklatan",
+    "libraryLinks": {
+      "all": "Lahat ng libro",
+      "ai": "AI at Teknolohiya",
+      "kids": "Mga librong pambata",
+      "education": "Edukasyon",
+      "new": "Mga bagong labas"
+    },
+    "account": "Account",
+    "accountLinks": {
+      "signup": "Mag-sign up",
+      "login": "Mag-log in",
+      "library": "Aking Aklatan",
+      "subscription": "Pamahalaan ang subscription",
+      "redeem": "I-redeem ang coupon"
+    },
+    "company": "Kumpanya",
+    "companyLinks": {
+      "about": "Tungkol sa amin",
+      "partnerships": "Mga partnership",
+      "contact": "Makipag-ugnayan",
+      "faq": "FAQ",
+      "refund": "Patakaran sa refund"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Konektado sa Awesome AI Asia"
+  },
+  "auth": {
+    "loginTitle": "Mag-log in",
+    "signupTitle": "Mag-sign up",
+    "email": "Email",
+    "password": "Password",
+    "loginBtn": "Mag-log in",
+    "signupBtn": "Gumawa ng account",
+    "google": "Magpatuloy gamit ang Google",
+    "or": "o",
+    "noAccount": "Wala ka pang account?",
+    "haveAccount": "May account ka na?",
+    "checkEmail": "Tingnan ang inbox mo — nagpadala kami ng confirmation link.",
+    "signOut": "Mag-sign out"
+  },
+  "library": {
+    "title": "Aking Aklatan",
+    "continue": "Ituloy ang pagbabasa",
+    "owned": "Mga libro mo",
+    "bookmarks": "Mga bookmark",
+    "empty": "Wala pang laman dito — tumingin-tingin muna sa tindahan ng libro.",
+    "browse": "Pumunta sa tindahan ng libro →"
+  }
+}

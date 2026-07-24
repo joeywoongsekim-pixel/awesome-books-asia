@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
+    "description": "Breiten Sie vier Bücher gleichzeitig aus, blättern Sie wie auf echtem Papier und fragen Sie eine KI, die Ihren ganzen Schreibtisch liest. Läuft direkt im Browser."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "Digitale Bibliothek · Asien",
+    "home": "Startseite",
+    "bookstore": "Buchladen",
+    "reader": "Der Reader",
+    "plans": "Tarife",
+    "library": "Meine Bibliothek",
+    "language": "Deutsch",
+    "cta": "Jetzt lesen"
+  },
+  "home": {
+    "badge": "Neuer Reader · jetzt live",
+    "title": "Lesen Sie den ganzen <em>Schreibtisch</em>, nicht nur ein Buch",
+    "subtitle": "Vier Bücher gleichzeitig ausgebreitet. Seiten, die sich wie Papier umblättern. Und eine KI, der Sie Fragen quer über alle vier stellen können — keine App nötig, läuft direkt im Browser.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · auf jedem Gerät",
+    "ctaPrimary": "Reader ausprobieren",
+    "ctaSecondary": "Bibliothek durchstöbern",
+    "tags": {
+      "four": "📚 Vier Bücher gleichzeitig",
+      "pages": "✋ Seiten, die Ihrer Hand folgen",
+      "ai": "✨ KI, die Ihren Schreibtisch liest",
+      "coupons": "🎁 Geschenkgutscheine"
+    },
+    "demoCaption": "Tippen Sie oben auf ein Buch — <b>es kommt direkt herunter</b>"
+  },
+  "pillars": {
+    "eyebrow": "Was es anders macht",
+    "title": "Wir haben das Lesen<br>neu gedacht",
+    "lead": "Die meisten E-Reader übertragen einfach ein Papierbuch auf einen Bildschirm. Wir haben woanders angefangen — bei dem, was nur ein Bildschirm kann.",
+    "p1": {
+      "no": "Säule 01",
+      "title": "Vier Bücher offen<br>auf einem Schreibtisch",
+      "desc": "Das Lehrbuch aufgeschlagen vor Ihnen, die Nachschlagewerke daneben aufgestellt — so hat Lernen schon immer funktioniert. Halten Sie ein Buch weit geöffnet und drei dahinter aufgestellt, nehmen Sie jederzeit eines in die Hand und tauschen Sie die Plätze.",
+      "note": "🖐 Buch aufnehmen, überall ablegen"
+    },
+    "p2": {
+      "no": "Säule 02",
+      "title": "Seiten, die Ihrer<br>Hand folgen",
+      "desc": "Kein Knopf, der einfach einen Bildschirm gegen den nächsten tauscht. Fassen Sie die Ecke, und die Seite hebt sich so weit, wie Sie ziehen. Lassen Sie auf halbem Weg los, legt sie sich zurück; ziehen Sie sie hinüber, wandert der Schatten über das Papier mit.",
+      "note": "✋ Ecke greifen und ziehen"
+    },
+    "p3": {
+      "no": "Säule 03",
+      "title": "Eine KI, die Ihren Schreibtisch<br>liest, nicht eine Seite",
+      "desc": "Der Assistent jedes anderen Readers antwortet aus dem einen Buch, das Sie gerade geöffnet haben. Unserer sieht alle vier auf einmal. \"Wie erklären diese vier dieselbe Idee unterschiedlich?\" — diese Frage lässt sich zum ersten Mal stellen.",
+      "note": "✨ Jede Antwort nennt Buch und Seite"
+    }
+  },
+  "books": {
+    "eyebrow": "Unsere Bibliothek",
+    "title": "Bücher, die Sie heute lesen können",
+    "lead": "KI-Kompetenz, Bildung und Kindergeschichten — jeweils in mehreren Sprachen verfügbar.",
+    "viewAll": "Alle Bücher ansehen →",
+    "new": "Neu",
+    "priceFrom": "<em>ab</em>${price}",
+    "details": "Details →",
+    "subscribe": "Abonnieren →",
+    "inSubscription": "Im Abo enthalten"
+  },
+  "steps": {
+    "eyebrow": "Einfach",
+    "title": "So geht's los",
+    "lead": "Nichts zu installieren, nichts einzurichten. Drei Schritte, und Sie lesen.",
+    "s1": {
+      "no": "Schritt 01",
+      "title": "Registrieren",
+      "desc": "E-Mail oder Google, ein paar Sekunden. Zum Stöbern in der Bibliothek brauchen Sie keine Karte."
+    },
+    "s2": {
+      "no": "Schritt 02",
+      "title": "Kaufen oder abonnieren",
+      "desc": "Nehmen Sie ein einzelnes Buch oder öffnen Sie mit einem Abo die ganze Bibliothek. Auch Geschenkgutschein-Codes werden hier eingelöst."
+    },
+    "s3": {
+      "no": "Schritt 03",
+      "title": "Öffnen Sie Ihren Schreibtisch",
+      "desc": "Öffnet sich direkt im Browser. Lesestelle und Lesezeichen speichern sich beim Lesen von selbst."
+    }
+  },
+  "plans": {
+    "eyebrow": "Tarife",
+    "title": "Nur, was Sie brauchen",
+    "lead": "Beginnen Sie mit einem einzelnen Buch oder öffnen Sie die gesamte Bibliothek.",
+    "single": {
+      "name": "Einzelnes Buch",
+      "pd": "einmal zahlen · für immer Ihres",
+      "f1": "Das Buch gehört dauerhaft Ihnen",
+      "f2": "PDF und EPUB beide enthalten",
+      "f3": "Jede Sprachausgabe",
+      "f4": "Auf jedem Gerät lesen",
+      "cta": "Buch auswählen"
+    },
+    "monthly": {
+      "tag": "⭐ Am beliebtesten",
+      "name": "Monatlich",
+      "pd": "pro Monat · jederzeit kündbar",
+      "f1": "Unbegrenzter Zugang zur Bibliothek",
+      "f2": "Neue Titel kommen automatisch dazu",
+      "f3": "Vier-Bücher-Schreibtisch und KI-Assistent",
+      "f4": "Lesezeichen und Fortschritt synchronisiert",
+      "f5": "Frühzugang zu Neuerscheinungen",
+      "cta": "Monatlich starten →"
+    },
+    "annual": {
+      "name": "Jährlich",
+      "pd": "pro Jahr · 33 % sparen",
+      "f1": "Alles aus Monatlich",
+      "f2": "Spart $39.89 gegenüber monatlich",
+      "f3": "Lässt sich einfach verschenken",
+      "f4": "Rechnungsstellung für Organisationen",
+      "cta": "Jahresabo holen →"
+    },
+    "coupon": "🎁 <b>Einen Geschenkgutschein bekommen?</b> Code eingeben, und das Buch öffnet sich sofort — jeder Code funktioniert einmal, danach ist er gesperrt.",
+    "couponCta": "Gutschein einlösen →"
+  },
+  "store": {
+    "eyebrow": "Die Bibliothek",
+    "title": "Jedes Buch, ein Regal",
+    "lead": "Kaufen Sie einen einzelnen Titel oder öffnen Sie alle mit einem Abo. Jedes Buch gibt es als PDF und EPUB.",
+    "count": "{shown} von {total} Titeln · PDF + EPUB · 3 Sprachen",
+    "subject": "Thema",
+    "language": "Sprache",
+    "all": "Alle",
+    "any": "Beliebig",
+    "catAI": "KI & Technik",
+    "catEDU": "Bildung",
+    "catKIDS": "Kinder",
+    "empty": "Dazu passt noch nichts — versuchen Sie es mit einer weiteren Sprache."
+  },
+  "detail": {
+    "sample": "Leseprobe lesen",
+    "buy": "Dieses Buch kaufen",
+    "subscribeCta": "Abonnieren",
+    "included": "in jedem Abo enthalten",
+    "subnote": "Oder lesen Sie es — und alles andere — mit einem Abo ab <b>$9.99 im Monat</b>.",
+    "contents": "Inhalt",
+    "detailsHeading": "Details",
+    "format": "Format",
+    "pages": "Seiten",
+    "editions": "Ausgaben",
+    "published": "Erschienen",
+    "publisher": "Verlag",
+    "reader": "Reader",
+    "readerValue": "Vier-Bücher-Schreibtisch",
+    "keepGoing": "Dranbleiben",
+    "more": "Mehr aus der Bibliothek"
+  },
+  "reader": {
+    "back": "← Bibliothek",
+    "deskMode": "Schreibtisch-Modus · 4 Bücher offen",
+    "focusMode": "Fokus-Modus · 1 Buch",
+    "focusBtn": "Fokus",
+    "aiBtn": "KI-Desk",
+    "grip": "Dieses Buch verschieben",
+    "dropMain": "Hier ablegen → Hauptplatz",
+    "bringDown": "Herunterholen",
+    "hintPick": "<b>Nehmen Sie ein Buch auf</b> und legen Sie es überall ab",
+    "hintCorner": "Zum Blättern die Seitenecke ziehen",
+    "aiTitle": "KI-Desk-Assistent",
+    "aiNote": "Nicht ein Buch — sie liest Ihren <b>ganzen Schreibtisch</b>.",
+    "aiDeskHeading": "Gerade auf Ihrem Schreibtisch",
+    "aiSuggHeading": "Vorgeschlagene buchübergreifende Fragen",
+    "aiPlaceholder": "Fragen Sie die Bücher auf Ihrem Schreibtisch…",
+    "sugg1": "Wie rahmt jedes Buch auf meinem Schreibtisch dieselbe Idee?",
+    "sugg2": "Welches davon sollte ich einem Zehnjährigen geben?",
+    "sugg3": "Ordnen Sie diese vier zu einem Lehrplan für ein Semester.",
+    "ghostLift": "ins Regal heben",
+    "ghostDrop": "überall ablegen",
+    "bookmark": "Diese Seite merken"
+  },
+  "partner": {
+    "eyebrow": "Für Verlage & Autoren",
+    "title": "Ein Verlagspartner<br>für gemeinsames Wachstum",
+    "lead": "Bringen Sie Ihre Werke zu Leserinnen und Lesern in ganz Asien. Verlage, Autoren und Content-Creator sind alle willkommen.",
+    "cta": "Sprechen Sie mit uns →"
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "Geschichten ohne Grenzen",
+    "description": "Eine digitale Verlagsplattform, die Leser in ganz Asien mit guten Büchern verbindet — auf Englisch, Koreanisch und Japanisch.",
+    "library": "Bibliothek",
+    "libraryLinks": {
+      "all": "Alle Bücher",
+      "ai": "KI & Technik",
+      "kids": "Kinderbücher",
+      "education": "Bildung",
+      "new": "Neuerscheinungen"
+    },
+    "account": "Konto",
+    "accountLinks": {
+      "signup": "Registrieren",
+      "login": "Anmelden",
+      "library": "Meine Bibliothek",
+      "subscription": "Abo verwalten",
+      "redeem": "Gutschein einlösen"
+    },
+    "company": "Unternehmen",
+    "companyLinks": {
+      "about": "Über uns",
+      "partnerships": "Partnerschaften",
+      "contact": "Kontakt",
+      "faq": "FAQ",
+      "refund": "Rückerstattungsrichtlinie"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Verbunden mit Awesome AI Asia"
+  },
+  "auth": {
+    "loginTitle": "Anmelden",
+    "signupTitle": "Registrieren",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "loginBtn": "Anmelden",
+    "signupBtn": "Konto erstellen",
+    "google": "Mit Google fortfahren",
+    "or": "oder",
+    "noAccount": "Noch kein Konto?",
+    "haveAccount": "Schon ein Konto?",
+    "checkEmail": "Prüfen Sie Ihren Posteingang — wir haben einen Bestätigungslink gesendet.",
+    "signOut": "Abmelden"
+  },
+  "library": {
+    "title": "Meine Bibliothek",
+    "continue": "Weiterlesen",
+    "owned": "Ihre Bücher",
+    "bookmarks": "Lesezeichen",
+    "empty": "Hier ist noch nichts — schauen Sie sich im Buchladen um.",
+    "browse": "Zum Buchladen →"
+  }
+}

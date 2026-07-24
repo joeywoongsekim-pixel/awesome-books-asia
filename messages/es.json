@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — Lee el escritorio entero",
+    "description": "Extiende cuatro libros a la vez, pasa las páginas como si fueran de papel y pregunta a una IA que lee todo tu escritorio. Se abre en tu navegador."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "Biblioteca digital · Asia",
+    "home": "Inicio",
+    "bookstore": "Librería",
+    "reader": "El lector",
+    "plans": "Planes",
+    "library": "Mi biblioteca",
+    "language": "Español",
+    "cta": "Empieza a leer"
+  },
+  "home": {
+    "badge": "Nuevo lector · ya disponible",
+    "title": "Lee el <em>escritorio</em> entero, no solo un libro",
+    "subtitle": "Extiende cuatro libros a la vez. Pasa las páginas como si fueran de papel. Luego hazle a la IA una pregunta que atraviese los cuatro — sin apps que instalar, se abre en tu navegador.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · en cualquier dispositivo",
+    "ctaPrimary": "Prueba el lector",
+    "ctaSecondary": "Explora la biblioteca",
+    "tags": {
+      "four": "📚 Cuatro libros a la vez",
+      "pages": "✋ Páginas que siguen tu mano",
+      "ai": "✨ IA que lee tu escritorio",
+      "coupons": "🎁 Cupones de regalo"
+    },
+    "demoCaption": "Toca un libro arriba — <b>baja directamente</b>"
+  },
+  "pillars": {
+    "eyebrow": "Qué lo hace diferente",
+    "title": "Rediseñamos<br>la forma de leer",
+    "lead": "La mayoría de los e-readers se limitan a pasar un libro de papel a una pantalla. Nosotros empezamos por otro lado: por lo que solo una pantalla puede hacer.",
+    "p1": {
+      "no": "Pilar 01",
+      "title": "Cuatro libros abiertos<br>en un escritorio",
+      "desc": "El manual abierto delante de ti, las referencias apoyadas al lado: estudiar siempre ha funcionado así. Mantén un libro bien abierto y tres de pie detrás, y coge cualquiera de ellos para intercambiar posiciones cuando quieras.",
+      "note": "🖐 Coge un libro y suéltalo donde quieras"
+    },
+    "p2": {
+      "no": "Pilar 02",
+      "title": "Páginas que siguen<br>tu mano",
+      "desc": "No es un botón que cambia una pantalla por otra. Sujeta la esquina y la página se levanta hasta donde tires de ella. Suéltala a medio camino y vuelve a su sitio; llévala hasta el otro lado y la sombra recorre el papel con ella.",
+      "note": "✋ Agarra la esquina y tira"
+    },
+    "p3": {
+      "no": "Pilar 03",
+      "title": "Una IA que lee tu escritorio,<br>no una página",
+      "desc": "El asistente de cualquier otro lector responde desde el único libro que tienes abierto. El nuestro ve los cuatro a la vez. \"¿Cómo explican estos cuatro la misma idea de forma distinta?\" — esa pregunta por fin se puede hacer.",
+      "note": "✨ Cada respuesta cita libro y página"
+    }
+  },
+  "books": {
+    "eyebrow": "Nuestra biblioteca",
+    "title": "Libros que puedes leer hoy",
+    "lead": "Alfabetización en IA, educación y cuentos infantiles, cada uno disponible en varios idiomas.",
+    "viewAll": "Ver todos los libros →",
+    "new": "Nuevo",
+    "priceFrom": "<em>desde</em>${price}",
+    "details": "Detalles →",
+    "subscribe": "Suscríbete →",
+    "inSubscription": "Incluido en la suscripción"
+  },
+  "steps": {
+    "eyebrow": "Sencillo",
+    "title": "Cómo empezar",
+    "lead": "Nada que instalar ni configurar. Tres pasos y ya estás leyendo.",
+    "s1": {
+      "no": "Paso 01",
+      "title": "Regístrate",
+      "desc": "Email o Google, unos segundos. No necesitas tarjeta solo para echar un vistazo a la biblioteca."
+    },
+    "s2": {
+      "no": "Paso 02",
+      "title": "Compra o suscríbete",
+      "desc": "Llévate un solo libro o abre toda la biblioteca con una suscripción. Los códigos de cupones de regalo también van aquí."
+    },
+    "s3": {
+      "no": "Paso 03",
+      "title": "Abre tu escritorio",
+      "desc": "Se abre directamente en tu navegador. Tu progreso y tus marcadores se guardan solos mientras lees."
+    }
+  },
+  "plans": {
+    "eyebrow": "Planes",
+    "title": "Solo lo que necesitas",
+    "lead": "Empieza con un solo libro o abre toda la biblioteca.",
+    "single": {
+      "name": "Libro suelto",
+      "pd": "un solo pago · tuyo para siempre",
+      "f1": "El libro es tuyo permanentemente",
+      "f2": "PDF y EPUB incluidos",
+      "f3": "Todas las ediciones de idioma",
+      "f4": "Lee en cualquier dispositivo",
+      "cta": "Elige un libro"
+    },
+    "monthly": {
+      "tag": "⭐ El más popular",
+      "name": "Mensual",
+      "pd": "al mes · cancela cuando quieras",
+      "f1": "Acceso ilimitado a la biblioteca",
+      "f2": "Nuevos títulos añadidos automáticamente",
+      "f3": "Escritorio de cuatro libros y asistente de IA",
+      "f4": "Marcadores y progreso sincronizados",
+      "f5": "Acceso anticipado a los lanzamientos",
+      "cta": "Empieza el plan mensual →"
+    },
+    "annual": {
+      "name": "Anual",
+      "pd": "al año · ahorra un 33%",
+      "f1": "Todo lo del plan Mensual",
+      "f2": "Ahorras $39.89 frente al mensual",
+      "f3": "Un regalo fácil de hacer",
+      "f4": "Facturación para organizaciones",
+      "cta": "Consigue el anual →"
+    },
+    "coupon": "🎁 <b>¿Te han regalado un cupón?</b> Introduce el código y el libro se abre al instante — cada código funciona una vez y luego se bloquea.",
+    "couponCta": "Canjea un cupón →"
+  },
+  "store": {
+    "eyebrow": "La biblioteca",
+    "title": "Todos los libros, un solo estante",
+    "lead": "Compra un solo título o ábrelos todos con una suscripción. Cada libro viene en PDF y EPUB.",
+    "count": "{shown} de {total} títulos · PDF + EPUB · 3 idiomas",
+    "subject": "Tema",
+    "language": "Idioma",
+    "all": "Todos",
+    "any": "Cualquiera",
+    "catAI": "IA y Tecnología",
+    "catEDU": "Educación",
+    "catKIDS": "Infantil",
+    "empty": "Nada coincide con esos filtros; prueba a ampliar el idioma."
+  },
+  "detail": {
+    "sample": "Lee una muestra",
+    "buy": "Compra este libro",
+    "subscribeCta": "Suscríbete",
+    "included": "incluido con cualquier suscripción",
+    "subnote": "O léelo — junto con todo lo demás — con una suscripción desde <b>$9.99 al mes</b>.",
+    "contents": "Contenido",
+    "detailsHeading": "Detalles",
+    "format": "Formato",
+    "pages": "Páginas",
+    "editions": "Ediciones",
+    "published": "Publicado",
+    "publisher": "Editorial",
+    "reader": "Lector",
+    "readerValue": "Escritorio de cuatro libros",
+    "keepGoing": "No te detengas",
+    "more": "Más de la biblioteca"
+  },
+  "reader": {
+    "back": "← Biblioteca",
+    "deskMode": "Modo escritorio · 4 libros abiertos",
+    "focusMode": "Modo enfoque · 1 libro",
+    "focusBtn": "Enfoque",
+    "aiBtn": "Escritorio IA",
+    "grip": "Mueve este libro",
+    "dropMain": "Suelta aquí → principal",
+    "bringDown": "Bajar",
+    "hintPick": "<b>Coge un libro</b> y suéltalo donde quieras",
+    "hintCorner": "Arrastra la esquina de la página para pasarla",
+    "aiTitle": "Asistente IA del escritorio",
+    "aiNote": "No un libro: lee <b>todo tu escritorio</b>.",
+    "aiDeskHeading": "En tu escritorio ahora mismo",
+    "aiSuggHeading": "Preguntas sugeridas entre libros",
+    "aiPlaceholder": "Pregunta a los libros de tu escritorio…",
+    "sugg1": "¿Cómo enfoca cada libro de mi escritorio la misma idea?",
+    "sugg2": "¿Cuál de estos le daría a un niño de diez años?",
+    "sugg3": "Ordena estos cuatro en un plan de estudios de un semestre.",
+    "ghostLift": "levanta hasta el estante",
+    "ghostDrop": "suéltalo donde quieras",
+    "bookmark": "Marca esta página"
+  },
+  "partner": {
+    "eyebrow": "Para editoriales y autores",
+    "title": "Un socio editorial<br>para crecer juntos",
+    "lead": "Lleva tu obra a lectores de toda Asia. Editoriales, autores y creadores de contenido son bienvenidos.",
+    "cta": "Habla con nosotros →"
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "Historias sin fronteras",
+    "description": "Una plataforma editorial digital que conecta a lectores de toda Asia con buenos libros, en inglés, coreano y japonés.",
+    "library": "Biblioteca",
+    "libraryLinks": {
+      "all": "Todos los libros",
+      "ai": "IA y Tecnología",
+      "kids": "Libros infantiles",
+      "education": "Educación",
+      "new": "Novedades"
+    },
+    "account": "Cuenta",
+    "accountLinks": {
+      "signup": "Regístrate",
+      "login": "Inicia sesión",
+      "library": "Mi biblioteca",
+      "subscription": "Gestionar suscripción",
+      "redeem": "Canjear cupón"
+    },
+    "company": "Empresa",
+    "companyLinks": {
+      "about": "Sobre nosotros",
+      "partnerships": "Alianzas",
+      "contact": "Contacto",
+      "faq": "FAQ",
+      "refund": "Política de reembolso"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Conectado con Awesome AI Asia"
+  },
+  "auth": {
+    "loginTitle": "Inicia sesión",
+    "signupTitle": "Regístrate",
+    "email": "Email",
+    "password": "Contraseña",
+    "loginBtn": "Inicia sesión",
+    "signupBtn": "Crear cuenta",
+    "google": "Continuar con Google",
+    "or": "o",
+    "noAccount": "¿Aún no tienes cuenta?",
+    "haveAccount": "¿Ya tienes cuenta?",
+    "checkEmail": "Revisa tu bandeja de entrada: te enviamos un enlace de confirmación.",
+    "signOut": "Cerrar sesión"
+  },
+  "library": {
+    "title": "Mi biblioteca",
+    "continue": "Continuar leyendo",
+    "owned": "Tus libros",
+    "bookmarks": "Marcadores",
+    "empty": "Aún no hay nada aquí: date una vuelta por la librería.",
+    "browse": "Explora la librería →"
+  }
+}

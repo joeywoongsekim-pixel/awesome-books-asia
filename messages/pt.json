@@ -1,0 +1,235 @@
+{
+  "meta": {
+    "title": "AwesomeBooks — Leia a mesa inteira",
+    "description": "Espalhe quatro livros de uma vez, vire as páginas como papel de verdade e pergunte a uma IA que lê a sua mesa inteira. Abre direto no navegador."
+  },
+  "nav": {
+    "brand": "AwesomeBooks",
+    "tagline": "Biblioteca digital · Ásia",
+    "home": "Início",
+    "bookstore": "Livraria",
+    "reader": "O leitor",
+    "plans": "Planos",
+    "library": "Minha biblioteca",
+    "language": "Português",
+    "cta": "Começar a ler"
+  },
+  "home": {
+    "badge": "Novo leitor · já disponível",
+    "title": "Leia a <em>mesa</em> inteira, não apenas um livro",
+    "subtitle": "Espalhe quatro livros de uma vez. Vire as páginas como papel de verdade. Depois faça à IA uma pergunta que atravesse todos eles — sem app para instalar, abre no seu navegador.",
+    "meta": "PDF + EPUB · English · 한국어 · 日本語 · em qualquer dispositivo",
+    "ctaPrimary": "Experimente o leitor",
+    "ctaSecondary": "Explorar a biblioteca",
+    "tags": {
+      "four": "📚 Quatro livros de uma vez",
+      "pages": "✋ Páginas que seguem a sua mão",
+      "ai": "✨ IA que lê a sua mesa",
+      "coupons": "🎁 Cupons de presente"
+    },
+    "demoCaption": "Toque em um livro acima — <b>ele desce na hora</b>"
+  },
+  "pillars": {
+    "eyebrow": "O que o torna diferente",
+    "title": "Redesenhamos<br>a forma de ler",
+    "lead": "A maioria dos e-readers apenas transfere um livro de papel para uma tela. Nós começamos por outro lugar — pelo que só uma tela consegue fazer.",
+    "p1": {
+      "no": "Pilar 01",
+      "title": "Quatro livros abertos<br>numa só mesa",
+      "desc": "O livro didático aberto à sua frente, as referências apoiadas ao lado — estudar sempre funcionou assim. Mantenha um livro bem aberto e três em pé atrás dele, depois pegue qualquer um e troque as posições quando quiser.",
+      "note": "🖐 Pegue um livro e solte onde quiser"
+    },
+    "p2": {
+      "no": "Pilar 02",
+      "title": "Páginas que seguem<br>a sua mão",
+      "desc": "Não é um botão que troca uma tela por outra. Segure o canto e a página se levanta até onde você puxar. Solte no meio do caminho e ela volta ao lugar; leve-a até o outro lado e a sombra atravessa o papel junto.",
+      "note": "✋ Segure o canto e puxe"
+    },
+    "p3": {
+      "no": "Pilar 03",
+      "title": "Uma IA que lê a sua mesa,<br>não uma página",
+      "desc": "O assistente de qualquer outro leitor responde de dentro do único livro que você tem aberto. O nosso vê os quatro ao mesmo tempo. \"Como esses quatro explicam a mesma ideia de formas diferentes?\" — essa pergunta se torna possível pela primeira vez.",
+      "note": "✨ Cada resposta cita livro e página"
+    }
+  },
+  "books": {
+    "eyebrow": "Nossa biblioteca",
+    "title": "Livros que você pode ler hoje",
+    "lead": "Letramento em IA, educação e histórias infantis — cada um disponível em vários idiomas.",
+    "viewAll": "Ver todos os livros →",
+    "new": "Novo",
+    "priceFrom": "<em>a partir de</em>${price}",
+    "details": "Detalhes →",
+    "subscribe": "Assinar →",
+    "inSubscription": "Incluído na assinatura"
+  },
+  "steps": {
+    "eyebrow": "Simples",
+    "title": "Como começar",
+    "lead": "Nada para instalar, nada para configurar. Três passos e você já está lendo.",
+    "s1": {
+      "no": "Passo 01",
+      "title": "Cadastre-se",
+      "desc": "E-mail ou Google, alguns segundos. Você não precisa de cartão só para conhecer a biblioteca."
+    },
+    "s2": {
+      "no": "Passo 02",
+      "title": "Compre ou assine",
+      "desc": "Leve um único livro ou abra a biblioteca inteira com uma assinatura. Os códigos de cupom de presente também entram aqui."
+    },
+    "s3": {
+      "no": "Passo 03",
+      "title": "Abra a sua mesa",
+      "desc": "Abre direto no seu navegador. Seu progresso e seus marcadores se salvam sozinhos enquanto você lê."
+    }
+  },
+  "plans": {
+    "eyebrow": "Planos",
+    "title": "Só o que você precisa",
+    "lead": "Comece com um único livro ou abra a biblioteca inteira.",
+    "single": {
+      "name": "Livro avulso",
+      "pd": "pagamento único · seu para sempre",
+      "f1": "O livro fica seu permanentemente",
+      "f2": "PDF e EPUB incluídos",
+      "f3": "Todas as edições de idioma",
+      "f4": "Leia em qualquer dispositivo",
+      "cta": "Escolher um livro"
+    },
+    "monthly": {
+      "tag": "⭐ Mais popular",
+      "name": "Mensal",
+      "pd": "por mês · cancele quando quiser",
+      "f1": "Acesso ilimitado à biblioteca",
+      "f2": "Novos títulos adicionados automaticamente",
+      "f3": "Mesa de quatro livros e assistente de IA",
+      "f4": "Marcadores e progresso sincronizados",
+      "f5": "Acesso antecipado aos lançamentos",
+      "cta": "Começar o plano mensal →"
+    },
+    "annual": {
+      "name": "Anual",
+      "pd": "por ano · economize 33%",
+      "f1": "Tudo do plano Mensal",
+      "f2": "Economiza $39.89 em relação ao mensal",
+      "f3": "Um presente simples de dar",
+      "f4": "Faturamento para organizações",
+      "cta": "Assinar o anual →"
+    },
+    "coupon": "🎁 <b>Ganhou um cupom de presente?</b> Digite o código e o livro abre na hora — cada código funciona uma vez e depois trava.",
+    "couponCta": "Resgatar um cupom →"
+  },
+  "store": {
+    "eyebrow": "A biblioteca",
+    "title": "Todos os livros, uma só estante",
+    "lead": "Compre um único título ou abra todos com uma assinatura. Cada livro vem em PDF e EPUB.",
+    "count": "{shown} de {total} títulos · PDF + EPUB · 3 idiomas",
+    "subject": "Assunto",
+    "language": "Idioma",
+    "all": "Todos",
+    "any": "Qualquer",
+    "catAI": "IA e Tecnologia",
+    "catEDU": "Educação",
+    "catKIDS": "Infantil",
+    "empty": "Nada corresponde a esses filtros — tente ampliar o idioma."
+  },
+  "detail": {
+    "sample": "Ler uma amostra",
+    "buy": "Comprar este livro",
+    "subscribeCta": "Assinar",
+    "included": "incluído em qualquer assinatura",
+    "subnote": "Ou leia este — e todo o resto — com uma assinatura a partir de <b>$9.99 por mês</b>.",
+    "contents": "Sumário",
+    "detailsHeading": "Detalhes",
+    "format": "Formato",
+    "pages": "Páginas",
+    "editions": "Edições",
+    "published": "Publicado",
+    "publisher": "Editora",
+    "reader": "Leitor",
+    "readerValue": "Mesa de quatro livros",
+    "keepGoing": "Não pare agora",
+    "more": "Mais da biblioteca"
+  },
+  "reader": {
+    "back": "← Biblioteca",
+    "deskMode": "Modo mesa · 4 livros abertos",
+    "focusMode": "Modo foco · 1 livro",
+    "focusBtn": "Foco",
+    "aiBtn": "Mesa IA",
+    "grip": "Mover este livro",
+    "dropMain": "Solte aqui → principal",
+    "bringDown": "Trazer para baixo",
+    "hintPick": "<b>Pegue um livro</b> e solte onde quiser",
+    "hintCorner": "Arraste o canto da página para virar",
+    "aiTitle": "Assistente IA da mesa",
+    "aiNote": "Não um livro só — ela lê a <b>sua mesa inteira</b>.",
+    "aiDeskHeading": "Na sua mesa agora",
+    "aiSuggHeading": "Perguntas sugeridas entre livros",
+    "aiPlaceholder": "Pergunte aos livros na sua mesa…",
+    "sugg1": "Como cada livro na minha mesa aborda a mesma ideia?",
+    "sugg2": "Qual destes eu daria a uma criança de dez anos?",
+    "sugg3": "Organize estes quatro em um currículo de um semestre.",
+    "ghostLift": "levante até a estante",
+    "ghostDrop": "solte onde quiser",
+    "bookmark": "Marcar esta página"
+  },
+  "partner": {
+    "eyebrow": "Para editoras e autores",
+    "title": "Um parceiro editorial<br>para crescer juntos",
+    "lead": "Leve a sua obra a leitores de toda a Ásia. Editoras, autores e criadores de conteúdo são todos bem-vindos.",
+    "cta": "Fale conosco →"
+  },
+  "footer": {
+    "brand": "AwesomeBooks",
+    "tagline": "Histórias sem fronteiras",
+    "description": "Uma plataforma de publicação digital que conecta leitores de toda a Ásia a bons livros — em inglês, coreano e japonês.",
+    "library": "Biblioteca",
+    "libraryLinks": {
+      "all": "Todos os livros",
+      "ai": "IA e Tecnologia",
+      "kids": "Livros infantis",
+      "education": "Educação",
+      "new": "Lançamentos"
+    },
+    "account": "Conta",
+    "accountLinks": {
+      "signup": "Cadastre-se",
+      "login": "Entrar",
+      "library": "Minha biblioteca",
+      "subscription": "Gerenciar assinatura",
+      "redeem": "Resgatar cupom"
+    },
+    "company": "Empresa",
+    "companyLinks": {
+      "about": "Sobre nós",
+      "partnerships": "Parcerias",
+      "contact": "Contato",
+      "faq": "FAQ",
+      "refund": "Política de reembolso"
+    },
+    "copyright": "© 2026 AwesomeBooks.asia — Conectado à Awesome AI Asia"
+  },
+  "auth": {
+    "loginTitle": "Entrar",
+    "signupTitle": "Cadastre-se",
+    "email": "E-mail",
+    "password": "Senha",
+    "loginBtn": "Entrar",
+    "signupBtn": "Criar conta",
+    "google": "Continuar com o Google",
+    "or": "ou",
+    "noAccount": "Ainda não tem conta?",
+    "haveAccount": "Já tem uma conta?",
+    "checkEmail": "Confira sua caixa de entrada — enviamos um link de confirmação.",
+    "signOut": "Sair"
+  },
+  "library": {
+    "title": "Minha biblioteca",
+    "continue": "Continuar lendo",
+    "owned": "Seus livros",
+    "bookmarks": "Marcadores",
+    "empty": "Nada por aqui ainda — dê uma olhada na livraria.",
+    "browse": "Ver a livraria →"
+  }
+}
