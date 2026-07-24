@@ -59,7 +59,7 @@ function BookDetail({book}: {book: Book}) {
               <small>{book.price ? tPlans('single.pd') : t('included')}</small>
             </div>
             <Link href={`/read/${book.id}`} className="btn-g">
-              📖 {t('sample')}
+              {t('sample')}
             </Link>
             <Link href={`/read/${book.id}`} className="btn-o">
               {book.price ? t('buy') : t('subscribeCta')}

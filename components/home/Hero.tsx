@@ -7,7 +7,6 @@ export default function Hero() {
 
   return (
     <section className="hero">
-      <div className="hero-glow" aria-hidden="true" />
       <div className="hero-in">
         <div>
           <div className="h-badge">
@@ -22,7 +21,7 @@ export default function Hero() {
           <div className="h-meta">{t('meta')}</div>
           <div className="h-btns">
             <Link href="/read/ai-bible" className="btn-g">
-              📖 {t('ctaPrimary')} →
+              {t('ctaPrimary')} →
             </Link>
             <Link href="/books" className="btn-o">
               {t('ctaSecondary')}

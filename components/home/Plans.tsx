@@ -19,7 +19,7 @@ export default function Plans() {
             <div className="plan">
               <div className="plan-n">{t('single.name')}</div>
               <div className="plan-p">
-                $7<span style={{fontSize: 19, color: 'rgba(255,255,255,.4)'}}>–15</span>
+                $7<span style={{fontSize: 19, color: 'var(--ink-3)'}}>–15</span>
               </div>
               <div className="plan-pd">{t('single.pd')}</div>
               <div className="plan-hr" />
@@ -55,7 +55,7 @@ export default function Plans() {
             <div className="plan">
               <div className="plan-n">{t('annual.name')}</div>
               <div className="plan-p">
-                $79<span style={{fontSize: 18, color: 'rgba(255,255,255,.4)'}}>.99</span>
+                $79<span style={{fontSize: 18, color: 'var(--ink-3)'}}>.99</span>
               </div>
               <div className="plan-pd">{t('annual.pd')}</div>
               <div className="plan-hr" />
