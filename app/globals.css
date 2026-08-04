@@ -190,9 +190,9 @@ body {
 .nav-menu a {
   color: var(--ink-1);
   font-family: var(--font-label);
-  font-size: 11px;
+  font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   padding: 6px 0;
   transition: 0.2s;
