@@ -1,5 +1,6 @@
 import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
+import CheckoutButton from '../CheckoutButton';
 import Reveal from '../Reveal';
 
 export default function Plans() {
@@ -47,9 +48,9 @@ export default function Plans() {
                 <li>{t('monthly.f4')}</li>
                 <li>{t('monthly.f5')}</li>
               </ul>
-              <Link href="/" className="plan-c pc-g">
+              <CheckoutButton target={{kind: 'sub', plan: 'monthly'}} className="plan-c pc-g">
                 {t('monthly.cta')}
-              </Link>
+              </CheckoutButton>
             </div>
 
             <div className="plan">
@@ -65,9 +66,9 @@ export default function Plans() {
                 <li>{t('annual.f3')}</li>
                 <li>{t('annual.f4')}</li>
               </ul>
-              <Link href="/" className="plan-c pc-o">
+              <CheckoutButton target={{kind: 'sub', plan: 'annual'}} className="plan-c pc-o">
                 {t('annual.cta')}
-              </Link>
+              </CheckoutButton>
             </div>
           </div>
 
@@ -75,7 +76,7 @@ export default function Plans() {
             {t.rich('coupon', {
               b: (chunks) => <b>{chunks}</b>
             })}
-            <Link href="/">{t('couponCta')}</Link>
+            <Link href="/redeem">{t('couponCta')}</Link>
           </div>
         </Reveal>
       </div>

@@ -288,5 +288,21 @@
     "fieldTitle": "Title",
     "fieldAuthor": "Author",
     "fieldBook": "Book"
+  },
+  "paywall": {
+    "title": "The sample ends here",
+    "body": "Buy the book, or open the whole library with a subscription, to keep reading.",
+    "plans": "See plans",
+    "close": "Close"
+  },
+  "redeem": {
+    "code": "Coupon code",
+    "cta": "Redeem",
+    "ok": "The coupon has been applied. The book is now in your library.",
+    "invalid": "That code is not valid or has already been used.",
+    "expired": "That code has expired."
+  },
+  "checkout": {
+    "unavailable": "Payments are not configured yet."
   }
 }

@@ -288,5 +288,21 @@
     "fieldTitle": "Titel",
     "fieldAuthor": "Autor",
     "fieldBook": "Buch"
+  },
+  "paywall": {
+    "title": "Hier endet die Leseprobe",
+    "body": "Kaufen Sie das Buch oder öffnen Sie mit einem Abo die ganze Bibliothek, um weiterzulesen.",
+    "plans": "Tarife ansehen",
+    "close": "Schließen"
+  },
+  "redeem": {
+    "code": "Gutscheincode",
+    "cta": "Einlösen",
+    "ok": "Der Gutschein wurde eingelöst. Sie finden alles in Ihrer Bibliothek.",
+    "invalid": "Dieser Code ist ungültig oder wurde bereits eingelöst.",
+    "expired": "Dieser Code ist abgelaufen."
+  },
+  "checkout": {
+    "unavailable": "Zahlungen sind noch nicht eingerichtet."
   }
 }

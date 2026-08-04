@@ -126,6 +126,8 @@ body {
 }
 
 /* ══════════ NAV (§9.3 — sticky, cream, 76px) ══════════ */
+/* gestalten-style order on a crisp white bar: menu left, seal + wordmark
+   centred, account / language / CTA right. */
 .nav {
   position: sticky;
   top: 0;
@@ -133,30 +135,32 @@ body {
   right: 0;
   z-index: 100;
   height: 76px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
+  gap: 20px;
   padding: 0 32px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--hair);
+  background: #ffffff;
+  border-bottom: 1px solid var(--hair-soft);
 }
 .nav.stuck,
 .nav.solid {
   height: 76px;
-  background: var(--bg);
+  background: #ffffff;
   box-shadow: none;
 }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 13px;
+  justify-content: center;
+  gap: 11px;
   cursor: pointer;
   text-decoration: none;
 }
 /* Circular seal logo — the logo circle is the only rounded element. */
 .nav-mark {
-  width: 52px;
-  height: 52px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 0 0 3px rgb(201 169 106 / 0.4);
@@ -179,13 +183,17 @@ body {
 }
 .nav-menu {
   display: flex;
-  gap: 30px;
+  gap: 26px;
   list-style: none;
+  justify-self: start;
 }
 .nav-menu a {
   color: var(--ink-1);
-  font-size: 15px;
-  font-weight: 500;
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   padding: 6px 0;
   transition: 0.2s;
   cursor: pointer;
@@ -202,6 +210,7 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+  justify-self: end;
 }
 .nav-lang {
   position: relative;
@@ -3284,6 +3293,14 @@ footer {
     gap: 32px;
   }
 }
+@media (max-width: 1080px) {
+  .nav {
+    grid-template-columns: auto 1fr;
+  }
+  .nav-logo {
+    justify-content: flex-start;
+  }
+}
 @media (max-width: 720px) {
   .nav {
     padding-left: 16px;
@@ -3616,4 +3633,101 @@ footer {
     display: block;
     overflow-x: auto;
   }
+}
+
+
+/* ══════════ SAMPLE PAYWALL (M6) ══════════ */
+.rd-pay {
+  position: absolute;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: rgb(7 9 18 / 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.rd-pay-card {
+  width: min(420px, calc(100vw - 40px));
+  background: #10131f;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: 14px;
+  padding: 30px 28px 22px;
+  text-align: center;
+  color: #fff;
+}
+.rd-pay-t {
+  font-family: var(--font-playfair), serif;
+  font-size: 23px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.rd-pay-b {
+  font-size: 13.5px;
+  line-height: 1.8;
+  color: rgb(255 255 255 / 0.6);
+  margin-bottom: 22px;
+}
+.rd-pay-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.rd-pay-btns a {
+  display: block;
+  padding: 12px;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 9px;
+  transition: 0.2s;
+}
+.rd-pay-buy {
+  background: var(--gold);
+  color: var(--navy);
+}
+.rd-pay-buy:hover {
+  background: var(--gold-dk);
+}
+.rd-pay-alt {
+  border: 1px solid rgb(255 255 255 / 0.22);
+  color: #fff;
+}
+.rd-pay-alt:hover {
+  border-color: rgb(255 255 255 / 0.45);
+}
+.rd-pay-x {
+  margin-top: 14px;
+  background: none;
+  border: none;
+  color: rgb(255 255 255 / 0.4);
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.rd-pay-x:hover {
+  color: rgb(255 255 255 / 0.7);
+}
+
+/* checkout button wrapper (plans + detail) */
+.co-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.plans .co-wrap {
+  display: block;
+}
+.plans .co-wrap .plan-c {
+  width: 100%;
+}
+.co-wrap button {
+  font-family: inherit;
+}
+.co-note {
+  font-size: 12px;
+  color: var(--ink-3);
+}
+.rd .co-note {
+  color: rgb(255 255 255 / 0.5);
 }

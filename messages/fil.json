@@ -288,5 +288,21 @@
     "fieldTitle": "Pamagat",
     "fieldAuthor": "May-akda",
     "fieldBook": "Libro"
+  },
+  "paywall": {
+    "title": "Hanggang dito lang ang sample",
+    "body": "Para magpatuloy sa pagbabasa, bilhin ang libro o buksan ang buong aklatan gamit ang subscription.",
+    "plans": "Tingnan ang mga plano",
+    "close": "Isara"
+  },
+  "redeem": {
+    "code": "Coupon code",
+    "cta": "I-redeem",
+    "ok": "Nailapat na ang kupon. Nasa aklatan mo na ito.",
+    "invalid": "Hindi wasto o nagamit na ang code na iyan.",
+    "expired": "Paso na ang code na iyan."
+  },
+  "checkout": {
+    "unavailable": "Hindi pa naka-set up ang pagbabayad."
   }
 }

@@ -7,6 +7,7 @@ import {BOOKS, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
+import CheckoutButton from '../../../../../components/CheckoutButton';
 import LangTabs from '../../../../../components/store/LangTabs';
 
 export function generateStaticParams() {
@@ -61,9 +62,15 @@ function BookDetail({book}: {book: Book}) {
             <Link href={`/read/${book.id}`} className="btn-g">
               {t('sample')}
             </Link>
-            <Link href={`/read/${book.id}`} className="btn-o">
-              {book.price ? t('buy') : t('subscribeCta')}
-            </Link>
+            {book.price ? (
+              <CheckoutButton target={{kind: 'book', slug: book.id}} className="btn-o">
+                {t('buy')}
+              </CheckoutButton>
+            ) : (
+              <Link href="/#plans" className="btn-o">
+                {t('subscribeCta')}
+              </Link>
+            )}
           </div>
           <div className="d-subnote">
             {t.rich('subnote', {

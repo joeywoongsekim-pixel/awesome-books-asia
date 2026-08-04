@@ -231,7 +231,17 @@
     "Unused": "미사용",
     "Title": "제목",
     "Author": "저자",
-    "Book": "책"
+    "Book": "책",
+    "The sample ends here": "샘플은 여기까지입니다",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "계속 읽으시려면 책을 구매하시거나, 구독으로 라이브러리 전체를 열어 주세요.",
+    "See plans": "요금제 보기",
+    "Close": "닫기",
+    "Coupon code": "쿠폰 코드",
+    "Redeem": "등록",
+    "The coupon has been applied. The book is now in your library.": "쿠폰이 적용되었습니다. 내 서재에서 확인하실 수 있습니다.",
+    "That code is not valid or has already been used.": "유효하지 않거나 이미 사용된 코드입니다.",
+    "That code has expired.": "만료된 코드입니다.",
+    "Payments are not configured yet.": "결제가 아직 설정되지 않았습니다."
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -465,7 +475,17 @@
     "Unused": "未使用",
     "Title": "タイトル",
     "Author": "著者",
-    "Book": "本"
+    "Book": "本",
+    "The sample ends here": "サンプルはここまでです",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "続きを読むには、本を購入するか、サブスクリプションでライブラリ全体を開いてください。",
+    "See plans": "料金プランを見る",
+    "Close": "閉じる",
+    "Coupon code": "クーポンコード",
+    "Redeem": "利用する",
+    "The coupon has been applied. The book is now in your library.": "クーポンが適用されました。マイライブラリでご確認いただけます。",
+    "That code is not valid or has already been used.": "無効なコード、または既に使用されたコードです。",
+    "That code has expired.": "有効期限が切れたコードです。",
+    "Payments are not configured yet.": "決済はまだ設定されていません。"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -695,7 +715,17 @@
     "Unused": "Hindi pa nagagamit",
     "Title": "Pamagat",
     "Author": "May-akda",
-    "Book": "Libro"
+    "Book": "Libro",
+    "The sample ends here": "Hanggang dito lang ang sample",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "Para magpatuloy sa pagbabasa, bilhin ang libro o buksan ang buong aklatan gamit ang subscription.",
+    "See plans": "Tingnan ang mga plano",
+    "Close": "Isara",
+    "Coupon code": "Coupon code",
+    "Redeem": "I-redeem",
+    "The coupon has been applied. The book is now in your library.": "Nailapat na ang kupon. Nasa aklatan mo na ito.",
+    "That code is not valid or has already been used.": "Hindi wasto o nagamit na ang code na iyan.",
+    "That code has expired.": "Paso na ang code na iyan.",
+    "Payments are not configured yet.": "Hindi pa naka-set up ang pagbabayad."
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -925,7 +955,17 @@
     "Unused": "Nicht eingelöst",
     "Title": "Titel",
     "Author": "Autor",
-    "Book": "Buch"
+    "Book": "Buch",
+    "The sample ends here": "Hier endet die Leseprobe",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "Kaufen Sie das Buch oder öffnen Sie mit einem Abo die ganze Bibliothek, um weiterzulesen.",
+    "See plans": "Tarife ansehen",
+    "Close": "Schließen",
+    "Coupon code": "Gutscheincode",
+    "Redeem": "Einlösen",
+    "The coupon has been applied. The book is now in your library.": "Der Gutschein wurde eingelöst. Sie finden alles in Ihrer Bibliothek.",
+    "That code is not valid or has already been used.": "Dieser Code ist ungültig oder wurde bereits eingelöst.",
+    "That code has expired.": "Dieser Code ist abgelaufen.",
+    "Payments are not configured yet.": "Zahlungen sind noch nicht eingerichtet."
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1155,7 +1195,17 @@
     "Unused": "Non utilisé",
     "Title": "Titre",
     "Author": "Auteur",
-    "Book": "Livre"
+    "Book": "Livre",
+    "The sample ends here": "L'extrait s'arrête ici",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "Achetez le livre, ou ouvrez toute la bibliothèque avec un abonnement, pour continuer la lecture.",
+    "See plans": "Voir les formules",
+    "Close": "Fermer",
+    "Coupon code": "Code du coupon",
+    "Redeem": "Utiliser",
+    "The coupon has been applied. The book is now in your library.": "Le coupon a été appliqué. Retrouvez le tout dans votre bibliothèque.",
+    "That code is not valid or has already been used.": "Ce code n'est pas valide ou a déjà été utilisé.",
+    "That code has expired.": "Ce code a expiré.",
+    "Payments are not configured yet.": "Les paiements ne sont pas encore configurés."
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1385,7 +1435,17 @@
     "Unused": "Sin usar",
     "Title": "Título",
     "Author": "Autor",
-    "Book": "Libro"
+    "Book": "Libro",
+    "The sample ends here": "La muestra termina aquí",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "Compra el libro o abre toda la biblioteca con una suscripción para seguir leyendo.",
+    "See plans": "Ver planes",
+    "Close": "Cerrar",
+    "Coupon code": "Código del cupón",
+    "Redeem": "Canjear",
+    "The coupon has been applied. The book is now in your library.": "El cupón se ha aplicado. Ya está en tu biblioteca.",
+    "That code is not valid or has already been used.": "Ese código no es válido o ya se ha usado.",
+    "That code has expired.": "Ese código ha caducado.",
+    "Payments are not configured yet.": "Los pagos aún no están configurados."
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -1615,6 +1675,16 @@
     "Unused": "Não usado",
     "Title": "Título",
     "Author": "Autor",
-    "Book": "Livro"
+    "Book": "Livro",
+    "The sample ends here": "A amostra termina aqui",
+    "Buy the book, or open the whole library with a subscription, to keep reading.": "Compre o livro ou abra a biblioteca inteira com uma assinatura para continuar lendo.",
+    "See plans": "Ver planos",
+    "Close": "Fechar",
+    "Coupon code": "Código do cupom",
+    "Redeem": "Resgatar",
+    "The coupon has been applied. The book is now in your library.": "O cupom foi aplicado. Já está na sua biblioteca.",
+    "That code is not valid or has already been used.": "Esse código não é válido ou já foi usado.",
+    "That code has expired.": "Esse código expirou.",
+    "Payments are not configured yet.": "Os pagamentos ainda não foram configurados."
   }
 }

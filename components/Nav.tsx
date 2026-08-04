@@ -39,14 +39,6 @@ export default function Nav() {
 
   return (
     <nav className={className}>
-      <Link href="/" className="nav-logo">
-        <Image src="/logo.jpg" alt="" width={52} height={52} className="nav-mark" />
-        <div>
-          <div className="nav-name">{t('brand')}</div>
-          <div className="nav-tag">{t('tagline')}</div>
-        </div>
-      </Link>
-
       <ul className="nav-menu">
         {items.map((item) => (
           <li key={item.key}>
@@ -59,6 +51,11 @@ export default function Nav() {
           </li>
         ))}
       </ul>
+
+      <Link href="/" className="nav-logo">
+        <Image src="/logo.jpg" alt="" width={40} height={40} className="nav-mark" />
+        <span className="nav-name">{t('brand')}</span>
+      </Link>
 
       <div className="nav-right">
         <NavAuth />

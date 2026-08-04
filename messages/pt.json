@@ -288,5 +288,21 @@
     "fieldTitle": "Título",
     "fieldAuthor": "Autor",
     "fieldBook": "Livro"
+  },
+  "paywall": {
+    "title": "A amostra termina aqui",
+    "body": "Compre o livro ou abra a biblioteca inteira com uma assinatura para continuar lendo.",
+    "plans": "Ver planos",
+    "close": "Fechar"
+  },
+  "redeem": {
+    "code": "Código do cupom",
+    "cta": "Resgatar",
+    "ok": "O cupom foi aplicado. Já está na sua biblioteca.",
+    "invalid": "Esse código não é válido ou já foi usado.",
+    "expired": "Esse código expirou."
+  },
+  "checkout": {
+    "unavailable": "Os pagamentos ainda não foram configurados."
   }
 }

@@ -10,6 +10,7 @@ import AiPanel from './AiPanel';
 const SWAP_MS = 260; // matches .spread opacity transition
 const SNAP_MS = 500; // matches .flipper.snap transform transition
 const COMMIT_DEG = 78; // release past this angle commits the turn
+const FREE_SPREADS = 3; // spreads readable without entitlement (M6 sample rule)
 
 const stripTags = (html: string) => html.replace(/<[^>]+>/g, '');
 
@@ -89,15 +90,23 @@ export default function Reader({
   locale,
   bookId,
   initialSpread = 0,
-  canSync = false
+  canSync = false,
+  entitled = true,
+  signedIn = false
 }: {
   initialIndex: number;
   locale: string;
   bookId: string | null;
   initialSpread?: number;
   canSync?: boolean;
+  entitled?: boolean;
+  signedIn?: boolean;
 }) {
   const t = useTranslations('reader');
+  const tPay = useTranslations('paywall');
+  const tDetail = useTranslations('detail');
+  const tAuth = useTranslations('auth');
+  const tAcct = useTranslations('footer.accountLinks');
   const router = useRouter();
 
   const [order, setOrder] = useState<number[]>(() => [
@@ -119,6 +128,7 @@ export default function Reader({
   const [hintHidden, setHintHidden] = useState(false);
   const [drag, setDrag] = useState<Drag | null>(null);
   const [aiOpen, setAiOpen] = useState(false);
+  const [paywall, setPaywall] = useState(false);
 
   const spreadRef = useRef<HTMLDivElement>(null);
   const draggingCorner = useRef(false);
@@ -130,6 +140,10 @@ export default function Reader({
   const maxSpread = Math.ceil(main.sp.length / 2) - 1;
 
   const canGo = (dir: 1 | -1) => (dir > 0 ? spread < maxSpread : spread > 0);
+  // Sample gate: unentitled readers may open the first FREE_SPREADS spreads
+  // of whichever book is on the desk; going further raises the paywall.
+  const gatedNext = (dir: 1 | -1) =>
+    dir > 0 && !entitled && spread >= FREE_SPREADS - 1;
 
   function swapSlots(a: number, b: number) {
     if (a === b || busy || turn) return;
@@ -167,7 +181,12 @@ export default function Reader({
   }
 
   function turnPage(dir: 1 | -1) {
-    if (busy || turn || !canGo(dir)) return;
+    if (busy || turn) return;
+    if (gatedNext(dir)) {
+      setPaywall(true);
+      return;
+    }
+    if (!canGo(dir)) return;
     setTurn({dir, angle: 0, snap: false});
     // Two frames so the flipper paints at 0° before the snap transition runs.
     requestAnimationFrame(() => requestAnimationFrame(() => commit(dir)));
@@ -176,7 +195,12 @@ export default function Reader({
   // Corner drag — pointer events so touch works too (the prototype was
   // mouse-only; that is fixed here).
   function onCornerDown(e: React.PointerEvent<HTMLDivElement>) {
-    if (busy || turn || !canGo(1)) return;
+    if (busy || turn) return;
+    if (gatedNext(1)) {
+      setPaywall(true);
+      return;
+    }
+    if (!canGo(1)) return;
     e.preventDefault();
     e.currentTarget.setPointerCapture(e.pointerId);
     draggingCorner.current = true;
@@ -459,6 +483,41 @@ export default function Reader({
         </div>
       </div>
 
+      {paywall && !entitled && (
+        <div className="rd-pay" role="dialog" aria-modal="true">
+          <div className="rd-pay-card">
+            <div className="rd-pay-t">{tPay('title')}</div>
+            <p className="rd-pay-b">{tPay('body')}</p>
+            <div className="rd-pay-btns">
+              {main.price ? (
+                <Link href={`/books/${main.id}`} className="rd-pay-buy">
+                  {tDetail('buy')}
+                </Link>
+              ) : (
+                <Link href="/#plans" className="rd-pay-buy">
+                  {tPay('plans')}
+                </Link>
+              )}
+              {main.price ? (
+                <Link href="/#plans" className="rd-pay-alt">
+                  {tPay('plans')}
+                </Link>
+              ) : null}
+              <Link href="/redeem" className="rd-pay-alt">
+                {tAcct('redeem')}
+              </Link>
+              {!signedIn && (
+                <Link href="/auth/login" className="rd-pay-alt">
+                  {tAuth('loginTitle')}
+                </Link>
+              )}
+            </div>
+            <button type="button" className="rd-pay-x" onClick={() => setPaywall(false)}>
+              {tPay('close')}
+            </button>
+          </div>
+        </div>
+      )}
       <AiPanel open={aiOpen} order={order} spreadOf={spreadOf} />
 
       {dragging && dragBook && drag && (

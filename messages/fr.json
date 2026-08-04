@@ -288,5 +288,21 @@
     "fieldTitle": "Titre",
     "fieldAuthor": "Auteur",
     "fieldBook": "Livre"
+  },
+  "paywall": {
+    "title": "L'extrait s'arrête ici",
+    "body": "Achetez le livre, ou ouvrez toute la bibliothèque avec un abonnement, pour continuer la lecture.",
+    "plans": "Voir les formules",
+    "close": "Fermer"
+  },
+  "redeem": {
+    "code": "Code du coupon",
+    "cta": "Utiliser",
+    "ok": "Le coupon a été appliqué. Retrouvez le tout dans votre bibliothèque.",
+    "invalid": "Ce code n'est pas valide ou a déjà été utilisé.",
+    "expired": "Ce code a expiré."
+  },
+  "checkout": {
+    "unavailable": "Les paiements ne sont pas encore configurés."
   }
 }
