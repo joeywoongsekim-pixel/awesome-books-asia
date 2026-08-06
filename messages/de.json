@@ -291,7 +291,10 @@
     "unused": "Nicht eingelöst",
     "fieldTitle": "Titel",
     "fieldAuthor": "Autor",
-    "fieldBook": "Buch"
+    "fieldBook": "Buch",
+    "process": "Inhalt verarbeiten",
+    "processed": "Verarbeitet",
+    "publish": "Auf der Website veröffentlichen"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

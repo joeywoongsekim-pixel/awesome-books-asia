@@ -3791,3 +3791,32 @@ footer {
   padding: 10px 14px;
   margin-bottom: 16px;
 }
+
+/* admin: process button + content status */
+.adm-process {
+  background: var(--aba-navy);
+  color: var(--aba-cream);
+  border: none;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.adm-process:hover {
+  background: var(--aba-deep);
+}
+.adm-process:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.adm-status {
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--aba-gold);
+  align-self: center;
+}

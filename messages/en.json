@@ -291,7 +291,10 @@
     "unused": "Unused",
     "fieldTitle": "Title",
     "fieldAuthor": "Author",
-    "fieldBook": "Book"
+    "fieldBook": "Book",
+    "process": "Process content",
+    "processed": "Processed",
+    "publish": "Publish on the site"
   },
   "paywall": {
     "title": "The sample ends here",

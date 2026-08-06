@@ -291,7 +291,10 @@
     "unused": "미사용",
     "fieldTitle": "제목",
     "fieldAuthor": "저자",
-    "fieldBook": "책"
+    "fieldBook": "책",
+    "process": "콘텐츠 처리",
+    "processed": "처리 완료",
+    "publish": "사이트에 게시"
   },
   "paywall": {
     "title": "샘플은 여기까지입니다",

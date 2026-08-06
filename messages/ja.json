@@ -291,7 +291,10 @@
     "unused": "未使用",
     "fieldTitle": "タイトル",
     "fieldAuthor": "著者",
-    "fieldBook": "本"
+    "fieldBook": "本",
+    "process": "コンテンツを処理",
+    "processed": "処理済み",
+    "publish": "サイトに公開"
   },
   "paywall": {
     "title": "サンプルはここまでです",

@@ -13,10 +13,12 @@ export type AdminBook = {
   category: string;
   level: number;
   is_new: boolean;
+  published: boolean;
   price_cents: number;
   page_count: number | null;
   published_at: string | null;
 };
+export type AdminContent = {locale: string; kind: string; processed_at: string};
 export type AdminEdition = {
   id: string;
   locale: string;
@@ -30,10 +32,12 @@ const CATEGORIES = ['ai', 'edu', 'kids'];
 
 export default function BookForm({
   book,
-  editions
+  editions,
+  contents = []
 }: {
   book: AdminBook | null;
   editions: AdminEdition[];
+  contents?: AdminContent[];
 }) {
   const t = useTranslations('admin');
   const tDetail = useTranslations('detail');
@@ -47,6 +51,7 @@ export default function BookForm({
     category: book?.category ?? 'ai',
     level: book?.level ?? 2,
     is_new: book?.is_new ?? false,
+    published: book?.published ?? false,
     priceUsd: book ? (book.price_cents / 100).toString() : '0',
     page_count: book?.page_count?.toString() ?? '',
     published_at: book?.published_at ?? ''
@@ -67,6 +72,7 @@ export default function BookForm({
       category: form.category,
       level: Number(form.level) || 2,
       is_new: form.is_new,
+      published: form.published,
       price_cents: Math.round(Number(form.priceUsd || '0') * 100),
       page_count: form.page_count ? Number(form.page_count) : null,
       published_at: form.published_at || null
@@ -93,6 +99,25 @@ export default function BookForm({
     } else {
       router.push('/admin/books');
     }
+  }
+
+  async function processContent(locale: string) {
+    if (!book) return;
+    setBusy(true);
+    setMsg(t('uploading'));
+    const res = await fetch('/api/admin/process-book', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({slug: book.slug, locale})
+    }).catch(() => null);
+    const data = res ? await res.json().catch(() => null) : null;
+    if (res?.ok && data?.ok) {
+      setMsg(`${t('processed')} — ${data.kind === 'pdf' ? `PDF · ${data.pages}p` : `EPUB · ${data.chapters}ch`}`);
+      router.refresh();
+    } else {
+      setMsg(data?.error ?? 'processing failed');
+    }
+    setBusy(false);
   }
 
   async function upload(locale: string, format: 'pdf' | 'epub', file: File) {
@@ -190,6 +215,14 @@ export default function BookForm({
           />
           {t('markNew')}
         </label>
+        <label className="adm-check">
+          <input
+            type="checkbox"
+            checked={form.published}
+            onChange={(e) => set('published')(e.target.checked)}
+          />
+          {t('publish')}
+        </label>
       </div>
 
       <div className="adm-actions">
@@ -208,6 +241,7 @@ export default function BookForm({
         <div className="adm-editions">
           {EDITION_LOCALES.map((loc) => {
             const ed = editions.find((e) => e.locale === loc);
+            const content = contents.find((c) => c.locale === loc);
             return (
               <div className="adm-ed" key={loc}>
                 <div className="adm-ed-l">{loc.toUpperCase()}</div>
@@ -236,6 +270,21 @@ export default function BookForm({
                       }}
                     />
                   </label>
+                  {(ed?.epub_path || ed?.pdf_path) && (
+                    <button
+                      type="button"
+                      className="adm-process"
+                      onClick={() => processContent(loc)}
+                      disabled={busy}
+                    >
+                      {t('process')}
+                    </button>
+                  )}
+                  {content && (
+                    <span className="adm-status">
+                      ✓ {t('processed')} · {content.kind.toUpperCase()}
+                    </span>
+                  )}
                 </div>
               </div>
             );

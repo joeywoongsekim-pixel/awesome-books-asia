@@ -291,7 +291,10 @@
     "unused": "Non utilisé",
     "fieldTitle": "Titre",
     "fieldAuthor": "Auteur",
-    "fieldBook": "Livre"
+    "fieldBook": "Livre",
+    "process": "Traiter le contenu",
+    "processed": "Traité",
+    "publish": "Publier sur le site"
   },
   "paywall": {
     "title": "L'extrait s'arrête ici",

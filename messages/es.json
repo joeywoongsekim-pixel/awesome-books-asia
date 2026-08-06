@@ -291,7 +291,10 @@
     "unused": "Sin usar",
     "fieldTitle": "Título",
     "fieldAuthor": "Autor",
-    "fieldBook": "Libro"
+    "fieldBook": "Libro",
+    "process": "Procesar contenido",
+    "processed": "Procesado",
+    "publish": "Publicar en el sitio"
   },
   "paywall": {
     "title": "La muestra termina aquí",

@@ -291,7 +291,10 @@
     "unused": "Hindi pa nagagamit",
     "fieldTitle": "Pamagat",
     "fieldAuthor": "May-akda",
-    "fieldBook": "Libro"
+    "fieldBook": "Libro",
+    "process": "Iproseso ang content",
+    "processed": "Naproseso na",
+    "publish": "I-publish sa site"
   },
   "paywall": {
     "title": "Hanggang dito lang ang sample",

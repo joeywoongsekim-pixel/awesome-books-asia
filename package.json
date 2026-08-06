@@ -13,10 +13,14 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
     "@supabase/supabase-js": "^2.110.8",
+    "fast-xml-parser": "^5.10.1",
+    "jszip": "^3.10.1",
     "next": "16.2.10",
     "next-intl": "^4.13.2",
+    "pdf-lib": "^1.17.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "sanitize-html": "^2.17.6",
     "stripe": "^22.4.0"
   },
   "devDependencies": {
@@ -25,6 +29,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
