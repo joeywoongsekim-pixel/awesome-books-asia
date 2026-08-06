@@ -7,7 +7,7 @@ import {BOOKS, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
-import CheckoutButton from '../../../../../components/CheckoutButton';
+import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
 
 export function generateStaticParams() {
@@ -62,16 +62,11 @@ function BookDetail({book}: {book: Book}) {
             <Link href={`/read/${book.id}`} className="btn-g">
               {t('sample')}
             </Link>
-            {book.price ? (
-              <CheckoutButton target={{kind: 'book', slug: book.id}} className="btn-o">
-                {t('buy')}
-              </CheckoutButton>
-            ) : (
-              <Link href="/#plans" className="btn-o">
-                {t('subscribeCta')}
-              </Link>
-            )}
+            <Link href="/#plans" className="btn-o">
+              {t('subscribeCta')}
+            </Link>
           </div>
+          <RetailerLinks title={book.title} />
           <div className="d-subnote">
             {t.rich('subnote', {
               b: (chunks) => <b>{chunks}</b>

@@ -3731,3 +3731,52 @@ footer {
 .rd .co-note {
   color: rgb(255 255 255 / 0.5);
 }
+
+/* ══════════ RETAILER LINKS + FREE NOTICE ══════════ */
+.stores {
+  margin-bottom: 26px;
+}
+.stores-l {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.stores-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.store-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 1px solid var(--hair);
+  color: var(--ink-1);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+  background: var(--card);
+}
+.store-chip:hover {
+  border-color: var(--aba-gold);
+  color: var(--aba-gold);
+}
+.plans-free {
+  display: inline-block;
+  margin: 18px auto 0;
+  padding: 9px 18px;
+  border: 1px solid var(--aba-gold);
+  color: var(--aba-gold);
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

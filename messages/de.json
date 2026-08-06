@@ -120,7 +120,8 @@
       "cta": "Jahresabo holen →"
     },
     "coupon": "<b>Einen Geschenkgutschein bekommen?</b> Code eingeben, und das Buch öffnet sich sofort — jeder Code funktioniert einmal, danach ist er gesperrt.",
-    "couponCta": "Gutschein einlösen →"
+    "couponCta": "Gutschein einlösen →",
+    "freeNote": "Kostenlos, solange die Bibliothek wächst — Abos starten, sobald wir 200 Titel erreichen."
   },
   "store": {
     "eyebrow": "Die Bibliothek",
@@ -152,7 +153,8 @@
     "reader": "Reader",
     "readerValue": "Vier-Bücher-Schreibtisch",
     "keepGoing": "Dranbleiben",
-    "more": "Mehr aus der Bibliothek"
+    "more": "Mehr aus der Bibliothek",
+    "stores": "Erhältlich bei"
   },
   "reader": {
     "back": "← Bibliothek",
@@ -293,7 +295,9 @@
     "title": "Hier endet die Leseprobe",
     "body": "Kaufen Sie das Buch oder öffnen Sie mit einem Abo die ganze Bibliothek, um weiterzulesen.",
     "plans": "Tarife ansehen",
-    "close": "Schließen"
+    "close": "Schließen",
+    "freeTitle": "Erstellen Sie ein kostenloses Konto, um weiterzulesen",
+    "freeBody": "Bis unsere Bibliothek 200 Titel umfasst, ist jedes Buch mit einem Konto kostenlos lesbar."
   },
   "redeem": {
     "code": "Gutscheincode",

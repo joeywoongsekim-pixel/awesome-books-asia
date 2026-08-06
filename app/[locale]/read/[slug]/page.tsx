@@ -4,7 +4,7 @@ import {setRequestLocale} from 'next-intl/server';
 import {BOOKS} from '../../../../lib/books';
 import Reader from '../../../../components/reader/Reader';
 import {createSupabaseServer} from '../../../../lib/supabase/server';
-import {isEntitled} from '../../../../lib/entitlement';
+import {isEntitled, isFreePeriod} from '../../../../lib/entitlement';
 
 // The reader owns its chrome (no site nav/footer) — it lives outside the
 // (site) route group. Auth-backed reading progress makes this route dynamic.
@@ -39,6 +39,7 @@ export default async function ReadPage({
   let canSync = false;
   let entitled = false;
   let signedIn = false;
+  let freePeriod = false;
   if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     const supabase = await createSupabaseServer();
     const [
@@ -52,9 +53,11 @@ export default async function ReadPage({
     ]);
     bookId = bookRow?.id ?? null;
     signedIn = Boolean(user);
+    freePeriod = await isFreePeriod(supabase);
     if (user && bookId) {
       canSync = true;
-      entitled = await isEntitled(supabase, bookId);
+      // Launch offer: every account reads free until the catalogue fills up.
+      entitled = freePeriod || (await isEntitled(supabase, bookId));
       const {data: progress} = await supabase
         .from('reading_progress')
         .select('spread_index')
@@ -77,6 +80,7 @@ export default async function ReadPage({
       canSync={canSync}
       entitled={entitled}
       signedIn={signedIn}
+      freePeriod={freePeriod}
     />
   );
 }

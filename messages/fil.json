@@ -120,7 +120,8 @@
       "cta": "Kunin ang taunan →"
     },
     "coupon": "<b>May gift coupon ka ba?</b> Ilagay ang code at bubukas agad ang libro — isang beses lang gumagana ang bawat code, pagkatapos ay nala-lock na.",
-    "couponCta": "I-redeem ang coupon →"
+    "couponCta": "I-redeem ang coupon →",
+    "freeNote": "Libre habang lumalago ang aklatan — magsisimula ang subscription kapag umabot kami sa 200 na titulo."
   },
   "store": {
     "eyebrow": "Ang aklatan",
@@ -152,7 +153,8 @@
     "reader": "Reader",
     "readerValue": "Mesa na may apat na libro",
     "keepGoing": "Tuloy lang",
-    "more": "Iba pa mula sa aklatan"
+    "more": "Iba pa mula sa aklatan",
+    "stores": "Makukuha sa"
   },
   "reader": {
     "back": "← Aklatan",
@@ -293,7 +295,9 @@
     "title": "Hanggang dito lang ang sample",
     "body": "Para magpatuloy sa pagbabasa, bilhin ang libro o buksan ang buong aklatan gamit ang subscription.",
     "plans": "Tingnan ang mga plano",
-    "close": "Isara"
+    "close": "Isara",
+    "freeTitle": "Gumawa ng libreng account para magpatuloy sa pagbabasa",
+    "freeBody": "Habang lumalago ang aming aklatan patungo sa 200 na titulo, libre ang lahat ng libro basta may account ka."
   },
   "redeem": {
     "code": "Coupon code",

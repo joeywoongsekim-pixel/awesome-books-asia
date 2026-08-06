@@ -120,7 +120,8 @@
       "cta": "Passer à l'annuel →"
     },
     "coupon": "<b>On vous a offert un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre aussitôt — chaque code ne sert qu'une fois, puis se verrouille.",
-    "couponCta": "Utiliser un coupon →"
+    "couponCta": "Utiliser un coupon →",
+    "freeNote": "Gratuit pendant que la bibliothèque grandit — les abonnements commenceront à 200 titres."
   },
   "store": {
     "eyebrow": "La bibliothèque",
@@ -152,7 +153,8 @@
     "reader": "Lecteur",
     "readerValue": "Bureau à quatre livres",
     "keepGoing": "Sur votre lancée",
-    "more": "Encore plus de la bibliothèque"
+    "more": "Encore plus de la bibliothèque",
+    "stores": "Disponible chez"
   },
   "reader": {
     "back": "← Bibliothèque",
@@ -293,7 +295,9 @@
     "title": "L'extrait s'arrête ici",
     "body": "Achetez le livre, ou ouvrez toute la bibliothèque avec un abonnement, pour continuer la lecture.",
     "plans": "Voir les formules",
-    "close": "Fermer"
+    "close": "Fermer",
+    "freeTitle": "Créez un compte gratuit pour continuer la lecture",
+    "freeBody": "Jusqu'à ce que notre bibliothèque atteigne 200 titres, chaque livre se lit gratuitement avec un compte."
   },
   "redeem": {
     "code": "Code du coupon",

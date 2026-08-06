@@ -92,7 +92,8 @@ export default function Reader({
   initialSpread = 0,
   canSync = false,
   entitled = true,
-  signedIn = false
+  signedIn = false,
+  freePeriod = false
 }: {
   initialIndex: number;
   locale: string;
@@ -101,10 +102,10 @@ export default function Reader({
   canSync?: boolean;
   entitled?: boolean;
   signedIn?: boolean;
+  freePeriod?: boolean;
 }) {
   const t = useTranslations('reader');
   const tPay = useTranslations('paywall');
-  const tDetail = useTranslations('detail');
   const tAuth = useTranslations('auth');
   const tAcct = useTranslations('footer.accountLinks');
   const router = useRouter();
@@ -486,30 +487,32 @@ export default function Reader({
       {paywall && !entitled && (
         <div className="rd-pay" role="dialog" aria-modal="true">
           <div className="rd-pay-card">
-            <div className="rd-pay-t">{tPay('title')}</div>
-            <p className="rd-pay-b">{tPay('body')}</p>
+            <div className="rd-pay-t">{freePeriod ? tPay('freeTitle') : tPay('title')}</div>
+            <p className="rd-pay-b">{freePeriod ? tPay('freeBody') : tPay('body')}</p>
             <div className="rd-pay-btns">
-              {main.price ? (
-                <Link href={`/books/${main.id}`} className="rd-pay-buy">
-                  {tDetail('buy')}
-                </Link>
+              {freePeriod ? (
+                <>
+                  <Link href="/auth/signup" className="rd-pay-buy">
+                    {tAuth('signupTitle')}
+                  </Link>
+                  <Link href="/auth/login" className="rd-pay-alt">
+                    {tAuth('loginTitle')}
+                  </Link>
+                </>
               ) : (
-                <Link href="/#plans" className="rd-pay-buy">
-                  {tPay('plans')}
-                </Link>
-              )}
-              {main.price ? (
-                <Link href="/#plans" className="rd-pay-alt">
-                  {tPay('plans')}
-                </Link>
-              ) : null}
-              <Link href="/redeem" className="rd-pay-alt">
-                {tAcct('redeem')}
-              </Link>
-              {!signedIn && (
-                <Link href="/auth/login" className="rd-pay-alt">
-                  {tAuth('loginTitle')}
-                </Link>
+                <>
+                  <Link href="/#plans" className="rd-pay-buy">
+                    {tPay('plans')}
+                  </Link>
+                  <Link href="/redeem" className="rd-pay-alt">
+                    {tAcct('redeem')}
+                  </Link>
+                  {!signedIn && (
+                    <Link href="/auth/login" className="rd-pay-alt">
+                      {tAuth('loginTitle')}
+                    </Link>
+                  )}
+                </>
               )}
             </div>
             <button type="button" className="rd-pay-x" onClick={() => setPaywall(false)}>

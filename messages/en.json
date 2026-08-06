@@ -120,7 +120,8 @@
       "cta": "Get annual →"
     },
     "coupon": "<b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
-    "couponCta": "Redeem a coupon →"
+    "couponCta": "Redeem a coupon →",
+    "freeNote": "Free while the library grows — subscriptions begin once we reach 200 titles."
   },
   "store": {
     "eyebrow": "The library",
@@ -152,7 +153,8 @@
     "reader": "Reader",
     "readerValue": "Four-book desk",
     "keepGoing": "Keep going",
-    "more": "More from the library"
+    "more": "More from the library",
+    "stores": "Available at"
   },
   "reader": {
     "back": "← Library",
@@ -293,7 +295,9 @@
     "title": "The sample ends here",
     "body": "Buy the book, or open the whole library with a subscription, to keep reading.",
     "plans": "See plans",
-    "close": "Close"
+    "close": "Close",
+    "freeTitle": "Create a free account to keep reading",
+    "freeBody": "While our library grows to 200 titles, every book is free to read with an account."
   },
   "redeem": {
     "code": "Coupon code",

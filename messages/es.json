@@ -120,7 +120,8 @@
       "cta": "Consigue el anual →"
     },
     "coupon": "<b>¿Te han regalado un cupón?</b> Introduce el código y el libro se abre al instante — cada código funciona una vez y luego se bloquea.",
-    "couponCta": "Canjea un cupón →"
+    "couponCta": "Canjea un cupón →",
+    "freeNote": "Gratis mientras la biblioteca crece — las suscripciones empezarán al llegar a 200 títulos."
   },
   "store": {
     "eyebrow": "La biblioteca",
@@ -152,7 +153,8 @@
     "reader": "Lector",
     "readerValue": "Escritorio de cuatro libros",
     "keepGoing": "No te detengas",
-    "more": "Más de la biblioteca"
+    "more": "Más de la biblioteca",
+    "stores": "Disponible en"
   },
   "reader": {
     "back": "← Biblioteca",
@@ -293,7 +295,9 @@
     "title": "La muestra termina aquí",
     "body": "Compra el libro o abre toda la biblioteca con una suscripción para seguir leyendo.",
     "plans": "Ver planes",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "freeTitle": "Crea una cuenta gratuita para seguir leyendo",
+    "freeBody": "Hasta que nuestra biblioteca llegue a 200 títulos, todos los libros se leen gratis con una cuenta."
   },
   "redeem": {
     "code": "Código del cupón",
