@@ -227,7 +227,9 @@
     "noAccount": "Ainda não tem conta?",
     "haveAccount": "Já tem uma conta?",
     "checkEmail": "Confira sua caixa de entrada — enviamos um link de confirmação.",
-    "signOut": "Sair"
+    "signOut": "Sair",
+    "invite": "Código de convite",
+    "inviteHint": "Por enquanto o cadastro é apenas por convite — insira o código que você recebeu."
   },
   "library": {
     "title": "Minha biblioteca",

@@ -227,7 +227,9 @@
     "noAccount": "Wala ka pang account?",
     "haveAccount": "May account ka na?",
     "checkEmail": "Tingnan ang inbox mo — nagpadala kami ng confirmation link.",
-    "signOut": "Mag-sign out"
+    "signOut": "Mag-sign out",
+    "invite": "Invite coupon code",
+    "inviteHint": "Sa ngayon ay invitation-only ang pag-sign up — ilagay ang coupon code na natanggap mo."
   },
   "library": {
     "title": "Aking Aklatan",

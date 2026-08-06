@@ -227,7 +227,9 @@
     "noAccount": "Pas encore de compte ?",
     "haveAccount": "Déjà un compte ?",
     "checkEmail": "Vérifiez votre boîte mail — nous vous avons envoyé un lien de confirmation.",
-    "signOut": "Se déconnecter"
+    "signOut": "Se déconnecter",
+    "invite": "Code d'invitation",
+    "inviteHint": "L'inscription est sur invitation pour le moment — saisissez le code que vous avez reçu."
   },
   "library": {
     "title": "Ma bibliothèque",

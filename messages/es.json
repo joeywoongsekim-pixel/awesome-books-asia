@@ -227,7 +227,9 @@
     "noAccount": "¿Aún no tienes cuenta?",
     "haveAccount": "¿Ya tienes cuenta?",
     "checkEmail": "Revisa tu bandeja de entrada: te enviamos un enlace de confirmación.",
-    "signOut": "Cerrar sesión"
+    "signOut": "Cerrar sesión",
+    "invite": "Código de invitación",
+    "inviteHint": "Por ahora el registro es solo con invitación: introduce el código que recibiste."
   },
   "library": {
     "title": "Mi biblioteca",

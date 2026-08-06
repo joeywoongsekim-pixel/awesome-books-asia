@@ -4,6 +4,7 @@ import {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link, useRouter} from '../i18n/navigation';
 import {createSupabaseBrowser, supabaseConfigured} from '../lib/supabase/client';
+import {redeemParkedInvite} from '../lib/invite';
 
 export default function NavAuth() {
   const t = useTranslations();
@@ -18,9 +19,11 @@ export default function NavAuth() {
     supabase.auth.getUser().then(({data}) => {
       setEmail(data.user?.email ?? null);
       setReady(true);
+      if (data.user) void redeemParkedInvite(supabase);
     });
-    const {data: sub} = supabase.auth.onAuthStateChange((_event, session) => {
+    const {data: sub} = supabase.auth.onAuthStateChange((event, session) => {
       setEmail(session?.user?.email ?? null);
+      if (event === 'SIGNED_IN' && session?.user) void redeemParkedInvite(supabase);
     });
     return () => sub.subscription.unsubscribe();
   }, []);

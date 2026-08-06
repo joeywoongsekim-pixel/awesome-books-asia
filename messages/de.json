@@ -227,7 +227,9 @@
     "noAccount": "Noch kein Konto?",
     "haveAccount": "Schon ein Konto?",
     "checkEmail": "Prüfen Sie Ihren Posteingang — wir haben einen Bestätigungslink gesendet.",
-    "signOut": "Abmelden"
+    "signOut": "Abmelden",
+    "invite": "Einladungs-Gutscheincode",
+    "inviteHint": "Die Registrierung ist derzeit nur auf Einladung möglich — geben Sie Ihren Gutscheincode ein."
   },
   "library": {
     "title": "Meine Bibliothek",

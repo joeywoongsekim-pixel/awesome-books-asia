@@ -57,3 +57,24 @@ $$;
 
 revoke all on function public.redeem_coupon(text) from public;
 grant execute on function public.redeem_coupon(text) to authenticated;
+
+-- Invite-only sign-up: anonymous validity check for a coupon code.
+-- Reveals only a boolean; the 31-character code alphabet makes brute force
+-- impractical.
+create or replace function public.check_invite(p_code text)
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (
+    select 1 from public.coupons
+    where code = upper(trim(p_code))
+      and is_used = false
+      and (expires_at is null or expires_at > now())
+  );
+$$;
+
+revoke all on function public.check_invite(text) from public;
+grant execute on function public.check_invite(text) to anon, authenticated;

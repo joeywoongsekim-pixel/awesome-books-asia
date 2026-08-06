@@ -227,7 +227,9 @@
     "noAccount": "아직 계정이 없나요?",
     "haveAccount": "이미 계정이 있나요?",
     "checkEmail": "메일함을 확인하세요 — 확인 링크를 보냈습니다.",
-    "signOut": "로그아웃"
+    "signOut": "로그아웃",
+    "invite": "초대 쿠폰 코드",
+    "inviteHint": "지금은 초대받은 분만 가입할 수 있습니다 — 받으신 쿠폰 코드를 입력해 주세요."
   },
   "library": {
     "title": "내 서재",

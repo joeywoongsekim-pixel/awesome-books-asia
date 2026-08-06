@@ -227,7 +227,9 @@
     "noAccount": "No account yet?",
     "haveAccount": "Already have an account?",
     "checkEmail": "Check your inbox — we sent a confirmation link.",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "invite": "Invite coupon code",
+    "inviteHint": "Sign-up is invitation-only for now — enter the coupon code you received."
   },
   "library": {
     "title": "My Library",
