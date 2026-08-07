@@ -294,7 +294,11 @@
     "fieldBook": "Livro",
     "process": "Processar conteúdo",
     "processed": "Processado",
-    "publish": "Publicar no site"
+    "publish": "Publicar no site",
+    "live": "Publicado",
+    "draft": "Rascunho",
+    "viewOnSite": "Ver no site",
+    "noFiles": "Sem arquivos"
   },
   "paywall": {
     "title": "A amostra termina aqui",

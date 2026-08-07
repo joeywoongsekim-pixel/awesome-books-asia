@@ -294,7 +294,11 @@
     "fieldBook": "Book",
     "process": "Process content",
     "processed": "Processed",
-    "publish": "Publish on the site"
+    "publish": "Publish on the site",
+    "live": "Live",
+    "draft": "Draft",
+    "viewOnSite": "View on the site",
+    "noFiles": "No files yet"
   },
   "paywall": {
     "title": "The sample ends here",

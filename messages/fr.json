@@ -294,7 +294,11 @@
     "fieldBook": "Livre",
     "process": "Traiter le contenu",
     "processed": "Traité",
-    "publish": "Publier sur le site"
+    "publish": "Publier sur le site",
+    "live": "En ligne",
+    "draft": "Brouillon",
+    "viewOnSite": "Voir sur le site",
+    "noFiles": "Aucun fichier"
   },
   "paywall": {
     "title": "L'extrait s'arrête ici",

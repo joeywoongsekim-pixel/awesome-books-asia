@@ -294,7 +294,11 @@
     "fieldBook": "Libro",
     "process": "Iproseso ang content",
     "processed": "Naproseso na",
-    "publish": "I-publish sa site"
+    "publish": "I-publish sa site",
+    "live": "Live",
+    "draft": "Draft",
+    "viewOnSite": "Tingnan sa site",
+    "noFiles": "Wala pang file"
   },
   "paywall": {
     "title": "Hanggang dito lang ang sample",

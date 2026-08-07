@@ -294,7 +294,11 @@
     "fieldBook": "Buch",
     "process": "Inhalt verarbeiten",
     "processed": "Verarbeitet",
-    "publish": "Auf der Website veröffentlichen"
+    "publish": "Auf der Website veröffentlichen",
+    "live": "Live",
+    "draft": "Entwurf",
+    "viewOnSite": "Auf der Website ansehen",
+    "noFiles": "Noch keine Dateien"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

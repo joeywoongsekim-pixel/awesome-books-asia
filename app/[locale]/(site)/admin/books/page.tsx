@@ -4,6 +4,27 @@ import {createSupabaseServer} from '../../../../../lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
+// KDP-Bookshelf-style catalogue: one card per title with its cover, live/draft
+// state and per-locale file + processing status at a glance.
+
+type EditionRow = {locale: string; pdf_path: string | null; epub_path: string | null};
+type ContentRow = {locale: string; kind: string};
+type ShelfBook = {
+  id: string;
+  slug: string;
+  title: string;
+  author: string;
+  category: string;
+  price_cents: number;
+  is_new: boolean;
+  published: boolean;
+  cover_url: string | null;
+  book_editions: EditionRow[];
+  book_content: ContentRow[];
+};
+
+const LOCALES = ['en', 'ko', 'ja'] as const;
+
 export default async function AdminBooks({
   params
 }: {
@@ -14,47 +35,78 @@ export default async function AdminBooks({
   const t = await getTranslations('admin');
 
   const supabase = await createSupabaseServer();
-  const {data: books} = await supabase
+  const {data} = await supabase
     .from('books')
-    .select('id, slug, title, author, category, price_cents, is_new, book_editions(id)')
+    .select(
+      'id, slug, title, author, category, price_cents, is_new, published, cover_url, book_editions(locale, pdf_path, epub_path), book_content(locale, kind)'
+    )
     .order('created_at', {ascending: true});
+  const books = (data ?? []) as unknown as ShelfBook[];
 
   return (
     <>
       <div className="adm-bar">
         <Link href="/admin/books/new" className="btn-g adm-btn">
-          {t('newBook')}
+          + {t('newBook')}
         </Link>
       </div>
-      <table className="adm-table">
-        <thead>
-          <tr>
-            <th>{t('fieldTitle')}</th>
-            <th>{t('slug')}</th>
-            <th>{t('category')}</th>
-            <th>{t('fieldAuthor')}</th>
-            <th />
-          </tr>
-        </thead>
-        <tbody>
-          {(books ?? []).map((b) => (
-            <tr key={b.id}>
-              <td>
-                {b.title}
-                {b.is_new && <span className="adm-new">NEW</span>}
-              </td>
-              <td className="adm-mono">{b.slug}</td>
-              <td>{b.category}</td>
-              <td>{b.author}</td>
-              <td>
-                <Link href={`/admin/books/${b.id}`} className="adm-link">
-                  {t('edit')} →
+
+      <div className="bks">
+        {books.map((b) => {
+          const anyFile = b.book_editions.some((e) => e.pdf_path || e.epub_path);
+          return (
+            <div className="bks-row" key={b.id}>
+              <div className="bks-cover">
+                {b.cover_url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={b.cover_url} alt="" />
+                ) : (
+                  <span>{b.title.slice(0, 1)}</span>
+                )}
+              </div>
+
+              <div className="bks-main">
+                <div className="bks-title">
+                  {b.title}
+                  {b.is_new && <span className="adm-new">NEW</span>}
+                </div>
+                <div className="bks-by">
+                  {b.author} · <span className="adm-mono">{b.slug}</span> · {b.category}
+                </div>
+                <div className="bks-formats">
+                  {!anyFile && <span className="bks-fmt none">{t('noFiles')}</span>}
+                  {LOCALES.map((loc) => {
+                    const ed = b.book_editions.find((e) => e.locale === loc);
+                    const proc = b.book_content.find((c) => c.locale === loc);
+                    if (!ed?.pdf_path && !ed?.epub_path && !proc) return null;
+                    return (
+                      <span key={loc} className={`bks-fmt${proc ? ' done' : ''}`}>
+                        {loc.toUpperCase()}
+                        {ed?.epub_path && <i>EPUB</i>}
+                        {ed?.pdf_path && <i>PDF</i>}
+                        {proc && <b>✓ {t('processed')}</b>}
+                      </span>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className={`bks-status${b.published ? ' live' : ''}`}>
+                {b.published ? t('live') : t('draft')}
+              </div>
+
+              <div className="bks-actions">
+                <Link href={`/admin/books/${b.id}`} className="bks-act primary">
+                  {t('edit')}
                 </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                <Link href={`/read/${b.slug}`} className="bks-act">
+                  {t('viewOnSite')}
+                </Link>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </>
   );
 }

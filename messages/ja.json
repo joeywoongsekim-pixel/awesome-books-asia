@@ -294,7 +294,11 @@
     "fieldBook": "本",
     "process": "コンテンツを処理",
     "processed": "処理済み",
-    "publish": "サイトに公開"
+    "publish": "サイトに公開",
+    "live": "公開中",
+    "draft": "下書き",
+    "viewOnSite": "サイトで見る",
+    "noFiles": "ファイルなし"
   },
   "paywall": {
     "title": "サンプルはここまでです",

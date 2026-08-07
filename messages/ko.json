@@ -294,7 +294,11 @@
     "fieldBook": "책",
     "process": "콘텐츠 처리",
     "processed": "처리 완료",
-    "publish": "사이트에 게시"
+    "publish": "사이트에 게시",
+    "live": "게시 중",
+    "draft": "초안",
+    "viewOnSite": "사이트에서 보기",
+    "noFiles": "파일 없음"
   },
   "paywall": {
     "title": "샘플은 여기까지입니다",

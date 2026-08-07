@@ -250,7 +250,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "지금은 초대받은 분만 가입할 수 있습니다 — 받으신 쿠폰 코드를 입력해 주세요.",
     "Process content": "콘텐츠 처리",
     "Processed": "처리 완료",
-    "Publish on the site": "사이트에 게시"
+    "Publish on the site": "사이트에 게시",
+    "Live": "게시 중",
+    "Draft": "초안",
+    "View on the site": "사이트에서 보기",
+    "No files yet": "파일 없음"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -503,7 +507,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "現在は招待制です — お受け取りのクーポンコードをご入力ください。",
     "Process content": "コンテンツを処理",
     "Processed": "処理済み",
-    "Publish on the site": "サイトに公開"
+    "Publish on the site": "サイトに公開",
+    "Live": "公開中",
+    "Draft": "下書き",
+    "View on the site": "サイトで見る",
+    "No files yet": "ファイルなし"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -752,7 +760,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "Sa ngayon ay invitation-only ang pag-sign up — ilagay ang coupon code na natanggap mo.",
     "Process content": "Iproseso ang content",
     "Processed": "Naproseso na",
-    "Publish on the site": "I-publish sa site"
+    "Publish on the site": "I-publish sa site",
+    "Live": "Live",
+    "Draft": "Draft",
+    "View on the site": "Tingnan sa site",
+    "No files yet": "Wala pang file"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1001,7 +1013,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "Die Registrierung ist derzeit nur auf Einladung möglich — geben Sie Ihren Gutscheincode ein.",
     "Process content": "Inhalt verarbeiten",
     "Processed": "Verarbeitet",
-    "Publish on the site": "Auf der Website veröffentlichen"
+    "Publish on the site": "Auf der Website veröffentlichen",
+    "Live": "Live",
+    "Draft": "Entwurf",
+    "View on the site": "Auf der Website ansehen",
+    "No files yet": "Noch keine Dateien"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1250,7 +1266,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "L'inscription est sur invitation pour le moment — saisissez le code que vous avez reçu.",
     "Process content": "Traiter le contenu",
     "Processed": "Traité",
-    "Publish on the site": "Publier sur le site"
+    "Publish on the site": "Publier sur le site",
+    "Live": "En ligne",
+    "Draft": "Brouillon",
+    "View on the site": "Voir sur le site",
+    "No files yet": "Aucun fichier"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1499,7 +1519,11 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "Por ahora el registro es solo con invitación: introduce el código que recibiste.",
     "Process content": "Procesar contenido",
     "Processed": "Procesado",
-    "Publish on the site": "Publicar en el sitio"
+    "Publish on the site": "Publicar en el sitio",
+    "Live": "Publicado",
+    "Draft": "Borrador",
+    "View on the site": "Ver en el sitio",
+    "No files yet": "Sin archivos"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -1748,6 +1772,10 @@
     "Sign-up is invitation-only for now — enter the coupon code you received.": "Por enquanto o cadastro é apenas por convite — insira o código que você recebeu.",
     "Process content": "Processar conteúdo",
     "Processed": "Processado",
-    "Publish on the site": "Publicar no site"
+    "Publish on the site": "Publicar no site",
+    "Live": "Publicado",
+    "Draft": "Rascunho",
+    "View on the site": "Ver no site",
+    "No files yet": "Sem arquivos"
   }
 }
