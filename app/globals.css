@@ -5833,3 +5833,276 @@ html.bw-lock body {
     font-size: 13px;
   }
 }
+
+/* ══════════ M15b — FURNITURE (reading table, chairs, hi-fi, kiosk) ══════════ */
+.rm-prop {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: center bottom;
+  pointer-events: none;
+  filter: drop-shadow(0 26px 22px rgb(10 6 2 / 0.55)) brightness(0.9);
+  transition: opacity 0.55s ease;
+}
+/* standing at a shelf, the furniture is behind you — never let it occlude the books */
+.rm[data-mode='case'] .rm-prop {
+  opacity: 0;
+}
+.rm-p-table {
+  width: 660px;
+  margin-left: -330px;
+}
+.rm-p-table img {
+  width: 100%;
+  display: block;
+}
+.rm-p-chair {
+  width: 250px;
+  margin-left: -125px;
+}
+.rm-p-chair img {
+  width: 100%;
+  display: block;
+}
+.rm-p-chair3 {
+  width: 210px;
+  margin-left: -105px;
+  filter: drop-shadow(0 20px 18px rgb(10 6 2 / 0.5)) brightness(0.72);
+}
+/* classic banker's lamp on the table */
+.rm-banker {
+  position: absolute;
+  left: 63%;
+  bottom: 63%;
+  width: 84px;
+  height: 78px;
+}
+/* half-cylinder shade: dark edges, lit centre, warm mouth underneath */
+.rm-banker-shade {
+  position: absolute;
+  left: 6px;
+  top: 0;
+  width: 72px;
+  height: 27px;
+  border-radius: 36px 36px 7px 7px / 27px 27px 6px 6px;
+  background: linear-gradient(90deg, #0b2e1c, #24603c 26%, #3d8a58 50%, #24603c 74%, #0b2e1c);
+  border-bottom: 3px solid rgb(255 232 158 / 0.9);
+  box-shadow:
+    inset 0 3px 4px rgb(255 255 255 / 0.18),
+    0 3px 7px rgb(0 0 0 / 0.55);
+}
+.rm-banker-stem {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 8px;
+  height: 44px;
+  margin-left: -4px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6e5220, #e2bd6a 45%, #6e5220);
+  box-shadow: 0 0 4px rgb(0 0 0 / 0.4);
+}
+.rm-banker-base {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 52px;
+  height: 11px;
+  margin-left: -26px;
+  border-radius: 50% 50% 7px 7px;
+  background: linear-gradient(180deg, #e2bd6a, #7c5f24);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.5);
+}
+.rm-banker-glow {
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  width: 104px;
+  height: 56px;
+  margin-left: -52px;
+  background: radial-gradient(ellipse at center top, rgb(255 226 140 / 0.32), transparent 62%);
+  filter: blur(2px);
+  pointer-events: none;
+}
+/* vintage hi-fi console */
+.rm-p-hifi {
+  width: 250px;
+  height: 240px;
+  margin-left: -125px;
+  background: linear-gradient(180deg, #5d4426 0%, #4a3419 60%, #3a2812 100%);
+  border-radius: 8px 8px 3px 3px;
+  border: 3px solid #2c1e0d;
+  box-shadow:
+    inset 0 2px 0 rgb(255 220 150 / 0.25),
+    0 26px 22px rgb(10 6 2 / 0.55);
+  filter: brightness(0.92);
+}
+.rm-hifi-lid {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  height: 34px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #7a5a30, #55401f);
+  box-shadow: inset 0 0 0 2px rgb(0 0 0 / 0.3);
+}
+.rm-hifi-dial {
+  position: absolute;
+  top: 52px;
+  left: 26px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e8d3a0, #8a6a2a);
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.6);
+}
+.rm-hifi-dial2 {
+  left: auto;
+  right: 26px;
+}
+.rm-hifi-grille {
+  position: absolute;
+  top: 52px;
+  left: 66px;
+  right: 66px;
+  height: 26px;
+  border-radius: 4px;
+  background:
+    repeating-linear-gradient(90deg, rgb(240 220 170 / 0.35) 0 2px, rgb(30 20 8 / 0.8) 2px 5px);
+}
+.rm-hifi-sp {
+  position: absolute;
+  bottom: 26px;
+  left: 22px;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #1a120a 0 26%, rgb(210 180 120 / 0.25) 27% 30%, #241708 31% 62%, rgb(210 180 120 / 0.3) 63% 66%, #1a120a 67%);
+  box-shadow: inset 0 0 8px rgb(0 0 0 / 0.8);
+}
+.rm-hifi-sp2 {
+  left: auto;
+  right: 22px;
+}
+.rm-hifi-legs {
+  position: absolute;
+  bottom: -16px;
+  left: 18px;
+  right: 18px;
+  height: 16px;
+  background:
+    linear-gradient(90deg, #2c1e0d 0 10px, transparent 10px calc(100% - 10px), #2c1e0d calc(100% - 10px));
+}
+/* kiosk counter + cashier */
+.rm-p-kiosk {
+  width: 430px;
+  height: 300px;
+  margin-left: -215px;
+}
+.rm-kiosk-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 190px;
+  background:
+    repeating-linear-gradient(90deg, rgb(255 226 160 / 0.05) 0 3px, transparent 3px 46px),
+    linear-gradient(180deg, #563d1f 0%, #43301a 100%);
+  border: 3px solid #2c1e0d;
+  border-radius: 6px 6px 0 0;
+  box-shadow: inset 0 8px 14px rgb(255 220 150 / 0.12);
+}
+.rm-kiosk-top {
+  position: absolute;
+  bottom: 182px;
+  left: -14px;
+  right: -14px;
+  height: 20px;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #8a6335, #5d4426);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.5);
+  z-index: 2;
+}
+.rm-kiosk-register {
+  position: absolute;
+  bottom: 200px;
+  left: 46px;
+  width: 96px;
+  height: 62px;
+  background: linear-gradient(180deg, #33281c, #201710);
+  border-radius: 6px 6px 3px 3px;
+  box-shadow: inset 0 2px 0 rgb(255 220 150 / 0.2), 0 4px 8px rgb(0 0 0 / 0.5);
+  z-index: 3;
+}
+.rm-kiosk-register::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  right: 10px;
+  height: 18px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #6fae7c, #35563d);
+  box-shadow: inset 0 0 6px rgb(0 0 0 / 0.6);
+}
+.rm-kiosk-bell {
+  position: absolute;
+  bottom: 202px;
+  right: 64px;
+  width: 34px;
+  height: 20px;
+  border-radius: 17px 17px 3px 3px;
+  background: radial-gradient(circle at 35% 25%, #f0d488, #8a6a2a 80%);
+  box-shadow: 0 3px 6px rgb(0 0 0 / 0.5);
+  z-index: 3;
+}
+/* the cashier — warm backlit silhouette behind the counter */
+.rm-cashier {
+  position: absolute;
+  bottom: 150px;
+  right: 120px;
+  width: 150px;
+  height: 150px;
+  z-index: 1;
+}
+.rm-cashier-head {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 56px;
+  height: 60px;
+  margin-left: -28px;
+  border-radius: 50% 50% 44% 44%;
+  background: radial-gradient(circle at 30% 22%, #4a3627, #241812 70%);
+  box-shadow: inset -6px -4px 10px rgb(0 0 0 / 0.55), 0 0 22px rgb(255 214 130 / 0.18);
+}
+.rm-cashier-body {
+  position: absolute;
+  top: 52px;
+  left: 50%;
+  width: 128px;
+  height: 100px;
+  margin-left: -64px;
+  border-radius: 60px 60px 0 0;
+  background: linear-gradient(180deg, #3d2c1e, #241812 80%);
+  box-shadow: inset -10px 0 16px rgb(0 0 0 / 0.5), inset 8px 6px 12px rgb(255 214 130 / 0.12);
+}
+.rm-cashier-book {
+  position: absolute;
+  top: 108px;
+  left: 50%;
+  width: 74px;
+  height: 26px;
+  margin-left: -37px;
+  transform: rotate(-4deg);
+  border-radius: 3px;
+  background: linear-gradient(90deg, #d9c9a6 0 49%, #b5a381 51% 100%);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.5);
+}
+@media (max-width: 759px) {
+  .rm-prop {
+    filter: drop-shadow(0 16px 14px rgb(10 6 2 / 0.5)) brightness(0.9);
+  }
+}

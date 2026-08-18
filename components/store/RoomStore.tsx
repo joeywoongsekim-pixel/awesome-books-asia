@@ -78,6 +78,7 @@ export default function RoomStore() {
   const [drawer, setDrawer] = useState<{book: WalkBook; kase: RoomCase} | null>(null);
   const drawerRef = useRef<HTMLElement>(null);
   const zoneRef = useRef(0);
+  const yawRef = useRef(0);
 
   const savedY = useRef(0);
   const lockRef = useRef(false);
@@ -89,6 +90,9 @@ export default function RoomStore() {
     if (on) {
       savedY.current = window.scrollY;
       document.documentElement.classList.add('bw-lock');
+      // sticky stops pinning under overflow:hidden while Chrome keeps the
+      // scroll offset — park at 0 so the unpinned view fills the viewport
+      window.scrollTo(0, 0);
     } else {
       document.documentElement.classList.remove('bw-lock');
       window.scrollTo(0, savedY.current);
@@ -178,7 +182,16 @@ export default function RoomStore() {
       if (modeRef.current === 'room') {
         const theta = -SWEEP + 2 * SWEEP * p;
         rig.style.transform = `rotateY(${theta.toFixed(3)}deg)`;
+        yawRef.current = theta;
       }
+      // billboard props always face the camera
+      const kk = g.k;
+      rig.querySelectorAll<HTMLElement>('.rm-prop').forEach((el) => {
+        const px = Number(el.dataset.x) * kk;
+        const pz = Number(el.dataset.z) * kk;
+        const flip = el.dataset.flip ? ' scaleX(-1)' : '';
+        el.style.transform = `translate3d(${px}px, 0, ${pz}px) rotateY(${(-yawRef.current).toFixed(3)}deg) scale(${kk})${flip}`;
+      });
       const z = Math.min(5, Math.floor(p * 6));
       if (z !== zoneRef.current) {
         zoneRef.current = z;
@@ -224,6 +237,7 @@ export default function RoomStore() {
     lock(true);
     rig.classList.add('rm-anim');
     rig.style.transform = caseTransform(i, geo.current.k);
+    yawRef.current = i < 2 ? -90 : i < 4 ? 0 : 90;
   }, []);
 
   const stepBack = useCallback(() => {
@@ -440,6 +454,46 @@ export default function RoomStore() {
               }}
               aria-hidden="true"
             />
+
+            {/* furniture — billboarded standees (steered from the loop) */}
+            <div className="rm-prop rm-p-table" data-x="0" data-z="-800" aria-hidden="true">
+              <img src="/walk/prop-table.webp" alt="" loading="lazy" decoding="async" />
+              <span className="rm-banker">
+                <i className="rm-banker-shade" />
+                <i className="rm-banker-stem" />
+                <i className="rm-banker-base" />
+                <i className="rm-banker-glow" />
+              </span>
+            </div>
+            <div className="rm-prop rm-p-chair" data-x="-430" data-z="-660" aria-hidden="true">
+              <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
+            </div>
+            <div className="rm-prop rm-p-chair rm-p-chair2" data-x="440" data-z="-720" data-flip="1" aria-hidden="true">
+              <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
+            </div>
+            <div className="rm-prop rm-p-chair rm-p-chair3" data-x="150" data-z="-1000" aria-hidden="true">
+              <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
+            </div>
+            <div className="rm-prop rm-p-hifi" data-x="710" data-z="-1090" aria-hidden="true">
+              <i className="rm-hifi-lid" />
+              <i className="rm-hifi-dial" />
+              <i className="rm-hifi-dial rm-hifi-dial2" />
+              <i className="rm-hifi-grille" />
+              <i className="rm-hifi-sp" />
+              <i className="rm-hifi-sp rm-hifi-sp2" />
+              <i className="rm-hifi-legs" />
+            </div>
+            <div className="rm-prop rm-p-kiosk" data-x="-650" data-z="-500" aria-hidden="true">
+              <span className="rm-cashier">
+                <i className="rm-cashier-head" />
+                <i className="rm-cashier-body" />
+                <i className="rm-cashier-book" />
+              </span>
+              <i className="rm-kiosk-top" />
+              <i className="rm-kiosk-front" />
+              <i className="rm-kiosk-register" />
+              <i className="rm-kiosk-bell" />
+            </div>
           </div>
 
           {/* vignette + HUD */}
