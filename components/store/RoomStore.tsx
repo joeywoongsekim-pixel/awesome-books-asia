@@ -614,11 +614,7 @@ export default function RoomStore() {
                     alt=""
                     ref={openRef}
                   />
-                  <div className="bw-fsign">
-                    <b>AWESOME BOOKS</b>
-                    <i>어썸북스 · オーサムブックス · Awesome Books</i>
-                  </div>
-                  <div className="bw-plaque bw-fplaque">OPEN · 영업중</div>
+                  {/* sign lettering + OPEN plaque are baked into the facade renders */}
                 </div>
                 <div className="bw-hint" ref={hintRef}>
                   {t('scrollHint')}
