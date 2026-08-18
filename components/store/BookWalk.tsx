@@ -402,38 +402,38 @@ export default function BookWalk() {
     <div className="bw" data-entry={entry}>
       <div className="bw-track" ref={trackRef}>
         <div className="bw-view" ref={viewRef}>
-          {/* back — 0.35× */}
-          <div className="bw-back" ref={backRef} aria-hidden="true">
-            {Array.from({length: 7}, (_, i) => (
-              <div className="bw-lamp" key={i} style={{left: 240 + i * 640}}>
-                <i />
-              </div>
-            ))}
-            <div className="bw-window" style={{left: 1160}} />
-            <div className="bw-window" style={{left: 3400}} />
-          </div>
+          {/* back — 0.35× (photographic interior, M12) */}
+          <div className="bw-back bw-back-photo" ref={backRef} aria-hidden="true" />
 
           {/* wall — 1.00× */}
           <div className="bw-wall" ref={wallRef}>
-            <div className="bw-porch" aria-hidden="true">
-              <div className="bw-porch-mat" />
-              <div className="bw-porch-plant">
-                <i />
-                <b />
-              </div>
-            </div>
+            <div className="bw-porch" aria-hidden="true" />
             <div className="bw-shelfblock">
               {SHELVES.map((shelf, si) => (
                 <div className={`bw-row${shelf.low ? ' bw-low' : ''}`} key={shelf.no}>
                   {shelf.bays.map((bay, bi) => (
-                    <div className="bw-bay" key={bi}>
+                    <div
+                      className={`bw-bay${bay.photo ? ' bw-bay-photo' : ''}`}
+                      key={bi}
+                      style={
+                        bay.photo
+                          ? {backgroundImage: `url(/walk/${bay.photo}.webp)`}
+                          : undefined
+                      }
+                    >
                       <div className="bw-signplate" aria-hidden="true">
                         {tri(locale, bay.sign)}
                       </div>
                       <div className="bw-slotrow">
-                        {baySlots(shelf, si, bi).map((slot, i) =>
-                          renderSlot(slot, shelf, i)
-                        )}
+                        {bay.photo
+                          ? // photographic shelves carry their own books — only
+                            // the real, interactive titles are overlaid
+                            baySlots(shelf, si, bi)
+                              .filter((s) => s.kind === 'book')
+                              .map((slot, i) => renderSlot(slot, shelf, i))
+                          : baySlots(shelf, si, bi).map((slot, i) =>
+                              renderSlot(slot, shelf, i)
+                            )}
                       </div>
                     </div>
                   ))}
@@ -449,15 +449,10 @@ export default function BookWalk() {
           {/* floor — fixed */}
           <div className="bw-floor" aria-hidden="true" />
 
-          {/* front — 1.40× */}
+          {/* front — 1.40× (photographic props, M12) */}
           <div className="bw-front" ref={frontRef} aria-hidden="true">
-            <div className="bw-table" style={{left: '14%'}}>
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="bw-standlamp" style={{left: '46%'}} />
-            <div className="bw-chair" style={{left: '74%'}} />
+            <img className="bw-prop" src="/walk/prop-table.webp" alt="" style={{left: '13%'}} loading="lazy" decoding="async" />
+            <img className="bw-prop bw-prop-chair" src="/walk/prop-chair.webp" alt="" style={{left: '72%'}} loading="lazy" decoding="async" />
           </div>
 
           {/* gutter — 좌측 분류 라벨 */}
@@ -502,21 +497,15 @@ export default function BookWalk() {
         ? createPortal(
             <div className="bw bw-portal">
               <div className="bw-enter" role="presentation">
-          <div className="bw-facade">
-            <div className="bw-sign">
-              <b>AWESOME BOOKS</b>
-              <i>어썸북스 · オーサムブックス · Awesome Books</i>
-            </div>
-            <div className="bw-doorframe">
-              <div className="bw-door bw-door-l">
-                <span />
-              </div>
-              <div className="bw-door bw-door-r">
-                <span />
-              </div>
-            </div>
-                <div className="bw-plaque">OPEN · 영업중</div>
-              </div>
+                <div className="bw-fcd">
+                  <img className="bw-fcd-img" src="/walk/facade-closed.webp" alt="" />
+                  <img className="bw-fcd-img bw-fcd-open" src="/walk/facade-open.webp" alt="" />
+                  <div className="bw-fsign">
+                    <b>AWESOME BOOKS</b>
+                    <i>어썸북스 · オーサムブックス · Awesome Books</i>
+                  </div>
+                  <div className="bw-plaque bw-fplaque">OPEN · 영업중</div>
+                </div>
               </div>
               <button type="button" className="bw-skipbtn" onClick={finishEntry}>
                 {t('skip')}

@@ -5159,3 +5159,146 @@ html.bw-lock body {
   object-fit: cover;
   display: block;
 }
+
+/* ══════════ M12b — PHOTOGRAPHIC BOOKSTORE ══════════ */
+/* back wall (0.35×) */
+.bw-back-photo {
+  background-image: url('/walk/back.webp');
+  background-repeat: repeat-x;
+  background-size: auto 100%;
+}
+.bw-back-photo::after {
+  /* gentle vignette so the repeat seam and edges melt away */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgb(20 15 8 / 0.22), transparent 30%, transparent 72%, rgb(20 15 8 / 0.3));
+}
+/* floor */
+.bw-floor {
+  background-image: url('/walk/floor.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 42%;
+  box-shadow: inset 0 14px 22px rgb(20 15 8 / 0.5);
+}
+/* photographic bays */
+.bw-bay-photo {
+  background-size: cover;
+  background-position: center 56%;
+}
+.bw-bay-photo::after {
+  display: none; /* the photo carries its own shelf board */
+}
+.bw-bay-photo .bw-slotrow {
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.bw-bay-photo .bw-signplate {
+  box-shadow: 0 3px 8px rgb(0 0 0 / 0.6);
+}
+/* the featured cover sits on the photo shelf like a face-out display */
+.bw-bay-photo .bw-face-img {
+  box-shadow:
+    0 16px 26px rgb(0 0 0 / 0.55),
+    0 3px 8px rgb(0 0 0 / 0.5);
+}
+.bw-shelfblock {
+  background: #241b12;
+}
+/* photographic front props (1.40×) */
+.bw-prop {
+  position: absolute;
+  bottom: 10px;
+  height: 200px;
+  width: auto;
+  filter: brightness(0.82) contrast(1.02) drop-shadow(0 14px 18px rgb(20 15 8 / 0.55));
+}
+.bw-prop-chair {
+  height: 185px;
+}
+
+/* photographic entrance — closed → open crossfade, then the zoom-through */
+.bw-fcd {
+  position: relative;
+  height: min(72svh, 640px);
+  aspect-ratio: 3 / 2;
+  max-width: 94vw;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 40px 120px rgb(0 0 0 / 0.6);
+}
+.bw-fcd-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.bw-fcd-open {
+  opacity: 0;
+  animation: bwDoorsOpen 0.9s 0.45s ease-in-out forwards;
+}
+@keyframes bwDoorsOpen {
+  to {
+    opacity: 1;
+  }
+}
+.bw-fsign {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  width: 37%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #f4e6bf;
+  text-shadow: 0 1px 6px rgb(0 0 0 / 0.7);
+}
+.bw-fsign b {
+  display: block;
+  font-family: var(--bw-serif);
+  font-weight: 600;
+  font-size: clamp(13px, 1.9vw, 24px);
+  letter-spacing: 0.18em;
+  color: #e9c568;
+}
+.bw-fsign i {
+  display: block;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: clamp(7px, 0.72vw, 10px);
+  letter-spacing: 0.1em;
+  opacity: 0.85;
+}
+.bw-fplaque {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.94;
+}
+/* zoom through the photographed doorway */
+.bw-enter {
+  transform-origin: 50% 58%;
+}
+@media (max-width: 759px) {
+  .bw-prop {
+    height: 150px;
+  }
+  .bw-fcd {
+    height: auto;
+    width: 94vw;
+  }
+}
+
+/* rail sits on the photographic floor now — keep it legible */
+.bw-cap {
+  color: #f2eadb;
+  text-shadow: 0 1px 4px rgb(20 15 8 / 0.8);
+}
+.bw-rail-line {
+  background: rgb(242 234 219 / 0.35);
+}
+.bw-rail-line i {
+  background: rgb(242 234 219 / 0.5);
+}

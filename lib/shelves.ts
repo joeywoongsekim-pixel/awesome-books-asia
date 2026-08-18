@@ -19,6 +19,7 @@ export interface WalkBook {
 
 export interface WalkBay {
   sign: Tri; // brass plate
+  photo?: string; // /public/walk/<photo>.webp bay backdrop (M12)
   books: WalkBook[]; // titled books; the rest of the slots are fillers
 }
 
@@ -48,6 +49,7 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'),
+        photo: 'wall-econ',
         books: [
           {
             slug: 'quantum-econ',
@@ -67,6 +69,7 @@ export const SHELVES: WalkShelf[] = [
       },
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
+        photo: 'wall-econ',
         books: [
           {
             slug: 'isekai',
@@ -96,6 +99,7 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('첫 프롬프트', 'First Prompts', 'はじめてのプロンプト'),
+        photo: 'wall-ai',
         books: [
           {
             slug: 'ai-bible',
@@ -114,7 +118,7 @@ export const SHELVES: WalkShelf[] = [
           }
         ]
       },
-      {sign: SOON, books: []}
+      {sign: SOON, photo: 'wall-soon', books: []}
     ]
   },
   {
@@ -127,6 +131,7 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'),
+        photo: 'wall-kids',
         books: [
           {
             slug: 'ninja-cat',
@@ -144,7 +149,7 @@ export const SHELVES: WalkShelf[] = [
           }
         ]
       },
-      {sign: SOON, books: []}
+      {sign: SOON, photo: 'wall-soon', books: []}
     ]
   }
 ];
