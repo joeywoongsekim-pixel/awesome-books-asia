@@ -380,7 +380,7 @@ export default function BookWalk() {
             aria-label={aria}
             onClick={(e) => openDrawer(b, shelf, e.currentTarget)}
             onFocus={(e) => followFocus(e.currentTarget)}
-            style={{height: `${Math.min(slot.hPct, 79)}%`, marginLeft: slot.gap || undefined}}
+            style={{height: `${Math.min(slot.hPct, 66)}%`, marginLeft: slot.gap || undefined}}
           >
             <span
               className="bw-b3"

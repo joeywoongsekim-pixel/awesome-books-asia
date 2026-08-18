@@ -49,7 +49,7 @@ const ED_EN = d('영문판', 'English Edition', '英語版');
 const ED_JA = d('일본어판', 'Japanese Edition', '日本語版');
 
 // shared shelf backdrop — crops vary so bays read as different spots
-const EMPTY = {photo: 'wall-empty', zoom: '130%', seat: 30};
+const EMPTY = {photo: 'wall-empty', zoom: '130%', seat: 62};
 
 const QUANTUM_DESC = d(
   '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 새로운 의사결정 경제학.',
@@ -86,7 +86,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'),
         ...EMPTY,
-        pos: 'left 88%',
+        pos: '30% 90%',
         books: [
           {
             slug: 'quantum-econ',
@@ -98,24 +98,13 @@ export const SHELVES: WalkShelf[] = [
             desc: QUANTUM_DESC,
             status: 'out',
             face: true
-          },
-          {
-            slug: 'quantum-econ',
-            cover: '/covers/quantum-econ-ja.jpg',
-            spineBg: '#1a1440',
-            spineFg: '#f2df66',
-            ...same('量子経済学'),
-            ed: ED_JA,
-            desc: QUANTUM_DESC,
-            status: 'out',
-            face: true
           }
         ]
       },
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
         ...EMPTY,
-        pos: 'right 88%',
+        pos: '70% 90%',
         books: [
           {
             slug: 'isekai',
@@ -124,28 +113,6 @@ export const SHELVES: WalkShelf[] = [
             spineFg: '#241b0e',
             ...same('이세계 엔터프리너십 입문'),
             ed: ED_KO,
-            desc: ISEKAI_DESC,
-            status: 'out',
-            face: true
-          },
-          {
-            slug: 'isekai',
-            cover: '/covers/isekai.jpg',
-            spineBg: '#233f37',
-            spineFg: '#f2c94c',
-            ...same('ISEKAI Entrepreneurship'),
-            ed: ED_EN,
-            desc: ISEKAI_DESC,
-            status: 'out',
-            face: true
-          },
-          {
-            slug: 'isekai',
-            cover: '/covers/isekai-ja.jpg',
-            spineBg: '#44502a',
-            spineFg: '#f2e4b8',
-            ...same('異世界アントレプレナーシップ入門'),
-            ed: ED_JA,
             desc: ISEKAI_DESC,
             status: 'out',
             face: true
@@ -165,7 +132,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('첫 프롬프트', 'First Prompts', 'はじめてのプロンプト'),
         ...EMPTY,
-        pos: 'center 88%',
+        pos: '50% 90%',
         books: [
           {
             slug: 'ai-bible',
@@ -178,21 +145,10 @@ export const SHELVES: WalkShelf[] = [
             status: 'out',
             face: true,
             rep: true
-          },
-          {
-            slug: 'ai-bible',
-            cover: '/covers/ai-bible-ja.jpg',
-            spineBg: '#16233d',
-            spineFg: '#e9c568',
-            ...same('AIバイブル 2026'),
-            ed: ED_JA,
-            desc: BIBLE_DESC,
-            status: 'out',
-            face: true
           }
         ]
       },
-      {sign: SOON, ...EMPTY, pos: 'left 88%', books: []}
+      {sign: SOON, ...EMPTY, pos: '30% 90%', books: []}
     ]
   },
   {
@@ -206,7 +162,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'),
         ...EMPTY,
-        pos: 'right 88%',
+        pos: '70% 90%',
         books: [
           {
             slug: 'ninja-cat',
@@ -218,21 +174,10 @@ export const SHELVES: WalkShelf[] = [
             desc: NINJA_DESC,
             status: 'out',
             face: true
-          },
-          {
-            slug: 'ninja-cat',
-            cover: '/covers/ninja-cat.jpg',
-            spineBg: '#e8b64a',
-            spineFg: '#3a2a1a',
-            ...same('おっちょこ忍キャット クロの巻'),
-            ed: ED_JA,
-            desc: NINJA_DESC,
-            status: 'out',
-            face: true
           }
         ]
       },
-      {sign: SOON, ...EMPTY, pos: 'center 88%', books: []}
+      {sign: SOON, ...EMPTY, pos: '50% 90%', books: []}
     ]
   }
 ];
