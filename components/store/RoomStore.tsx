@@ -136,6 +136,9 @@ export default function RoomStore() {
       const kk = Math.min(1, Math.max(0.42, vw / 1500));
       setK(kk);
       geo.current.k = kk;
+      // the perspective must scale WITH the room, or nearby furniture is
+      // magnified on small screens (fixed 1000px lens in a 0.42× room)
+      if (viewRef.current) viewRef.current.style.perspective = `${Math.round(1000 * kk)}px`;
       const entryScroll = entryOn ? Math.round(vh * 1.2) : 0;
       const lookScroll = Math.round(vh * 1.7);
       const trackH = vh + entryScroll + lookScroll;
@@ -526,13 +529,13 @@ export default function RoomStore() {
                 <i className="rm-banker-glow" />
               </span>
             </div>
-            <div className="rm-prop rm-p-chair" data-x="-580" data-z="-1330" aria-hidden="true">
+            <div className="rm-prop rm-p-chair" data-x="-700" data-z="-1280" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
-            <div className="rm-prop rm-p-chair rm-p-chair2" data-x="590" data-z="-1400" data-flip="1" aria-hidden="true">
+            <div className="rm-prop rm-p-chair rm-p-chair2" data-x="700" data-z="-1380" data-flip="1" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
-            <div className="rm-prop rm-p-chair rm-p-chair3" data-x="170" data-z="-1950" aria-hidden="true">
+            <div className="rm-prop rm-p-chair rm-p-chair3" data-x="120" data-z="-2000" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
             {/* new-arrivals display table by the entrance */}
