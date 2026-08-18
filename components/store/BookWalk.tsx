@@ -333,20 +333,30 @@ export default function BookWalk() {
     }
     const aria = `${label} — ${rowLabel(shelf)}`;
     if (b.face) {
-      // Real covers render as photographic face-out displays; the CSS cloth
-      // face stays as the fallback for future titles without artwork yet.
+      // Real books stand shelved as spines; hover/focus pulls the book off
+      // the shelf and turns it to show the actual front cover (M12c).
       if (b.cover) {
         return (
           <button
             key={key}
             type="button"
-            className={`bw-book bw-face bw-face-img${b.rep ? ' bw-rep' : ''}`}
+            className={`bw-book bw-pull${b.rep ? ' bw-rep' : ''}`}
             aria-label={aria}
             onClick={(e) => openDrawer(b, shelf, e.currentTarget)}
             onFocus={(e) => followFocus(e.currentTarget)}
-            style={{height: `${slot.hPct}%`, marginLeft: slot.gap || undefined}}
+            style={{height: `${Math.min(slot.hPct, 79)}%`, marginLeft: slot.gap || undefined}}
           >
-            <img src={b.cover} alt="" loading="lazy" decoding="async" />
+            <span className="bw-b3">
+              <i
+                className="bw-b3-spine"
+                style={{background: b.spineBg, color: b.spineFg}}
+              >
+                <b>{label}</b>
+              </i>
+              <i className="bw-b3-cover">
+                <img src={b.cover} alt="" loading="lazy" decoding="async" />
+              </i>
+            </span>
           </button>
         );
       }

@@ -15,6 +15,8 @@ export interface WalkBook {
   face?: boolean; // front-facing display copy
   rep?: boolean; // the single awesome-blue accent (AI shelf flagship)
   cover?: string;
+  spineBg?: string; // spine face colour (matches the cover art)
+  spineFg?: string;
 }
 
 export interface WalkBay {
@@ -54,6 +56,8 @@ export const SHELVES: WalkShelf[] = [
           {
             slug: 'quantum-econ',
             cover: '/covers/quantum-econ.jpg',
+            spineBg: '#ece7db',
+            spineFg: '#20242c',
             ko: '양자경제학',
             en: 'Quantum Economics',
             ja: '量子経済学',
@@ -74,6 +78,8 @@ export const SHELVES: WalkShelf[] = [
           {
             slug: 'isekai',
             cover: '/covers/isekai.jpg',
+            spineBg: '#233f37',
+            spineFg: '#f2c94c',
             ko: '이세계 엔터프리너십 입문',
             en: 'ISEKAI Entrepreneurship',
             ja: '異世界アントレプレナーシップ入門',
@@ -104,6 +110,8 @@ export const SHELVES: WalkShelf[] = [
           {
             slug: 'ai-bible',
             cover: '/covers/ai-bible.jpg',
+            spineBg: '#101c36',
+            spineFg: '#e9c568',
             ko: '어썸 AI 바이블 2026',
             en: 'Awesome AI Bible 2026',
             ja: 'オーサムAIバイブル2026',
@@ -136,6 +144,8 @@ export const SHELVES: WalkShelf[] = [
           {
             slug: 'ninja-cat',
             cover: '/covers/ninja-cat.jpg',
+            spineBg: '#f2cf5b',
+            spineFg: '#3a2a1a',
             ko: '덜렁이 닌자 고양이 쿠로편',
             en: 'Clumsy Ninja Cat Kuro',
             ja: 'おっちょこ忍キャット クロの巻',
