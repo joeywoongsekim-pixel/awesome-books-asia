@@ -5102,3 +5102,12 @@ html.bw-lock body {
 .store-chip-print {
   background: #fdf9f0;
 }
+
+/* with 3 rows the shelves are taller — books keep bookish proportions */
+.bw-fill,
+.bw-spine {
+  max-height: 250px;
+}
+.bw-face {
+  max-height: 215px;
+}

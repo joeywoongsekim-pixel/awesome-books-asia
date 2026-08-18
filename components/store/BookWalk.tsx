@@ -169,7 +169,7 @@ export default function BookWalk() {
         wall.querySelectorAll<HTMLElement>('.bw-row:first-child .bw-bay')
       ).map((el) => el.getBoundingClientRect().left - wallX);
       geo.current.bays = bays;
-      if (travel > 0 && bays.length === 3) {
+      if (travel > 0 && bays.length > 1) {
         setTicks(
           bays
             .slice(1)
@@ -446,7 +446,11 @@ export default function BookWalk() {
           {/* gutter — 좌측 분류 라벨 */}
           <div className="bw-gutter" aria-hidden="true">
             {SHELVES.map((s, i) => (
-              <div className="bw-glabel" key={s.no} style={{top: `${(i + 0.5) * 25}%`}}>
+              <div
+                className="bw-glabel"
+                key={s.no}
+                style={{top: `${((i + 0.5) * 100) / SHELVES.length}%`}}
+              >
                 <b>{s.no}</b>
                 <span>{rowLabel(s)}</span>
                 {locale !== 'en' ? <i>{s.en}</i> : null}
