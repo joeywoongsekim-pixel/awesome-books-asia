@@ -154,7 +154,8 @@
     "readerValue": "Bureau à quatre livres",
     "keepGoing": "Sur votre lancée",
     "more": "Encore plus de la bibliothèque",
-    "stores": "Disponible chez"
+    "stores": "Disponible chez",
+    "fmtPrint": "Papier"
   },
   "reader": {
     "back": "← Bibliothèque",

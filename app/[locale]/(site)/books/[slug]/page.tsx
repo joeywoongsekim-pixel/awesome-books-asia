@@ -66,7 +66,7 @@ function BookDetail({book}: {book: Book}) {
               {t('subscribeCta')}
             </Link>
           </div>
-          <RetailerLinks title={book.title} />
+          <RetailerLinks bookId={book.id} title={book.title} />
           <div className="d-subnote">
             {t.rich('subnote', {
               b: (chunks) => <b>{chunks}</b>

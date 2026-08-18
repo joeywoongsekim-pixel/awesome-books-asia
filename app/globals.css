@@ -5097,3 +5097,8 @@ html.bw-lock body {
 .bw[data-entry='doors'] .bw-front {
   will-change: auto;
 }
+
+/* curated retailer chips — print editions get a paper tint */
+.store-chip-print {
+  background: #fdf9f0;
+}

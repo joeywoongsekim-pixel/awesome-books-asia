@@ -45,19 +45,36 @@ export const SHELVES: WalkShelf[] = [
     foil: '#EFD9A0',
     cloths: ['#4a3b2f', '#5d4632', '#6e5a3a', '#3e3a45', '#57423b', '#4c4a3a'],
     bays: [
-      {sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'), books: []},
+      {
+        sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'),
+        books: [
+          {
+            slug: 'quantum-econ',
+            ko: '양자경제학',
+            en: 'Quantum Economics',
+            ja: '量子経済学',
+            desc: d(
+              '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 새로운 의사결정 경제학.',
+              'What if the economy obeys quantum rules? Why you choose what you choose.',
+              '日銀・消費税・推し活まで、ぜんぶ「量子」で説明する教養経済学。'
+            ),
+            status: 'out',
+            face: true
+          }
+        ]
+      },
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
         books: [
           {
             slug: 'isekai',
-            ko: '이세계 창업기',
-            en: 'Isekai Entrepreneurship',
-            ja: '異世界起業記',
+            ko: '이세계 엔터프리너십 입문',
+            en: 'ISEKAI Entrepreneurship',
+            ja: '異世界アントレプレナーシップ入門',
             desc: d(
-              '판타지 라이트노벨 속에 숨겨 담은 창업의 기본기.',
-              'Business fundamentals smuggled inside a fantasy light novel.',
-              'ライトノベルに忍ばせた起業の基本。'
+              '경영 이론과 판타지 세계가 만났다 — 실전으로 배우는 기업가정신.',
+              'Business theory meets a fantasy world — entrepreneurship learned in the field.',
+              '経営学×異世界ファンタジー！実戦で学ぶ起業家精神。'
             ),
             status: 'out',
             face: true
@@ -77,7 +94,7 @@ export const SHELVES: WalkShelf[] = [
               'A hands-on AI playbook a five-person company can start next week.',
               '5人の会社が来週から使えるAI導入の実践書。'
             ),
-            status: 'out',
+            status: 'soon',
             face: true
           }
         ]
@@ -124,7 +141,7 @@ export const SHELVES: WalkShelf[] = [
               'Why the same prompt gives different answers — and how to design repeatable ones.',
               '同じ質問で結果が変わる理由と、再現できるプロンプトの設計法。'
             ),
-            status: 'out',
+            status: 'soon',
             face: true
           }
         ]
@@ -153,30 +170,30 @@ export const SHELVES: WalkShelf[] = [
               'Computational thinking taught with paper and play — no screen required.',
               'コンピュータなしで学ぶ、紙とあそびのプログラミング思考。'
             ),
-            status: 'out',
+            status: 'soon',
             face: true
           }
         ]
       },
+      {sign: d('아이와 AI', 'Kids & AI', '子どもとAI'), books: []},
       {
-        sign: d('아이와 AI', 'Kids & AI', '子どもとAI'),
+        sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'),
         books: [
           {
-            slug: 'little-robot',
-            ko: '꼬마 로봇의 신나는 하루',
-            en: "Little Robot's Big Day",
-            ja: 'ちびロボのだいぼうけん',
+            slug: 'ninja-cat',
+            ko: '덜렁이 닌자 고양이 쿠로편',
+            en: 'Clumsy Ninja Cat Kuro',
+            ja: 'おっちょこ忍キャット クロの巻',
             desc: d(
-              'AI가 무엇인지 궁금해진 아이를 위한 첫 그림책.',
-              'A first picture book for the child who just asked what AI is.',
-              '「AIってなに？」に答える、はじめての絵本。'
+              '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
+              "The village's clumsiest ninja cat fails every mission in the best possible way.",
+              '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
             ),
             status: 'out',
             face: true
           }
         ]
-      },
-      {sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'), books: []}
+      }
     ]
   },
   {

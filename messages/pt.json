@@ -154,7 +154,8 @@
     "readerValue": "Mesa de quatro livros",
     "keepGoing": "Não pare agora",
     "more": "Mais da biblioteca",
-    "stores": "Disponível em"
+    "stores": "Disponível em",
+    "fmtPrint": "Impresso"
   },
   "reader": {
     "back": "← Biblioteca",

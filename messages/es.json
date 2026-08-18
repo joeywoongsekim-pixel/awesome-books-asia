@@ -154,7 +154,8 @@
     "readerValue": "Escritorio de cuatro libros",
     "keepGoing": "No te detengas",
     "more": "Más de la biblioteca",
-    "stores": "Disponible en"
+    "stores": "Disponible en",
+    "fmtPrint": "Impreso"
   },
   "reader": {
     "back": "← Biblioteca",

@@ -3,7 +3,7 @@
 // around it is translated via next-intl; editions per locale arrive with M5.
 
 export type Lang = 'EN' | 'KO' | 'JA';
-export type Category = 'AI' | 'EDU' | 'KIDS';
+export type Category = 'AI' | 'EDU' | 'KIDS' | 'BIZ';
 export type Cover = 'c1' | 'c2' | 'c3' | 'c4' | 'c5' | 'c6';
 
 export type Spread = {
@@ -92,15 +92,61 @@ export const BOOKS: Book[] = [
     ]
   },
   {
+    id: 'quantum-econ',
+    ic: '⚛️',
+    cover: 'c4',
+    title: 'Quantum Economics: Foundations and Applications',
+    author: 'Akira Murata',
+    cat: 'BIZ',
+    catLabel: 'Economics',
+    price: 12,
+    langs: ['EN', 'JA'],
+    isNew: true,
+    level: 4,
+    angle: 'as measurement — a price is not discovered, it is collapsed by the act of asking',
+    blurb:
+      'What if the economy obeys quantum rules? Superposition, measurement and entanglement as a working toolkit for the new economics of decision-making — why you choose what you choose. The Japanese edition (量子経済学) applies the same lens to the BOJ, consumption tax and fan economies.',
+    pages: 342,
+    published: '2026-08',
+    toc: [
+      'Why classical models miss',
+      'Choice as superposition',
+      'Price as measurement',
+      'Entangled markets',
+      'Tunnelling and innovation',
+      'Policy in a quantum economy'
+    ],
+    sp: [
+      {
+        ch: 'Chapter 2 · Choice as superposition',
+        h: 'You did not have<br>a preference yet',
+        x: `<p>Classical economics assumes your preference existed before the question. Watch real buyers and you see something stranger: until the moment of asking, the preference is <b>genuinely undecided</b>.</p><p>The question does not reveal the answer. It creates it.</p>`
+      },
+      {
+        fig: {i: '⚛️', t: 'The survey effect<br>Asking about a purchase changes the purchase'},
+        x: `<p>This is why A/B tests disagree with interviews, and why both disagree with the till. Each is a different measurement, and each collapses the customer differently.</p>`
+      },
+      {
+        ch: 'Chapter 3 · Price as measurement',
+        h: 'A price is<br>an experiment',
+        x: `<p>Post a price and you have not described the market — you have <b>intervened in it</b>. The order book an instant later is the result of your experiment, not a photograph of what was already there.</p>`
+      },
+      {
+        fig: {i: '📉', t: 'Implication<br>There is no observer-free price'},
+        x: `<p>The practical toolkit follows: run price changes as designed experiments, expect the measurement to disturb the system, and never reuse an observation as if the system had not moved.</p>`
+      }
+    ]
+  },
+  {
     id: 'isekai',
     ic: '🚀',
     cover: 'c2',
-    title: 'Isekai Entrepreneurship',
-    author: 'Business × Fantasy Light Novel',
-    cat: 'EDU',
-    catLabel: 'Education · Isekai',
+    title: 'An Introduction to ISEKAI Entrepreneurship',
+    author: 'Lyra Mizuki · Orion Carter',
+    cat: 'BIZ',
+    catLabel: 'Business × Isekai Fantasy',
     price: 9,
-    langs: ['EN', 'KO'],
+    langs: ['EN', 'KO', 'JA'],
     isNew: true,
     level: 3,
     angle: 'as negotiation — getting what you need from someone who does not share your assumptions',
@@ -251,51 +297,51 @@ export const BOOKS: Book[] = [
     ]
   },
   {
-    id: 'little-robot',
-    ic: '🌏',
+    id: 'ninja-cat',
+    ic: '🐱',
     cover: 'c5',
-    title: "Little Robot's Big Day",
-    author: 'Picture Book Series',
+    title: 'Clumsy Ninja Cat Kuro',
+    author: 'Fumi Yamaneko · Orion Carter',
     cat: 'KIDS',
-    catLabel: 'Children · Story',
+    catLabel: 'Children · Animal Comedy',
     price: 7,
     langs: ['KO', 'JA'],
     isNew: false,
     level: 1,
     kids: true,
-    angle: 'as a story about asking for help when you do not know what to do',
+    angle: 'as a comedy about trying again after every spectacular failure',
     blurb:
-      'A small robot leaves the workshop for the first time and learns that asking for help is not a malfunction. For ages 4–7, with a gentle note for grown-ups at the back.',
-    pages: 48,
-    published: '2025-01',
-    toc: ['The workshop', 'The wide road', 'The lost cat', 'Asking for help', 'Going home'],
+      'Kuro is a ninja cat — probably the clumsiest one in the village. Every mission goes wrong in exactly the way you hope it will. A picture-book animal comedy for ages 4–8. Published in Korean (덜렁이 닌자 고양이) and Japanese (おっちょこ忍キャット).',
+    pages: 44,
+    published: '2025-07',
+    toc: ['The village', 'The rooftop test', 'The dropped shuriken', 'The great chase', 'Kuro tries again'],
     sp: [
       {
-        ch: '1 · The workshop',
-        h: 'The door<br>was open',
-        x: `<p>Every morning the little robot swept the same floor. Every morning the door stayed shut.</p><p>Then one morning it <b>was not shut</b>.</p>`
+        ch: '1 · The village',
+        h: 'A ninja must<br>be silent',
+        x: `<p>Every cat in the village could cross a roof without a sound.</p><p>Kuro could too — right up until the <b>last tile</b>.</p>`
       },
       {
-        fig: {i: '🚪', t: 'Look closely<br>What can you see through the door?'},
-        x: `<p>Outside there was a smell the robot had no word for. It was rain on warm stone.</p>`
+        fig: {i: '🐾', t: 'Look closely<br>Which tile is about to slip?'},
+        x: `<p>CRASH. The elders sighed. The pigeons applauded.</p>`
       },
       {
-        ch: '2 · The wide road',
-        h: 'The road was<br>very wide',
-        x: `<p>The robot had been built to sweep one room. The road was <b>much bigger than one room</b>.</p><p>Its wheels wobbled. It sat down on the kerb.</p>`
+        ch: '2 · The rooftop test',
+        h: 'The test had<br>three rules',
+        x: `<p>Silent feet. Steady tail. <b>No snacks</b> on a mission.</p><p>Kuro broke the third rule before the test began.</p>`
       },
       {
-        fig: {i: '🛣️', t: 'Talk about it<br>When did something feel too big for you?'},
-        x: `<p>A pigeon landed beside it and did not say anything useful at all.</p>`
+        fig: {i: '🍡', t: 'Talk about it<br>Which rule would be hardest for you?'},
+        x: `<p>To be fair, the dango stand was directly on the way.</p>`
       },
       {
-        ch: '4 · Asking for help',
-        h: 'Asking is not<br>the same as breaking',
-        x: `<p>"I do not know the way," said the little robot. It had never said that out loud before.</p><p>The girl with the red umbrella said, "That's alright. <b>I do.</b>"</p>`
+        ch: '5 · Kuro tries again',
+        h: 'Clumsy is not<br>the same as giving up',
+        x: `<p>"You fell nine times," said the elder. "And climbed up ten," said Kuro, dusting off his paws.</p><p>That, said the elder, is <b>the whole art</b>.</p>`
       },
       {
-        fig: {i: '☂️', t: 'For grown-ups<br>Naming what you do not know is a skill'},
-        x: `<p>They walked back together, and the robot's wheels did not wobble once.</p>`
+        fig: {i: '🥷', t: 'For grown-ups<br>Praise the tenth climb, not the missing falls'},
+        x: `<p>That night Kuro crossed the roof. Almost silently. Almost.</p>`
       }
     ]
   },

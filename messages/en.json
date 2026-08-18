@@ -154,7 +154,8 @@
     "readerValue": "Four-book desk",
     "keepGoing": "Keep going",
     "more": "More from the library",
-    "stores": "Available at"
+    "stores": "Available at",
+    "fmtPrint": "Print"
   },
   "reader": {
     "back": "← Library",

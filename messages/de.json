@@ -154,7 +154,8 @@
     "readerValue": "Vier-Bücher-Schreibtisch",
     "keepGoing": "Dranbleiben",
     "more": "Mehr aus der Bibliothek",
-    "stores": "Erhältlich bei"
+    "stores": "Erhältlich bei",
+    "fmtPrint": "Print"
   },
   "reader": {
     "back": "← Bibliothek",

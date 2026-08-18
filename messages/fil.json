@@ -154,7 +154,8 @@
     "readerValue": "Mesa na may apat na libro",
     "keepGoing": "Tuloy lang",
     "more": "Iba pa mula sa aklatan",
-    "stores": "Makukuha sa"
+    "stores": "Makukuha sa",
+    "fmtPrint": "Print"
   },
   "reader": {
     "back": "← Aklatan",

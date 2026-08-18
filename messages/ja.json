@@ -154,7 +154,8 @@
     "readerValue": "4冊デスク",
     "keepGoing": "続けてどうぞ",
     "more": "ライブラリーのほかの本",
-    "stores": "取扱書店"
+    "stores": "取扱書店",
+    "fmtPrint": "紙の本"
   },
   "reader": {
     "back": "← ライブラリー",
