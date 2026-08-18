@@ -26,11 +26,12 @@ const POSTER: Tri = {
   ja: 'アジアの\n物語を、\n世界の\n言葉で'
 };
 
-// room geometry (rig space, camera at the origin) — scaled by k on small screens
-const ROOM_W = 1700;
-const DEPTH = 1400;
+// room geometry (rig space, camera at the origin) — scaled by k on small screens.
+// Ruler: CASE_W 620px ≙ a 1.2m bookcase, so ~520px per metre.
+const ROOM_W = 2600;
+const DEPTH = 2600;
 const CASE_W = 620;
-const CASE_GAP = 120;
+const CASE_GAP = 320;
 const APPROACH = 170; // camera-to-case distance when browsing
 const SWEEP = 55; // deg each way
 
@@ -409,6 +410,16 @@ export default function RoomStore() {
     gap: CASE_GAP * k
   };
 
+  // a clerestory window high on a wall — night sky behind wooden panes
+  const win = (left: string) => (
+    <span
+      key={`win@${left}`}
+      className="rm-window"
+      style={{left, top: '4%', width: 340 * k, height: 130 * k}}
+      aria-hidden="true"
+    />
+  );
+
   // a framed cover poster hung on a wall (left/top are wall-relative)
   const art = (src: string, left: string, top: string, w: number) => (
     <span
@@ -438,12 +449,14 @@ export default function RoomStore() {
               }}
             >
               {[CASES[2], CASES[3]].map((c, j) => renderCase(c, 2 + j))}
-              {art('/covers/ai-bible.jpg', '5%', '22%', 118)}
-              {art('/covers/quantum-econ.jpg', '50%', '25%', 86)}
-              {art('/covers/isekai-ja.jpg', '95%', '22%', 118)}
+              {art('/covers/ai-bible.jpg', '10%', '30%', 150)}
+              {art('/covers/quantum-econ.jpg', '50%', '32%', 110)}
+              {art('/covers/isekai-ja.jpg', '90%', '30%', 150)}
+              {win('20%')}
+              {win('80%')}
               <span
                 className="rm-clock"
-                style={{left: '50%', top: '8%', width: 46 * k, height: 46 * k}}
+                style={{left: '50%', top: '7%', width: 60 * k, height: 60 * k}}
                 aria-hidden="true"
               />
             </div>
@@ -459,7 +472,8 @@ export default function RoomStore() {
               }}
             >
               {[CASES[0], CASES[1]].map((c, j) => renderCase(c, j))}
-              {art('/covers/ninja-cat-ko.jpg', '50%', '25%', 86)}
+              {art('/covers/ninja-cat-ko.jpg', '50%', '32%', 110)}
+              {win('50%')}
             </div>
             {/* right wall */}
             <div
@@ -477,17 +491,18 @@ export default function RoomStore() {
                 className="rm-art rm-art-brand"
                 style={{
                   left: '50%',
-                  top: '24%',
-                  width: 96 * k,
-                  padding: `${16 * k}px ${7 * k}px`
+                  top: '31%',
+                  width: 118 * k,
+                  padding: `${19 * k}px ${8 * k}px`
                 }}
                 aria-hidden="true"
               >
                 <u />
-                <i style={{fontSize: Math.max(7, 8.5 * k)}}>AWESOME BOOKS ASIA</i>
-                <b style={{fontSize: Math.max(10, 12.5 * k)}}>{tri(locale, POSTER)}</b>
+                <i style={{fontSize: Math.max(7, 9.5 * k)}}>AWESOME BOOKS ASIA</i>
+                <b style={{fontSize: Math.max(10, 14 * k)}}>{tri(locale, POSTER)}</b>
                 <u />
               </span>
+              {win('50%')}
             </div>
             {/* floor */}
             <div
@@ -500,8 +515,9 @@ export default function RoomStore() {
               aria-hidden="true"
             />
 
-            {/* furniture — billboarded standees (steered from the loop) */}
-            <div className="rm-prop rm-p-table" data-x="0" data-z="-800" aria-hidden="true">
+            {/* furniture — billboarded standees (steered from the loop).
+                Positions in room units (520px ≙ 1m), room 2600×2600. */}
+            <div className="rm-prop rm-p-table" data-x="0" data-z="-1500" aria-hidden="true">
               <img src="/walk/prop-table.webp" alt="" loading="lazy" decoding="async" />
               <span className="rm-banker">
                 <i className="rm-banker-shade" />
@@ -510,16 +526,38 @@ export default function RoomStore() {
                 <i className="rm-banker-glow" />
               </span>
             </div>
-            <div className="rm-prop rm-p-chair" data-x="-430" data-z="-660" aria-hidden="true">
+            <div className="rm-prop rm-p-chair" data-x="-580" data-z="-1330" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
-            <div className="rm-prop rm-p-chair rm-p-chair2" data-x="440" data-z="-720" data-flip="1" aria-hidden="true">
+            <div className="rm-prop rm-p-chair rm-p-chair2" data-x="590" data-z="-1400" data-flip="1" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
-            <div className="rm-prop rm-p-chair rm-p-chair3" data-x="150" data-z="-1000" aria-hidden="true">
+            <div className="rm-prop rm-p-chair rm-p-chair3" data-x="170" data-z="-1950" aria-hidden="true">
               <img src="/walk/prop-chair.webp" alt="" loading="lazy" decoding="async" />
             </div>
-            <div className="rm-prop rm-p-hifi" data-x="710" data-z="-1090" aria-hidden="true">
+            {/* new-arrivals display table by the entrance */}
+            <div className="rm-prop rm-p-table2" data-x="700" data-z="-1000" data-flip="1" aria-hidden="true">
+              <img src="/walk/prop-table.webp" alt="" loading="lazy" decoding="async" />
+            </div>
+            <div className="rm-prop rm-p-sign" data-x="400" data-z="-880" aria-hidden="true">
+              <i className="rm-sign-board">
+                <em>NEW</em>
+                <span>ARRIVALS</span>
+              </i>
+              <i className="rm-sign-leg" />
+            </div>
+            {/* ceiling pendants over the reading table */}
+            <div className="rm-prop rm-p-pendant" data-x="-380" data-z="-1500" aria-hidden="true">
+              <i className="rm-pend-cord" />
+              <i className="rm-pend-shade" />
+              <i className="rm-pend-glow" />
+            </div>
+            <div className="rm-prop rm-p-pendant" data-x="380" data-z="-1500" aria-hidden="true">
+              <i className="rm-pend-cord" />
+              <i className="rm-pend-shade" />
+              <i className="rm-pend-glow" />
+            </div>
+            <div className="rm-prop rm-p-hifi" data-x="1120" data-z="-1750" aria-hidden="true">
               <i className="rm-hifi-lid" />
               <i className="rm-hifi-dial" />
               <i className="rm-hifi-dial rm-hifi-dial2" />
@@ -528,7 +566,7 @@ export default function RoomStore() {
               <i className="rm-hifi-sp rm-hifi-sp2" />
               <i className="rm-hifi-legs" />
             </div>
-            <div className="rm-prop rm-p-kiosk" data-x="-640" data-z="-1000" aria-hidden="true">
+            <div className="rm-prop rm-p-kiosk" data-x="-900" data-z="-1500" aria-hidden="true">
               <img src="/walk/prop-cashier.webp" alt="" />
             </div>
           </div>

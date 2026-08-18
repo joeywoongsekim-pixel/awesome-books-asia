@@ -5673,7 +5673,7 @@ html.bw-lock body {
   bottom: 0;
   left: 50%;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* bookcases stand on the floor */
   justify-content: center;
   background:
     repeating-linear-gradient(90deg, rgb(20 12 6 / 0.16) 0 2px, transparent 2px 120px),
@@ -5751,6 +5751,31 @@ html.bw-lock body {
   letter-spacing: 0.04em;
   white-space: pre-line;
 }
+/* clerestory windows — night sky behind wooden panes */
+.rm-window {
+  position: absolute;
+  transform: translateX(-50%);
+  border: 6px solid #241b12;
+  outline: 2px solid #7a5c26;
+  background:
+    radial-gradient(circle at 22% 32%, rgb(255 255 255 / 0.85) 0 1.5px, transparent 2.5px),
+    radial-gradient(circle at 72% 20%, rgb(255 255 255 / 0.6) 0 1px, transparent 2px),
+    radial-gradient(circle at 48% 62%, rgb(255 255 255 / 0.45) 0 1px, transparent 2px),
+    radial-gradient(circle at 86% 68%, rgb(255 255 255 / 0.5) 0 1px, transparent 2px),
+    linear-gradient(180deg, #0d1930 0%, #16294a 55%, #23395e 100%);
+  box-shadow:
+    inset 0 0 26px rgb(120 160 220 / 0.28),
+    0 10px 24px rgb(10 6 2 / 0.45);
+}
+.rm-window::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent calc(33.3% - 3px), #241b12 calc(33.3% - 3px) calc(33.3% + 3px), transparent calc(33.3% + 3px)),
+    linear-gradient(90deg, transparent calc(66.6% - 3px), #241b12 calc(66.6% - 3px) calc(66.6% + 3px), transparent calc(66.6% + 3px)),
+    linear-gradient(180deg, transparent calc(50% - 3px), #241b12 calc(50% - 3px) calc(50% + 3px), transparent calc(50% + 3px));
+}
 /* brass wall clock, hands at ten past ten */
 .rm-clock {
   position: absolute;
@@ -5788,7 +5813,7 @@ html.bw-lock body {
 .rm-case {
   position: relative;
   width: var(--casew, 620px);
-  height: 86%;
+  height: 74%;
   display: flex;
   flex-direction: column;
   border: 12px solid #241b12;
@@ -5929,26 +5954,127 @@ html.bw-lock body {
 .rm[data-mode='case'] .rm-prop {
   opacity: 0;
 }
+/* big reading table ≈ 1.9m */
 .rm-p-table {
-  width: 660px;
-  margin-left: -330px;
+  width: 900px;
+  margin-left: -450px;
 }
 .rm-p-table img {
   width: 100%;
   display: block;
 }
+/* new-arrivals display by the entrance — the table render, mirrored + dimmer */
+.rm-p-table2 {
+  width: 480px;
+  margin-left: -240px;
+  filter: drop-shadow(0 22px 20px rgb(10 6 2 / 0.55)) brightness(0.8) saturate(0.92);
+}
+.rm-p-table2 img {
+  width: 100%;
+  display: block;
+}
+/* leather armchair ≈ 0.85m */
 .rm-p-chair {
-  width: 250px;
-  margin-left: -125px;
+  width: 400px;
+  margin-left: -200px;
 }
 .rm-p-chair img {
   width: 100%;
   display: block;
 }
 .rm-p-chair3 {
-  width: 210px;
-  margin-left: -105px;
+  width: 340px;
+  margin-left: -170px;
   filter: drop-shadow(0 20px 18px rgb(10 6 2 / 0.5)) brightness(0.72);
+}
+/* A-frame sign for the new-arrivals table */
+.rm-p-sign {
+  width: 150px;
+  height: 215px;
+  margin-left: -75px;
+}
+.rm-sign-board {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  top: 0;
+  height: 172px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 5px solid #5d4426;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #22334d, #16233d);
+  box-shadow: 0 12px 22px rgb(10 6 2 / 0.5), inset 0 0 0 2px rgb(233 197 104 / 0.25);
+  font-family: var(--bw-serif);
+  font-style: normal;
+}
+.rm-sign-board em {
+  font-style: normal;
+  font-size: 30px;
+  letter-spacing: 0.16em;
+  color: #e9c568;
+}
+.rm-sign-board span {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: #f2e4bf;
+  opacity: 0.85;
+}
+.rm-sign-leg {
+  position: absolute;
+  bottom: 0;
+  left: 15%;
+  right: 15%;
+  height: 44px;
+  background:
+    linear-gradient(90deg, #4a3419 0 9px, transparent 9px calc(100% - 9px), #4a3419 calc(100% - 9px));
+}
+/* brass ceiling pendants — hung from the top, so they scale from the ceiling */
+.rm-p-pendant {
+  top: 0;
+  bottom: auto;
+  height: 40%;
+  width: 220px;
+  margin-left: -110px;
+  transform-origin: center top;
+  filter: none;
+}
+.rm-pend-cord {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  height: 56%;
+  background: linear-gradient(180deg, #171008, #241b12);
+}
+.rm-pend-shade {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  width: 122px;
+  height: 62px;
+  margin-left: -61px;
+  border-radius: 61px 61px 9px 9px;
+  background: radial-gradient(circle at 38% 26%, #caa25c, #6e4f1e 72%);
+  border-bottom: 3px solid rgb(255 232 158 / 0.85);
+  box-shadow:
+    inset 0 -8px 12px rgb(255 226 150 / 0.45),
+    0 8px 20px rgb(10 6 2 / 0.4);
+}
+.rm-pend-glow {
+  position: absolute;
+  top: calc(56% + 44px);
+  left: 50%;
+  width: 230px;
+  height: 140px;
+  margin-left: -115px;
+  background: radial-gradient(ellipse at center top, rgb(255 220 140 / 0.38), transparent 64%);
+  filter: blur(3px);
+  pointer-events: none;
 }
 /* classic banker's lamp on the table */
 .rm-banker {
@@ -5957,6 +6083,7 @@ html.bw-lock body {
   bottom: 63%;
   width: 84px;
   height: 78px;
+  zoom: 1.3; /* keep pace with the 900px table */
 }
 /* half-cylinder shade: dark edges, lit centre, warm mouth underneath */
 .rm-banker-shade {
@@ -6005,8 +6132,9 @@ html.bw-lock body {
   filter: blur(2px);
   pointer-events: none;
 }
-/* vintage hi-fi console */
+/* vintage hi-fi console (zoom scales the whole px drawing to ≈1m wide) */
 .rm-p-hifi {
+  zoom: 1.9;
   width: 250px;
   height: 240px;
   margin-left: -125px;
@@ -6078,8 +6206,8 @@ html.bw-lock body {
 }
 /* checkout kiosk — the photoreal cashier render (counter, POS, lamp, books) */
 .rm-p-kiosk {
-  width: 520px;
-  margin-left: -260px;
+  width: 860px; /* ≈ 1.65m counter */
+  margin-left: -430px;
   filter: drop-shadow(0 26px 22px rgb(10 6 2 / 0.55)) brightness(0.82) saturate(0.94);
 }
 .rm-p-kiosk img {
