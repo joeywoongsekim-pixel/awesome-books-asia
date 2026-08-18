@@ -7,8 +7,8 @@ import Reveal from '../Reveal';
 // editorial notes; each links to a related book.
 const POSTS = [
   {key: 'p1', href: '/books/ai-bible', tone: '', num: '01'},
-  {key: 'p2', href: '/books/unplugged', tone: 'gold', num: '02'},
-  {key: 'p3', href: '/books/prompt-guide', tone: '', num: '03'}
+  {key: 'p2', href: '/books/ninja-cat', tone: 'gold', num: '02'},
+  {key: 'p3', href: '/books/quantum-econ', tone: '', num: '03'}
 ] as const;
 
 export default function Journal() {
