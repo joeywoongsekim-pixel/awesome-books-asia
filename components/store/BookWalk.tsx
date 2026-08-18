@@ -346,15 +346,20 @@ export default function BookWalk() {
             onFocus={(e) => followFocus(e.currentTarget)}
             style={{height: `${Math.min(slot.hPct, 79)}%`, marginLeft: slot.gap || undefined}}
           >
-            <span className="bw-b3">
+            <span
+              className="bw-b3"
+              style={{['--cov' as string]: `url(${b.cover})`}}
+            >
               <i
                 className="bw-b3-spine"
-                style={{background: b.spineBg, color: b.spineFg}}
+                style={{backgroundColor: b.spineBg, color: b.spineFg}}
               >
                 <b>{label}</b>
               </i>
+              <i className="bw-b3-back" style={{backgroundColor: b.spineBg}} />
               <i className="bw-b3-cover">
                 <img src={b.cover} alt="" loading="lazy" decoding="async" />
+                <u className="bw-b3-pages" aria-hidden="true" />
               </i>
             </span>
           </button>
@@ -427,7 +432,11 @@ export default function BookWalk() {
                       key={bi}
                       style={
                         bay.photo
-                          ? {backgroundImage: `url(/walk/${bay.photo}.webp)`}
+                          ? {
+                              backgroundImage: `url(/walk/${bay.photo}.webp)`,
+                              backgroundPosition: bay.pos,
+                              backgroundSize: bay.zoom
+                            }
                           : undefined
                       }
                     >

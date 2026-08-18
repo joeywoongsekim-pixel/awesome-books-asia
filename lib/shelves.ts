@@ -22,6 +22,8 @@ export interface WalkBook {
 export interface WalkBay {
   sign: Tri; // brass plate
   photo?: string; // /public/walk/<photo>.webp bay backdrop (M12)
+  pos?: string; // background-position crop for this bay instance
+  zoom?: string; // background-size override
   books: WalkBook[]; // titled books; the rest of the slots are fillers
 }
 
@@ -74,6 +76,8 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
         photo: 'wall-econ',
+        pos: '18% 38%',
+        zoom: '128%',
         books: [
           {
             slug: 'isekai',
@@ -126,7 +130,7 @@ export const SHELVES: WalkShelf[] = [
           }
         ]
       },
-      {sign: SOON, photo: 'wall-soon', books: []}
+      {sign: SOON, photo: 'wall-soon', pos: '78% 54%', books: []}
     ]
   },
   {
@@ -159,7 +163,7 @@ export const SHELVES: WalkShelf[] = [
           }
         ]
       },
-      {sign: SOON, photo: 'wall-soon', books: []}
+      {sign: SOON, photo: 'wall-soon', pos: '24% 62%', zoom: '124%', books: []}
     ]
   }
 ];
