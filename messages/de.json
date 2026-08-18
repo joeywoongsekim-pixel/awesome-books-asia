@@ -328,6 +328,8 @@
     "soon": "Demnächst",
     "endnote": "Weitere Titel sind unterwegs.",
     "railLabel": "Position im Gang",
-    "scrollHint": "Zum Eintreten scrollen"
+    "scrollHint": "Zum Eintreten scrollen",
+    "backRoom": "Zurück in den Laden",
+    "browseCase": "Dieses Regal ansehen"
   }
 }

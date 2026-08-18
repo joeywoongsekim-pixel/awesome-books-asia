@@ -328,6 +328,8 @@
     "soon": "Malapit na",
     "endnote": "Parating pa ang mas maraming libro.",
     "railLabel": "Posisyon sa pasilyo",
-    "scrollHint": "Mag-scroll para pumasok"
+    "scrollHint": "Mag-scroll para pumasok",
+    "backRoom": "Balik sa tindahan",
+    "browseCase": "Tingnan ang estante"
   }
 }

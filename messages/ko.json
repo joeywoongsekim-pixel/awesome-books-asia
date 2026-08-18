@@ -328,6 +328,8 @@
     "soon": "출간 예정",
     "endnote": "새 책이 계속 들어오고 있어요.",
     "railLabel": "통로 위치",
-    "scrollHint": "스크롤해서 입장"
+    "scrollHint": "스크롤해서 입장",
+    "backRoom": "매장으로 돌아가기",
+    "browseCase": "이 책장 둘러보기"
   }
 }

@@ -328,6 +328,8 @@
     "soon": "À paraître",
     "endnote": "D’autres titres arrivent bientôt.",
     "railLabel": "Position dans l’allée",
-    "scrollHint": "Faites défiler pour entrer"
+    "scrollHint": "Faites défiler pour entrer",
+    "backRoom": "Retour à la boutique",
+    "browseCase": "Parcourir cette étagère"
   }
 }

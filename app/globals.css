@@ -5648,3 +5648,188 @@ html.bw-lock body {
 .bw-bay-photo .bw-slotrow {
   gap: 44px;
 }
+
+/* ══════════════════════════════════════════════════════════════════════
+   M15 — THE STORE AS A ROOM (adventure-game view)
+   Three walls, two bookcases each; scroll turns the head, click walks up.
+   ══════════════════════════════════════════════════════════════════════ */
+.rm-view {
+  perspective: 1000px;
+  perspective-origin: 50% 46%;
+  background:
+    linear-gradient(180deg, #17100a 0%, #2b1e12 18%, #3a2a1a 100%);
+}
+.rm-rig {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.rm-rig.rm-anim {
+  transition: transform 0.95s cubic-bezier(0.3, 0.75, 0.25, 1);
+}
+.rm-wall {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    repeating-linear-gradient(90deg, rgb(20 12 6 / 0.16) 0 2px, transparent 2px 120px),
+    linear-gradient(180deg, #d9c8a9 0%, #cdbb97 62%, #b09a76 100%);
+  box-shadow: inset 0 0 120px rgb(20 12 6 / 0.55);
+}
+.rm-wall-left,
+.rm-wall-right {
+  transform-origin: left center;
+}
+.rm-floor {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform-origin: center bottom;
+  transform: rotateX(90deg);
+  background-image: url('/walk/floor.webp');
+  background-size: cover;
+  background-position: center 45%;
+  box-shadow: inset 0 0 160px rgb(20 12 6 / 0.75);
+}
+.rm-vig {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(12 8 4 / 0.55), transparent 16%),
+    radial-gradient(ellipse at 50% 55%, transparent 55%, rgb(12 8 4 / 0.5) 100%);
+}
+/* bookcase */
+.rm-case {
+  position: relative;
+  width: var(--casew, 620px);
+  height: 86%;
+  display: flex;
+  flex-direction: column;
+  border: 12px solid #241b12;
+  border-radius: 4px;
+  background: #241b12;
+  box-shadow:
+    0 30px 60px rgb(10 6 2 / 0.6),
+    inset 0 0 0 2px rgb(255 220 150 / 0.06);
+}
+.rm-case-sign {
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--bw-serif);
+  font-size: 17px;
+  letter-spacing: 0.05em;
+  color: #f2e4bf;
+  background: linear-gradient(180deg, #3a2a18, #241b12);
+  border-bottom: 3px solid #16100a;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.rm-case-sign b {
+  font-size: 12px;
+  color: #c9a24a;
+  letter-spacing: 0.2em;
+}
+.rm-level {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 34px;
+  padding-bottom: 8%;
+  background-image: url('/walk/wall-empty.webp');
+  background-size: cover;
+  border-bottom: 7px solid #1c140c;
+}
+.rm-level:last-child {
+  border-bottom: 0;
+}
+.rm-soonplate {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 4px 16px 5px;
+  font-family: var(--bw-serif);
+  font-size: 13px;
+  color: #241b14;
+  background: linear-gradient(180deg, #dcbb6b, #b98f3a);
+  border: 1px solid #8a681f;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.5);
+  white-space: nowrap;
+}
+.rm-hit {
+  position: absolute;
+  inset: -6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.rm-hit:hover,
+.rm-hit:focus-visible {
+  box-shadow:
+    0 0 0 3px rgb(233 197 104 / 0.75),
+    0 0 40px rgb(255 214 130 / 0.35);
+  outline: none;
+}
+/* books inside a case stay flat until you're standing in front of it */
+.rm[data-mode] .bw-pull {
+  pointer-events: none;
+}
+.rm[data-mode] .rm-case-on .bw-pull {
+  pointer-events: auto;
+}
+/* category chips */
+.rm-chips {
+  position: absolute;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 7;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 94vw;
+}
+.rm-chip {
+  border: 1px solid rgb(242 234 219 / 0.35);
+  background: rgb(20 14 8 / 0.66);
+  color: #f2eadb;
+  font-family: var(--bw-sans);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  padding: 7px 13px;
+  border-radius: 99px;
+  cursor: pointer;
+}
+.rm-chip-on {
+  background: #e9c568;
+  border-color: #e9c568;
+  color: #241b12;
+  font-weight: 700;
+}
+.rm-chip:focus-visible {
+  outline: 3px solid var(--bw-blue);
+  outline-offset: 2px;
+}
+@media (max-width: 759px) {
+  .rm-chip {
+    font-size: 10.5px;
+    padding: 6px 10px;
+  }
+  .rm-case-sign {
+    font-size: 13px;
+  }
+}

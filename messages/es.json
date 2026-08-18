@@ -328,6 +328,8 @@
     "soon": "Próximamente",
     "endnote": "Más títulos están en camino.",
     "railLabel": "Posición en el pasillo",
-    "scrollHint": "Desplázate para entrar"
+    "scrollHint": "Desplázate para entrar",
+    "backRoom": "Volver a la tienda",
+    "browseCase": "Ver esta estantería"
   }
 }

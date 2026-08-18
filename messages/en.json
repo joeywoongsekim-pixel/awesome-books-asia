@@ -328,6 +328,8 @@
     "soon": "Coming soon",
     "endnote": "More titles are on their way.",
     "railLabel": "Aisle position",
-    "scrollHint": "Scroll to enter"
+    "scrollHint": "Scroll to enter",
+    "backRoom": "Back to the store",
+    "browseCase": "Browse this bookcase"
   }
 }

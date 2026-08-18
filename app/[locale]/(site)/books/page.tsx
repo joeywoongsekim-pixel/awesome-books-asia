@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
-import BookWalk from '../../../../components/store/BookWalk';
+import RoomStore from '../../../../components/store/RoomStore';
 
 export async function generateMetadata({
   params
@@ -21,5 +21,5 @@ export default async function BooksPage({
   // Mandatory in every page.tsx, not just the layout.
   setRequestLocale(locale);
 
-  return <BookWalk />;
+  return <RoomStore />;
 }
