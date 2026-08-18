@@ -1,31 +1,33 @@
-// M9 bookstore walkthrough — shelf wall data.
-// Only the published catalogue is shelved (M10): 3 rows × 2 bays sized to the
-// four real works. Empty bays carry a "coming soon" plate and filler scenery.
-// Fillers are generated in the component — deterministic, aria-hidden.
+// M14 bookstore walkthrough — the empty-shelf catalogue.
+// Every bay shows an EMPTY shelf backdrop (walk/wall-empty.webp) and the only
+// books standing on it are our published editions — the shelf fills up one
+// real book at a time as we publish. Each language edition is its own
+// physical book with its own cover art.
 
 export type Tri = {ko: string; en: string; ja: string};
 
 export interface WalkBook {
-  slug: string; // '' = no detail page yet (drawer hides the link)
+  slug: string; // detail page id (lib/books.ts)
   ko: string;
   en: string;
   ja: string;
   desc: Tri; // one sentence
   status: 'out' | 'soon';
-  face?: boolean; // front-facing display copy
-  rep?: boolean; // the single awesome-blue accent (AI shelf flagship)
-  cover?: string;
-  spineBg?: string; // spine face colour (matches the cover art)
+  face?: boolean;
+  rep?: boolean; // the single awesome-blue accent
+  cover?: string; // this edition's front cover
+  spineBg?: string;
   spineFg?: string;
+  ed?: Tri; // edition label (language/format)
 }
 
 export interface WalkBay {
   sign: Tri; // brass plate
-  photo?: string; // /public/walk/<photo>.webp bay backdrop (M12)
-  pos?: string; // background-position crop for this bay instance
-  seat?: number; // px from bay bottom to the photo shelf lip
-  zoom?: string; // background-size override
-  books: WalkBook[]; // titled books; the rest of the slots are fillers
+  photo?: string; // /public/walk/<photo>.webp bay backdrop
+  pos?: string; // background-position crop
+  zoom?: string; // background-size
+  seat?: number; // px from bay bottom to the shelf lip
+  books: WalkBook[];
 }
 
 export interface WalkShelf {
@@ -33,15 +35,44 @@ export interface WalkShelf {
   ko: string;
   en: string;
   ja: string;
-  foil: string; // spine text colour
-  cloths: string[]; // 6 cloth colours, cycled
-  low?: boolean; // shorter, thinner books
+  foil: string;
+  cloths: string[];
+  low?: boolean;
   bays: WalkBay[];
 }
 
 const d = (ko: string, en: string, ja: string): Tri => ({ko, en, ja});
 
 const SOON = d('근간 예정', 'Coming Soon', '近刊予定');
+const ED_KO = d('한국어판', 'Korean Edition', '韓国語版');
+const ED_EN = d('영문판', 'English Edition', '英語版');
+const ED_JA = d('일본어판', 'Japanese Edition', '日本語版');
+
+// shared shelf backdrop — crops vary so bays read as different spots
+const EMPTY = {photo: 'wall-empty', zoom: '130%', seat: 30};
+
+const QUANTUM_DESC = d(
+  '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 새로운 의사결정 경제학.',
+  'What if the economy obeys quantum rules? Why you choose what you choose.',
+  '日銀・消費税・推し活まで、ぜんぶ「量子」で説明する教養経済学。'
+);
+const ISEKAI_DESC = d(
+  '경영 이론과 판타지 세계가 만났다 — 실전으로 배우는 기업가정신.',
+  'Business theory meets a fantasy world — entrepreneurship learned in the field.',
+  '経営学×異世界ファンタジー！実戦で学ぶ起業家精神。'
+);
+const BIBLE_DESC = d(
+  '첫 프롬프트부터 조직 정책까지, 생성형 AI의 전 과정을 담은 완전판.',
+  'The complete guide to generative AI, from your first prompt to organisational policy.',
+  '最初のプロンプトから組織ポリシーまで、生成AIの完全ガイド。'
+);
+const NINJA_DESC = d(
+  '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
+  "The village's clumsiest ninja cat fails every mission in the best possible way.",
+  '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
+);
+
+const same = (s: string): Tri => ({ko: s, en: s, ja: s});
 
 export const SHELVES: WalkShelf[] = [
   {
@@ -54,22 +85,28 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'),
-        photo: 'wall-econ',
-        seat: 26,
+        ...EMPTY,
+        pos: 'left 88%',
         books: [
           {
             slug: 'quantum-econ',
             cover: '/covers/quantum-econ.jpg',
             spineBg: '#ece7db',
             spineFg: '#20242c',
-            ko: '양자경제학',
-            en: 'Quantum Economics',
-            ja: '量子経済学',
-            desc: d(
-              '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 새로운 의사결정 경제학.',
-              'What if the economy obeys quantum rules? Why you choose what you choose.',
-              '日銀・消費税・推し活まで、ぜんぶ「量子」で説明する教養経済学。'
-            ),
+            ...same('Quantum Economics'),
+            ed: ED_EN,
+            desc: QUANTUM_DESC,
+            status: 'out',
+            face: true
+          },
+          {
+            slug: 'quantum-econ',
+            cover: '/covers/quantum-econ-ja.jpg',
+            spineBg: '#1a1440',
+            spineFg: '#f2df66',
+            ...same('量子経済学'),
+            ed: ED_JA,
+            desc: QUANTUM_DESC,
             status: 'out',
             face: true
           }
@@ -77,24 +114,39 @@ export const SHELVES: WalkShelf[] = [
       },
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
-        photo: 'wall-econ',
-        seat: 26,
-        pos: '18% 38%',
-        zoom: '128%',
+        ...EMPTY,
+        pos: 'right 88%',
         books: [
+          {
+            slug: 'isekai',
+            cover: '/covers/isekai-ko.jpg',
+            spineBg: '#b98f3a',
+            spineFg: '#241b0e',
+            ...same('이세계 엔터프리너십 입문'),
+            ed: ED_KO,
+            desc: ISEKAI_DESC,
+            status: 'out',
+            face: true
+          },
           {
             slug: 'isekai',
             cover: '/covers/isekai.jpg',
             spineBg: '#233f37',
             spineFg: '#f2c94c',
-            ko: '이세계 엔터프리너십 입문',
-            en: 'ISEKAI Entrepreneurship',
-            ja: '異世界アントレプレナーシップ入門',
-            desc: d(
-              '경영 이론과 판타지 세계가 만났다 — 실전으로 배우는 기업가정신.',
-              'Business theory meets a fantasy world — entrepreneurship learned in the field.',
-              '経営学×異世界ファンタジー！実戦で学ぶ起業家精神。'
-            ),
+            ...same('ISEKAI Entrepreneurship'),
+            ed: ED_EN,
+            desc: ISEKAI_DESC,
+            status: 'out',
+            face: true
+          },
+          {
+            slug: 'isekai',
+            cover: '/covers/isekai-ja.jpg',
+            spineBg: '#44502a',
+            spineFg: '#f2e4b8',
+            ...same('異世界アントレプレナーシップ入門'),
+            ed: ED_JA,
+            desc: ISEKAI_DESC,
             status: 'out',
             face: true
           }
@@ -112,29 +164,35 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('첫 프롬프트', 'First Prompts', 'はじめてのプロンプト'),
-        photo: 'wall-ai',
-        seat: 22,
+        ...EMPTY,
+        pos: 'center 88%',
         books: [
           {
             slug: 'ai-bible',
             cover: '/covers/ai-bible.jpg',
             spineBg: '#101c36',
             spineFg: '#e9c568',
-            ko: '어썸 AI 바이블 2026',
-            en: 'Awesome AI Bible 2026',
-            ja: 'オーサムAIバイブル2026',
-            desc: d(
-              '첫 프롬프트부터 조직 정책까지, 생성형 AI의 전 과정을 담은 완전판.',
-              'The complete guide to generative AI, from your first prompt to organisational policy.',
-              '最初のプロンプトから組織ポリシーまで、生成AIの完全ガイド。'
-            ),
+            ...same('Awesome AI Bible 2026'),
+            ed: ED_EN,
+            desc: BIBLE_DESC,
             status: 'out',
             face: true,
             rep: true
+          },
+          {
+            slug: 'ai-bible',
+            cover: '/covers/ai-bible-ja.jpg',
+            spineBg: '#16233d',
+            spineFg: '#e9c568',
+            ...same('AIバイブル 2026'),
+            ed: ED_JA,
+            desc: BIBLE_DESC,
+            status: 'out',
+            face: true
           }
         ]
       },
-      {sign: SOON, photo: 'wall-soon', pos: '78% 54%', books: []}
+      {sign: SOON, ...EMPTY, pos: 'left 88%', books: []}
     ]
   },
   {
@@ -147,34 +205,39 @@ export const SHELVES: WalkShelf[] = [
     bays: [
       {
         sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'),
-        photo: 'wall-kids',
-        seat: 24,
+        ...EMPTY,
+        pos: 'right 88%',
         books: [
           {
             slug: 'ninja-cat',
-            cover: '/covers/ninja-cat.jpg',
+            cover: '/covers/ninja-cat-ko.jpg',
             spineBg: '#f2cf5b',
             spineFg: '#3a2a1a',
-            ko: '덜렁이 닌자 고양이 쿠로편',
-            en: 'Clumsy Ninja Cat Kuro',
-            ja: 'おっちょこ忍キャット クロの巻',
-            desc: d(
-              '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
-              "The village's clumsiest ninja cat fails every mission in the best possible way.",
-              '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
-            ),
+            ...same('덜렁이 닌자 고양이 쿠로편'),
+            ed: ED_KO,
+            desc: NINJA_DESC,
+            status: 'out',
+            face: true
+          },
+          {
+            slug: 'ninja-cat',
+            cover: '/covers/ninja-cat.jpg',
+            spineBg: '#e8b64a',
+            spineFg: '#3a2a1a',
+            ...same('おっちょこ忍キャット クロの巻'),
+            ed: ED_JA,
+            desc: NINJA_DESC,
             status: 'out',
             face: true
           }
         ]
       },
-      {sign: SOON, photo: 'wall-soon', pos: '24% 62%', zoom: '124%', books: []}
+      {sign: SOON, ...EMPTY, pos: 'center 88%', books: []}
     ]
   }
 ];
 
-// Rail zone captions follow the walk left→right; the rail reads them from
-// row 01's bay signs.
+// Rail zone captions come from row 01's bay signs.
 export const ZONES: Tri[] = SHELVES[0].bays.map((b) => b.sign);
 
 export function tri(locale: string, t: Tri): string {

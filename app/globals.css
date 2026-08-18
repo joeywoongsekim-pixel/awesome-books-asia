@@ -5632,3 +5632,19 @@ html.bw-lock body {
 .bw-prop {
   mix-blend-mode: multiply;
 }
+
+/* ══════════ M14 — empty-shelf edition display ══════════ */
+.bw-bay-photo .bw-slotrow {
+  gap: 16px;
+}
+.bw-ded {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--bw-muted);
+  margin: -2px 0 8px;
+}
+
+/* angled books need breathing room so edition covers don't overlap */
+.bw-bay-photo .bw-slotrow {
+  gap: 44px;
+}

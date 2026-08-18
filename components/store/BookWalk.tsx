@@ -367,7 +367,7 @@ export default function BookWalk() {
         />
       );
     }
-    const aria = `${label} — ${rowLabel(shelf)}`;
+    const aria = `${label}${b.ed ? ` (${tri(locale, b.ed)})` : ''} — ${rowLabel(shelf)}`;
     if (b.face) {
       // Real books stand shelved as spines; hover/focus pulls the book off
       // the shelf and turns it to show the actual front cover (M12c).
@@ -622,6 +622,7 @@ export default function BookWalk() {
               {dShelf.no} · {rowLabel(dShelf)}
             </p>
             <h3 className="bw-dtitle">{spineLabel(dBook)}</h3>
+            {dBook.ed ? <p className="bw-ded">{tri(locale, dBook.ed)}</p> : null}
             <p className="bw-dalts">
               {[dBook.ko, dBook.en, dBook.ja]
                 .filter((x) => x !== spineLabel(dBook))
