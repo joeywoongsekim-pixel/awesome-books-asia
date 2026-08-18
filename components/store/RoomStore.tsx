@@ -566,7 +566,8 @@ export default function RoomStore() {
               <i className="rm-hifi-sp rm-hifi-sp2" />
               <i className="rm-hifi-legs" />
             </div>
-            <div className="rm-prop rm-p-kiosk" data-x="-900" data-z="-1500" aria-hidden="true">
+            {/* checkout right beside the entrance, customer's left */}
+            <div className="rm-prop rm-p-kiosk" data-x="-850" data-z="-600" aria-hidden="true">
               <img src="/walk/prop-cashier.webp" alt="" />
             </div>
           </div>
