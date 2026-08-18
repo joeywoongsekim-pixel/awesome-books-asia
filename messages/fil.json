@@ -317,5 +317,15 @@
   },
   "checkout": {
     "unavailable": "Hindi pa naka-set up ang pagbabayad."
+  },
+  "walk": {
+    "skip": "Laktawan",
+    "again": "Balik sa pasukan",
+    "close": "Isara",
+    "detail": "Tingnan ang detalye →",
+    "out": "Available na",
+    "soon": "Malapit na",
+    "endnote": "Parating pa ang mas maraming libro.",
+    "railLabel": "Posisyon sa pasilyo"
   }
 }

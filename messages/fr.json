@@ -317,5 +317,15 @@
   },
   "checkout": {
     "unavailable": "Les paiements ne sont pas encore configurés."
+  },
+  "walk": {
+    "skip": "Passer",
+    "again": "Retour à l’entrée",
+    "close": "Fermer",
+    "detail": "Voir les détails →",
+    "out": "Disponible",
+    "soon": "À paraître",
+    "endnote": "D’autres titres arrivent bientôt.",
+    "railLabel": "Position dans l’allée"
   }
 }

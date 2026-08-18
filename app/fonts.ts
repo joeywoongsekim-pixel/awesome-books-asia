@@ -1,4 +1,5 @@
 import {
+  Cormorant_Garamond,
   Montserrat,
   Noto_Serif_KR,
   Noto_Sans_KR,
@@ -72,7 +73,16 @@ export const spaceMono = Space_Mono({
   display: 'swap'
 });
 
+// Bookstore walkthrough headings/spines (M9) — only the weights it uses
+export const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['500', '600'],
+  variable: '--font-cormorant',
+  display: 'swap'
+});
+
 export const fontVariables = [
+  cormorant.variable,
   notoSerifKR.variable,
   notoSansKR.variable,
   montserrat.variable,

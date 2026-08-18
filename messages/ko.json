@@ -317,5 +317,15 @@
   },
   "checkout": {
     "unavailable": "결제가 아직 설정되지 않았습니다."
+  },
+  "walk": {
+    "skip": "건너뛰기",
+    "again": "입구에서 다시",
+    "close": "닫기",
+    "detail": "자세히 보기 →",
+    "out": "출간",
+    "soon": "출간 예정",
+    "endnote": "새 책이 계속 들어오고 있어요.",
+    "railLabel": "통로 위치"
   }
 }

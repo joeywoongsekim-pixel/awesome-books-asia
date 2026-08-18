@@ -317,5 +317,15 @@
   },
   "checkout": {
     "unavailable": "Payments are not configured yet."
+  },
+  "walk": {
+    "skip": "Skip",
+    "again": "Back to the entrance",
+    "close": "Close",
+    "detail": "View details →",
+    "out": "Out now",
+    "soon": "Coming soon",
+    "endnote": "More titles are on their way.",
+    "railLabel": "Aisle position"
   }
 }

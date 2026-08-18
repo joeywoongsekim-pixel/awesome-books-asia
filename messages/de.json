@@ -317,5 +317,15 @@
   },
   "checkout": {
     "unavailable": "Zahlungen sind noch nicht eingerichtet."
+  },
+  "walk": {
+    "skip": "Überspringen",
+    "again": "Zurück zum Eingang",
+    "close": "Schließen",
+    "detail": "Details ansehen →",
+    "out": "Erhältlich",
+    "soon": "Demnächst",
+    "endnote": "Weitere Titel sind unterwegs.",
+    "railLabel": "Position im Gang"
   }
 }
