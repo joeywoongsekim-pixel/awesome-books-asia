@@ -5575,3 +5575,60 @@ html.bw-lock body {
     animation: none;
   }
 }
+
+/* ══════════ M13b — spine quality pass (mobile screenshot feedback) ══════════ */
+/* clean printed spine: small sans title that always fits, no hash-mark rules */
+.bw-b3-spine b {
+  font-family: var(--bw-sans);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  max-height: 88%;
+  text-shadow: 0 1px 2px rgb(0 0 0 / 0.45);
+}
+@media (max-width: 759px) {
+  .bw-b3-spine b {
+    font-size: 8.5px;
+  }
+}
+.bw-b3-spine::before,
+.bw-b3-spine::after {
+  left: 4px;
+  right: 4px;
+  height: 1px;
+  opacity: 0.3;
+  box-shadow: none;
+}
+.bw-b3-spine::before {
+  top: 4.5%;
+}
+.bw-b3-spine::after {
+  bottom: 4.5%;
+}
+/* seat the book like a solid object: resting angle shows a sliver of the
+   cover, heavier grounding shadow, no translucent look */
+.bw-b3 {
+  transform: translateZ(4px) rotateY(-14deg);
+}
+.bw-b3-spine {
+  box-shadow:
+    inset 2px 0 3px rgb(255 255 255 / 0.22),
+    inset -3px 0 5px rgb(0 0 0 / 0.4),
+    5px 7px 10px rgb(0 0 0 / 0.55);
+}
+.bw-pull::before {
+  inset: -2px -4px 0;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 0.5), transparent 26%, transparent 74%, rgb(0 0 0 / 0.5));
+  filter: blur(3px);
+}
+.bw-pull::after {
+  bottom: -4px;
+  height: 10px;
+  background: radial-gradient(ellipse at center, rgb(0 0 0 / 0.6), transparent 68%);
+}
+
+/* props multiply onto the floor — kills any white keying remnants */
+.bw-prop {
+  mix-blend-mode: multiply;
+}

@@ -479,7 +479,10 @@ export default function BookWalk() {
                       <div className="bw-signplate" aria-hidden="true">
                         {tri(locale, bay.sign)}
                       </div>
-                      <div className="bw-slotrow">
+                      <div
+                        className="bw-slotrow"
+                        style={bay.seat ? {paddingBottom: bay.seat} : undefined}
+                      >
                         {bay.photo
                           ? // photographic shelves carry their own books — only
                             // the real, interactive titles are overlaid

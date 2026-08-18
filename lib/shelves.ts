@@ -23,6 +23,7 @@ export interface WalkBay {
   sign: Tri; // brass plate
   photo?: string; // /public/walk/<photo>.webp bay backdrop (M12)
   pos?: string; // background-position crop for this bay instance
+  seat?: number; // px from bay bottom to the photo shelf lip
   zoom?: string; // background-size override
   books: WalkBook[]; // titled books; the rest of the slots are fillers
 }
@@ -54,6 +55,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('가격과 이익', 'Pricing & Profit', '価格と利益'),
         photo: 'wall-econ',
+        seat: 26,
         books: [
           {
             slug: 'quantum-econ',
@@ -76,6 +78,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('시장과 진입', 'Market & Entry', '市場と参入'),
         photo: 'wall-econ',
+        seat: 26,
         pos: '18% 38%',
         zoom: '128%',
         books: [
@@ -110,6 +113,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('첫 프롬프트', 'First Prompts', 'はじめてのプロンプト'),
         photo: 'wall-ai',
+        seat: 22,
         books: [
           {
             slug: 'ai-bible',
@@ -144,6 +148,7 @@ export const SHELVES: WalkShelf[] = [
       {
         sign: d('그림책과 놀이', 'Picture Books & Play', '絵本とあそび'),
         photo: 'wall-kids',
+        seat: 24,
         books: [
           {
             slug: 'ninja-cat',
