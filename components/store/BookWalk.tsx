@@ -333,6 +333,23 @@ export default function BookWalk() {
     }
     const aria = `${label} — ${rowLabel(shelf)}`;
     if (b.face) {
+      // Real covers render as photographic face-out displays; the CSS cloth
+      // face stays as the fallback for future titles without artwork yet.
+      if (b.cover) {
+        return (
+          <button
+            key={key}
+            type="button"
+            className={`bw-book bw-face bw-face-img${b.rep ? ' bw-rep' : ''}`}
+            aria-label={aria}
+            onClick={(e) => openDrawer(b, shelf, e.currentTarget)}
+            onFocus={(e) => followFocus(e.currentTarget)}
+            style={{height: `${slot.hPct}%`, marginLeft: slot.gap || undefined}}
+          >
+            <img src={b.cover} alt="" loading="lazy" decoding="async" />
+          </button>
+        );
+      }
       return (
         <button
           key={key}
@@ -530,15 +547,21 @@ export default function BookWalk() {
             >
               ×
             </button>
-            <div
-              className={`bw-dcover${dBook.rep ? ' bw-rep' : ''}`}
-              style={{
-                background: dBook.rep ? undefined : dShelf.cloths[1],
-                color: dShelf.foil
-              }}
-            >
-              <span>{spineLabel(dBook)}</span>
-            </div>
+            {dBook.cover ? (
+              <div className="bw-dcover bw-dcover-img">
+                <img src={dBook.cover} alt="" decoding="async" />
+              </div>
+            ) : (
+              <div
+                className={`bw-dcover${dBook.rep ? ' bw-rep' : ''}`}
+                style={{
+                  background: dBook.rep ? undefined : dShelf.cloths[1],
+                  color: dShelf.foil
+                }}
+              >
+                <span>{spineLabel(dBook)}</span>
+              </div>
+            )}
             <p className="bw-dcat">
               {dShelf.no} · {rowLabel(dShelf)}
             </p>

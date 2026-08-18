@@ -51,6 +51,7 @@ export const SHELVES: WalkShelf[] = [
         books: [
           {
             slug: 'quantum-econ',
+            cover: '/covers/quantum-econ.jpg',
             ko: '양자경제학',
             en: 'Quantum Economics',
             ja: '量子経済学',
@@ -69,6 +70,7 @@ export const SHELVES: WalkShelf[] = [
         books: [
           {
             slug: 'isekai',
+            cover: '/covers/isekai.jpg',
             ko: '이세계 엔터프리너십 입문',
             en: 'ISEKAI Entrepreneurship',
             ja: '異世界アントレプレナーシップ入門',
@@ -97,6 +99,7 @@ export const SHELVES: WalkShelf[] = [
         books: [
           {
             slug: 'ai-bible',
+            cover: '/covers/ai-bible.jpg',
             ko: '어썸 AI 바이블 2026',
             en: 'Awesome AI Bible 2026',
             ja: 'オーサムAIバイブル2026',
@@ -127,6 +130,7 @@ export const SHELVES: WalkShelf[] = [
         books: [
           {
             slug: 'ninja-cat',
+            cover: '/covers/ninja-cat.jpg',
             ko: '덜렁이 닌자 고양이 쿠로편',
             en: 'Clumsy Ninja Cat Kuro',
             ja: 'おっちょこ忍キャット クロの巻',

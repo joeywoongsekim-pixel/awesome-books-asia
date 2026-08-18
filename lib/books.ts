@@ -30,6 +30,7 @@ export type Book = {
   blurb: string;
   pages: number;
   published: string;
+  img?: string; // real cover in /public/covers
   toc: string[];
   sp: Spread[];
 };
@@ -37,6 +38,7 @@ export type Book = {
 export const BOOKS: Book[] = [
   {
     id: "ai-bible",
+    img: '/covers/ai-bible.jpg',
     ic: "🧠",
     cover: "c1",
     title: "Awesome AI Bible 2026",
@@ -103,6 +105,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "quantum-econ",
+    img: '/covers/quantum-econ.jpg',
     ic: "⚛️",
     cover: "c4",
     title: "Quantum Economics: Foundations and Applications",
@@ -153,6 +156,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "isekai",
+    img: '/covers/isekai.jpg',
     ic: "🚀",
     cover: "c2",
     title: "An Introduction to ISEKAI Entrepreneurship",
@@ -215,6 +219,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "ninja-cat",
+    img: '/covers/ninja-cat.jpg',
     ic: "🐱",
     cover: "c5",
     title: "Clumsy Ninja Cat Kuro",

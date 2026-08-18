@@ -5111,3 +5111,51 @@ html.bw-lock body {
 .bw-face {
   max-height: 215px;
 }
+
+/* ── real cover artwork (M12) ────────────────────────────────────────── */
+.cv-img {
+  padding: 0;
+  overflow: hidden;
+}
+.cv-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bw-face-img {
+  width: auto;
+  aspect-ratio: 313 / 500; /* KDP ebook cover ratio */
+  padding: 0;
+  border: 0;
+  background: #171310;
+  overflow: hidden;
+  border-radius: 2px 4px 4px 2px;
+  box-shadow:
+    4px 7px 16px rgb(0 0 0 / 0.45),
+    inset -2px 0 4px rgb(0 0 0 / 0.25);
+}
+.bw-face-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bw-face-img.bw-rep {
+  box-shadow:
+    0 0 0 2px rgb(43 92 230 / 0.65),
+    4px 7px 16px rgb(0 0 0 / 0.45);
+}
+.bw-dcover-img {
+  padding: 0;
+  overflow: hidden;
+  background: #171310;
+}
+.bw-dcover-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

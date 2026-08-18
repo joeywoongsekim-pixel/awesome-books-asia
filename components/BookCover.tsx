@@ -18,6 +18,14 @@ export default function BookCover({
   className?: string;
 }) {
   const idx = Math.max(0, BOOKS.findIndex((b) => b.id === book.id));
+  if (book.img) {
+    // Published titles show their real cover art.
+    return (
+      <div className={`cv cv-img ${className ?? ''}`}>
+        <img src={book.img} alt="" loading="lazy" decoding="async" />
+      </div>
+    );
+  }
   return (
     <div className={`cv ${ROTATION[idx % ROTATION.length]} ${className ?? ''}`}>
       <span className="cv-brand">Awesome Books Asia</span>
