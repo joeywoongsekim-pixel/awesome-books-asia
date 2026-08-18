@@ -4709,7 +4709,7 @@ html.bw-lock body {
 /* ── hud & rail ──────────────────────────────────────────────────────── */
 .bw-hud {
   position: absolute;
-  top: 14px;
+  top: calc(var(--cine, 0px) + 12px);
   right: 16px;
   z-index: 6;
 }
@@ -5654,10 +5654,11 @@ html.bw-lock body {
    Three walls, two bookcases each; scroll turns the head, click walks up.
    ══════════════════════════════════════════════════════════════════════ */
 .rm-view {
+  --cine: clamp(30px, 5.5vh, 60px); /* letterbox bar height */
   perspective: 1000px;
   perspective-origin: 50% 46%;
   background:
-    linear-gradient(180deg, #17100a 0%, #2b1e12 18%, #3a2a1a 100%);
+    linear-gradient(180deg, #0c0805 0%, #1a110a 22%, #241710 100%);
 }
 .rm-rig {
   position: absolute;
@@ -5676,9 +5677,9 @@ html.bw-lock body {
   align-items: flex-end; /* bookcases stand on the floor */
   justify-content: center;
   background:
-    repeating-linear-gradient(90deg, rgb(20 12 6 / 0.16) 0 2px, transparent 2px 120px),
-    linear-gradient(180deg, #d9c8a9 0%, #cdbb97 62%, #b09a76 100%);
-  box-shadow: inset 0 0 120px rgb(20 12 6 / 0.55);
+    repeating-linear-gradient(90deg, rgb(15 9 4 / 0.22) 0 2px, transparent 2px 120px),
+    linear-gradient(180deg, #2e2318 0%, #6b5638 34%, #8a6f4b 52%, #6b5539 72%, #3a2c1d 100%);
+  box-shadow: inset 0 0 160px rgb(10 6 2 / 0.72);
 }
 .rm-wall-left,
 .rm-wall-right {
@@ -5690,19 +5691,66 @@ html.bw-lock body {
   left: 50%;
   transform-origin: center bottom;
   transform: rotateX(90deg);
-  background-image: url('/walk/floor.webp');
+  background-image:
+    linear-gradient(rgb(30 16 6 / 0.34), rgb(30 16 6 / 0.34)),
+    url('/walk/floor.webp');
   background-size: cover;
   background-position: center 45%;
-  box-shadow: inset 0 0 160px rgb(20 12 6 / 0.75);
+  box-shadow: inset 0 0 220px rgb(10 6 2 / 0.85);
 }
 .rm-vig {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgb(12 8 4 / 0.55), transparent 16%),
-    radial-gradient(ellipse at 50% 55%, transparent 55%, rgb(12 8 4 / 0.5) 100%);
+    linear-gradient(180deg, rgb(8 5 2 / 0.72), transparent 20%),
+    linear-gradient(0deg, rgb(8 5 2 / 0.45), transparent 18%),
+    radial-gradient(ellipse at 50% 52%, transparent 48%, rgb(8 5 2 / 0.62) 100%);
 }
+/* warm center grade — the "lamplight" wash over the whole frame */
+.rm-grade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse at 50% 44%, rgb(255 196 118 / 0.14), transparent 62%);
+  mix-blend-mode: screen;
+}
+/* film grain */
+.rm-grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.085;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  animation: rmGrain 0.6s steps(3) infinite;
+}
+@keyframes rmGrain {
+  0% { background-position: 0 0; }
+  33% { background-position: 46px -28px; }
+  66% { background-position: -32px 38px; }
+  100% { background-position: 18px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rm-grain { animation: none; }
+}
+/* cinematic letterbox */
+.rm-bars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.rm-bars::before,
+.rm-bars::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: var(--cine);
+  background: #040201;
+}
+.rm-bars::before { top: 0; box-shadow: 0 1px 0 rgb(255 220 160 / 0.05); }
+.rm-bars::after { bottom: 0; box-shadow: 0 -1px 0 rgb(255 220 160 / 0.05); }
 /* ── wall art: framed posters, brand print, brass clock ─────────────── */
 .rm-art {
   position: absolute;
@@ -5821,6 +5869,7 @@ html.bw-lock body {
   background: #241b12;
   box-shadow:
     0 30px 60px rgb(10 6 2 / 0.6),
+    0 0 90px rgb(255 190 110 / 0.16),
     inset 0 0 0 2px rgb(255 220 150 / 0.06);
 }
 .rm-case-sign {
@@ -5900,7 +5949,7 @@ html.bw-lock body {
 .rm-chips {
   position: absolute;
   left: 50%;
-  bottom: 16px;
+  bottom: calc(var(--cine, 0px) + 12px);
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
@@ -6218,4 +6267,9 @@ html.bw-lock body {
   .rm-prop {
     filter: drop-shadow(0 16px 14px rgb(10 6 2 / 0.5)) brightness(0.9);
   }
+}
+
+/* the floor plane crosses the near plane at a case — hide its mirror band */
+.rm[data-mode='case'] .rm-bars::before {
+  height: calc(var(--cine, 40px) + 18px);
 }

@@ -575,8 +575,11 @@ export default function RoomStore() {
             </div>
           </div>
 
-          {/* vignette + HUD */}
+          {/* cinematic layers: vignette, warm grade, film grain, letterbox */}
           <div className="rm-vig" aria-hidden="true" />
+          <div className="rm-grade" aria-hidden="true" />
+          <div className="rm-grain" aria-hidden="true" />
+          <div className="rm-bars" aria-hidden="true" />
           <div className="bw-hud">
             {typeof mode === 'number' ? (
               <button type="button" className="bw-again" onClick={stepBack}>
