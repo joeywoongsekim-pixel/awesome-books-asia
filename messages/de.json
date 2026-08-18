@@ -327,6 +327,7 @@
     "out": "Erhältlich",
     "soon": "Demnächst",
     "endnote": "Weitere Titel sind unterwegs.",
-    "railLabel": "Position im Gang"
+    "railLabel": "Position im Gang",
+    "scrollHint": "Zum Eintreten scrollen"
   }
 }

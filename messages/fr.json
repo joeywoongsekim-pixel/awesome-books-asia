@@ -327,6 +327,7 @@
     "out": "Disponible",
     "soon": "À paraître",
     "endnote": "D’autres titres arrivent bientôt.",
-    "railLabel": "Position dans l’allée"
+    "railLabel": "Position dans l’allée",
+    "scrollHint": "Faites défiler pour entrer"
   }
 }

@@ -327,6 +327,7 @@
     "out": "Out now",
     "soon": "Coming soon",
     "endnote": "More titles are on their way.",
-    "railLabel": "Aisle position"
+    "railLabel": "Aisle position",
+    "scrollHint": "Scroll to enter"
   }
 }

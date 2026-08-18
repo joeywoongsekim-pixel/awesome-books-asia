@@ -327,6 +327,7 @@
     "out": "Disponible",
     "soon": "Próximamente",
     "endnote": "Más títulos están en camino.",
-    "railLabel": "Posición en el pasillo"
+    "railLabel": "Posición en el pasillo",
+    "scrollHint": "Desplázate para entrar"
   }
 }

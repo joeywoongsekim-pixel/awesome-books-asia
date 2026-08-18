@@ -5527,3 +5527,51 @@ html.bw-lock body {
   bottom: 6%;
   box-shadow: 0 -5px currentColor;
 }
+
+/* ══════════ M13 — scroll-driven entrance ══════════ */
+.bw-enter-scroll {
+  animation: none; /* no timer autoplay — scroll drives everything */
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+.bw-enter-scroll .bw-fcd-open {
+  animation: none;
+  opacity: 0; /* driven from the camera loop */
+}
+.bw-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 5.5%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--bw-sans);
+  font-size: 13px;
+  letter-spacing: 0.14em;
+  color: #f0e6cf;
+  text-shadow: 0 1px 6px rgb(0 0 0 / 0.8);
+}
+.bw-hint span {
+  font-size: 20px;
+  line-height: 1;
+  animation: bwHintBob 1.6s ease-in-out infinite;
+}
+@keyframes bwHintBob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(7px);
+  }
+}
+.bw-skipbtn {
+  pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bw-hint span {
+    animation: none;
+  }
+}

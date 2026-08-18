@@ -327,6 +327,7 @@
     "out": "출간",
     "soon": "출간 예정",
     "endnote": "새 책이 계속 들어오고 있어요.",
-    "railLabel": "통로 위치"
+    "railLabel": "통로 위치",
+    "scrollHint": "스크롤해서 입장"
   }
 }

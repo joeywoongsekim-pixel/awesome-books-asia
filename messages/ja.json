@@ -327,6 +327,7 @@
     "out": "発売中",
     "soon": "近日刊行",
     "endnote": "新しい本が続々と入荷中です。",
-    "railLabel": "通路の現在地"
+    "railLabel": "通路の現在地",
+    "scrollHint": "スクロールで入店"
   }
 }

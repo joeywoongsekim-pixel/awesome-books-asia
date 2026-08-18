@@ -327,6 +327,7 @@
     "out": "Disponível",
     "soon": "Em breve",
     "endnote": "Mais títulos estão a caminho.",
-    "railLabel": "Posição no corredor"
+    "railLabel": "Posição no corredor",
+    "scrollHint": "Role para entrar"
   }
 }

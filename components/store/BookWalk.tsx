@@ -92,15 +92,21 @@ export default function BookWalk() {
   const dotRef = useRef<HTMLDivElement>(null);
   const capRef = useRef<HTMLDivElement>(null);
 
-  const geo = useRef({travel: 0, trackTop: 0, range: 1, viewW: 1, bays: [] as number[]});
+  const geo = useRef({travel: 0, trackTop: 0, range: 1, viewW: 1, entry: 0, walk: 1, bays: [] as number[]});
   const cur = useRef(0);
   const target = useRef(0);
   const zoneRef = useRef(-1);
   const rm = useRef(false);
-  const entryTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const seenSaved = useRef(false);
   const lastFocus = useRef<HTMLElement | null>(null);
+  const enterRef = useRef<HTMLDivElement>(null);
+  const openRef = useRef<HTMLImageElement>(null);
+  const hintRef = useRef<HTMLDivElement>(null);
 
-  const [entry, setEntry] = useState<'done' | 'doors'>('done');
+  // Scroll-driven entrance: the first stretch of the track opens the doors
+  // and dollies through them — the visitor walks in with the wheel, nothing
+  // plays on a timer. Scrolling back up walks out again.
+  const [entryOn, setEntryOn] = useState(false);
   const [zone, setZone] = useState(0);
   const [ticks, setTicks] = useState<number[]>([0.33, 0.66]);
   const [drawer, setDrawer] = useState<{book: WalkBook; shelf: WalkShelf} | null>(null);
@@ -108,23 +114,6 @@ export default function BookWalk() {
 
   const lock = (on: boolean) =>
     document.documentElement.classList.toggle('bw-lock', on);
-
-  /* ── entrance (spec §5) ─────────────────────────────────────────────── */
-  const finishEntry = useCallback(() => {
-    if (entryTimer.current) clearTimeout(entryTimer.current);
-    try {
-      sessionStorage.setItem(ENTERED_KEY, '1');
-    } catch {}
-    setEntry('done');
-    lock(false);
-  }, []);
-
-  const startEntry = useCallback(() => {
-    window.scrollTo(0, 0);
-    setEntry('doors');
-    lock(true);
-    entryTimer.current = setTimeout(finishEntry, 2600);
-  }, [finishEntry]);
 
   useLayoutEffect(() => {
     rm.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -134,12 +123,11 @@ export default function BookWalk() {
       seen = sessionStorage.getItem(ENTERED_KEY) === '1';
     } catch {}
     const direct = new URLSearchParams(window.location.search).has('ref');
-    if (!seen && !direct) startEntry();
-    return () => {
-      if (entryTimer.current) clearTimeout(entryTimer.current);
-      lock(false);
-    };
-  }, [startEntry]);
+    if (!seen && !direct) {
+      window.scrollTo(0, 0);
+      setEntryOn(true);
+    }
+  }, []);
 
   /* ── geometry + camera loop (spec §6) ───────────────────────────────── */
   useEffect(() => {
@@ -154,11 +142,16 @@ export default function BookWalk() {
       const vh = window.innerHeight;
       const viewW = view.clientWidth;
       const travel = Math.max(0, wall.scrollWidth - viewW);
-      const trackH = Math.round(vh + (travel / vw) * 0.85 * vh);
+      // scroll budget: entry dolly (≈1.2 screens) + shelf walk
+      const entryScroll = entryOn ? Math.round(vh * 1.2) : 0;
+      const walkScroll = Math.round((travel / vw) * 0.85 * vh);
+      const trackH = vh + entryScroll + walkScroll;
       track.style.height = `${trackH}px`;
       const trackTop = track.getBoundingClientRect().top + window.scrollY;
       geo.current.travel = travel;
       geo.current.trackTop = trackTop;
+      geo.current.entry = entryScroll;
+      geo.current.walk = Math.max(1, walkScroll);
       geo.current.range = Math.max(1, trackH - vh);
       geo.current.viewW = viewW;
       back.style.width = `${Math.ceil(travel * 0.35 + viewW + 200)}px`;
@@ -189,13 +182,44 @@ export default function BookWalk() {
 
     const apply = (c: number) => {
       const g = geo.current;
-      const x = c * g.travel;
+      const sPx = c * g.range;
+      // entry dolly (scroll-driven doors + zoom-through)
+      const e = g.entry > 0 ? Math.min(1, Math.max(0, sPx / g.entry)) : 1;
+      if (enterRef.current) {
+        const el = enterRef.current;
+        if (e >= 0.999) {
+          el.style.visibility = 'hidden';
+          if (!seenSaved.current) {
+            seenSaved.current = true;
+            try {
+              sessionStorage.setItem(ENTERED_KEY, '1');
+            } catch {}
+          }
+        } else {
+          el.style.visibility = 'visible';
+          const zoom =
+            e < 0.3 ? 1 : 1 + Math.pow((e - 0.3) / 0.7, 1.55) * 6.2;
+          el.style.transform = `translateZ(0) scale(${zoom.toFixed(4)})`;
+          el.style.opacity =
+            e > 0.8 ? `${Math.max(0, 1 - (e - 0.8) / 0.19).toFixed(3)}` : '1';
+          if (openRef.current)
+            openRef.current.style.opacity = `${Math.min(1, e / 0.34).toFixed(3)}`;
+          if (hintRef.current)
+            hintRef.current.style.opacity = `${Math.max(0, 1 - e * 4).toFixed(3)}`;
+        }
+      }
+      // shelf walk
+      const w =
+        g.entry > 0
+          ? Math.min(1, Math.max(0, (sPx - g.entry) / g.walk))
+          : Math.min(1, Math.max(0, sPx / g.walk));
+      const x = w * g.travel;
       wall.style.transform = `translate3d(${-x}px,0,0)`;
       back.style.transform = `translate3d(${-x * 0.35}px,0,0)`;
       front.style.transform = `translate3d(${-x * 1.4}px,0,0)`;
-      if (dotRef.current) dotRef.current.style.left = `${c * 100}%`;
+      if (dotRef.current) dotRef.current.style.left = `${w * 100}%`;
       if (capRef.current)
-        capRef.current.style.left = `${Math.min(88, Math.max(12, c * 100))}%`;
+        capRef.current.style.left = `${Math.min(88, Math.max(12, w * 100))}%`;
       const cx = x + g.viewW / 2;
       let z = 0;
       for (let i = 0; i < g.bays.length; i++) if (cx >= g.bays[i]) z = i;
@@ -233,7 +257,7 @@ export default function BookWalk() {
       window.removeEventListener('resize', measure);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [entryOn]);
 
   /* ── keyboard focus follows the camera (spec §10) ───────────────────── */
   const followFocus = useCallback((el: HTMLElement) => {
@@ -246,7 +270,7 @@ export default function BookWalk() {
       wall.getBoundingClientRect().left +
       el.offsetWidth / 2;
     const p = Math.min(1, Math.max(0, (x - g.viewW / 2) / g.travel));
-    window.scrollTo({top: g.trackTop + p * g.range});
+    window.scrollTo({top: g.trackTop + g.entry + p * g.walk});
   }, []);
 
   /* ── drawer (spec §8) ───────────────────────────────────────────────── */
@@ -289,9 +313,21 @@ export default function BookWalk() {
     try {
       sessionStorage.removeItem(ENTERED_KEY);
     } catch {}
-    if (rm.current) window.scrollTo(0, 0);
-    else startEntry();
-  }, [startEntry]);
+    seenSaved.current = false;
+    window.scrollTo(0, 0);
+    if (!rm.current) setEntryOn(true);
+  }, []);
+
+  // Skip jumps the scroll to the end of the entry stretch — the camera lerp
+  // turns the jump into a quick dolly-through.
+  const skipEntry = useCallback(() => {
+    const g = geo.current;
+    try {
+      sessionStorage.setItem(ENTERED_KEY, '1');
+    } catch {}
+    seenSaved.current = true;
+    window.scrollTo({top: g.trackTop + g.entry});
+  }, []);
 
   /* ── render helpers ─────────────────────────────────────────────────── */
   const spineLabel = (b: WalkBook) => tri(locale, b);
@@ -414,7 +450,7 @@ export default function BookWalk() {
   const dShelf = drawer?.shelf;
 
   return (
-    <div className="bw" data-entry={entry}>
+    <div className="bw" data-entry={entryOn ? 'scroll' : 'done'}>
       <div className="bw-track" ref={trackRef}>
         <div className="bw-view" ref={viewRef}>
           {/* back — 0.35× (photographic interior, M12) */}
@@ -511,22 +547,31 @@ export default function BookWalk() {
         </div>
       </div>
 
-      {/* ── entrance overlay (spec §5) — portaled above the sticky nav ── */}
-      {entry === 'doors'
+      {/* ── entrance — scroll-driven dolly through the doors ───────────── */}
+      {entryOn
         ? createPortal(
             <div className="bw bw-portal">
-              <div className="bw-enter" role="presentation">
+              <div className="bw-enter bw-enter-scroll" role="presentation" ref={enterRef}>
                 <div className="bw-fcd">
                   <img className="bw-fcd-img" src="/walk/facade-closed.webp" alt="" />
-                  <img className="bw-fcd-img bw-fcd-open" src="/walk/facade-open.webp" alt="" />
+                  <img
+                    className="bw-fcd-img bw-fcd-open"
+                    src="/walk/facade-open.webp"
+                    alt=""
+                    ref={openRef}
+                  />
                   <div className="bw-fsign">
                     <b>AWESOME BOOKS</b>
                     <i>어썸북스 · オーサムブックス · Awesome Books</i>
                   </div>
                   <div className="bw-plaque bw-fplaque">OPEN · 영업중</div>
                 </div>
+                <div className="bw-hint" ref={hintRef}>
+                  {t('scrollHint')}
+                  <span aria-hidden="true">⌄</span>
+                </div>
               </div>
-              <button type="button" className="bw-skipbtn" onClick={finishEntry}>
+              <button type="button" className="bw-skipbtn" onClick={skipEntry}>
                 {t('skip')}
               </button>
             </div>,
