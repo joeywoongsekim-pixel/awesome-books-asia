@@ -200,6 +200,7 @@ export default function RoomStore() {
     };
 
     let raf = 0;
+    let applied = false; // the first frame must apply even when cur === target
     const loop = () => {
       const tg = target.current;
       let c = cur.current;
@@ -208,7 +209,8 @@ export default function RoomStore() {
         c += (tg - c) * 0.11;
         if (Math.abs(tg - c) < 0.0002) c = tg;
       }
-      if (c !== cur.current || raf === 0) {
+      if (c !== cur.current || !applied) {
+        applied = true;
         cur.current = c;
         apply(c);
       }
@@ -483,16 +485,8 @@ export default function RoomStore() {
               <i className="rm-hifi-sp rm-hifi-sp2" />
               <i className="rm-hifi-legs" />
             </div>
-            <div className="rm-prop rm-p-kiosk" data-x="-650" data-z="-500" aria-hidden="true">
-              <span className="rm-cashier">
-                <i className="rm-cashier-head" />
-                <i className="rm-cashier-body" />
-                <i className="rm-cashier-book" />
-              </span>
-              <i className="rm-kiosk-top" />
-              <i className="rm-kiosk-front" />
-              <i className="rm-kiosk-register" />
-              <i className="rm-kiosk-bell" />
+            <div className="rm-prop rm-p-kiosk" data-x="-640" data-z="-1000" aria-hidden="true">
+              <img src="/walk/prop-cashier.webp" alt="" />
             </div>
           </div>
 
