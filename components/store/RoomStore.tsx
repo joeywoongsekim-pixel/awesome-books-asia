@@ -19,6 +19,13 @@ import {BOOKS} from '../../lib/books';
 
 const ENTERED_KEY = 'bw-entered';
 
+// framed wall poster copy (the brand slogan, localized)
+const POSTER: Tri = {
+  ko: '아시아의\n이야기를\n세계의\n언어로',
+  en: "Asian stories\nin the world's\nlanguages",
+  ja: 'アジアの\n物語を、\n世界の\n言葉で'
+};
+
 // room geometry (rig space, camera at the origin) — scaled by k on small screens
 const ROOM_W = 1700;
 const DEPTH = 1400;
@@ -402,6 +409,18 @@ export default function RoomStore() {
     gap: CASE_GAP * k
   };
 
+  // a framed cover poster hung on a wall (left/top are wall-relative)
+  const art = (src: string, left: string, top: string, w: number) => (
+    <span
+      key={`${src}@${left}`}
+      className="rm-art"
+      style={{left, top, width: w * k}}
+      aria-hidden="true"
+    >
+      <img src={src} alt="" />
+    </span>
+  );
+
   return (
     <div className="bw rm" data-mode={typeof mode === 'number' ? 'case' : 'room'}>
       <div className="bw-track" ref={trackRef}>
@@ -419,6 +438,14 @@ export default function RoomStore() {
               }}
             >
               {[CASES[2], CASES[3]].map((c, j) => renderCase(c, 2 + j))}
+              {art('/covers/ai-bible.jpg', '5%', '22%', 118)}
+              {art('/covers/quantum-econ.jpg', '50%', '25%', 86)}
+              {art('/covers/isekai-ja.jpg', '95%', '22%', 118)}
+              <span
+                className="rm-clock"
+                style={{left: '50%', top: '8%', width: 46 * k, height: 46 * k}}
+                aria-hidden="true"
+              />
             </div>
             {/* left wall */}
             <div
@@ -432,6 +459,7 @@ export default function RoomStore() {
               }}
             >
               {[CASES[0], CASES[1]].map((c, j) => renderCase(c, j))}
+              {art('/covers/ninja-cat-ko.jpg', '50%', '25%', 86)}
             </div>
             {/* right wall */}
             <div
@@ -445,6 +473,21 @@ export default function RoomStore() {
               }}
             >
               {[CASES[4], CASES[5]].map((c, j) => renderCase(c, 4 + j))}
+              <span
+                className="rm-art rm-art-brand"
+                style={{
+                  left: '50%',
+                  top: '24%',
+                  width: 96 * k,
+                  padding: `${16 * k}px ${7 * k}px`
+                }}
+                aria-hidden="true"
+              >
+                <u />
+                <i style={{fontSize: Math.max(7, 8.5 * k)}}>AWESOME BOOKS ASIA</i>
+                <b style={{fontSize: Math.max(10, 12.5 * k)}}>{tri(locale, POSTER)}</b>
+                <u />
+              </span>
             </div>
             {/* floor */}
             <div
