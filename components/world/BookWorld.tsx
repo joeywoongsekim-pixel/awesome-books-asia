@@ -15,6 +15,7 @@ import {Canvas, useFrame, useLoader} from '@react-three/fiber';
 import {Billboard} from '@react-three/drei';
 import * as THREE from 'three';
 import {Link, useRouter} from '../../i18n/navigation';
+import {EDITIONS as RETAIL, type EditionLink} from '../../lib/retailers';
 
 const CASHIER = new THREE.Vector3(-18, 0, 22);
 const CASHIER_DIST = 5;
@@ -23,16 +24,26 @@ const BOUND = 27;
 
 /* ── the catalogue: 9 editions, their category case, pickup spot ─────── */
 export const QUEST_BOOKS = [
-  {slug: 'ninja-cat', img: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', label: '덜렁이 닌자 고양이 쿠로편', pos: [-25, -18]},
-  {slug: 'ninja-cat', img: '/covers/ninja-cat.jpg', bg: '#e8b64a', label: 'おっちょこ忍キャット', pos: [-25, -12]},
-  {slug: 'quantum-econ', img: '/covers/quantum-econ.jpg', bg: '#ece7db', label: 'Quantum Economics', pos: [-19, -25]},
-  {slug: 'quantum-econ', img: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', label: '量子経済学', pos: [-13, -25]},
-  {slug: 'isekai', img: '/covers/isekai-ko.jpg', bg: '#b98f3a', label: '이세계 엔터프리너십 입문', pos: [-16, -20]},
-  {slug: 'isekai', img: '/covers/isekai.jpg', bg: '#233f37', label: 'ISEKAI Entrepreneurship', pos: [-9, -21]},
-  {slug: 'isekai', img: '/covers/isekai-ja.jpg', bg: '#44502a', label: '異世界アントレプレナーシップ', pos: [-5, -25]},
-  {slug: 'ai-bible', img: '/covers/ai-bible.jpg', bg: '#101c36', label: 'Awesome AI Bible 2026', pos: [12, -25]},
-  {slug: 'ai-bible', img: '/covers/ai-bible-ja.jpg', bg: '#16233d', label: 'AIバイブル 2026', pos: [18, -22]}
+  {slug: 'ninja-cat', lang: 'KO', img: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', label: '덜렁이 닌자 고양이 쿠로편', author: 'Fumi Yamaneko · Orion Carter', desc: '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.', pos: [-25, -18]},
+  {slug: 'ninja-cat', lang: 'JA', img: '/covers/ninja-cat.jpg', bg: '#e8b64a', label: 'おっちょこ忍キャット クロの巻', author: 'Fumi Yamaneko · Orion Carter', desc: '村いちばんのおっちょこちょい忍者猫、クロの修行記。', pos: [-25, -12]},
+  {slug: 'quantum-econ', lang: 'EN', img: '/covers/quantum-econ.jpg', bg: '#ece7db', label: 'Quantum Economics', author: 'Akira Murata', desc: '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 의사결정 경제학.', pos: [-19, -25]},
+  {slug: 'quantum-econ', lang: 'JA', img: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', label: '量子経済学', author: 'Akira Murata', desc: '日銀・消費税・推し活まで、ぜんぶ「量子」で説明する教養経済学。', pos: [-13, -25]},
+  {slug: 'isekai', lang: 'KO', img: '/covers/isekai-ko.jpg', bg: '#b98f3a', label: '이세계 엔터프리너십 입문', author: 'Lyra Mizuki · Orion Carter', desc: '경영 이론과 판타지 세계가 만났다 — 실전으로 배우는 기업가정신.', pos: [-16, -20]},
+  {slug: 'isekai', lang: 'EN', img: '/covers/isekai.jpg', bg: '#233f37', label: 'ISEKAI Entrepreneurship', author: 'Lyra Mizuki · Orion Carter', desc: 'Business theory meets a fantasy world — entrepreneurship in the field.', pos: [-9, -21]},
+  {slug: 'isekai', lang: 'JA', img: '/covers/isekai-ja.jpg', bg: '#44502a', label: '異世界アントレプレナーシップ入門', author: 'Lyra Mizuki · Orion Carter', desc: '経営学×異世界ファンタジー！実戦で学ぶ起業家精神。', pos: [-5, -25]},
+  {slug: 'ai-bible', lang: 'EN', img: '/covers/ai-bible.jpg', bg: '#101c36', label: 'Awesome AI Bible 2026', author: 'Murata Akira', desc: '첫 프롬프트부터 조직 정책까지, 생성형 AI의 전 과정을 담은 완전판.', pos: [12, -25]},
+  {slug: 'ai-bible', lang: 'JA', img: '/covers/ai-bible-ja.jpg', bg: '#16233d', label: 'AIバイブル 2026', author: 'Murata Akira', desc: '最初のプロンプトから組織ポリシーまで、生成AIの完全ガイド。', pos: [18, -22]}
 ] as const;
+
+// the verified retailer links for one exact edition (slug + language)
+export function buyLinksFor(slug: string, lang: string): EditionLink[] {
+  return (RETAIL[slug] ?? []).filter((e) => e.lang === lang);
+}
+
+export function storeLabel(e: EditionLink): string {
+  const fmt = e.format === 'print' ? '종이책' : 'eBook';
+  return `${e.store} · ${fmt}${e.note ? ` · ${e.note}` : ''}`;
+}
 
 const CASES = [
   {no: '01', name: '그림책 · 아동', x: -31, z: -15, rotY: Math.PI / 2},
@@ -412,7 +423,8 @@ export default function BookWorld({embed = false}: {embed?: boolean}) {
   const [taken, setTaken] = useState<boolean[]>(() => Array(QUEST_BOOKS.length).fill(false));
   const [nearCashier, setNearCashier] = useState(false);
   const [checkout, setCheckout] = useState(false);
-  const [toast, setToast] = useState<string | null>(null);
+  const [picked, setPicked] = useState<number | null>(null);
+  const pickTimer = useRef<number | undefined>(undefined);
   const joyEl = useRef<HTMLDivElement>(null);
   const nubEl = useRef<HTMLDivElement>(null);
 
@@ -425,8 +437,9 @@ export default function BookWorld({embed = false}: {embed?: boolean}) {
       n[i] = true;
       return n;
     });
-    setToast(`🛒 ${QUEST_BOOKS[i].label}`);
-    window.setTimeout(() => setToast(null), 1800);
+    setPicked(i);
+    window.clearTimeout(pickTimer.current);
+    pickTimer.current = window.setTimeout(() => setPicked(null), 9000);
   };
 
   // touch joystick
@@ -514,7 +527,36 @@ export default function BookWorld({embed = false}: {embed?: boolean}) {
       <div className="wd-count" aria-hidden="true">
         🛒 {count} / {QUEST_BOOKS.length}
       </div>
-      {toast ? <div className="wd-toast">{toast}</div> : null}
+      {picked !== null ? (
+        <aside className="wd-card">
+          <button
+            type="button"
+            className="wd-card-x"
+            onClick={() => setPicked(null)}
+            aria-label="close"
+          >
+            ×
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className="wd-card-cover" src={QUEST_BOOKS[picked].img} alt="" />
+          <div className="wd-card-body">
+            <p className="wd-card-badge">🛒 카트에 담았습니다</p>
+            <p className="wd-card-title">{QUEST_BOOKS[picked].label}</p>
+            <p className="wd-card-author">{QUEST_BOOKS[picked].author}</p>
+            <p className="wd-card-desc">{QUEST_BOOKS[picked].desc}</p>
+            <div className="wd-card-buy">
+              {buyLinksFor(QUEST_BOOKS[picked].slug, QUEST_BOOKS[picked].lang).map((e, j) => (
+                <a key={j} href={e.url} target="_blank" rel="noopener noreferrer">
+                  {storeLabel(e)} ↗
+                </a>
+              ))}
+              <Link className="wd-card-more" href={`/books/${QUEST_BOOKS[picked].slug}`}>
+                상세 정보 →
+              </Link>
+            </div>
+          </div>
+        </aside>
+      ) : null}
       {nearCashier ? (
         count > 0 ? (
           <button type="button" className="wd-enter" onClick={() => setCheckout(true)}>
@@ -541,15 +583,29 @@ export default function BookWorld({embed = false}: {embed?: boolean}) {
               ×
             </button>
             <p className="wd-co-title">🧾 계산대 · Checkout</p>
-            <p className="wd-co-sub">담은 책 {count}권 — 표지를 누르면 구매 페이지로 이동합니다</p>
-            <div className="wd-co-grid">
+            <p className="wd-co-sub">담은 책 {count}권 — 원하는 스토어에서 바로 구매하세요</p>
+            <div className="wd-co-list">
               {QUEST_BOOKS.map((b, i) =>
                 taken[i] ? (
-                  <Link key={i} className="wd-co-item" href={`/books/${b.slug}`}>
+                  <div key={i} className="wd-co-row">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={b.img} alt={b.label} />
-                    <span>{b.label}</span>
-                  </Link>
+                    <img src={b.img} alt="" />
+                    <div className="wd-co-info">
+                      <p className="wd-co-name">{b.label}</p>
+                      <p className="wd-co-author">{b.author}</p>
+                      <p className="wd-co-desc">{b.desc}</p>
+                      <div className="wd-co-buy">
+                        {buyLinksFor(b.slug, b.lang).map((e, j) => (
+                          <a key={j} href={e.url} target="_blank" rel="noopener noreferrer">
+                            {storeLabel(e)} ↗
+                          </a>
+                        ))}
+                        <Link className="wd-co-more" href={`/books/${b.slug}`}>
+                          상세 →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 ) : null
               )}
             </div>
