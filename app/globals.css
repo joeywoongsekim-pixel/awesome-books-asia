@@ -6397,3 +6397,78 @@ html.bw-lock body {
   margin-right: 8px;
   text-decoration: none;
 }
+
+/* ── M20: World hero on the homepage (click-to-start embed) ── */
+.wd-embed {
+  height: min(78svh, 720px);
+  min-height: 420px;
+}
+.wh {
+  background: #0b0703;
+}
+.wh-poster {
+  position: relative;
+  height: min(78svh, 720px);
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(180deg, rgb(4 2 1 / 0.85), rgb(4 2 1 / 0.25) 30%, rgb(4 2 1 / 0.25) 70%, rgb(4 2 1 / 0.85)),
+    url('/walk/world-poster.webp') center 40% / cover no-repeat #0b0703;
+}
+.wh-kicker {
+  margin: 0 0 6px;
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: rgb(233 197 104 / 0.75);
+}
+.wh-title {
+  margin: 0;
+  font-family: var(--bw-serif);
+  font-size: clamp(26px, 4.6vw, 52px);
+  letter-spacing: 0.22em;
+  color: #e9c568;
+  text-shadow: 0 3px 22px rgb(0 0 0 / 0.85);
+}
+.wh-sub {
+  margin: 14px 0 26px;
+  font-size: clamp(12px, 1.25vw, 15px);
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+  color: rgb(242 228 191 / 0.85);
+}
+.wh-ctas {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.wh-start {
+  border: 2px solid #c9a24a;
+  border-radius: 999px;
+  background: rgb(20 12 6 / 0.88);
+  color: #f2e4bf;
+  font-family: var(--bw-serif);
+  font-size: 17px;
+  letter-spacing: 0.06em;
+  padding: 14px 30px;
+  cursor: pointer;
+  animation: wdPulse 1.6s ease-in-out infinite;
+}
+.wh-store {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgb(233 197 104 / 0.4);
+  border-radius: 999px;
+  background: rgb(20 12 6 / 0.55);
+  color: #e9d9b4;
+  font-size: 13.5px;
+  padding: 12px 22px;
+  text-decoration: none;
+}
+.wh-store:hover,
+.wh-start:hover {
+  box-shadow: 0 0 26px rgb(233 197 104 / 0.4);
+}

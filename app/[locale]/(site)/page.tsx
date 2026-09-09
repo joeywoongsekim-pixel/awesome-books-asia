@@ -9,6 +9,7 @@ import Newsletter from '../../../components/home/Newsletter';
 import Journal from '../../../components/home/Journal';
 import RecentlyViewed from '../../../components/home/RecentlyViewed';
 import UspBar from '../../../components/home/UspBar';
+import WorldHero from '../../../components/world/WorldHero';
 
 // Homepage skeleton per design guide §9.1: hero → tabbed grid → categories →
 // spotlights → (plans) → newsletter → journal → USP bar. The announce bar and
@@ -25,6 +26,7 @@ export default async function HomePage({
   return (
     <>
       <HeroMonth />
+      <WorldHero />
       <BookTabs />
       <Categories />
       <Spotlights />
