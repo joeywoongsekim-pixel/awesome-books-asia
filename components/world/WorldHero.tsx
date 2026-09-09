@@ -31,15 +31,15 @@ export default function WorldHero() {
       <div className="wh-poster">
         <div className="wh-copy">
           <p className="wh-kicker">INTERACTIVE</p>
-          <h2 className="wh-title">AWESOME BOOKS WORLD</h2>
+          <h2 className="wh-title">BOOK CART QUEST</h2>
           <p className="wh-sub">
-            북 트럭을 몰고 밤거리를 달려 서점까지 — 책을 밀고, 도미노를 넘어뜨리세요
+            북카트를 밀며 카테고리 책장 사이를 누비고, 책을 담아 계산대로!
             <br />
-            Drive the book truck through the night street to our store
+            Push the cart, collect our books, and check out at the cashier
           </p>
           <div className="wh-ctas">
             <button type="button" className="wh-start" onClick={() => setStarted(true)}>
-              🚚 운전 시작 · Start driving
+              🛒 퀘스트 시작 · Start the quest
             </button>
             <Link className="wh-store" href="/books">
               바로 서점으로 →

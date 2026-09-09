@@ -6472,3 +6472,122 @@ html.bw-lock body {
 .wh-start:hover {
   box-shadow: 0 0 26px rgb(233 197 104 / 0.4);
 }
+
+/* ── M21: Book Cart Quest HUD ── */
+.wd-count {
+  position: absolute;
+  top: clamp(34px, 7vh, 70px);
+  left: 18px;
+  z-index: 4;
+  border: 1px solid rgb(233 197 104 / 0.45);
+  border-radius: 999px;
+  background: rgb(20 12 6 / 0.75);
+  color: #f2e4bf;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+}
+.wd-toast {
+  position: absolute;
+  left: 50%;
+  top: clamp(90px, 16vh, 150px);
+  transform: translateX(-50%);
+  z-index: 4;
+  border: 1px solid rgb(233 197 104 / 0.5);
+  border-radius: 999px;
+  background: rgb(20 12 6 / 0.85);
+  color: #e9c568;
+  font-size: 13.5px;
+  padding: 9px 18px;
+  animation: wdToast 1.8s ease forwards;
+  pointer-events: none;
+  max-width: 84%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@keyframes wdToast {
+  0% { opacity: 0; transform: translate(-50%, 8px); }
+  12% { opacity: 1; transform: translate(-50%, 0); }
+  82% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.wd-enter-empty {
+  animation: none;
+  cursor: default;
+  font-size: 13.5px;
+  opacity: 0.92;
+}
+.wd-checkout {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(6 3 1 / 0.68);
+}
+.wd-co-panel {
+  position: relative;
+  width: min(640px, 92%);
+  max-height: 84%;
+  overflow: auto;
+  border: 2px solid #6e5220;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #f6eedb, #eee2c7);
+  color: #22334d;
+  padding: 26px 26px 22px;
+  text-align: center;
+}
+.wd-co-x {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: none;
+  font-size: 26px;
+  color: #22334d;
+  cursor: pointer;
+}
+.wd-co-title {
+  margin: 0;
+  font-family: var(--bw-serif);
+  font-size: 24px;
+  letter-spacing: 0.06em;
+}
+.wd-co-sub {
+  margin: 6px 0 18px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+.wd-co-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
+  gap: 14px;
+}
+.wd-co-item {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  text-decoration: none;
+  color: #22334d;
+}
+.wd-co-item img {
+  width: 100%;
+  border-radius: 4px;
+  border: 3px solid #241b12;
+  box-shadow: 0 8px 16px rgb(10 6 2 / 0.3);
+  transition: transform 0.15s ease;
+}
+.wd-co-item:hover img {
+  transform: translateY(-3px);
+}
+.wd-co-item span {
+  font-size: 11px;
+  line-height: 1.4;
+}
+.wd-co-done {
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: #7a5c26;
+}

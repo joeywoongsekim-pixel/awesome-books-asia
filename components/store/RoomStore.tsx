@@ -583,7 +583,7 @@ export default function RoomStore() {
           <div className="bw-hud">
             {typeof mode !== 'number' ? (
               <Link className="bw-again bw-world" href="/world">
-                🚗 밤거리 드라이브 · World
+                🛒 북카트 퀘스트 · Play
               </Link>
             ) : null}
             {typeof mode === 'number' ? (
