@@ -581,6 +581,11 @@ export default function RoomStore() {
           <div className="rm-grain" aria-hidden="true" />
           <div className="rm-bars" aria-hidden="true" />
           <div className="bw-hud">
+            {typeof mode !== 'number' ? (
+              <Link className="bw-again bw-world" href="/world">
+                🚗 밤거리 드라이브 · World
+              </Link>
+            ) : null}
             {typeof mode === 'number' ? (
               <button type="button" className="bw-again" onClick={stepBack}>
                 ← {t('backRoom')}
