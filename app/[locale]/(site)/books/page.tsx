@@ -1,7 +1,6 @@
 import type {Metadata} from 'next';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
-import RoomStore from '../../../../components/store/RoomStore';
-import WorldHero from '../../../../components/world/WorldHero';
+import StoreGrid from '../../../../components/store/StoreGrid';
 
 export async function generateMetadata({
   params
@@ -22,10 +21,5 @@ export default async function BooksPage({
   // Mandatory in every page.tsx, not just the layout.
   setRequestLocale(locale);
 
-  return (
-    <>
-      <RoomStore />
-      <WorldHero />
-    </>
-  );
+  return <StoreGrid />;
 }

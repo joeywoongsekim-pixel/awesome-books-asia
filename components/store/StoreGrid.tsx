@@ -19,6 +19,7 @@ export default function StoreGrid() {
 
   const cats: {key: CatFilter; label: string}[] = [
     {key: 'all', label: t('all')},
+    {key: 'BIZ', label: t('catBIZ')},
     {key: 'AI', label: t('catAI')},
     {key: 'EDU', label: t('catEDU')},
     {key: 'KIDS', label: t('catKIDS')}
