@@ -136,7 +136,12 @@
     "catBIZ": "経済・経営",
     "catEDU": "教育",
     "catKIDS": "子ども向け",
-    "empty": "条件に合う本はまだありません — 言語の範囲を広げてみてください。"
+    "empty": "条件に合う本はまだありません — 言語の範囲を広げてみてください。",
+    "shelfSoon": "近刊予定",
+    "fmtPrint": "紙の本",
+    "shelfDetail": "詳細を見る",
+    "shelfClose": "閉じる",
+    "shelfTitle": "私たちの本棚"
   },
   "detail": {
     "sample": "サンプルを読む",

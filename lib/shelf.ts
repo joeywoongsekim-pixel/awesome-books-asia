@@ -1,0 +1,91 @@
+// M24 — the illustrated shelf (C안): one shelf row per category, every
+// published edition standing as a spine. Category rows follow the store
+// filter categories; ghost slots show where the next titles will stand.
+
+import type {Category} from './books';
+
+export type Tri = {ko: string; en: string; ja: string};
+
+export function tri(locale: string, t: Tri): string {
+  if (locale === 'ko') return t.ko;
+  if (locale === 'ja') return t.ja;
+  return t.en;
+}
+
+export type EdLang = 'KO' | 'EN' | 'JA';
+
+export interface ShelfEdition {
+  slug: string; // BOOKS id / detail route
+  lang: EdLang;
+  title: string; // this edition's own title
+  cover: string; // /covers/*.jpg
+  bg: string; // spine cloth
+  fg: string; // spine foil
+  desc: Tri;
+  w: number; // spine width px
+  h: number; // spine height px
+  tilt?: number; // leaning angle (deg)
+  flat?: boolean; // lying in the horizontal pile
+}
+
+export interface ShelfRow {
+  cat: Category;
+  items: ShelfEdition[];
+  ghosts: number; // dashed "coming soon" slots
+}
+
+const QUANTUM_DESC: Tri = {
+  ko: '경제가 양자 법칙을 따른다면? 선택과 가격을 다시 쓰는 새로운 의사결정 경제학.',
+  en: 'What if the economy obeys quantum rules? Why you choose what you choose.',
+  ja: '日銀・消費税・推し活まで、ぜんぶ「量子」で説明する教養経済学。'
+};
+const ISEKAI_DESC: Tri = {
+  ko: '경영 이론과 판타지 세계가 만났다 — 실전으로 배우는 기업가정신.',
+  en: 'Business theory meets a fantasy world — entrepreneurship learned in the field.',
+  ja: '経営学×異世界ファンタジー！実戦で学ぶ起業家精神。'
+};
+const BIBLE_DESC: Tri = {
+  ko: '첫 프롬프트부터 조직 정책까지, 생성형 AI의 전 과정을 담은 완전판.',
+  en: 'The complete guide to generative AI, from your first prompt to organisational policy.',
+  ja: '最初のプロンプトから組織ポリシーまで、生成AIの完全ガイド。'
+};
+const NINJA_DESC: Tri = {
+  ko: '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
+  en: "The village's clumsiest ninja cat fails every mission in the best possible way.",
+  ja: '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
+};
+
+export const SHELF: ShelfRow[] = [
+  {
+    cat: 'BIZ',
+    ghosts: 0,
+    items: [
+      {slug: 'quantum-econ', lang: 'EN', title: 'Quantum Economics', cover: '/covers/quantum-econ.jpg', bg: '#ece7db', fg: '#20242c', desc: QUANTUM_DESC, w: 44, h: 196},
+      {slug: 'quantum-econ', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184},
+      {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
+      {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},
+      {slug: 'isekai', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
+    ]
+  },
+  {
+    cat: 'AI',
+    ghosts: 1,
+    items: [
+      {slug: 'ai-bible', lang: 'EN', title: 'Awesome AI Bible 2026', cover: '/covers/ai-bible.jpg', bg: '#101c36', fg: '#e9c568', desc: BIBLE_DESC, w: 46, h: 206},
+      {slug: 'ai-bible', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5}
+    ]
+  },
+  {
+    cat: 'EDU',
+    ghosts: 3,
+    items: []
+  },
+  {
+    cat: 'KIDS',
+    ghosts: 1,
+    items: [
+      {slug: 'ninja-cat', lang: 'KO', title: '덜렁이 닌자 고양이 쿠로편', cover: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', fg: '#3a2a1a', desc: NINJA_DESC, w: 178, h: 34, flat: true},
+      {slug: 'ninja-cat', lang: 'JA', title: 'おっちょこ忍キャット クロの巻', cover: '/covers/ninja-cat.jpg', bg: '#e8b64a', fg: '#3a2a1a', desc: NINJA_DESC, w: 166, h: 32, flat: true}
+    ]
+  }
+];

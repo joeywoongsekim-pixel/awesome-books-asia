@@ -136,7 +136,12 @@
     "catBIZ": "경제 · 경영",
     "catEDU": "교육",
     "catKIDS": "어린이",
-    "empty": "조건에 맞는 책이 아직 없습니다 — 언어 범위를 넓혀 보세요."
+    "empty": "조건에 맞는 책이 아직 없습니다 — 언어 범위를 넓혀 보세요.",
+    "shelfSoon": "근간 예정",
+    "fmtPrint": "종이책",
+    "shelfDetail": "전체 상세 보기",
+    "shelfClose": "닫기",
+    "shelfTitle": "우리의 서가"
   },
   "detail": {
     "sample": "샘플 읽기",

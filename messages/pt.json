@@ -136,7 +136,12 @@
     "catBIZ": "Economia e negócios",
     "catEDU": "Educação",
     "catKIDS": "Infantil",
-    "empty": "Nada corresponde a esses filtros — tente ampliar o idioma."
+    "empty": "Nada corresponde a esses filtros — tente ampliar o idioma.",
+    "shelfSoon": "Em breve",
+    "fmtPrint": "Impresso",
+    "shelfDetail": "Ver detalhes",
+    "shelfClose": "Fechar",
+    "shelfTitle": "Nossas estantes"
   },
   "detail": {
     "sample": "Ler uma amostra",

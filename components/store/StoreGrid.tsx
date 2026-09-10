@@ -3,7 +3,8 @@
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {BOOKS, type Category, type Lang} from '../../lib/books';
-import BookCard from '../BookCard';
+import StoreCard from './StoreCard';
+import ShelfHero from './ShelfHero';
 
 type CatFilter = 'all' | Category;
 type LangFilter = 'all' | Lang;
@@ -41,6 +42,8 @@ export default function StoreGrid() {
         <p className="lead">{t('lead')}</p>
         <div className="store-count">{t('count', {shown: list.length, total: BOOKS.length})}</div>
 
+        <ShelfHero />
+
         <div className="filters">
           <div className="fgroup">
             <div className="flabel">{t('subject')}</div>
@@ -73,7 +76,7 @@ export default function StoreGrid() {
 
       <div className="store-grid">
         {list.length ? (
-          list.map((book) => <BookCard key={book.id} book={book} />)
+          list.map((book) => <StoreCard key={book.id} book={book} />)
         ) : (
           <div className="empty">{t('empty')}</div>
         )}

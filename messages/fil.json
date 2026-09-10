@@ -136,7 +136,12 @@
     "catBIZ": "Negosyo at Ekonomiya",
     "catEDU": "Edukasyon",
     "catKIDS": "Pambata",
-    "empty": "Walang tumutugma sa mga filter na iyan — subukang palawakin ang wika."
+    "empty": "Walang tumutugma sa mga filter na iyan — subukang palawakin ang wika.",
+    "shelfSoon": "Malapit na",
+    "fmtPrint": "Print",
+    "shelfDetail": "Buong detalye",
+    "shelfClose": "Isara",
+    "shelfTitle": "Ang aming estante"
   },
   "detail": {
     "sample": "Magbasa ng sample",

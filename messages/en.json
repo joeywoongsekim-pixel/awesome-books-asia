@@ -136,7 +136,12 @@
     "catBIZ": "Business & Economics",
     "catEDU": "Education",
     "catKIDS": "Children",
-    "empty": "Nothing matches those filters yet — try widening the language."
+    "empty": "Nothing matches those filters yet — try widening the language.",
+    "shelfSoon": "Coming soon",
+    "fmtPrint": "Print",
+    "shelfDetail": "Full details",
+    "shelfClose": "Close",
+    "shelfTitle": "Our shelves"
   },
   "detail": {
     "sample": "Read a sample",

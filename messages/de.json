@@ -136,7 +136,12 @@
     "catBIZ": "Wirtschaft & Ökonomie",
     "catEDU": "Bildung",
     "catKIDS": "Kinder",
-    "empty": "Dazu passt noch nichts — versuchen Sie es mit einer weiteren Sprache."
+    "empty": "Dazu passt noch nichts — versuchen Sie es mit einer weiteren Sprache.",
+    "shelfSoon": "Demnächst",
+    "fmtPrint": "Print",
+    "shelfDetail": "Alle Details",
+    "shelfClose": "Schließen",
+    "shelfTitle": "Unsere Regale"
   },
   "detail": {
     "sample": "Leseprobe lesen",
