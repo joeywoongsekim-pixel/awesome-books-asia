@@ -9,6 +9,8 @@ import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
+import JsonLd from '../../../../../components/JsonLd';
+import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
 
 export function generateStaticParams() {
   return BOOKS.map((book) => ({slug: book.id}));
@@ -21,7 +23,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {slug} = await params;
   const book = BOOKS.find((b) => b.id === slug);
-  return book ? {title: `${book.title} — AwesomeBooks`} : {};
+  if (!book) return {};
+  return {
+    title: `${book.title} — AwesomeBooks`,
+    description: book.blurb,
+    openGraph: {
+      type: 'book',
+      title: book.title,
+      description: book.blurb,
+      images: book.img ? [{url: book.img}] : undefined
+    }
+  };
 }
 
 // Sync server component so useTranslations works; the async page below
@@ -145,5 +157,11 @@ export default async function BookDetailPage({
   const book = BOOKS.find((b) => b.id === slug);
   if (!book) notFound();
 
-  return <BookDetail book={book} />;
+  return (
+    <>
+      <JsonLd data={bookJsonLd(book)} />
+      <JsonLd data={breadcrumbJsonLd(locale, book)} />
+      <BookDetail book={book} />
+    </>
+  );
 }

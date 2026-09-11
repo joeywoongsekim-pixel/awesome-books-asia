@@ -1,0 +1,22 @@
+# Awesome Books Asia
+
+> Awesome Books Asia (어썸북스아시아 / オーサムブックスアジア) is an independent publishing house telling Asian stories in Korean, English and Japanese. Its books are sold on Amazon (US/JP/UK/India) and Kyobo Book Centre (교보문고), and can be sampled in the AwesomeBooks web reader at https://www.awesomebooks.asia. The site is available in 8 languages (en, ko, ja, fil, de, fr, es, pt).
+
+## Catalogue
+
+- [Awesome AI Bible 2026](https://www.awesomebooks.asia/en/books/ai-bible): by Murata Akira. The complete guide to generative AI — from your first prompt to organisational policy; 583 pages, published 2026-02, in EN and JA. Amazon US: https://www.amazon.com/dp/B0GPPXFTYG · Amazon JP: https://www.amazon.co.jp/dp/B0GMW6FV26
+- [Quantum Economics](https://www.awesomebooks.asia/en/books/quantum-econ): what if the economy obeys quantum rules? A new decision economics, in EN and JA. Amazon US: https://www.amazon.com/dp/B0H7RMWBCM · UK: https://www.amazon.com/dp/B0H86W24T9 · India: https://www.amazon.com/dp/B0H86YMQG9 · Amazon JP: https://www.amazon.co.jp/dp/B0H7RW5W13
+- [ISEKAI Entrepreneurship](https://www.awesomebooks.asia/en/books/isekai): business theory meets a fantasy world — entrepreneurship learned in the field; ebook and print in KO, EN and JA on Amazon and Kyobo. Amazon US: https://www.amazon.com/dp/B0FJFJT89D · Kyobo: https://product.kyobobook.co.kr/detail/S000216966371
+- [Ninja Cat Kuro](https://www.awesomebooks.asia/en/books/ninja-cat): picture book — the village's clumsiest ninja cat fails every mission in the best possible way; KO and JA editions on Amazon JP and Kyobo.
+
+## Key pages
+
+- [Bookstore](https://www.awesomebooks.asia/en/books): the full catalogue with per-edition retailer links (language × format availability).
+- [Web reader](https://www.awesomebooks.asia/en/read/ai-bible): read free samples of the books in the browser.
+
+## Facts
+
+- Publisher name: Awesome Books Asia (Korean: 어썸북스아시아, Japanese: オーサムブックスアジア)
+- Publishing languages: Korean, English, Japanese
+- Retail channels: Amazon Kindle (US, UK, India, Japan), Kyobo Book Centre eBook and POD print (Korea)
+- Website launch: September 2026 (India launch event, 23 September 2026)

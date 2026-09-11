@@ -1,0 +1,75 @@
+// M28 — schema.org structured data (SEO/AEO). Serialized into
+// <script type="application/ld+json"> tags by the layout and the book
+// detail pages, so search engines and AI answer engines can read the
+// publisher and catalogue as typed entities instead of prose.
+
+import type {Book} from './books';
+import {EDITIONS} from './retailers';
+
+export const SITE = 'https://www.awesomebooks.asia';
+
+const LANG_TAG: Record<string, string> = {KO: 'ko', EN: 'en', JA: 'ja'};
+
+export const orgJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${SITE}/#org`,
+  name: 'Awesome Books Asia',
+  alternateName: ['어썸북스아시아', 'オーサムブックスアジア'],
+  url: SITE,
+  logo: `${SITE}/icon.png`,
+  description:
+    'Independent publishing house telling Asian stories in Korean, English and Japanese — on Amazon, Kyobo and in the AwesomeBooks reader.',
+  knowsLanguage: ['ko', 'en', 'ja']
+};
+
+export const siteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE}/#site`,
+  name: 'Awesome Books Asia',
+  url: SITE,
+  publisher: {'@id': `${SITE}/#org`},
+  inLanguage: ['en', 'ko', 'ja', 'fil', 'de', 'fr', 'es', 'pt']
+};
+
+export function bookJsonLd(book: Book) {
+  const links = EDITIONS[book.id] ?? [];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Book',
+    '@id': `${SITE}/en/books/${book.id}#book`,
+    name: book.title,
+    author: {'@type': 'Person', name: book.author},
+    publisher: {'@id': `${SITE}/#org`},
+    description: book.blurb,
+    image: book.img ? `${SITE}${book.img}` : undefined,
+    inLanguage: book.langs.map((l) => LANG_TAG[l] ?? l.toLowerCase()),
+    numberOfPages: book.pages,
+    datePublished: book.published,
+    genre: book.catLabel,
+    url: `${SITE}/en/books/${book.id}`,
+    // Verified retailer listings for this work's editions.
+    sameAs: links.map((e) => e.url),
+    workExample: links.map((e) => ({
+      '@type': 'Book',
+      bookFormat:
+        e.format === 'print' ? 'https://schema.org/Paperback' : 'https://schema.org/EBook',
+      inLanguage: LANG_TAG[e.lang] ?? e.lang.toLowerCase(),
+      bookEdition: e.note ?? `${e.lang} ${e.format === 'print' ? 'print' : 'ebook'} edition`,
+      url: e.url
+    }))
+  };
+}
+
+export function breadcrumbJsonLd(locale: string, book: Book) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {'@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/${locale}`},
+      {'@type': 'ListItem', position: 2, name: 'Bookstore', item: `${SITE}/${locale}/books`},
+      {'@type': 'ListItem', position: 3, name: book.title, item: `${SITE}/${locale}/books/${book.id}`}
+    ]
+  };
+}

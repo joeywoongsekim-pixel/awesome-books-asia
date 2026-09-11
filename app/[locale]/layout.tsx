@@ -7,6 +7,8 @@ import {fontVariables} from '../fonts';
 import '../globals.css';
 import DeskBackground from '../../components/DeskBackground';
 import SiteGuard from '../../components/SiteGuard';
+import JsonLd from '../../components/JsonLd';
+import {orgJsonLd, siteJsonLd} from '../../lib/jsonld';
 
 // Required by next-intl so every locale is statically known at build time.
 export function generateStaticParams() {
@@ -71,6 +73,8 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={fontVariables}>
       <body>
+        <JsonLd data={orgJsonLd} />
+        <JsonLd data={siteJsonLd} />
         <NextIntlClientProvider>
           <SiteGuard />
           <DeskBackground />
