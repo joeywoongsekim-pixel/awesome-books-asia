@@ -5,6 +5,7 @@ import {useTranslations} from 'next-intl';
 import {useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import ChapterStudio, {type StudioContent} from './ChapterStudio';
+import PrePubCheck from './PrePubCheck';
 
 // M29 — the KDP-style book setup flow (modelled on Amazon KDP's title
 // setup): three steps across the top — Details, Content, Pricing — each a
@@ -70,6 +71,7 @@ export default function BookStudio({
   const [coverUrl, setCoverUrl] = useState(book?.cover_url ?? null);
   const [msg, setMsg] = useState('');
   const [busy, setBusy] = useState(false);
+  const [checkErrors, setCheckErrors] = useState<boolean | null>(null);
 
   const set = (k: keyof typeof form) => (v: string | boolean) =>
     setForm((f) => ({...f, [k]: v}));
@@ -108,6 +110,8 @@ export default function BookStudio({
 
   async function setPublished(published: boolean) {
     if (!book) return;
+    // KDP-style gate: hard findings from the pre-publish check ask first.
+    if (published && checkErrors && !window.confirm(t('ckConfirmPublish'))) return;
     setBusy(true);
     const {error} = await supabase.from('books').update({published}).eq('id', book.id);
     if (!error) {
@@ -398,6 +402,21 @@ export default function BookStudio({
                 );
               })}
             </div>
+          </div>
+
+          <div className="kdp-card">
+            <h2 className="kdp-h">{t('ckTitle')}</h2>
+            <p className="kdp-hint">{t('ckHint')}</p>
+            <PrePubCheck
+              bookId={book.id}
+              title={form.title}
+              author={form.author}
+              slug={form.slug}
+              coverUrl={coverUrl}
+              priceUsd={form.priceUsd}
+              publishedAt={form.published_at}
+              onResult={setCheckErrors}
+            />
             <div className="kdp-foot">
               <button type="button" className="btn-g adm-btn" onClick={() => setStep(3)}>
                 {t('saveContinue')}
@@ -430,6 +449,18 @@ export default function BookStudio({
             {form.published ? t('live') : t('draft')}
             <p className="kdp-hint">{t('publishHint')}</p>
           </div>
+
+          <h2 className="kdp-h" style={{marginTop: 22}}>{t('ckTitle')}</h2>
+          <PrePubCheck
+            bookId={book.id}
+            title={form.title}
+            author={form.author}
+            slug={form.slug}
+            coverUrl={coverUrl}
+            priceUsd={form.priceUsd}
+            publishedAt={form.published_at}
+            onResult={setCheckErrors}
+          />
 
           <div className="kdp-foot">
             <button type="button" className="btn-g adm-btn" onClick={() => save()} disabled={busy}>
