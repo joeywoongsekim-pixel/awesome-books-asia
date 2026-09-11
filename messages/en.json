@@ -184,7 +184,8 @@
     "sugg3": "Order these four into a term-long curriculum.",
     "ghostLift": "lift to the shelf",
     "ghostDrop": "drop it anywhere",
-    "bookmark": "Bookmark this page"
+    "bookmark": "Bookmark this page",
+    "noPrint": "Printing is disabled. This book is protected — please read it in the AwesomeBooks reader."
   },
   "partner": {
     "eyebrow": "For publishers & authors",

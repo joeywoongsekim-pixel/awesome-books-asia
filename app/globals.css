@@ -4482,3 +4482,43 @@ footer {
   text-align: center;
   padding: 3px 0;
 }
+
+/* ── M27: reader copy protection ─────────────────────────────────────────── */
+/* Text in the readers is never selectable (form fields excepted), images and
+   canvases can't be dragged out, and print renders only the notice. */
+.rd,
+.rd * {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+.rd input,
+.rd textarea {
+  -webkit-user-select: text;
+  user-select: text;
+}
+.rd img,
+.rd canvas {
+  -webkit-user-drag: none;
+}
+.rd-wm {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-repeat: repeat;
+  opacity: 0.055;
+  mix-blend-mode: multiply;
+}
+@media print {
+  .rd > * {
+    display: none !important;
+  }
+  .rd::after {
+    content: attr(data-noprint);
+    display: block;
+    padding: 64px 48px;
+    font: 17px/1.6 Georgia, 'Times New Roman', serif;
+    color: #111;
+  }
+}

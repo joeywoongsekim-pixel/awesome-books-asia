@@ -87,6 +87,7 @@ export default async function ReadPage({
         signedIn={signedIn}
         canSync={canSync}
         initialPage={initialPage}
+        owner={user?.email ?? null}
       />
     );
   }
@@ -122,6 +123,7 @@ export default async function ReadPage({
       canSync={canSync}
       entitled={entitled}
       signedIn={signedIn}
+      owner={user?.email ?? null}
     />
   );
 }

@@ -184,7 +184,8 @@
     "sugg3": "Organisez ces quatre livres en un programme d'un semestre.",
     "ghostLift": "soulever vers l'étagère",
     "ghostDrop": "posez-le où vous voulez",
-    "bookmark": "Marquer cette page"
+    "bookmark": "Marquer cette page",
+    "noPrint": "L'impression est désactivée. Ce livre est protégé — veuillez le lire dans le lecteur AwesomeBooks."
   },
   "partner": {
     "eyebrow": "Pour les éditeurs et les auteurs",

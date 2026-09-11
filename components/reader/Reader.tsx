@@ -6,6 +6,7 @@ import {Link, useRouter} from '../../i18n/navigation';
 import {BOOKS, type Book} from '../../lib/books';
 import BigPage, {ctxOf} from './BigPage';
 import AiPanel from './AiPanel';
+import {useReadGuard, Watermark} from './guard';
 
 const SWAP_MS = 260; // matches .spread opacity transition
 const SNAP_MS = 500; // matches .flipper.snap transform transition
@@ -92,7 +93,8 @@ export default function Reader({
   initialSpread = 0,
   canSync = false,
   entitled = true,
-  signedIn = false
+  signedIn = false,
+  owner
 }: {
   initialIndex: number;
   locale: string;
@@ -101,7 +103,9 @@ export default function Reader({
   canSync?: boolean;
   entitled?: boolean;
   signedIn?: boolean;
+  owner?: string | null;
 }) {
+  useReadGuard();
   const t = useTranslations('reader');
   const tPay = useTranslations('paywall');
   const tAuth = useTranslations('auth');
@@ -338,9 +342,10 @@ export default function Reader({
   const progressPct = ((right + 1) / main.sp.length) * 100;
 
   return (
-    <div className={`rd${focus ? ' focus' : ''}${dragging ? ' dragging' : ''}`}>
+    <div className={`rd${focus ? ' focus' : ''}${dragging ? ' dragging' : ''}`} data-noprint={t('noPrint')}>
       <div className="rd-room" />
       <div className="rd-lamp" />
+      <Watermark owner={owner} />
 
       <div className="rd-tb">
         <div style={{display: 'flex', alignItems: 'center', gap: 14}}>

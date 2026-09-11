@@ -3,6 +3,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link, useRouter} from '../../i18n/navigation';
+import {useReadGuard, Watermark} from './guard';
 
 // Reader for pipeline-processed books (book_content via get_book_content).
 // EPUB editions arrive as sanitised chapter HTML and are laid out as a
@@ -43,7 +44,8 @@ export default function DbReader({
   bookId,
   signedIn,
   canSync,
-  initialPage = 0
+  initialPage = 0,
+  owner
 }: {
   slug: string;
   locale: string;
@@ -54,7 +56,9 @@ export default function DbReader({
   signedIn: boolean;
   canSync: boolean;
   initialPage?: number;
+  owner?: string | null;
 }) {
+  useReadGuard();
   const t = useTranslations('reader');
   const tPay = useTranslations('paywall');
   const tAuth = useTranslations('auth');
@@ -225,9 +229,10 @@ export default function DbReader({
   const pct = pages > 1 ? ((page + 1) / pages) * 100 : 100;
 
   return (
-    <div className="rd pv">
+    <div className="rd pv" data-noprint={t('noPrint')}>
       <div className="rd-room" />
       <div className="rd-lamp" />
+      <Watermark owner={owner} />
 
       <div className="rd-tb">
         <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
