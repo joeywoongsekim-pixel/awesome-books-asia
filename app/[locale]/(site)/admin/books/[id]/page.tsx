@@ -1,11 +1,12 @@
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
 import {createSupabaseServer} from '../../../../../../lib/supabase/server';
-import BookForm, {
+import BookStudio, {
   type AdminBook,
   type AdminContent,
   type AdminEdition
-} from '../../../../../../components/admin/BookForm';
+} from '../../../../../../components/admin/BookStudio';
+import type {StudioContent} from '../../../../../../components/admin/ChapterStudio';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,12 +18,14 @@ export default async function AdminBookEdit({
   const {locale, id} = await params;
   setRequestLocale(locale);
 
-  if (id === 'new') return <BookForm book={null} editions={[]} />;
+  if (id === 'new') return <BookStudio book={null} editions={[]} />;
 
   const supabase = await createSupabaseServer();
   const {data: book} = await supabase
     .from('books')
-    .select('id, slug, title, author, category, level, is_new, published, price_cents, page_count, published_at')
+    .select(
+      'id, slug, title, author, category, level, is_new, published, price_cents, page_count, published_at, cover_url'
+    )
     .eq('id', id)
     .maybeSingle();
   if (!book) notFound();
@@ -33,17 +36,19 @@ export default async function AdminBookEdit({
       .select('id, locale, title, pdf_path, epub_path')
       .eq('book_id', id)
       .order('locale'),
+    // Full rows: the writing studio re-opens authored chapters for editing.
     supabase
       .from('book_content')
-      .select('locale, kind, processed_at')
+      .select('locale, kind, processed_at, chapters, sample')
       .eq('book_id', id)
   ]);
 
   return (
-    <BookForm
+    <BookStudio
       book={book as AdminBook}
       editions={(editions ?? []) as AdminEdition[]}
       contents={(contents ?? []) as AdminContent[]}
+      studio={(contents ?? []) as unknown as StudioContent[]}
     />
   );
 }
