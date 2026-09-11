@@ -6,6 +6,7 @@ import {routing} from '../../i18n/routing';
 import {fontVariables} from '../fonts';
 import '../globals.css';
 import DeskBackground from '../../components/DeskBackground';
+import SiteGuard from '../../components/SiteGuard';
 
 // Required by next-intl so every locale is statically known at build time.
 export function generateStaticParams() {
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={fontVariables}>
       <body>
         <NextIntlClientProvider>
+          <SiteGuard />
           <DeskBackground />
           {children}
         </NextIntlClientProvider>

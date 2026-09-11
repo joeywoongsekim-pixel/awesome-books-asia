@@ -4522,3 +4522,10 @@ footer {
     color: #111;
   }
 }
+
+/* M27b: artwork can't be dragged out anywhere on the site (SiteGuard also
+   blocks the image context menu). */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
