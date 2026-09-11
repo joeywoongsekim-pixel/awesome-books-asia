@@ -375,7 +375,13 @@
     "ckSizeBig": "{loc} のコンテンツが大きいです ({mb}MB) — リーダーの読込が遅くなる可能性",
     "ckContentOk": "{loc}: {n}章、{words}語 — 問題なし",
     "ckPdfNote": "{loc}: PDF版 — ページ検証は処理時に実施されます",
-    "ckConfirmPublish": "出版前チェックでエラーが見つかりました。それでも出版しますか？"
+    "ckConfirmPublish": "出版前チェックでエラーが見つかりました。それでも出版しますか？",
+    "ckSpelling": "{loc} 第{n}章 スペル疑い: {list}",
+    "ckConfusable": "{loc} 第{n}章: 「{bad}」は通常「{good}」の誤記です",
+    "ckRepeatWord": "{loc} 第{n}章: 同じ語が連続しています「{w} {w}」",
+    "ckDoubleSpace": "{loc} 第{n}章に二重スペースがあります",
+    "ckSpacePunct": "{loc} 第{n}章に句読点前のスペースがあります",
+    "ckPairs": "{loc} 第{n}章に対応しない括弧・引用符があります"
   },
   "paywall": {
     "title": "サンプルはここまでです",

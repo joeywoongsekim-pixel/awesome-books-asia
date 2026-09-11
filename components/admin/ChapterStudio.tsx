@@ -206,6 +206,8 @@ export default function ChapterStudio({
           </div>
           <textarea
             className="std-ch-body"
+            spellCheck
+            lang={locale}
             placeholder={t('chBodyPh')}
             value={ch.src}
             rows={Math.min(Math.max(ch.src.split('\n').length + 2, 6), 24)}

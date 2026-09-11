@@ -13,10 +13,12 @@
   "dependencies": {
     "@supabase/ssr": "^0.12.3",
     "@supabase/supabase-js": "^2.110.8",
+    "dictionary-en": "^4.0.0",
     "fast-xml-parser": "^5.10.1",
     "jszip": "^3.10.1",
     "next": "16.2.10",
     "next-intl": "^4.13.2",
+    "nspell": "^2.1.5",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.2.108",
     "react": "19.2.4",

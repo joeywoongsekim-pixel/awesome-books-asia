@@ -3,6 +3,7 @@
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
+import {confusableIssues, misspelledWords, universalIssues} from '../../lib/spellcheck';
 
 // M30 — the KDP-style pre-publish check. One button sweeps the SAVED state
 // of a title (metadata, cover, every locale's chapters) with rule-based
@@ -106,7 +107,8 @@ export default function PrePubCheck({
       const chs = row.chapters ?? [];
       let clean = true;
       let words = 0;
-      chs.forEach((ch, i) => {
+      for (let i = 0; i < chs.length; i++) {
+        const ch = chs[i];
         const body = textOf(ch.html);
         words += wordsOf(body);
         const src = ch.src ?? '';
@@ -130,7 +132,30 @@ export default function PrePubCheck({
           push('warn', t('ckBadChars', {loc: L, n: i + 1}));
           clean = false;
         }
-      });
+
+        // spelling & typos (M31)
+        const checkText = `${ch.title} ${src || body}`;
+        for (const iss of universalIssues(checkText)) {
+          if (iss.kind === 'repeat') push('warn', t('ckRepeatWord', {loc: L, n: i + 1, w: iss.word}));
+          else if (iss.kind === 'doubleSpace') push('warn', t('ckDoubleSpace', {loc: L, n: i + 1}));
+          else if (iss.kind === 'spaceBeforePunct') push('warn', t('ckSpacePunct', {loc: L, n: i + 1}));
+          else if (iss.kind === 'unmatchedPairs') push('warn', t('ckPairs', {loc: L, n: i + 1}));
+          clean = false;
+        }
+        for (const iss of confusableIssues(checkText, row.locale)) {
+          if (iss.kind === 'confusable') {
+            push('warn', t('ckConfusable', {loc: L, n: i + 1, bad: iss.bad, good: iss.good}));
+            clean = false;
+          }
+        }
+        if (row.locale === 'en') {
+          const bad = await misspelledWords(`${ch.title} ${body}`);
+          if (bad.length) {
+            push('warn', t('ckSpelling', {loc: L, n: i + 1, list: bad.join(', ')}));
+            clean = false;
+          }
+        }
+      }
 
       const all = chs.map((c) => textOf(c.html)).join(' ');
       if (words < 300) {

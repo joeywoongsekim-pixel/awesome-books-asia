@@ -375,7 +375,13 @@
     "ckSizeBig": "{loc} content is large ({mb}MB) — the reader may load slowly",
     "ckContentOk": "{loc}: {n} chapters, {words} words — no issues",
     "ckPdfNote": "{loc}: PDF edition — pages are checked at processing time",
-    "ckConfirmPublish": "The pre-publish check found errors. Publish anyway?"
+    "ckConfirmPublish": "The pre-publish check found errors. Publish anyway?",
+    "ckSpelling": "{loc} chapter {n}: possible misspellings — {list}",
+    "ckConfusable": "{loc} chapter {n}: \"{bad}\" is usually a typo for \"{good}\"",
+    "ckRepeatWord": "{loc} chapter {n}: repeated word \"{w} {w}\"",
+    "ckDoubleSpace": "{loc} chapter {n} contains doubled spaces",
+    "ckSpacePunct": "{loc} chapter {n} has a space before punctuation",
+    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",
