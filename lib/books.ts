@@ -42,7 +42,7 @@ export const BOOKS: Book[] = [
     ic: "🧠",
     cover: "c1",
     title: "Awesome AI Bible 2026",
-    author: "Murata Akira",
+    author: "Akira Murata",
     cat: "AI",
     catLabel: "AI & Technology",
     price: 12,

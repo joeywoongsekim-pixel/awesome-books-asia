@@ -4,7 +4,7 @@
 
 ## Catalogue
 
-- [Awesome AI Bible 2026](https://www.awesomebooks.asia/en/books/ai-bible): by Murata Akira. The complete guide to generative AI — from your first prompt to organisational policy; 583 pages, published 2026-02, in EN and JA. Amazon US: https://www.amazon.com/dp/B0GPPXFTYG · Amazon JP: https://www.amazon.co.jp/dp/B0GMW6FV26
+- [Awesome AI Bible 2026](https://www.awesomebooks.asia/en/books/ai-bible): by Akira Murata. The complete guide to generative AI — from your first prompt to organisational policy; 583 pages, published 2026-02, in EN and JA. Amazon US: https://www.amazon.com/dp/B0GPPXFTYG · Amazon JP: https://www.amazon.co.jp/dp/B0GMW6FV26
 - [Quantum Economics](https://www.awesomebooks.asia/en/books/quantum-econ): what if the economy obeys quantum rules? A new decision economics, in EN and JA. Amazon US: https://www.amazon.com/dp/B0H7RMWBCM · UK: https://www.amazon.com/dp/B0H86W24T9 · India: https://www.amazon.com/dp/B0H86YMQG9 · Amazon JP: https://www.amazon.co.jp/dp/B0H7RW5W13
 - [ISEKAI Entrepreneurship](https://www.awesomebooks.asia/en/books/isekai): business theory meets a fantasy world — entrepreneurship learned in the field; ebook and print in KO, EN and JA on Amazon and Kyobo. Amazon US: https://www.amazon.com/dp/B0FJFJT89D · Kyobo: https://product.kyobobook.co.kr/detail/S000216966371
 - [Ninja Cat Kuro](https://www.awesomebooks.asia/en/books/ninja-cat): picture book — the village's clumsiest ninja cat fails every mission in the best possible way; KO and JA editions on Amazon JP and Kyobo.
