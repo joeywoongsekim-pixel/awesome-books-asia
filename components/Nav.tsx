@@ -12,6 +12,20 @@ export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  // The mobile sheet closes on navigation and on Escape.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
 
   // Transparent over the hero; blurred dark backdrop after 40px of scroll.
   useEffect(() => {
@@ -63,7 +77,36 @@ export default function Nav() {
         <Link href="/read/ai-bible" className="nav-cta">
           {t('cta')} →
         </Link>
+        <button
+          type="button"
+          className={`nav-burger${open ? ' open' : ''}`}
+          aria-label={t('menu')}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
+
+      {open && (
+        <div className="nav-sheet">
+          {items.map((item) => (
+            <Link
+              key={item.key}
+              href={item.href}
+              className={item.key === 'home' && isHome ? 'on' : undefined}
+              onClick={() => setOpen(false)}
+            >
+              {t(item.key)}
+            </Link>
+          ))}
+          <Link href="/read/ai-bible" className="nav-sheet-cta" onClick={() => setOpen(false)}>
+            {t('cta')} →
+          </Link>
+        </div>
+      )}
     </nav>
   );
 }
