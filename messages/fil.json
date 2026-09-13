@@ -1,168 +1,137 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Mga kuwento ng Asya sa mga wika ng mundo",
-    "description": "Isang independiyenteng publishing house na gumagawa ng bawat aklat sa Korean, English at Japanese nang sabay — mula ekonomiya hanggang picture books. Makukuha na sa Amazon at Kyobo."
+    "description": "Isang maliit na publishing house na sumusulat ng bawat aklat sa Korean, English at Japanese — mula ekonomiya at AI hanggang picture books. Mabibili sa Amazon at Kyobo."
   },
   "nav": {
     "brand": "Awesome Books Asia",
     "tagline": "Digital na Aklatan · Asya",
     "home": "Home",
     "bookstore": "Tindahan ng Libro",
-    "reader": "Ang Reader",
-    "plans": "Mga Plano",
+    "reader": "Web reader",
+    "plans": "Paano bumili",
     "library": "Aking Aklatan",
     "language": "Filipino",
-    "cta": "Magsimulang magbasa",
+    "cta": "Basahin ang sample",
     "menu": "Menu"
   },
   "home": {
-    "badge": "Bagong reader · live na",
-    "title": "Basahin ang buong <em>mesa</em>, hindi lang isang libro",
-    "subtitle": "Ibuka ang apat na libro nang sabay-sabay. Magpalipat ng pahina na parang totoong papel. Pagkatapos, tanungin ang AI ng tanong na sumasaklaw sa lahat ng ito — walang app na kailangang i-install, bubukas ito sa browser mo.",
-    "meta": "PDF + EPUB · English · 한국어 · 日本語 · sa kahit anong device",
-    "ctaPrimary": "Subukan ang reader",
-    "ctaSecondary": "Tingnan ang aklatan",
+    "badge": "Web reader",
+    "title": "Basahin ang <em>sample</em> sa browser mo. Walang i-install.",
+    "subtitle": "Pumili ng aklat, pindutin ang 'Basahin ang sample', at bubukas ito agad. Maglagay ng hanggang apat na aklat sa mesa at lumipat-lipat; gumawa ng account at maaalala nito kung saan ka huminto.",
+    "meta": "Korean · English · Japanese · sa anumang device",
+    "ctaPrimary": "Basahin ang sample",
+    "ctaSecondary": "Tingnan ang bookstore",
     "tags": {
-      "four": "Apat na libro nang sabay",
-      "pages": "Mga pahinang sumusunod sa kamay mo",
-      "ai": "AI na nagbabasa ng mesa mo",
-      "coupons": "Mga gift coupon"
+      "four": "Korean · English · Japanese",
+      "pages": "Amazon · Kyobo",
+      "ai": "Mga sample sa browser",
+      "coupons": "Maliit na press sa Seoul at Tokyo"
     },
-    "demoCaption": "I-tap ang isang libro sa itaas — <b>bababa ito agad</b>",
-    "announce": "Mga kuwento ng Asya sa mga wika ng mundo",
-    "explore": "Tingnan ang libro",
-    "month": "Libro ng buwan"
-  },
-  "pillars": {
-    "eyebrow": "Ano ang kaibahan nito",
-    "title": "Muling dinisenyo namin<br>kung paano magbasa",
-    "lead": "Karamihan ng e-reader, inililipat lang ang papel na libro sa screen. Kami, sa iba nagsimula — sa kung ano lang ang kayang gawin ng screen.",
-    "p1": {
-      "no": "Haligi 01",
-      "title": "Apat na librong bukas<br>sa iisang mesa",
-      "desc": "Nakabukas na teksbuk sa harap mo, nakapatong ang mga sangguniang libro sa tabi — ganito talaga tayo mag-aral noon pa man. Panatilihing bukas nang malapad ang isang libro at nakatayo ang tatlo sa likod nito, tapos damputin ang kahit alin at magpalitan ng puwesto kahit kailan mo gusto.",
-      "note": "Damputin ang libro, ibaba kahit saan"
-    },
-    "p2": {
-      "no": "Haligi 02",
-      "title": "Mga pahinang sumusunod<br>sa kamay mo",
-      "desc": "Hindi ito button na nagpapalit lang ng screen. Hawakan ang sulok at aangat ang pahina hanggang saan mo ito hilahin. Bitawan sa kalagitnaan at babalik ito; dalhin hanggang kabila at sasabay ang anino sa papel.",
-      "note": "Hawakan ang sulok at hilahin"
-    },
-    "p3": {
-      "no": "Haligi 03",
-      "title": "AI na nagbabasa ng<br>mesa mo, hindi lang pahina",
-      "desc": "Ang assistant ng ibang reader, sumasagot lang mula sa isang librong bukas mo. Ang sa amin, nakikita ang apat nang sabay. \"Paano magkakaiba ang paliwanag ng apat na ito sa iisang ideya?\" — sa unang pagkakataon, puwede nang itanong iyan.",
-      "note": "Bawat sagot may banggit na libro at pahina"
-    }
+    "demoCaption": "Pindutin ang aklat sa itaas — <b>bababa ito sa mesa</b>",
+    "announce": "Mga kuwentong Asyano sa mga wika ng mundo",
+    "explore": "Tungkol sa aklat",
+    "month": "Aklat ng buwan"
   },
   "books": {
-    "eyebrow": "Ang aming aklatan",
-    "title": "Mga librong mababasa mo ngayon",
-    "lead": "AI literacy, edukasyon at mga kuwentong pambata — bawat isa ay available sa iba't ibang wika.",
-    "viewAll": "Tingnan lahat ng libro →",
+    "eyebrow": "Ang istante",
+    "title": "Mga aklat na mababasa mo ngayon",
+    "lead": "Negosyo, AI at picture books — lahat ng apat ay nasa dalawa o higit pang wika.",
+    "viewAll": "Tingnan ang buong istante →",
     "new": "Bago",
     "priceFrom": "<em>mula</em>${price}",
     "details": "Detalye →",
-    "subscribe": "Mag-subscribe →",
-    "inSubscription": "Kasama sa subscription"
+    "subscribe": "Basahin ang sample →",
+    "inSubscription": "Libreng sample",
+    "tabNew": "Bago",
+    "tabAll": "Lahat"
   },
   "steps": {
-    "eyebrow": "Simple",
-    "title": "Paano magsimula",
-    "lead": "Walang i-install, walang i-configure. Tatlong hakbang at nagbabasa ka na.",
+    "eyebrow": "Paano ito gumagana",
+    "title": "Pumili, subukan, saka bumili",
+    "lead": "Mababasa ang sample kahit walang account.",
     "s1": {
-      "no": "Hakbang 01",
-      "title": "Mag-sign up",
-      "desc": "Email o Google, ilang segundo lang. Hindi mo kailangan ng card para lang tumingin-tingin sa aklatan."
+      "no": "01",
+      "title": "Pumili ng aklat sa istante",
+      "desc": "Tingnan ang apat na aklat ayon sa paksa at wika. Ipinapakita ng bawat aklat kung aling mga edisyon at format ang mayroon."
     },
     "s2": {
-      "no": "Hakbang 02",
-      "title": "Bumili o mag-subscribe",
-      "desc": "Kumuha ng isang libro, o buksan ang buong aklatan gamit ang subscription. Dito rin inilalagay ang mga gift coupon code."
+      "no": "02",
+      "title": "Basahin ang sample sa browser",
+      "desc": "Walang i-install. Basahin ang mga unang kabanata, saka magpasya."
     },
     "s3": {
-      "no": "Hakbang 03",
-      "title": "Buksan ang mesa mo",
-      "desc": "Bubukas ito mismo sa browser mo. Awtomatikong nase-save ang kinaroroonan mo at mga bookmark habang nagbabasa ka."
+      "no": "03",
+      "title": "Bilhin ang edisyong gusto mo",
+      "desc": "Ang mga ebook ay nasa Amazon Kindle at Kyobo eBook; ang mga print edition ay sa Kyobo at Amazon Japan. Ang mga link sa bawat pahina ng aklat ay diretso sa edisyong iyon."
     }
   },
   "plans": {
-    "eyebrow": "Mga Plano",
-    "title": "Kung ano lang ang kailangan mo",
-    "lead": "Magsimula sa isang libro, o buksan ang buong aklatan.",
-    "single": {
-      "name": "Isang libro",
-      "pd": "isang bayad · sa iyo habang-buhay",
-      "f1": "Mananatiling sa iyo ang libro habang-buhay",
-      "f2": "Kasama pareho ang PDF at EPUB",
-      "f3": "Lahat ng edisyon ng wika",
-      "f4": "Basahin sa kahit anong device",
-      "cta": "Pumili ng libro"
+    "eyebrow": "Paano bumili",
+    "title": "Saan ibinebenta ang mga aklat",
+    "lead": "Kami ang gumagawa ng mga aklat; mga bookstore na pinagkakatiwalaan mo na ang nagbebenta.",
+    "ebook": {
+      "name": "Ebook",
+      "where": "Amazon Kindle · Kyobo eBook",
+      "desc": "Lahat ng apat na aklat ay may ebook. Hiwalay ang bawat edisyon ng wika — piliin ang gusto mo.",
+      "cta": "Tingnan ang mga ebook"
     },
-    "monthly": {
-      "tag": "Pinakasikat",
-      "name": "Buwanan",
-      "pd": "bawat buwan · kanselahin kahit kailan",
-      "f1": "Walang limitasyong access sa aklatan",
-      "f2": "Awtomatikong naidadagdag ang mga bagong libro",
-      "f3": "Mesa na may apat na libro at AI assistant",
-      "f4": "Naka-sync ang mga bookmark at progreso",
-      "f5": "Maagang access sa mga bagong labas",
-      "cta": "Simulan ang buwanan →"
+    "print": {
+      "name": "Print",
+      "where": "Kyobo · Amazon Japan",
+      "desc": "Inilalimbag kapag inorder at saka ipinapadala. Ang ISEKAI Entrepreneurship at Clumsy Ninja Cat ay may print edition.",
+      "cta": "Tingnan ang print"
     },
-    "annual": {
-      "name": "Taunan",
-      "pd": "bawat taon · makatipid ng 33%",
-      "f1": "Lahat ng nasa Buwanan",
-      "f2": "Makakatipid ng $39.89 kumpara sa buwanan",
-      "f3": "Madaling iregalo",
-      "f4": "Invoice para sa mga organisasyon",
-      "cta": "Kunin ang taunan →"
+    "reader": {
+      "name": "Web reader",
+      "where": "awesomebooks.asia",
+      "desc": "Mababasa ng kahit sino ang mga sample. Ang aklat na na-redeem gamit ang coupon ay bubukas nang buo. Inihahanda pa ang bayad na subscription.",
+      "cta": "Basahin ang sample"
     },
-    "coupon": "<b>May gift coupon ka ba?</b> Ilagay ang code at bubukas agad ang libro — isang beses lang gumagana ang bawat code, pagkatapos ay nala-lock na.",
-    "couponCta": "I-redeem ang coupon →",
-    "freeNote": "Libre habang lumalago ang aklatan — magsisimula ang subscription kapag umabot kami sa 200 na titulo."
+    "coupon": "<b>May gift coupon ka?</b> Ilagay ang code at bubukas ang aklat sa library mo.",
+    "couponCta": "I-redeem ang coupon →"
   },
   "store": {
-    "eyebrow": "Ang aklatan",
-    "title": "Lahat ng libro, iisang istante",
-    "lead": "Bumili ng isang libro, o buksan lahat gamit ang subscription. Bawat libro ay may PDF at EPUB.",
-    "count": "{shown} sa {total} na libro · PDF + EPUB · 3 wika",
+    "eyebrow": "Ang istante",
+    "title": "Apat na aklat, tatlong wika",
+    "lead": "Makikita agad kung aling edisyon ng bawat aklat ang nasa ebook o print. Pindutin ang gulugod ng aklat para sa kuwento at kung saan mabibili.",
+    "count": "{shown} sa {total} na aklat · Korean · English · Japanese",
     "subject": "Paksa",
     "language": "Wika",
     "all": "Lahat",
-    "any": "Kahit alin",
-    "catAI": "AI at Teknolohiya",
+    "any": "Lahat",
+    "catAI": "AI at Tech",
     "catBIZ": "Negosyo at Ekonomiya",
-    "catEDU": "Edukasyon",
-    "catKIDS": "Pambata",
-    "empty": "Walang tumutugma sa mga filter na iyan — subukang palawakin ang wika.",
+    "catEDU": "Edukasyon at Wika",
+    "catKIDS": "Picture books",
+    "empty": "Wala pang tumutugma sa mga filter. Subukang itakda ang wika sa 'Lahat'.",
     "shelfSoon": "Malapit na",
     "fmtPrint": "Print",
     "shelfDetail": "Buong detalye",
     "shelfClose": "Isara",
-    "shelfTitle": "Ang aming estante"
+    "shelfTitle": "Ang aming istante"
   },
   "detail": {
-    "sample": "Magbasa ng sample",
-    "buy": "Bilhin ang librong ito",
-    "subscribeCta": "Mag-subscribe",
-    "included": "kasama sa kahit anong subscription",
-    "subnote": "O basahin ito — at lahat ng iba pa — gamit ang subscription mula <b>$9.99 bawat buwan</b>.",
+    "sample": "Basahin ang sample",
+    "buy": "Saan bibili",
+    "subscribeCta": "Saan bibili",
+    "included": "Libreng sample",
+    "subnote": "Ang ipinapakitang presyo ay gabay para sa ebook. Ang aktuwal na presyo at bayad ay nakadepende sa bawat tindahan.",
     "contents": "Nilalaman",
-    "detailsHeading": "Mga Detalye",
-    "format": "Format",
+    "detailsHeading": "Tungkol sa aklat",
+    "format": "Mga format",
     "pages": "Mga pahina",
     "editions": "Mga edisyon",
-    "published": "Nailathala",
-    "publisher": "Tagapaglathala",
-    "reader": "Reader",
-    "readerValue": "Mesa na may apat na libro",
-    "keepGoing": "Tuloy lang",
-    "more": "Iba pa mula sa aklatan",
-    "stores": "Makukuha sa",
-    "fmtPrint": "Print"
+    "published": "Inilathala",
+    "publisher": "Publisher",
+    "reader": "Sample",
+    "readerValue": "Basahin sa browser",
+    "keepGoing": "Nasa istante rin",
+    "more": "Iba pa sa istante",
+    "stores": "Saan bibili",
+    "fmtPrint": "Print",
+    "fmtEbook": "Ebook",
+    "priceNote": "gabay na presyo ng ebook"
   },
   "reader": {
     "back": "← Aklatan",
@@ -188,23 +157,17 @@
     "bookmark": "I-bookmark ang pahinang ito",
     "noPrint": "Hindi pinapayagan ang pag-print. Protektado ang aklat na ito — basahin ito sa AwesomeBooks reader."
   },
-  "partner": {
-    "eyebrow": "Para sa mga publisher at awtor",
-    "title": "Kasosyo sa paglalathala<br>para sa sama-samang paglago",
-    "lead": "Dalhin ang iyong akda sa mga mambabasa sa buong Asya. Malugod na tinatanggap ang mga publisher, awtor at content creator.",
-    "cta": "Kausapin kami →"
-  },
   "footer": {
     "brand": "Awesome Books Asia",
-    "tagline": "Mga Kuwentong Walang Hangganan",
-    "description": "Digital na publishing platform na nag-uugnay sa mga mambabasa sa buong Asya sa magagandang libro — sa Ingles, Korean at Hapon.",
-    "library": "Aklatan",
+    "tagline": "Mga kuwentong Asyano sa mga wika ng mundo",
+    "description": "Isang maliit na publishing house na sumusulat ng mga aklat sa Korean, English at Japanese. Mabibili ang aming mga aklat sa Amazon at Kyobo.",
+    "library": "Ang istante",
     "libraryLinks": {
-      "all": "Lahat ng libro",
-      "ai": "AI at Teknolohiya",
-      "kids": "Mga librong pambata",
-      "education": "Edukasyon",
-      "new": "Mga bagong labas"
+      "all": "Lahat ng aklat",
+      "ai": "AI at Tech",
+      "kids": "Picture books",
+      "education": "Edukasyon at Wika",
+      "new": "Bago"
     },
     "account": "Account",
     "accountLinks": {
@@ -222,7 +185,7 @@
       "faq": "FAQ",
       "refund": "Patakaran sa refund"
     },
-    "copyright": "© 2026 AwesomeBooks.asia — Konektado sa Awesome AI Asia"
+    "copyright": "© 2026 Awesome Books Asia · Awesome AI Asia"
   },
   "auth": {
     "loginTitle": "Mag-log in",
@@ -249,14 +212,29 @@
     "browse": "Pumunta sa tindahan ng libro →"
   },
   "newsletter": {
-    "eyebrow": "Newsletter",
-    "title": "Isang maikling sulat, isang beses sa isang buwan",
-    "lead": "Mga bagong labas, mga tala sa pagbabasa, at ang kasalukuyang ginagawa ng aming mga editor.",
-    "placeholder": "Ang iyong email address"
+    "eyebrow": "Mga liham",
+    "title": "Isang maikling liham kada buwan",
+    "lead": "Mga bagong aklat at kung ano ang ginagawa namin. Walang advertising.",
+    "placeholder": "Iyong email address"
   },
   "journal": {
-    "title": "Journal",
-    "readMore": "Basahin pa →"
+    "title": "Mula sa mga editor",
+    "readMore": "Pumunta sa aklat →",
+    "p1": {
+      "no": "Tala 01",
+      "title": "Ang prompt ay hindi tanong.<br>Ito ay work order.",
+      "desc": "Ang Kabanata 3 ang pinakamaraming beses naming muling isinulat sa Awesome AI Bible 2026. Role, context, task, format, constraint — isulat ang lahat ng lima at babalik ang parehong resulta sa susunod. Iyan ang pagkakaiba ng libangan at trabaho."
+    },
+    "p2": {
+      "no": "Tala 02",
+      "title": "Bakit laging nabibigo<br>ang ninja cat",
+      "desc": "Si Kuro ang pinakamalikot na ninja cat sa nayon. Bawat misyon ay nagkakamali — at nagkakamali nang eksaktong inaasahan ng bata. Isang picture book para sa edad 4–8, sabay na inilathala sa Korean at Japanese."
+    },
+    "p3": {
+      "no": "Tala 03",
+      "title": "Pag-aaral ng negosyo<br>sa kahariang walang presyo",
+      "desc": "Ang An Introduction to ISEKAI Entrepreneurship ay nagtuturo ng negosyo nang walang textbook. Isang founder ang napadpad sa kahariang hindi pa nakarinig ng fixed price at itinatayo ang mga pamilihan nito isa-isa."
+    }
   },
   "recent": {
     "title": "Kamakailang tiningnan"
@@ -385,12 +363,10 @@
     "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
   },
   "paywall": {
-    "title": "Hanggang dito lang ang sample",
-    "body": "Para magpatuloy sa pagbabasa, bilhin ang libro o buksan ang buong aklatan gamit ang subscription.",
-    "plans": "Tingnan ang mga plano",
-    "close": "Isara",
-    "freeTitle": "Gumawa ng libreng account para magpatuloy sa pagbabasa",
-    "freeBody": "Habang lumalago ang aming aklatan patungo sa 200 na titulo, libre ang lahat ng libro basta may account ka."
+    "title": "Dito nagtatapos ang sample",
+    "body": "Para magpatuloy, bilhin ang aklat — o i-redeem ang gift coupon kung mayroon ka.",
+    "plans": "Tingnan kung paano bumili",
+    "close": "Isara"
   },
   "redeem": {
     "code": "Coupon code",
@@ -414,5 +390,17 @@
     "scrollHint": "Mag-scroll para pumasok",
     "backRoom": "Balik sa tindahan",
     "browseCase": "Tingnan ang estante"
+  },
+  "story": {
+    "eyebrow": "Paano namin ginagawa ang mga aklat",
+    "title": "Isang aklat,<br>isinulat nang tatlong beses",
+    "lead": "Sa halip na isalin pagkatapos, sumusulat kami mula sa unang draft na nasa isip ang mga mambabasang Korean, English at Japanese. Ang Japanese edition ng Quantum Economics ay gumagamit ng Bank of Japan, consumption tax at fan economies bilang halimbawa — kaya ang tatlong edisyon ay iisang aklat, at hindi rin.",
+    "r1": "Korean edition",
+    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r2": "English edition",
+    "r2s": "Amazon US · UK · India",
+    "r3": "Japanese edition",
+    "r3s": "Amazon.co.jp",
+    "cta": "Tingnan ang istante"
   }
 }

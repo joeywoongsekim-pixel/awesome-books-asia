@@ -1,168 +1,137 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Les histoires d'Asie dans les langues du monde",
-    "description": "Une maison d'édition indépendante qui crée chaque livre en coréen, anglais et japonais à la fois — de l'économie aux albums jeunesse. Disponible sur Amazon et Kyobo."
+    "description": "Une petite maison d'édition qui écrit chaque livre en coréen, en anglais et en japonais — de l'économie et l'IA aux albums jeunesse. En vente sur Amazon et Kyobo."
   },
   "nav": {
     "brand": "Awesome Books Asia",
     "tagline": "Bibliothèque numérique · Asie",
     "home": "Accueil",
     "bookstore": "Librairie",
-    "reader": "Le lecteur",
-    "plans": "Formules",
+    "reader": "Liseuse web",
+    "plans": "Où acheter",
     "library": "Ma bibliothèque",
     "language": "Français",
-    "cta": "Commencer à lire",
+    "cta": "Lire un extrait",
     "menu": "Menu"
   },
   "home": {
-    "badge": "Nouveau lecteur · disponible",
-    "title": "Lisez tout le <em>bureau</em>, pas un seul livre",
-    "subtitle": "Étalez quatre livres à la fois. Tournez les pages comme du vrai papier. Puis posez à l'IA une question qui traverse les quatre — rien à installer, tout s'ouvre dans votre navigateur.",
-    "meta": "PDF + EPUB · English · 한국어 · 日本語 · sur tous vos appareils",
-    "ctaPrimary": "Essayer le lecteur",
-    "ctaSecondary": "Parcourir la bibliothèque",
+    "badge": "Liseuse web",
+    "title": "Lisez un <em>extrait</em> dans votre navigateur. Rien à installer.",
+    "subtitle": "Choisissez un livre, appuyez sur « Lire un extrait » et il s'ouvre aussitôt. Posez jusqu'à quatre livres sur le bureau et passez de l'un à l'autre ; avec un compte, la liseuse retient où vous vous êtes arrêté.",
+    "meta": "Coréen · Anglais · Japonais · sur tout appareil",
+    "ctaPrimary": "Lire un extrait",
+    "ctaSecondary": "Voir la librairie",
     "tags": {
-      "four": "Quatre livres à la fois",
-      "pages": "Des pages qui suivent votre main",
-      "ai": "Une IA qui lit votre bureau",
-      "coupons": "Coupons cadeaux"
+      "four": "Coréen · Anglais · Japonais",
+      "pages": "Amazon · Kyobo",
+      "ai": "Extraits dans le navigateur",
+      "coupons": "Une petite maison d'édition à Séoul et Tokyo"
     },
-    "demoCaption": "Touchez un livre ci-dessus — <b>il descend aussitôt</b>",
-    "announce": "Les histoires d'Asie dans les langues du monde",
+    "demoCaption": "Touchez un livre ci-dessus — <b>il descend sur le bureau</b>",
+    "announce": "Des histoires d’Asie dans les langues du monde",
     "explore": "Découvrir le livre",
     "month": "Le livre du mois"
   },
-  "pillars": {
-    "eyebrow": "Ce qui change tout",
-    "title": "Nous avons repensé<br>la lecture",
-    "lead": "La plupart des liseuses se contentent de transposer un livre papier sur un écran. Nous sommes partis d'ailleurs — de ce que seul un écran sait faire.",
-    "p1": {
-      "no": "Pilier 01",
-      "title": "Quatre livres ouverts<br>sur un seul bureau",
-      "desc": "Le manuel grand ouvert devant vous, les références posées à côté — on a toujours étudié comme ça. Gardez un livre grand ouvert et trois debout derrière, puis saisissez n'importe lequel et échangez leurs places quand vous voulez.",
-      "note": "Saisissez un livre, posez-le où vous voulez"
-    },
-    "p2": {
-      "no": "Pilier 02",
-      "title": "Des pages qui suivent<br>votre main",
-      "desc": "Pas un bouton qui remplace un écran par un autre. Saisissez le coin et la page se soulève aussi loin que vous la tirez. Lâchez à mi-chemin, elle se repose ; emportez-la de l'autre côté et l'ombre traverse le papier avec elle.",
-      "note": "Attrapez le coin et tirez"
-    },
-    "p3": {
-      "no": "Pilier 03",
-      "title": "Une IA qui lit votre bureau,<br>pas une page",
-      "desc": "L'assistant des autres liseuses répond depuis le seul livre que vous avez ouvert. Le nôtre voit les quatre à la fois. « Comment ces quatre livres expliquent-ils différemment la même idée ? » — cette question devient enfin possible.",
-      "note": "Chaque réponse cite le livre et la page"
-    }
-  },
   "books": {
-    "eyebrow": "Notre bibliothèque",
-    "title": "Des livres à lire dès aujourd'hui",
-    "lead": "Culture de l'IA, éducation et histoires pour enfants — chacun disponible en plusieurs langues.",
-    "viewAll": "Voir tous les livres →",
+    "eyebrow": "Le rayon",
+    "title": "Des livres à lire maintenant",
+    "lead": "Économie, IA et albums jeunesse — les quatre existent dans au moins deux langues.",
+    "viewAll": "Voir tout le rayon →",
     "new": "Nouveau",
     "priceFrom": "<em>dès</em>${price}",
     "details": "Détails →",
-    "subscribe": "S'abonner →",
-    "inSubscription": "Inclus dans l'abonnement"
+    "subscribe": "Lire un extrait →",
+    "inSubscription": "Extrait gratuit",
+    "tabNew": "Nouveautés",
+    "tabAll": "Tous"
   },
   "steps": {
-    "eyebrow": "Simple",
-    "title": "Comment commencer",
-    "lead": "Rien à installer, rien à configurer. Trois étapes et vous lisez.",
+    "eyebrow": "Comment ça marche",
+    "title": "Choisir, essayer, puis acheter",
+    "lead": "L'extrait se lit sans compte.",
     "s1": {
-      "no": "Étape 01",
-      "title": "S'inscrire",
-      "desc": "E-mail ou Google, quelques secondes. Pas besoin de carte bancaire pour visiter la bibliothèque."
+      "no": "01",
+      "title": "Choisir un livre sur le rayon",
+      "desc": "Parcourez les quatre titres par sujet et par langue. Chaque livre indique d'un coup d'œil ses éditions et ses formats."
     },
     "s2": {
-      "no": "Étape 02",
-      "title": "Acheter ou s'abonner",
-      "desc": "Prenez un seul livre, ou ouvrez toute la bibliothèque avec un abonnement. Les codes des coupons cadeaux s'utilisent ici aussi."
+      "no": "02",
+      "title": "Lire l'extrait dans le navigateur",
+      "desc": "Rien à installer. Lisez les premiers chapitres tels quels, puis décidez."
     },
     "s3": {
-      "no": "Étape 03",
-      "title": "Ouvrez votre bureau",
-      "desc": "Tout s'ouvre directement dans votre navigateur. Votre progression et vos marque-pages s'enregistrent tout seuls pendant la lecture."
+      "no": "03",
+      "title": "Acheter l'édition voulue",
+      "desc": "Les ebooks sont sur Amazon Kindle et Kyobo eBook ; les éditions papier chez Kyobo et Amazon Japon. Les liens de chaque page de livre mènent directement à cette édition."
     }
   },
   "plans": {
-    "eyebrow": "Formules",
-    "title": "Seulement ce qu'il vous faut",
-    "lead": "Commencez par un seul livre, ou ouvrez toute la bibliothèque.",
-    "single": {
-      "name": "Livre à l'unité",
-      "pd": "un seul paiement · à vous pour toujours",
-      "f1": "Le livre reste à vous définitivement",
-      "f2": "PDF et EPUB tous deux inclus",
-      "f3": "Toutes les éditions linguistiques",
-      "f4": "Lisez sur tous vos appareils",
-      "cta": "Choisir un livre"
+    "eyebrow": "Où acheter",
+    "title": "Où les livres sont vendus",
+    "lead": "Nous faisons les livres ; des librairies de confiance les vendent.",
+    "ebook": {
+      "name": "Ebook",
+      "where": "Amazon Kindle · Kyobo eBook",
+      "desc": "Les quatre titres existent en ebook. Chaque édition linguistique est vendue séparément — choisissez la vôtre.",
+      "cta": "Voir les ebooks"
     },
-    "monthly": {
-      "tag": "Le plus populaire",
-      "name": "Mensuel",
-      "pd": "par mois · résiliable à tout moment",
-      "f1": "Accès illimité à la bibliothèque",
-      "f2": "Nouveaux titres ajoutés automatiquement",
-      "f3": "Bureau à quatre livres et assistant IA",
-      "f4": "Marque-pages et progression synchronisés",
-      "f5": "Accès anticipé aux nouveautés",
-      "cta": "Commencer en mensuel →"
+    "print": {
+      "name": "Papier",
+      "where": "Kyobo · Amazon Japon",
+      "desc": "Imprimé à la demande et expédié après commande. ISEKAI Entrepreneurship et Clumsy Ninja Cat existent en papier.",
+      "cta": "Voir les éditions papier"
     },
-    "annual": {
-      "name": "Annuel",
-      "pd": "par an · 33 % d'économie",
-      "f1": "Tout le plan Mensuel",
-      "f2": "Économisez $39.89 par rapport au mensuel",
-      "f3": "Un cadeau tout trouvé",
-      "f4": "Facturation pour les organisations",
-      "cta": "Passer à l'annuel →"
+    "reader": {
+      "name": "Liseuse web",
+      "where": "awesomebooks.asia",
+      "desc": "Les extraits sont ouverts à tous. Un livre activé avec un coupon s'ouvre en entier. Les abonnements payants sont en préparation.",
+      "cta": "Lire un extrait"
     },
-    "coupon": "<b>On vous a offert un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre aussitôt — chaque code ne sert qu'une fois, puis se verrouille.",
-    "couponCta": "Utiliser un coupon →",
-    "freeNote": "Gratuit pendant que la bibliothèque grandit — les abonnements commenceront à 200 titres."
+    "coupon": "<b>Vous avez un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre dans votre bibliothèque.",
+    "couponCta": "Utiliser un coupon →"
   },
   "store": {
-    "eyebrow": "La bibliothèque",
-    "title": "Tous les livres, une seule étagère",
-    "lead": "Achetez un seul titre, ou ouvrez-les tous avec un abonnement. Chaque livre existe en PDF et en EPUB.",
-    "count": "{shown} titres sur {total} · PDF + EPUB · 3 langues",
+    "eyebrow": "Le rayon",
+    "title": "Quatre livres, trois langues",
+    "lead": "Voyez d'un coup d'œil quelles éditions de chaque livre existent en ebook ou en papier. Touchez un dos de livre pour l'histoire et les points de vente.",
+    "count": "{shown} titres sur {total} · Coréen · Anglais · Japonais",
     "subject": "Sujet",
     "language": "Langue",
     "all": "Tous",
     "any": "Toutes",
     "catAI": "IA & Tech",
-    "catBIZ": "Économie & business",
-    "catEDU": "Éducation",
-    "catKIDS": "Jeunesse",
-    "empty": "Rien ne correspond à ces filtres — essayez d'élargir la langue.",
-    "shelfSoon": "À paraître",
+    "catBIZ": "Économie & Entreprise",
+    "catEDU": "Éducation & Langues",
+    "catKIDS": "Albums jeunesse",
+    "empty": "Rien ne correspond encore à ces filtres. Mettez la langue sur « Toutes ».",
+    "shelfSoon": "Bientôt",
     "fmtPrint": "Papier",
     "shelfDetail": "Tous les détails",
     "shelfClose": "Fermer",
-    "shelfTitle": "Nos étagères"
+    "shelfTitle": "Notre rayon"
   },
   "detail": {
     "sample": "Lire un extrait",
-    "buy": "Acheter ce livre",
-    "subscribeCta": "S'abonner",
-    "included": "inclus dans tout abonnement",
-    "subnote": "Ou lisez-le — avec tout le reste — grâce à un abonnement dès <b>$9.99 par mois</b>.",
+    "buy": "Où acheter",
+    "subscribeCta": "Où acheter",
+    "included": "Extrait gratuit",
+    "subnote": "Le prix affiché est indicatif pour l'ebook. Les prix réels et le paiement dépendent de chaque librairie.",
     "contents": "Sommaire",
-    "detailsHeading": "Détails",
-    "format": "Format",
+    "detailsHeading": "À propos du livre",
+    "format": "Formats",
     "pages": "Pages",
     "editions": "Éditions",
-    "published": "Publication",
+    "published": "Parution",
     "publisher": "Éditeur",
-    "reader": "Lecteur",
-    "readerValue": "Bureau à quatre livres",
-    "keepGoing": "Sur votre lancée",
-    "more": "Encore plus de la bibliothèque",
-    "stores": "Disponible chez",
-    "fmtPrint": "Papier"
+    "reader": "Extrait",
+    "readerValue": "Lire dans le navigateur",
+    "keepGoing": "Aussi sur le rayon",
+    "more": "Ailleurs sur le rayon",
+    "stores": "Où acheter",
+    "fmtPrint": "Papier",
+    "fmtEbook": "Ebook",
+    "priceNote": "prix indicatif ebook"
   },
   "reader": {
     "back": "← Bibliothèque",
@@ -188,22 +157,16 @@
     "bookmark": "Marquer cette page",
     "noPrint": "L'impression est désactivée. Ce livre est protégé — veuillez le lire dans le lecteur AwesomeBooks."
   },
-  "partner": {
-    "eyebrow": "Pour les éditeurs et les auteurs",
-    "title": "Un partenaire d'édition<br>pour grandir ensemble",
-    "lead": "Portez vos œuvres aux lecteurs de toute l'Asie. Éditeurs, auteurs et créateurs de contenu sont les bienvenus.",
-    "cta": "Parlons-en →"
-  },
   "footer": {
     "brand": "Awesome Books Asia",
-    "tagline": "Des histoires sans frontières",
-    "description": "Une plateforme d'édition numérique qui relie les lecteurs d'Asie à de bons livres — en anglais, coréen et japonais.",
-    "library": "Bibliothèque",
+    "tagline": "Des histoires d’Asie dans les langues du monde",
+    "description": "Une petite maison d'édition qui écrit ses livres en coréen, en anglais et en japonais. Nos livres sont en vente sur Amazon et Kyobo.",
+    "library": "Le rayon",
     "libraryLinks": {
       "all": "Tous les livres",
       "ai": "IA & Tech",
-      "kids": "Livres jeunesse",
-      "education": "Éducation",
+      "kids": "Albums jeunesse",
+      "education": "Éducation & Langues",
       "new": "Nouveautés"
     },
     "account": "Compte",
@@ -222,7 +185,7 @@
       "faq": "FAQ",
       "refund": "Politique de remboursement"
     },
-    "copyright": "© 2026 AwesomeBooks.asia — Relié à Awesome AI Asia"
+    "copyright": "© 2026 Awesome Books Asia · Awesome AI Asia"
   },
   "auth": {
     "loginTitle": "Se connecter",
@@ -249,14 +212,29 @@
     "browse": "Voir la librairie →"
   },
   "newsletter": {
-    "eyebrow": "Newsletter",
-    "title": "Une courte lettre, une fois par mois",
-    "lead": "Nouveautés, notes de lecture et ce que préparent nos éditeurs.",
+    "eyebrow": "Lettres",
+    "title": "Une courte lettre par mois",
+    "lead": "Les nouveautés et ce sur quoi nous travaillons. Sans publicité.",
     "placeholder": "Votre adresse e-mail"
   },
   "journal": {
-    "title": "Journal",
-    "readMore": "Lire la suite →"
+    "title": "Du côté des éditeurs",
+    "readMore": "Voir le livre →",
+    "p1": {
+      "no": "Note 01",
+      "title": "Un prompt n'est pas une question.<br>C'est un ordre de travail.",
+      "desc": "Le chapitre 3 est celui que nous avons le plus réécrit pour Awesome AI Bible 2026. Rôle, contexte, tâche, format, contrainte — écrivez les cinq et le même résultat revient la fois suivante. C'est la différence entre un passe-temps et un travail."
+    },
+    "p2": {
+      "no": "Note 02",
+      "title": "Pourquoi le chat ninja<br>échoue à chaque fois",
+      "desc": "Kuro est le chat ninja le plus maladroit du village. Chaque mission tourne mal, exactement comme un enfant l'espère. Un album pour les 4–8 ans, publié en coréen et en japonais à la fois."
+    },
+    "p3": {
+      "no": "Note 03",
+      "title": "Apprendre à entreprendre<br>dans un royaume sans prix",
+      "desc": "An Introduction to ISEKAI Entrepreneurship enseigne le commerce sans le moindre manuel. Un fondateur atterrit dans un royaume qui n'a jamais entendu parler de prix fixe et en bâtit les marchés un à un."
+    }
   },
   "recent": {
     "title": "Consultés récemment"
@@ -385,12 +363,10 @@
     "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
   },
   "paywall": {
-    "title": "L'extrait s'arrête ici",
-    "body": "Achetez le livre, ou ouvrez toute la bibliothèque avec un abonnement, pour continuer la lecture.",
-    "plans": "Voir les formules",
-    "close": "Fermer",
-    "freeTitle": "Créez un compte gratuit pour continuer la lecture",
-    "freeBody": "Jusqu'à ce que notre bibliothèque atteigne 200 titres, chaque livre se lit gratuitement avec un compte."
+    "title": "L'extrait se termine ici",
+    "body": "Pour continuer, achetez le livre — ou utilisez un coupon cadeau si vous en avez un.",
+    "plans": "Voir où acheter",
+    "close": "Fermer"
   },
   "redeem": {
     "code": "Code du coupon",
@@ -414,5 +390,17 @@
     "scrollHint": "Faites défiler pour entrer",
     "backRoom": "Retour à la boutique",
     "browseCase": "Parcourir cette étagère"
+  },
+  "story": {
+    "eyebrow": "Comment nous faisons nos livres",
+    "title": "Un livre,<br>écrit trois fois",
+    "lead": "Plutôt que de traduire après coup, nous écrivons dès le premier jet pour les lecteurs coréens, anglais et japonais. L'édition japonaise de Quantum Economics convoque la Banque du Japon, la taxe sur la consommation et l'économie des fans — les trois éditions sont le même livre, et pas tout à fait.",
+    "r1": "Édition coréenne",
+    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r2": "Édition anglaise",
+    "r2s": "Amazon US · UK · Inde",
+    "r3": "Édition japonaise",
+    "r3s": "Amazon.co.jp",
+    "cta": "Voir le rayon"
   }
 }

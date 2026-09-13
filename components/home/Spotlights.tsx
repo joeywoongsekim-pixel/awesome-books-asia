@@ -4,13 +4,15 @@ import Multiline from '../Multiline';
 import Reveal from '../Reveal';
 import MiniDesk from './MiniDesk';
 
-// §9.7 — two spotlight bands, photo/panel left-right alternated. Ours carry
-// the product plates: the interactive four-book desk, then the AI desk.
+// §9.7 — two spotlight bands. First: the web reader (a live demo desk —
+// tap a book, it comes down). Second: how the house makes books — one
+// title written for three languages, and where each edition is sold.
 export default function Spotlights() {
   const t = useTranslations();
+  const rows = ['r1', 'r2', 'r3'] as const;
 
   return (
-    <div className="spots">
+    <div className="spots" id="reader">
       <Reveal>
         <div className="spot">
           <div className="spot-vis">
@@ -39,26 +41,22 @@ export default function Spotlights() {
         <div className="spot flip">
           <div className="spot-vis">
             <div className="v-ai">
-              <div className="v-row q">How do all four explain &quot;prompting&quot;?</div>
-              <div className="v-row">
-                AI Bible — as a five-part structure<s>p.6</s>
-              </div>
-              <div className="v-row">
-                Prompt Guide — as seven patterns<s>p.2</s>
-              </div>
-              <div className="v-row">
-                Unplugged — as saying steps in order<s>p.4</s>
-              </div>
+              {rows.map((r) => (
+                <div className="v-row" key={r}>
+                  {t(`story.${r}`)}
+                  <s>{t(`story.${r}s`)}</s>
+                </div>
+              ))}
             </div>
           </div>
           <div className="spot-txt">
-            <div className="eyebrow">{t('pillars.eyebrow')}</div>
+            <div className="eyebrow">{t('story.eyebrow')}</div>
             <h2 className="spot-t">
-              <Multiline text={t.raw('pillars.p3.title') as string} />
+              <Multiline text={t.raw('story.title') as string} />
             </h2>
-            <p className="spot-lead">{t('pillars.p3.desc')}</p>
+            <p className="spot-lead">{t('story.lead')}</p>
             <Link href="/books" className="btn-o">
-              {t('books.viewAll')}
+              {t('story.cta')}
             </Link>
           </div>
         </div>

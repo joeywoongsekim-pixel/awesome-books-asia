@@ -1,168 +1,137 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Asian stories in the world's languages",
-    "description": "An independent publishing house crafting each book in Korean, English and Japanese at once — from economics to picture books. Now on Amazon and Kyobo."
+    "description": "A small publishing house that writes each book in Korean, English and Japanese — from economics and AI to picture books. Sold on Amazon and Kyobo."
   },
   "nav": {
     "brand": "Awesome Books Asia",
     "tagline": "Digital Library · Asia",
     "home": "Home",
     "bookstore": "Bookstore",
-    "reader": "The Reader",
-    "plans": "Plans",
+    "reader": "Web reader",
+    "plans": "How to buy",
     "library": "My Library",
     "language": "English",
-    "cta": "Start reading",
+    "cta": "Read a sample",
     "menu": "Menu"
   },
   "home": {
-    "badge": "New reader · now live",
-    "title": "Read the whole <em>desk</em>, not just one book",
-    "subtitle": "Spread four books at once. Turn pages the way paper turns. Then ask the AI a question that cuts across all of them — no app to install, it opens in your browser.",
-    "meta": "PDF + EPUB · English · 한국어 · 日本語 · on any device",
-    "ctaPrimary": "Try the reader",
-    "ctaSecondary": "Browse the library",
+    "badge": "Web reader",
+    "title": "Read a <em>sample</em> in your browser. Nothing to install.",
+    "subtitle": "Pick a book, press 'Read a sample', and it opens right there. Put up to four books on the desk and move between them; make an account and it remembers where you stopped.",
+    "meta": "Korean · English · Japanese · any device",
+    "ctaPrimary": "Read a sample",
+    "ctaSecondary": "Browse the bookstore",
     "tags": {
-      "four": "Four books at once",
-      "pages": "Pages that follow your hand",
-      "ai": "AI that reads your desk",
-      "coupons": "Gift coupons"
+      "four": "Korean · English · Japanese",
+      "pages": "Amazon · Kyobo",
+      "ai": "Samples in your browser",
+      "coupons": "A small press in Seoul and Tokyo"
     },
-    "demoCaption": "Tap a book above — it <b>comes straight down</b>",
+    "demoCaption": "Tap a book above — <b>it comes down to the desk</b>",
     "announce": "Asian stories in the world's languages",
-    "explore": "Explore the book",
+    "explore": "About the book",
     "month": "Book of the month"
   },
-  "pillars": {
-    "eyebrow": "What makes it different",
-    "title": "We redesigned<br>how reading works",
-    "lead": "Most e-readers simply move a paper book onto a screen. We started somewhere else — with what only a screen can do.",
-    "p1": {
-      "no": "Pillar 01",
-      "title": "Four books open<br>on one desk",
-      "desc": "A textbook spread in front of you, references propped up beside it — studying has always worked this way. Keep one book open wide and three standing behind it, then pick any of them up and swap places whenever you like.",
-      "note": "Pick a book up, drop it anywhere"
-    },
-    "p2": {
-      "no": "Pillar 02",
-      "title": "Pages that follow<br>your hand",
-      "desc": "Not a button that swaps one screen for another. Take hold of the corner and the page lifts as far as you pull it. Let go halfway and it settles back; carry it over and the shadow travels across the paper with it.",
-      "note": "Grab the corner and pull"
-    },
-    "p3": {
-      "no": "Pillar 03",
-      "title": "An AI that reads<br>your desk, not a page",
-      "desc": "Every other reader's assistant answers from inside the one book you have open. Ours sees all four at once. \"How do these four explain the same idea differently?\" — that question becomes askable for the first time.",
-      "note": "Every answer cites book and page"
-    }
-  },
   "books": {
-    "eyebrow": "Our library",
-    "title": "Books you can read today",
-    "lead": "AI literacy, education and children's stories — each available in several languages.",
-    "viewAll": "Browse all books →",
+    "eyebrow": "The shelf",
+    "title": "Books you can read now",
+    "lead": "Business, AI and picture books — all four are out in at least two languages.",
+    "viewAll": "See the whole shelf →",
     "new": "New",
     "priceFrom": "<em>from</em>${price}",
     "details": "Details →",
-    "subscribe": "Subscribe →",
-    "inSubscription": "In subscription"
+    "subscribe": "Read a sample →",
+    "inSubscription": "Free sample",
+    "tabNew": "New",
+    "tabAll": "All"
   },
   "steps": {
-    "eyebrow": "Simple",
-    "title": "How to start",
-    "lead": "Nothing to install and nothing to configure. Three steps and you're reading.",
+    "eyebrow": "How it works",
+    "title": "Choose, try, then buy",
+    "lead": "You can read the sample without an account.",
     "s1": {
-      "no": "Step 01",
-      "title": "Sign up",
-      "desc": "Email or Google, a few seconds. You don't need a card just to look around the library."
+      "no": "01",
+      "title": "Pick a book from the shelf",
+      "desc": "Browse the four titles by subject and language. Each book shows which editions and formats exist at a glance."
     },
     "s2": {
-      "no": "Step 02",
-      "title": "Buy or subscribe",
-      "desc": "Take a single book, or open the whole library with a subscription. Gift coupon codes go in here too."
+      "no": "02",
+      "title": "Read the sample in your browser",
+      "desc": "Nothing to install. Read the opening chapters as they are, then decide."
     },
     "s3": {
-      "no": "Step 03",
-      "title": "Open your desk",
-      "desc": "It opens straight in your browser. Your place and bookmarks save themselves as you read."
+      "no": "03",
+      "title": "Buy the edition you want",
+      "desc": "Ebooks are on Amazon Kindle and Kyobo eBook; print editions on Kyobo and Amazon Japan. The links on each book page go straight to that edition."
     }
   },
   "plans": {
-    "eyebrow": "Plans",
-    "title": "Only what you need",
-    "lead": "Start with a single book, or open the entire library.",
-    "single": {
-      "name": "Single book",
-      "pd": "one payment · yours to keep",
-      "f1": "The book stays yours permanently",
-      "f2": "PDF and EPUB both included",
-      "f3": "Every language edition",
-      "f4": "Read on any device",
-      "cta": "Choose a book"
+    "eyebrow": "How to buy",
+    "title": "Where the books are sold",
+    "lead": "We make the books; bookstores you already trust sell them.",
+    "ebook": {
+      "name": "Ebook",
+      "where": "Amazon Kindle · Kyobo eBook",
+      "desc": "All four titles are available as ebooks. Each language edition is sold separately — choose the one you want.",
+      "cta": "See ebooks"
     },
-    "monthly": {
-      "tag": "Most popular",
-      "name": "Monthly",
-      "pd": "per month · cancel anytime",
-      "f1": "Unlimited access to the library",
-      "f2": "New titles added automatically",
-      "f3": "Four-book desk and AI assistant",
-      "f4": "Bookmarks and progress synced",
-      "f5": "Early access to new releases",
-      "cta": "Start monthly →"
+    "print": {
+      "name": "Print",
+      "where": "Kyobo · Amazon Japan",
+      "desc": "Printed on demand and shipped after you order. ISEKAI Entrepreneurship and Clumsy Ninja Cat are out in print.",
+      "cta": "See print editions"
     },
-    "annual": {
-      "name": "Annual",
-      "pd": "per year · save 33%",
-      "f1": "Everything in Monthly",
-      "f2": "Saves $39.89 against monthly",
-      "f3": "Makes a straightforward gift",
-      "f4": "Invoicing for organisations",
-      "cta": "Get annual →"
+    "reader": {
+      "name": "Web reader",
+      "where": "awesomebooks.asia",
+      "desc": "Anyone can read the samples. A book redeemed with a coupon opens in full. Paid subscriptions are still in preparation.",
+      "cta": "Read a sample"
     },
-    "coupon": "<b>Been given a gift coupon?</b> Enter the code and the book opens straight away — each code works once, then it locks.",
-    "couponCta": "Redeem a coupon →",
-    "freeNote": "Free while the library grows — subscriptions begin once we reach 200 titles."
+    "coupon": "<b>Have a gift coupon?</b> Enter the code and the book opens in your library.",
+    "couponCta": "Redeem a coupon →"
   },
   "store": {
-    "eyebrow": "The library",
-    "title": "Every book, one shelf",
-    "lead": "Buy a single title, or open all of them with a subscription. Every book comes as both PDF and EPUB.",
-    "count": "{shown} of {total} titles · PDF + EPUB · 3 languages",
+    "eyebrow": "The shelf",
+    "title": "Four books, three languages",
+    "lead": "See at a glance which editions of each book exist as ebook or print. Tap a spine for the story and where to buy it.",
+    "count": "{shown} of {total} titles · Korean · English · Japanese",
     "subject": "Subject",
     "language": "Language",
     "all": "All",
     "any": "Any",
     "catAI": "AI & Tech",
     "catBIZ": "Business & Economics",
-    "catEDU": "Education",
-    "catKIDS": "Children",
-    "empty": "Nothing matches those filters yet — try widening the language.",
+    "catEDU": "Education & Language",
+    "catKIDS": "Picture books",
+    "empty": "Nothing matches those filters yet. Try setting language to 'Any'.",
     "shelfSoon": "Coming soon",
     "fmtPrint": "Print",
     "shelfDetail": "Full details",
     "shelfClose": "Close",
-    "shelfTitle": "Our shelves"
+    "shelfTitle": "Our shelf"
   },
   "detail": {
     "sample": "Read a sample",
-    "buy": "Buy this book",
-    "subscribeCta": "Subscribe",
-    "included": "included with any subscription",
-    "subnote": "Or read it — and everything else — with a subscription from <b>$9.99 a month</b>.",
+    "buy": "Where to buy",
+    "subscribeCta": "Where to buy",
+    "included": "Free sample",
+    "subnote": "The price shown is a guide for the ebook. Actual prices and checkout are set by each store.",
     "contents": "Contents",
-    "detailsHeading": "Details",
-    "format": "Format",
+    "detailsHeading": "About this book",
+    "format": "Formats",
     "pages": "Pages",
     "editions": "Editions",
     "published": "Published",
     "publisher": "Publisher",
-    "reader": "Reader",
-    "readerValue": "Four-book desk",
-    "keepGoing": "Keep going",
-    "more": "More from the library",
-    "stores": "Available at",
-    "fmtPrint": "Print"
+    "reader": "Sample",
+    "readerValue": "Read in your browser",
+    "keepGoing": "Also on the shelf",
+    "more": "More from the shelf",
+    "stores": "Where to buy",
+    "fmtPrint": "Print",
+    "fmtEbook": "Ebook",
+    "priceNote": "ebook guide price"
   },
   "reader": {
     "back": "← Library",
@@ -188,23 +157,17 @@
     "bookmark": "Bookmark this page",
     "noPrint": "Printing is disabled. This book is protected — please read it in the AwesomeBooks reader."
   },
-  "partner": {
-    "eyebrow": "For publishers & authors",
-    "title": "A publishing partner<br>for mutual growth",
-    "lead": "Bring your work to readers right across Asia. Publishers, authors and content creators are all welcome.",
-    "cta": "Talk to us →"
-  },
   "footer": {
     "brand": "Awesome Books Asia",
-    "tagline": "Stories Without Borders",
-    "description": "A digital publishing platform connecting readers across Asia with good books — in English, Korean and Japanese.",
-    "library": "Library",
+    "tagline": "Asian stories in the world's languages",
+    "description": "A small publishing house writing books in Korean, English and Japanese. Our books are sold on Amazon and Kyobo.",
+    "library": "The shelf",
     "libraryLinks": {
       "all": "All books",
       "ai": "AI & Tech",
-      "kids": "Children's books",
-      "education": "Education",
-      "new": "New releases"
+      "kids": "Picture books",
+      "education": "Education & Language",
+      "new": "New"
     },
     "account": "Account",
     "accountLinks": {
@@ -222,7 +185,7 @@
       "faq": "FAQ",
       "refund": "Refund policy"
     },
-    "copyright": "© 2026 AwesomeBooks.asia — Connected to Awesome AI Asia"
+    "copyright": "© 2026 Awesome Books Asia · Awesome AI Asia"
   },
   "auth": {
     "loginTitle": "Log in",
@@ -249,14 +212,29 @@
     "browse": "Browse the bookstore →"
   },
   "newsletter": {
-    "eyebrow": "Newsletter",
-    "title": "A short letter, once a month",
-    "lead": "New releases, reading notes, and what our editors are working on.",
+    "eyebrow": "Letters",
+    "title": "One short letter a month",
+    "lead": "New releases and what we're working on. No advertising.",
     "placeholder": "Your email address"
   },
   "journal": {
-    "title": "Journal",
-    "readMore": "Read more →"
+    "title": "From the editors",
+    "readMore": "Go to the book →",
+    "p1": {
+      "no": "Note 01",
+      "title": "A prompt isn't a question.<br>It's a work order.",
+      "desc": "Chapter 3 was the one we rewrote most while making Awesome AI Bible 2026. Role, context, task, format, constraint — write all five down and the same result comes back the next time. That is the difference between a hobby and work."
+    },
+    "p2": {
+      "no": "Note 02",
+      "title": "Why the ninja cat<br>fails every time",
+      "desc": "Kuro is the clumsiest ninja cat in the village. Every mission goes wrong, and it goes wrong in exactly the way a child hopes it will. A picture book for ages 4–8, published in Korean and Japanese together."
+    },
+    "p3": {
+      "no": "Note 03",
+      "title": "Learning to start a business<br>in a kingdom with no prices",
+      "desc": "An Introduction to ISEKAI Entrepreneurship teaches business without a textbook in sight. A founder lands in a kingdom that has never heard of a fixed price and builds its markets one at a time."
+    }
   },
   "recent": {
     "title": "Recently viewed"
@@ -386,11 +364,9 @@
   },
   "paywall": {
     "title": "The sample ends here",
-    "body": "Buy the book, or open the whole library with a subscription, to keep reading.",
-    "plans": "See plans",
-    "close": "Close",
-    "freeTitle": "Create a free account to keep reading",
-    "freeBody": "While our library grows to 200 titles, every book is free to read with an account."
+    "body": "To keep reading, buy the book — or redeem a gift coupon if you have one.",
+    "plans": "See how to buy",
+    "close": "Close"
   },
   "redeem": {
     "code": "Coupon code",
@@ -414,5 +390,17 @@
     "scrollHint": "Scroll to enter",
     "backRoom": "Back to the store",
     "browseCase": "Browse this bookcase"
+  },
+  "story": {
+    "eyebrow": "How we make books",
+    "title": "One book,<br>written three ways",
+    "lead": "Rather than translate later, we write with Korean, English and Japanese readers in mind from the first draft. The Japanese edition of Quantum Economics reaches for the Bank of Japan, consumption tax and fan economies — so the three editions are the same book, and not quite.",
+    "r1": "Korean edition",
+    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r2": "English edition",
+    "r2s": "Amazon US · UK · India",
+    "r3": "Japanese edition",
+    "r3s": "Amazon.co.jp",
+    "cta": "See the shelf"
   }
 }

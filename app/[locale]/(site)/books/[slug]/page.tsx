@@ -1,6 +1,6 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
 import {BOOKS, type Book} from '../../../../../lib/books';
@@ -9,6 +9,8 @@ import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
+import {blurbOf} from '../../../../../lib/blurbs';
+import {EDITIONS} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
 import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
 
@@ -42,7 +44,14 @@ function BookDetail({book}: {book: Book}) {
   const t = useTranslations('detail');
   const tNav = useTranslations('nav');
   const tBooks = useTranslations('books');
-  const tPlans = useTranslations('plans');
+  const locale = useLocale();
+  const eds = EDITIONS[book.id] ?? [];
+  const formats = [
+    eds.some((e) => e.format === 'ebook') ? t('fmtEbook') : null,
+    eds.some((e) => e.format === 'print') ? t('fmtPrint') : null
+  ]
+    .filter(Boolean)
+    .join(' · ') || t('fmtEbook');
   const others = BOOKS.filter((b) => b.id !== book.id).slice(0, 3);
 
   return (
@@ -64,21 +73,23 @@ function BookDetail({book}: {book: Book}) {
           <div className="d-cat">{book.catLabel}</div>
           <h1 className="d-title">{book.title}</h1>
           <div className="d-author">{book.author}</div>
-          <p className="d-blurb">{book.blurb}</p>
+          <p className="d-blurb">{blurbOf(book, locale)}</p>
           <LangTabs langs={book.langs} />
           <div className="d-buy">
             <div className="d-price">
               {book.price ? `$${book.price}` : tBooks('inSubscription')}
-              <small>{book.price ? tPlans('single.pd') : t('included')}</small>
+              <small>{book.price ? t('priceNote') : t('included')}</small>
             </div>
             <Link href={`/read/${book.id}`} className="btn-g">
               {t('sample')}
             </Link>
-            <Link href="/#plans" className="btn-o">
-              {t('subscribeCta')}
-            </Link>
+            <a href="#stores" className="btn-o">
+              {t('buy')}
+            </a>
           </div>
-          <RetailerLinks bookId={book.id} title={book.title} />
+          <div id="stores">
+            <RetailerLinks bookId={book.id} title={book.title} />
+          </div>
           <div className="d-subnote">
             {t.rich('subnote', {
               b: (chunks) => <b>{chunks}</b>
@@ -104,7 +115,7 @@ function BookDetail({book}: {book: Book}) {
           <dl className="meta-table">
             <div className="meta-row">
               <dt>{t('format')}</dt>
-              <dd>PDF + EPUB</dd>
+              <dd>{formats}</dd>
             </div>
             <div className="meta-row">
               <dt>{t('pages')}</dt>
@@ -120,7 +131,7 @@ function BookDetail({book}: {book: Book}) {
             </div>
             <div className="meta-row">
               <dt>{t('publisher')}</dt>
-              <dd>AwesomeBooks</dd>
+              <dd>Awesome Books Asia</dd>
             </div>
             <div className="meta-row">
               <dt>{t('reader')}</dt>
