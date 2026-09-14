@@ -175,7 +175,8 @@
       "login": "Entrar",
       "library": "Minha biblioteca",
       "subscription": "Gerenciar assinatura",
-      "redeem": "Resgatar cupom"
+      "redeem": "Resgatar cupom",
+      "admin": "Administração"
     },
     "company": "Empresa",
     "companyLinks": {

@@ -175,7 +175,8 @@
       "login": "ログイン",
       "library": "マイライブラリー",
       "subscription": "サブスクの管理",
-      "redeem": "クーポンを使う"
+      "redeem": "クーポンを使う",
+      "admin": "管理者"
     },
     "company": "会社",
     "companyLinks": {

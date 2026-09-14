@@ -175,7 +175,8 @@
       "login": "Log in",
       "library": "My Library",
       "subscription": "Manage subscription",
-      "redeem": "Redeem coupon"
+      "redeem": "Redeem coupon",
+      "admin": "Admin studio"
     },
     "company": "Company",
     "companyLinks": {

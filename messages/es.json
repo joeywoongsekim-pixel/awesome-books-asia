@@ -175,7 +175,8 @@
       "login": "Inicia sesión",
       "library": "Mi biblioteca",
       "subscription": "Gestionar suscripción",
-      "redeem": "Canjear cupón"
+      "redeem": "Canjear cupón",
+      "admin": "Administración"
     },
     "company": "Empresa",
     "companyLinks": {

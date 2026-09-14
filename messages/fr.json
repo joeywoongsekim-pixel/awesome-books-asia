@@ -175,7 +175,8 @@
       "login": "Se connecter",
       "library": "Ma bibliothèque",
       "subscription": "Gérer l'abonnement",
-      "redeem": "Utiliser un coupon"
+      "redeem": "Utiliser un coupon",
+      "admin": "Administration"
     },
     "company": "Entreprise",
     "companyLinks": {

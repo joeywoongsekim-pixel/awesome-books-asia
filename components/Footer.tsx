@@ -2,11 +2,15 @@ import {useTranslations} from 'next-intl';
 import Image from 'next/image';
 import {Link} from '../i18n/navigation';
 import FooterLangs from './FooterLangs';
+import AdminLink from './AdminLink';
+
+const CONTACT = 'contact@awesomebooks.asia';
 
 export default function Footer() {
   const t = useTranslations('footer');
 
-  // Account/company destinations arrive in later milestones (M5+).
+  // Only real destinations: the company column is a contact address until
+  // the about/FAQ/refund pages exist — no links that lead back to home.
   const columns = [
     {
       heading: t('library'),
@@ -16,27 +20,27 @@ export default function Footer() {
         {label: t('libraryLinks.kids'), href: '/books'},
         {label: t('libraryLinks.education'), href: '/books'},
         {label: t('libraryLinks.new'), href: '/books'}
-      ]
+      ],
+      extra: null
     },
     {
       heading: t('account'),
       links: [
-        {label: t('accountLinks.signup'), href: '/'},
-        {label: t('accountLinks.login'), href: '/'},
-        {label: t('accountLinks.library'), href: '/'},
-        {label: t('accountLinks.subscription'), href: '/'},
-        {label: t('accountLinks.redeem'), href: '/'}
-      ]
+        {label: t('accountLinks.signup'), href: '/auth/signup'},
+        {label: t('accountLinks.login'), href: '/auth/login'},
+        {label: t('accountLinks.library'), href: '/library'},
+        {label: t('accountLinks.redeem'), href: '/redeem'}
+      ],
+      extra: <AdminLink />
     },
     {
       heading: t('company'),
-      links: [
-        {label: t('companyLinks.about'), href: '/'},
-        {label: t('companyLinks.partnerships'), href: '/'},
-        {label: t('companyLinks.contact'), href: '/'},
-        {label: t('companyLinks.faq'), href: '/'},
-        {label: t('companyLinks.refund'), href: '/'}
-      ]
+      links: [],
+      extra: (
+        <li>
+          <a href={`mailto:${CONTACT}`}>{t('companyLinks.contact')}</a>
+        </li>
+      )
     }
   ];
 
@@ -58,6 +62,7 @@ export default function Footer() {
                   <Link href={href}>{label}</Link>
                 </li>
               ))}
+              {col.extra}
             </ul>
           </div>
         ))}

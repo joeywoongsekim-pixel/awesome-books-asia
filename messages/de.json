@@ -175,7 +175,8 @@
       "login": "Anmelden",
       "library": "Meine Bibliothek",
       "subscription": "Abo verwalten",
-      "redeem": "Gutschein einlösen"
+      "redeem": "Gutschein einlösen",
+      "admin": "Admin"
     },
     "company": "Unternehmen",
     "companyLinks": {

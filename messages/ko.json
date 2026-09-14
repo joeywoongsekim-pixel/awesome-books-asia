@@ -175,7 +175,8 @@
       "login": "로그인",
       "library": "내 서재",
       "subscription": "구독 관리",
-      "redeem": "쿠폰 등록"
+      "redeem": "쿠폰 등록",
+      "admin": "관리자"
     },
     "company": "회사",
     "companyLinks": {

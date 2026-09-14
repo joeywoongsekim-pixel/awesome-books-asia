@@ -5000,3 +5000,9 @@ img {
   color: var(--ink-2, #5a6472);
   min-height: 4.2em;
 }
+
+/* M34: admin entry in the footer (admins only) */
+.f-admin {
+  color: var(--aba-gold-l, #c9a96a) !important;
+  font-weight: 700;
+}
