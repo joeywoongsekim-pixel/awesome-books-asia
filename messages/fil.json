@@ -411,32 +411,32 @@
     "ctaBooks": "Tingnan ang istante",
     "ctaSample": "Basahin ang sample",
     "s1": {
-      "t": "Walang hangganan ang pagkatuto",
-      "d": "Isang aklat, sabay na isinulat sa Korean, English at Japanese."
+      "t": "Hangganan",
+      "d": "Walang hangganan ang pagkatuto"
     },
     "s2": {
-      "t": "Sagot ang bigay ng AI.<br>Paghuhusga ang bigay ng aklat.",
-      "d": "Ang nakakaalam lang ang makakakilala ng totoo sa gawa-gawa."
+      "t": "Paghuhusga",
+      "d": "Sagot ang bigay ng AI. Paghuhusga ang bigay ng aklat."
     },
     "s3": {
-      "t": "Kapag nagbago ang mundo,<br>baguhan tayong lahat",
-      "d": "Sa silid-aralan ng sampung taon at sa mesa ng apatnapu."
+      "t": "Baguhan",
+      "d": "Kapag nagbago ang mundo, baguhan tayong lahat"
     },
     "s4": {
-      "t": "Ang aklat na hindi natapos<br>ay walang iniiwan",
-      "d": "Kaya nauuna ang saya."
+      "t": "Tapos",
+      "d": "Ang aklat na hindi natapos ay walang iniiwan"
     },
     "s5": {
-      "t": "Mas mabigat ang paksa,<br>mas dapat itong masaya",
-      "d": "Ekonomiya sa quantum mechanics, negosyo sa isekai novel."
+      "t": "Saya",
+      "d": "Mas mabigat ang paksa, mas dapat itong masaya"
     },
     "s6": {
-      "t": "Magkaibang simula,<br>iisang aklat",
-      "d": "Mas maraming wika, mas maraming format."
+      "t": "Abot",
+      "d": "Magkaibang simula, iisang aklat"
     },
     "s7": {
-      "t": "Bumubukas ang pinto<br>sa tunay na nagnanais",
-      "d": "Bukas sa lahat ang mga sample."
+      "t": "Ang pinto",
+      "d": "Bumubukas ang pinto sa tunay na nagnanais"
     }
   },
   "newrel": {

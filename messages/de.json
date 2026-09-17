@@ -411,32 +411,32 @@
     "ctaBooks": "Zum Regal",
     "ctaSample": "Leseprobe lesen",
     "s1": {
-      "t": "Lernen kennt keine Grenzen",
-      "d": "Ein Buch, gemeinsam auf Koreanisch, Englisch und Japanisch geschrieben."
+      "t": "Grenzen",
+      "d": "Lernen kennt keine Grenzen"
     },
     "s2": {
-      "t": "KI gibt Antworten.<br>Bücher geben Urteilskraft.",
-      "d": "Wahr von erfunden unterscheidet nur, wer etwas weiß."
+      "t": "Urteilskraft",
+      "d": "KI gibt Antworten. Bücher geben Urteilskraft."
     },
     "s3": {
-      "t": "Ändert sich die Welt,<br>sind alle Anfänger",
-      "d": "Im Klassenzimmer der Zehnjährigen und am Schreibtisch der Vierzigjährigen."
+      "t": "Anfänger",
+      "d": "Ändert sich die Welt, sind alle Anfänger"
     },
     "s4": {
-      "t": "Ein Buch, das man nicht zu Ende liest,<br>lässt nichts zurück",
-      "d": "Darum kommt das Vergnügen zuerst."
+      "t": "Vollendet",
+      "d": "Ein Buch, das man nicht zu Ende liest, lässt nichts zurück"
     },
     "s5": {
-      "t": "Je schwieriger der Stoff,<br>desto vergnüglicher gehört er erzählt",
-      "d": "Die Ökonomie über Quantenmechanik, das Gründen über einen Isekai-Roman."
+      "t": "Vergnügen",
+      "d": "Je schwieriger der Stoff, desto vergnüglicher gehört er erzählt"
     },
     "s6": {
-      "t": "Andere Startlinien,<br>dasselbe Buch",
-      "d": "Mehr Sprachen, mehr Ausgaben."
+      "t": "Reichweite",
+      "d": "Andere Startlinien, dasselbe Buch"
     },
     "s7": {
-      "t": "Die Tür öffnet sich,<br>wer es ernst meint",
-      "d": "Die Leseproben stehen allen offen."
+      "t": "Die Tür",
+      "d": "Die Tür öffnet sich, wer es ernst meint"
     }
   },
   "newrel": {

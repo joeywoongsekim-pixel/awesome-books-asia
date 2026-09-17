@@ -411,32 +411,32 @@
     "ctaBooks": "Voir le rayon",
     "ctaSample": "Lire un extrait",
     "s1": {
-      "t": "Le savoir n’a pas de frontières",
-      "d": "Un livre, écrit ensemble en coréen, en anglais et en japonais."
+      "t": "Frontières",
+      "d": "Le savoir n’a pas de frontières"
     },
     "s2": {
-      "t": "L’IA donne des réponses.<br>Les livres donnent le jugement.",
-      "d": "Seul celui qui sait distingue le vrai de l’inventé."
+      "t": "Jugement",
+      "d": "L’IA donne des réponses. Les livres donnent le jugement."
     },
     "s3": {
-      "t": "Quand le monde change,<br>tout le monde débute",
-      "d": "Dans la classe d’un enfant de dix ans, au bureau d’un adulte de quarante."
+      "t": "Débutants",
+      "d": "Quand le monde change, tout le monde débute"
     },
     "s4": {
-      "t": "Un livre non terminé<br>ne laisse rien",
-      "d": "Le plaisir passe donc en premier."
+      "t": "Terminé",
+      "d": "Un livre non terminé ne laisse rien"
     },
     "s5": {
-      "t": "Plus le sujet est ardu,<br>plus il doit être plaisant",
-      "d": "L’économie par la mécanique quantique, l’entreprise par un roman isekai."
+      "t": "Plaisir",
+      "d": "Plus le sujet est ardu, plus il doit être plaisant"
     },
     "s6": {
-      "t": "Des lignes de départ différentes,<br>le même livre",
-      "d": "Plus de langues, plus de formats."
+      "t": "Portée",
+      "d": "Des lignes de départ différentes, le même livre"
     },
     "s7": {
-      "t": "La porte s’ouvre<br>à qui le veut vraiment",
-      "d": "Les extraits sont ouverts à tous."
+      "t": "La porte",
+      "d": "La porte s’ouvre à qui le veut vraiment"
     }
   },
   "newrel": {

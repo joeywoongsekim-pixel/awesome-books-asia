@@ -411,32 +411,32 @@
     "ctaBooks": "Browse the shelf",
     "ctaSample": "Read a sample",
     "s1": {
-      "t": "Learning has no borders",
-      "d": "One book, written in Korean, English and Japanese together."
+      "t": "Borders",
+      "d": "Learning has no borders"
     },
     "s2": {
-      "t": "AI gives answers.<br>Books give judgement.",
-      "d": "Only someone who knows tells true from invented."
+      "t": "Judgement",
+      "d": "AI gives answers. Books give judgement."
     },
     "s3": {
-      "t": "When the world changes,<br>everyone is a beginner",
-      "d": "In a ten-year-old's classroom and at a forty-year-old's desk."
+      "t": "Beginners",
+      "d": "When the world changes, everyone is a beginner"
     },
     "s4": {
-      "t": "An unfinished book<br>leaves nothing behind",
-      "d": "So enjoyment comes first."
+      "t": "Finished",
+      "d": "An unfinished book leaves nothing behind"
     },
     "s5": {
-      "t": "The harder the story,<br>the more fun it should be",
-      "d": "The economy through quantum mechanics, a company through an isekai novel."
+      "t": "Fun",
+      "d": "The harder the story, the more fun it should be"
     },
     "s6": {
-      "t": "Different starting lines,<br>the same book",
-      "d": "More languages, more formats."
+      "t": "Reach",
+      "d": "Different starting lines, the same book"
     },
     "s7": {
-      "t": "The door opens<br>to anyone who means it",
-      "d": "The samples are open to everyone."
+      "t": "The door",
+      "d": "The door opens to anyone who means it"
     }
   },
   "newrel": {

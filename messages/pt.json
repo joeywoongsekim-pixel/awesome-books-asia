@@ -411,32 +411,32 @@
     "ctaBooks": "Ver a estante",
     "ctaSample": "Ler uma amostra",
     "s1": {
-      "t": "O aprendizado não tem fronteiras",
-      "d": "Um livro, escrito ao mesmo tempo em coreano, inglês e japonês."
+      "t": "Fronteiras",
+      "d": "O aprendizado não tem fronteiras"
     },
     "s2": {
-      "t": "A IA dá respostas.<br>Os livros dão discernimento.",
-      "d": "Só quem sabe distingue o verdadeiro do inventado."
+      "t": "Discernimento",
+      "d": "A IA dá respostas. Os livros dão discernimento."
     },
     "s3": {
-      "t": "Quando o mundo muda,<br>todos recomeçam",
-      "d": "Na sala de aula dos dez anos e na mesa dos quarenta."
+      "t": "Principiantes",
+      "d": "Quando o mundo muda, todos recomeçam"
     },
     "s4": {
-      "t": "Um livro não terminado<br>não deixa nada",
-      "d": "Por isso o prazer vem primeiro."
+      "t": "Terminado",
+      "d": "Um livro não terminado não deixa nada"
     },
     "s5": {
-      "t": "Quanto mais duro o tema,<br>mais divertido deve ser",
-      "d": "A economia pela mecânica quântica, empreender por um romance isekai."
+      "t": "Prazer",
+      "d": "Quanto mais duro o tema, mais divertido deve ser"
     },
     "s6": {
-      "t": "Linhas de partida diferentes,<br>o mesmo livro",
-      "d": "Mais línguas, mais formatos."
+      "t": "Alcance",
+      "d": "Linhas de partida diferentes, o mesmo livro"
     },
     "s7": {
-      "t": "A porta abre<br>para quem realmente quer",
-      "d": "As amostras estão abertas a todos."
+      "t": "A porta",
+      "d": "A porta abre para quem realmente quer"
     }
   },
   "newrel": {
