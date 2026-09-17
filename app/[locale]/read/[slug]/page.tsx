@@ -1,7 +1,8 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
-import {BOOKS} from '../../../../lib/books';
+import {BOOKS, DEMO_BOOKS} from '../../../../lib/books';
+import {redirect} from '../../../../i18n/navigation';
 import Reader from '../../../../components/reader/Reader';
 import DbReader, {type DbContent} from '../../../../components/reader/DbReader';
 import {createSupabaseServer} from '../../../../lib/supabase/server';
@@ -39,10 +40,14 @@ export default async function ReadPage({
   // Mandatory in every page.tsx, not just the layout.
   setRequestLocale(locale);
 
-  const index = BOOKS.findIndex((b) => b.id === slug);
+  const index = DEMO_BOOKS.findIndex((b) => b.id === slug);
+  // A catalogue title with no sample yet sends the reader to its book page.
+  const inCatalogue = BOOKS.some((b) => b.id === slug);
+  const noSample = () =>
+    inCatalogue ? redirect({href: `/books/${slug}`, locale}) : notFound();
 
   if (!hasSupabaseEnv()) {
-    if (index === -1) notFound();
+    if (index === -1) return noSample();
     return <Reader initialIndex={index} locale={locale} bookId={null} />;
   }
 
@@ -92,8 +97,8 @@ export default async function ReadPage({
     );
   }
 
-  // Legacy demo desk (the six built-in books).
-  if (index === -1) notFound();
+  // Legacy demo desk (the built-in books with sample spreads).
+  if (index === -1) return noSample();
 
   let bookId: string | null = bookRow?.id ?? null;
   let initialSpread = 0;
@@ -108,7 +113,7 @@ export default async function ReadPage({
       .eq('book_id', bookId)
       .eq('locale', locale)
       .maybeSingle();
-    const max = Math.ceil(BOOKS[index].sp.length / 2) - 1;
+    const max = Math.ceil(DEMO_BOOKS[index].sp.length / 2) - 1;
     initialSpread = Math.min(Math.max(progress?.spread_index ?? 0, 0), max);
     // Unentitled readers never resume past the free sample.
     if (!entitled) initialSpread = Math.min(initialSpread, 2);

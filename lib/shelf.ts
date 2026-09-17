@@ -49,6 +49,11 @@ const BIBLE_DESC: Tri = {
   en: 'The complete guide to generative AI, from your first prompt to organisational policy.',
   ja: '最初のプロンプトから組織ポリシーまで、生成AIの完全ガイド。'
 };
+const ANSWER_DESC: Tri = {
+  ko: 'AI의 답을 받은 다음, 사람은 무엇을 더해야 하는가 — 목적을 정하고, 근거로 돌아가고, 쓸지를 고르는 기술.',
+  en: 'After AI answers, what do humans add? Purpose, evidence and the decision to use — an illustrated AI-literacy reader.',
+  ja: 'AIの答えを受け取ったあと、人間は何を足すのか。目的・根拠・使い方を選ぶ技術を、図解と物語で。'
+};
 const NINJA_DESC: Tri = {
   ko: '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
   en: "The village's clumsiest ninja cat fails every mission in the best possible way.",
@@ -69,8 +74,9 @@ export const SHELF: ShelfRow[] = [
   },
   {
     cat: 'AI',
-    ghosts: 1,
+    ghosts: 0,
     items: [
+      {slug: 'ai-answer', lang: 'JA', title: 'AIの答えに、人間は何を足すのか', cover: '/covers/ai-answer-ja.jpg', bg: '#f1ede2', fg: '#1f2a3a', desc: ANSWER_DESC, w: 44, h: 200},
       {slug: 'ai-bible', lang: 'EN', title: 'Awesome AI Bible 2026', cover: '/covers/ai-bible.jpg', bg: '#101c36', fg: '#e9c568', desc: BIBLE_DESC, w: 46, h: 206},
       {slug: 'ai-bible', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5}
     ]

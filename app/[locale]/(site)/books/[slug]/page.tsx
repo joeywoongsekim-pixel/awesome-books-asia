@@ -76,16 +76,26 @@ function BookDetail({book}: {book: Book}) {
           <p className="d-blurb">{blurbOf(book, locale)}</p>
           <LangTabs langs={book.langs} />
           <div className="d-buy">
-            <div className="d-price">
-              {book.price ? `$${book.price}` : tBooks('inSubscription')}
-              <small>{book.price ? t('priceNote') : t('included')}</small>
-            </div>
-            <Link href={`/read/${book.id}`} className="btn-g">
-              {t('sample')}
-            </Link>
-            <a href="#stores" className="btn-o">
-              {t('buy')}
-            </a>
+            {book.price > 0 && (
+              <div className="d-price">
+                {`$${book.price}`}
+                <small>{t('priceNote')}</small>
+              </div>
+            )}
+            {book.sp.length > 0 ? (
+              <>
+                <Link href={`/read/${book.id}`} className="btn-g">
+                  {t('sample')}
+                </Link>
+                <a href="#stores" className="btn-o">
+                  {t('buy')}
+                </a>
+              </>
+            ) : (
+              <a href="#stores" className="btn-g">
+                {t('buy')}
+              </a>
+            )}
           </div>
           <div id="stores">
             <RetailerLinks bookId={book.id} title={book.title} />
@@ -100,15 +110,19 @@ function BookDetail({book}: {book: Book}) {
 
       <div className="d-cols">
         <div>
-          <div className="d-h3">{t('contents')}</div>
-          <ul className="toc">
-            {book.toc.map((item, i) => (
-              <li key={item}>
-                <s>{String(i + 1).padStart(2, '0')}</s>
-                {item}
-              </li>
-            ))}
-          </ul>
+          {book.toc.length > 0 && (
+            <>
+              <div className="d-h3">{t('contents')}</div>
+              <ul className="toc">
+                {book.toc.map((item, i) => (
+                  <li key={item}>
+                    <s>{String(i + 1).padStart(2, '0')}</s>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
         <div>
           <div className="d-h3">{t('detailsHeading')}</div>

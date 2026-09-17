@@ -17,7 +17,7 @@ export default function BookCard({book}: {book: Book}) {
             <span key={lang}>{lang}</span>
           ))}
         </div>
-        <span className="bk-quick">{book.price ? t('details') : t('subscribe')}</span>
+        <span className="bk-quick">{t('details')}</span>
       </div>
       <div className="bk-b">
         <div className="bk-t">{book.title}</div>
@@ -29,7 +29,9 @@ export default function BookCard({book}: {book: Book}) {
                   price: book.price,
                   em: (chunks) => <em>{chunks}</em>
                 })
-              : t('inSubscription')}
+              : book.sp.length > 0
+                ? t('inSubscription')
+                : null}
           </div>
         </div>
       </div>

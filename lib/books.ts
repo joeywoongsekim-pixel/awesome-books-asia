@@ -37,6 +37,27 @@ export type Book = {
 
 export const BOOKS: Book[] = [
   {
+    id: "ai-answer",
+    img: '/covers/ai-answer-ja.jpg',
+    ic: "🔎",
+    cover: "c2",
+    title: "AIの答えに、人間は何を足すのか",
+    author: "Akira Murata",
+    cat: "AI",
+    catLabel: "AI & Technology",
+    price: 0,
+    langs: ["JA"],
+    isNew: true,
+    level: 2,
+    angle: "as three human additions — purpose, evidence, and the decision to use",
+    blurb:
+      "AI has given its answer — now how far can you use it? A visual, story-led AI-literacy reader that draws on physics, life science and social simulation to teach the three things people add: setting the purpose, tracing the evidence, and choosing how to use the result. Eighty figures, short exercises, and eight interludes following two readers through a Japanese year. For high-school inquiry, university seminars, and anyone putting AI to work.",
+    pages: 337,
+    published: "2026-09",
+    toc: [],
+    sp: [],
+  },
+  {
     id: "ai-bible",
     img: '/covers/ai-bible.jpg',
     ic: "🧠",
@@ -53,7 +74,7 @@ export const BOOKS: Book[] = [
       "as a five-part work order — role, context, task, format, constraint",
     blurb:
       "The complete guide to generative AI, from your first prompt to organisational policy. Twelve chapters covering ChatGPT, Claude, Gemini and Copilot, with the verification habits that keep the output trustworthy.",
-    pages: 583,
+    pages: 549,
     published: "2026-02",
     toc: [
       "What generative AI actually is",
@@ -280,3 +301,7 @@ export const BOOKS: Book[] = [
     ],
   },
 ];
+
+// Titles with built-in sample spreads — the only ones the demo desk
+// (home MiniDesk, legacy Reader, AI panel) can show.
+export const DEMO_BOOKS = BOOKS.filter((b) => b.sp.length > 0);

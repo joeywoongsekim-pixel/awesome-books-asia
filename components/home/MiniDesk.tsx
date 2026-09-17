@@ -1,7 +1,7 @@
 'use client';
 
 import {useEffect, useRef, useState, type ReactNode} from 'react';
-import {BOOKS, type Book} from '../../lib/books';
+import {DEMO_BOOKS as BOOKS, type Book} from '../../lib/books';
 
 const SWAP_MS = 270; // matches .spread-s opacity transition (0.28s)
 const FLIP_MS = 820; // matches .flip-s.go transform transition (0.78s)

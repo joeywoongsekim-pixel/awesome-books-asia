@@ -11,6 +11,9 @@ export type EditionLink = {
 };
 
 export const EDITIONS: Record<string, EditionLink[]> = {
+  'ai-answer': [
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W'}
+  ],
   'quantum-econ': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H7RMWBCM'},
     {store: 'Amazon', lang: 'EN', format: 'ebook', note: 'UK Edition', url: 'https://www.amazon.com/dp/B0H86W24T9'},

@@ -2,7 +2,7 @@
 
 import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {BOOKS, type Book} from '../../lib/books';
+import {DEMO_BOOKS as BOOKS, type Book} from '../../lib/books';
 
 // Canned demo answers, generated from the LIVE desk (order + reading
 // positions) exactly like the prototype — every answer cites book and page.

@@ -23,9 +23,11 @@ export default function HeroMonth() {
             <Link href={`/books/${book.id}`} className="btn-gold">
               {t('explore')}
             </Link>
-            <Link href={`/read/${book.id}`} className="btn-goldo">
-              {tDetail('sample')}
-            </Link>
+            {book.sp.length > 0 && (
+              <Link href={`/read/${book.id}`} className="btn-goldo">
+                {tDetail('sample')}
+              </Link>
+            )}
           </div>
         </div>
         <BookCover book={book} className="h-cover" />

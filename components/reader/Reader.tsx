@@ -3,7 +3,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link, useRouter} from '../../i18n/navigation';
-import {BOOKS, type Book} from '../../lib/books';
+import {DEMO_BOOKS as BOOKS, type Book} from '../../lib/books';
 import BigPage, {ctxOf} from './BigPage';
 import AiPanel from './AiPanel';
 import {useReadGuard, Watermark} from './guard';
