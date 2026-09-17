@@ -5403,9 +5403,50 @@ img {
   background: var(--tint, #fcfaf4);
 }
 
-/* ── M43: hero art — the idea, drawn ─────────────────────────────────────
-   One line-art panel per slide, crossfading with the copy. It sits on the
-   right on desktop and washes behind the text on phones. */
+/* ── M45: hero art — the idea, photographed ──────────────────────────────
+   Each slide's picture runs full-bleed behind the copy under a 라피스 scrim:
+   heavy on the left where the headline sits, thinning to the right so the
+   photograph reads. The pictures are already deep blue, so a light
+   desaturation is enough to seat them in the palette. */
+.vh-photo {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.vh-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.72) contrast(1.04);
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.9s ease, transform 2.4s ease;
+}
+.vh-photo img.on {
+  opacity: 1;
+  transform: none;
+}
+.vh-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgb(35 64 181 / 0.94) 0%,
+      rgb(35 64 181 / 0.9) 26%,
+      rgb(35 64 181 / 0.62) 52%,
+      rgb(35 64 181 / 0.32) 78%,
+      rgb(35 64 181 / 0.24) 100%
+    ),
+    linear-gradient(0deg, rgb(17 19 23 / 0.28), transparent 42%);
+}
+
+/* ── M43: line art, for the slides still waiting on a photograph ───────── */
 .vh-art {
   position: absolute;
   inset: -4% -2% -4% auto;
@@ -5447,9 +5488,26 @@ img {
   .vh-art img {
     object-position: center;
   }
+  /* On a phone the copy sits over the middle of the frame, so the scrim
+     covers the whole width instead of thinning out to the right — and the
+     crop moves toward the subject, which these frames all put on the right. */
+  .vh-photo img {
+    object-position: 74% center;
+  }
+  .vh-scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(35 64 181 / 0.82) 0%,
+        rgb(35 64 181 / 0.7) 48%,
+        rgb(35 64 181 / 0.84) 100%
+      ),
+      linear-gradient(0deg, rgb(17 19 23 / 0.2), transparent 55%);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  .vh-art img {
+  .vh-art img,
+  .vh-photo img {
     transition: none;
     transform: none;
   }
