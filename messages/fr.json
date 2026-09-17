@@ -405,30 +405,30 @@
     "cta": "Voir le rayon"
   },
   "vision": {
-    "label": "À propos de la maison d'édition",
+    "label": "Vision et mission",
     "prev": "Précédent",
     "next": "Suivant",
     "ctaBooks": "Voir le rayon",
     "ctaSample": "Lire un extrait",
     "s1": {
-      "k": "Ce que nous faisons",
-      "t": "Des histoires d'Asie dans<br>les langues du monde",
-      "d": "Nous faisons des livres à Séoul et à Tokyo. Pour qu'une histoire écrite en coréen ne soit pas lue qu'en Corée, nous écrivons chaque livre en pensant dès le premier jet aux lecteurs de trois langues."
+      "k": "Vision",
+      "t": "Des idées exigeantes,<br>des livres terminés",
+      "d": "Nous expliquons l'économie par la mécanique quantique et enseignons la création d'entreprise sous forme de fantasy isekai. Nous ne rendons pas le difficile facile : nous cherchons la forme qui porte le lecteur jusqu'à la dernière page. Seuls ceux qui terminent peuvent s'en servir demain."
     },
     "s2": {
-      "k": "Notre façon de travailler",
-      "t": "Non pas traduit ensuite —<br>écrit trois fois à la fois",
-      "d": "Nous ne terminons pas un livre pour le transporter ailleurs. Les éditions coréenne, anglaise et japonaise s'écrivent côte à côte, chacune avec les exemples qui parlent à ses lecteurs. C'est pourquoi le Quantum Economics japonais parle de la Banque du Japon et de la taxe sur la consommation."
+      "k": "Mission",
+      "t": "Un livre, trois langues,<br>la même saison",
+      "d": "Les traductions arrivent souvent des années trop tard. Nous écrivons les éditions coréenne, anglaise et japonaise côte à côte, pour qu'une phrase écrite à Séoul atteigne Tokyo et New York tant qu'elle tient encore."
     },
     "s3": {
-      "k": "Ce que nous publions",
-      "t": "De l'économie et l'IA<br>à l'album pour les petits",
-      "d": "Nous gardons les sujets larges et le critère étroit : reste-t-il, après lecture, quelque chose d'utilisable demain ? C'est pourquoi un essai exigeant et un album partagent le même rayon."
+      "k": "Ce que nous croyons",
+      "t": "Quand les machines répondent,<br>le travail, c'est le jugement",
+      "d": "Fixer l'objectif, revenir aux sources, décider si l'on utilise la réponse — les trois choses qu'aucun modèle ne fait à votre place. Nos livres sur l'IA sont l'entraînement à cela."
     },
     "s4": {
-      "k": "Où nous trouver",
-      "t": "Sur les rayons des grandes<br>librairies, et dans votre navigateur",
-      "d": "Nos livres sont vendus sur Amazon, Kyobo, YES24 et Aladin. Pour savoir ce que vous achetez, les extraits s'ouvrent ici même — rien à installer."
+      "k": "Notre promesse",
+      "t": "L'album pour un enfant de quatre ans<br>passe la même épreuve",
+      "d": "Sujets larges, critère unique : après la lecture, reste-t-il quelque chose d'utilisable demain ? Seuls les livres qui y répondent rejoignent les rayons d'Amazon, Kyobo, YES24 et Aladin."
     }
   },
   "newrel": {

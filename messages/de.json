@@ -405,30 +405,30 @@
     "cta": "Zum Regal"
   },
   "vision": {
-    "label": "Über den Verlag",
+    "label": "Vision und Mission",
     "prev": "Zurück",
     "next": "Weiter",
     "ctaBooks": "Zum Regal",
     "ctaSample": "Leseprobe lesen",
     "s1": {
-      "k": "Was wir tun",
-      "t": "Asiatische Geschichten in<br>den Sprachen der Welt",
-      "d": "Wir machen Bücher in Seoul und Tokio. Damit eine auf Koreanisch geschriebene Geschichte nicht nur in Korea gelesen wird, schreiben wir jedes Buch vom ersten Entwurf an für Leser in drei Sprachen."
+      "k": "Vision",
+      "t": "Schwere Gedanken,<br>zu Ende gelesen",
+      "d": "Wir erklären die Wirtschaft über die Quantenmechanik und lehren das Gründen als Isekai-Fantasy. Wir machen Schwieriges nicht einfach — wir suchen die Form, die den Leser bis zur letzten Seite trägt. Nur wer zu Ende liest, kann es morgen gebrauchen."
     },
     "s2": {
-      "k": "Wie wir arbeiten",
-      "t": "Nicht später übersetzt —<br>dreifach zugleich geschrieben",
-      "d": "Wir stellen ein Buch nicht fertig und tragen es dann hinüber. Die koreanische, englische und japanische Ausgabe entstehen nebeneinander, jede mit den Beispielen, die ihre Leser erreichen. Deshalb spricht das japanische Quantum Economics über die Bank of Japan und die Verbrauchssteuer."
+      "k": "Mission",
+      "t": "Ein Buch, drei Sprachen,<br>in derselben Saison",
+      "d": "Übersetzungen kommen meist Jahre zu spät. Wir schreiben die koreanische, englische und japanische Ausgabe nebeneinander — damit ein in Seoul geschriebener Satz Tokio und New York erreicht, solange er trägt."
     },
     "s3": {
-      "k": "Was wir verlegen",
-      "t": "Von Ökonomie und KI<br>bis zum Bilderbuch",
-      "d": "Wir halten die Themen weit und den Maßstab eng: Bleibt nach dem Lesen etwas, das Sie morgen anwenden können? Darum teilen sich ein ernstes Sachbuch und ein Bilderbuch ein Regal."
+      "k": "Wovon wir überzeugt sind",
+      "t": "Wenn Maschinen antworten,<br>ist das Urteil die Arbeit",
+      "d": "Den Zweck bestimmen, zu den Belegen zurückgehen, entscheiden, ob man die Antwort überhaupt verwendet — die drei Dinge, die kein Modell für Sie erledigt. Genau darin üben unsere KI-Bücher."
     },
     "s4": {
-      "k": "Wo Sie uns finden",
-      "t": "In den Regalen der großen<br>Buchhandlungen — und im Browser",
-      "d": "Unsere Bücher gibt es bei Amazon, Kyobo, YES24 und Aladin. Damit Sie wissen, was Sie kaufen, öffnen sich die Leseproben direkt hier — nichts zu installieren."
+      "k": "Unser Versprechen",
+      "t": "Auch das Bilderbuch für Vierjährige<br>besteht dieselbe Prüfung",
+      "d": "Die Themen bleiben weit, der Maßstab bleibt einer: Bleibt nach dem Lesen etwas, das Sie morgen anwenden können? Nur Bücher, die das bestehen, kommen bei Amazon, Kyobo, YES24 und Aladin ins Regal."
     }
   },
   "newrel": {

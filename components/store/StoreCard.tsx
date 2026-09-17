@@ -1,9 +1,9 @@
 import {Fragment} from 'react';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import type {Book} from '../../lib/books';
 import BookCover from '../BookCover';
-import {EDITIONS} from '../../lib/retailers';
+import {EDITIONS, fromPrice} from '../../lib/retailers';
 
 // A안의 카드: shared BookCard + the edition availability matrix
 // (language × format, straight from the verified retailer links).
@@ -12,7 +12,9 @@ const LANGS = ['KO', 'EN', 'JA'] as const;
 export default function StoreCard({book}: {book: Book}) {
   const t = useTranslations('books');
   const ts = useTranslations('store');
+  const locale = useLocale();
   const eds = EDITIONS[book.id] ?? [];
+  const price = fromPrice(book.id, locale);
   const has = (lang: string, format: 'ebook' | 'print') =>
     eds.some((e) => e.lang === lang && e.format === format);
 
@@ -26,7 +28,7 @@ export default function StoreCard({book}: {book: Book}) {
             <span key={lang}>{lang}</span>
           ))}
         </div>
-        <span className="bk-quick">{book.price ? t('details') : t('subscribe')}</span>
+        <span className="bk-quick">{t('details')}</span>
       </div>
       <div className="bk-b">
         <div className="bk-t">{book.title}</div>
@@ -49,12 +51,12 @@ export default function StoreCard({book}: {book: Book}) {
         </div>
         <div className="bk-f">
           <div className="bk-p">
-            {book.price
+            {price
               ? t.rich('priceFrom', {
-                  price: book.price,
+                  price,
                   em: (chunks) => <em>{chunks}</em>
                 })
-              : t('inSubscription')}
+              : null}
           </div>
         </div>
       </div>

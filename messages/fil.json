@@ -405,30 +405,30 @@
     "cta": "Tingnan ang istante"
   },
   "vision": {
-    "label": "Tungkol sa publishing house",
+    "label": "Bisyon at misyon",
     "prev": "Nakaraan",
     "next": "Susunod",
     "ctaBooks": "Tingnan ang istante",
     "ctaSample": "Basahin ang sample",
     "s1": {
-      "k": "Ang ginagawa namin",
-      "t": "Mga kuwentong Asyano sa<br>mga wika ng mundo",
-      "d": "Gumagawa kami ng mga aklat sa Seoul at Tokyo. Para hindi lang sa Korea mabasa ang kuwentong isinulat sa Korean, isinusulat namin ang bawat aklat na nasa isip ang mga mambabasa sa tatlong wika mula sa unang draft."
+      "k": "Bisyon",
+      "t": "Mahihirap na ideya,<br>natatapos na aklat",
+      "d": "Ipinapaliwanag namin ang ekonomiya sa pamamagitan ng quantum mechanics at itinuturo ang pagnenegosyo bilang isekai fantasy. Hindi namin pinapadali ang mahirap — hinahanap namin ang anyong magdadala sa mambabasa hanggang huling pahina. Ang nakatapos lang ang makakagamit nito bukas."
     },
     "s2": {
-      "k": "Paano kami gumagawa",
-      "t": "Hindi isinasalin pagkatapos —<br>sabay na isinusulat nang tatlo",
-      "d": "Hindi namin tinatapos ang aklat bago ito ilipat sa ibang wika. Magkatabing isinusulat ang Korean, English at Japanese na edisyon, bawat isa may mga halimbawang umaabot sa kanilang mambabasa. Kaya ang Japanese na Quantum Economics ay tungkol sa Bank of Japan at consumption tax."
+      "k": "Misyon",
+      "t": "Isang aklat, tatlong wika,<br>sa iisang panahon",
+      "d": "Ang salin ay karaniwang dumarating nang huli nang ilang taon. Magkatabing isinusulat namin ang Korean, English at Japanese na edisyon, para ang pangungusap na isinulat sa Seoul ay umabot sa Tokyo at New York habang mahalaga pa ito."
     },
     "s3": {
-      "k": "Ang inilalathala namin",
-      "t": "Mula ekonomiya at AI<br>hanggang picture book",
-      "d": "Malawak ang paksa, makitid ang pamantayan: may natitira bang magagamit mo bukas pagkatapos basahin? Kaya magkasama sa istante ang seryosong aklat at ang picture book."
+      "k": "Ang aming paniniwala",
+      "t": "Kapag ang makina ang sumasagot,<br>paghusga ang trabaho",
+      "d": "Ang pagtatakda ng layunin, pagbalik sa ebidensiya, at pagpili kung gagamitin ba ang sagot — tatlong bagay na walang modelong gagawa para sa iyo. Ang aming mga aklat sa AI ay pagsasanay mismo doon."
     },
     "s4": {
-      "k": "Saan kami matatagpuan",
-      "t": "Sa istante ng malalaking<br>bookstore, at sa browser mo",
-      "d": "Ang aming mga aklat ay mabibili sa Amazon, Kyobo, YES24 at Aladin. Para malaman mo ang binibili mo, bumubukas ang mga sample dito mismo — walang i-install."
+      "k": "Ang aming pangako",
+      "t": "Ang picture book para sa apat na taong gulang,<br>sumasailalim sa parehong pagsubok",
+      "d": "Malawak ang paksa, iisa ang pamantayan: pagkatapos basahin, may natitira bang magagamit mo bukas? Ang mga aklat lamang na pumapasa ang umaabot sa istante ng Amazon, Kyobo, YES24 at Aladin."
     }
   },
   "newrel": {

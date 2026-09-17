@@ -5304,15 +5304,23 @@ img {
   .vh-slide, .nr-slide { transition: none; }
 }
 
-/* M38: real cover art fills its frame inside the new-release slider */
-.nr-cover .cv-img {
+/* ── M39: show whole covers ──────────────────────────────────────────────
+   Book covers are ~2:3, but the generic .cv frame is 3:4 with overflow
+   hidden, so real cover art was being cropped top and bottom. Image covers
+   get the book ratio, no padding, and are contained rather than cropped. */
+.cv-img {
+  aspect-ratio: 2 / 3;
   padding: 0;
   border-left: 0;
-  background: transparent;
+  background: var(--tint, #fcfaf4);
 }
-.nr-cover .cv-img img {
+.cv-img img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+}
+.bks-cover img {
+  object-fit: contain;
+  background: var(--tint, #fcfaf4);
 }

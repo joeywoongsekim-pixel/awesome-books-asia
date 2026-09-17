@@ -405,30 +405,30 @@
     "cta": "See the shelf"
   },
   "vision": {
-    "label": "About the publishing house",
+    "label": "Vision and mission",
     "prev": "Previous",
     "next": "Next",
     "ctaBooks": "Browse the shelf",
     "ctaSample": "Read a sample",
     "s1": {
-      "k": "What we do",
-      "t": "Asian stories in<br>the world's languages",
-      "d": "We make books in Seoul and Tokyo. So that a story written in Korean is not read only in Korea, we write each book with readers in three languages in mind from the first draft."
+      "k": "Vision",
+      "t": "Hard ideas,<br>finished books",
+      "d": "We explain the economy through quantum mechanics and teach founding a company as an isekai fantasy. We don't make difficult things easy — we find the form that carries a reader to the last page. Only the people who finish can use it tomorrow."
     },
     "s2": {
-      "k": "How we work",
-      "t": "Not translated later —<br>written three ways at once",
-      "d": "We don't finish a book and then carry it across. The Korean, English and Japanese editions are written alongside each other, each carrying the examples that land with its readers. That is why the Japanese Quantum Economics talks about the Bank of Japan and consumption tax."
+      "k": "Mission",
+      "t": "One book, three languages,<br>in the same season",
+      "d": "Translation usually arrives years late. We write the Korean, English and Japanese editions side by side, so a sentence written in Seoul reaches Tokyo and New York while it still holds."
     },
     "s3": {
-      "k": "What we publish",
-      "t": "From economics and AI<br>to a four-year-old’s picture book",
-      "d": "We keep the subjects wide and the test narrow: does something you can use tomorrow stay with you after reading? That is why a serious book for adults and a picture book share one shelf."
+      "k": "What we believe",
+      "t": "When machines answer,<br>judgment is the work",
+      "d": "Setting the purpose, going back to the evidence, choosing whether to use the answer at all — the three things no model does for you. Our AI books are practice in exactly those."
     },
     "s4": {
-      "k": "Where to find us",
-      "t": "On the big bookstore shelves,<br>and in your browser",
-      "d": "Our books are sold on Amazon, Kyobo, YES24 and Aladin. So you know what you are buying, the samples open right here — nothing to install."
+      "k": "Our promise",
+      "t": "A four-year-old's picture book,<br>held to the same test",
+      "d": "We keep the subjects wide and the test single: after reading, does something you can use tomorrow stay with you? Only the books that pass it reach the shelves at Amazon, Kyobo, YES24 and Aladin."
     }
   },
   "newrel": {

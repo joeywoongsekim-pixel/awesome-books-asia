@@ -405,30 +405,30 @@
     "cta": "Ver la estantería"
   },
   "vision": {
-    "label": "Sobre la editorial",
+    "label": "Visión y misión",
     "prev": "Anterior",
     "next": "Siguiente",
     "ctaBooks": "Ver la estantería",
     "ctaSample": "Leer una muestra",
     "s1": {
-      "k": "Lo que hacemos",
-      "t": "Historias de Asia en<br>los idiomas del mundo",
-      "d": "Hacemos libros en Seúl y Tokio. Para que una historia escrita en coreano no se lea solo en Corea, escribimos cada libro pensando desde el primer borrador en lectores de tres idiomas."
+      "k": "Visión",
+      "t": "Ideas difíciles,<br>libros terminados",
+      "d": "Explicamos la economía con mecánica cuántica y enseñamos a emprender como una fantasía isekai. No hacemos fácil lo difícil: buscamos la forma que lleva al lector hasta la última página. Solo quien termina puede usarlo mañana."
     },
     "s2": {
-      "k": "Cómo trabajamos",
-      "t": "No traducido después:<br>escrito tres veces a la vez",
-      "d": "No terminamos un libro para luego llevarlo a otro idioma. Las ediciones coreana, inglesa y japonesa se escriben juntas, cada una con los ejemplos que llegan a sus lectores. Por eso el Quantum Economics japonés habla del Banco de Japón y del impuesto al consumo."
+      "k": "Misión",
+      "t": "Un libro, tres idiomas,<br>en la misma temporada",
+      "d": "Las traducciones suelen llegar años tarde. Escribimos las ediciones coreana, inglesa y japonesa una junto a otra, para que una frase escrita en Seúl llegue a Tokio y Nueva York mientras sigue vigente."
     },
     "s3": {
-      "k": "Lo que publicamos",
-      "t": "De la economía y la IA<br>al álbum de un niño de cuatro años",
-      "d": "¿Queda algo que puedas usar mañana después de leer? Ese es nuestro único criterio, y por eso un ensayo serio y un álbum ilustrado comparten estantería."
+      "k": "Lo que creemos",
+      "t": "Cuando las máquinas responden,<br>el trabajo es juzgar",
+      "d": "Fijar el propósito, volver a las fuentes, decidir si usar la respuesta: las tres cosas que ningún modelo hace por ti. Nuestros libros sobre IA son práctica en exactamente eso."
     },
     "s4": {
-      "k": "Dónde encontrarnos",
-      "t": "En los estantes de las grandes<br>librerías y en tu navegador",
-      "d": "Nuestros libros se venden en Amazon, Kyobo, YES24 y Aladin. Para que sepas qué compras, las muestras se abren aquí mismo, sin instalar nada."
+      "k": "Nuestra promesa",
+      "t": "El álbum para un niño de cuatro años<br>pasa la misma prueba",
+      "d": "Temas amplios, un solo criterio: después de leer, ¿queda algo que puedas usar mañana? Solo los libros que lo superan llegan a Amazon, Kyobo, YES24 y Aladin."
     }
   },
   "newrel": {
