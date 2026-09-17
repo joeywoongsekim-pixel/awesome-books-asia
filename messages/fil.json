@@ -416,26 +416,31 @@
       "d": "Kapag nagbago ang panahon, nagbabago rin ang dapat matutuhan. Ginagawa namin ang edukasyong hinihingi ng panahong ito at ipinapadala ito lampas sa mga hangganan. Korean, English at Japanese muna — patuloy na dumarami ang mga wika."
     },
     "s2": {
+      "k": "Bakit aklat",
+      "t": "Habang mas sumasagot ang AI,<br>mas mahalaga ang pagbabasa",
+      "d": "Nagbibigay ng sagot ang AI. Kung walang kaalamang binuo sa pagbabasa, hindi mo matutukoy kung totoo o gawa-gawa lang ang sagot na iyon. Ang nakakaalam lamang ang makakapag-utos sa AI at makakapagpalago nito kasama ang sarili niyang kakayahan. Iyan ang dahilan kung bakit kami gumagawa ng aklat."
+    },
+    "s3": {
       "k": "Para kanino",
       "t": "Mula sa silid-aralan ng batang sampung taon<br>hanggang sa mesa ng nasa apatnapu",
       "d": "Isang batang naghahanda sa paaralan para sa mundong hinuhubog ng AI. Isang estudyanteng pumipili ng landas bago pumasok sa trabaho. Isang nasa hustong gulang na muling natututo ng trabahong nagbago agad. Magkaiba ang tanong; pareho ang pagkaapurahan. Sumusulat kami ng aklat na mabubuksan ng bawat isa kung saan man siya naroon."
     },
-    "s3": {
+    "s4": {
       "k": "Paano kami gumagawa",
       "t": "Hindi aklat-aralin —<br>kundi aklat na nananatili sa iyo",
       "d": "Ang nakakabagot na aklat ay hindi natatapos, at ang kaalamang hindi natapos ay hindi nagagamit. Kaya nauuna ang kuwento, ang larawan at ang saya ng pagbabasa — at pagdating sa huling pahina, kumalat na sa iyo ang natutuhan mo."
     },
-    "s4": {
+    "s5": {
       "k": "Ang aming lakas",
       "t": "Ekonomiya, pamamahala<br>at AI",
       "d": "Si Akira Murata, ekonomista at pangunahing may-akda. Si Woongse Kim, eksperto sa pamamahala. Ang AI ng aming kompanyang Awesome AI Asia. Nagtatagpo ang pananaliksik, praktika at teknolohiya sa loob ng isang aklat."
     },
-    "s5": {
+    "s6": {
       "k": "Mas malayong abot",
       "t": "Para walang lugar na maiwan<br>sa pagbabago",
       "d": "Ang agwat na binubuksan ng AI ang pinakamalawak sa pagitan ng mga bansa. Hindi namin ipinauubaya ang paghahanda sa mga lugar na unang dumating. Pinapalawak namin ang mga wika at distribusyon para masalubong din ng mga mambabasa sa papaunlad na bansa ang panahong ito gamit ang parehong aklat."
     },
-    "s6": {
+    "s7": {
       "k": "Ang aming pangako",
       "t": "Sapat na sana ang<br>pagnanais matuto",
       "d": "Hindi dapat ang kaya ng pamilya ang magpasya kung ano ang matututuhan ng bata. Isang aklat na maaabot ninuman na gustong matuto — iyan ang dahilan kung bakit naglalathala ang Awesome Books Asia."
