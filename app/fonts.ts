@@ -7,10 +7,26 @@ import {
   Playfair_Display,
   Lora,
   DM_Sans,
+  Righteous,
   Space_Mono
 } from 'next/font/google';
 
-/* ── Brand fonts (Awesome Books Asia design guide) ─────────────────────── */
+/* ── Brand fonts (brand guide v1.0 · 타이포그래피) ──────────────────────
+   The guide names exactly two: Righteous for the wordmark and short English
+   titles (one weight, no Korean or Japanese glyphs, never body text), and
+   Pretendard for every title and paragraph in all three languages.
+   Pretendard is not on Google Fonts; the layout head loads its dynamic
+   subset from the CDN, which is why only Righteous appears here.        */
+
+// 1/2 — 로고 워드마크 + 짧은 영문 제목 전용
+export const righteous = Righteous({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-righteous',
+  display: 'swap'
+});
+
+/* ── Legacy faces: the reader desk and the demo book interiors ────────── */
 
 // Headings — 제목 (Serif KR 900/700)
 export const notoSerifKR = Noto_Serif_KR({
@@ -82,6 +98,7 @@ export const cormorant = Cormorant_Garamond({
 });
 
 export const fontVariables = [
+  righteous.variable,
   cormorant.variable,
   notoSerifKR.variable,
   notoSansKR.variable,

@@ -2,8 +2,8 @@
 
 import {useEffect, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import Image from 'next/image';
 import {Link, usePathname} from '../i18n/navigation';
+import BrandLogo from './BrandLogo';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavAuth from './NavAuth';
 
@@ -53,6 +53,11 @@ export default function Nav() {
 
   return (
     <nav className={className}>
+      {/* Guide §웹사이트: the horizontal lockup sits top-left, 28–36px tall. */}
+      <Link href="/" className="nav-logo" aria-label={t('brand')}>
+        <BrandLogo size={32} />
+      </Link>
+
       <ul className="nav-menu">
         {items.map((item) => (
           <li key={item.key}>
@@ -65,11 +70,6 @@ export default function Nav() {
           </li>
         ))}
       </ul>
-
-      <Link href="/" className="nav-logo">
-        <Image src="/logo.jpg" alt="" width={40} height={40} className="nav-mark" />
-        <span className="nav-name">{t('brand')}</span>
-      </Link>
 
       <div className="nav-right">
         <NavAuth />

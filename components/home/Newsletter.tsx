@@ -1,12 +1,12 @@
 'use client';
 
 import {useState} from 'react';
-import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {useRouter} from '../../i18n/navigation';
+import BrandLogo from '../BrandLogo';
 
-// §9.8 — deep-navy band: seal logo with gold ring, serif title, transparent
-// input with gold border. Submitting hands off to the signup page.
+// §9.8 — a 라피스 band carrying the symbol, the title and one field.
+// Submitting hands off to the signup page.
 export default function Newsletter() {
   const t = useTranslations('newsletter');
   const tAuth = useTranslations('auth');
@@ -16,7 +16,7 @@ export default function Newsletter() {
   return (
     <section className="nlband">
       <div className="nl-in">
-        <Image src="/logo.jpg" alt="" width={64} height={64} className="nl-logo" />
+        <BrandLogo size={56} symbolOnly className="nl-logo" />
         <div className="nl-eyebrow">{t('eyebrow')}</div>
         <h2 className="nl-t">{t('title')}</h2>
         <p className="nl-lead">{t('lead')}</p>

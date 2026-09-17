@@ -72,6 +72,21 @@ export default async function LocaleLayout({
   // route can render with its own chrome, per the spec.
   return (
     <html lang={locale} className={fontVariables}>
+      <head>
+        {/* Pretendard — the guide's text face for Korean, English and
+            Japanese. Loaded as the dynamic subset, so a browser fetches only
+            the glyph ranges the page actually uses; the JP build follows for
+            the kanji the base font does not carry. */}
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"
+        />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css"
+        />
+      </head>
       <body>
         <JsonLd data={orgJsonLd} />
         <JsonLd data={siteJsonLd} />

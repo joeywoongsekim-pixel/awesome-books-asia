@@ -1,6 +1,6 @@
 import {useTranslations} from 'next-intl';
-import Image from 'next/image';
 import {Link} from '../i18n/navigation';
+import BrandLogo from './BrandLogo';
 import FooterLangs from './FooterLangs';
 import AdminLink from './AdminLink';
 
@@ -48,9 +48,12 @@ export default function Footer() {
     <footer>
       <div className="f-top">
         <div>
-          <Image src="/logo.jpg" alt="" width={56} height={56} className="f-logo" />
-          <div className="f-name">{t('brand')}</div>
-          <div className="f-tag">Awesome Books Asia · Publishing House</div>
+          {/* 반전형 — 어두운 바탕에서는 워드마크를 페이퍼로. Under it, the
+              localized name: 한국어 어썸북스아시아, 일본어 オーサムブックス
+              アジア, always beside the English so the two are read together.
+              Locales that use the English name skip the line. */}
+          <BrandLogo size={40} reverse className="f-logo" />
+          {t('brand') !== 'Awesome Books Asia' && <div className="f-tag">{t('brand')}</div>}
           <div className="f-d">{t('description')}</div>
         </div>
         {columns.map((col) => (
