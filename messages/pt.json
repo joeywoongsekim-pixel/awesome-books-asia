@@ -411,32 +411,32 @@
     "ctaBooks": "Ver a estante",
     "ctaSample": "Ler uma amostra",
     "s1": {
-      "t": "Publicamos para a era da IA<br>em três línguas ao mesmo tempo",
-      "d": "Começamos pelo coreano, inglês e japonês, e continuamos."
+      "t": "O aprendizado não tem fronteiras",
+      "d": "Um livro, escrito ao mesmo tempo em coreano, inglês e japonês."
     },
     "s2": {
-      "t": "Só quem leu sabe<br>se a resposta está certa",
-      "d": "Discernimento não se pesquisa."
+      "t": "A IA dá respostas.<br>Os livros dão discernimento.",
+      "d": "Só quem sabe distingue o verdadeiro do inventado."
     },
     "s3": {
-      "t": "Aos dez e aos quarenta,<br>todos estão aprendendo de novo",
-      "d": "Perguntas diferentes, a mesma urgência."
+      "t": "Quando o mundo muda,<br>todos recomeçam",
+      "d": "Na sala de aula dos dez anos e na mesa dos quarenta."
     },
     "s4": {
-      "t": "Só o livro que você termina<br>fica com você",
+      "t": "Um livro não terminado<br>não deixa nada",
       "d": "Por isso o prazer vem primeiro."
     },
     "s5": {
-      "t": "Quanto mais duro o tema,<br>mais divertido o fazemos",
-      "d": "Mecânica quântica para a economia, um romance isekai para empreender."
+      "t": "Quanto mais duro o tema,<br>mais divertido deve ser",
+      "d": "A economia pela mecânica quântica, empreender por um romance isekai."
     },
     "s6": {
-      "t": "Começar tarde não obriga<br>a aprender tarde",
-      "d": "Mais línguas, mais formatos, leitores mais distantes."
+      "t": "Linhas de partida diferentes,<br>o mesmo livro",
+      "d": "Mais línguas, mais formatos."
     },
     "s7": {
-      "t": "As condições dos pais não decidem<br>o que uma criança aprende",
-      "d": "As amostras continuam abertas a todos."
+      "t": "A porta abre<br>para quem realmente quer",
+      "d": "As amostras estão abertas a todos."
     }
   },
   "newrel": {

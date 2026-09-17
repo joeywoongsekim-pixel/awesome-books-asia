@@ -411,32 +411,32 @@
     "ctaBooks": "Ver la estantería",
     "ctaSample": "Leer una muestra",
     "s1": {
-      "t": "Publicamos para la era de la IA<br>en tres idiomas a la vez",
-      "d": "Empezamos por el coreano, el inglés y el japonés, y seguimos."
+      "t": "El aprendizaje no tiene fronteras",
+      "d": "Un libro, escrito a la vez en coreano, inglés y japonés."
     },
     "s2": {
-      "t": "Solo quien ha leído sabe<br>si la respuesta es cierta",
-      "d": "El criterio no se encuentra en un buscador."
+      "t": "La IA da respuestas.<br>Los libros dan criterio.",
+      "d": "Solo quien sabe distingue lo cierto de lo inventado."
     },
     "s3": {
-      "t": "A los diez y a los cuarenta,<br>todos vuelven a aprender",
-      "d": "Preguntas distintas, la misma urgencia."
+      "t": "Cuando el mundo cambia,<br>todos empezamos de nuevo",
+      "d": "En el aula de los diez años y en el escritorio de los cuarenta."
     },
     "s4": {
-      "t": "Solo el libro que terminas<br>se queda contigo",
+      "t": "Un libro sin terminar<br>no deja nada",
       "d": "Por eso el disfrute va primero."
     },
     "s5": {
-      "t": "Cuanto más duro es el tema,<br>más divertido lo hacemos",
-      "d": "Mecánica cuántica para la economía, una novela isekai para emprender."
+      "t": "Cuanto más duro es el tema,<br>más divertido debe ser",
+      "d": "La economía por la mecánica cuántica, emprender por una novela isekai."
     },
     "s6": {
-      "t": "Empezar tarde no obliga<br>a aprender tarde",
-      "d": "Más idiomas, más formatos, lectores más lejanos."
+      "t": "Líneas de salida distintas,<br>el mismo libro",
+      "d": "Más idiomas, más formatos."
     },
     "s7": {
-      "t": "Los medios de los padres no deciden<br>lo que aprende un niño",
-      "d": "Las muestras siguen abiertas para todos."
+      "t": "La puerta se abre<br>a quien de verdad quiere",
+      "d": "Las muestras están abiertas a todos."
     }
   },
   "newrel": {

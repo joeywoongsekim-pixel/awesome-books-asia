@@ -411,32 +411,32 @@
     "ctaBooks": "Voir le rayon",
     "ctaSample": "Lire un extrait",
     "s1": {
-      "t": "Nous publions pour l’ère de l’IA,<br>en trois langues à la fois",
-      "d": "Nous commençons par le coréen, l’anglais et le japonais, et nous continuons."
+      "t": "Le savoir n’a pas de frontières",
+      "d": "Un livre, écrit ensemble en coréen, en anglais et en japonais."
     },
     "s2": {
-      "t": "Seul celui qui a lu sait<br>si la réponse est juste",
-      "d": "Le jugement ne se cherche pas."
+      "t": "L’IA donne des réponses.<br>Les livres donnent le jugement.",
+      "d": "Seul celui qui sait distingue le vrai de l’inventé."
     },
     "s3": {
-      "t": "À dix ans comme à quarante,<br>tout le monde réapprend",
-      "d": "Des questions différentes, la même urgence."
+      "t": "Quand le monde change,<br>tout le monde débute",
+      "d": "Dans la classe d’un enfant de dix ans, au bureau d’un adulte de quarante."
     },
     "s4": {
-      "t": "Seul un livre terminé<br>reste en vous",
+      "t": "Un livre non terminé<br>ne laisse rien",
       "d": "Le plaisir passe donc en premier."
     },
     "s5": {
-      "t": "Plus le sujet est ardu,<br>plus nous le rendons plaisant",
-      "d": "La mécanique quantique pour l’économie, un roman isekai pour l’entreprise."
+      "t": "Plus le sujet est ardu,<br>plus il doit être plaisant",
+      "d": "L’économie par la mécanique quantique, l’entreprise par un roman isekai."
     },
     "s6": {
-      "t": "Partir en retard n’oblige pas<br>à apprendre en retard",
-      "d": "Plus de langues, plus de formats, des lecteurs plus lointains."
+      "t": "Des lignes de départ différentes,<br>le même livre",
+      "d": "Plus de langues, plus de formats."
     },
     "s7": {
-      "t": "Les moyens des parents ne décident pas<br>de ce qu’un enfant apprend",
-      "d": "Les extraits restent ouverts à tous."
+      "t": "La porte s’ouvre<br>à qui le veut vraiment",
+      "d": "Les extraits sont ouverts à tous."
     }
   },
   "newrel": {

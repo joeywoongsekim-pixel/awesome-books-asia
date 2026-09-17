@@ -411,31 +411,31 @@
     "ctaBooks": "Tingnan ang istante",
     "ctaSample": "Basahin ang sample",
     "s1": {
-      "t": "Naglalathala kami para sa panahon ng AI,<br>sa tatlong wika nang sabay",
-      "d": "Nagsisimula kami sa Korean, English at Japanese, at patuloy kaming nagdaragdag."
+      "t": "Walang hangganan ang pagkatuto",
+      "d": "Isang aklat, sabay na isinulat sa Korean, English at Japanese."
     },
     "s2": {
-      "t": "Ang nakabasa lang ang nakakaalam<br>kung tama ang sagot",
-      "d": "Hindi nahahanap sa search ang paghuhusga."
+      "t": "Sagot ang bigay ng AI.<br>Paghuhusga ang bigay ng aklat.",
+      "d": "Ang nakakaalam lang ang makakakilala ng totoo sa gawa-gawa."
     },
     "s3": {
-      "t": "Sa edad na sampu at apatnapu,<br>muling natututo ang lahat",
-      "d": "Magkaibang tanong, parehong pagkaapurahan."
+      "t": "Kapag nagbago ang mundo,<br>baguhan tayong lahat",
+      "d": "Sa silid-aralan ng sampung taon at sa mesa ng apatnapu."
     },
     "s4": {
-      "t": "Ang aklat lang na natatapos mo<br>ang nananatili sa iyo",
+      "t": "Ang aklat na hindi natapos<br>ay walang iniiwan",
       "d": "Kaya nauuna ang saya."
     },
     "s5": {
-      "t": "Mas mabigat ang paksa,<br>mas masaya naming isinusulat",
-      "d": "Quantum mechanics para sa ekonomiya, isekai novel para sa negosyo."
+      "t": "Mas mabigat ang paksa,<br>mas dapat itong masaya",
+      "d": "Ekonomiya sa quantum mechanics, negosyo sa isekai novel."
     },
     "s6": {
-      "t": "Ang huling magsimula<br>ay hindi dapat huling matuto",
-      "d": "Mas maraming wika, mas maraming format, mas malayong mambabasa."
+      "t": "Magkaibang simula,<br>iisang aklat",
+      "d": "Mas maraming wika, mas maraming format."
     },
     "s7": {
-      "t": "Hindi dapat magpasya ang kaya ng magulang<br>sa natututuhan ng bata",
+      "t": "Bumubukas ang pinto<br>sa tunay na nagnanais",
       "d": "Bukas sa lahat ang mga sample."
     }
   },
