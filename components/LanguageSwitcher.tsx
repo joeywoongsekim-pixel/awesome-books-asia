@@ -36,7 +36,10 @@ export default function LanguageSwitcher() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        {LOCALE_FLAGS[locale]} {LOCALE_LABELS[locale]} ▾
+        {LOCALE_FLAGS[locale]}{' '}
+        {/* The name drops away on a phone so the wordmark keeps its room —
+            the flag and the caret still say what the button does. */}
+        <span className="nav-lang-label">{LOCALE_LABELS[locale]}</span> ▾
       </button>
       {open && (
         <div className="nav-lang-menu" role="listbox">

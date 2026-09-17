@@ -3390,9 +3390,24 @@ footer {
   .nav-cta {
     display: none;
   }
-  /* 심볼은 16px까지 줄일 수 있지만 가로형 로고는 180px 아래로 두지
-     않는다 — 좁은 화면에서는 심볼만 남긴다. */
+  /* 가로형 로고는 180px 아래로 두지 않는다. 심볼 28px + 워드마크 16px면
+     약 196px — 최소치를 지키면서 좁은 화면에 들어간다. 자리를 내주기
+     위해 언어 이름과 계정 버튼은 각각 국기와 메뉴 안으로 들어간다. */
+  .nav-logo .bl-sym {
+    width: 28px;
+    height: 28px;
+  }
   .nav-logo .bl-word {
+    font-size: 16px;
+  }
+  .nav-logo .bl {
+    gap: 6.7px;
+  }
+  .nav-lang-label {
+    display: none;
+  }
+  .nav-right > .nav-auth-link,
+  .nav-right > button.nav-lang-btn {
     display: none;
   }
   .nav-lang-btn {
@@ -5613,4 +5628,34 @@ img {
   .vh-dots button {
     width: 18px;
   }
+}
+
+/* Account rows at the foot of the mobile menu sheet. */
+.nav-sheet-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 24px 4px;
+}
+.nav-sheet-auth .nav-lang-btn {
+  justify-content: center;
+  width: 100%;
+  padding: 12px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+/* The sheet always has a solid 페이퍼 ground, so its rows keep the dark
+   treatment even while the bar above them is transparent over the hero. */
+.nav:not(.stuck):not(.solid) .nav-sheet-auth .nav-lang-btn,
+.nav-sheet .nav-sheet-auth .nav-lang-btn {
+  color: var(--ink-1);
+  border-color: var(--hair);
+  background: transparent;
+}
+.nav:not(.stuck):not(.solid) .nav-sheet-auth .nav-lang-btn:hover,
+.nav-sheet .nav-sheet-auth .nav-lang-btn:hover {
+  border-color: var(--lapis);
+  color: var(--lapis);
+  background: transparent;
 }

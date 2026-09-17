@@ -105,6 +105,11 @@ export default function Nav() {
           <Link href="/read/ai-bible" className="nav-sheet-cta" onClick={() => setOpen(false)}>
             {t('cta')} →
           </Link>
+          {/* Account moves in here on a phone: the bar itself only has room
+              for the logo, the language flag and this button. */}
+          <div className="nav-sheet-auth" onClick={() => setOpen(false)}>
+            <NavAuth />
+          </div>
         </div>
       )}
     </nav>
