@@ -66,6 +66,8 @@ export const SHELF: ShelfRow[] = [
     ghosts: 0,
     items: [
       {slug: 'quantum-econ', lang: 'EN', title: 'Quantum Economics', cover: '/covers/quantum-econ.jpg', bg: '#ece7db', fg: '#20242c', desc: QUANTUM_DESC, w: 44, h: 196},
+      {slug: 'quantum-econ-uk', lang: 'EN', title: 'Quantum Economics (UK)', cover: '/covers/quantum-econ.jpg', bg: '#dcd6c6', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 188},
+      {slug: 'quantum-econ-in', lang: 'EN', title: 'Quantum Economics (India)', cover: '/covers/quantum-econ.jpg', bg: '#cfc7b4', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 184, tilt: 3},
       {slug: 'quantum-econ', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184},
       {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
       {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},

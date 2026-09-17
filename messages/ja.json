@@ -39,7 +39,7 @@
     "lead": "ビジネス・AI・絵本 — 韓国語・英語・日本語で。",
     "viewAll": "書棚をすべて見る →",
     "new": "New",
-    "priceFrom": "${price}<em>〜</em>",
+    "priceFrom": "{price}<em>〜</em>",
     "details": "詳細 →",
     "subscribe": "試し読み →",
     "inSubscription": "試し読み無料",

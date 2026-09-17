@@ -1,11 +1,15 @@
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../i18n/navigation';
 import type {Book} from '../lib/books';
+import {fromPrice} from '../lib/retailers';
 import BookCover from './BookCover';
 
 // Shared card (§9.5): typographic cover + title / author / price meta.
+// The price is the cheapest real retailer listing, in the reader's currency.
 export default function BookCard({book}: {book: Book}) {
   const t = useTranslations('books');
+  const locale = useLocale();
+  const price = fromPrice(book.id, locale);
 
   return (
     <Link href={`/books/${book.id}`} className="bk">
@@ -24,14 +28,12 @@ export default function BookCard({book}: {book: Book}) {
         <div className="bk-a">{book.author}</div>
         <div className="bk-f">
           <div className="bk-p">
-            {book.price
+            {price
               ? t.rich('priceFrom', {
-                  price: book.price,
+                  price,
                   em: (chunks) => <em>{chunks}</em>
                 })
-              : book.sp.length > 0
-                ? t('inSubscription')
-                : null}
+              : null}
           </div>
         </div>
       </div>

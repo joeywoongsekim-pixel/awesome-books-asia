@@ -39,7 +39,7 @@
     "lead": "Economia, IA e livros ilustrados — em coreano, inglês e japonês.",
     "viewAll": "Ver toda a estante →",
     "new": "Novo",
-    "priceFrom": "<em>a partir de</em>${price}",
+    "priceFrom": "<em>a partir de</em> {price}",
     "details": "Detalhes →",
     "subscribe": "Ler uma amostra →",
     "inSubscription": "Amostra grátis",

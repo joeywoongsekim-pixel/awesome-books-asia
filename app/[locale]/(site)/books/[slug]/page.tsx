@@ -10,7 +10,7 @@ import RecordVisit from '../../../../../components/RecordVisit';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
 import {blurbOf} from '../../../../../lib/blurbs';
-import {EDITIONS} from '../../../../../lib/retailers';
+import {EDITIONS, fromPrice} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
 import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
 
@@ -76,9 +76,9 @@ function BookDetail({book}: {book: Book}) {
           <p className="d-blurb">{blurbOf(book, locale)}</p>
           <LangTabs langs={book.langs} />
           <div className="d-buy">
-            {book.price > 0 && (
+            {fromPrice(book.id, locale) && (
               <div className="d-price">
-                {`$${book.price}`}
+                {fromPrice(book.id, locale)}
                 <small>{t('priceNote')}</small>
               </div>
             )}

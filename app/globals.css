@@ -5006,3 +5006,10 @@ img {
   color: var(--aba-gold-l, #c9a96a) !important;
   font-weight: 700;
 }
+
+/* M37: price on a retailer chip */
+.store-price {
+  margin-left: 7px;
+  font-weight: 700;
+  color: var(--aba-navy);
+}

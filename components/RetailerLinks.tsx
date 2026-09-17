@@ -46,7 +46,8 @@ export default function RetailerLinks({
             >
               {e.store} · {e.lang}
               {e.format === 'print' ? ` · ${t('fmtPrint')}` : ''}
-              {e.note ? ` (${e.note})` : ''} ↗
+              {e.note ? ` (${e.note})` : ''}
+              {e.price ? <b className="store-price">{e.price}</b> : null} ↗
             </a>
           ))}
         </div>

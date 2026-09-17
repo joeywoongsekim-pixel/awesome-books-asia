@@ -39,7 +39,7 @@
     "lead": "Economía, IA y álbumes ilustrados: en coreano, inglés y japonés.",
     "viewAll": "Ver toda la estantería →",
     "new": "Nuevo",
-    "priceFrom": "<em>desde</em>${price}",
+    "priceFrom": "<em>desde</em> {price}",
     "details": "Detalles →",
     "subscribe": "Leer una muestra →",
     "inSubscription": "Muestra gratis",

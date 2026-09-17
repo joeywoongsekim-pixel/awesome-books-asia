@@ -39,7 +39,7 @@
     "lead": "Économie, IA et albums jeunesse — en coréen, en anglais et en japonais.",
     "viewAll": "Voir tout le rayon →",
     "new": "Nouveau",
-    "priceFrom": "<em>dès</em>${price}",
+    "priceFrom": "<em>dès</em> {price}",
     "details": "Détails →",
     "subscribe": "Lire un extrait →",
     "inSubscription": "Extrait gratuit",

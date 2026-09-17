@@ -39,7 +39,7 @@
     "lead": "Wirtschaft, KI und Bilderbücher — auf Koreanisch, Englisch und Japanisch.",
     "viewAll": "Ganzes Regal ansehen →",
     "new": "Neu",
-    "priceFrom": "<em>ab</em>${price}",
+    "priceFrom": "<em>ab</em> {price}",
     "details": "Details →",
     "subscribe": "Leseprobe →",
     "inSubscription": "Gratis-Leseprobe",

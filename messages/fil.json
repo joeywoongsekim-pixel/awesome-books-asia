@@ -39,7 +39,7 @@
     "lead": "Negosyo, AI at picture books — sa Korean, English at Japanese.",
     "viewAll": "Tingnan ang buong istante →",
     "new": "Bago",
-    "priceFrom": "<em>mula</em>${price}",
+    "priceFrom": "<em>mula</em> {price}",
     "details": "Detalye →",
     "subscribe": "Basahin ang sample →",
     "inSubscription": "Libreng sample",

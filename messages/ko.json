@@ -39,7 +39,7 @@
     "lead": "경제·경영, AI, 그림책 — 한국어·영어·일본어로 냅니다.",
     "viewAll": "서가 전체 보기 →",
     "new": "New",
-    "priceFrom": "${price}<em>부터</em>",
+    "priceFrom": "{price}<em>부터</em>",
     "details": "자세히 →",
     "subscribe": "샘플 읽기 →",
     "inSubscription": "샘플 무료",

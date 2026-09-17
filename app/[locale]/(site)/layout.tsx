@@ -1,5 +1,4 @@
 import {setRequestLocale} from 'next-intl/server';
-import AnnounceBar from '../../../components/AnnounceBar';
 import Nav from '../../../components/Nav';
 import Footer from '../../../components/Footer';
 
@@ -15,7 +14,6 @@ export default async function SiteLayout({
 
   return (
     <>
-      <AnnounceBar />
       <Nav />
       <div className="wrap">{children}</div>
       <Footer />

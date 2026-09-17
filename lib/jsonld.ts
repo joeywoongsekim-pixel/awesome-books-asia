@@ -51,6 +51,19 @@ export function bookJsonLd(book: Book) {
     url: `${SITE}/en/books/${book.id}`,
     // Verified retailer listings for this work's editions.
     sameAs: links.map((e) => e.url),
+    offers: links
+      .filter((e) => e.price)
+      .map((e) => {
+        const currency = e.price!.includes('원') ? 'KRW' : e.price!.includes('¥') ? 'JPY' : 'USD';
+        return {
+          '@type': 'Offer',
+          price: Number(e.price!.replace(/[^\d.]/g, '')),
+          priceCurrency: currency,
+          availability: 'https://schema.org/InStock',
+          url: e.url,
+          seller: {'@type': 'Organization', name: e.store}
+        };
+      }),
     workExample: links.map((e) => ({
       '@type': 'Book',
       bookFormat:

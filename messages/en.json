@@ -39,7 +39,7 @@
     "lead": "Business, AI and picture books — in Korean, English and Japanese.",
     "viewAll": "See the whole shelf →",
     "new": "New",
-    "priceFrom": "<em>from</em>${price}",
+    "priceFrom": "<em>from</em> {price}",
     "details": "Details →",
     "subscribe": "Read a sample →",
     "inSubscription": "Free sample",

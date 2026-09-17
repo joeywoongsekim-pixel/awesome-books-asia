@@ -127,7 +127,8 @@ export default function ShelfHero() {
                     {buyLinks(open).map((e, i) => (
                       <a key={i} href={e.url} target="_blank" rel="noopener noreferrer">
                         {e.store} · {e.format === 'print' ? t('fmtPrint') : 'eBook'}
-                        {e.note ? ` · ${e.note}` : ''} ↗
+                        {e.note ? ` · ${e.note}` : ''}
+                        {e.price ? ` · ${e.price}` : ''} ↗
                       </a>
                     ))}
                   </div>
