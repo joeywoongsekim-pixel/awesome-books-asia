@@ -9,13 +9,9 @@ import Multiline from '../Multiline';
 // headline, one line under it, and a picture behind it that says the same
 // thing without words. Auto-advances, pauses on hover/focus and under
 // reduced motion, and answers dots, arrows, arrow keys and swipes.
+// Every slide now runs its photograph full-bleed behind a 라피스 scrim.
 const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
 const INTERVAL_MS = 7000;
-
-// Slides whose photograph has arrived run full-bleed behind a 라피스 scrim.
-// The rest keep the line-art panel on the right until theirs lands, so the
-// two treatments can coexist while the set is being filled in.
-const PHOTOS = new Set<string>(['s1', 's2', 's3', 's4', 's5']);
 
 export default function HeroVision() {
   const t = useTranslations('vision');
@@ -55,31 +51,19 @@ export default function HeroVision() {
       tabIndex={-1}
     >
       <div className="vh-photo" aria-hidden="true">
-        {SLIDES.filter((s) => PHOTOS.has(s)).map((slide) => (
+        {SLIDES.map((slide, n) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             key={slide}
             src={`/hero/${slide}.webp`}
             alt=""
-            className={slide === SLIDES[i] ? 'on' : undefined}
-            loading={slide === 's1' ? 'eager' : 'lazy'}
-            fetchPriority={slide === 's1' ? 'high' : undefined}
+            data-slide={slide}
+            className={n === i ? 'on' : undefined}
+            loading={n === 0 ? 'eager' : 'lazy'}
+            fetchPriority={n === 0 ? 'high' : undefined}
           />
         ))}
         <span className="vh-scrim" />
-      </div>
-
-      <div className="vh-art" aria-hidden="true">
-        {SLIDES.filter((s) => !PHOTOS.has(s)).map((slide) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={slide}
-            src={`/hero/${slide}.svg`}
-            alt=""
-            className={slide === SLIDES[i] ? 'on' : undefined}
-            loading="lazy"
-          />
-        ))}
       </div>
 
       <div className="vh-in">

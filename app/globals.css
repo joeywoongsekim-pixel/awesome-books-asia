@@ -5464,30 +5464,6 @@ img {
     linear-gradient(0deg, rgb(17 19 23 / 0.28), transparent 42%);
 }
 
-/* ── M43: line art, for the slides still waiting on a photograph ───────── */
-.vh-art {
-  position: absolute;
-  inset: -4% -2% -4% auto;
-  width: 64%;
-  max-width: 1000px;
-  pointer-events: none;
-  z-index: 0;
-}
-.vh-art img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center right;
-  opacity: 0;
-  transform: scale(1.04);
-  transition: opacity 0.9s ease, transform 1.4s ease;
-}
-.vh-art img.on {
-  opacity: 1;
-  transform: none;
-}
 .vh-slide {
   max-width: 620px;
 }
@@ -5498,19 +5474,17 @@ img {
   max-width: 560px;
 }
 @media (max-width: 980px) {
-  .vh-art {
-    width: 100%;
-    max-width: none;
-    opacity: 0.22;
-  }
-  .vh-art img {
-    object-position: center;
-  }
   /* On a phone the copy sits over the middle of the frame, so the scrim
      covers the whole width instead of thinning out to the right — and the
      crop moves toward the subject, which these frames all put on the right. */
   .vh-photo img {
     object-position: 74% center;
+  }
+  /* Six of the seven frames put their subject on the right. The seventh
+     puts it low and near the middle — the book of light on the floor — so
+     a right-hand crop cuts the whole point of the picture away. */
+  .vh-photo img[data-slide='s7'] {
+    object-position: 56% 74%;
   }
   .vh-scrim {
     background:
@@ -5524,7 +5498,6 @@ img {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .vh-art img,
   .vh-photo img {
     transition: none;
     transform: none;
