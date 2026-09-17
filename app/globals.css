@@ -5512,3 +5512,102 @@ img {
     transform: none;
   }
 }
+
+/* ── M46: the hero fills the window and the bar floats on it ─────────────
+   On the home page the picture runs to the very top of the screen: the
+   hero is pulled up under the sticky bar, which stays transparent until
+   40px of scroll and then returns to the solid 페이퍼 bar. The guide's rule
+   for a logo over a photograph applies — the symbol sits on a 페이퍼 판. */
+.vh {
+  margin-top: -76px;
+  min-height: 100dvh;
+}
+.vh-in {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  justify-content: center;
+  padding: 132px 32px 124px;
+}
+.vh-cta {
+  margin-top: 38px;
+  padding-top: 0;
+}
+.vh-nav {
+  position: absolute;
+  left: 32px;
+  bottom: 46px;
+  margin-top: 0;
+}
+
+.nav {
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.nav:not(.stuck):not(.solid) {
+  background: transparent;
+  border-bottom-color: transparent;
+}
+.nav:not(.stuck):not(.solid) .bl-sym {
+  background: var(--paper);
+  padding: 4px;
+}
+.nav:not(.stuck):not(.solid) .bl-word,
+.nav:not(.stuck):not(.solid) .nav-menu a {
+  color: var(--paper);
+}
+.nav:not(.stuck):not(.solid) .nav-menu a:hover {
+  color: var(--paper);
+  border-bottom-color: rgb(240 238 233 / 0.55);
+}
+.nav:not(.stuck):not(.solid) .nav-menu a.on {
+  border-bottom-color: var(--paper);
+}
+.nav:not(.stuck):not(.solid) .nav-lang-btn {
+  border-color: rgb(240 238 233 / 0.45);
+  color: var(--paper);
+}
+.nav:not(.stuck):not(.solid) .nav-lang-btn:hover {
+  border-color: var(--paper);
+  color: var(--paper);
+  background: rgb(240 238 233 / 0.12);
+}
+.nav:not(.stuck):not(.solid) .nav-cta {
+  background: var(--paper);
+  color: var(--lapis);
+}
+.nav:not(.stuck):not(.solid) .nav-cta:hover {
+  background: #ffffff;
+  color: var(--lapis-dk);
+}
+.nav:not(.stuck):not(.solid) .nav-burger {
+  border-color: rgb(240 238 233 / 0.45);
+}
+.nav:not(.stuck):not(.solid) .nav-burger span {
+  background: var(--paper);
+}
+
+@media (max-width: 820px) {
+  .vh-in {
+    padding: 112px 20px 108px;
+    min-height: 100dvh;
+  }
+  /* Absolutely positioned, the seven markers plus both arrows no longer
+     shrink to fit a phone — so they are sized to. */
+  .vh-nav {
+    left: 20px;
+    right: 20px;
+    bottom: 34px;
+    gap: 10px;
+  }
+  .vh-nav > button {
+    width: 34px;
+    height: 34px;
+    flex: none;
+  }
+  .vh-dots {
+    gap: 6px;
+  }
+  .vh-dots button {
+    width: 18px;
+  }
+}
