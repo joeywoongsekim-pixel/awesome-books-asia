@@ -403,5 +403,38 @@
     "r3": "Édition japonaise",
     "r3s": "Amazon.co.jp",
     "cta": "Voir le rayon"
+  },
+  "vision": {
+    "label": "À propos de la maison d'édition",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "ctaBooks": "Voir le rayon",
+    "ctaSample": "Lire un extrait",
+    "s1": {
+      "k": "Ce que nous faisons",
+      "t": "Des histoires d'Asie dans<br>les langues du monde",
+      "d": "Nous faisons des livres à Séoul et à Tokyo. Pour qu'une histoire écrite en coréen ne soit pas lue qu'en Corée, nous écrivons chaque livre en pensant dès le premier jet aux lecteurs de trois langues."
+    },
+    "s2": {
+      "k": "Notre façon de travailler",
+      "t": "Non pas traduit ensuite —<br>écrit trois fois à la fois",
+      "d": "Nous ne terminons pas un livre pour le transporter ailleurs. Les éditions coréenne, anglaise et japonaise s'écrivent côte à côte, chacune avec les exemples qui parlent à ses lecteurs. C'est pourquoi le Quantum Economics japonais parle de la Banque du Japon et de la taxe sur la consommation."
+    },
+    "s3": {
+      "k": "Ce que nous publions",
+      "t": "De l'économie et l'IA<br>à l'album pour les petits",
+      "d": "Nous gardons les sujets larges et le critère étroit : reste-t-il, après lecture, quelque chose d'utilisable demain ? C'est pourquoi un essai exigeant et un album partagent le même rayon."
+    },
+    "s4": {
+      "k": "Où nous trouver",
+      "t": "Sur les rayons des grandes<br>librairies, et dans votre navigateur",
+      "d": "Nos livres sont vendus sur Amazon, Kyobo, YES24 et Aladin. Pour savoir ce que vous achetez, les extraits s'ouvrent ici même — rien à installer."
+    }
+  },
+  "newrel": {
+    "eyebrow": "Nouveau",
+    "title": "Vient de paraître",
+    "prev": "Livre précédent",
+    "next": "Livre suivant"
   }
 }

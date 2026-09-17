@@ -403,5 +403,38 @@
     "r3": "Japanese edition",
     "r3s": "Amazon.co.jp",
     "cta": "See the shelf"
+  },
+  "vision": {
+    "label": "About the publishing house",
+    "prev": "Previous",
+    "next": "Next",
+    "ctaBooks": "Browse the shelf",
+    "ctaSample": "Read a sample",
+    "s1": {
+      "k": "What we do",
+      "t": "Asian stories in<br>the world's languages",
+      "d": "We make books in Seoul and Tokyo. So that a story written in Korean is not read only in Korea, we write each book with readers in three languages in mind from the first draft."
+    },
+    "s2": {
+      "k": "How we work",
+      "t": "Not translated later —<br>written three ways at once",
+      "d": "We don't finish a book and then carry it across. The Korean, English and Japanese editions are written alongside each other, each carrying the examples that land with its readers. That is why the Japanese Quantum Economics talks about the Bank of Japan and consumption tax."
+    },
+    "s3": {
+      "k": "What we publish",
+      "t": "From economics and AI<br>to a four-year-old’s picture book",
+      "d": "We keep the subjects wide and the test narrow: does something you can use tomorrow stay with you after reading? That is why a serious book for adults and a picture book share one shelf."
+    },
+    "s4": {
+      "k": "Where to find us",
+      "t": "On the big bookstore shelves,<br>and in your browser",
+      "d": "Our books are sold on Amazon, Kyobo, YES24 and Aladin. So you know what you are buying, the samples open right here — nothing to install."
+    }
+  },
+  "newrel": {
+    "eyebrow": "New",
+    "title": "Just published",
+    "prev": "Previous book",
+    "next": "Next book"
   }
 }
