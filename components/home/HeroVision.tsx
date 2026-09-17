@@ -83,21 +83,24 @@ export default function HeroVision() {
       </div>
 
       <div className="vh-in">
-        {SLIDES.map((s, n) => (
-          <div
-            key={s}
-            className={`vh-slide${n === i ? ' on' : ''}`}
-            aria-hidden={n !== i}
-            role="group"
-            aria-roledescription="slide"
-          >
-            <div className="vh-k">{t(`${s}.k`)}</div>
-            <h1 className="vh-t">
-              <Multiline text={t.raw(`${s}.t`) as string} />
-            </h1>
-            <p className="vh-d">{t(`${s}.d`)}</p>
-          </div>
-        ))}
+        {/* One grid cell holds all seven, so a slide change moves nothing. */}
+        <div className="vh-stage">
+          {SLIDES.map((s, n) => (
+            <div
+              key={s}
+              className={`vh-slide${n === i ? ' on' : ''}`}
+              aria-hidden={n !== i}
+              role="group"
+              aria-roledescription="slide"
+            >
+              <div className="vh-k">{t(`${s}.k`)}</div>
+              <h1 className="vh-t">
+                <Multiline text={t.raw(`${s}.t`) as string} />
+              </h1>
+              <p className="vh-d">{t(`${s}.d`)}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="vh-cta">
           <Link href="/books" className="btn-gold">
