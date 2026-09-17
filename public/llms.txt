@@ -7,8 +7,8 @@
 - [AIの答えに、人間は何を足すのか](https://www.awesomebooks.asia/ja/books/ai-answer): by Akira Murata (村田旭). What do humans add after AI answers — purpose, evidence, and the decision to use; an illustrated AI-literacy reader; 337 pages, published 2026-09-16, Japanese Kindle edition. Amazon JP: https://www.amazon.co.jp/dp/B0HJZL583W
 - [Awesome AI Bible 2026](https://www.awesomebooks.asia/en/books/ai-bible): by Akira Murata. The complete guide to generative AI — from your first prompt to organisational policy; 549 pages, published 2026-02, in EN and JA. Amazon US: https://www.amazon.com/dp/B0GPPXFTYG · Amazon JP: https://www.amazon.co.jp/dp/B0GMW6FV26
 - [Quantum Economics](https://www.awesomebooks.asia/en/books/quantum-econ): what if the economy obeys quantum rules? A new decision economics, in EN and JA. Amazon US: https://www.amazon.com/dp/B0H7RMWBCM · UK: https://www.amazon.com/dp/B0H86W24T9 · India: https://www.amazon.com/dp/B0H86YMQG9 · Amazon JP: https://www.amazon.co.jp/dp/B0H7RW5W13
-- [ISEKAI Entrepreneurship](https://www.awesomebooks.asia/en/books/isekai): business theory meets a fantasy world — entrepreneurship learned in the field; ebook and print in KO, EN and JA on Amazon and Kyobo. Amazon US: https://www.amazon.com/dp/B0FJFJT89D · Kyobo: https://product.kyobobook.co.kr/detail/S000216966371
-- [Ninja Cat Kuro](https://www.awesomebooks.asia/en/books/ninja-cat): picture book — the village's clumsiest ninja cat fails every mission in the best possible way; KO and JA editions on Amazon JP and Kyobo.
+- [ISEKAI Entrepreneurship](https://www.awesomebooks.asia/en/books/isekai): business theory meets a fantasy world — entrepreneurship learned in the field; ebook and print in KO, EN and JA on Amazon and Kyobo. Amazon US: https://www.amazon.com/dp/B0FJFJT89D · Kyobo: https://product.kyobobook.co.kr/detail/S000216966371 · YES24 (KO): https://www.yes24.com/product/goods/148366162 · Aladin (KO): https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367051986
+- [Ninja Cat Kuro](https://www.awesomebooks.asia/en/books/ninja-cat): picture book — the village's clumsiest ninja cat fails every mission in the best possible way; KO and JA ebook editions on Kyobo, YES24 and Aladin, JA on Amazon JP; print at Kyobo. YES24 (KO): https://www.yes24.com/product/goods/149224600 · Aladin (KO): https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=368007844
 
 ## Key pages
 
@@ -19,5 +19,5 @@
 
 - Publisher name: Awesome Books Asia (Korean: 어썸북스아시아, Japanese: オーサムブックスアジア)
 - Publishing languages: Korean, English, Japanese
-- Retail channels: Amazon Kindle (US, UK, India, Japan), Kyobo Book Centre eBook and POD print (Korea)
+- Retail channels: Amazon Kindle (US, UK, India, Japan); in Korea, Kyobo Book Centre (eBook and POD print), YES24 (eBook) and Aladin (eBook)
 - Website launch: September 2026 (India launch event, 23 September 2026)

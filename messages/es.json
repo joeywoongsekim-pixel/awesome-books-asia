@@ -63,7 +63,7 @@
     "s3": {
       "no": "03",
       "title": "Compra la edición que quieras",
-      "desc": "Los ebooks están en Amazon Kindle y Kyobo eBook; las ediciones impresas, en Kyobo y Amazon Japón. Los enlaces de cada página van directos a esa edición."
+      "desc": "Los ebooks están en Amazon Kindle y, en Corea, en Kyobo, YES24 y Aladin; las ediciones impresas, en Kyobo y Amazon Japón. Los enlaces de cada página van directos a esa edición."
     }
   },
   "plans": {
@@ -72,7 +72,7 @@
     "lead": "Nosotros hacemos los libros; los venden librerías en las que ya confías.",
     "ebook": {
       "name": "Ebook",
-      "where": "Amazon Kindle · Kyobo eBook",
+      "where": "Amazon Kindle · Kyobo · YES24 · Aladin",
       "desc": "Todos los títulos están en ebook. Cada edición se vende por separado: elige el idioma que quieras.",
       "cta": "Ver ebooks"
     },
@@ -397,7 +397,7 @@
     "title": "Un libro,<br>escrito tres veces",
     "lead": "En lugar de traducir después, escribimos desde el primer borrador pensando en lectores coreanos, ingleses y japoneses. La edición japonesa de Quantum Economics recurre al Banco de Japón, al impuesto al consumo y a la economía de los fans: las tres ediciones son el mismo libro, y no del todo.",
     "r1": "Edición coreana",
-    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r1s": "Kyobo · YES24 · Aladin",
     "r2": "Edición inglesa",
     "r2s": "Amazon US · UK · India",
     "r3": "Edición japonesa",

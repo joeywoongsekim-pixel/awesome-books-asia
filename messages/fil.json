@@ -63,7 +63,7 @@
     "s3": {
       "no": "03",
       "title": "Bilhin ang edisyong gusto mo",
-      "desc": "Ang mga ebook ay nasa Amazon Kindle at Kyobo eBook; ang mga print edition ay sa Kyobo at Amazon Japan. Ang mga link sa bawat pahina ng aklat ay diretso sa edisyong iyon."
+      "desc": "Ang mga ebook ay nasa Amazon Kindle at, sa Korea, sa Kyobo, YES24 at Aladin; ang mga print edition ay sa Kyobo at Amazon Japan. Ang mga link sa bawat pahina ng aklat ay diretso sa edisyong iyon."
     }
   },
   "plans": {
@@ -72,7 +72,7 @@
     "lead": "Kami ang gumagawa ng mga aklat; mga bookstore na pinagkakatiwalaan mo na ang nagbebenta.",
     "ebook": {
       "name": "Ebook",
-      "where": "Amazon Kindle · Kyobo eBook",
+      "where": "Amazon Kindle · Kyobo · YES24 · Aladin",
       "desc": "Lahat ng aklat ay may ebook. Hiwalay ang bawat edisyon ng wika — piliin ang gusto mo.",
       "cta": "Tingnan ang mga ebook"
     },
@@ -397,7 +397,7 @@
     "title": "Isang aklat,<br>isinulat nang tatlong beses",
     "lead": "Sa halip na isalin pagkatapos, sumusulat kami mula sa unang draft na nasa isip ang mga mambabasang Korean, English at Japanese. Ang Japanese edition ng Quantum Economics ay gumagamit ng Bank of Japan, consumption tax at fan economies bilang halimbawa — kaya ang tatlong edisyon ay iisang aklat, at hindi rin.",
     "r1": "Korean edition",
-    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r1s": "Kyobo · YES24 · Aladin",
     "r2": "English edition",
     "r2s": "Amazon US · UK · India",
     "r3": "Japanese edition",

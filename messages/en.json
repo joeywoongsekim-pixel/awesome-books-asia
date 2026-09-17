@@ -63,7 +63,7 @@
     "s3": {
       "no": "03",
       "title": "Buy the edition you want",
-      "desc": "Ebooks are on Amazon Kindle and Kyobo eBook; print editions on Kyobo and Amazon Japan. The links on each book page go straight to that edition."
+      "desc": "Ebooks are on Amazon Kindle and, in Korea, Kyobo, YES24 and Aladin; print editions on Kyobo and Amazon Japan. The links on each book page go straight to that edition."
     }
   },
   "plans": {
@@ -72,7 +72,7 @@
     "lead": "We make the books; bookstores you already trust sell them.",
     "ebook": {
       "name": "Ebook",
-      "where": "Amazon Kindle · Kyobo eBook",
+      "where": "Amazon Kindle · Kyobo · YES24 · Aladin",
       "desc": "Every title is available as an ebook. Each language edition is sold separately — choose the one you want.",
       "cta": "See ebooks"
     },
@@ -397,7 +397,7 @@
     "title": "One book,<br>written three ways",
     "lead": "Rather than translate later, we write with Korean, English and Japanese readers in mind from the first draft. The Japanese edition of Quantum Economics reaches for the Bank of Japan, consumption tax and fan economies — so the three editions are the same book, and not quite.",
     "r1": "Korean edition",
-    "r1s": "Kyobo Book Centre · Kyobo eBook",
+    "r1s": "Kyobo · YES24 · Aladin",
     "r2": "English edition",
     "r2s": "Amazon US · UK · India",
     "r3": "Japanese edition",
