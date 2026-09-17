@@ -22,11 +22,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {slug} = await params;
   const demo = BOOKS.find((b) => b.id === slug);
-  if (demo) return {title: `${demo.title} — AwesomeBooks Reader`};
+  if (demo) return {title: `${demo.title} — Awesome Books Asia Reader`};
   if (hasSupabaseEnv()) {
     const supabase = await createSupabaseServer();
     const {data} = await supabase.from('books').select('title').eq('slug', slug).maybeSingle();
-    if (data) return {title: `${data.title} — AwesomeBooks Reader`};
+    if (data) return {title: `${data.title} — Awesome Books Asia Reader`};
   }
   return {};
 }

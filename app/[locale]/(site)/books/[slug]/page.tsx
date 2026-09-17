@@ -27,7 +27,7 @@ export async function generateMetadata({
   const book = BOOKS.find((b) => b.id === slug);
   if (!book) return {};
   return {
-    title: `${book.title} — AwesomeBooks`,
+    title: `${book.title} — Awesome Books Asia`,
     description: book.blurb,
     openGraph: {
       type: 'book',

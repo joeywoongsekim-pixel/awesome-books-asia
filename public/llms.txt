@@ -1,6 +1,6 @@
 # Awesome Books Asia
 
-> Awesome Books Asia (어썸북스아시아 / オーサムブックスアジア) is an independent publishing house telling Asian stories in Korean, English and Japanese. Its books are sold on Amazon (US/JP/UK/India) and Kyobo Book Centre (교보문고), and can be sampled in the AwesomeBooks web reader at https://www.awesomebooks.asia. The site is available in 8 languages (en, ko, ja, fil, de, fr, es, pt).
+> Awesome Books Asia (어썸북스아시아 / オーサムブックスアジア) is an independent publishing house making learning for the AI age in Korean, English and Japanese — from economics and AI to picture books, written to be finished rather than merely started. Its books are sold on Amazon (US/JP/UK/India), Kyobo Book Centre (교보문고), YES24 and Aladin (알라딘), and can be sampled in the web reader at https://www.awesomebooks.asia. The site is available in 8 languages (en, ko, ja, fil, de, fr, es, pt).
 
 ## Catalogue
 

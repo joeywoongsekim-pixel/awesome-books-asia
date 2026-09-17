@@ -19,7 +19,7 @@ export const orgJsonLd = {
   url: SITE,
   logo: `${SITE}/icon.png`,
   description:
-    'Independent publishing house telling Asian stories in Korean, English and Japanese — on Amazon, Kyobo and in the AwesomeBooks reader.',
+    'Independent publishing house making learning for the AI age in Korean, English and Japanese — from economics and AI to picture books, written to be finished. Sold on Amazon, Kyobo, YES24 and Aladin, with samples readable in the browser.',
   knowsLanguage: ['ko', 'en', 'ja']
 };
 

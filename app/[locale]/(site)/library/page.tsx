@@ -17,7 +17,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const {locale} = await params;
   const t = await getTranslations({locale, namespace: 'library'});
-  return {title: `${t('title')} — AwesomeBooks`};
+  return {title: `${t('title')} — Awesome Books Asia`};
 }
 
 export default async function LibraryPage({
