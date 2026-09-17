@@ -5538,10 +5538,10 @@ img {
   background: transparent;
   border-bottom-color: transparent;
 }
-.nav:not(.stuck):not(.solid) .bl-sym {
-  background: var(--paper);
-  padding: 4px;
-}
+/* No 페이퍼 판 behind the symbol over the hero — the plate read as a sticker
+   stuck on the picture. The artwork is untouched; the 라피스 canvas simply
+   meets a 라피스 ground, so the 페이퍼 brackets and the gold cursor carry the
+   mark on their own. */
 .nav:not(.stuck):not(.solid) .bl-word,
 .nav:not(.stuck):not(.solid) .nav-menu a {
   color: var(--paper);
