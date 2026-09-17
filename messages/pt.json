@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "A estante",
     "title": "Livros que você pode ler agora",
-    "lead": "Economia, IA e livros ilustrados — os quatro saíram em pelo menos duas línguas.",
+    "lead": "Economia, IA e livros ilustrados — em coreano, inglês e japonês.",
     "viewAll": "Ver toda a estante →",
     "new": "Novo",
     "priceFrom": "<em>a partir de</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Escolha um livro na estante",
-      "desc": "Percorra os quatro títulos por tema e língua. Cada livro mostra de relance quais edições e formatos existem."
+      "desc": "Percorra a estante por tema e língua. Cada livro mostra de relance quais edições e formatos existem."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "Ebook",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "Os quatro títulos estão em ebook. Cada edição de língua é vendida separadamente — escolha a que quiser.",
+      "desc": "Todos os títulos estão em ebook. Cada edição de língua é vendida separadamente — escolha a que quiser.",
       "cta": "Ver ebooks"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "A estante",
-    "title": "Quatro livros, três línguas",
+    "title": "Uma estante, três línguas",
     "lead": "Veja de relance quais edições de cada livro existem em ebook ou impresso. Toque numa lombada para a história e onde comprar.",
     "count": "{shown} de {total} títulos · Coreano · Inglês · Japonês",
     "subject": "Tema",

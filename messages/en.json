@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "The shelf",
     "title": "Books you can read now",
-    "lead": "Business, AI and picture books — all four are out in at least two languages.",
+    "lead": "Business, AI and picture books — in Korean, English and Japanese.",
     "viewAll": "See the whole shelf →",
     "new": "New",
     "priceFrom": "<em>from</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Pick a book from the shelf",
-      "desc": "Browse the four titles by subject and language. Each book shows which editions and formats exist at a glance."
+      "desc": "Browse the shelf by subject and language. Each book shows which editions and formats exist at a glance."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "Ebook",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "All four titles are available as ebooks. Each language edition is sold separately — choose the one you want.",
+      "desc": "Every title is available as an ebook. Each language edition is sold separately — choose the one you want.",
       "cta": "See ebooks"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "The shelf",
-    "title": "Four books, three languages",
+    "title": "One shelf, three languages",
     "lead": "See at a glance which editions of each book exist as ebook or print. Tap a spine for the story and where to buy it.",
     "count": "{shown} of {total} titles · Korean · English · Japanese",
     "subject": "Subject",

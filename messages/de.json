@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "Das Regal",
     "title": "Bücher, die Sie jetzt lesen können",
-    "lead": "Wirtschaft, KI und Bilderbücher — alle vier sind in mindestens zwei Sprachen erschienen.",
+    "lead": "Wirtschaft, KI und Bilderbücher — auf Koreanisch, Englisch und Japanisch.",
     "viewAll": "Ganzes Regal ansehen →",
     "new": "Neu",
     "priceFrom": "<em>ab</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Ein Buch aus dem Regal wählen",
-      "desc": "Stöbern Sie nach Thema und Sprache. Jedes Buch zeigt auf einen Blick, welche Ausgaben und Formate es gibt."
+      "desc": "Stöbern Sie im Regal nach Thema und Sprache. Jedes Buch zeigt auf einen Blick, welche Ausgaben und Formate es gibt."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "E-Book",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "Alle vier Titel gibt es als E-Book. Jede Sprachausgabe wird einzeln verkauft — wählen Sie die gewünschte.",
+      "desc": "Jeden Titel gibt es als E-Book. Jede Sprachausgabe wird einzeln verkauft — wählen Sie die gewünschte.",
       "cta": "E-Books ansehen"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "Das Regal",
-    "title": "Vier Bücher, drei Sprachen",
+    "title": "Ein Regal, drei Sprachen",
     "lead": "Sehen Sie auf einen Blick, welche Ausgaben jedes Buchs als E-Book oder gedruckt existieren. Tippen Sie auf einen Buchrücken für die Geschichte und die Bezugsquellen.",
     "count": "{shown} von {total} Titeln · Koreanisch · Englisch · Japanisch",
     "subject": "Thema",

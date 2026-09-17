@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "La estantería",
     "title": "Libros que puedes leer ahora",
-    "lead": "Economía, IA y álbumes ilustrados: los cuatro están en al menos dos idiomas.",
+    "lead": "Economía, IA y álbumes ilustrados: en coreano, inglés y japonés.",
     "viewAll": "Ver toda la estantería →",
     "new": "Nuevo",
     "priceFrom": "<em>desde</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Elige un libro de la estantería",
-      "desc": "Explora los cuatro títulos por tema e idioma. Cada libro muestra de un vistazo qué ediciones y formatos existen."
+      "desc": "Explora la estantería por tema e idioma. Cada libro muestra de un vistazo qué ediciones y formatos existen."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "Ebook",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "Los cuatro títulos están en ebook. Cada edición se vende por separado: elige el idioma que quieras.",
+      "desc": "Todos los títulos están en ebook. Cada edición se vende por separado: elige el idioma que quieras.",
       "cta": "Ver ebooks"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "La estantería",
-    "title": "Cuatro libros, tres idiomas",
+    "title": "Una estantería, tres idiomas",
     "lead": "Ve de un vistazo qué ediciones de cada libro existen en ebook o en papel. Toca un lomo para la historia y dónde comprarlo.",
     "count": "{shown} de {total} títulos · Coreano · Inglés · Japonés",
     "subject": "Tema",

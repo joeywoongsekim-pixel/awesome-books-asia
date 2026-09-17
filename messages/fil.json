@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "Ang istante",
     "title": "Mga aklat na mababasa mo ngayon",
-    "lead": "Negosyo, AI at picture books — lahat ng apat ay nasa dalawa o higit pang wika.",
+    "lead": "Negosyo, AI at picture books — sa Korean, English at Japanese.",
     "viewAll": "Tingnan ang buong istante →",
     "new": "Bago",
     "priceFrom": "<em>mula</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Pumili ng aklat sa istante",
-      "desc": "Tingnan ang apat na aklat ayon sa paksa at wika. Ipinapakita ng bawat aklat kung aling mga edisyon at format ang mayroon."
+      "desc": "Tingnan ang istante ayon sa paksa at wika. Ipinapakita ng bawat aklat kung aling mga edisyon at format ang mayroon."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "Ebook",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "Lahat ng apat na aklat ay may ebook. Hiwalay ang bawat edisyon ng wika — piliin ang gusto mo.",
+      "desc": "Lahat ng aklat ay may ebook. Hiwalay ang bawat edisyon ng wika — piliin ang gusto mo.",
       "cta": "Tingnan ang mga ebook"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "Ang istante",
-    "title": "Apat na aklat, tatlong wika",
+    "title": "Isang istante, tatlong wika",
     "lead": "Makikita agad kung aling edisyon ng bawat aklat ang nasa ebook o print. Pindutin ang gulugod ng aklat para sa kuwento at kung saan mabibili.",
     "count": "{shown} sa {total} na aklat · Korean · English · Japanese",
     "subject": "Paksa",

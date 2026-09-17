@@ -36,7 +36,7 @@
   "books": {
     "eyebrow": "Le rayon",
     "title": "Des livres à lire maintenant",
-    "lead": "Économie, IA et albums jeunesse — les quatre existent dans au moins deux langues.",
+    "lead": "Économie, IA et albums jeunesse — en coréen, en anglais et en japonais.",
     "viewAll": "Voir tout le rayon →",
     "new": "Nouveau",
     "priceFrom": "<em>dès</em>${price}",
@@ -53,7 +53,7 @@
     "s1": {
       "no": "01",
       "title": "Choisir un livre sur le rayon",
-      "desc": "Parcourez les quatre titres par sujet et par langue. Chaque livre indique d'un coup d'œil ses éditions et ses formats."
+      "desc": "Parcourez le rayon par sujet et par langue. Chaque livre indique d'un coup d'œil ses éditions et ses formats."
     },
     "s2": {
       "no": "02",
@@ -73,7 +73,7 @@
     "ebook": {
       "name": "Ebook",
       "where": "Amazon Kindle · Kyobo eBook",
-      "desc": "Les quatre titres existent en ebook. Chaque édition linguistique est vendue séparément — choisissez la vôtre.",
+      "desc": "Chaque titre existe en ebook. Chaque édition linguistique est vendue séparément — choisissez la vôtre.",
       "cta": "Voir les ebooks"
     },
     "print": {
@@ -93,7 +93,7 @@
   },
   "store": {
     "eyebrow": "Le rayon",
-    "title": "Quatre livres, trois langues",
+    "title": "Un rayon, trois langues",
     "lead": "Voyez d'un coup d'œil quelles éditions de chaque livre existent en ebook ou en papier. Touchez un dos de livre pour l'histoire et les points de vente.",
     "count": "{shown} titres sur {total} · Coréen · Anglais · Japonais",
     "subject": "Sujet",
