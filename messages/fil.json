@@ -411,39 +411,32 @@
     "ctaBooks": "Tingnan ang istante",
     "ctaSample": "Basahin ang sample",
     "s1": {
-      "k": "Bisyon",
-      "t": "Edukasyon para sa panahon ng AI,<br>sa abot ng maraming wika",
-      "d": "Nagsisimula sa Korean, English at Japanese."
+      "t": "Naglalathala kami para sa panahon ng AI,<br>sa tatlong wika nang sabay",
+      "d": "Walang naghihintay ng salin."
     },
     "s2": {
-      "k": "Bakit aklat",
-      "t": "Habang mas sumasagot ang AI,<br>mas mahalaga ang pagbabasa",
-      "d": "Ang nakakaalam lang ang makakakilala ng totoo sa gawa-gawa."
+      "t": "Ang nakabasa lang ang nakakaalam<br>kung tama ang sagot",
+      "d": "Hindi nahahanap sa search ang paghuhusga."
     },
     "s3": {
-      "k": "Para kanino",
-      "t": "Mula sa silid-aralan ng batang sampung taon<br>hanggang sa mesa ng nasa apatnapu",
+      "t": "Sa edad na sampu at apatnapu,<br>muling natututo ang lahat",
       "d": "Magkaibang tanong, parehong pagkaapurahan."
     },
     "s4": {
-      "k": "Paano kami gumagawa",
       "t": "Ang aklat lang na natatapos mo<br>ang nananatili sa iyo",
       "d": "Kaya nauuna ang saya."
     },
     "s5": {
-      "k": "Ang aming lakas",
-      "t": "Ekonomiya, pamamahala, edukasyon<br>— at AI",
-      "d": "Isinulat ng mga mahilig sa laro, manga at isports."
+      "t": "Mas mabigat ang paksa,<br>mas masaya naming isinusulat",
+      "d": "Quantum mechanics para sa ekonomiya, isekai novel para sa negosyo."
     },
     "s6": {
-      "k": "Mas malayong abot",
-      "t": "Para walang lugar<br>na maiwan",
-      "d": "Parehong aklat para sa mga papaunlad na bansa."
+      "t": "Ang huling magsimula<br>ay hindi dapat huling matuto",
+      "d": "Mas maraming wika, mas maraming format, mas malayong mambabasa."
     },
     "s7": {
-      "k": "Ang aming pangako",
-      "t": "Sapat na sana ang<br>pagnanais matuto",
-      "d": "Hindi dapat ito ipasya ng kaya ng pamilya."
+      "t": "Hindi dapat magpasya ang kaya ng magulang<br>sa natututuhan ng bata",
+      "d": "Bukas sa lahat ang mga sample."
     }
   },
   "newrel": {

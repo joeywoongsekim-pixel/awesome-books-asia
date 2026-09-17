@@ -5156,17 +5156,6 @@ img {
   pointer-events: auto;
   transition: opacity 0.5s ease 0.2s, transform 0.6s ease 0.2s;
 }
-/* 커서 골드 on 라피스 is 3.5:1 — 큰 글자·도형만. The kicker is the one
-   place on the page that spends it, so it is set large enough to earn it. */
-.vh-k {
-  font-family: var(--font-label);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--cursor-gold);
-  margin-bottom: 20px;
-}
 .vh-t {
   font-family: var(--font-heading);
   font-size: clamp(34px, 5vw, 58px);
@@ -5715,11 +5704,8 @@ img {
   object-position: 56% center;
 }
 
-/* 딥 골드 on 페이퍼 is 4.0:1 — 큰 글자·도형만 — so the kicker takes 라피스,
-   and gold stays where the guide wants it: the logo cursor alone. */
-.vh-k {
-  color: var(--lapis);
-}
+/* Gold now appears in one place on the whole page, which is what the guide
+   asks for: the cursor in the logo. */
 .vh-t {
   color: var(--night);
 }
@@ -5839,4 +5825,13 @@ img {
   .nav:not(.stuck):not(.solid) .nav-burger span {
     background: var(--night);
   }
+}
+
+/* Korean breaks anywhere by default, so "없습니다" was splitting into
+   "없습니 / 다" at the end of a line. keep-all wraps at spaces instead,
+   which is how Korean is set; Latin is unaffected at these lengths. */
+.vh-t,
+.vh-d {
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }

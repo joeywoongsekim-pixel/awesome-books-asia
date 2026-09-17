@@ -411,39 +411,32 @@
     "ctaBooks": "Browse the shelf",
     "ctaSample": "Read a sample",
     "s1": {
-      "k": "Vision",
-      "t": "Learning for the AI age,<br>in every language we reach",
-      "d": "Starting with Korean, English and Japanese."
+      "t": "We publish for the AI age<br>in three languages at once",
+      "d": "Nobody waits for the translation."
     },
     "s2": {
-      "k": "Why books",
-      "t": "The more AI answers,<br>the more reading matters",
-      "d": "Only someone who knows can tell true from invented."
+      "t": "Only a reader can tell<br>whether the answer is right",
+      "d": "Judgement does not come from a search box."
     },
     "s3": {
-      "k": "Who we serve",
-      "t": "From a ten-year-old's classroom<br>to a forty-year-old's desk",
+      "t": "At ten and at forty,<br>everyone is learning again",
       "d": "Different questions, the same urgency."
     },
     "s4": {
-      "k": "How we make books",
       "t": "Only a book you finish<br>stays with you",
-      "d": "So enjoyment comes first."
+      "d": "So enjoyment comes first, not last."
     },
     "s5": {
-      "k": "Our strengths",
-      "t": "Economics, management, education<br>— and AI",
-      "d": "Written by people who love games, manga and sport."
+      "t": "The harder the subject,<br>the more fun we make it",
+      "d": "Quantum mechanics for economics, an isekai novel for startups."
     },
     "s6": {
-      "k": "Reaching further",
-      "t": "So nowhere is<br>left behind",
-      "d": "The same books for readers in developing countries."
+      "t": "Starting late is no reason<br>to learn late",
+      "d": "More languages, more formats, readers further out."
     },
     "s7": {
-      "k": "Our promise",
-      "t": "The will to learn<br>should be enough",
-      "d": "A family's means must never decide it."
+      "t": "A family's means cannot decide<br>what a child learns",
+      "d": "The samples stay open to everyone."
     }
   },
   "newrel": {

@@ -411,39 +411,32 @@
     "ctaBooks": "Voir le rayon",
     "ctaSample": "Lire un extrait",
     "s1": {
-      "k": "Vision",
-      "t": "L'éducation de l'ère de l'IA,<br>dans le plus de langues possible",
-      "d": "En commençant par le coréen, l'anglais et le japonais."
+      "t": "Nous publions pour l’ère de l’IA,<br>en trois langues à la fois",
+      "d": "Personne n’attend la traduction."
     },
     "s2": {
-      "k": "Pourquoi des livres",
-      "t": "Plus l'IA répond,<br>plus la lecture compte",
-      "d": "Seul celui qui sait distingue le vrai de l’inventé."
+      "t": "Seul celui qui a lu sait<br>si la réponse est juste",
+      "d": "Le jugement ne se cherche pas."
     },
     "s3": {
-      "k": "Pour qui",
-      "t": "De la classe d'un enfant de dix ans<br>au bureau d'un adulte de quarante",
+      "t": "À dix ans comme à quarante,<br>tout le monde réapprend",
       "d": "Des questions différentes, la même urgence."
     },
     "s4": {
-      "k": "Notre façon de faire",
       "t": "Seul un livre terminé<br>reste en vous",
       "d": "Le plaisir passe donc en premier."
     },
     "s5": {
-      "k": "Nos forces",
-      "t": "Économie, gestion, éducation<br>— et IA",
-      "d": "Écrits par des gens qui aiment les jeux, les mangas et le sport."
+      "t": "Plus le sujet est ardu,<br>plus nous le rendons plaisant",
+      "d": "La mécanique quantique pour l’économie, un roman isekai pour l’entreprise."
     },
     "s6": {
-      "k": "Aller plus loin",
-      "t": "Pour qu'aucun endroit<br>ne reste en arrière",
-      "d": "Les mêmes livres pour les pays en développement."
+      "t": "Partir en retard n’oblige pas<br>à apprendre en retard",
+      "d": "Plus de langues, plus de formats, des lecteurs plus lointains."
     },
     "s7": {
-      "k": "Notre promesse",
-      "t": "La volonté d'apprendre<br>devrait suffire",
-      "d": "Les moyens de la famille ne doivent pas en décider."
+      "t": "Les moyens des parents ne décident pas<br>de ce qu’un enfant apprend",
+      "d": "Les extraits restent ouverts à tous."
     }
   },
   "newrel": {

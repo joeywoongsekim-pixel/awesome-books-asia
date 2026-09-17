@@ -411,39 +411,32 @@
     "ctaBooks": "Ver la estantería",
     "ctaSample": "Leer una muestra",
     "s1": {
-      "k": "Visión",
-      "t": "Educación para la era de la IA,<br>en cuantos idiomas podamos",
-      "d": "Empezando por el coreano, el inglés y el japonés."
+      "t": "Publicamos para la era de la IA<br>en tres idiomas a la vez",
+      "d": "Nadie espera la traducción."
     },
     "s2": {
-      "k": "Por qué libros",
-      "t": "Cuanto más responde la IA,<br>más importa leer",
-      "d": "Solo quien sabe distingue lo cierto de lo inventado."
+      "t": "Solo quien ha leído sabe<br>si la respuesta es cierta",
+      "d": "El criterio no se encuentra en un buscador."
     },
     "s3": {
-      "k": "Para quién",
-      "t": "Del aula de un niño de diez años<br>al escritorio de alguien de cuarenta",
+      "t": "A los diez y a los cuarenta,<br>todos vuelven a aprender",
       "d": "Preguntas distintas, la misma urgencia."
     },
     "s4": {
-      "k": "Cómo hacemos los libros",
       "t": "Solo el libro que terminas<br>se queda contigo",
       "d": "Por eso el disfrute va primero."
     },
     "s5": {
-      "k": "Nuestras fortalezas",
-      "t": "Economía, gestión, educación<br>— e IA",
-      "d": "Escritos por gente que ama los videojuegos, el manga y el deporte."
+      "t": "Cuanto más duro es el tema,<br>más divertido lo hacemos",
+      "d": "Mecánica cuántica para la economía, una novela isekai para emprender."
     },
     "s6": {
-      "k": "Llegar más lejos",
-      "t": "Para que ningún lugar<br>quede atrás",
-      "d": "Los mismos libros para lectores de países en desarrollo."
+      "t": "Empezar tarde no obliga<br>a aprender tarde",
+      "d": "Más idiomas, más formatos, lectores más lejanos."
     },
     "s7": {
-      "k": "Nuestra promesa",
-      "t": "Las ganas de aprender<br>deberían bastar",
-      "d": "Los medios de la familia no pueden decidirlo."
+      "t": "Los medios de los padres no deciden<br>lo que aprende un niño",
+      "d": "Las muestras siguen abiertas para todos."
     }
   },
   "newrel": {

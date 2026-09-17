@@ -411,39 +411,32 @@
     "ctaBooks": "Zum Regal",
     "ctaSample": "Leseprobe lesen",
     "s1": {
-      "k": "Vision",
-      "t": "Bildung für das KI-Zeitalter,<br>in möglichst vielen Sprachen",
-      "d": "Beginnend mit Koreanisch, Englisch und Japanisch."
+      "t": "Wir verlegen für das KI-Zeitalter<br>in drei Sprachen zugleich",
+      "d": "Niemand wartet auf die Übersetzung."
     },
     "s2": {
-      "k": "Warum Bücher",
-      "t": "Je mehr die KI antwortet,<br>desto mehr zählt das Lesen",
-      "d": "Nur wer etwas weiß, erkennt Wahres von Erfundenem."
+      "t": "Ob die Antwort stimmt,<br>weiß nur, wer gelesen hat",
+      "d": "Urteilsvermögen findet man in keiner Suchmaske."
     },
     "s3": {
-      "k": "Für wen",
-      "t": "Vom Klassenzimmer der Zehnjährigen<br>bis zum Schreibtisch der Vierzigjährigen",
+      "t": "Mit zehn und mit vierzig<br>lernen jetzt alle neu",
       "d": "Andere Fragen, dieselbe Dringlichkeit."
     },
     "s4": {
-      "k": "Wie wir Bücher machen",
       "t": "Nur ein Buch, das Sie zu Ende lesen,<br>bleibt bei Ihnen",
       "d": "Darum kommt das Vergnügen zuerst."
     },
     "s5": {
-      "k": "Unsere Stärken",
-      "t": "Ökonomie, Management, Bildung<br>— und KI",
-      "d": "Geschrieben von Menschen, die Spiele, Manga und Sport lieben."
+      "t": "Je härter das Thema,<br>desto vergnüglicher schreiben wir",
+      "d": "Quantenmechanik für die Ökonomie, ein Isekai-Roman fürs Gründen."
     },
     "s6": {
-      "k": "Weiter reichen",
-      "t": "Damit kein Ort<br>zurückbleibt",
-      "d": "Dieselben Bücher für Leser in Entwicklungsländern."
+      "t": "Wer später anfängt,<br>muss nicht später lernen",
+      "d": "Mehr Sprachen, mehr Ausgaben, Leser weiter draußen."
     },
     "s7": {
-      "k": "Unser Versprechen",
-      "t": "Der Wille zu lernen<br>soll genügen",
-      "d": "Die Mittel der Familie dürfen nicht entscheiden."
+      "t": "Die Mittel der Eltern entscheiden nicht,<br>was ein Kind lernt",
+      "d": "Die Leseproben bleiben für alle offen."
     }
   },
   "newrel": {

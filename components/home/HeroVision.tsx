@@ -77,7 +77,6 @@ export default function HeroVision() {
               role="group"
               aria-roledescription="slide"
             >
-              <div className="vh-k">{t(`${s}.k`)}</div>
               <h1 className="vh-t">
                 <Multiline text={t.raw(`${s}.t`) as string} />
               </h1>

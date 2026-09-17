@@ -411,39 +411,32 @@
     "ctaBooks": "Ver a estante",
     "ctaSample": "Ler uma amostra",
     "s1": {
-      "k": "Visão",
-      "t": "Educação para a era da IA,<br>em quantas línguas alcançarmos",
-      "d": "Começando por coreano, inglês e japonês."
+      "t": "Publicamos para a era da IA<br>em três línguas ao mesmo tempo",
+      "d": "Ninguém espera pela tradução."
     },
     "s2": {
-      "k": "Por que livros",
-      "t": "Quanto mais a IA responde,<br>mais a leitura importa",
-      "d": "Só quem sabe distingue o verdadeiro do inventado."
+      "t": "Só quem leu sabe<br>se a resposta está certa",
+      "d": "Discernimento não se pesquisa."
     },
     "s3": {
-      "k": "Para quem",
-      "t": "Da sala de aula de uma criança de dez anos<br>à mesa de alguém de quarenta",
+      "t": "Aos dez e aos quarenta,<br>todos estão aprendendo de novo",
       "d": "Perguntas diferentes, a mesma urgência."
     },
     "s4": {
-      "k": "Como fazemos os livros",
       "t": "Só o livro que você termina<br>fica com você",
       "d": "Por isso o prazer vem primeiro."
     },
     "s5": {
-      "k": "Nossas forças",
-      "t": "Economia, gestão, educação<br>— e IA",
-      "d": "Escritos por gente que ama jogos, mangá e esporte."
+      "t": "Quanto mais duro o tema,<br>mais divertido o fazemos",
+      "d": "Mecânica quântica para a economia, um romance isekai para empreender."
     },
     "s6": {
-      "k": "Alcançar mais longe",
-      "t": "Para que nenhum lugar<br>fique para trás",
-      "d": "Os mesmos livros para leitores de países em desenvolvimento."
+      "t": "Começar tarde não obriga<br>a aprender tarde",
+      "d": "Mais línguas, mais formatos, leitores mais distantes."
     },
     "s7": {
-      "k": "Nossa promessa",
-      "t": "A vontade de aprender<br>deveria bastar",
-      "d": "As condições da família não podem decidir isso."
+      "t": "As condições dos pais não decidem<br>o que uma criança aprende",
+      "d": "As amostras continuam abertas a todos."
     }
   },
   "newrel": {
