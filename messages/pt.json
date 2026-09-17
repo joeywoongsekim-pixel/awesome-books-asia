@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Histórias da Ásia nas línguas do mundo",
-    "description": "Uma pequena editora que escreve cada livro em coreano, inglês e japonês — de economia e IA a livros ilustrados. À venda na Amazon e na Kyobo."
+    "description": "Uma editora que cria educação para a era da IA em coreano, inglês e japonês — livros que ficam com você, de estudantes a profissionais."
   },
   "nav": {
     "brand": "Awesome Books Asia",
@@ -160,7 +160,7 @@
   "footer": {
     "brand": "Awesome Books Asia",
     "tagline": "Histórias da Ásia nas línguas do mundo",
-    "description": "Uma pequena editora que escreve livros em coreano, inglês e japonês. Nossos livros são vendidos na Amazon e na Kyobo.",
+    "description": "Uma editora que cria educação para a era da IA em coreano, inglês e japonês — livros que ficam com você, de estudantes a profissionais.",
     "library": "A estante",
     "libraryLinks": {
       "all": "Todos os livros",
@@ -405,30 +405,40 @@
     "cta": "Ver a estante"
   },
   "vision": {
-    "label": "Visão e missão",
+    "label": "No que acreditamos",
     "prev": "Anterior",
     "next": "Próximo",
     "ctaBooks": "Ver a estante",
     "ctaSample": "Ler uma amostra",
     "s1": {
       "k": "Visão",
-      "t": "Ideias difíceis,<br>livros terminados",
-      "d": "Explicamos a economia pela mecânica quântica e ensinamos a empreender como uma fantasia isekai. Não tornamos o difícil fácil: procuramos a forma que leva o leitor até a última página. Só quem termina consegue usar aquilo amanhã."
+      "t": "Educação para a era da IA,<br>em quantas línguas alcançarmos",
+      "d": "Quando a época muda, muda também o que é preciso aprender. Criamos a educação que esta época exige e a enviamos para além das fronteiras. Coreano, inglês e japonês primeiro — a lista de línguas continua crescendo."
     },
     "s2": {
-      "k": "Missão",
-      "t": "Um livro, três línguas,<br>na mesma estação",
-      "d": "As traduções costumam chegar anos atrasadas. Escrevemos as edições coreana, inglesa e japonesa lado a lado, para que uma frase escrita em Seul chegue a Tóquio e Nova York enquanto ainda vale."
+      "k": "Para quem",
+      "t": "Da sala de aula de uma criança de dez anos<br>à mesa de alguém de quarenta",
+      "d": "Uma criança que se prepara na escola para um mundo movido a IA. Um estudante que escolhe um caminho antes de entrar no mercado. Um adulto que reaprende um trabalho que mudou da noite para o dia. As perguntas mudam; a urgência não. Escrevemos livros que cada um pode abrir onde está."
     },
     "s3": {
-      "k": "No que acreditamos",
-      "t": "Quando as máquinas respondem,<br>o trabalho é julgar",
-      "d": "Definir o propósito, voltar às evidências, escolher se vai usar a resposta — as três coisas que nenhum modelo faz por você. Nossos livros de IA são treino exatamente nisso."
+      "k": "Como fazemos os livros",
+      "t": "Não um manual —<br>um livro que fica com você",
+      "d": "Um livro chato nunca é terminado, e o conhecimento pela metade nunca é usado. Por isso a história, as imagens e o prazer de ler vêm na frente — e, na última página, o que você aprendeu já se espalhou em você."
     },
     "s4": {
+      "k": "Nossas forças",
+      "t": "Economia, gestão<br>e IA",
+      "d": "Akira Murata, economista e autor principal. Woongse Kim, especialista em gestão. A IA da nossa controladora, Awesome AI Asia. Pesquisa, prática e tecnologia se encontram dentro de um mesmo livro."
+    },
+    "s5": {
+      "k": "Alcançar mais longe",
+      "t": "Para que nenhum lugar fique<br>para trás na mudança",
+      "d": "A distância que a IA abre é maior entre os países. Não deixamos o preparo apenas para os lugares que chegaram primeiro. Ampliamos línguas e distribuição para que leitores de países em desenvolvimento encontrem esta época com os mesmos livros."
+    },
+    "s6": {
       "k": "Nossa promessa",
-      "t": "O livro ilustrado de uma criança de quatro anos<br>passa pelo mesmo teste",
-      "d": "Temas amplos, critério único: depois de ler, fica algo que você possa usar amanhã? Só os livros que passam chegam às estantes da Amazon, Kyobo, YES24 e Aladin."
+      "t": "A vontade de aprender<br>deveria bastar",
+      "d": "As condições de uma família não devem decidir o que uma criança pode aprender. Um livro ao alcance de quem quiser — é por isso que a Awesome Books Asia publica."
     }
   },
   "newrel": {

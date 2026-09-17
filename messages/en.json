@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Asian stories in the world's languages",
-    "description": "A small publishing house that writes each book in Korean, English and Japanese — from economics and AI to picture books. Sold on Amazon and Kyobo."
+    "description": "A publishing house making learning for the AI age in Korean, English and Japanese — books that stay with you, for schoolchildren through working adults."
   },
   "nav": {
     "brand": "Awesome Books Asia",
@@ -160,7 +160,7 @@
   "footer": {
     "brand": "Awesome Books Asia",
     "tagline": "Asian stories in the world's languages",
-    "description": "A small publishing house writing books in Korean, English and Japanese. Our books are sold on Amazon and Kyobo.",
+    "description": "A publishing house making learning for the AI age in Korean, English and Japanese — books that stay with you, for schoolchildren through working adults.",
     "library": "The shelf",
     "libraryLinks": {
       "all": "All books",
@@ -405,30 +405,40 @@
     "cta": "See the shelf"
   },
   "vision": {
-    "label": "Vision and mission",
+    "label": "What we stand for",
     "prev": "Previous",
     "next": "Next",
     "ctaBooks": "Browse the shelf",
     "ctaSample": "Read a sample",
     "s1": {
       "k": "Vision",
-      "t": "Hard ideas,<br>finished books",
-      "d": "We explain the economy through quantum mechanics and teach founding a company as an isekai fantasy. We don't make difficult things easy — we find the form that carries a reader to the last page. Only the people who finish can use it tomorrow."
+      "t": "Learning for the AI age,<br>in every language we can reach",
+      "d": "When the age changes, so does what has to be learned. We make the education this age asks for and send it past borders. Korean, English and Japanese first — the list of languages keeps growing."
     },
     "s2": {
-      "k": "Mission",
-      "t": "One book, three languages,<br>in the same season",
-      "d": "Translation usually arrives years late. We write the Korean, English and Japanese editions side by side, so a sentence written in Seoul reaches Tokyo and New York while it still holds."
+      "k": "Who we serve",
+      "t": "From a ten-year-old's classroom<br>to a forty-year-old's desk",
+      "d": "A child preparing at school for a world run on AI. A student choosing a path before entering the workforce. An adult relearning a job that changed overnight. The questions differ; the urgency does not. We write books each of them can open where they stand."
     },
     "s3": {
-      "k": "What we believe",
-      "t": "When machines answer,<br>judgment is the work",
-      "d": "Setting the purpose, going back to the evidence, choosing whether to use the answer at all — the three things no model does for you. Our AI books are practice in exactly those."
+      "k": "How we make books",
+      "t": "Not a textbook —<br>a book that stays with you",
+      "d": "A boring book never gets finished, and unfinished knowledge never gets used. So story, pictures and the pleasure of reading come first — and by the last page, what you learned has already spread through you."
     },
     "s4": {
+      "k": "Our strengths",
+      "t": "Economics, management,<br>and AI",
+      "d": "Akira Murata, economist and principal author. Woongse Kim, management expert. The AI of our parent company, Awesome AI Asia. Research, practice and technology meet inside one book."
+    },
+    "s5": {
+      "k": "Reaching further",
+      "t": "So nowhere is left behind<br>by the change",
+      "d": "The gap AI opens is widest between countries. We will not leave the preparing to the places that arrived first. We keep widening languages and distribution so readers in developing countries meet this age with the same books."
+    },
+    "s6": {
       "k": "Our promise",
-      "t": "A four-year-old's picture book,<br>held to the same test",
-      "d": "We keep the subjects wide and the test single: after reading, does something you can use tomorrow stay with you? Only the books that pass it reach the shelves at Amazon, Kyobo, YES24 and Aladin."
+      "t": "The will to learn<br>should be enough",
+      "d": "A family's means should not decide what a child can learn. A book within reach of anyone who wants it — that is why Awesome Books Asia publishes."
     }
   },
   "newrel": {

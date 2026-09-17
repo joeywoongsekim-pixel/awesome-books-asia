@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Asiens Geschichten in den Sprachen der Welt",
-    "description": "Ein kleiner Verlag, der jedes Buch auf Koreanisch, Englisch und Japanisch schreibt — von Ökonomie und KI bis zum Bilderbuch. Erhältlich bei Amazon und Kyobo."
+    "description": "Ein Verlag, der Bildung für das KI-Zeitalter auf Koreanisch, Englisch und Japanisch macht — Bücher, die bleiben, für Schulkinder wie Berufstätige."
   },
   "nav": {
     "brand": "Awesome Books Asia",
@@ -160,7 +160,7 @@
   "footer": {
     "brand": "Awesome Books Asia",
     "tagline": "Asiatische Geschichten in den Sprachen der Welt",
-    "description": "Ein kleiner Verlag, der Bücher auf Koreanisch, Englisch und Japanisch schreibt. Unsere Bücher gibt es bei Amazon und Kyobo.",
+    "description": "Ein Verlag, der Bildung für das KI-Zeitalter auf Koreanisch, Englisch und Japanisch macht — Bücher, die bleiben, für Schulkinder wie Berufstätige.",
     "library": "Das Regal",
     "libraryLinks": {
       "all": "Alle Bücher",
@@ -405,30 +405,40 @@
     "cta": "Zum Regal"
   },
   "vision": {
-    "label": "Vision und Mission",
+    "label": "Wofür wir stehen",
     "prev": "Zurück",
     "next": "Weiter",
     "ctaBooks": "Zum Regal",
     "ctaSample": "Leseprobe lesen",
     "s1": {
       "k": "Vision",
-      "t": "Schwere Gedanken,<br>zu Ende gelesen",
-      "d": "Wir erklären die Wirtschaft über die Quantenmechanik und lehren das Gründen als Isekai-Fantasy. Wir machen Schwieriges nicht einfach — wir suchen die Form, die den Leser bis zur letzten Seite trägt. Nur wer zu Ende liest, kann es morgen gebrauchen."
+      "t": "Bildung für das KI-Zeitalter —<br>in möglichst vielen Sprachen",
+      "d": "Ändert sich die Zeit, ändert sich auch, was man lernen muss. Wir machen die Bildung, die diese Zeit verlangt, und schicken sie über Grenzen. Koreanisch, Englisch und Japanisch zuerst — die Liste der Sprachen wächst weiter."
     },
     "s2": {
-      "k": "Mission",
-      "t": "Ein Buch, drei Sprachen,<br>in derselben Saison",
-      "d": "Übersetzungen kommen meist Jahre zu spät. Wir schreiben die koreanische, englische und japanische Ausgabe nebeneinander — damit ein in Seoul geschriebener Satz Tokio und New York erreicht, solange er trägt."
+      "k": "Für wen",
+      "t": "Vom Klassenzimmer der Zehnjährigen<br>bis zum Schreibtisch der Vierzigjährigen",
+      "d": "Ein Kind, das sich in der Schule auf eine von KI geprägte Welt vorbereitet. Ein Studierender, der vor dem Berufseinstieg einen Weg wählt. Ein Erwachsener, der eine über Nacht veränderte Arbeit neu lernt. Die Fragen unterscheiden sich, die Dringlichkeit nicht. Wir schreiben Bücher, die jede und jeder dort aufschlagen kann, wo sie stehen."
     },
     "s3": {
-      "k": "Wovon wir überzeugt sind",
-      "t": "Wenn Maschinen antworten,<br>ist das Urteil die Arbeit",
-      "d": "Den Zweck bestimmen, zu den Belegen zurückgehen, entscheiden, ob man die Antwort überhaupt verwendet — die drei Dinge, die kein Modell für Sie erledigt. Genau darin üben unsere KI-Bücher."
+      "k": "Wie wir Bücher machen",
+      "t": "Kein Lehrbuch —<br>ein Buch, das bleibt",
+      "d": "Ein langweiliges Buch wird nie zu Ende gelesen, und unfertiges Wissen wird nie gebraucht. Also stehen Geschichte, Bilder und Lesefreude vorn — und auf der letzten Seite ist das Gelernte längst in Sie übergegangen."
     },
     "s4": {
+      "k": "Unsere Stärken",
+      "t": "Ökonomie, Management<br>und KI",
+      "d": "Akira Murata, Ökonom und Hauptautor. Woongse Kim, Management-Experte. Die KI unseres Mutterunternehmens Awesome AI Asia. Forschung, Praxis und Technik treffen sich in einem Buch."
+    },
+    "s5": {
+      "k": "Weiter reichen",
+      "t": "Damit kein Ort vom Wandel<br>zurückgelassen wird",
+      "d": "Die Kluft, die KI öffnet, ist zwischen Ländern am größten. Wir überlassen das Vorbereiten nicht den Orten, die zuerst angekommen sind. Wir erweitern Sprachen und Vertrieb, damit Leser in Entwicklungsländern dieser Zeit mit denselben Büchern begegnen."
+    },
+    "s6": {
       "k": "Unser Versprechen",
-      "t": "Auch das Bilderbuch für Vierjährige<br>besteht dieselbe Prüfung",
-      "d": "Die Themen bleiben weit, der Maßstab bleibt einer: Bleibt nach dem Lesen etwas, das Sie morgen anwenden können? Nur Bücher, die das bestehen, kommen bei Amazon, Kyobo, YES24 und Aladin ins Regal."
+      "t": "Der Wille zu lernen<br>soll genügen",
+      "d": "Die Mittel einer Familie dürfen nicht entscheiden, was ein Kind lernen kann. Ein Buch in Reichweite für alle, die es wollen — dafür verlegt Awesome Books Asia."
     }
   },
   "newrel": {

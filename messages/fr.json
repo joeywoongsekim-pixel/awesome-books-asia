@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Les histoires d'Asie dans les langues du monde",
-    "description": "Une petite maison d'édition qui écrit chaque livre en coréen, en anglais et en japonais — de l'économie et l'IA aux albums jeunesse. En vente sur Amazon et Kyobo."
+    "description": "Une maison d'édition qui crée l'éducation de l'ère de l'IA en coréen, anglais et japonais — des livres qui restent, des écoliers aux adultes."
   },
   "nav": {
     "brand": "Awesome Books Asia",
@@ -160,7 +160,7 @@
   "footer": {
     "brand": "Awesome Books Asia",
     "tagline": "Des histoires d’Asie dans les langues du monde",
-    "description": "Une petite maison d'édition qui écrit ses livres en coréen, en anglais et en japonais. Nos livres sont en vente sur Amazon et Kyobo.",
+    "description": "Une maison d'édition qui crée l'éducation de l'ère de l'IA en coréen, anglais et japonais — des livres qui restent, des écoliers aux adultes.",
     "library": "Le rayon",
     "libraryLinks": {
       "all": "Tous les livres",
@@ -405,30 +405,40 @@
     "cta": "Voir le rayon"
   },
   "vision": {
-    "label": "Vision et mission",
+    "label": "Ce que nous défendons",
     "prev": "Précédent",
     "next": "Suivant",
     "ctaBooks": "Voir le rayon",
     "ctaSample": "Lire un extrait",
     "s1": {
       "k": "Vision",
-      "t": "Des idées exigeantes,<br>des livres terminés",
-      "d": "Nous expliquons l'économie par la mécanique quantique et enseignons la création d'entreprise sous forme de fantasy isekai. Nous ne rendons pas le difficile facile : nous cherchons la forme qui porte le lecteur jusqu'à la dernière page. Seuls ceux qui terminent peuvent s'en servir demain."
+      "t": "L'éducation de l'ère de l'IA,<br>dans le plus de langues possible",
+      "d": "Quand l'époque change, ce qu'il faut apprendre change aussi. Nous créons l'éducation que cette époque exige et l'envoyons au-delà des frontières. Le coréen, l'anglais et le japonais d'abord — la liste des langues continue de s'allonger."
     },
     "s2": {
-      "k": "Mission",
-      "t": "Un livre, trois langues,<br>la même saison",
-      "d": "Les traductions arrivent souvent des années trop tard. Nous écrivons les éditions coréenne, anglaise et japonaise côte à côte, pour qu'une phrase écrite à Séoul atteigne Tokyo et New York tant qu'elle tient encore."
+      "k": "Pour qui",
+      "t": "De la classe d'un enfant de dix ans<br>au bureau d'un adulte de quarante",
+      "d": "Un enfant qui se prépare à l'école à un monde régi par l'IA. Un étudiant qui choisit sa voie avant d'entrer dans la vie active. Un adulte qui réapprend un métier changé du jour au lendemain. Les questions diffèrent, l'urgence non. Nous écrivons des livres que chacun peut ouvrir là où il se tient."
     },
     "s3": {
-      "k": "Ce que nous croyons",
-      "t": "Quand les machines répondent,<br>le travail, c'est le jugement",
-      "d": "Fixer l'objectif, revenir aux sources, décider si l'on utilise la réponse — les trois choses qu'aucun modèle ne fait à votre place. Nos livres sur l'IA sont l'entraînement à cela."
+      "k": "Notre façon de faire",
+      "t": "Pas un manuel —<br>un livre qui reste en vous",
+      "d": "Un livre ennuyeux n'est jamais terminé, et un savoir inachevé ne sert jamais. L'histoire, les images et le plaisir de lire passent donc devant — et à la dernière page, ce que vous avez appris s'est déjà diffusé en vous."
     },
     "s4": {
+      "k": "Nos forces",
+      "t": "Économie, gestion<br>et IA",
+      "d": "Akira Murata, économiste et auteur principal. Woongse Kim, expert en gestion. L'IA de notre maison mère, Awesome AI Asia. La recherche, le terrain et la technologie se rencontrent dans un même livre."
+    },
+    "s5": {
+      "k": "Aller plus loin",
+      "t": "Pour qu'aucun endroit ne soit<br>laissé de côté par le changement",
+      "d": "L'écart creusé par l'IA est le plus large entre les pays. Nous ne laissons pas la préparation aux seuls pays arrivés les premiers. Nous élargissons nos langues et notre diffusion pour que les lecteurs des pays en développement abordent cette époque avec les mêmes livres."
+    },
+    "s6": {
       "k": "Notre promesse",
-      "t": "L'album pour un enfant de quatre ans<br>passe la même épreuve",
-      "d": "Sujets larges, critère unique : après la lecture, reste-t-il quelque chose d'utilisable demain ? Seuls les livres qui y répondent rejoignent les rayons d'Amazon, Kyobo, YES24 et Aladin."
+      "t": "La volonté d'apprendre<br>devrait suffire",
+      "d": "Les moyens d'une famille ne doivent pas décider de ce qu'un enfant peut apprendre. Un livre à portée de quiconque le veut : voilà pourquoi Awesome Books Asia publie."
     }
   },
   "newrel": {

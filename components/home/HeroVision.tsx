@@ -5,10 +5,12 @@ import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import Multiline from '../Multiline';
 
-// §9.4 — the hero carries what the house is for: four slides of vision and
-// mission. Auto-advances, pauses on hover/focus and under reduced motion,
-// and can be driven by dots, arrows, arrow keys or a swipe.
-const SLIDES = ['s1', 's2', 's3', 's4'] as const;
+// §9.4 — the hero carries the house philosophy in six slides: the vision,
+// who the books are for, how they are made, the expertise behind them, the
+// reach beyond wealthy markets, and the promise about access. Auto-advances,
+// pauses on hover/focus and under reduced motion, and answers dots, arrows,
+// arrow keys and swipes.
+const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6'] as const;
 const INTERVAL_MS = 7000;
 
 export default function HeroVision() {

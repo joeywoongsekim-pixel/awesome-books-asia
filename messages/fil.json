@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Awesome Books Asia — Mga kuwento ng Asya sa mga wika ng mundo",
-    "description": "Isang maliit na publishing house na sumusulat ng bawat aklat sa Korean, English at Japanese — mula ekonomiya at AI hanggang picture books. Mabibili sa Amazon at Kyobo."
+    "description": "Isang publishing house na gumagawa ng edukasyon para sa panahon ng AI sa Korean, English at Japanese — mga aklat na nananatili sa iyo, mula mag-aaral hanggang nagtatrabaho."
   },
   "nav": {
     "brand": "Awesome Books Asia",
@@ -160,7 +160,7 @@
   "footer": {
     "brand": "Awesome Books Asia",
     "tagline": "Mga kuwentong Asyano sa mga wika ng mundo",
-    "description": "Isang maliit na publishing house na sumusulat ng mga aklat sa Korean, English at Japanese. Mabibili ang aming mga aklat sa Amazon at Kyobo.",
+    "description": "Isang publishing house na gumagawa ng edukasyon para sa panahon ng AI sa Korean, English at Japanese — mga aklat na nananatili sa iyo, mula mag-aaral hanggang nagtatrabaho.",
     "library": "Ang istante",
     "libraryLinks": {
       "all": "Lahat ng aklat",
@@ -405,30 +405,40 @@
     "cta": "Tingnan ang istante"
   },
   "vision": {
-    "label": "Bisyon at misyon",
+    "label": "Ang aming paninindigan",
     "prev": "Nakaraan",
     "next": "Susunod",
     "ctaBooks": "Tingnan ang istante",
     "ctaSample": "Basahin ang sample",
     "s1": {
       "k": "Bisyon",
-      "t": "Mahihirap na ideya,<br>natatapos na aklat",
-      "d": "Ipinapaliwanag namin ang ekonomiya sa pamamagitan ng quantum mechanics at itinuturo ang pagnenegosyo bilang isekai fantasy. Hindi namin pinapadali ang mahirap — hinahanap namin ang anyong magdadala sa mambabasa hanggang huling pahina. Ang nakatapos lang ang makakagamit nito bukas."
+      "t": "Edukasyon para sa panahon ng AI,<br>sa abot ng maraming wika",
+      "d": "Kapag nagbago ang panahon, nagbabago rin ang dapat matutuhan. Ginagawa namin ang edukasyong hinihingi ng panahong ito at ipinapadala ito lampas sa mga hangganan. Korean, English at Japanese muna — patuloy na dumarami ang mga wika."
     },
     "s2": {
-      "k": "Misyon",
-      "t": "Isang aklat, tatlong wika,<br>sa iisang panahon",
-      "d": "Ang salin ay karaniwang dumarating nang huli nang ilang taon. Magkatabing isinusulat namin ang Korean, English at Japanese na edisyon, para ang pangungusap na isinulat sa Seoul ay umabot sa Tokyo at New York habang mahalaga pa ito."
+      "k": "Para kanino",
+      "t": "Mula sa silid-aralan ng batang sampung taon<br>hanggang sa mesa ng nasa apatnapu",
+      "d": "Isang batang naghahanda sa paaralan para sa mundong hinuhubog ng AI. Isang estudyanteng pumipili ng landas bago pumasok sa trabaho. Isang nasa hustong gulang na muling natututo ng trabahong nagbago agad. Magkaiba ang tanong; pareho ang pagkaapurahan. Sumusulat kami ng aklat na mabubuksan ng bawat isa kung saan man siya naroon."
     },
     "s3": {
-      "k": "Ang aming paniniwala",
-      "t": "Kapag ang makina ang sumasagot,<br>paghusga ang trabaho",
-      "d": "Ang pagtatakda ng layunin, pagbalik sa ebidensiya, at pagpili kung gagamitin ba ang sagot — tatlong bagay na walang modelong gagawa para sa iyo. Ang aming mga aklat sa AI ay pagsasanay mismo doon."
+      "k": "Paano kami gumagawa",
+      "t": "Hindi aklat-aralin —<br>kundi aklat na nananatili sa iyo",
+      "d": "Ang nakakabagot na aklat ay hindi natatapos, at ang kaalamang hindi natapos ay hindi nagagamit. Kaya nauuna ang kuwento, ang larawan at ang saya ng pagbabasa — at pagdating sa huling pahina, kumalat na sa iyo ang natutuhan mo."
     },
     "s4": {
+      "k": "Ang aming lakas",
+      "t": "Ekonomiya, pamamahala<br>at AI",
+      "d": "Si Akira Murata, ekonomista at pangunahing may-akda. Si Woongse Kim, eksperto sa pamamahala. Ang AI ng aming kompanyang Awesome AI Asia. Nagtatagpo ang pananaliksik, praktika at teknolohiya sa loob ng isang aklat."
+    },
+    "s5": {
+      "k": "Mas malayong abot",
+      "t": "Para walang lugar na maiwan<br>sa pagbabago",
+      "d": "Ang agwat na binubuksan ng AI ang pinakamalawak sa pagitan ng mga bansa. Hindi namin ipinauubaya ang paghahanda sa mga lugar na unang dumating. Pinapalawak namin ang mga wika at distribusyon para masalubong din ng mga mambabasa sa papaunlad na bansa ang panahong ito gamit ang parehong aklat."
+    },
+    "s6": {
       "k": "Ang aming pangako",
-      "t": "Ang picture book para sa apat na taong gulang,<br>sumasailalim sa parehong pagsubok",
-      "d": "Malawak ang paksa, iisa ang pamantayan: pagkatapos basahin, may natitira bang magagamit mo bukas? Ang mga aklat lamang na pumapasa ang umaabot sa istante ng Amazon, Kyobo, YES24 at Aladin."
+      "t": "Sapat na sana ang<br>pagnanais matuto",
+      "d": "Hindi dapat ang kaya ng pamilya ang magpasya kung ano ang matututuhan ng bata. Isang aklat na maaabot ninuman na gustong matuto — iyan ang dahilan kung bakit naglalathala ang Awesome Books Asia."
     }
   },
   "newrel": {
