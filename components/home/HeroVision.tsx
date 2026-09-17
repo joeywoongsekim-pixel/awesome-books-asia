@@ -5,12 +5,10 @@ import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import Multiline from '../Multiline';
 
-// §9.4 — the hero carries the house philosophy in seven slides: the vision,
-// why reading still matters when machines answer, who the books are for, how
-// they are made, the expertise behind them, the reach beyond wealthy markets,
-// and the promise about access. Auto-advances,
-// pauses on hover/focus and under reduced motion, and answers dots, arrows,
-// arrow keys and swipes.
+// §9.4 — the hero carries the house philosophy in seven slides. Each is one
+// headline, one line under it, and a piece of line art behind that says the
+// same thing without words. Auto-advances, pauses on hover/focus and under
+// reduced motion, and answers dots, arrows, arrow keys and swipes.
 const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
 const INTERVAL_MS = 7000;
 
@@ -51,6 +49,19 @@ export default function HeroVision() {
       }}
       tabIndex={-1}
     >
+      <div className="vh-art" aria-hidden="true">
+        {SLIDES.map((slide, n) => (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            key={slide}
+            src={`/hero/${slide}.svg`}
+            alt=""
+            className={n === i ? 'on' : undefined}
+            loading={n === 0 ? 'eager' : 'lazy'}
+          />
+        ))}
+      </div>
+
       <div className="vh-in">
         {SLIDES.map((s, n) => (
           <div

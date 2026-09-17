@@ -5036,8 +5036,8 @@ img {
   z-index: 1;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 92px 32px 40px;
-  min-height: 486px;
+  padding: 104px 32px 44px;
+  min-height: 520px;
   display: flex;
   flex-direction: column;
 }
@@ -5323,4 +5323,56 @@ img {
 .bks-cover img {
   object-fit: contain;
   background: var(--tint, #fcfaf4);
+}
+
+/* ── M43: hero art — the idea, drawn ─────────────────────────────────────
+   One line-art panel per slide, crossfading with the copy. It sits on the
+   right on desktop and washes behind the text on phones. */
+.vh-art {
+  position: absolute;
+  inset: -4% -2% -4% auto;
+  width: 64%;
+  max-width: 1000px;
+  pointer-events: none;
+  z-index: 0;
+}
+.vh-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center right;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.9s ease, transform 1.4s ease;
+}
+.vh-art img.on {
+  opacity: 1;
+  transform: none;
+}
+.vh-slide {
+  max-width: 620px;
+}
+.vh-d {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--aba-gold-l);
+  max-width: 560px;
+}
+@media (max-width: 980px) {
+  .vh-art {
+    width: 100%;
+    max-width: none;
+    opacity: 0.22;
+  }
+  .vh-art img {
+    object-position: center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vh-art img {
+    transition: none;
+    transform: none;
+  }
 }

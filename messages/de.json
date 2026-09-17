@@ -412,38 +412,38 @@
     "ctaSample": "Leseprobe lesen",
     "s1": {
       "k": "Vision",
-      "t": "Bildung für das KI-Zeitalter —<br>in möglichst vielen Sprachen",
-      "d": "Ändert sich die Zeit, ändert sich auch, was man lernen muss. Wir machen die Bildung, die diese Zeit verlangt, und schicken sie über Grenzen. Koreanisch, Englisch und Japanisch zuerst — die Liste der Sprachen wächst weiter."
+      "t": "Bildung für das KI-Zeitalter,<br>in möglichst vielen Sprachen",
+      "d": "Beginnend mit Koreanisch, Englisch und Japanisch."
     },
     "s2": {
       "k": "Warum Bücher",
-      "t": "Je mehr die KI antwortet,<br>desto wichtiger wird das Lesen",
-      "d": "Die KI gibt eine Antwort. Ohne Wissen, das durch Lesen entstanden ist, können Sie nicht unterscheiden, ob diese Antwort wahr oder erfunden ist. Nur wer etwas weiß, kann die KI führen und sie mit den eigenen Fähigkeiten vervielfachen. Dafür machen wir Bücher."
+      "t": "Je mehr die KI antwortet,<br>desto mehr zählt das Lesen",
+      "d": "Nur wer etwas weiß, erkennt Wahres von Erfundenem."
     },
     "s3": {
       "k": "Für wen",
       "t": "Vom Klassenzimmer der Zehnjährigen<br>bis zum Schreibtisch der Vierzigjährigen",
-      "d": "Ein Kind, das sich in der Schule auf eine von KI geprägte Welt vorbereitet. Ein Studierender, der vor dem Berufseinstieg einen Weg wählt. Ein Erwachsener, der eine über Nacht veränderte Arbeit neu lernt. Die Fragen unterscheiden sich, die Dringlichkeit nicht. Wir schreiben Bücher, die jede und jeder dort aufschlagen kann, wo sie stehen."
+      "d": "Andere Fragen, dieselbe Dringlichkeit."
     },
     "s4": {
       "k": "Wie wir Bücher machen",
-      "t": "Kein Lehrbuch —<br>ein Buch, das bleibt",
-      "d": "Ein langweiliges Buch wird nie zu Ende gelesen, und unfertiges Wissen wird nie gebraucht. Also stehen Geschichte, Bilder und Lesefreude vorn — und auf der letzten Seite ist das Gelernte längst in Sie übergegangen."
+      "t": "Nur ein Buch, das Sie zu Ende lesen,<br>bleibt bei Ihnen",
+      "d": "Darum kommt das Vergnügen zuerst."
     },
     "s5": {
       "k": "Unsere Stärken",
-      "t": "Ökonomie, Management,<br>Bildung und KI",
-      "d": "Akira Murata, Ökonom und Hauptautor. Woongse Kim, Management-Experte. Die KI unseres Mutterunternehmens Awesome AI Asia. Dazu Jahre in der Lehre. Fachwissen allein macht ein Buch jedoch nie vergnüglich — dafür sorgen Akira, der Spiele und Manga liebt, und Woongse, der den Sport liebt."
+      "t": "Ökonomie, Management, Bildung<br>— und KI",
+      "d": "Geschrieben von Menschen, die Spiele, Manga und Sport lieben."
     },
     "s6": {
       "k": "Weiter reichen",
-      "t": "Damit kein Ort vom Wandel<br>zurückgelassen wird",
-      "d": "Die Kluft, die KI öffnet, ist zwischen Ländern am größten. Wir überlassen das Vorbereiten nicht den Orten, die zuerst angekommen sind. Wir erweitern Sprachen und Vertrieb, damit Leser in Entwicklungsländern dieser Zeit mit denselben Büchern begegnen."
+      "t": "Damit kein Ort<br>zurückbleibt",
+      "d": "Dieselben Bücher für Leser in Entwicklungsländern."
     },
     "s7": {
       "k": "Unser Versprechen",
       "t": "Der Wille zu lernen<br>soll genügen",
-      "d": "Die Mittel einer Familie dürfen nicht entscheiden, was ein Kind lernen kann. Ein Buch in Reichweite für alle, die es wollen — dafür verlegt Awesome Books Asia."
+      "d": "Die Mittel der Familie dürfen nicht entscheiden."
     }
   },
   "newrel": {
