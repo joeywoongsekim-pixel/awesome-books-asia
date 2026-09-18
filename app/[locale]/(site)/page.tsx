@@ -1,4 +1,5 @@
 import {setRequestLocale} from 'next-intl/server';
+import BookHero from '../../../components/home/BookHero';
 import HeroVision from '../../../components/home/HeroVision';
 import Shelf from '../../../components/home/Shelf';
 import Categories from '../../../components/home/Categories';
@@ -10,10 +11,11 @@ import Journal from '../../../components/home/Journal';
 import RecentlyViewed from '../../../components/home/RecentlyViewed';
 import UspBar from '../../../components/home/UspBar';
 
-// Homepage skeleton: vision hero (slides) → the shelf (tabbed, four books
-// standing) → categories →
-// spotlights → (plans) → newsletter → journal → USP bar. The announce bar and
-// sticky nav live in the (site) layout.
+// Homepage skeleton: book hero (one title at a time, full-bleed) → the
+// shelf (tabbed, books standing) → categories → spotlights → (plans) →
+// newsletter → journal → USP bar → the philosophy carousel, which closes
+// the page just above the footer. The announce bar and sticky nav live in
+// the (site) layout.
 export default async function HomePage({
   params
 }: {
@@ -25,7 +27,7 @@ export default async function HomePage({
 
   return (
     <>
-      <HeroVision />
+      <BookHero />
       <Shelf />
       <Categories />
       <Spotlights />
@@ -35,6 +37,7 @@ export default async function HomePage({
       <Journal />
       <RecentlyViewed />
       <UspBar />
+      <HeroVision />
     </>
   );
 }

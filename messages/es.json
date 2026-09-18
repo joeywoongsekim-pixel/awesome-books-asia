@@ -453,5 +453,35 @@
     "edEN": "inglés",
     "edKO": "coreano",
     "edJA": "japonés"
+  },
+  "bookHero": {
+    "label": "Libros destacados",
+    "prev": "Anterior",
+    "next": "Siguiente",
+    "ai-answer": {
+      "k": "IA · Criterio",
+      "t": "AIの答えに、人間は何を足すのか",
+      "d": "Lo que le queda a la persona cuando la máquina ya respondió."
+    },
+    "quantum-econ": {
+      "k": "Economía",
+      "t": "Quantum Economics",
+      "d": "El precio no se descubre. Se fija en el instante en que preguntas."
+    },
+    "ai-bible": {
+      "k": "IA · Iniciación",
+      "t": "Awesome AI Bible 2026",
+      "d": "Doce capítulos, del primer prompt a las reglas del equipo."
+    },
+    "isekai": {
+      "k": "Emprendimiento",
+      "t": "ISEKAI Entrepreneurship",
+      "d": "Levantar un mercado desde cero, en un reino sin precios."
+    },
+    "ninja-cat": {
+      "k": "Álbum ilustrado",
+      "t": "Clumsy Ninja Cat Kuro",
+      "d": "Un gato ninja que fracasa, siempre, al esconderse."
+    }
   }
 }

@@ -453,5 +453,35 @@
     "edEN": "Englisch",
     "edKO": "Koreanisch",
     "edJA": "Japanisch"
+  },
+  "bookHero": {
+    "label": "Ausgewählte Bücher",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "ai-answer": {
+      "k": "KI · Urteil",
+      "t": "AIの答えに、人間は何を足すのか",
+      "d": "Was dem Menschen bleibt, wenn die Maschine geantwortet hat."
+    },
+    "quantum-econ": {
+      "k": "Wirtschaft",
+      "t": "Quantum Economics",
+      "d": "Ein Preis wird nicht gefunden. Er entsteht in dem Moment, in dem man fragt."
+    },
+    "ai-bible": {
+      "k": "KI · Einstieg",
+      "t": "Awesome AI Bible 2026",
+      "d": "Zwölf Kapitel, vom ersten Prompt bis zu den Regeln im Team."
+    },
+    "isekai": {
+      "k": "Unternehmertum",
+      "t": "ISEKAI Entrepreneurship",
+      "d": "Einen Markt aus dem Nichts bauen — in einem Königreich ohne Preise."
+    },
+    "ninja-cat": {
+      "k": "Bilderbuch",
+      "t": "Clumsy Ninja Cat Kuro",
+      "d": "Eine Ninja-Katze, der das Verstecken jedes Mal misslingt."
+    }
   }
 }

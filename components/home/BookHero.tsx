@@ -2,19 +2,23 @@
 
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import Multiline from '../Multiline';
+import {Link} from '../../i18n/navigation';
 
-// §9.4 — the house philosophy in seven slides. Each is one headline, one
-// line under it, and a picture behind it that says the same thing without
-// words. Auto-advances, pauses on hover/focus and under reduced motion, and
-// answers dots, arrows, arrow keys and swipes. M60 moved it off the top of
-// the page to the band just above the footer, where it closes the page
-// rather than opening it.
-const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
+// The hero: one book at a time, its photograph full-bleed behind a small
+// category label, the title, and a single line about it. Auto-advances,
+// pauses on hover/focus and under reduced motion, and answers the dots,
+// the arrows, arrow keys and swipes.
+const SLIDES = [
+  {id: 'ai-answer', img: '1'},
+  {id: 'quantum-econ', img: '2'},
+  {id: 'ai-bible', img: '3'},
+  {id: 'isekai', img: '4'},
+  {id: 'ninja-cat', img: '5'}
+] as const;
 const INTERVAL_MS = 7000;
 
-export default function HeroVision() {
-  const t = useTranslations('vision');
+export default function BookHero() {
+  const t = useTranslations('bookHero');
   const [i, setI] = useState(0);
   const [paused, setPaused] = useState(false);
   const touch = useRef<number | null>(null);
@@ -30,11 +34,7 @@ export default function HeroVision() {
 
   return (
     <section
-      className="vh"
-      // Each slide lays itself out differently — which side the plate takes,
-      // how wide it is, where the copy sits vertically — so seven slides in
-      // a row do not read as one frozen composition.
-      data-l={SLIDES[i]}
+      className="bh"
       aria-roledescription="carousel"
       aria-label={t('label')}
       onMouseEnter={() => setPaused(true)}
@@ -54,50 +54,46 @@ export default function HeroVision() {
       }}
       tabIndex={-1}
     >
-      <div className="vh-photo" aria-hidden="true">
-        {SLIDES.map((slide, n) => (
+      <div className="bh-art" aria-hidden="true">
+        {SLIDES.map((s, n) => (
           // eslint-disable-next-line @next/next/no-img-element
           <img
-            key={slide}
-            src={`/hero/${slide}.webp`}
+            key={s.id}
+            src={`/bookhero/${s.img}.webp`}
             alt=""
-            data-slide={slide}
             className={n === i ? 'on' : undefined}
             loading={n === 0 ? 'eager' : 'lazy'}
             fetchPriority={n === 0 ? 'high' : undefined}
           />
         ))}
-        <span className="vh-scrim" />
+        <span className="bh-scrim" />
       </div>
 
-      <div className="vh-in">
-        {/* One grid cell holds all seven, so a slide change moves nothing. */}
-        <div className="vh-stage">
+      <div className="bh-in">
+        <div className="bh-stage">
           {SLIDES.map((s, n) => (
-            <div
-              key={s}
-              className={`vh-slide${n === i ? ' on' : ''}`}
+            <Link
+              key={s.id}
+              href={`/books/${s.id}`}
+              className={`bh-slide${n === i ? ' on' : ''}`}
               aria-hidden={n !== i}
-              role="group"
-              aria-roledescription="slide"
+              tabIndex={n === i ? undefined : -1}
             >
-              <h1 className="vh-t">
-                <Multiline text={t.raw(`${s}.t`) as string} />
-              </h1>
-              <p className="vh-d">{t(`${s}.d`)}</p>
-            </div>
+              <span className="bh-k">{t(`${s.id}.k`)}</span>
+              <span className="bh-t">{t(`${s.id}.t`)}</span>
+              <span className="bh-d">{t(`${s.id}.d`)}</span>
+            </Link>
           ))}
         </div>
 
-
-        <div className="vh-nav">
+        <div className="bh-nav">
           <button type="button" onClick={() => go(i - 1)} aria-label={t('prev')}>
             ‹
           </button>
-          <div className="vh-dots">
+          <div className="bh-dots">
             {SLIDES.map((s, n) => (
               <button
-                key={s}
+                key={s.id}
                 type="button"
                 className={n === i ? 'on' : undefined}
                 aria-label={`${n + 1}`}

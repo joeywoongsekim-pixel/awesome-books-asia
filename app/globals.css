@@ -6337,48 +6337,6 @@ html[lang='ja'] .vh-t {
   }
 }
 
-/* On the left-plate slides the bar is lit the other way round: the logo and
-   menu sit on the photograph and the account cluster sits on paper. The bar
-   is not inside the hero, so HeroVision publishes the current side on <html>
-   for these rules to read. Phones keep the stacked layout, where the plate
-   is always at the foot and the whole bar is over paper. */
-@media (min-width: 821px) {
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .bl-word,
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a {
-    color: var(--paper);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a:hover {
-    color: var(--paper);
-    border-bottom-color: rgb(240 238 233 / 0.55);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a.on {
-    border-bottom-color: var(--paper);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-lang-btn {
-    color: var(--ink-2);
-    border-color: var(--hair);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-lang-btn:hover {
-    color: var(--lapis);
-    border-color: var(--lapis);
-    background: transparent;
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-cta {
-    background: var(--lapis);
-    color: var(--paper);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-cta:hover {
-    background: var(--lapis-dk);
-    color: var(--paper);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-burger {
-    border-color: var(--hair);
-  }
-  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-burger span {
-    background: var(--night);
-  }
-}
-
 /* Between 821 and 1100 the marker row (two arrows plus seven markers, about
    410px) is wider than the space a 52–56% plate leaves beside it, so it ran
    onto the photograph. It shrinks there, as it already does on phones. */
@@ -6649,4 +6607,293 @@ html[lang='ja'] .vh-t {
   color: var(--ink-3);
   font-weight: 500;
   letter-spacing: 0.04em;
+}
+
+/* ── M60: the hero is a book, and the philosophy moves to the foot ───────
+   Reference: gestalten.com. The first screen is now one title at a time —
+   a photograph a reader could have taken of the book, full bleed, with a
+   small category label, the title, and one line. The seven-slide
+   philosophy carousel keeps everything it had and simply moves to the
+   bottom of the page, just above the footer, where it reads as the
+   house's closing statement rather than its greeting. */
+.bh {
+  position: relative;
+  margin-top: -76px; /* the picture runs up under the floating bar */
+  min-height: 100dvh;
+  display: flex;
+  background: var(--night);
+  overflow: hidden;
+}
+.bh-art {
+  position: absolute;
+  inset: 0;
+}
+.bh-art img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  transition: opacity 0.9s ease, transform 9s linear;
+}
+.bh-art img.on {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Dark at the top so the bar has something to sit on, dark at the foot so
+   the copy does; the middle of the picture is left the colour it was taken. */
+.bh-scrim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgb(17 19 23 / 0.55) 0, rgb(17 19 23 / 0.14) 190px, transparent 340px),
+    linear-gradient(0deg, rgb(17 19 23 / 0.8) 0, rgb(17 19 23 / 0.34) 40%, transparent 70%);
+}
+.bh-in {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  padding: 132px 32px 62px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* One grid cell for all five, so a slide change moves nothing. */
+.bh-stage {
+  display: grid;
+  max-width: 720px;
+}
+.bh-slide {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: var(--paper);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.34s ease, transform 0.5s ease;
+}
+.bh-slide.on {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+  transition: opacity 0.55s ease 0.2s, transform 0.65s ease 0.2s;
+}
+.bh-k {
+  font-family: var(--font-label);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(240 238 233 / 0.82);
+  margin-bottom: 18px;
+}
+.bh-t {
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 4.2vw, 58px);
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 16px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.bh-d {
+  font-size: clamp(16px, 1.35vw, 19px);
+  line-height: 1.62;
+  color: rgb(240 238 233 / 0.84);
+  max-width: 540px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.bh-slide:hover .bh-t,
+.bh-slide:focus-visible .bh-t {
+  text-decoration: underline;
+  text-underline-offset: 7px;
+  text-decoration-thickness: 1px;
+}
+/* Markers small, at the foot on the right — the same place the philosophy
+   hero's went in M57, so the two carousels are operated the same way. */
+.bh-nav {
+  position: absolute;
+  right: 32px;
+  bottom: 56px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bh-nav > button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgb(240 238 233 / 0.45);
+  background: transparent;
+  color: var(--paper);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.bh-nav > button:hover {
+  border-color: var(--paper);
+  background: rgb(240 238 233 / 0.14);
+}
+.bh-dots {
+  display: flex;
+  gap: 6px;
+}
+.bh-dots button {
+  width: 16px;
+  height: 2px;
+  border: 0;
+  padding: 0;
+  background: rgb(240 238 233 / 0.4);
+  cursor: pointer;
+  transition: background 0.25s;
+}
+.bh-dots button.on {
+  background: var(--paper);
+}
+/* CJK carries a title in far fewer characters than Latin, and these titles
+   are long in Japanese — the ceiling comes down rather than up here. */
+html[lang='ja'] .bh-t,
+html[lang='ko'] .bh-t {
+  font-size: clamp(30px, 3.8vw, 52px);
+  letter-spacing: -0.01em;
+}
+@media (prefers-reduced-motion: reduce) {
+  .bh-art img,
+  .bh-slide {
+    transition: opacity 0.2s linear;
+    transform: none;
+  }
+  .bh-art img.on {
+    transform: none;
+  }
+}
+
+/* The whole bar is over a dark photograph again, so it goes back to 페이퍼
+   on every element — including the phone, where M49 had put it on paper. */
+.nav:not(.stuck):not(.solid) .bl-word,
+.nav:not(.stuck):not(.solid) .nav-menu a {
+  color: var(--paper);
+}
+.nav:not(.stuck):not(.solid) .nav-menu a:hover {
+  color: var(--paper);
+  border-bottom-color: rgb(240 238 233 / 0.55);
+}
+.nav:not(.stuck):not(.solid) .nav-menu a.on {
+  border-bottom-color: var(--paper);
+}
+.nav:not(.stuck):not(.solid) .nav-lang-btn,
+.nav:not(.stuck):not(.solid) .nav-auth-link .nav-lang-btn {
+  color: var(--paper);
+  border-color: rgb(240 238 233 / 0.45);
+  background: transparent;
+}
+.nav:not(.stuck):not(.solid) .nav-lang-btn:hover,
+.nav:not(.stuck):not(.solid) .nav-auth-link .nav-lang-btn:hover {
+  color: var(--paper);
+  border-color: var(--paper);
+  background: rgb(240 238 233 / 0.12);
+}
+.nav:not(.stuck):not(.solid) .nav-burger {
+  border-color: rgb(240 238 233 / 0.45);
+}
+.nav:not(.stuck):not(.solid) .nav-burger span {
+  background: var(--paper);
+}
+@media (max-width: 820px) {
+  .nav:not(.stuck):not(.solid) .nav-lang-btn {
+    color: var(--paper);
+    border-color: rgb(240 238 233 / 0.45);
+  }
+  .nav:not(.stuck):not(.solid) .nav-lang-btn:hover {
+    color: var(--paper);
+    border-color: var(--paper);
+    background: rgb(240 238 233 / 0.12);
+  }
+  .nav:not(.stuck):not(.solid) .nav-burger {
+    border-color: rgb(240 238 233 / 0.45);
+  }
+  .nav:not(.stuck):not(.solid) .nav-burger span {
+    background: var(--paper);
+  }
+}
+/* The sheet drops onto a solid 페이퍼 ground, so its own rows stay dark. */
+.nav-sheet .nav-sheet-auth .nav-lang-btn,
+.nav:not(.stuck):not(.solid) .nav-sheet a,
+.nav-sheet a {
+  color: var(--ink-1);
+}
+.nav-sheet a.on {
+  color: var(--lapis);
+}
+
+/* ── the bar: menu left, mark centred, language and account right ────────
+   Reference again: gestalten.com. The lockup leaves the corner for the
+   middle of the bar, the navigation takes the left, and the right is the
+   two things a reader actually needs — the language and their account. */
+.nav {
+  grid-template-columns: 1fr auto 1fr;
+}
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-self: start;
+  min-width: 0;
+}
+.nav-logo {
+  justify-self: center;
+}
+.nav-menu {
+  justify-self: auto;
+}
+
+/* ── the philosophy hero, now a band above the footer ────────────────── */
+.vh {
+  margin-top: 0;
+  min-height: 680px;
+  border-top: 1px solid var(--hair);
+}
+.vh-in {
+  min-height: 680px;
+}
+/* It no longer has a floating bar over it, so the shadow down its top edge
+   has nothing to hold up. */
+.vh-scrim {
+  display: none;
+}
+@media (max-width: 820px) {
+  .vh {
+    min-height: 600px;
+  }
+  .vh-in {
+    min-height: 0;
+    padding-top: 64px;
+  }
+  .bh-in {
+    padding: 116px 20px 40px;
+  }
+  .bh-stage {
+    max-width: none;
+  }
+  .bh-nav {
+    position: static;
+    margin-top: 32px;
+    align-self: flex-end;
+  }
+  .bh-k {
+    margin-bottom: 14px;
+  }
 }

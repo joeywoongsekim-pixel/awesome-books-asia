@@ -53,30 +53,10 @@ export default function Nav() {
 
   return (
     <nav className={className}>
-      {/* Guide §웹사이트: the horizontal lockup sits top-left, 28–36px tall. */}
-      <Link href="/" className="nav-logo" aria-label={t('brand')}>
-        <BrandLogo size={32} />
-      </Link>
-
-      <ul className="nav-menu">
-        {items.map((item) => (
-          <li key={item.key}>
-            <Link
-              href={item.href}
-              className={item.key === 'home' && isHome ? 'on' : undefined}
-            >
-              {t(item.key)}
-            </Link>
-          </li>
-        ))}
-      </ul>
-
-      <div className="nav-right">
-        <NavAuth />
-        <LanguageSwitcher />
-        <Link href="/read/ai-bible" className="nav-cta">
-          {t('cta')} →
-        </Link>
+      {/* M60 — menu on the left, the mark in the middle, and on the right
+          only the two things a reader needs: the language and the account.
+          The burger sits with the menu it opens, not across from it. */}
+      <div className="nav-left">
         <button
           type="button"
           className={`nav-burger${open ? ' open' : ''}`}
@@ -88,6 +68,28 @@ export default function Nav() {
           <span />
           <span />
         </button>
+
+        <ul className="nav-menu">
+          {items.map((item) => (
+            <li key={item.key}>
+              <Link
+                href={item.href}
+                className={item.key === 'home' && isHome ? 'on' : undefined}
+              >
+                {t(item.key)}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Link href="/" className="nav-logo" aria-label={t('brand')}>
+        <BrandLogo size={32} />
+      </Link>
+
+      <div className="nav-right">
+        <LanguageSwitcher />
+        <NavAuth />
       </div>
 
       {open && (
@@ -102,11 +104,8 @@ export default function Nav() {
               {t(item.key)}
             </Link>
           ))}
-          <Link href="/read/ai-bible" className="nav-sheet-cta" onClick={() => setOpen(false)}>
-            {t('cta')} →
-          </Link>
           {/* Account moves in here on a phone: the bar itself only has room
-              for the logo, the language flag and this button. */}
+              for the logo, the language flag and the burger. */}
           <div className="nav-sheet-auth" onClick={() => setOpen(false)}>
             <NavAuth />
           </div>
