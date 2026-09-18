@@ -54,7 +54,13 @@ export function bookJsonLd(book: Book) {
     offers: links
       .filter((e) => e.price)
       .map((e) => {
-        const currency = e.price!.includes('원') ? 'KRW' : e.price!.includes('¥') ? 'JPY' : 'USD';
+        const currency = e.price!.includes('원')
+          ? 'KRW'
+          : e.price!.includes('¥')
+            ? 'JPY'
+            : e.price!.includes('₹')
+              ? 'INR'
+              : 'USD';
         return {
           '@type': 'Offer',
           price: Number(e.price!.replace(/[^\d.]/g, '')),

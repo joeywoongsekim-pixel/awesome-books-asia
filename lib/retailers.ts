@@ -3,7 +3,7 @@
 // store listing — do not swap these for search links.
 
 export type EditionLink = {
-  store: 'Amazon' | 'Amazon JP' | '교보문고' | '교보 eBook' | 'YES24' | '알라딘';
+  store: 'Amazon' | 'Amazon JP' | 'Amazon IN' | '교보문고' | '교보 eBook' | 'YES24' | '알라딘';
   lang: 'KO' | 'EN' | 'JA';
   format: 'ebook' | 'print';
   note?: string; // regional edition label, e.g. 'UK Edition'
@@ -24,8 +24,11 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   'quantum-econ-uk': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H86W24T9', price: '$3.34'}
   ],
+  // The India edition is sold on Amazon India, not on amazon.com — the
+  // link here used to point at the US store. Price pending: amazon.in
+  // refuses automated reads, so the ₹ figure has to be read off the page.
   'quantum-econ-in': [
-    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H86YMQG9', price: '$2.18'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0HK79Y7KK'}
   ],
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},

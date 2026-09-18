@@ -258,7 +258,7 @@ export const BOOKS: Book[] = [
     blurb:
       "The India edition of Quantum Economics: superposition, measurement and entanglement as a working toolkit for the new economics of decision-making, framed for Indian readers and markets.",
     pages: 283,
-    published: "2026-08",
+    published: "2026-09",
     toc: [],
     sp: [],
   },
