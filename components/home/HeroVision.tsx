@@ -9,9 +9,12 @@ import Multiline from '../Multiline';
 // headline, one line under it, and a picture behind it that says the same
 // thing without words. Auto-advances, pauses on hover/focus and under
 // reduced motion, and answers dots, arrows, arrow keys and swipes.
-// Every slide now runs its photograph full-bleed behind a 라피스 scrim.
 const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
 const INTERVAL_MS = 7000;
+
+// Slides whose plate sits on the left. Kept here because the floating bar
+// has to know: on these the logo and menu are over the photograph.
+const LEFT_PLATE = new Set<string>(['s2', 's4', 's6']);
 
 export default function HeroVision() {
   const t = useTranslations('vision');
@@ -28,9 +31,24 @@ export default function HeroVision() {
     return () => clearInterval(id);
   }, [paused, i]);
 
+  // The floating bar is lit by whatever is under it, and on these slides that
+  // changes side. The bar is not inside this section — it is a sibling of the
+  // page wrapper — so the current side is published on <html> for it to read.
+  useEffect(() => {
+    const root = document.documentElement;
+    root.dataset.heroPlate = LEFT_PLATE.has(SLIDES[i]) ? 'left' : 'right';
+    return () => {
+      delete root.dataset.heroPlate;
+    };
+  }, [i]);
+
   return (
     <section
       className="vh"
+      // Each slide lays itself out differently — which side the plate takes,
+      // how wide it is, where the copy sits vertically — so seven slides in
+      // a row do not read as one frozen composition.
+      data-l={SLIDES[i]}
       aria-roledescription="carousel"
       aria-label={t('label')}
       onMouseEnter={() => setPaused(true)}
@@ -88,9 +106,6 @@ export default function HeroVision() {
         <div className="vh-cta">
           <Link href="/books" className="btn-gold">
             {t('ctaBooks')}
-          </Link>
-          <Link href="/read/ai-bible" className="btn-goldo">
-            {t('ctaSample')}
           </Link>
         </div>
 

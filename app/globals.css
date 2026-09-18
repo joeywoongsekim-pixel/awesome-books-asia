@@ -5862,3 +5862,514 @@ html[lang='ko'] .vh-t,
 html[lang='ja'] .vh-t {
   font-size: clamp(64px, 7.5vw, 104px);
 }
+
+/* ── M53: the landing page below the hero, in a publisher's grammar ──────
+   The page had become an alternating stack of 라피스/페이퍼 split panels,
+   each repeating eyebrow → heading → paragraph → button, with the editors'
+   notes drawn as blue boxes reading 01 02 03. None of that is how a books
+   site looks. What replaces it: one paper ground throughout, sections
+   parted by a hairline rather than a colour change, centred headings,
+   photographs carrying the tiles, tiny tracked labels under the picture
+   rather than over it, and one solid 라피스 button where an action is
+   actually offered. Hero and new releases are untouched. */
+
+.sec,
+.sec.sheet {
+  background: var(--bg);
+  border-top: 1px solid var(--hair-soft);
+}
+.sec-in {
+  max-width: 1280px;
+}
+.h2 {
+  text-align: center;
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 44px;
+}
+/* the eyebrow rule-and-label belonged to the panel layout */
+.eyebrow::before,
+.eyebrow::after {
+  display: none;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 14px;
+}
+
+/* ── four ways into the shelf ─────────────────────────────────────────── */
+.cats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.cat {
+  display: block;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  min-height: 0;
+  text-align: center;
+  text-decoration: none;
+}
+.cat::before {
+  display: none; /* the gold corner rule */
+}
+.cat:hover {
+  border: 0;
+}
+.cat-img {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--tint);
+  margin-bottom: 16px;
+}
+.cat-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.cat:hover .cat-img img {
+  transform: scale(1.04);
+}
+.cat-t {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--night);
+  margin-bottom: 5px;
+}
+.cat-k {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ── feature blocks: a column of text, a picture beside it ────────────── */
+.spots {
+  background: var(--bg);
+}
+.spot,
+.spot.flip {
+  background: var(--bg);
+  border-top: 1px solid var(--hair-soft);
+  align-items: center;
+  gap: 72px;
+  padding: 92px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+/* these have to out-specify .spot.flip .spot-vis, which is three classes */
+.spot .spot-vis,
+.spot.flip .spot-vis {
+  background: transparent;
+  padding: 0;
+}
+.spot .spot-txt,
+.spot.flip .spot-txt {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  max-width: 460px;
+}
+.spot .spot-vis .v-row {
+  padding: 20px 2px;
+}
+/* the buy-guide cards lose their boxes too */
+.plan,
+.plan.hot {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--night);
+  border-radius: 0;
+  padding: 22px 0 0;
+  box-shadow: none;
+}
+.plan-tag {
+  display: none;
+}
+.plan-where,
+.plan-d {
+  color: var(--stone);
+}
+.coupon {
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--hair-soft);
+  border-radius: 0;
+  text-align: center;
+  padding: 26px 0 0;
+  font-size: 14px;
+  color: var(--stone);
+}
+.spot-t {
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--night);
+  margin-bottom: 18px;
+}
+.spot-t em {
+  font-style: normal;
+  color: var(--lapis);
+}
+.spot-lead {
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--stone);
+  margin-bottom: 30px;
+}
+/* one solid button where an action is offered */
+.spot-txt .btn-o {
+  background: var(--lapis);
+  border-color: var(--lapis);
+  color: var(--paper);
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 30px;
+}
+.spot-txt .btn-o:hover {
+  background: var(--lapis-dk);
+  border-color: var(--lapis-dk);
+  color: var(--paper);
+}
+/* the edition list loses its panel and becomes plain ruled rows */
+.v-ai {
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+.v-row,
+.v-row.q {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--hair);
+  border-radius: 0;
+  color: var(--night);
+  padding: 20px 2px;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+.v-row s {
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* ── how it works: three plain columns, no panel ──────────────────────── */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+  margin-top: 46px;
+}
+.step {
+  background: transparent;
+  border: 0;
+  border-top: 2px solid var(--night);
+  padding: 22px 0 0;
+}
+.step:nth-child(2),
+.plan.hot,
+.jr-card.gold {
+  border-top-color: var(--night);
+}
+.st-n {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+.st-h {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--night);
+  margin-bottom: 8px;
+}
+.st-d {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
+/* ── editors' notes: a photograph, then the note ──────────────────────── */
+.jr-card {
+  background: transparent;
+  border: 0;
+  border-top: 0;
+}
+.jr-vis {
+  aspect-ratio: 4 / 3;
+  background: var(--tint);
+  overflow: hidden;
+  display: block;
+  padding: 0;
+}
+.jr-vis img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.jr-card:hover .jr-vis img {
+  transform: scale(1.04);
+}
+.jr-body {
+  padding: 18px 0 0;
+}
+.jr-k {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.jr-t {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--night);
+  margin: 8px 0 8px;
+}
+.jr-x {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.jr-l {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lapis);
+}
+
+/* ── the newsletter stops being a coloured wall ───────────────────────── */
+.nlband {
+  background: var(--bg);
+  border-top: 1px solid var(--hair-soft);
+  padding: 88px 32px;
+}
+.nl-logo {
+  background: transparent;
+  padding: 0;
+  margin-bottom: 26px;
+}
+.nl-eyebrow {
+  color: var(--stone);
+}
+.nl-t {
+  color: var(--night);
+}
+.nl-lead {
+  color: var(--stone);
+}
+.nl-form input {
+  border-color: var(--hair);
+  color: var(--night);
+}
+.nl-form input::placeholder {
+  color: var(--ink-3);
+}
+.nl-form button {
+  background: var(--lapis);
+  border-color: var(--lapis);
+  color: var(--paper);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12.5px;
+}
+.nl-form button:hover {
+  background: var(--lapis-dk);
+  border-color: var(--lapis-dk);
+  color: var(--paper);
+}
+
+/* ── the strip above the footer ───────────────────────────────────────── */
+.usp {
+  background: var(--bg);
+  border-top: 1px solid var(--hair-soft);
+}
+.usp-in {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.usp-city {
+  color: var(--night);
+}
+
+@media (max-width: 1080px) {
+  .cats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .spot,
+  .spot.flip {
+    gap: 40px;
+    padding: 64px 20px;
+  }
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+@media (max-width: 560px) {
+  .cats {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+
+/* ── M54: seven slides, seven compositions ───────────────────────────────
+   Every slide put the copy at the same place with the plate the same width
+   on the same side, so the carousel read as one frozen picture with the
+   words swapped out. Each slide now sets which side the plate takes, how
+   wide it is, and where the copy sits vertically. The plate is positioned
+   with left+width rather than a side inset so it slides across instead of
+   jumping when the slide changes. Phones keep the single stacked layout —
+   there is only one sensible arrangement at that width. */
+@media (min-width: 821px) {
+  .vh-photo {
+    inset: 0 auto 0 auto;
+    top: 0;
+    bottom: 0;
+    left: 54%;
+    width: 46%;
+    max-width: none;
+    transition: left 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+      width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  /* the copy column can only be as wide as the plate leaves it, so each
+     variant caps it — otherwise a 56% plate runs straight into the words */
+  .vh-slide {
+    max-width: min(560px, var(--vh-copy, 40vw));
+  }
+  .vh[data-l='s1'] { --vh-copy: 40vw; }
+  .vh[data-l='s2'] { --vh-copy: 40vw; }
+  .vh[data-l='s3'] { --vh-copy: 30vw; }
+  .vh[data-l='s4'] { --vh-copy: 44vw; }
+  .vh[data-l='s5'] { --vh-copy: 34vw; }
+  .vh[data-l='s6'] { --vh-copy: 42vw; }
+  .vh[data-l='s7'] { --vh-copy: 36vw; }
+  /* copy on the right: the column shifts over, and so do the markers */
+  .vh[data-l='s2'] .vh-in,
+  .vh[data-l='s4'] .vh-in,
+  .vh[data-l='s6'] .vh-in {
+    align-items: flex-end;
+  }
+  .vh[data-l='s2'] .vh-nav,
+  .vh[data-l='s4'] .vh-nav,
+  .vh[data-l='s6'] .vh-nav {
+    left: auto;
+    right: 32px;
+  }
+
+  .vh[data-l='s1'] .vh-photo { left: 54%; width: 46%; }
+  .vh[data-l='s2'] .vh-photo { left: 0;   width: 50%; }
+  .vh[data-l='s3'] .vh-photo { left: 44%; width: 56%; }
+  .vh[data-l='s4'] .vh-photo { left: 0;   width: 44%; }
+  .vh[data-l='s5'] .vh-photo { left: 48%; width: 52%; }
+  .vh[data-l='s6'] .vh-photo { left: 0;   width: 46%; }
+  .vh[data-l='s7'] .vh-photo { left: 50%; width: 50%; }
+
+  /* and the copy sits high, centred or low, never the same twice running */
+  .vh[data-l='s3'] .vh-in,
+  .vh[data-l='s6'] .vh-in {
+    justify-content: flex-end;
+    padding-bottom: 188px;
+  }
+  .vh[data-l='s4'] .vh-in,
+  .vh[data-l='s7'] .vh-in {
+    justify-content: flex-start;
+    padding-top: 190px;
+  }
+}
+@media (max-width: 820px) {
+  .vh-photo {
+    left: auto;
+  }
+}
+
+/* On the left-plate slides the bar is lit the other way round: the logo and
+   menu sit on the photograph and the account cluster sits on paper. The bar
+   is not inside the hero, so HeroVision publishes the current side on <html>
+   for these rules to read. Phones keep the stacked layout, where the plate
+   is always at the foot and the whole bar is over paper. */
+@media (min-width: 821px) {
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .bl-word,
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a {
+    color: var(--paper);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a:hover {
+    color: var(--paper);
+    border-bottom-color: rgb(240 238 233 / 0.55);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-menu a.on {
+    border-bottom-color: var(--paper);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-lang-btn {
+    color: var(--ink-2);
+    border-color: var(--hair);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-lang-btn:hover {
+    color: var(--lapis);
+    border-color: var(--lapis);
+    background: transparent;
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-cta {
+    background: var(--lapis);
+    color: var(--paper);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-cta:hover {
+    background: var(--lapis-dk);
+    color: var(--paper);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-burger {
+    border-color: var(--hair);
+  }
+  html[data-hero-plate='left'] .nav:not(.stuck):not(.solid) .nav-burger span {
+    background: var(--night);
+  }
+}
+
+/* Between 821 and 1100 the marker row (two arrows plus seven markers, about
+   410px) is wider than the space a 52–56% plate leaves beside it, so it ran
+   onto the photograph. It shrinks there, as it already does on phones. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .vh-nav {
+    gap: 12px;
+  }
+  .vh-nav > button {
+    width: 34px;
+    height: 34px;
+    flex: none;
+  }
+  .vh-dots {
+    gap: 7px;
+  }
+  .vh-dots button {
+    width: 20px;
+  }
+}
