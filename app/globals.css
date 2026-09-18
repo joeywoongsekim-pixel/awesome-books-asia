@@ -6857,3 +6857,97 @@ html[lang='ko'] .bh-t {
     );
   }
 }
+
+/* ── M63: the fold lands on the category words ───────────────────────────
+   78% was a proportion, and a proportion cannot promise what the fold
+   cuts: on a tall window the book covers came up under the tabs before
+   anyone had scrolled. gestalten's first screen ends on the three words
+   and nothing else, so the height is measured from the bottom instead —
+   the hero takes whatever is left once the bar, the shelf's own top
+   padding, the row of tabs and a little clear air are accounted for. The
+   covers then always begin below the fold, at any window height. */
+.bh {
+  /* 84px shelf padding + 52px tab row + 24px clear */
+  --bh-peek: 160px;
+  min-height: max(400px, calc(100dvh - 76px - var(--bh-peek)));
+}
+.bh-in {
+  min-height: max(400px, calc(100dvh - 76px - var(--bh-peek)));
+}
+@media (max-width: 900px) {
+  .bh {
+    /* 56px + 44px + 20px */
+    --bh-peek: 120px;
+  }
+}
+
+/* ── M64: the books at the size the reference gives them ─────────────────
+   On gestalten the covers are the largest thing on the page after the hero,
+   the row uses the page's width, and the air between the books does as much
+   work as the books. Ours were set for a 1280px band and read as thumbnails
+   on a wide display.
+
+   The column is derived rather than guessed: four columns and three gaps
+   make exactly the row's width, so the row never wraps three-and-one at any
+   size. The block's height then follows its own column (145cqw — every
+   cover we publish is 0.63–0.67 wide, so 1.45 always leaves the widest one
+   inside its column) instead of being a number that happens to fit at one
+   breakpoint. */
+.nsh-in {
+  max-width: min(1960px, 100vw - 120px);
+}
+.nsh-row {
+  --nsh-gap: clamp(24px, 6vw, 170px);
+  gap: clamp(40px, 4vw, 72px) var(--nsh-gap);
+}
+.nsh-bk {
+  flex: 0 1 min(320px, calc((100% - 3 * var(--nsh-gap)) / 4));
+  min-width: 0;
+  container-type: inline-size;
+}
+.nsh-3d {
+  height: min(145cqw, 464px);
+  margin-bottom: 34px;
+}
+/* A taller block wants a longer pool of shadow under it. */
+.nsh-3d::after {
+  bottom: -20px;
+  height: 32px;
+}
+.nsh-blk img {
+  box-shadow: 20px 26px 44px rgb(17 19 23 / 0.26), 3px 4px 10px rgb(17 19 23 / 0.16);
+}
+.nsh-spine {
+  width: 28px;
+}
+/* The caption grows with the cover — 13px under a 440px book reads as a
+   footnote to it rather than its title. */
+.nsh-t {
+  font-size: clamp(13px, 1.05vw, 16px);
+}
+.nsh-im {
+  font-size: clamp(11px, 0.85vw, 13px);
+}
+/* Between 900 and 1200 the gap would eat the books: four columns and a
+   6vw gutter leave less cover than the 1280px band used to. */
+@media (min-width: 901px) and (max-width: 1200px) {
+  .nsh-row {
+    --nsh-gap: clamp(20px, 3.4vw, 48px);
+  }
+}
+/* Two to a row on a phone, where four would be stamps. */
+@media (max-width: 900px) {
+  .nsh-in {
+    max-width: none;
+  }
+  .nsh-row {
+    --nsh-gap: clamp(18px, 5vw, 40px);
+  }
+  .nsh-bk {
+    flex: 0 1 min(210px, calc((100% - var(--nsh-gap)) / 2));
+  }
+  .nsh-3d {
+    height: min(145cqw, 310px);
+    margin-bottom: 26px;
+  }
+}
