@@ -46,26 +46,6 @@
     "tabNew": "Bago",
     "tabAll": "Lahat"
   },
-  "steps": {
-    "eyebrow": "Paano ito gumagana",
-    "title": "Pumili, subukan, saka bumili",
-    "lead": "Mababasa ang sample kahit walang account.",
-    "s1": {
-      "no": "01",
-      "title": "Pumili ng aklat sa istante",
-      "desc": "Tingnan ang istante ayon sa paksa at wika. Ipinapakita ng bawat aklat kung aling mga edisyon at format ang mayroon."
-    },
-    "s2": {
-      "no": "02",
-      "title": "Basahin ang sample sa browser",
-      "desc": "Walang i-install. Basahin ang mga unang kabanata, saka magpasya."
-    },
-    "s3": {
-      "no": "03",
-      "title": "Bilhin ang edisyong gusto mo",
-      "desc": "Ang mga ebook ay nasa Amazon Kindle at, sa Korea, sa Kyobo, YES24 at Aladin; ang mga print edition ay sa Kyobo at Amazon Japan. Ang mga link sa bawat pahina ng aklat ay diretso sa edisyong iyon."
-    }
-  },
   "plans": {
     "eyebrow": "Paano bumili",
     "title": "Saan ibinebenta ang mga aklat",
@@ -400,18 +380,6 @@
     "scrollHint": "Mag-scroll para pumasok",
     "backRoom": "Balik sa tindahan",
     "browseCase": "Tingnan ang estante"
-  },
-  "story": {
-    "eyebrow": "Paano namin ginagawa ang mga aklat",
-    "title": "Isang aklat,<br>isinulat nang tatlong beses",
-    "lead": "Sa halip na isalin pagkatapos, sumusulat kami mula sa unang draft na nasa isip ang mga mambabasang Korean, English at Japanese. Ang Japanese edition ng Quantum Economics ay gumagamit ng Bank of Japan, consumption tax at fan economies bilang halimbawa — kaya ang tatlong edisyon ay iisang aklat, at hindi rin.",
-    "r1": "Korean edition",
-    "r1s": "Kyobo · YES24 · Aladin",
-    "r2": "English edition",
-    "r2s": "Amazon US · UK · India",
-    "r3": "Japanese edition",
-    "r3s": "Amazon.co.jp",
-    "cta": "Tingnan ang istante"
   },
   "vision": {
     "label": "Ang aming paninindigan",

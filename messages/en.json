@@ -46,26 +46,6 @@
     "tabNew": "New",
     "tabAll": "All"
   },
-  "steps": {
-    "eyebrow": "How it works",
-    "title": "Choose, try, then buy",
-    "lead": "You can read the sample without an account.",
-    "s1": {
-      "no": "01",
-      "title": "Pick a book from the shelf",
-      "desc": "Browse the shelf by subject and language. Each book shows which editions and formats exist at a glance."
-    },
-    "s2": {
-      "no": "02",
-      "title": "Read the sample in your browser",
-      "desc": "Nothing to install. Read the opening chapters as they are, then decide."
-    },
-    "s3": {
-      "no": "03",
-      "title": "Buy the edition you want",
-      "desc": "Ebooks are on Amazon Kindle and, in Korea, Kyobo, YES24 and Aladin; print editions on Kyobo and Amazon Japan. The links on each book page go straight to that edition."
-    }
-  },
   "plans": {
     "eyebrow": "How to buy",
     "title": "Where the books are sold",
@@ -400,18 +380,6 @@
     "scrollHint": "Scroll to enter",
     "backRoom": "Back to the store",
     "browseCase": "Browse this bookcase"
-  },
-  "story": {
-    "eyebrow": "How we make books",
-    "title": "One book,<br>written three ways",
-    "lead": "Rather than translate later, we write with Korean, English and Japanese readers in mind from the first draft. The Japanese edition of Quantum Economics reaches for the Bank of Japan, consumption tax and fan economies — so the three editions are the same book, and not quite.",
-    "r1": "Korean edition",
-    "r1s": "Kyobo · YES24 · Aladin",
-    "r2": "English edition",
-    "r2s": "Amazon US · UK · India",
-    "r3": "Japanese edition",
-    "r3s": "Amazon.co.jp",
-    "cta": "See the shelf"
   },
   "vision": {
     "label": "What we stand for",

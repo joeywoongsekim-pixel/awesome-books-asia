@@ -1408,89 +1408,6 @@ footer {
   color: var(--ink-2);
   margin-bottom: 28px;
 }
-.spot-vis .v-ai {
-  width: 290px;
-}
-.spot-vis .v-row {
-  font-size: 11.5px;
-  padding: 9px 12px;
-}
-
-/* ══════════ AI ROWS VISUAL ══════════ */
-.v-ai {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.v-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 7px 11px;
-  border-radius: 0;
-  background: var(--aba-cream);
-  border: 1px solid var(--hair-soft);
-  font-size: 10.5px;
-  color: var(--ink-1);
-}
-.v-row.q {
-  background: var(--aba-gold);
-  border-color: var(--aba-gold);
-  color: #fff;
-  font-weight: 700;
-}
-.v-row s {
-  margin-left: auto;
-  text-decoration: none;
-  font-family: var(--font-label);
-  font-size: 8.5px;
-  font-weight: 700;
-  opacity: 0.6;
-}
-
-/* ══════════ STEPS ══════════ */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 44px;
-}
-.step {
-  position: relative;
-  background: var(--card);
-  border: 1px solid var(--hair-soft);
-  border-top: 3px solid var(--aba-navy);
-  border-radius: 0;
-  padding: 32px 28px;
-  transition: 0.25s;
-}
-.step:nth-child(2) {
-  border-top-color: var(--aba-gold);
-}
-.step:hover {
-  box-shadow: var(--shadow-navy);
-}
-.st-n {
-  font-family: var(--font-label);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  color: var(--aba-gold);
-  text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.st-h {
-  font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 700;
-  color: var(--ink-1);
-  margin-bottom: 9px;
-}
-.st-d {
-  font-size: 13.5px;
-  line-height: 1.8;
-  color: var(--ink-2);
-}
 
 /* ══════════ NEWSLETTER BAND (§9.8) ══════════ */
 .nlband {
@@ -3365,9 +3282,8 @@ footer {
   .spot-txt {
     padding: 40px 28px;
   }
-  .steps,
   .plans,
-  .jr-grid {
+.jr-grid {
     grid-template-columns: 1fr;
   }
   .books-head {
@@ -5928,9 +5844,6 @@ html[lang='ja'] .vh-t {
   padding: 0;
   max-width: 460px;
 }
-.spot .spot-vis .v-row {
-  padding: 20px 2px;
-}
 /* the buy-guide cards lose their boxes too */
 .plan,
 .plan.hot {
@@ -5990,71 +5903,9 @@ html[lang='ja'] .vh-t {
   border-color: var(--lapis-dk);
   color: var(--paper);
 }
-/* the edition list loses its panel and becomes plain ruled rows */
-.v-ai {
-  background: transparent;
-  border: 0;
-  padding: 0;
-}
-.v-row,
-.v-row.q {
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--hair);
-  border-radius: 0;
-  color: var(--night);
-  padding: 20px 2px;
-  font-size: 15px;
-  font-weight: 700;
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-}
-.v-row s {
-  text-decoration: none;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-
-/* ── how it works: three plain columns, no panel ──────────────────────── */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  margin-top: 46px;
-}
-.step {
-  background: transparent;
-  border: 0;
-  border-top: 2px solid var(--night);
-  padding: 22px 0 0;
-}
-.step:nth-child(2),
 .plan.hot,
 .jr-card.gold {
   border-top-color: var(--night);
-}
-.st-n {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  color: var(--stone);
-  margin-bottom: 12px;
-}
-.st-h {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--night);
-  margin-bottom: 8px;
-}
-.st-d {
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: var(--stone);
 }
 
 /* ── editors' notes: a photograph, then the note ──────────────────────── */
@@ -6174,10 +6025,6 @@ html[lang='ja'] .vh-t {
   .spot.flip {
     gap: 40px;
     padding: 64px 20px;
-  }
-  .steps {
-    grid-template-columns: 1fr;
-    gap: 32px;
   }
 }
 @media (max-width: 560px) {
