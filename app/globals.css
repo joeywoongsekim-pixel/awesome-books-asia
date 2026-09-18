@@ -6650,8 +6650,8 @@ html[lang='ja'] .vh-t {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(180deg, rgb(17 19 23 / 0.55) 0, rgb(17 19 23 / 0.14) 190px, transparent 340px),
-    linear-gradient(0deg, rgb(17 19 23 / 0.8) 0, rgb(17 19 23 / 0.34) 40%, transparent 70%);
+    linear-gradient(180deg, rgb(17 19 23 / 0.52) 0, rgb(17 19 23 / 0.13) 180px, transparent 320px),
+    linear-gradient(0deg, rgb(17 19 23 / 0.74) 0, rgb(17 19 23 / 0.26) 32%, transparent 60%);
 }
 .bh-in {
   position: relative;
@@ -6731,6 +6731,10 @@ html[lang='ja'] .vh-t {
   display: flex;
   align-items: center;
   gap: 10px;
+  /* These photographs are lit, not dark, and the markers can land on a
+     sheet of white paper. A shadow under the hairlines keeps them legible
+     without putting a chip or a panel on the picture. */
+  filter: drop-shadow(0 1px 3px rgb(17 19 23 / 0.6));
 }
 .bh-nav > button {
   width: 30px;
@@ -6895,5 +6899,30 @@ html[lang='ko'] .bh-t {
   }
   .bh-k {
     margin-bottom: 14px;
+  }
+  /* A phone crops a landscape frame to a tall slot roughly a quarter of its
+     width, and centred that slot misses the one thing each picture was
+     taken for — the corrected line, the doubled price tag, the tabs going
+     up the wall. Each frame keeps its own anchor instead. */
+  .bh-art img[data-slide='ai-answer'] {
+    object-position: 80% center;
+  }
+  .bh-art img[data-slide='quantum-econ'] {
+    object-position: 76% center;
+  }
+  .bh-art img[data-slide='ai-bible'] {
+    object-position: 70% center;
+  }
+  .bh-art img[data-slide='isekai'] {
+    object-position: 30% center;
+  }
+  .bh-art img[data-slide='ninja-cat'] {
+    object-position: 70% center;
+  }
+  /* More of the frame is copy down here, and these photographs are lit. */
+  .bh-scrim {
+    background:
+      linear-gradient(180deg, rgb(17 19 23 / 0.52) 0, rgb(17 19 23 / 0.13) 150px, transparent 280px),
+      linear-gradient(0deg, rgb(17 19 23 / 0.82) 0, rgb(17 19 23 / 0.4) 40%, transparent 70%);
   }
 }

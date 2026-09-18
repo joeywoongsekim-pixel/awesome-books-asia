@@ -61,6 +61,7 @@ export default function BookHero() {
             key={s.id}
             src={`/bookhero/${s.img}.webp`}
             alt=""
+            data-slide={s.id}
             className={n === i ? 'on' : undefined}
             loading={n === 0 ? 'eager' : 'lazy'}
             fetchPriority={n === 0 ? 'high' : undefined}
