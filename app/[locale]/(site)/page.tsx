@@ -3,6 +3,7 @@ import BookHero from '../../../components/home/BookHero';
 import HeroVision from '../../../components/home/HeroVision';
 import Shelf from '../../../components/home/Shelf';
 import Categories from '../../../components/home/Categories';
+import People from '../../../components/home/People';
 import Spotlights from '../../../components/home/Spotlights';
 import Plans from '../../../components/home/Plans';
 import Newsletter from '../../../components/home/Newsletter';
@@ -11,7 +12,8 @@ import RecentlyViewed from '../../../components/home/RecentlyViewed';
 import UspBar from '../../../components/home/UspBar';
 
 // Homepage skeleton: book hero (one title at a time, full-bleed) → the
-// shelf (tabbed, books standing) → categories → the web reader → how to
+// shelf (tabbed, books standing) → categories → the people → the web
+// reader → how to
 // buy → newsletter → journal → USP bar → the philosophy carousel, which
 // closes the page just above the footer. The announce bar and sticky nav
 // live in the (site) layout.
@@ -29,6 +31,7 @@ export default async function HomePage({
       <BookHero />
       <Shelf />
       <Categories />
+      <People />
       <Spotlights />
       <Plans />
       <Newsletter />

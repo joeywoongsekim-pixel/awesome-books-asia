@@ -464,5 +464,8 @@
       "t": "Clumsy Ninja Cat Kuro",
       "d": "Un gato ninja que fracasa, siempre, al esconderse."
     }
+  },
+  "people": {
+    "title": "Quienes hacen los libros"
   }
 }

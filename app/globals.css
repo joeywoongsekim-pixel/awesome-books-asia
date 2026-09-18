@@ -6915,3 +6915,96 @@ html[lang='ko'] .bh-t {
 .cat-img {
   margin-bottom: max(10px, 1.35vw);
 }
+
+/* ── M81: the people behind the books ────────────────────────────────────
+   Laid out the way the categories are — a picture, then the name under it
+   — but a portrait wants a taller frame than a landscape photograph, so
+   these are 4:5 and sit five across in the band's own width. A group is
+   only rendered when someone is credited in it. */
+.sec-ppl {
+  padding-left: max(20px, 3.35vw);
+  padding-right: max(20px, 3.35vw);
+}
+.sec-ppl .sec-in {
+  max-width: none;
+}
+.ppl-g + .ppl-g {
+  margin-top: clamp(48px, 4.4vw, 88px);
+}
+.ppl-role {
+  font-family: var(--font-label);
+  font-size: clamp(11px, 0.85vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-align: center;
+  margin-bottom: clamp(22px, 2vw, 36px);
+}
+/* Centred rather than a fixed five columns, so a row of four sits in the
+   middle of the band instead of leaving a hole on the right. The column is
+   derived from the row's width the way the shelf's is, and capped, because
+   a credit line does not want to be the size of a category. */
+.ppl {
+  --ppl-gap: max(14px, 1.4vw);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: max(26px, 2.25vw) var(--ppl-gap);
+}
+.ppl-p {
+  flex: 0 1 min(260px, calc((100% - 4 * var(--ppl-gap)) / 5));
+  min-width: 0;
+  text-align: center;
+}
+.ppl-img {
+  display: block;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--tint);
+  margin-bottom: max(10px, 1.1vw);
+}
+.ppl-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* No portrait yet: initials on the page's own ground, set large enough to
+   read as a deliberate plate rather than a broken image. */
+.ppl-mono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #e9edf6, #dfe4f0);
+  color: var(--lapis);
+  font-family: var(--font-mark);
+  font-size: clamp(28px, 3.4vw, 56px);
+  letter-spacing: 0.02em;
+}
+.ppl-n {
+  display: block;
+  font-size: clamp(13px, 1vw, 17px);
+  font-weight: 700;
+  color: var(--night);
+  margin-bottom: 4px;
+}
+.ppl-b {
+  display: block;
+  font-size: clamp(10.5px, 0.78vw, 12.5px);
+  line-height: 1.5;
+  color: var(--ink-3);
+  word-break: keep-all;
+}
+@media (max-width: 1080px) {
+  .ppl-p {
+    flex: 0 1 min(220px, calc((100% - 3 * var(--ppl-gap)) / 4));
+  }
+}
+@media (max-width: 720px) {
+  .ppl-p {
+    flex: 0 1 calc((100% - var(--ppl-gap)) / 2);
+  }
+}
