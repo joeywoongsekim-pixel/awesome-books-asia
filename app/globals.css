@@ -7174,3 +7174,37 @@ html[lang='ko'] .bh-t {
   color: var(--ink-3);
   margin-left: 9px;
 }
+
+/* ── M95: हिन्दी ─────────────────────────────────────────────────────────
+   Pretendard carries no Devanagari, so on the Hindi site every string
+   would fall through to whatever face the device happens to have — which
+   differs on every phone. Hindi gets Noto Sans Devanagari in front of the
+   stack instead, downloaded only here. */
+html[lang='hi'] {
+  --font-heading: var(--font-devanagari), var(--pretendard);
+  --font-body: var(--font-devanagari), var(--pretendard);
+  --font-label: var(--font-devanagari), var(--pretendard);
+}
+/* keep-all stops Korean breaking inside a word. Devanagari words are long
+   and the columns are narrow, so Hindi breaks the ordinary way. */
+html[lang='hi'] .vh-t,
+html[lang='hi'] .vh-d,
+html[lang='hi'] .bh-t,
+html[lang='hi'] .bh-d,
+html[lang='hi'] .nsh-t,
+html[lang='hi'] .ppl-b,
+html[lang='hi'] .pc-bio,
+html[lang='hi'] .pc-cr li,
+html[lang='hi'] .cat-t {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+/* Devanagari sits taller than Latin at the same size: the matras above and
+   below the line need the room, and the one-word hero headline is where a
+   tight leading shows first. */
+html[lang='hi'] .vh-t {
+  line-height: 1.22;
+}
+html[lang='hi'] .bh-t {
+  line-height: 1.26;
+}

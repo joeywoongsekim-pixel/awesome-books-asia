@@ -30,7 +30,7 @@ export const siteJsonLd = {
   name: 'Awesome Books Asia',
   url: SITE,
   publisher: {'@id': `${SITE}/#org`},
-  inLanguage: ['en', 'ko', 'ja', 'fil', 'de', 'fr', 'es', 'pt']
+  inLanguage: ['en', 'ko', 'ja', 'hi', 'fil', 'de', 'fr', 'es', 'pt']
 };
 
 export function bookJsonLd(book: Book) {

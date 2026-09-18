@@ -4,6 +4,7 @@ import {
   Noto_Serif_KR,
   Noto_Sans_KR,
   Noto_Serif_JP,
+  Noto_Sans_Devanagari,
   Playfair_Display,
   Lora,
   DM_Sans,
@@ -24,6 +25,17 @@ export const righteous = Righteous({
   weight: ['400'],
   variable: '--font-righteous',
   display: 'swap'
+});
+
+// 3 — 힌디어. Pretendard has no Devanagari, so Hindi would fall through to
+// whatever the device happens to have. This makes the Hindi site look the
+// same everywhere, and it is only downloaded on html[lang='hi'].
+export const notoDevanagari = Noto_Sans_Devanagari({
+  subsets: ['devanagari', 'latin'],
+  weight: ['400', '500', '700'],
+  variable: '--font-devanagari',
+  display: 'swap',
+  preload: false
 });
 
 /* ── Legacy faces: the reader desk and the demo book interiors ────────── */
@@ -99,6 +111,7 @@ export const cormorant = Cormorant_Garamond({
 
 export const fontVariables = [
   righteous.variable,
+  notoDevanagari.variable,
   cormorant.variable,
   notoSerifKR.variable,
   notoSansKR.variable,
