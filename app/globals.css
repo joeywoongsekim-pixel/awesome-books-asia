@@ -5666,6 +5666,14 @@ img {
 .vh-photo img[data-slide='s7'] {
   object-position: 56% center;
 }
+/* The row of shoes runs from the near corner into the distance. The plate
+   is a portrait slice of a landscape frame, and at anything near centre it
+   cuts the child's sandals off the left edge — which is the pair the slide
+   is about, standing next to the work boots. So this one is anchored hard
+   to the near end and lets the far end recede out of frame. */
+.vh-photo img[data-slide='s8'] {
+  object-position: 8% center;
+}
 
 /* Gold now appears in one place on the whole page, which is what the guide
    asks for: the cursor in the logo. */
