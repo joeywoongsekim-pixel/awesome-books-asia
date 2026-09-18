@@ -6978,3 +6978,14 @@ html[lang='ko'] .bh-t {
   color: var(--night);
   max-width: 520px;
 }
+
+/* ── M67: every book stands on the same line ─────────────────────────────
+   The row aligned on the bottom of the whole card, caption included, so a
+   title that wrapped to two lines pushed its book 24px higher than the one
+   beside it and the four stopped standing on one shelf. Aligning on the
+   top instead puts every block — all of them the same height — on the same
+   line at both ends, and starts every caption on the same line under them. */
+.nsh-row {
+  align-items: flex-start;
+  align-content: flex-start;
+}
