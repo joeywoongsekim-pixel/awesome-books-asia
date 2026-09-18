@@ -7208,3 +7208,81 @@ html[lang='hi'] .vh-t {
 html[lang='hi'] .bh-t {
   line-height: 1.26;
 }
+
+/* ── M97: the logo's face on the display layer ───────────────────────────
+   Righteous is the wordmark, and it has no Korean, Japanese or Devanagari
+   glyphs — so it can only ever carry short strings, and on six of the nine
+   locales it will fall through to Pretendard. That rules out headings and
+   body text and leaves the display layer: section headings, tab rows,
+   labels and the two hero titles. The logo's face then recurs small all
+   over the page instead of sitting alone in the corner.
+
+   One weight only, so anything it touches is set at 400 and the tracking
+   is opened; the locales it cannot serve get their weight back below. */
+:root {
+  --font-display: var(--font-righteous), var(--pretendard);
+}
+.cats-h,
+.nsh-tabs button,
+.nsh-one,
+.ppl-role,
+.eyebrow,
+.h2,
+.spot-t,
+.pc-n,
+.bh-t.lat,
+.vh-t {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+.cats-h,
+.nsh-tabs button,
+.nsh-one,
+.h2,
+.spot-t,
+.pc-n {
+  letter-spacing: 0.01em;
+}
+.bh-t.lat,
+.vh-t {
+  letter-spacing: -0.005em;
+}
+/* Righteous is wide and open; at label sizes it needs less tracking than
+   Pretendard did or the words come apart. */
+.ppl-role,
+.eyebrow {
+  letter-spacing: 0.13em;
+}
+/* Pretendard is doing the work on these, and at 400 it goes thin. */
+html[lang='ko'] .cats-h,
+html[lang='ja'] .cats-h,
+html[lang='hi'] .cats-h,
+html[lang='ko'] .nsh-tabs button,
+html[lang='ja'] .nsh-tabs button,
+html[lang='hi'] .nsh-tabs button,
+html[lang='ko'] .nsh-one,
+html[lang='ja'] .nsh-one,
+html[lang='hi'] .nsh-one,
+html[lang='ko'] .h2,
+html[lang='ja'] .h2,
+html[lang='hi'] .h2,
+html[lang='ko'] .spot-t,
+html[lang='ja'] .spot-t,
+html[lang='hi'] .spot-t,
+html[lang='ko'] .pc-n,
+html[lang='ja'] .pc-n,
+html[lang='hi'] .pc-n,
+html[lang='ko'] .vh-t,
+html[lang='ja'] .vh-t,
+html[lang='hi'] .vh-t {
+  font-weight: 700;
+}
+html[lang='ko'] .ppl-role,
+html[lang='ja'] .ppl-role,
+html[lang='hi'] .ppl-role,
+html[lang='ko'] .eyebrow,
+html[lang='ja'] .eyebrow,
+html[lang='hi'] .eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
