@@ -13,8 +13,8 @@ export type Person = {
   name: string;
   /** book ids from lib/books.ts, per role */
   credits: Partial<Record<Role, string[]>>;
-  /** at work on a first title, nothing published yet */
-  forthcoming?: boolean;
+  /** roles held but not yet published in — "at work on a first title" */
+  forthcoming?: Role[];
   /** a short note, shown only on the opened card */
   bio?: string;
   /** /public/people/<id>.webp — a monogram stands in until one exists */
@@ -33,11 +33,17 @@ export const PEOPLE: Person[] = [
   {
     id: 'akira-murata',
     name: 'Akira Murata',
-    credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []}
+    credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []},
+    forthcoming: ['translator']
   },
   {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}},
   {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}},
-  {id: 'joey-kim', name: 'Joey Kim', credits: {author: [], translator: []}, forthcoming: true},
+  {
+    id: 'joey-kim',
+    name: 'Joey Kim',
+    credits: {author: [], translator: []},
+    forthcoming: ['author', 'translator']
+  },
   {id: 'orion-carter', name: 'Orion Carter', credits: {illustrator: ['isekai', 'ninja-cat']}},
   {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}}
 ];

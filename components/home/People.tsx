@@ -134,11 +134,19 @@ export default function People() {
                   </div>
                 ))}
 
-                {ROLES.every((r) => (open.credits[r] ?? []).length === 0) && (
-                  <p className="pc-bio pc-soon">
-                    {open.forthcoming ? t('inProgress') : t('noCredits')}
-                  </p>
-                )}
+                {/* A role held but not yet published in says so under its own
+                    heading: "nothing recorded" and "not out yet" are different
+                    facts and must not be collapsed into one line. */}
+                {ROLES.filter(
+                  (r) => open.credits[r] !== undefined && (open.credits[r] ?? []).length === 0
+                ).map((r) => (
+                  <div className="pc-cr" key={`soon-${r}`}>
+                    <div className="pc-cr-h">{ROLE_LABEL[r]}</div>
+                    <p className="pc-bio pc-soon">
+                      {open.forthcoming?.includes(r) ? t('inProgress') : t('noCredits')}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>,
