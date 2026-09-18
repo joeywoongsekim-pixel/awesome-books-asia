@@ -14,14 +14,7 @@ import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import {SHELF, tri, type ShelfEdition} from '../../lib/shelf';
 import {EDITIONS} from '../../lib/retailers';
-import {BOOKS, type Category} from '../../lib/books';
-
-const CAT_KEY: Record<Category, string> = {
-  BIZ: 'catBIZ',
-  AI: 'catAI',
-  EDU: 'catEDU',
-  KIDS: 'catKIDS'
-};
+import {BOOKS, CAT_KEY} from '../../lib/books';
 
 export default function ShelfHero() {
   const locale = useLocale();
@@ -59,7 +52,7 @@ export default function ShelfHero() {
         {SHELF.map((row) => (
           <div className="shf-row" key={row.cat}>
             <div className="shf-books">
-              {row.cat === 'KIDS' ? (
+              {row.cat === 'PICTURE' ? (
                 <div className="shf-pile">
                   {row.items.map((ed) => (
                     <button

@@ -1,8 +1,10 @@
-// M24 — the illustrated shelf (C안): one shelf row per category, every
-// published edition standing as a spine. Category rows follow the store
-// filter categories; ghost slots show where the next titles will stand.
+// M24 — the illustrated shelf (C안): one shelf row per subject, every
+// published edition standing as a spine. Rows follow the store's taxonomy,
+// in its order, and only subjects that have books get a row — an empty
+// shelf for a subject nothing is published in yet says nothing. Ghost slots
+// show where the next titles in a stocked subject will stand.
 
-import type {Category} from './books';
+import {CATEGORIES, type Category} from './books';
 
 export type Tri = {ko: string; en: string; ja: string};
 
@@ -60,15 +62,21 @@ const NINJA_DESC: Tri = {
   ja: '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
 };
 
-export const SHELF: ShelfRow[] = [
+const ROWS: ShelfRow[] = [
   {
-    cat: 'BIZ',
+    cat: 'ECON',
     ghosts: 0,
     items: [
       {slug: 'quantum-econ', lang: 'EN', title: 'Quantum Economics', cover: '/covers/quantum-econ.jpg', bg: '#ece7db', fg: '#20242c', desc: QUANTUM_DESC, w: 44, h: 196},
       {slug: 'quantum-econ-uk', lang: 'EN', title: 'Quantum Economics (UK)', cover: '/covers/quantum-econ.jpg', bg: '#dcd6c6', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 188},
       {slug: 'quantum-econ-in', lang: 'EN', title: 'Quantum Economics (India)', cover: '/covers/quantum-econ.jpg', bg: '#cfc7b4', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 184, tilt: 3},
-      {slug: 'quantum-econ', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184},
+      {slug: 'quantum-econ', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184}
+    ]
+  },
+  {
+    cat: 'BIZ',
+    ghosts: 0,
+    items: [
       {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
       {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},
       {slug: 'isekai', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
@@ -84,12 +92,7 @@ export const SHELF: ShelfRow[] = [
     ]
   },
   {
-    cat: 'EDU',
-    ghosts: 3,
-    items: []
-  },
-  {
-    cat: 'KIDS',
+    cat: 'PICTURE',
     ghosts: 1,
     items: [
       {slug: 'ninja-cat', lang: 'KO', title: '덜렁이 닌자 고양이 쿠로편', cover: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', fg: '#3a2a1a', desc: NINJA_DESC, w: 178, h: 34, flat: true},
@@ -97,3 +100,9 @@ export const SHELF: ShelfRow[] = [
     ]
   }
 ];
+
+/* Rows are shown in the taxonomy's own order, whatever order they are
+   written in above, so adding a subject never means re-sorting by hand. */
+export const SHELF: ShelfRow[] = CATEGORIES.map((c) =>
+  ROWS.find((r) => r.cat === c)
+).filter((r): r is ShelfRow => Boolean(r));

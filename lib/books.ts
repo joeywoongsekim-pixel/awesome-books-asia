@@ -3,7 +3,52 @@
 // around it is translated via next-intl; editions per locale arrive with M5.
 
 export type Lang = "EN" | "KO" | "JA";
-export type Category = "AI" | "EDU" | "KIDS" | "BIZ";
+/* The house's shelf, as the publisher defines it. Twelve subjects; a book
+   belongs to exactly one. Order is the order they are shown in. */
+export type Category =
+  | "AI"
+  | "ECON"
+  | "BIZ"
+  | "PICTURE"
+  | "ELEM"
+  | "SECOND"
+  | "HIGHER"
+  | "SPORT"
+  | "FICTION"
+  | "WELLNESS"
+  | "ART"
+  | "TRAVEL";
+
+export const CATEGORIES: Category[] = [
+  "AI",
+  "ECON",
+  "BIZ",
+  "PICTURE",
+  "ELEM",
+  "SECOND",
+  "HIGHER",
+  "SPORT",
+  "FICTION",
+  "WELLNESS",
+  "ART",
+  "TRAVEL"
+];
+
+/** i18n key under `store` for each subject's name. */
+export const CAT_KEY: Record<Category, string> = {
+  AI: "catAI",
+  ECON: "catECON",
+  BIZ: "catBIZ",
+  PICTURE: "catPICTURE",
+  ELEM: "catELEM",
+  SECOND: "catSECOND",
+  HIGHER: "catHIGHER",
+  SPORT: "catSPORT",
+  FICTION: "catFICTION",
+  WELLNESS: "catWELLNESS",
+  ART: "catART",
+  TRAVEL: "catTRAVEL"
+};
 export type Cover = "c1" | "c2" | "c3" | "c4" | "c5" | "c6";
 
 export type Spread = {
@@ -131,7 +176,7 @@ export const BOOKS: Book[] = [
     cover: "c4",
     title: "Quantum Economics: Foundations and Applications",
     author: "Akira Murata",
-    cat: "BIZ",
+    cat: "ECON",
     catLabel: "Economics",
     price: 12,
     langs: ["EN", "JA"],
@@ -182,7 +227,7 @@ export const BOOKS: Book[] = [
     cover: "c4",
     title: "Quantum Economics: Foundations and Applications (UK Edition)",
     author: "Akira Murata",
-    cat: "BIZ",
+    cat: "ECON",
     catLabel: "Economics",
     price: 0,
     langs: ["EN"],
@@ -203,7 +248,7 @@ export const BOOKS: Book[] = [
     cover: "c4",
     title: "Quantum Economics: Foundations and Applications (India Edition)",
     author: "Akira Murata",
-    cat: "BIZ",
+    cat: "ECON",
     catLabel: "Economics",
     price: 0,
     langs: ["EN"],
@@ -287,8 +332,8 @@ export const BOOKS: Book[] = [
     cover: "c5",
     title: "Clumsy Ninja Cat Kuro",
     author: "Fumi Yamaneko · Orion Carter",
-    cat: "KIDS",
-    catLabel: "Children · Animal Comedy",
+    cat: "PICTURE",
+    catLabel: "Picture book · Animal Comedy",
     price: 7,
     langs: ["KO", "JA"],
     isNew: false,

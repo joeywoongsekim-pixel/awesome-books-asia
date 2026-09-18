@@ -2,7 +2,7 @@
 
 import {useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {BOOKS, type Category, type Lang} from '../../lib/books';
+import {BOOKS, CATEGORIES, CAT_KEY, type Category, type Lang} from '../../lib/books';
 import StoreCard from './StoreCard';
 import ShelfHero from './ShelfHero';
 
@@ -18,12 +18,15 @@ export default function StoreGrid() {
     (b) => (cat === 'all' || b.cat === cat) && (lang === 'all' || b.langs.includes(lang))
   );
 
+  // Twelve subjects are defined; a chip is only offered for the ones that
+  // have a book behind them, so the filter never leads to an empty shelf.
+  const stocked = new Set(BOOKS.map((b) => b.cat));
   const cats: {key: CatFilter; label: string}[] = [
     {key: 'all', label: t('all')},
-    {key: 'BIZ', label: t('catBIZ')},
-    {key: 'AI', label: t('catAI')},
-    {key: 'EDU', label: t('catEDU')},
-    {key: 'KIDS', label: t('catKIDS')}
+    ...CATEGORIES.filter((c) => stocked.has(c)).map((c) => ({
+      key: c as CatFilter,
+      label: t(CAT_KEY[c])
+    }))
   ];
   const langs: {key: LangFilter; label: string}[] = [
     {key: 'all', label: t('any')},
