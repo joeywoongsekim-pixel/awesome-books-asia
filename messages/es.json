@@ -466,6 +466,7 @@
     }
   },
   "people": {
-    "title": "Quienes hacen los libros"
+    "title": "Quienes hacen los libros",
+    "inProgress": "En preparación"
   }
 }

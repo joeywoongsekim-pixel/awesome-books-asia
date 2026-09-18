@@ -1,20 +1,20 @@
-// M81 — the people behind the books. Credits, not a roster: a name only
-// appears here if it is on a book the house has actually published, and
-// the books listed under it are the ones it is credited on.
+// M82 — the people behind the books. Credits, not a roster.
 //
-// The role split for a title credited to two people is not recorded in
-// lib/books.ts, which carries a single combined `author` string. Until the
-// house confirms who did what, everyone stays under the credit the book
-// itself gives them.
+// A person can hold more than one role, and the books are recorded per
+// role: what someone wrote and what they translated are different lists,
+// so one cannot stand in for the other. Where a role's list is empty the
+// credit simply is not recorded here yet, and the name shows without one
+// rather than borrowing the other role's titles.
 
 export type Role = 'author' | 'illustrator' | 'translator';
 
 export type Person = {
   id: string;
   name: string;
-  role: Role;
-  /** book ids from lib/books.ts, in publication order */
-  books: string[];
+  /** book ids from lib/books.ts, per role */
+  credits: Partial<Record<Role, string[]>>;
+  /** at work on a first title, nothing published yet */
+  forthcoming?: boolean;
   /** /public/people/<id>.webp — a monogram stands in until one exists */
   photo?: boolean;
 };
@@ -31,28 +31,16 @@ export const PEOPLE: Person[] = [
   {
     id: 'akira-murata',
     name: 'Akira Murata',
-    role: 'author',
-    books: ['quantum-econ', 'ai-bible', 'ai-answer']
+    credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []}
   },
-  {
-    id: 'lyra-mizuki',
-    name: 'Lyra Mizuki',
-    role: 'author',
-    books: ['isekai']
-  },
-  {
-    id: 'orion-carter',
-    name: 'Orion Carter',
-    role: 'author',
-    books: ['isekai', 'ninja-cat']
-  },
-  {
-    id: 'fumi-yamaneko',
-    name: 'Fumi Yamaneko',
-    role: 'author',
-    books: ['ninja-cat']
-  }
+  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}},
+  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}},
+  {id: 'joey-kim', name: 'Joey Kim', credits: {author: [], translator: []}, forthcoming: true},
+  {id: 'orion-carter', name: 'Orion Carter', credits: {illustrator: ['isekai', 'ninja-cat']}},
+  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}}
 ];
+
+export const inRole = (role: Role) => PEOPLE.filter((p) => p.credits[role] !== undefined);
 
 /** Initials for the monogram that stands in for a missing portrait. */
 export const initials = (name: string) =>

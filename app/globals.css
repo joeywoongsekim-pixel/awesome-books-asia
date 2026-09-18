@@ -7008,3 +7008,9 @@ html[lang='ko'] .bh-t {
     flex: 0 1 calc((100% - var(--ppl-gap)) / 2);
   }
 }
+
+/* A name with nothing published under it says so, quietly. */
+.ppl-soon {
+  font-style: italic;
+  color: var(--ink-3);
+}

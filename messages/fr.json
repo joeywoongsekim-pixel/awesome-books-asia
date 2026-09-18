@@ -466,6 +466,7 @@
     }
   },
   "people": {
-    "title": "Celles et ceux qui font les livres"
+    "title": "Celles et ceux qui font les livres",
+    "inProgress": "En cours"
   }
 }

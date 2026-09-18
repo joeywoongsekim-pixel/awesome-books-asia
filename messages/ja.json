@@ -466,6 +466,7 @@
     }
   },
   "people": {
-    "title": "つくる人たち"
+    "title": "つくる人たち",
+    "inProgress": "制作中"
   }
 }

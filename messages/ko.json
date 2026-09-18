@@ -466,6 +466,7 @@
     }
   },
   "people": {
-    "title": "만드는 사람들"
+    "title": "만드는 사람들",
+    "inProgress": "작업 중"
   }
 }
