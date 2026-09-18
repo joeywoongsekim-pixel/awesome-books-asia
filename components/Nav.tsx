@@ -11,7 +11,6 @@ export default function Nav() {
   const t = useTranslations('nav');
   const pathname = usePathname();
   const isHome = pathname === '/';
-  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   // The mobile sheet closes on navigation and on Escape.
@@ -27,21 +26,10 @@ export default function Nav() {
     return () => window.removeEventListener('keydown', onKey);
   }, [open]);
 
-  // Transparent over the hero; blurred dark backdrop after 40px of scroll.
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, {passive: true});
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // On non-home routes it starts solid; on home it depends on scroll.
-  const className = [
-    'nav',
-    !isHome ? 'solid' : scrolled ? 'stuck' : ''
-  ]
-    .filter(Boolean)
-    .join(' ');
+  // M62 — the hero begins under the bar rather than behind it, so there is
+  // nothing for the bar to be transparent over: it carries its 페이퍼 ground
+  // on every route, from the first pixel of scroll.
+  const className = 'nav solid';
 
   // Reader and Plans anchor to their home sections (per prototype).
   const items = [
