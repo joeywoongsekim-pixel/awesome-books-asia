@@ -37,25 +37,28 @@ export const PEOPLE: Person[] = [
     id: 'akira-murata',
     name: 'Akira Murata',
     credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []},
-    forthcoming: ['translator']
+    forthcoming: ['translator'],
+    photo: true
   },
-  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}, hasBio: true},
-  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}, hasBio: true},
+  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}, hasBio: true, photo: true},
+  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}, hasBio: true, photo: true},
   {
     id: 'joey-kim',
     name: 'Joey Kim',
     credits: {author: [], translator: []},
     forthcoming: ['author', 'translator'],
     wip: {author: 'North Shore', translator: 'Akira Murata'},
-    hasBio: true
+    hasBio: true,
+    photo: true
   },
   {
     id: 'orion-carter',
     name: 'Orion Carter',
     credits: {illustrator: ['isekai', 'ninja-cat']},
-    hasBio: true
+    hasBio: true,
+    photo: true
   },
-  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}, hasBio: true}
+  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}, hasBio: true, photo: true}
 ];
 
 export const inRole = (role: Role) => PEOPLE.filter((p) => p.credits[role] !== undefined);
