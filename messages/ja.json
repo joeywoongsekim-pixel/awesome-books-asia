@@ -109,7 +109,8 @@
     "fmtPrint": "紙の本",
     "shelfDetail": "詳しく見る",
     "shelfClose": "閉じる",
-    "shelfTitle": "私たちの書棚"
+    "shelfTitle": "私たちの書棚",
+    "catsTitle": "カテゴリー"
   },
   "detail": {
     "sample": "試し読み",

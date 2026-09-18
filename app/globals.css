@@ -6989,3 +6989,39 @@ html[lang='ko'] .bh-t {
   align-items: flex-start;
   align-content: flex-start;
 }
+
+/* ── M68: the categories band ────────────────────────────────────────────
+   Reference: gestalten's "Explore by category". Four photographs across a
+   band as wide as the page, at the proportion a landscape photograph wants
+   rather than the 4:3 of a thumbnail, under a heading of their own. Capped
+   at 1280px they were reading as a strip of stamps on a wide display. */
+.sec-cats .sec-in {
+  max-width: min(2200px, 100vw - 112px);
+}
+.cats-h {
+  text-align: center;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 600;
+  color: var(--night);
+  letter-spacing: 0.01em;
+  margin: 0 0 clamp(40px, 4vw, 64px);
+}
+.cats {
+  gap: clamp(18px, 1.9vw, 34px);
+}
+.cat-img {
+  aspect-ratio: 3 / 2;
+  margin-bottom: clamp(14px, 1.2vw, 20px);
+}
+/* The caption grows with the picture it sits under. */
+.cat-t {
+  font-size: clamp(14px, 1.05vw, 18px);
+}
+.cat-k {
+  font-size: clamp(10.5px, 0.78vw, 12.5px);
+}
+@media (max-width: 1080px) {
+  .sec-cats .sec-in {
+    max-width: none;
+  }
+}

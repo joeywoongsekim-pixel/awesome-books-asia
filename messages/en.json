@@ -109,7 +109,8 @@
     "fmtPrint": "Print",
     "shelfDetail": "Full details",
     "shelfClose": "Close",
-    "shelfTitle": "Our shelf"
+    "shelfTitle": "Our shelf",
+    "catsTitle": "Categories"
   },
   "detail": {
     "sample": "Read a sample",

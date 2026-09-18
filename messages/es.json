@@ -109,7 +109,8 @@
     "fmtPrint": "Impreso",
     "shelfDetail": "Todos los detalles",
     "shelfClose": "Cerrar",
-    "shelfTitle": "Nuestra estantería"
+    "shelfTitle": "Nuestra estantería",
+    "catsTitle": "Categorías"
   },
   "detail": {
     "sample": "Leer una muestra",

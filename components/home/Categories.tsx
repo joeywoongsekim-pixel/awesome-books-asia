@@ -2,8 +2,8 @@ import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import Reveal from '../Reveal';
 
-// §9.6 — four ways into the shelf. A photograph, then the name under it:
-// the label never sits on the picture.
+// §9.6 — four ways into the shelf, under a heading of their own. A
+// photograph, then the name under it: the label never sits on the picture.
 const TILES = [
   {en: 'AI & Technology', key: 'catAI', img: 's2'},
   {en: 'Education', key: 'catEDU', img: 's3'},
@@ -16,9 +16,10 @@ export default function Categories() {
   const tFooter = useTranslations('footer.libraryLinks');
 
   return (
-    <section className="sec sec-tight">
+    <section className="sec sec-tight sec-cats">
       <div className="sec-in">
         <Reveal>
+          <h2 className="cats-h">{t('catsTitle')}</h2>
           <div className="cats">
             {TILES.map(({en, key, img}) => (
               <Link href="/books" className="cat" key={key}>

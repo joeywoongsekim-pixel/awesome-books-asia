@@ -109,7 +109,8 @@
     "fmtPrint": "Papier",
     "shelfDetail": "Tous les détails",
     "shelfClose": "Fermer",
-    "shelfTitle": "Notre rayon"
+    "shelfTitle": "Notre rayon",
+    "catsTitle": "Catégories"
   },
   "detail": {
     "sample": "Lire un extrait",

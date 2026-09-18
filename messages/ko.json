@@ -109,7 +109,8 @@
     "fmtPrint": "종이책",
     "shelfDetail": "자세히 보기",
     "shelfClose": "닫기",
-    "shelfTitle": "우리 서가"
+    "shelfTitle": "우리 서가",
+    "catsTitle": "카테고리"
   },
   "detail": {
     "sample": "샘플 읽기",
