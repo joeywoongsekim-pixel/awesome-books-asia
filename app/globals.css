@@ -7046,3 +7046,25 @@ html[lang='ko'] .bh-t {
     row-gap: 28px;
   }
 }
+
+/* ── M78: the category tiles at the reference's own scale ────────────────
+   Measured off gestalten's "Explore by category" rather than guessed. In
+   proportions of the window, which is the only scale-free way to compare
+   two screenshots: each tile is 22.6% of the viewport wide, the band runs
+   93.3% of it, and the gutter between tiles is 1%. Ours were 17.6% in a
+   73.8% band, so the band opens to the page's edge and the gutters close
+   to a hairline. The 3:2 frame already matched and is untouched. */
+.sec-cats {
+  padding-left: max(20px, 3.35vw);
+  padding-right: max(20px, 3.35vw);
+}
+.sec-cats .sec-in {
+  max-width: none;
+}
+.cats {
+  column-gap: max(10px, 1vw);
+  row-gap: max(24px, 2.25vw);
+}
+.cat-img {
+  margin-bottom: max(10px, 1.35vw);
+}
