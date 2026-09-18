@@ -17,15 +17,15 @@
   },
   "home": {
     "badge": "Web reader",
-    "title": "Basahin ang <em>sample</em> sa browser mo. Walang i-install.",
-    "subtitle": "Pumili ng aklat, pindutin ang 'Basahin ang sample', at bubukas ito agad. Maglagay ng hanggang apat na aklat sa mesa at lumipat-lipat; gumawa ng account at maaalala nito kung saan ka huminto.",
+    "title": "Bubukas ang aklatan mo <em>sa mismong browser</em>. Walang i-i-install.",
+    "subtitle": "Dito magbabasa ang mga subscriber. Bubukas dito mismo ang alinmang aklat sa katalogo — hanggang apat sa mesa nang sabay, sa Koreano, Ingles o Hapon, at natatandaan nito kung saan ka huminto kahit saang device mo ipagpatuloy. Inihahanda pa ang subscription; hangga't hindi pa ito bukas, libre sa lahat ang mga sample.",
     "meta": "Korean · English · Japanese · sa anumang device",
-    "ctaPrimary": "Basahin ang sample",
+    "ctaPrimary": "Silipin ang reader",
     "ctaSecondary": "Tingnan ang bookstore",
     "tags": {
       "four": "Korean · English · Japanese",
       "pages": "Amazon · Kyobo",
-      "ai": "Mga sample sa browser",
+      "ai": "Ang istante sa iyong browser",
       "coupons": "Maliit na press sa Seoul at Tokyo"
     },
     "demoCaption": "Pindutin ang aklat sa itaas — <b>bababa ito sa mesa</b>",

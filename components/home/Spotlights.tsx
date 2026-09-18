@@ -5,8 +5,10 @@ import Reveal from '../Reveal';
 import MiniDesk from './MiniDesk';
 
 // §9.7 — two spotlight bands. First: the web reader (a live demo desk —
-// tap a book, it comes down). Second: how the house makes books — one
-// title written for three languages, and where each edition is sold.
+// tap a book, it comes down). It is the room subscribers will read in, not
+// a sample viewer; the copy says so, and says plainly that subscriptions
+// are not open yet. Second: how the house makes books — one title written
+// for three languages, and where each edition is sold.
 export default function Spotlights() {
   const t = useTranslations();
   const rows = ['r1', 'r2', 'r3'] as const;

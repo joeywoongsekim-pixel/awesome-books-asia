@@ -17,15 +17,15 @@
   },
   "home": {
     "badge": "Lector web",
-    "title": "Lee una <em>muestra</em> en tu navegador. Nada que instalar.",
-    "subtitle": "Elige un libro, pulsa «Leer una muestra» y se abre ahí mismo. Pon hasta cuatro libros sobre el escritorio y pasa de uno a otro; con una cuenta, el lector recuerda dónde lo dejaste.",
+    "title": "Tu biblioteca <em>se abre en el navegador</em>. Nada que instalar.",
+    "subtitle": "Aquí es donde leerán los suscriptores. Cualquier libro del catálogo se abre aquí mismo — hasta cuatro a la vez sobre el escritorio, en coreano, inglés o japonés, y recuerda dónde lo dejaste en cualquier dispositivo. Las suscripciones aún se están preparando; hasta entonces, las muestras son gratuitas para todos.",
     "meta": "Coreano · Inglés · Japonés · en cualquier dispositivo",
-    "ctaPrimary": "Leer una muestra",
+    "ctaPrimary": "Ver el lector",
     "ctaSecondary": "Ver la librería",
     "tags": {
       "four": "Coreano · Inglés · Japonés",
       "pages": "Amazon · Kyobo",
-      "ai": "Muestras en el navegador",
+      "ai": "La estantería en tu navegador",
       "coupons": "Una pequeña editorial en Seúl y Tokio"
     },
     "demoCaption": "Toca un libro arriba — <b>baja al escritorio</b>",

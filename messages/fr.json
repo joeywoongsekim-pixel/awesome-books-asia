@@ -17,15 +17,15 @@
   },
   "home": {
     "badge": "Liseuse web",
-    "title": "Lisez un <em>extrait</em> dans votre navigateur. Rien à installer.",
-    "subtitle": "Choisissez un livre, appuyez sur « Lire un extrait » et il s'ouvre aussitôt. Posez jusqu'à quatre livres sur le bureau et passez de l'un à l'autre ; avec un compte, la liseuse retient où vous vous êtes arrêté.",
+    "title": "Votre bibliothèque <em>s'ouvre dans le navigateur</em>. Rien à installer.",
+    "subtitle": "C'est ici que liront les abonnés. N'importe quel livre du catalogue s'ouvre directement — jusqu'à quatre à la fois sur le bureau, en coréen, en anglais ou en japonais, et il retient où vous vous êtes arrêté, quel que soit l'appareil sur lequel vous reprenez. Les abonnements sont encore en préparation ; d'ici là, les extraits restent libres pour tous.",
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",
-    "ctaPrimary": "Lire un extrait",
+    "ctaPrimary": "Voir le lecteur",
     "ctaSecondary": "Voir la librairie",
     "tags": {
       "four": "Coréen · Anglais · Japonais",
       "pages": "Amazon · Kyobo",
-      "ai": "Extraits dans le navigateur",
+      "ai": "L'étagère dans le navigateur",
       "coupons": "Une petite maison d'édition à Séoul et Tokyo"
     },
     "demoCaption": "Touchez un livre ci-dessus — <b>il descend sur le bureau</b>",

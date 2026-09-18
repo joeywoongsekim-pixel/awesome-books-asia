@@ -17,15 +17,15 @@
   },
   "home": {
     "badge": "Web reader",
-    "title": "Read a <em>sample</em> in your browser. Nothing to install.",
-    "subtitle": "Pick a book, press 'Read a sample', and it opens right there. Put up to four books on the desk and move between them; make an account and it remembers where you stopped.",
+    "title": "Your library <em>opens in the browser</em>. Nothing to install.",
+    "subtitle": "This is where subscribers will read. Any book in the catalogue opens right here — up to four on the desk at once, in Korean, English or Japanese, and it remembers where you stopped whatever you pick up next. Subscriptions are still being set up; until they open, the samples are free for everyone.",
     "meta": "Korean · English · Japanese · any device",
-    "ctaPrimary": "Read a sample",
+    "ctaPrimary": "Look inside the reader",
     "ctaSecondary": "Browse the bookstore",
     "tags": {
       "four": "Korean · English · Japanese",
       "pages": "Amazon · Kyobo",
-      "ai": "Samples in your browser",
+      "ai": "The shelf in your browser",
       "coupons": "A small press in Seoul and Tokyo"
     },
     "demoCaption": "Tap a book above — <b>it comes down to the desk</b>",

@@ -17,15 +17,15 @@
   },
   "home": {
     "badge": "Web-Reader",
-    "title": "Lesen Sie eine <em>Leseprobe</em> im Browser. Nichts zu installieren.",
-    "subtitle": "Buch wählen, „Leseprobe“ drücken — es öffnet sich sofort. Legen Sie bis zu vier Bücher auf den Schreibtisch und wechseln Sie zwischen ihnen; mit einem Konto merkt sich der Reader, wo Sie aufgehört haben.",
+    "title": "Ihre Bibliothek <em>öffnet sich im Browser</em>. Nichts zu installieren.",
+    "subtitle": "Hier werden Abonnentinnen und Abonnenten lesen. Jedes Buch des Katalogs öffnet sich direkt hier — bis zu vier gleichzeitig auf dem Tisch, auf Koreanisch, Englisch oder Japanisch, und es merkt sich, wo Sie aufgehört haben, an welchem Gerät Sie auch weiterlesen. Die Abonnements werden noch eingerichtet; bis dahin sind die Leseproben für alle frei.",
     "meta": "Koreanisch · Englisch · Japanisch · auf jedem Gerät",
-    "ctaPrimary": "Leseprobe lesen",
+    "ctaPrimary": "In den Reader schauen",
     "ctaSecondary": "Buchhandlung ansehen",
     "tags": {
       "four": "Koreanisch · Englisch · Japanisch",
       "pages": "Amazon · Kyobo",
-      "ai": "Leseproben im Browser",
+      "ai": "Das Regal im Browser",
       "coupons": "Ein kleiner Verlag in Seoul und Tokio"
     },
     "demoCaption": "Tippen Sie oben auf ein Buch — <b>es kommt auf den Schreibtisch</b>",
