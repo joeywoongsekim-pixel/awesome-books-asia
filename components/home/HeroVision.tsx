@@ -2,7 +2,6 @@
 
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
-import {Link} from '../../i18n/navigation';
 import Multiline from '../Multiline';
 
 // §9.4 — the hero carries the house philosophy in seven slides. Each is one
@@ -103,11 +102,6 @@ export default function HeroVision() {
           ))}
         </div>
 
-        <div className="vh-cta">
-          <Link href="/books" className="btn-gold">
-            {t('ctaBooks')}
-          </Link>
-        </div>
 
         <div className="vh-nav">
           <button type="button" onClick={() => go(i - 1)} aria-label={t('prev')}>
