@@ -440,27 +440,22 @@
     "prev": "前へ",
     "next": "次へ",
     "ai-answer": {
-      "k": "AI・判断",
       "t": "AIの答えに、人間は何を足すのか",
       "d": "AIが答えを出したあと、人に残る仕事の話。"
     },
     "quantum-econ": {
-      "k": "経済",
       "t": "Quantum Economics",
       "d": "値段は見つかるものではない。問うた瞬間に決まる。"
     },
     "ai-bible": {
-      "k": "AI・入門",
       "t": "Awesome AI Bible 2026",
       "d": "最初のプロンプトから組織のルールまで、全十二章。"
     },
     "isekai": {
-      "k": "経営",
       "t": "ISEKAI Entrepreneurship",
       "d": "定価のない王国で、市場をひとつずつ作っていく。"
     },
     "ninja-cat": {
-      "k": "絵本",
       "t": "Clumsy Ninja Cat Kuro",
       "d": "隠れるのに毎回失敗する、忍者猫の話。"
     }

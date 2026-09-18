@@ -6482,15 +6482,6 @@ html[lang='ja'] .vh-t {
   pointer-events: auto;
   transition: opacity 0.55s ease 0.2s, transform 0.65s ease 0.2s;
 }
-.bh-k {
-  font-family: var(--font-label);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgb(240 238 233 / 0.82);
-  margin-bottom: 18px;
-}
 .bh-t {
   font-family: var(--font-heading);
   font-size: clamp(32px, 4.2vw, 58px);
@@ -6645,9 +6636,6 @@ html[lang='ko'] .bh-t {
     position: static;
     margin-top: 32px;
     align-self: flex-end;
-  }
-  .bh-k {
-    margin-bottom: 14px;
   }
   /* A phone crops a landscape frame to a tall slot roughly a quarter of its
      width, and centred that slot misses the one thing each picture was

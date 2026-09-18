@@ -4,10 +4,10 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 
-// The hero: one book at a time, its photograph full-bleed behind a small
-// category label, the title, and a single line about it. Auto-advances,
-// pauses on hover/focus and under reduced motion, and answers the dots,
-// the arrows, arrow keys and swipes.
+// The hero: one book at a time, its photograph full-bleed behind the title
+// and a single line about it. Auto-advances, pauses on hover/focus and
+// under reduced motion, and answers the dots, the arrows, arrow keys and
+// swipes.
 const SLIDES = [
   {id: 'ai-answer', img: '1'},
   {id: 'quantum-econ', img: '2'},
@@ -80,7 +80,6 @@ export default function BookHero() {
               aria-hidden={n !== i}
               tabIndex={n === i ? undefined : -1}
             >
-              <span className="bh-k">{t(`${s.id}.k`)}</span>
               <span className="bh-t">{t(`${s.id}.t`)}</span>
               <span className="bh-d">{t(`${s.id}.d`)}</span>
             </Link>

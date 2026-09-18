@@ -440,27 +440,22 @@
     "prev": "Nakaraan",
     "next": "Susunod",
     "ai-answer": {
-      "k": "AI · Pagpapasya",
       "t": "AIの答えに、人間は何を足すのか",
       "d": "Ang natitira sa tao kapag sumagot na ang makina."
     },
     "quantum-econ": {
-      "k": "Ekonomiya",
       "t": "Quantum Economics",
       "d": "Hindi natutuklasan ang presyo. Napagdedesisyunan ito sa sandaling magtanong ka."
     },
     "ai-bible": {
-      "k": "AI · Panimula",
       "t": "Awesome AI Bible 2026",
       "d": "Labindalawang kabanata, mula unang prompt hanggang patakaran ng koponan."
     },
     "isekai": {
-      "k": "Negosyo",
       "t": "ISEKAI Entrepreneurship",
       "d": "Pagbuo ng merkado mula sa wala, sa kahariang walang presyo."
     },
     "ninja-cat": {
-      "k": "Aklat na may larawan",
       "t": "Clumsy Ninja Cat Kuro",
       "d": "Isang ninja cat na palaging nabibigong magtago."
     }
