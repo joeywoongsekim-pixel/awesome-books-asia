@@ -1,57 +1,149 @@
+'use client';
+
+import {useCallback, useEffect, useRef, useState} from 'react';
+import {createPortal} from 'react-dom';
 import {useTranslations} from 'next-intl';
 import {BOOKS} from '../../lib/books';
-import {ROLES, ROLE_LABEL, inRole, initials} from '../../lib/people';
-import Reveal from '../Reveal';
+import {PEOPLE, ROLES, ROLE_LABEL, inRole, initials, type Person, type Role} from '../../lib/people';
 
-// §9.6b — the people behind the books, laid out the way the categories are:
-// a picture, then the name under it. One group per role, and a group is
-// only rendered when someone is credited in it, so no heading stands over
-// an empty row. Someone with two roles appears in both.
+// §9.6b — the people behind the books. Three tabs, worked the same way as
+// the shelf's 신간/베스트셀러/커밍순, and under them one row that runs on
+// sideways: the cards are the width of a category tile and the row scrolls
+// rather than wrapping. The row carries the name and nothing else; press a
+// portrait and the card opens with everything the house has on that person.
 function titleOf(id: string) {
   return BOOKS.find((b) => b.id === id)?.title ?? '';
 }
 
+function Portrait({p}: {p: Person}) {
+  return p.photo ? (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src={`/people/${p.id}.webp`} alt="" loading="lazy" />
+  ) : (
+    <span className="ppl-mono" aria-hidden="true">
+      {initials(p.name)}
+    </span>
+  );
+}
+
 export default function People() {
   const t = useTranslations('people');
-  const groups = ROLES.map((r) => [r, inRole(r)] as const).filter(([, list]) => list.length > 0);
+  const live = ROLES.filter((r) => inRole(r).length > 0);
+  const [role, setRole] = useState<Role>(live[0] ?? 'author');
+  const [open, setOpen] = useState<Person | null>(null);
+  const lastFocus = useRef<HTMLElement | null>(null);
+  const panel = useRef<HTMLDivElement>(null);
+
+  const close = useCallback(() => {
+    setOpen(null);
+    lastFocus.current?.focus();
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    panel.current?.focus();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') close();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, close]);
+
+  if (live.length === 0) return null;
+  const list = inRole(role);
 
   return (
     <section className="sec sec-tight sec-ppl">
       <div className="sec-in">
-        <Reveal>
-          <h2 className="cats-h">{t('title')}</h2>
-          {groups.map(([role, list]) => (
-            <div className="ppl-g" key={role}>
-              <div className="ppl-role">{ROLE_LABEL[role]}</div>
-              <div className="ppl">
-                {list.map((p) => {
-                  const books = p.credits[role] ?? [];
-                  return (
-                    <div className="ppl-p" key={p.id}>
-                      <span className="ppl-img">
-                        {p.photo ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img src={`/people/${p.id}.webp`} alt="" loading="lazy" />
-                        ) : (
-                          <span className="ppl-mono" aria-hidden="true">
-                            {initials(p.name)}
-                          </span>
-                        )}
-                      </span>
-                      <span className="ppl-n">{p.name}</span>
-                      {books.length > 0 ? (
-                        <span className="ppl-b">{books.map(titleOf).join(' · ')}</span>
-                      ) : p.forthcoming ? (
-                        <span className="ppl-b ppl-soon">{t('inProgress')}</span>
-                      ) : null}
-                    </div>
-                  );
-                })}
-              </div>
+        <h2 className="cats-h">{t('title')}</h2>
+
+        {live.length > 1 && (
+          // the shelf's tab row, so the two read as the same control
+          <div className="nsh-tabs" role="tablist">
+            {live.map((r) => (
+              <button
+                key={r}
+                type="button"
+                role="tab"
+                aria-selected={r === role}
+                className={r === role ? 'on' : undefined}
+                onClick={() => setRole(r)}
+              >
+                {ROLE_LABEL[r]}
+              </button>
+            ))}
+          </div>
+        )}
+
+        <div className="ppl-scroll" tabIndex={0} aria-label={ROLE_LABEL[role]}>
+          {list.map((p) => (
+            <div className="ppl-p" key={p.id}>
+              <button
+                type="button"
+                className="ppl-img"
+                aria-label={p.name}
+                onClick={(e) => {
+                  lastFocus.current = e.currentTarget;
+                  setOpen(p);
+                }}
+              >
+                <Portrait p={p} />
+              </button>
+              <span className="ppl-n">{p.name}</span>
             </div>
           ))}
-        </Reveal>
+        </div>
       </div>
+
+      {open &&
+        typeof document !== 'undefined' &&
+        createPortal(
+          <div className="pc-back" onClick={close}>
+            <div
+              className="pc"
+              role="dialog"
+              aria-modal="true"
+              aria-label={open.name}
+              tabIndex={-1}
+              ref={panel}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button type="button" className="pc-x" onClick={close} aria-label={t('close')}>
+                ×
+              </button>
+              <div className="pc-img">
+                <Portrait p={open} />
+              </div>
+              <div className="pc-txt">
+                <div className="pc-roles">
+                  {ROLES.filter((r) => open.credits[r] !== undefined)
+                    .map((r) => ROLE_LABEL[r])
+                    .join(' · ')}
+                </div>
+                <h3 className="pc-n">{open.name}</h3>
+                {open.bio && <p className="pc-bio">{open.bio}</p>}
+
+                {ROLES.filter((r) => (open.credits[r] ?? []).length > 0).map((r) => (
+                  <div className="pc-cr" key={r}>
+                    <div className="pc-cr-h">{ROLE_LABEL[r]}</div>
+                    <ul>
+                      {(open.credits[r] ?? []).map((id) => (
+                        <li key={`${r}-${id}`}>{titleOf(id)}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                {ROLES.every((r) => (open.credits[r] ?? []).length === 0) && (
+                  <p className="pc-bio pc-soon">
+                    {open.forthcoming ? t('inProgress') : t('noCredits')}
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }

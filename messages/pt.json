@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "Quem faz os livros",
-    "inProgress": "Em produção"
+    "inProgress": "Em produção",
+    "close": "Fechar",
+    "noCredits": "Ainda sem créditos registrados"
   }
 }

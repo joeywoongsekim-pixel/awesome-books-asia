@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "만드는 사람들",
-    "inProgress": "작업 중"
+    "inProgress": "작업 중",
+    "close": "닫기",
+    "noCredits": "크레딧이 아직 등록되지 않았습니다"
   }
 }

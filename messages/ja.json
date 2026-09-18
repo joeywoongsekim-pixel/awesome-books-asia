@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "つくる人たち",
-    "inProgress": "制作中"
+    "inProgress": "制作中",
+    "close": "閉じる",
+    "noCredits": "クレジットはまだ登録されていません"
   }
 }

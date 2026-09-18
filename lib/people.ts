@@ -15,6 +15,8 @@ export type Person = {
   credits: Partial<Record<Role, string[]>>;
   /** at work on a first title, nothing published yet */
   forthcoming?: boolean;
+  /** a short note, shown only on the opened card */
+  bio?: string;
   /** /public/people/<id>.webp — a monogram stands in until one exists */
   photo?: boolean;
 };

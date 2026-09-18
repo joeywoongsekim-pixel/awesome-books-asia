@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "Ang mga taong bumubuo ng mga aklat",
-    "inProgress": "Kasalukuyang ginagawa"
+    "inProgress": "Kasalukuyang ginagawa",
+    "close": "Isara",
+    "noCredits": "Wala pang nakatalang credit"
   }
 }

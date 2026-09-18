@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "The people behind the books",
-    "inProgress": "At work on a first title"
+    "inProgress": "At work on a first title",
+    "close": "Close",
+    "noCredits": "No credits recorded yet"
   }
 }

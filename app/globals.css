@@ -6916,11 +6916,13 @@ html[lang='ko'] .bh-t {
   margin-bottom: max(10px, 1.35vw);
 }
 
-/* ── M81: the people behind the books ────────────────────────────────────
-   Laid out the way the categories are — a picture, then the name under it
-   — but a portrait wants a taller frame than a landscape photograph, so
-   these are 4:5 and sit five across in the band's own width. A group is
-   only rendered when someone is credited in it. */
+/* ── M83: the people behind the books ────────────────────────────────────
+   Three tabs, worked the same way as the shelf's, and under them one row
+   that runs on sideways instead of wrapping. The card is exactly a
+   category tile's width — the same derived four-up column in the same
+   band — so the two sections line up down the page however wide the
+   window is. The frame is 4:5 rather than 3:2 because a person is a
+   portrait. */
 .sec-ppl {
   padding-left: max(20px, 3.35vw);
   padding-right: max(20px, 3.35vw);
@@ -6928,41 +6930,68 @@ html[lang='ko'] .bh-t {
 .sec-ppl .sec-in {
   max-width: none;
 }
-.ppl-g + .ppl-g {
-  margin-top: clamp(48px, 4.4vw, 88px);
-}
-.ppl-role {
-  font-family: var(--font-label);
-  font-size: clamp(11px, 0.85vw, 13px);
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--stone);
-  text-align: center;
-  margin-bottom: clamp(22px, 2vw, 36px);
-}
-/* Centred rather than a fixed five columns, so a row of four sits in the
-   middle of the band instead of leaving a hole on the right. The column is
-   derived from the row's width the way the shelf's is, and capped, because
-   a credit line does not want to be the size of a category. */
-.ppl {
-  --ppl-gap: max(14px, 1.4vw);
-  display: flex;
+.sec-ppl .nsh-tabs {
+  margin-bottom: clamp(32px, 3vw, 56px);
   flex-wrap: wrap;
-  justify-content: center;
-  gap: max(26px, 2.25vw) var(--ppl-gap);
+}
+.ppl-scroll {
+  --ppl-gap: max(10px, 1vw);
+  display: flex;
+  gap: var(--ppl-gap);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding-bottom: 18px;
+  scrollbar-color: var(--stone) var(--hair-soft);
+  scrollbar-width: thin;
+}
+.ppl-scroll:focus-visible {
+  outline: 2px solid var(--lapis);
+  outline-offset: 4px;
+}
+/* A visible bar, because the row does not say on its own that it moves. */
+.ppl-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.ppl-scroll::-webkit-scrollbar-track {
+  background: var(--hair-soft);
+}
+.ppl-scroll::-webkit-scrollbar-thumb {
+  background: #b9c0cf;
+}
+.ppl-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--stone);
 }
 .ppl-p {
-  flex: 0 1 min(260px, calc((100% - 4 * var(--ppl-gap)) / 5));
+  /* the category tile's own column: four across this band, three below
+     1080, two below 720 */
+  flex: 0 0 calc((100% - 3 * var(--ppl-gap)) / 4);
+  scroll-snap-align: start;
   min-width: 0;
   text-align: center;
 }
 .ppl-img {
   display: block;
+  width: 100%;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: var(--tint);
+  border: 0;
+  padding: 0;
   margin-bottom: max(10px, 1.1vw);
+  cursor: pointer;
+}
+.ppl-img img,
+.ppl-img .ppl-mono {
+  transition: transform 0.6s ease;
+}
+.ppl-img:hover img,
+.ppl-img:hover .ppl-mono {
+  transform: scale(1.04);
+}
+.ppl-img:focus-visible {
+  outline: 2px solid var(--lapis);
+  outline-offset: 3px;
 }
 .ppl-img img {
   width: 100%;
@@ -6986,26 +7015,19 @@ html[lang='ko'] .bh-t {
 }
 .ppl-n {
   display: block;
-  font-size: clamp(13px, 1vw, 17px);
+  font-size: clamp(14px, 1.05vw, 18px);
   font-weight: 700;
   color: var(--night);
   margin-bottom: 4px;
 }
-.ppl-b {
-  display: block;
-  font-size: clamp(10.5px, 0.78vw, 12.5px);
-  line-height: 1.5;
-  color: var(--ink-3);
-  word-break: keep-all;
-}
 @media (max-width: 1080px) {
   .ppl-p {
-    flex: 0 1 min(220px, calc((100% - 3 * var(--ppl-gap)) / 4));
+    flex: 0 0 calc((100% - 2 * var(--ppl-gap)) / 3);
   }
 }
 @media (max-width: 720px) {
   .ppl-p {
-    flex: 0 1 calc((100% - var(--ppl-gap)) / 2);
+    flex: 0 0 calc((100% - var(--ppl-gap)) / 2);
   }
 }
 
@@ -7013,4 +7035,139 @@ html[lang='ko'] .bh-t {
 .ppl-soon {
   font-style: italic;
   color: var(--ink-3);
+}
+
+/* ── the person's card, opened from a portrait ───────────────────────── */
+.pc-back {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgb(17 19 23 / 0.58);
+  backdrop-filter: blur(2px);
+  animation: pcIn 0.18s ease-out;
+}
+@keyframes pcIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.pc {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  width: min(880px, 100%);
+  max-height: min(86vh, 720px);
+  overflow: auto;
+  background: var(--card);
+  box-shadow: 0 30px 70px rgb(17 19 23 / 0.36);
+}
+.pc:focus-visible {
+  outline: none;
+}
+.pc-x {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  z-index: 1;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+.pc-x:hover {
+  color: var(--night);
+}
+.pc-img {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--tint);
+}
+.pc-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.pc-txt {
+  padding: clamp(28px, 3vw, 48px);
+}
+.pc-roles {
+  font-family: var(--font-label);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 12px;
+}
+.pc-n {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 2.6vw, 38px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--night);
+  margin: 0 0 18px;
+}
+.pc-bio {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink-2);
+  margin: 0 0 24px;
+  word-break: keep-all;
+}
+.pc-soon {
+  font-style: italic;
+  color: var(--ink-3);
+}
+.pc-cr + .pc-cr {
+  margin-top: 22px;
+}
+.pc-cr-h {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--hair);
+  margin-bottom: 10px;
+}
+.pc-cr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pc-cr li {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-1);
+  padding: 5px 0;
+  word-break: keep-all;
+}
+@media (max-width: 720px) {
+  .pc {
+    grid-template-columns: 1fr;
+    max-height: 88vh;
+  }
+  .pc-img {
+    aspect-ratio: 3 / 2;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pc-back {
+    animation: none;
+  }
+  .ppl-img:hover img,
+  .ppl-img:hover .ppl-mono {
+    transform: none;
+  }
 }

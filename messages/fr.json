@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "Celles et ceux qui font les livres",
-    "inProgress": "En cours"
+    "inProgress": "En cours",
+    "close": "Fermer",
+    "noCredits": "Aucun crédit enregistré pour l’instant"
   }
 }

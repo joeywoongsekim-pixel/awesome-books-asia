@@ -467,6 +467,8 @@
   },
   "people": {
     "title": "Die Menschen hinter den Büchern",
-    "inProgress": "In Arbeit"
+    "inProgress": "In Arbeit",
+    "close": "Schließen",
+    "noCredits": "Noch keine Credits erfasst"
   }
 }
