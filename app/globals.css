@@ -7084,9 +7084,11 @@ html[lang='ko'] .bh-t {
 .pc-x:hover {
   color: var(--night);
 }
+/* The portrait column fills the card's height rather than keeping its own
+   4:5 box — a long profile made the picture stop halfway down the card. */
 .pc-img {
   position: relative;
-  aspect-ratio: 4 / 5;
+  min-height: 420px;
   overflow: hidden;
   background: var(--tint);
 }
@@ -7160,6 +7162,7 @@ html[lang='ko'] .bh-t {
   }
   .pc-img {
     aspect-ratio: 3 / 2;
+    min-height: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {

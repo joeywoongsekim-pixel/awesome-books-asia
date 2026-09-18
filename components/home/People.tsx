@@ -121,7 +121,14 @@ export default function People() {
                     .join(' · ')}
                 </div>
                 <h3 className="pc-n">{open.name}</h3>
-                {open.bio && <p className="pc-bio">{open.bio}</p>}
+                {open.hasBio &&
+                  (t(`bio.${open.id}`) as string)
+                    .split('\n\n')
+                    .map((para, n) => (
+                      <p className="pc-bio" key={n}>
+                        {para}
+                      </p>
+                    ))}
 
                 {ROLES.filter((r) => (open.credits[r] ?? []).length > 0).map((r) => (
                   <div className="pc-cr" key={r}>
@@ -144,6 +151,7 @@ export default function People() {
                     <div className="pc-cr-h">{ROLE_LABEL[r]}</div>
                     <p className="pc-bio pc-soon">
                       {open.forthcoming?.includes(r) ? t('inProgress') : t('noCredits')}
+                      {open.wip?.[r] ? ` · ${open.wip[r]}` : ''}
                     </p>
                   </div>
                 ))}

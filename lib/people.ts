@@ -15,8 +15,11 @@ export type Person = {
   credits: Partial<Record<Role, string[]>>;
   /** roles held but not yet published in — "at work on a first title" */
   forthcoming?: Role[];
-  /** a short note, shown only on the opened card */
-  bio?: string;
+  /** the profile lives in messages as people.bio.<id>, paragraphs split on
+      a blank line, so it is written once per locale like everything else */
+  hasBio?: boolean;
+  /** working title shown beside "at work on" for a forthcoming role */
+  wip?: Partial<Record<Role, string>>;
   /** /public/people/<id>.webp — a monogram stands in until one exists */
   photo?: boolean;
 };
@@ -36,16 +39,23 @@ export const PEOPLE: Person[] = [
     credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []},
     forthcoming: ['translator']
   },
-  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}},
-  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}},
+  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}, hasBio: true},
+  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}, hasBio: true},
   {
     id: 'joey-kim',
     name: 'Joey Kim',
     credits: {author: [], translator: []},
-    forthcoming: ['author', 'translator']
+    forthcoming: ['author', 'translator'],
+    wip: {author: 'North Shore', translator: 'Akira Murata'},
+    hasBio: true
   },
-  {id: 'orion-carter', name: 'Orion Carter', credits: {illustrator: ['isekai', 'ninja-cat']}},
-  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}}
+  {
+    id: 'orion-carter',
+    name: 'Orion Carter',
+    credits: {illustrator: ['isekai', 'ninja-cat']},
+    hasBio: true
+  },
+  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}, hasBio: true}
 ];
 
 export const inRole = (role: Role) => PEOPLE.filter((p) => p.credits[role] !== undefined);
