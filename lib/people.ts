@@ -38,6 +38,7 @@ export const PEOPLE: Person[] = [
     name: 'Akira Murata',
     credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []},
     forthcoming: ['translator'],
+    hasBio: true,
     photo: true
   },
   {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}, hasBio: true, photo: true},
