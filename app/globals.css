@@ -6398,3 +6398,230 @@ html[lang='ja'] .vh-t {
     width: 20px;
   }
 }
+
+/* ── M57: the shelf under the hero ───────────────────────────────────────
+   Tabs across the top, four books to a row. Each cover stands as an object:
+   the block is turned a little on its vertical axis so the spine face comes
+   into view on the left, with a cast shadow and a pool of shadow under it.
+   Only the tabs that have books are rendered, so the row never shows a guess. */
+.nsh {
+  background: var(--bg);
+  border-top: 1px solid var(--hair-soft);
+}
+.nsh-in {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 84px 32px 92px;
+}
+.nsh-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 76px;
+}
+.nsh-tabs button {
+  background: none;
+  border: 0;
+  padding: 4px 2px 10px;
+  font-family: var(--font-body);
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-3);
+  cursor: pointer;
+  border-bottom: 1.5px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nsh-tabs button:hover {
+  color: var(--stone);
+}
+.nsh-tabs button.on {
+  color: var(--night);
+  border-bottom-color: var(--night);
+}
+.nsh-one {
+  text-align: center;
+  font-size: clamp(17px, 1.6vw, 22px);
+  font-weight: 600;
+  color: var(--night);
+  margin-bottom: 76px;
+}
+
+.nsh-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  align-items: end;
+}
+.nsh-bk {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+/* the book as an object */
+.nsh-3d {
+  display: block;
+  position: relative;
+  perspective: 1700px;
+  margin: 0 auto 30px;
+  width: 72%;
+}
+.nsh-3d::after {
+  /* the pool of shadow it stands in */
+  content: '';
+  position: absolute;
+  left: -6%;
+  right: -10%;
+  bottom: -16px;
+  height: 26px;
+  background: radial-gradient(ellipse at 50% 30%, rgb(17 19 23 / 0.34), transparent 72%);
+  filter: blur(7px);
+  pointer-events: none;
+}
+.nsh-blk {
+  position: relative;
+  display: block;
+  transform-style: preserve-3d;
+  transform: rotateY(13deg);
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nsh-bk:hover .nsh-blk {
+  transform: rotateY(5deg) translateY(-6px);
+}
+.nsh-blk img {
+  display: block;
+  width: 100%;
+  height: auto;
+  box-shadow: 16px 20px 34px rgb(17 19 23 / 0.26), 2px 3px 8px rgb(17 19 23 / 0.16);
+}
+/* the spine, hinged on the cover's left edge and swung back behind it */
+.nsh-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 22px;
+  transform-origin: right center;
+  transform: rotateY(-90deg);
+  background: linear-gradient(90deg, #14161b, #3c414b 60%, #23272e);
+}
+.nsh-im {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--ink-3);
+  margin-bottom: 9px;
+}
+.nsh-t {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  color: var(--night);
+  word-break: keep-all;
+}
+.nsh-p {
+  display: block;
+  margin-top: 11px;
+  font-size: 13px;
+  color: var(--stone);
+}
+.nsh-all {
+  text-align: center;
+  margin-top: 66px;
+}
+.nsh-btn {
+  display: inline-block;
+  background: var(--night);
+  color: var(--bg);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 15px 38px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nsh-btn:hover {
+  background: var(--lapis);
+}
+
+@media (max-width: 900px) {
+  .nsh-in {
+    padding: 56px 20px 64px;
+  }
+  .nsh-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px 24px;
+  }
+  .nsh-tabs {
+    gap: 22px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+}
+
+/* ── the hero markers move to the foot on the right, and shrink ─────────── */
+.vh-nav {
+  left: auto;
+  right: 32px;
+  bottom: 34px;
+  gap: 10px;
+}
+.vh-nav > button {
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+}
+.vh-dots {
+  gap: 6px;
+}
+.vh-dots button {
+  width: 16px;
+  height: 2px;
+}
+/* Bottom-right is over the photograph on the right-plate slides now, so the
+   paper treatment swaps to those. */
+.vh[data-l='s1'] .vh-nav > button,
+.vh[data-l='s3'] .vh-nav > button,
+.vh[data-l='s5'] .vh-nav > button,
+.vh[data-l='s7'] .vh-nav > button {
+  border-color: rgb(240 238 233 / 0.5);
+  color: var(--paper);
+}
+.vh[data-l='s1'] .vh-dots button,
+.vh[data-l='s3'] .vh-dots button,
+.vh[data-l='s5'] .vh-dots button,
+.vh[data-l='s7'] .vh-dots button {
+  background: rgb(240 238 233 / 0.42);
+}
+.vh[data-l='s1'] .vh-dots button.on,
+.vh[data-l='s3'] .vh-dots button.on,
+.vh[data-l='s5'] .vh-dots button.on,
+.vh[data-l='s7'] .vh-dots button.on {
+  background: var(--paper);
+}
+.vh[data-l='s2'] .vh-nav > button,
+.vh[data-l='s4'] .vh-nav > button,
+.vh[data-l='s6'] .vh-nav > button {
+  border-color: var(--hair);
+  color: var(--ink-1);
+}
+.vh[data-l='s2'] .vh-dots button,
+.vh[data-l='s4'] .vh-dots button,
+.vh[data-l='s6'] .vh-dots button {
+  background: #d8dce5;
+}
+.vh[data-l='s2'] .vh-dots button.on,
+.vh[data-l='s4'] .vh-dots button.on,
+.vh[data-l='s6'] .vh-dots button.on {
+  background: var(--lapis);
+}
+@media (max-width: 820px) {
+  .vh-nav {
+    left: auto;
+    right: 20px;
+    bottom: auto;
+  }
+}

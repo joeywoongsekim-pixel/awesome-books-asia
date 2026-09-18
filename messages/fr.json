@@ -444,5 +444,11 @@
     "title": "Vient de paraître",
     "prev": "Livre précédent",
     "next": "Livre suivant"
+  },
+  "shelf": {
+    "new": "Nouveautés",
+    "best": "Meilleures ventes",
+    "soon": "À paraître",
+    "viewAll": "Tout voir"
   }
 }

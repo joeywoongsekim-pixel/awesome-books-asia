@@ -444,5 +444,11 @@
     "title": "Acabou de sair",
     "prev": "Livro anterior",
     "next": "Próximo livro"
+  },
+  "shelf": {
+    "new": "Lançamentos",
+    "best": "Mais vendidos",
+    "soon": "Em breve",
+    "viewAll": "Ver tudo"
   }
 }

@@ -444,5 +444,11 @@
     "title": "Katatapos lang ilathala",
     "prev": "Nakaraang aklat",
     "next": "Susunod na aklat"
+  },
+  "shelf": {
+    "new": "Mga Bagong Aklat",
+    "best": "Pinakamabenta",
+    "soon": "Malapit Nang Ilabas",
+    "viewAll": "Tingnan Lahat"
   }
 }

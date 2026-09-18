@@ -347,3 +347,30 @@ export const BOOKS: Book[] = [
 // Titles with built-in sample spreads — the only ones the demo desk
 // (home MiniDesk, legacy Reader, AI panel) can show.
 export const DEMO_BOOKS = BOOKS.filter((b) => b.sp.length > 0);
+
+/* ── Homepage shelf tabs ──────────────────────────────────────────────────
+   신간 is derived from the catalogue's own publication dates, so it is
+   always true. The other two cannot be derived from anything here: there is
+   no sales data in the repo and no forthcoming titles, and neither is
+   something to guess at on a public page. Fill these in and the tabs appear
+   — the shelf renders only the tabs that have books. */
+export const BESTSELLERS: string[] = [];
+export const COMING_SOON: string[] = [];
+
+/** Newest first, regional twins folded into one entry. */
+export function newestBooks(n: number): Book[] {
+  const seen = new Set<string>();
+  return [...BOOKS]
+    .sort((a, b) => b.published.localeCompare(a.published))
+    .sort((a, b) => a.id.length - b.id.length) // prefer the base edition
+    .sort((a, b) => b.published.localeCompare(a.published))
+    .filter((b) => {
+      const base = b.id.replace(/-(uk|in)$/, '');
+      if (seen.has(base)) return false;
+      seen.add(base);
+      return true;
+    })
+    .slice(0, n);
+}
+
+export const byId = (id: string) => BOOKS.find((b) => b.id === id);

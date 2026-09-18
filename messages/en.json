@@ -444,5 +444,11 @@
     "title": "Just published",
     "prev": "Previous book",
     "next": "Next book"
+  },
+  "shelf": {
+    "new": "New Books",
+    "best": "Bestsellers",
+    "soon": "Coming Soon",
+    "viewAll": "View All"
   }
 }

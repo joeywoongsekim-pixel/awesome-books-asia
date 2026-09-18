@@ -1,6 +1,6 @@
 import {setRequestLocale} from 'next-intl/server';
 import HeroVision from '../../../components/home/HeroVision';
-import NewReleases from '../../../components/home/NewReleases';
+import Shelf from '../../../components/home/Shelf';
 import Categories from '../../../components/home/Categories';
 import Spotlights from '../../../components/home/Spotlights';
 import HowItWorks from '../../../components/home/HowItWorks';
@@ -10,7 +10,8 @@ import Journal from '../../../components/home/Journal';
 import RecentlyViewed from '../../../components/home/RecentlyViewed';
 import UspBar from '../../../components/home/UspBar';
 
-// Homepage skeleton: vision hero (slides) → new-release slider → categories →
+// Homepage skeleton: vision hero (slides) → the shelf (tabbed, four books
+// standing) → categories →
 // spotlights → (plans) → newsletter → journal → USP bar. The announce bar and
 // sticky nav live in the (site) layout.
 export default async function HomePage({
@@ -25,7 +26,7 @@ export default async function HomePage({
   return (
     <>
       <HeroVision />
-      <NewReleases />
+      <Shelf />
       <Categories />
       <Spotlights />
       <HowItWorks />
