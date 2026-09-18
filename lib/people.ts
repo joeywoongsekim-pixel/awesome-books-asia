@@ -6,13 +6,19 @@
 // credit simply is not recorded here yet, and the name shows without one
 // rather than borrowing the other role's titles.
 
+import type {Lang} from './books';
+
 export type Role = 'author' | 'illustrator' | 'translator';
+
+/** A credit is a book, and for a translator also the edition: which
+    language you carried it into is the whole of the claim. */
+export type Credit = {id: string; langs?: Lang[]};
 
 export type Person = {
   id: string;
   name: string;
-  /** book ids from lib/books.ts, per role */
-  credits: Partial<Record<Role, string[]>>;
+  /** books from lib/books.ts, per role */
+  credits: Partial<Record<Role, Credit[]>>;
   /** roles held but not yet published in — "at work on a first title" */
   forthcoming?: Role[];
   /** the profile lives in messages as people.bio.<id>, paragraphs split on
@@ -36,13 +42,16 @@ export const PEOPLE: Person[] = [
   {
     id: 'akira-murata',
     name: 'Akira Murata',
-    credits: {author: ['quantum-econ', 'ai-bible', 'ai-answer'], translator: []},
+    credits: {
+      author: [{id: 'quantum-econ'}, {id: 'ai-bible'}, {id: 'ai-answer'}],
+      translator: []
+    },
     forthcoming: ['translator'],
     hasBio: true,
     photo: true
   },
-  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: ['isekai']}, hasBio: true, photo: true},
-  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: ['ninja-cat']}, hasBio: true, photo: true},
+  {id: 'lyra-mizuki', name: 'Lyra Mizuki', credits: {author: [{id: 'isekai'}]}, hasBio: true, photo: true},
+  {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: [{id: 'ninja-cat'}]}, hasBio: true, photo: true},
   {
     id: 'joey-kim',
     name: 'Joey Kim',
@@ -55,11 +64,19 @@ export const PEOPLE: Person[] = [
   {
     id: 'orion-carter',
     name: 'Orion Carter',
-    credits: {illustrator: ['isekai', 'ninja-cat']},
+    credits: {illustrator: [{id: 'isekai'}, {id: 'ninja-cat'}]},
     hasBio: true,
     photo: true
   },
-  {id: 'vega-choi', name: 'Vega Choi', credits: {translator: []}, hasBio: true, photo: true}
+  {
+    id: 'vega-choi',
+    name: 'Vega Choi',
+    credits: {
+      translator: [{id: 'isekai', langs: ['KO', 'EN']}, {id: 'ninja-cat', langs: ['KO']}]
+    },
+    hasBio: true,
+    photo: true
+  }
 ];
 
 export const inRole = (role: Role) => PEOPLE.filter((p) => p.credits[role] !== undefined);

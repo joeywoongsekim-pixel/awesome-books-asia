@@ -7162,3 +7162,15 @@ html[lang='ko'] .bh-t {
     transform: none;
   }
 }
+
+/* Which edition a translator carried a book into is the credit, so it is
+   set beside the title rather than left to be guessed. */
+.pc-ed {
+  font-style: normal;
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--ink-3);
+  margin-left: 9px;
+}

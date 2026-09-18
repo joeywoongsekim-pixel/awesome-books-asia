@@ -134,8 +134,11 @@ export default function People() {
                   <div className="pc-cr" key={r}>
                     <div className="pc-cr-h">{ROLE_LABEL[r]}</div>
                     <ul>
-                      {(open.credits[r] ?? []).map((id) => (
-                        <li key={`${r}-${id}`}>{titleOf(id)}</li>
+                      {(open.credits[r] ?? []).map((c) => (
+                        <li key={`${r}-${c.id}-${c.langs?.join('') ?? ''}`}>
+                          {titleOf(c.id)}
+                          {c.langs?.length ? <i className="pc-ed">{c.langs.join(' · ')}</i> : null}
+                        </li>
                       ))}
                     </ul>
                   </div>
