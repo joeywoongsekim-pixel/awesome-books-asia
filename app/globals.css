@@ -33,14 +33,18 @@
   --aba-cream: var(--paper);
   --aba-red: #a33a2f;                /* 오류·품절 전용, 브랜드 색 아님 */
 
-  --bg: var(--paper);                /* page background */
-  --card: #faf9f7;                   /* card surfaces — 페이퍼보다 반 톤 위 */
-  --tint: #f5f3ef;                   /* hover tint / USP bar */
-  --ink-1: var(--night);             /* body ink — 16.0:1 on 페이퍼 */
-  --ink-2: var(--stone);             /* secondary text — 5.3:1 */
-  --ink-3: #8a8985;                  /* soft metadata */
-  --hair: #d8d5ce;                   /* hairline borders */
-  --hair-soft: #e6e3dc;              /* softer hairline */
+  /* One ground for the whole page, section to section: a white carrying a
+     faint 라피스 cast rather than the guide's warm 페이퍼. 페이퍼 itself is
+     untouched — it is still the brand colour the logo's brackets and the
+     type on dark surfaces are drawn in. */
+  --bg: #f6f8fc;                     /* the page, everywhere */
+  --card: var(--bg);                 /* no section sits on its own tone */
+  --tint: var(--bg);
+  --ink-1: var(--night);             /* body ink — 17.0:1 */
+  --ink-2: var(--stone);             /* secondary text — 5.6:1 */
+  --ink-3: #8b909b;                  /* soft metadata */
+  --hair: #dde1ea;                   /* hairline borders, cooled to match */
+  --hair-soft: #e8ebf3;              /* softer hairline */
   --shadow-navy: 0 12px 32px rgb(17 19 23 / 0.10);
 
   /* 화면 타입 스케일 — 가이드 §타이포그래피 */
@@ -5334,7 +5338,7 @@ img {
   width: 42px;
   height: 42px;
   border: 1px solid var(--hair);
-  background: #fff;
+  background: var(--bg);
   color: var(--aba-navy);
   font-size: 22px;
   line-height: 1;
@@ -5664,7 +5668,7 @@ img {
    taken. So: 페이퍼 ground, 나이트 type, the picture as a plate on the page
    at its own colours, and 라피스 back to the accent it is meant to be. */
 .vh {
-  background: var(--paper);
+  background: var(--bg);
   color: var(--ink-1);
 }
 .vh::after {
@@ -6279,11 +6283,32 @@ html[lang='ja'] .vh-t {
   .vh[data-l='s6'] .vh-in {
     align-items: flex-end;
   }
-  .vh[data-l='s2'] .vh-nav,
-  .vh[data-l='s4'] .vh-nav,
-  .vh[data-l='s6'] .vh-nav {
-    left: auto;
-    right: 32px;
+  /* The markers are a control, not part of the composition — they stay at
+     the foot of the hero on the left whatever the slide does. On the
+     left-plate slides that puts them on the photograph, so they take the
+     paper treatment there rather than moving out of the way. */
+  .vh[data-l='s2'] .vh-nav > button,
+  .vh[data-l='s4'] .vh-nav > button,
+  .vh[data-l='s6'] .vh-nav > button {
+    border-color: rgb(240 238 233 / 0.5);
+    color: var(--paper);
+  }
+  .vh[data-l='s2'] .vh-nav > button:hover,
+  .vh[data-l='s4'] .vh-nav > button:hover,
+  .vh[data-l='s6'] .vh-nav > button:hover {
+    border-color: var(--paper);
+    color: var(--paper);
+    background: rgb(240 238 233 / 0.12);
+  }
+  .vh[data-l='s2'] .vh-dots button,
+  .vh[data-l='s4'] .vh-dots button,
+  .vh[data-l='s6'] .vh-dots button {
+    background: rgb(240 238 233 / 0.42);
+  }
+  .vh[data-l='s2'] .vh-dots button.on,
+  .vh[data-l='s4'] .vh-dots button.on,
+  .vh[data-l='s6'] .vh-dots button.on {
+    background: var(--paper);
   }
 
   .vh[data-l='s1'] .vh-photo { left: 54%; width: 46%; }
