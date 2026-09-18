@@ -15,7 +15,15 @@ export type EditionLink = {
 
 export const EDITIONS: Record<string, EditionLink[]> = {
   'ai-answer': [
-    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'}
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'},
+    {
+      store: 'Amazon IN',
+      lang: 'EN',
+      format: 'ebook',
+      note: 'What Do Humans Add to AI’s Answers?',
+      url: 'https://www.amazon.in/dp/B0HK79Y7KK',
+      price: '₹199'
+    }
   ],
   'quantum-econ': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H7RMWBCM', price: '$3.11'},
@@ -24,11 +32,11 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   'quantum-econ-uk': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H86W24T9', price: '$3.34'}
   ],
-  // The India edition is sold on Amazon India, not on amazon.com — the
-  // link here used to point at the US store. Price pending: amazon.in
-  // refuses automated reads, so the ₹ figure has to be read off the page.
+  // The India edition is sold on Amazon India. Its ASIN was always right;
+  // only the domain was wrong. Price pending — the old $2.18 was what
+  // amazon.com quoted an international buyer, not the ₹ figure on .in.
   'quantum-econ-in': [
-    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0HK79Y7KK'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9'}
   ],
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},

@@ -91,7 +91,7 @@ export const BOOKS: Book[] = [
     cat: "AI",
     catLabel: "AI & Technology",
     price: 0,
-    langs: ["JA"],
+    langs: ["JA", "EN"],
     isNew: true,
     level: 2,
     angle: "as three human additions — purpose, evidence, and the decision to use",
@@ -258,7 +258,7 @@ export const BOOKS: Book[] = [
     blurb:
       "The India edition of Quantum Economics: superposition, measurement and entanglement as a working toolkit for the new economics of decision-making, framed for Indian readers and markets.",
     pages: 283,
-    published: "2026-09",
+    published: "2026-08",
     toc: [],
     sp: [],
   },
@@ -408,6 +408,11 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 /** The 신간 row, in order. Curated: the house decides what is current. */
 export const NEW_RELEASES: Pick[] = [
   {id: 'ai-answer'},
+  // The English edition (What Do Humans Add to AI’s Answers?, amazon.in) is
+  // published and linked on the book's page, but it is not on this shelf
+  // yet: there is no /covers/ai-answer-en.jpg, so it would stand here under
+  // the Japanese cover — two identical spines, which is exactly why the UK
+  // edition was pulled. Add the cover, then add the pick.
   {id: 'quantum-econ-in'},
   {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
   // The UK edition is out: every English edition of Quantum Economics —
