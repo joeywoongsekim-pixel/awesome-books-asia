@@ -437,6 +437,10 @@
     "s7": {
       "t": "扉",
       "d": "その気があれば、 扉は開きます"
+    },
+    "s8": {
+      "t": "ALL",
+      "d": "Education for ALL, AI for ALL"
     }
   },
   "newrel": {

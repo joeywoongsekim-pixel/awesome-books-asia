@@ -437,6 +437,10 @@
     "s7": {
       "t": "The door",
       "d": "The door opens to anyone who means it"
+    },
+    "s8": {
+      "t": "ALL",
+      "d": "Education for ALL, AI for ALL"
     }
   },
   "newrel": {

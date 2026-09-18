@@ -4,13 +4,13 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import Multiline from '../Multiline';
 
-// §9.4 — the house philosophy in seven slides. Each is one headline, one
+// §9.4 — the house philosophy in eight slides. Each is one headline, one
 // line under it, and a picture behind it that says the same thing without
 // words. Auto-advances, pauses on hover/focus and under reduced motion, and
 // answers dots, arrows, arrow keys and swipes. M60 moved it off the top of
 // the page to the band just above the footer, where it closes the page
 // rather than opening it.
-const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'] as const;
+const SLIDES = ['s1', 's2', 's3', 's4', 's5', 's6', 's7', 's8'] as const;
 const INTERVAL_MS = 7000;
 
 export default function HeroVision() {

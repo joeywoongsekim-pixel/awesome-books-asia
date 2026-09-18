@@ -437,6 +437,10 @@
     "s7": {
       "t": "Die Tür",
       "d": "Die Tür öffnet sich, wer es ernst meint"
+    },
+    "s8": {
+      "t": "ALL",
+      "d": "Education for ALL, AI for ALL"
     }
   },
   "newrel": {
