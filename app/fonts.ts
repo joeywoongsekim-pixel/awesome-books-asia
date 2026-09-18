@@ -9,6 +9,7 @@ import {
   Lora,
   DM_Sans,
   Righteous,
+  Instrument_Serif,
   Space_Mono
 } from 'next/font/google';
 
@@ -17,7 +18,7 @@ import {
    titles (one weight, no Korean or Japanese glyphs, never body text), and
    Pretendard for every title and paragraph in all three languages.
    Pretendard is not on Google Fonts; the layout head loads its dynamic
-   subset from the CDN, which is why only Righteous appears here.        */
+   subset from the CDN, which is why it does not appear here.            */
 
 // 1/2 — 로고 워드마크 + 짧은 영문 제목 전용
 export const righteous = Righteous({
@@ -36,6 +37,19 @@ export const notoDevanagari = Noto_Sans_Devanagari({
   variable: '--font-devanagari',
   display: 'swap',
   preload: false
+});
+
+// 4 — 디스플레이 서체. Righteous carried the display layer for one release
+// and read as futuristic, which a publisher is not. Instrument Serif is the
+// opposite end: a high-contrast editorial serif, the face a bookshop sets
+// its section headings in. One weight, Latin only — same constraints as
+// Righteous, so the display-layer rules below it did not have to change.
+export const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  variable: '--font-display-serif',
+  display: 'swap'
 });
 
 /* ── Legacy faces: the reader desk and the demo book interiors ────────── */
@@ -112,6 +126,7 @@ export const cormorant = Cormorant_Garamond({
 export const fontVariables = [
   righteous.variable,
   notoDevanagari.variable,
+  instrumentSerif.variable,
   cormorant.variable,
   notoSerifKR.variable,
   notoSansKR.variable,

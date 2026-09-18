@@ -7209,18 +7209,22 @@ html[lang='hi'] .bh-t {
   line-height: 1.26;
 }
 
-/* ── M97: the logo's face on the display layer ───────────────────────────
-   Righteous is the wordmark, and it has no Korean, Japanese or Devanagari
-   glyphs — so it can only ever carry short strings, and on six of the nine
-   locales it will fall through to Pretendard. That rules out headings and
-   body text and leaves the display layer: section headings, tab rows,
-   labels and the two hero titles. The logo's face then recurs small all
-   over the page instead of sitting alone in the corner.
+/* ── M97 → M98: the display layer ────────────────────────────────────────
+   The display layer is everything that announces rather than explains:
+   section headings, tab rows, small labels and the two hero titles. It is
+   held apart from the body face on purpose.
 
-   One weight only, so anything it touches is set at 400 and the tracking
-   is opened; the locales it cannot serve get their weight back below. */
+   M97 handed it the wordmark, Righteous, and it read futuristic — the
+   wrong genre for a publisher. M98 swaps in Instrument Serif: a
+   high-contrast editorial serif, the face a bookshop sets its section
+   headings in. The wordmark keeps Righteous (--font-mark), so the corner
+   stays geometric and everything below it reads as print.
+
+   The two constraints are unchanged — Latin glyphs only, one weight — so
+   anything this touches is set at 400, and the locales it cannot serve
+   (ko/ja/hi fall through to Pretendard) get their weight back below. */
 :root {
-  --font-display: var(--font-righteous), var(--pretendard);
+  --font-display: var(--font-display-serif), var(--pretendard);
 }
 .cats-h,
 .nsh-tabs button,
@@ -7234,24 +7238,34 @@ html[lang='hi'] .bh-t {
 .vh-t {
   font-family: var(--font-display);
   font-weight: 400;
+  /* The ko/ja/hi rules below ask for 700 so Pretendard does not go thin.
+     But a string like "Awesome Author" is Latin on every locale, so the
+     serif serves it there too and the browser would smear a fake bold over
+     a face that has one weight. Switching synthesis off settles it per
+     run: Latin stays at the serif's 400, the scripts it cannot set fall
+     through to Pretendard and get a real 700. */
+  font-synthesis-weight: none;
 }
+/* A serif fits its own words together; the tracking Righteous needed only
+   loosens it. Headings sit at the design width and the hero titles, which
+   are large, pull in slightly. */
 .cats-h,
 .nsh-tabs button,
 .nsh-one,
 .h2,
 .spot-t,
 .pc-n {
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
 }
 .bh-t.lat,
 .vh-t {
-  letter-spacing: -0.005em;
+  letter-spacing: -0.012em;
 }
-/* Righteous is wide and open; at label sizes it needs less tracking than
-   Pretendard did or the words come apart. */
+/* The exception: small tracked capitals. Instrument Serif is narrower than
+   Righteous, so these need the air back or the words close up. */
 .ppl-role,
 .eyebrow {
-  letter-spacing: 0.13em;
+  letter-spacing: 0.16em;
 }
 /* Pretendard is doing the work on these, and at 400 it goes thin. */
 html[lang='ko'] .cats-h,
