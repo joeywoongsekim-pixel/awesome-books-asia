@@ -6447,11 +6447,17 @@ html[lang='ja'] .vh-t {
   margin-bottom: 76px;
 }
 
+/* Centred rather than a fixed four columns, so a row of three sits in the
+   middle of the page instead of leaving a hole on the right. */
 .nsh-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 40px 56px;
+}
+.nsh-bk {
+  flex: 0 1 240px;
 }
 .nsh-bk {
   display: block;
@@ -6559,8 +6565,10 @@ html[lang='ja'] .vh-t {
     padding: 56px 20px 64px;
   }
   .nsh-row {
-    grid-template-columns: repeat(2, 1fr);
     gap: 34px 24px;
+  }
+  .nsh-bk {
+    flex: 0 1 140px;
   }
   .nsh-3d {
     height: 210px;

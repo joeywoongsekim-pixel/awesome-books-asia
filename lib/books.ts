@@ -364,8 +364,12 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 export const NEW_RELEASES: Pick[] = [
   {id: 'ai-answer'},
   {id: 'quantum-econ-in'},
-  {id: 'quantum-econ-uk'},
   {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
+  // The UK edition is out: every English edition of Quantum Economics —
+  // base, UK and India — is published under the same cover art, so two of
+  // them side by side read as the same book printed twice. India stays as
+  // the edition released today. A fourth pick can go here once there is
+  // one with cover art of its own.
 ];
 
 /** The 베스트셀러 row, in order. */
