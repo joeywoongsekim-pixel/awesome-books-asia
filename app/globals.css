@@ -7025,3 +7025,24 @@ html[lang='ko'] .bh-t {
     max-width: none;
   }
 }
+
+/* ── M70: twelve subjects, four across ───────────────────────────────────
+   The band shows the whole shelf now, not only the shelves that have books
+   on them, so the row of four becomes a block of twelve: four across and
+   three down on a desktop, two across on a phone. Rows need more air
+   between them than columns do, because a caption sits under each. */
+.cats {
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: clamp(34px, 3.4vw, 60px);
+}
+@media (max-width: 1080px) {
+  .cats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 720px) {
+  .cats {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+}
