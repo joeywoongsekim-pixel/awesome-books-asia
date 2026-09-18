@@ -85,3 +85,12 @@ export function fromPrice(bookId: string, locale: string): string | null {
   }
   return priced[0].price!;
 }
+
+/** The cheapest listing for one language edition of a book, as printed. */
+export function priceForLang(bookId: string, lang?: string): string | null {
+  const links = (EDITIONS[bookId] ?? []).filter((l) => !lang || l.lang === lang);
+  const priced = links.map((l) => l.price).filter(Boolean) as string[];
+  if (!priced.length) return null;
+  const num = (p: string) => Number(p.replace(/[^\d.]/g, '')) || Infinity;
+  return priced.sort((a, b) => num(a) - num(b))[0];
+}

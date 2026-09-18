@@ -449,6 +449,9 @@
     "new": "Nouveautés",
     "best": "Meilleures ventes",
     "soon": "À paraître",
-    "viewAll": "Tout voir"
+    "viewAll": "Tout voir",
+    "edEN": "anglais",
+    "edKO": "coréen",
+    "edJA": "japonais"
   }
 }

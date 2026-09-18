@@ -449,6 +449,9 @@
     "new": "Mga Bagong Aklat",
     "best": "Pinakamabenta",
     "soon": "Malapit Nang Ilabas",
-    "viewAll": "Tingnan Lahat"
+    "viewAll": "Tingnan Lahat",
+    "edEN": "English",
+    "edKO": "Korean",
+    "edJA": "Japanese"
   }
 }

@@ -354,8 +354,46 @@ export const DEMO_BOOKS = BOOKS.filter((b) => b.sp.length > 0);
    no sales data in the repo and no forthcoming titles, and neither is
    something to guess at on a public page. Fill these in and the tabs appear
    — the shelf renders only the tabs that have books. */
-export const BESTSELLERS: string[] = [];
-export const COMING_SOON: string[] = [];
+/** A book on the shelf, optionally a particular language edition of it.
+    `title` is only set where the house has given us that edition's own
+    title — otherwise the base title shows with an edition label, rather
+    than a translated one being invented here. */
+export type Pick = {id: string; lang?: Lang; title?: string};
+
+/** The 신간 row, in order. Curated: the house decides what is current. */
+export const NEW_RELEASES: Pick[] = [
+  {id: 'ai-answer'},
+  {id: 'quantum-econ-in'},
+  {id: 'quantum-econ-uk'},
+  {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
+];
+
+/** The 베스트셀러 row, in order. */
+export const BESTSELLERS: Pick[] = [
+  {id: 'ai-bible', lang: 'EN'},
+  {id: 'ai-bible', lang: 'JA'},
+  {id: 'isekai', lang: 'KO'},
+  {id: 'isekai', lang: 'EN'}
+];
+
+/** Nothing forthcoming is recorded anywhere here yet. */
+export const COMING_SOON: Pick[] = [];
+
+/** The cover art that exists per language, by the files in /public/covers. */
+const COVERS: Record<string, Partial<Record<Lang, string>>> = {
+  'ai-answer': {JA: '/covers/ai-answer-ja.jpg'},
+  'ai-bible': {EN: '/covers/ai-bible.jpg', JA: '/covers/ai-bible-ja.jpg'},
+  'quantum-econ': {EN: '/covers/quantum-econ.jpg', JA: '/covers/quantum-econ-ja.jpg'},
+  'quantum-econ-uk': {EN: '/covers/quantum-econ.jpg'},
+  'quantum-econ-in': {EN: '/covers/quantum-econ.jpg'},
+  isekai: {EN: '/covers/isekai.jpg', KO: '/covers/isekai-ko.jpg', JA: '/covers/isekai-ja.jpg'},
+  'ninja-cat': {EN: '/covers/ninja-cat.jpg', KO: '/covers/ninja-cat-ko.jpg'}
+};
+
+export function coverFor(id: string, lang?: Lang): string | undefined {
+  const set = COVERS[id];
+  return (lang && set?.[lang]) || BOOKS.find((b) => b.id === id)?.img;
+}
 
 /** Newest first, regional twins folded into one entry. */
 export function newestBooks(n: number): Book[] {
