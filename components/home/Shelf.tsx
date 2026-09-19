@@ -97,7 +97,22 @@ export default function Shelf() {
               <span className="nsh-3d">
                 <span className="nsh-blk">
                   <span className="nsh-spine" aria-hidden="true" />
-                  <span className="nsh-soon">
+                  {/* Art where there is any; the blank jacket where there is
+                      not. A file that is not on disk falls back rather than
+                      leaving a broken image on the shelf. */}
+                  {f.cover ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={f.cover}
+                      alt=""
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        e.currentTarget.nextElementSibling?.removeAttribute('hidden');
+                      }}
+                    />
+                  ) : null}
+                  <span className="nsh-soon" hidden={!!f.cover}>
                     <i>Awesome Books Asia</i>
                     <b>{f.title}</b>
                   </span>
