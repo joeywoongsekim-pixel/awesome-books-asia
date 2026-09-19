@@ -84,82 +84,80 @@ export const EDITIONS: Record<string, EditionLink[]> = {
 };
 
 // ── price helpers ───────────────────────────────────────────────────────
-const CURRENCY_ORDER: Record<string, string[]> = {
-  ja: ['¥', '$', '원'],
-  default: ['$', '¥', '원']
-};
 
-/** The Korean bookshops, as against the Amazons. */
-const KOREAN_STORES: ReadonlySet<EditionLink['store']> = new Set([
-  '교보문고',
-  '교보 eBook',
-  'YES24',
-  '알라딘'
-]);
+/* One rule, every locale: quote a reader a currency they can actually pay
+   in, preferring the most local one, and print nothing rather than a third
+   country's money.
+
+   Before this, the last resort was "whatever the first listing says", which
+   is how ₹199 ended up on the Korean, Japanese and German shelves. A price
+   nobody on that page can pay is worse than a blank, because the blank
+   still has a working link under it and Amazon then quotes the reader their
+   own figure.
+
+   Dollars are the universal second choice. Every Amazon quotes an
+   international buyer in USD, so it is the one currency that is never
+   simply wrong — and for the locales with no store of their own (en, fil,
+   pt, and the European ones until their stores are read) it is the only
+   choice. */
+const CURRENCY_BY_LOCALE: Record<string, string[]> = {
+  ko: ['원', '$'],
+  ja: ['¥', '$'],
+  hi: ['₹', '$'],
+  default: ['$']
+};
 
 const numeric = (p: string) => Number(p.replace(/[^\d.]/g, '')) || Infinity;
 const cheapest = (links: EditionLink[]) =>
-  links.sort((a, b) => numeric(a.price!) - numeric(b.price!))[0].price!;
+  [...links].sort((a, b) => numeric(a.price!) - numeric(b.price!))[0].price!;
 
-/**
- * Cheapest listed price for a book, in the currency closest to the reader.
- *
- * Korean pages have a rule of their own, because Korea has no Amazon of its
- * own: a title the Korean bookshops carry is quoted in 원, and anything they
- * do not carry is quoted in dollars off Amazon US, which is where a reader
- * here would buy it as an international customer. If neither exists the card
- * shows no price at all rather than quoting ₹ or ¥ at someone who cannot
- * pay in either.
- */
-export function fromPrice(bookId: string, locale: string): string | null {
-  const priced = (EDITIONS[bookId] ?? []).filter((e) => e.price);
-  if (!priced.length) return null;
-
-  if (locale === 'ko') {
-    const won = priced.filter((e) => KOREAN_STORES.has(e.store));
-    if (won.length) return cheapest(won);
-    const us = priced.filter((e) => e.store === 'Amazon');
+/* Among dollar listings, Amazon US is the one to quote: the rest are other
+   storefronts quoting an international buyer, which is close but is not the
+   price on the store a reader would actually land on. */
+function inCurrency(links: EditionLink[], symbol: string) {
+  const matching = links.filter((e) => e.price!.includes(symbol));
+  if (!matching.length) return null;
+  if (symbol === '$') {
+    const us = matching.filter((e) => e.store === 'Amazon');
     if (us.length) return cheapest(us);
-    // No .com listing on file. A dollar figure from another Amazon is an
-    // international buyer's quote, which is what a reader in Korea is, so
-    // it stands in — but only a dollar one. Quoting ₹ or ¥ at someone who
-    // can pay in neither is the thing this rule exists to stop.
-    const dollars = priced.filter((e) => e.price!.includes('$'));
-    return dollars.length ? cheapest(dollars) : null;
   }
+  return cheapest(matching);
+}
 
-  for (const symbol of CURRENCY_ORDER[locale] ?? CURRENCY_ORDER.default) {
-    const inCurrency = priced.filter((e) => e.price!.includes(symbol));
-    if (inCurrency.length) return cheapest(inCurrency);
+function quote(links: EditionLink[], locale?: string) {
+  const priced = links.filter((e) => e.price);
+  if (!priced.length) return null;
+  for (const symbol of CURRENCY_BY_LOCALE[locale ?? ''] ?? CURRENCY_BY_LOCALE.default) {
+    const found = inCurrency(priced, symbol);
+    if (found) return found;
   }
-  return priced[0].price!;
+  return null;
 }
 
 /**
- * The cheapest listing for one language edition of a book, as printed.
+ * Cheapest listed price for a book, in a currency the reader can pay in.
  *
- * Takes the locale too, because the shelf stands on the same ground as the
- * cards beside it: a Korean page quotes 원 where a Korean bookshop carries
- * that edition and dollars where none does, rather than whatever currency
- * happens to be cheapest.
+ * Korean pages quote 원 where one of the Korean bookshops carries the title —
+ * 교보문고, 교보 eBook, YES24, 알라딘 are the only stores here that price in
+ * 원 — Japanese pages ¥, Indian pages ₹, and everyone falls back to dollars
+ * off Amazon US. Nothing at all where none of that exists.
+ */
+export function fromPrice(bookId: string, locale: string): string | null {
+  return quote(EDITIONS[bookId] ?? [], locale);
+}
+
+/**
+ * The same, for one language edition of a book — what the homepage shelf
+ * prints under a cover. It takes the locale for the same reason: the shelf
+ * stands on the same ground as the cards beside it.
  */
 export function priceForLang(
   bookId: string,
   lang?: string,
   locale?: string
 ): string | null {
-  const links = (EDITIONS[bookId] ?? []).filter(
-    (l) => (!lang || l.lang === lang) && l.price
+  return quote(
+    (EDITIONS[bookId] ?? []).filter((l) => !lang || l.lang === lang),
+    locale
   );
-  if (!links.length) return null;
-
-  if (locale === 'ko') {
-    const won = links.filter((e) => KOREAN_STORES.has(e.store));
-    if (won.length) return cheapest(won);
-    const us = links.filter((e) => e.store === 'Amazon');
-    if (us.length) return cheapest(us);
-    const dollars = links.filter((e) => e.price!.includes('$'));
-    return dollars.length ? cheapest(dollars) : null;
-  }
-  return cheapest(links);
 }
