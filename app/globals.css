@@ -7415,6 +7415,41 @@ html[lang='ko'] .bh-t {
   align-content: flex-start;
 }
 
+/* ── One shelf, scrolled ─────────────────────────────────────────────────
+   The row used to wrap and centre, so a fifth book dropped to a second
+   line and the shelf stopped being a shelf. It now runs in a single line
+   with a bar under it, the same treatment the people band uses.
+
+   justify-content stays at flex-start: a centred flex row that overflows
+   puts its first items off the left edge, where no scroll can reach them.
+   The basis goes from `0 1` to `0 0` for the same reason — nothing may
+   shrink to avoid the overflow we are asking for. */
+.nsh-row {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  padding-bottom: 18px;
+  scrollbar-color: var(--stone) var(--hair-soft);
+  scrollbar-width: thin;
+}
+.nsh-row:focus-visible {
+  outline: 2px solid var(--lapis);
+  outline-offset: 4px;
+}
+.nsh-bk,
+.nsh-bk-soon {
+  flex: 0 0 min(320px, calc((100% - 3 * var(--nsh-gap)) / 4));
+  scroll-snap-align: start;
+}
+@media (max-width: 900px) {
+  .nsh-bk,
+  .nsh-bk-soon {
+    flex: 0 0 min(210px, calc((100% - var(--nsh-gap)) / 2));
+  }
+}
+
 /* ── M68: the categories band ────────────────────────────────────────────
    Reference: gestalten's "Explore by category". Four photographs across a
    band as wide as the page, at the proportion a landscape photograph wants
@@ -7527,17 +7562,22 @@ html[lang='ko'] .bh-t {
   outline: 2px solid var(--lapis);
   outline-offset: 4px;
 }
-/* A visible bar, because the row does not say on its own that it moves. */
-.ppl-scroll::-webkit-scrollbar {
+/* A visible bar, because the row does not say on its own that it moves.
+   The book shelf uses the same one. */
+.ppl-scroll::-webkit-scrollbar,
+.nsh-row::-webkit-scrollbar {
   height: 8px;
 }
-.ppl-scroll::-webkit-scrollbar-track {
+.ppl-scroll::-webkit-scrollbar-track,
+.nsh-row::-webkit-scrollbar-track {
   background: var(--hair-soft);
 }
-.ppl-scroll::-webkit-scrollbar-thumb {
+.ppl-scroll::-webkit-scrollbar-thumb,
+.nsh-row::-webkit-scrollbar-thumb {
   background: #b9c0cf;
 }
-.ppl-scroll::-webkit-scrollbar-thumb:hover {
+.ppl-scroll::-webkit-scrollbar-thumb:hover,
+.nsh-row::-webkit-scrollbar-thumb:hover {
   background: var(--stone);
 }
 .ppl-p {
