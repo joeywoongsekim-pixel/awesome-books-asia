@@ -15,14 +15,26 @@ function titleOf(id: string) {
   return BOOKS.find((b) => b.id === id)?.title ?? '';
 }
 
+/* The monogram is not only for someone with no portrait planned: it is
+   also what stands there while one is being made. A file that is not on
+   disk yet used to leave a blank rectangle on the row. */
 function Portrait({p}: {p: Person}) {
-  return p.photo ? (
+  const [missing, setMissing] = useState(false);
+  if (!p.photo || missing) {
+    return (
+      <span className="ppl-mono" aria-hidden="true">
+        {initials(p.name)}
+      </span>
+    );
+  }
+  return (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={`/people/${p.id}.webp`} alt="" loading="lazy" />
-  ) : (
-    <span className="ppl-mono" aria-hidden="true">
-      {initials(p.name)}
-    </span>
+    <img
+      src={`/people/${p.id}.webp`}
+      alt=""
+      loading="lazy"
+      onError={() => setMissing(true)}
+    />
   );
 }
 

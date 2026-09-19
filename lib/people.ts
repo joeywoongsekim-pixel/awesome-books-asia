@@ -71,6 +71,18 @@ export const PEOPLE: Person[] = [
     photo: true
   },
   {
+    // Invented, like Lyra, Fumi, Orion and Vega. No published credit yet:
+    // the empty author list plus `forthcoming` is what makes the card read
+    // "at work on" rather than "nothing recorded".
+    id: 'halley-brooks',
+    name: 'Halley Brooks',
+    credits: {author: []},
+    forthcoming: ['author'],
+    soon: {author: ['North Shore']},
+    hasBio: true,
+    photo: true
+  },
+  {
     id: 'orion-carter',
     name: 'Orion Carter',
     credits: {illustrator: [{id: 'isekai'}, {id: 'ninja-cat'}]},
