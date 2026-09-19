@@ -98,8 +98,8 @@ export default function Nav() {
           {/* Account moves in here on a phone: the bar itself only has room
               for the logo, the language flag and the burger. */}
           <div className="nav-sheet-auth" onClick={() => setOpen(false)}>
-            <NavAuth />
             <AdminSwitch />
+            <NavAuth flat />
           </div>
         </div>
       )}

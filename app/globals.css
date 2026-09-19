@@ -385,6 +385,48 @@ h3 {
 .nav-auth-link {
   text-decoration: none;
 }
+/* the account menu reuses the language popup's shell */
+.nav-acct {
+  position: relative;
+}
+.nav-acct-who {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nav-acct-menu {
+  min-width: 200px;
+}
+.nav-acct-mail {
+  padding: 8px 12px 10px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--hair-soft);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.nav-acct-menu a,
+.nav-acct-menu button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  background: transparent;
+  border: none;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.15s;
+}
+.nav-acct-menu a:hover,
+.nav-acct-menu button:hover {
+  background: var(--aba-cream);
+  color: var(--ink-1);
+}
 
 /* ══════════ HERO — BOOK OF THE MONTH (§9.4) ══════════ */
 .hero {
@@ -3359,8 +3401,13 @@ footer {
   .nav-lang-label {
     display: none;
   }
-  .nav-right > .nav-auth-link,
-  .nav-right > button.nav-lang-btn {
+  /* On a phone the bar has room for the burger, the wordmark and the
+     language — everything else lives in the sheet the burger opens. Stated
+     as "all but the language" rather than by listing the chips: the old
+     rule named the shapes it knew about, so the account menu and the admin
+     switch slipped past it, pushed .nav-right off the screen and left the
+     wordmark sitting on top of the burger. */
+  .nav-right > *:not(.nav-lang) {
     display: none;
   }
   .nav-lang-btn {
@@ -3677,11 +3724,19 @@ a.ac-list-t:hover {
   color: var(--ink-3);
 }
 
-/* the switch into the console, in the site's own bar */
+/* The switch into the console, in the site's own bar. Filled rather than
+   outlined: it is the one thing in that group that changes mode, and next
+   to the account menu an outline reads as just another chip. */
 .nav-admin {
+  background: var(--aba-navy);
   border-color: var(--aba-navy);
-  color: var(--aba-navy);
+  color: var(--aba-cream);
   font-weight: 700;
+}
+.nav-admin:hover {
+  background: var(--aba-deep);
+  border-color: var(--aba-deep);
+  color: var(--aba-cream);
 }
 
 @media (max-width: 860px) {
