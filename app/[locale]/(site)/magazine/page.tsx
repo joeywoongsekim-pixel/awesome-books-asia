@@ -1,8 +1,7 @@
 import type {Metadata} from 'next';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {Link} from '../../../../i18n/navigation';
-import Reveal from '../../../../components/Reveal';
-import {livePage, pick, PAGE_SIZE} from '../../../../lib/magazine';
+import {livePage, pick, safeHtml, PAGE_SIZE} from '../../../../lib/magazine';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,7 +35,7 @@ export default async function MagazinePage({
 
   return (
     <div className="mz-page">
-      <div className="sec-in">
+      <div className="art-in">
         <div className="store-hero">
           <div className="eyebrow">{t('eyebrow')}</div>
           <h1 className="h2" style={{fontSize: 'clamp(32px,4.4vw,50px)'}}>
@@ -49,26 +48,34 @@ export default async function MagazinePage({
           <p className="ac-empty">{t('empty')}</p>
         ) : (
           posts.map((post, i) => (
-            <Reveal key={post.id}>
-              <article className={i % 2 === 1 ? 'mz-band flip' : 'mz-band'}>
-                <Link href={`/magazine/${post.slug}`} className="mz-vis" tabIndex={-1}>
+            <article className="mz-full" key={post.id} id={post.slug}>
+              <div className="art-k">
+                {post.published_at.slice(0, 10).replace(/-/g, '.')}
+              </div>
+              {/* The heading is the permalink. Nothing says "read more",
+                  because the article is already here — but a reader who
+                  wants to send this one piece to somebody needs its own
+                  address, and the title is where people look for it. */}
+              <h2 className="art-t">
+                <Link href={`/magazine/${post.slug}`}>{pick(post.title, locale)}</Link>
+              </h2>
+              <p className="art-d">{pick(post.dek, locale)}</p>
+              {post.cover && (
+                <figure className="art-vis">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={post.cover ?? '/hero/s5.webp'} alt="" loading="lazy" />
-                </Link>
-                <div className="mz-txt">
-                  <div className="mz-k">
-                    {post.published_at.slice(0, 10).replace(/-/g, '.')}
-                  </div>
-                  <h2 className="mz-t">
-                    <Link href={`/magazine/${post.slug}`}>{pick(post.title, locale)}</Link>
-                  </h2>
-                  <p className="mz-x">{pick(post.dek, locale)}</p>
-                  <Link href={`/magazine/${post.slug}`} className="mz-l">
-                    {t('read')}
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
+                  <img
+                    src={post.cover}
+                    alt=""
+                    loading={i === 0 ? undefined : 'lazy'}
+                    fetchPriority={i === 0 ? 'high' : undefined}
+                  />
+                </figure>
+              )}
+              <div
+                className="art-body"
+                dangerouslySetInnerHTML={{__html: safeHtml(pick(post.body, locale))}}
+              />
+            </article>
           ))
         )}
 

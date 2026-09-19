@@ -98,12 +98,18 @@ export function safeHtml(html: string): string {
    prerendered: reading published articles needs no session, and asking for
    cookies would make every page dynamic.
 
-   The minute on the fetch matters. Without it Next keeps the response in
-   its data cache, and that cache survives a deploy — an article published
-   in the console would sit behind a build from last week with no way to
-   shift it. A minute is short enough that publishing feels immediate and
-   long enough that a burst of traffic does not become a burst of queries. */
-export function publicClient(): SupabaseClient | null {
+   How the answer is cached is the caller's business, and getting it wrong
+   is not a small mistake. A minute on the fetch was meant to keep the
+   magazine feeling immediate; it did not — Next held the response well
+   past it, and an article published in the console never reached the list.
+
+   So the pages that must be right ask for `fresh`, and get no caching at
+   all. They are dynamic already: nothing is saved by caching them and a
+   stale magazine is the one thing this must never be. The home band, which
+   is a prerendered page refreshed on its own timer, keeps the cached read
+   — its page-level revalidate is what governs, and one query per
+   regeneration is the right number. */
+export function publicClient(fresh = false): SupabaseClient | null {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) return null;
@@ -111,15 +117,18 @@ export function publicClient(): SupabaseClient | null {
     auth: {persistSession: false},
     global: {
       fetch: (input, init) =>
-        fetch(input as RequestInfo, {...init, next: {revalidate: 60}} as RequestInit)
+        fetch(input as RequestInfo, {
+          ...init,
+          ...(fresh ? {cache: 'no-store'} : {next: {revalidate: 600}})
+        } as RequestInit)
     }
   });
 }
 
 /** Newest published articles. Returns [] if the database is unreachable —
     a magazine that cannot be read is a quiet section, not a broken page. */
-export async function livePosts(limit: number, offset = 0): Promise<Post[]> {
-  const supabase = publicClient();
+export async function livePosts(limit: number, offset = 0, fresh = false): Promise<Post[]> {
+  const supabase = publicClient(fresh);
   if (!supabase) return [];
   const {data, error} = await supabase
     .from('posts')
@@ -132,7 +141,7 @@ export async function livePosts(limit: number, offset = 0): Promise<Post[]> {
 
 /** One page of the list, plus how many pages there are in total. */
 export async function livePage(page: number): Promise<{posts: Post[]; pages: number}> {
-  const supabase = publicClient();
+  const supabase = publicClient(true);
   if (!supabase) return {posts: [], pages: 0};
   const from = (page - 1) * PAGE_SIZE;
   const {data, count, error} = await supabase
@@ -146,7 +155,7 @@ export async function livePage(page: number): Promise<{posts: Post[]; pages: num
 }
 
 export async function livePost(slug: string): Promise<Post | null> {
-  const supabase = publicClient();
+  const supabase = publicClient(true);
   if (!supabase) return null;
   const {data, error} = await supabase
     .from('posts')

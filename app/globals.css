@@ -8333,19 +8333,20 @@ html[lang='hi'] {
   color: var(--lapis-dk);
 }
 
-/* the list page */
+/* ── the magazine itself ──────────────────────────────────────────────
+   Not a list of things to click. The five articles are printed here in
+   full, one after another, and the only thing at the foot is which five
+   you are reading. A piece still has its own address — the headline is
+   the link — but nobody has to go and get it. */
 .mz-page {
   background: var(--bg);
-  /* the side gutter a .sec would have given it — without one, the copy on
-     a phone runs into the edge of the screen */
-  padding: 0 32px 72px;
+  padding-bottom: 72px;
 }
 /* The house centres an .h2 and leaves everything else at the left margin,
-   which reads as a mistake over a 1280 column with no filter row under it.
-   The magazine's own masthead is centred as one block. */
+   which reads as a mistake under a masthead. This one is centred whole. */
 .mz-page .store-hero {
   text-align: center;
-  padding: 56px 0 10px;
+  padding: 56px 0 30px;
 }
 .mz-page .store-hero .lead {
   margin: 0 auto;
@@ -8353,6 +8354,33 @@ html[lang='hi'] {
 /* .eyebrow is a flex row, so the parent's text-align does not reach it */
 .mz-page .store-hero .eyebrow {
   justify-content: center;
+}
+/* One article, then a rule wide enough that the eye reads it as the end of
+   a piece rather than a paragraph break. */
+.mz-full + .mz-full {
+  margin-top: 96px;
+  padding-top: 88px;
+  border-top: 1px solid var(--hair);
+}
+.mz-full .art-t {
+  font-size: clamp(27px, 3.2vw, 38px);
+}
+.mz-full .art-t a {
+  color: inherit;
+  text-decoration: none;
+}
+.mz-full .art-t a:hover {
+  color: var(--lapis);
+}
+/* A five-article page scrolls a long way; the date holds its place. */
+.mz-full .art-k {
+  margin-top: 0;
+}
+@media (max-width: 640px) {
+  .mz-full + .mz-full {
+    margin-top: 60px;
+    padding-top: 56px;
+  }
 }
 
 /* Five to a page, then the arrows with the numbers between them. */
