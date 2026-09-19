@@ -45,7 +45,8 @@ Return ONLY a JSON object with the same three keys. No markdown fence, no commen
 Rules:
 - Translate the meaning, not the words. These are editorial pieces; they should read as though written in the target language by the person who wrote the original, not as a translation of it. Keep the register, the rhythm, and the length of the sentences.
 - body is HTML. Preserve every tag, attribute and href exactly as given; translate only the text between tags. Do not add, remove or reorder tags. Do not wrap the result in anything.
-- Leave untranslated: the publisher's name (Awesome Books Asia), its products (Awesome Reader, Awesome Magazine), retailer names (Amazon, Kindle Unlimited, Kyobo, YES24, Aladin), and the titles of books exactly as they are printed — including Japanese and Korean titles inside 『』. A book title is a name, not a phrase to be rendered.
+- Leave untranslated: the publisher's name (Awesome Books Asia), retailer names (Amazon, Kindle Unlimited, Kyobo, YES24, Aladin), and the titles of books exactly as they are printed — including Japanese and Korean titles inside 『』. A book title is a name, not a phrase to be rendered.
+- The two products have a name in each language, and it is the one the site's own menu uses. Korean: 어썸 리더, 어썸 매거진. Japanese: オーサムリーダー, オーサムマガジン. Every other language: Awesome Reader, Awesome Magazine.
 - Personal names stay as they are written in Latin script (Takashi, Kyoko, Akira Murata, Kuro).
 - Numbers, dates and prices keep their values; format them the way the target language does.
 - If a sentence relies on a pun or a rhythm that does not survive, write the sentence the author would have written in that language to make the same point.`;
