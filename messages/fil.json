@@ -17,11 +17,10 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Dito <em>mismo binabasa</em> ang mga aklat namin.",
-    "subtitle": "Sa Awesome Reader nagbabasa ang mga miyembro. Bumubukas ito sa browser — walang ida-download, walang i-install.",
+    "title": "Nakabukas pa rin ang <em>aklat na iniwan mo</em>.",
+    "subtitle": "Isara mo, bumalik ka makalipas ang isang linggo, at nasa parehong pahina ka pa rin. Walang kailangang tandaan.",
     "meta": "Korean · English · Japanese · sa anumang device",
     "ctaPrimary": "Buksan ang Awesome Reader",
-    "ctaNote": "Libreng sample subscription — mag-sign in at bubukas ang aklat.",
     "ctaSecondary": "Tingnan ang bookstore",
     "tags": {
       "four": "Korean · English · Japanese",

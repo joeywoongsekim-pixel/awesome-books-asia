@@ -17,11 +17,10 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Nos livres se lisent <em>ici même</em>.",
-    "subtitle": "Awesome Reader, c'est là que lisent nos membres. Il s'ouvre dans le navigateur — rien à télécharger, rien à installer.",
+    "title": "Le livre que vous avez posé <em>est resté ouvert</em>.",
+    "subtitle": "Refermez-le, revenez une semaine plus tard : vous êtes à la même page. Rien à retenir, rien à retrouver.",
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",
     "ctaPrimary": "Ouvrir Awesome Reader",
-    "ctaNote": "Abonnement découverte gratuit — connectez-vous et le livre s’ouvre.",
     "ctaSecondary": "Voir la librairie",
     "tags": {
       "four": "Coréen · Anglais · Japonais",

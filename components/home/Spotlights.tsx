@@ -5,11 +5,11 @@ import MiniDesk from './MiniDesk';
 
 // §9.7 — Awesome Reader, on a live demo desk: tap a book and it comes down.
 //
-// This section used to carry a feature list — four books at once, three
-// languages, the page kept across devices. That is a spec sheet, and a
-// publisher's home page is not where anyone reads one. A visitor needs to
-// know our books can be read here and where the button is; the rest they
-// find by using it.
+// Written from the reader's side. This section has carried, in turn, a
+// feature list, a claim about browsers and installs, and a price sticker
+// under the button — none of which anyone came here to read. What is left
+// is the thing a reader actually feels at a desk like this one: the book
+// you put down is still open where you left it.
 export default function Spotlights() {
   const t = useTranslations();
 
@@ -36,8 +36,6 @@ export default function Spotlights() {
             <Link href="/read/ai-bible" className="btn-o">
               {t('home.ctaPrimary')}
             </Link>
-            {/* Signing in is the first thing that happens when they click. */}
-            <p className="spot-note">{t('home.ctaNote')}</p>
           </div>
         </div>
       </Reveal>

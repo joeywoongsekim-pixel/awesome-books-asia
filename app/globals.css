@@ -6365,13 +6365,6 @@ html[lang='ja'] .vh-t {
   color: var(--stone);
   margin-bottom: 30px;
 }
-/* the line under the button: what it costs, and that signing in comes first */
-.spot-note {
-  margin-top: 16px;
-  font-size: 12.5px;
-  line-height: 1.7;
-  color: var(--stone);
-}
 /* one solid button where an action is offered */
 .spot-txt .btn-o {
   background: var(--lapis);
