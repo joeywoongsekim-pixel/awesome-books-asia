@@ -224,9 +224,9 @@
     "browse": "Browse the bookstore →"
   },
   "newsletter": {
-    "eyebrow": "Letters",
-    "title": "One short letter a month",
-    "lead": "New releases and what we're working on. No advertising.",
+    "eyebrow": "Letter",
+    "title": "It arrives before the book does.",
+    "lead": "What is changing, and why it made us start this book — written by the people making it.",
     "placeholder": "Your email address"
   },
   "journal": {
