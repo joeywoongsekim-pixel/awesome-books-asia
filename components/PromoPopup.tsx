@@ -2,7 +2,7 @@
 
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../i18n/navigation';
 import BookCover, {seriesNo} from './BookCover';
 import {PROMO, indiaEditions, promoIsLive} from '../lib/promo';
@@ -48,10 +48,11 @@ function alreadyDismissed() {
 
 export default function PromoPopup() {
   const t = useTranslations('promo');
+  const locale = useLocale();
   const [open, setOpen] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
-  const editions = indiaEditions();
+  const editions = indiaEditions(locale);
 
   // The window is read on mount, never during render: these pages are
   // prerendered, and a server that decided this would bake one answer into
@@ -124,7 +125,7 @@ export default function PromoPopup() {
         <p className="pmo-lead">{t('lead')}</p>
 
         <ul className="pmo-books">
-          {editions.map(({book, link, title, cover}) => (
+          {editions.map(({book, link, title, cover, storeLabel, url, price}) => (
             <li key={`${book.id}-${link.url}`} className="pmo-b">
               <Link href={`/books/${book.id}`} className="pmo-b-cv" onClick={close}>
                 {cover ? (
@@ -148,28 +149,29 @@ export default function PromoPopup() {
                 <span className="pmo-b-a">{book.author}</span>
                 <a
                   className="pmo-b-buy"
-                  href={link.url}
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Amazon.in
+                  {storeLabel}
                   {link.ku ? (
                     <em>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src="/brand/kindle-unlimited.svg" alt={t('ku')} />
                     </em>
                   ) : null}
-                  {link.price ? <i>{link.price}</i> : null}
+                  {/* No figure where the store would not name one in its own
+                      currency. Amazon then shows the reader theirs, which is
+                      better than a number that is not. */}
+                  {price ? <i>{price}</i> : null}
                 </a>
               </div>
             </li>
           ))}
         </ul>
 
-        {/* The chips point at the Indian storefront, because that is the
-            listing the ₹ price belongs to. The edition is not confined to
-            it — the same ASIN sells on every Amazon store — so the list
-            says so rather than letting the .in links imply otherwise. */}
+        {/* Each chip points at the reader's own Amazon where there is one
+            to point at. The note says the rest. */}
         <p className="pmo-note">{t('worldwide')}</p>
 
         <div className="pmo-acts">
