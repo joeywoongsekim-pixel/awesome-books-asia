@@ -7250,6 +7250,11 @@ html[lang='ja'] {
 html[lang='hi'] {
   --font-display: 'Hahmlet', var(--font-devanagari), var(--pretendard);
 }
+/* Everything that names a thing — headings, tabs, labels, hero titles, and
+   the names under a category tile, a portrait and a cover. The line is
+   between naming and explaining: a blurb, a paragraph, a caption stays on
+   Pretendard. Without the second half of that list the page kept coming
+   apart section by section, serif heading over sans label. */
 .cats-h,
 .nsh-tabs button,
 .nsh-one,
@@ -7259,7 +7264,11 @@ html[lang='hi'] {
 .spot-t,
 .pc-n,
 .bh-t,
-.vh-t {
+.vh-t,
+.cat-t,
+.ppl-n,
+.nsh-t,
+.bk-t {
   font-family: var(--font-display);
   font-weight: 600;
   /* Hahmlet is variable 400–700 and takes 600 exactly. Zen Old Mincho and
@@ -7276,7 +7285,11 @@ html[lang='hi'] {
 .nsh-one,
 .h2,
 .spot-t,
-.pc-n {
+.pc-n,
+.cat-t,
+.ppl-n,
+.nsh-t,
+.bk-t {
   letter-spacing: 0;
 }
 .bh-t,
