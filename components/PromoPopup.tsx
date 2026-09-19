@@ -12,11 +12,35 @@ import {PROMO, indiaEditions, promoIsLive} from '../lib/promo';
 // with no deploy needed to retire it.
 const KEY = `aba.promo.${PROMO.id}`;
 
+/* Two ways out, and they mean different things.
+
+   Close puts it away for this visit. It is kept in sessionStorage, so it
+   does not come back while someone is reading their way around the site
+   and does come back next time — which is the point of a popup that only
+   runs for six days.
+
+   Not today puts it away until tomorrow, and is kept in localStorage as
+   the local date it was pressed on. A date string rather than a timestamp
+   because "today" is the reader's calendar day, and comparing two YYYY-MM-DD
+   strings needs no timezone arithmetic to get wrong.
+
+   Every read and write is wrapped: in a private window or with site data
+   blocked these throw rather than return null, and a popup is not worth an
+   exception on first paint. If storage is unavailable the popup simply
+   shows again next time, which is the harmless failure. */
+const today = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+};
+
 function alreadyDismissed() {
-  // Private windows and blocked site data make this throw rather than
-  // return null, and a popup is not worth an exception on first paint.
   try {
-    return window.localStorage.getItem(KEY) === '1';
+    if (window.sessionStorage.getItem(KEY) === 'visit') return true;
+  } catch {
+    /* fall through to the day check */
+  }
+  try {
+    return window.localStorage.getItem(KEY) === today();
   } catch {
     return false;
   }
@@ -42,9 +66,19 @@ export default function PromoPopup() {
   const close = useCallback(() => {
     setOpen(false);
     try {
-      window.localStorage.setItem(KEY, '1');
+      window.sessionStorage.setItem(KEY, 'visit');
     } catch {
-      /* dismissal just does not persist; the popup is still gone for now */
+      /* it just does not persist; the popup is still gone for now */
+    }
+    lastFocus.current?.focus?.();
+  }, []);
+
+  const hideToday = useCallback(() => {
+    setOpen(false);
+    try {
+      window.localStorage.setItem(KEY, today());
+    } catch {
+      /* same: gone now, back next time rather than an error */
     }
     lastFocus.current?.focus?.();
   }, []);
@@ -138,9 +172,14 @@ export default function PromoPopup() {
             says so rather than letting the .in links imply otherwise. */}
         <p className="pmo-note">{t('worldwide')}</p>
 
-        <Link href="/books" className="pmo-cta" onClick={close}>
-          {t('cta')}
-        </Link>
+        <div className="pmo-acts">
+          <button type="button" className="pmo-btn" onClick={close}>
+            {t('close')}
+          </button>
+          <button type="button" className="pmo-btn pmo-btn-quiet" onClick={hideToday}>
+            {t('hideToday')}
+          </button>
+        </div>
       </div>
     </div>,
     document.body

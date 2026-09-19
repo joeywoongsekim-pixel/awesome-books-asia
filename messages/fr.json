@@ -480,9 +480,9 @@
     "title": "Awesome Books Asia fait peau neuve.",
     "sub": "Événement de lancement en Inde.",
     "lead": "Nouvelle maison, nouvelle étagère, nouvelle liseuse. Les éditions indiennes sont disponibles — sur Amazon Inde et dans toutes les boutiques Amazon du monde.",
-    "cta": "Voir toute l’étagère",
     "close": "Fermer",
     "ku": "Kindle Unlimited",
-    "worldwide": "Les liens mènent à Amazon Inde, où s’applique le prix en ₹. La même édition est disponible sur toutes les autres boutiques Amazon."
+    "worldwide": "Les liens mènent à Amazon Inde, où s’applique le prix en ₹. La même édition est disponible sur toutes les autres boutiques Amazon.",
+    "hideToday": "Ne plus afficher aujourd’hui"
   }
 }

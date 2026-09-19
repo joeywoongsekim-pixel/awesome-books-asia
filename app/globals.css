@@ -7416,7 +7416,7 @@ html[lang='hi'] {
 .pmo-b-n,
 .pmo-b-a,
 .pmo-note,
-.pmo-cta {
+.pmo-btn {
   text-shadow: 0 1px 14px rgb(17 19 23 / 0.62);
 }
 .pmo-h {
@@ -7549,23 +7549,50 @@ html[lang='hi'] {
   opacity: 0.74;
   max-width: 46ch;
 }
-.pmo-cta {
-  display: inline-block;
-  margin-top: 20px;
+/* The two ways out. Neither is a call to action, so neither is loud: the
+   close takes the same outlined treatment as the buy chips above it, and
+   "not today" stays a plain line of text beside it. */
+.pmo-acts {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+.pmo-btn {
+  font: inherit;
+  cursor: pointer;
+  color: var(--paper);
+  background: transparent;
+  border: 1px solid rgb(246 248 252 / 0.34);
+  border-radius: 0;
+  padding: 9px 20px;
   font-family: var(--font-display);
   font-weight: 600;
   font-synthesis-weight: none;
-  font-size: 13px;
-  letter-spacing: 0.16em;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--paper);
-  text-decoration: none;
-  border-bottom: 1px solid rgb(246 248 252 / 0.4);
-  padding-bottom: 4px;
   transition: 0.2s;
 }
-.pmo-cta:hover {
-  border-bottom-color: var(--paper);
+.pmo-btn:hover {
+  border-color: var(--paper);
+  background: rgb(246 248 252 / 0.1);
+}
+.pmo-btn-quiet {
+  border-color: transparent;
+  padding: 9px 0;
+  opacity: 0.74;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  font-size: 12.5px;
+}
+.pmo-btn-quiet:hover {
+  border-color: transparent;
+  background: transparent;
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 @media (max-width: 560px) {
   .pmo-wrap {
