@@ -290,7 +290,11 @@
     "Translating… {done}/{total} · {lang}": "번역 중… {done}/{total} · {lang}",
     "Translated into {n} languages.": "{n}개 언어로 번역했습니다.",
     "Translated into {n}. Could not do: {failed}": "{n}개 언어로 번역했습니다. 실패: {failed}",
-    "all nine": "9개 언어"
+    "all nine": "9개 언어",
+    "Storing pictures… {done}/{total}": "사진 저장 중… {done}/{total}",
+    "{n} picture(s) stored on the site.": "사진 {n}장을 사이트에 저장했습니다.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "붙여넣은 사진 {n}장은 저장할 때 사이트에 올라갑니다.",
+    "Nothing was saved — a picture could not be stored: {why}": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -583,7 +587,11 @@
     "Translating… {done}/{total} · {lang}": "翻訳中… {done}/{total} · {lang}",
     "Translated into {n} languages.": "{n}言語に翻訳しました。",
     "Translated into {n}. Could not do: {failed}": "{n}言語に翻訳しました。失敗: {failed}",
-    "all nine": "9言語"
+    "all nine": "9言語",
+    "Storing pictures… {done}/{total}": "画像を保存中… {done}/{total}",
+    "{n} picture(s) stored on the site.": "画像{n}点をサイトに保存しました。",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "貼り付けた画像{n}点は保存時にサイトへ格納されます。",
+    "Nothing was saved — a picture could not be stored: {why}": "保存しませんでした — 画像を格納できません: {why}"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -872,7 +880,11 @@
     "Translating… {done}/{total} · {lang}": "Isinasalin… {done}/{total} · {lang}",
     "Translated into {n} languages.": "Naisalin sa {n} wika.",
     "Translated into {n}. Could not do: {failed}": "Naisalin sa {n}. Hindi nagawa: {failed}",
-    "all nine": "lahat ng siyam"
+    "all nine": "lahat ng siyam",
+    "Storing pictures… {done}/{total}": "Iniimbak ang mga larawan… {done}/{total}",
+    "{n} picture(s) stored on the site.": "{n} larawan ang naimbak sa site.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "Ang {n} idinikit na larawan ay maiimbak sa site kapag nag-save ka.",
+    "Nothing was saved — a picture could not be stored: {why}": "Walang na-save — hindi maimbak ang isang larawan: {why}"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1161,7 +1173,11 @@
     "Translating… {done}/{total} · {lang}": "Übersetzt… {done}/{total} · {lang}",
     "Translated into {n} languages.": "In {n} Sprachen übersetzt.",
     "Translated into {n}. Could not do: {failed}": "In {n} übersetzt. Nicht möglich: {failed}",
-    "all nine": "alle neun"
+    "all nine": "alle neun",
+    "Storing pictures… {done}/{total}": "Bilder werden gespeichert… {done}/{total}",
+    "{n} picture(s) stored on the site.": "{n} Bild(er) auf der Website gespeichert.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "{n} eingefügte(s) Bild(er) werden beim Speichern auf der Website abgelegt.",
+    "Nothing was saved — a picture could not be stored: {why}": "Nichts gespeichert — ein Bild ließ sich nicht ablegen: {why}"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1450,7 +1466,11 @@
     "Translating… {done}/{total} · {lang}": "Traduction… {done}/{total} · {lang}",
     "Translated into {n} languages.": "Traduit en {n} langues.",
     "Translated into {n}. Could not do: {failed}": "Traduit en {n}. Échec : {failed}",
-    "all nine": "les neuf"
+    "all nine": "les neuf",
+    "Storing pictures… {done}/{total}": "Enregistrement des images… {done}/{total}",
+    "{n} picture(s) stored on the site.": "{n} image(s) enregistrée(s) sur le site.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "{n} image(s) collée(s) seront déposées sur le site à l'enregistrement.",
+    "Nothing was saved — a picture could not be stored: {why}": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1739,7 +1759,11 @@
     "Translating… {done}/{total} · {lang}": "Traduciendo… {done}/{total} · {lang}",
     "Translated into {n} languages.": "Traducido a {n} idiomas.",
     "Translated into {n}. Could not do: {failed}": "Traducido a {n}. No se pudo: {failed}",
-    "all nine": "los nueve"
+    "all nine": "los nueve",
+    "Storing pictures… {done}/{total}": "Guardando imágenes… {done}/{total}",
+    "{n} picture(s) stored on the site.": "{n} imagen(es) guardada(s) en el sitio.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "Las {n} imagen(es) pegadas se guardarán en el sitio al guardar.",
+    "Nothing was saved — a picture could not be stored: {why}": "No se guardó nada — no se pudo guardar una imagen: {why}"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -2028,6 +2052,10 @@
     "Translating… {done}/{total} · {lang}": "Traduzindo… {done}/{total} · {lang}",
     "Translated into {n} languages.": "Traduzido para {n} idiomas.",
     "Translated into {n}. Could not do: {failed}": "Traduzido para {n}. Não foi possível: {failed}",
-    "all nine": "todos os nove"
+    "all nine": "todos os nove",
+    "Storing pictures… {done}/{total}": "Guardando imagens… {done}/{total}",
+    "{n} picture(s) stored on the site.": "{n} imagem(ns) guardada(s) no site.",
+    "{n} pasted-in picture(s) will be stored on the site when you save.": "As {n} imagem(ns) coladas serão guardadas no site ao salvar.",
+    "Nothing was saved — a picture could not be stored: {why}": "Nada foi salvo — não foi possível guardar uma imagem: {why}"
   }
 }

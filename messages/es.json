@@ -403,7 +403,11 @@
     "mzTranslating": "Traduciendo… {done}/{total} · {lang}",
     "mzTranslated": "Traducido a {n} idiomas.",
     "mzTranslatedSome": "Traducido a {n}. No se pudo: {failed}",
-    "mzAllLangs": "los nueve"
+    "mzAllLangs": "los nueve",
+    "mzImages": "Guardando imágenes… {done}/{total}",
+    "mzImagesStored": "{n} imagen(es) guardada(s) en el sitio.",
+    "mzImagesFound": "Las {n} imagen(es) pegadas se guardarán en el sitio al guardar.",
+    "mzImagesFailed": "No se guardó nada — no se pudo guardar una imagen: {why}"
   },
   "paywall": {
     "title": "La muestra termina aquí",

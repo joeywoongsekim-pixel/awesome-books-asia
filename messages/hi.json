@@ -403,7 +403,11 @@
     "mzTranslating": "अनुवाद हो रहा है… {done}/{total} · {lang}",
     "mzTranslated": "{n} भाषाओं में अनुवाद हुआ।",
     "mzTranslatedSome": "{n} भाषाओं में अनुवाद हुआ। नहीं हो सका: {failed}",
-    "mzAllLangs": "सभी नौ"
+    "mzAllLangs": "सभी नौ",
+    "mzImages": "तस्वीरें सहेजी जा रही हैं… {done}/{total}",
+    "mzImagesStored": "{n} तस्वीर(ें) साइट पर सहेजी गईं।",
+    "mzImagesFound": "चिपकाई गई {n} तस्वीर(ें) सहेजते समय साइट पर चली जाएँगी।",
+    "mzImagesFailed": "कुछ सहेजा नहीं गया — एक तस्वीर सहेजी नहीं जा सकी: {why}"
   },
   "paywall": {
     "title": "नमूना यहीं ख़त्म होता है",

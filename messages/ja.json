@@ -403,7 +403,11 @@
     "mzTranslating": "翻訳中… {done}/{total} · {lang}",
     "mzTranslated": "{n}言語に翻訳しました。",
     "mzTranslatedSome": "{n}言語に翻訳しました。失敗: {failed}",
-    "mzAllLangs": "9言語"
+    "mzAllLangs": "9言語",
+    "mzImages": "画像を保存中… {done}/{total}",
+    "mzImagesStored": "画像{n}点をサイトに保存しました。",
+    "mzImagesFound": "貼り付けた画像{n}点は保存時にサイトへ格納されます。",
+    "mzImagesFailed": "保存しませんでした — 画像を格納できません: {why}"
   },
   "paywall": {
     "title": "試し読みはここまでです",

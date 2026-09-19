@@ -403,7 +403,11 @@
     "mzTranslating": "Isinasalin… {done}/{total} · {lang}",
     "mzTranslated": "Naisalin sa {n} wika.",
     "mzTranslatedSome": "Naisalin sa {n}. Hindi nagawa: {failed}",
-    "mzAllLangs": "lahat ng siyam"
+    "mzAllLangs": "lahat ng siyam",
+    "mzImages": "Iniimbak ang mga larawan… {done}/{total}",
+    "mzImagesStored": "{n} larawan ang naimbak sa site.",
+    "mzImagesFound": "Ang {n} idinikit na larawan ay maiimbak sa site kapag nag-save ka.",
+    "mzImagesFailed": "Walang na-save — hindi maimbak ang isang larawan: {why}"
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",

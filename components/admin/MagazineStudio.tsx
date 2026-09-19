@@ -6,6 +6,7 @@ import {useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import {routing} from '../../i18n/routing';
 import {safeHtml, type LocaleText, type Post} from '../../lib/magazine';
+import {inlineImageCount, liftImages} from '../../lib/postImages';
 
 const BLANK = {
   slug: '',
@@ -132,13 +133,39 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
     setBusy(true);
     setMsg('');
 
+    // Before anything is written: move the photographs out of the markup
+    // and into our own storage. Pasted-in pictures would otherwise be
+    // dropped on save — the sanitiser does not pass data: URIs — and a
+    // hotlinked one would go blank the day its host moves it.
+    let body = f.body;
+    let pictures = '';
+    try {
+      const lifted = await liftImages(body, slug, supabase, (done, total) =>
+        setRunning(t('mzImages', {done, total}))
+      );
+      body = lifted.html;
+      setRunning(null);
+      if (lifted.stored) pictures = t('mzImagesStored', {n: lifted.stored});
+      if (lifted.skipped.length) {
+        setBusy(false);
+        setRunning(null);
+        setMsg(t('mzImagesFailed', {why: lifted.skipped.join('; ')}));
+        return;
+      }
+    } catch (e) {
+      setBusy(false);
+      setRunning(null);
+      setMsg(t('mzImagesFailed', {why: e instanceof Error ? e.message : 'unknown'}));
+      return;
+    }
+
     const current = posts.find((p) => p.id === id);
     const row = {
       slug,
       cover: f.cover.trim() || null,
       title: merge(current?.title, f.title),
       dek: merge(current?.dek, f.dek),
-      body: merge(current?.body, f.body),
+      body: merge(current?.body, body),
       published: f.published,
       published_at: new Date(`${f.date}T09:00:00Z`).toISOString()
     };
@@ -152,7 +179,7 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
       setMsg(error.message);
       return;
     }
-    setMsg(t('saved'));
+    setMsg(pictures ? `${t('saved')} ${pictures}` : t('saved'));
     startNew();
     router.refresh();
     // The article is saved either way; translating is what happens next.
@@ -229,7 +256,17 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
             spellCheck={false}
           />
         </label>
-        <p className="adm-hint">{t('mzBodyHint')}</p>
+        <p className="adm-hint">
+          {t('mzBodyHint')}
+          {/* Pasted-in photographs are noticed before you press save, so
+              nobody has to wonder whether they survived. */}
+          {inlineImageCount(f.body) > 0 && (
+            <>
+              {' '}
+              <b>{t('mzImagesFound', {n: inlineImageCount(f.body)})}</b>
+            </>
+          )}
+        </p>
 
         <div className="adm-actions">
           <label className="adm-check">

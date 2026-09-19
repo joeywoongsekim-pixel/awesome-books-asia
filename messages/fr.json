@@ -403,7 +403,11 @@
     "mzTranslating": "Traduction… {done}/{total} · {lang}",
     "mzTranslated": "Traduit en {n} langues.",
     "mzTranslatedSome": "Traduit en {n}. Échec : {failed}",
-    "mzAllLangs": "les neuf"
+    "mzAllLangs": "les neuf",
+    "mzImages": "Enregistrement des images… {done}/{total}",
+    "mzImagesStored": "{n} image(s) enregistrée(s) sur le site.",
+    "mzImagesFound": "{n} image(s) collée(s) seront déposées sur le site à l'enregistrement.",
+    "mzImagesFailed": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}"
   },
   "paywall": {
     "title": "L'extrait se termine ici",

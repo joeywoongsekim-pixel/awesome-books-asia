@@ -403,7 +403,11 @@
     "mzTranslating": "Translating… {done}/{total} · {lang}",
     "mzTranslated": "Translated into {n} languages.",
     "mzTranslatedSome": "Translated into {n}. Could not do: {failed}",
-    "mzAllLangs": "all nine"
+    "mzAllLangs": "all nine",
+    "mzImages": "Storing pictures… {done}/{total}",
+    "mzImagesStored": "{n} picture(s) stored on the site.",
+    "mzImagesFound": "{n} pasted-in picture(s) will be stored on the site when you save.",
+    "mzImagesFailed": "Nothing was saved — a picture could not be stored: {why}"
   },
   "paywall": {
     "title": "The sample ends here",

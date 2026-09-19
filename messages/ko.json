@@ -403,7 +403,11 @@
     "mzTranslating": "번역 중… {done}/{total} · {lang}",
     "mzTranslated": "{n}개 언어로 번역했습니다.",
     "mzTranslatedSome": "{n}개 언어로 번역했습니다. 실패: {failed}",
-    "mzAllLangs": "9개 언어"
+    "mzAllLangs": "9개 언어",
+    "mzImages": "사진 저장 중… {done}/{total}",
+    "mzImagesStored": "사진 {n}장을 사이트에 저장했습니다.",
+    "mzImagesFound": "붙여넣은 사진 {n}장은 저장할 때 사이트에 올라갑니다.",
+    "mzImagesFailed": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}"
   },
   "paywall": {
     "title": "샘플은 여기까지입니다",
