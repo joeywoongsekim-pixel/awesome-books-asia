@@ -582,30 +582,74 @@ h3 {
 }
 
 /* ══════════ USP BAR (§9.10) ══════════ */
+/* ── the shops, sliding past ──────────────────────────────────────────
+   Four names on one line looked like a caption. The same four sliding
+   leftward without end read as a shelf that carries on past the edge of
+   the screen, which is the point being made. The track holds two identical
+   runs and travels exactly one run's width, so the loop has no seam. */
 .usp {
   background: var(--tint);
   border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
-  padding: 18px 32px;
+  padding: 20px 0;
+  overflow: hidden;
 }
-.usp-in {
-  max-width: 1280px;
-  margin: 0 auto;
+.usp-track {
+  display: flex;
+  width: max-content;
+  animation: usp-slide 50s linear infinite;
+}
+.usp-run {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.usp-run li {
+  position: relative;
+  padding: 0 40px;
+  white-space: nowrap;
   font-size: 13px;
   color: var(--ink-2);
 }
-.usp-city {
-  font-family: var(--font-label);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--aba-gold);
+/* a small lozenge after each name, which is what keeps the run reading as
+   a list once the ends have slid off both sides of the screen */
+.usp-run li::after {
+  content: "";
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  transform: translateY(-50%) rotate(45deg);
+  background: var(--lapis);
+}
+@keyframes usp-slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* Nobody should be made to watch something move. Standing still, one run
+   already fills the widest screen, so the strip simply reads as a row. */
+@media (prefers-reduced-motion: reduce) {
+  .usp-track {
+    animation: none;
+  }
+}
+/* the accessible copy: present to a screen reader, absent to everyone else */
+.usp-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  list-style: none;
 }
 
 /* ══════════ FOOTER (§9.10) ══════════ */
@@ -3209,7 +3253,6 @@ footer {
   .sec,
   .spots,
   .nlband,
-  .usp,
   footer,
   .store-hero,
   .detail {
@@ -6440,14 +6483,11 @@ html[lang='ja'] .vh-t {
   background: var(--bg);
   border-top: 1px solid var(--hair-soft);
 }
-.usp-in {
+.usp-run li {
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--stone);
-}
-.usp-city {
-  color: var(--night);
 }
 
 @media (max-width: 1080px) {
@@ -7793,8 +7833,7 @@ html[lang='hi'] {
 .nav-menu a,
 .nav-sheet a,
 .f-ct,
-.usp-in,
-.usp-city {
+.usp-run li {
   font-family: var(--font-display);
   font-synthesis-weight: none;
 }

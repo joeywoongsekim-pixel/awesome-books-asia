@@ -24,15 +24,15 @@
     "meta": "한국어 · 영어 · 일본어 · 어느 기기에서나",
     "ctaPrimary": "어썸 리더 열기",
     "ctaSecondary": "서점 둘러보기",
-    "tags": {
-      "four": "한국어 · 영어 · 일본어",
-      "pages": "Amazon · 교보문고",
-      "ai": "브라우저 속 서가",
-      "coupons": "서울과 도쿄의 작은 출판사"
-    },
     "announce": "아시아의 이야기를 세계의 언어로",
     "explore": "책 자세히 보기",
-    "month": "이달의 책"
+    "month": "이달의 책",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "교보문고",
+      "yes24": "예스24",
+      "aladin": "알라딘"
+    }
   },
   "books": {
     "eyebrow": "서가",

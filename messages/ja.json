@@ -24,15 +24,15 @@
     "meta": "韓国語・英語・日本語・どの端末でも",
     "ctaPrimary": "オーサムリーダーを開く",
     "ctaSecondary": "書店を見る",
-    "tags": {
-      "four": "韓国語・英語・日本語",
-      "pages": "Amazon・Kyobo",
-      "ai": "ブラウザの中の本棚",
-      "coupons": "ソウルと東京の小さな出版社"
-    },
     "announce": "アジアの物語を、世界の言葉で",
     "explore": "本の詳細",
-    "month": "今月の一冊"
+    "month": "今月の一冊",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "教保文庫",
+      "yes24": "YES24",
+      "aladin": "アラジン"
+    }
   },
   "books": {
     "eyebrow": "書棚",

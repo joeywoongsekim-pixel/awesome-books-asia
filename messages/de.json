@@ -24,15 +24,15 @@
     "meta": "Koreanisch · Englisch · Japanisch · auf jedem Gerät",
     "ctaPrimary": "Awesome Reader öffnen",
     "ctaSecondary": "Buchhandlung ansehen",
-    "tags": {
-      "four": "Koreanisch · Englisch · Japanisch",
-      "pages": "Amazon · Kyobo",
-      "ai": "Das Regal im Browser",
-      "coupons": "Ein kleiner Verlag in Seoul und Tokio"
-    },
     "announce": "Asiatische Geschichten in den Sprachen der Welt",
     "explore": "Zum Buch",
-    "month": "Buch des Monats"
+    "month": "Buch des Monats",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "Kyobo",
+      "yes24": "YES24",
+      "aladin": "Aladin"
+    }
   },
   "books": {
     "eyebrow": "Das Regal",

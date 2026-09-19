@@ -11,8 +11,12 @@ import UspBar from '../../../components/home/UspBar';
 
 // Homepage skeleton: book hero (one title at a time, full-bleed) → the
 // shelf (tabbed, books standing) → categories → the people → Awesome
-// Reader → newsletter → Awesome Magazine → USP bar → the philosophy
-// carousel, which closes the page just above the footer. How-to-buy used
+// Reader → newsletter → Awesome Magazine → the philosophy carousel → the
+// shops that carry the books, a quiet ticker that closes the page just
+// above the footer. The carousel used to sit last; a claim about what
+// books are for is a better note to end the reading on than a list of
+// storefronts, and the storefronts belong next to the footer's links.
+// How-to-buy used
 // to sit after the reader; it moved to its own page, because a visitor who
 // has not seen a book yet does not need the terms first. The editors'
 // notes and the recently-viewed shelf stood where the magazine is now: the
@@ -43,8 +47,8 @@ export default async function HomePage({
       <Spotlights />
       <Newsletter />
       <Magazine locale={locale} />
-      <UspBar />
       <HeroVision />
+      <UspBar />
     </>
   );
 }

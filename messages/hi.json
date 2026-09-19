@@ -24,15 +24,15 @@
     "meta": "कोरियाई · अंग्रेज़ी · जापानी · किसी भी डिवाइस पर",
     "ctaPrimary": "Awesome Reader खोलें",
     "ctaSecondary": "किताबघर देखें",
-    "tags": {
-      "four": "कोरियाई · अंग्रेज़ी · जापानी",
-      "pages": "Amazon · Kyobo",
-      "ai": "आपके ब्राउज़र में पूरा शेल्फ़",
-      "coupons": "सोल और टोक्यो का एक छोटा प्रकाशन"
-    },
     "announce": "एशिया की कहानियाँ, दुनिया की भाषाओं में",
     "explore": "किताब के बारे में",
-    "month": "इस महीने की किताब"
+    "month": "इस महीने की किताब",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "Kyobo",
+      "yes24": "YES24",
+      "aladin": "Aladin"
+    }
   },
   "books": {
     "eyebrow": "शेल्फ़",

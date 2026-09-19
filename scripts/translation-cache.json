@@ -279,7 +279,11 @@
     "Newer articles": "최신 글",
     "Older articles": "이전 글",
     "Pagination": "페이지 넘기기",
-    "Page {page} of {pages} · {per} articles a page": "{pages}페이지 중 {page}페이지 · 한 페이지에 {per}개"
+    "Page {page} of {pages} · {per} articles a page": "{pages}페이지 중 {page}페이지 · 한 페이지에 {per}개",
+    "Amazon": "Amazon",
+    "Kyobo": "교보문고",
+    "YES24": "예스24",
+    "Aladin": "알라딘"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -561,7 +565,11 @@
     "Newer articles": "新しい記事",
     "Older articles": "古い記事",
     "Pagination": "ページ送り",
-    "Page {page} of {pages} · {per} articles a page": "{pages}ページ中 {page}ページ · 1ページ{per}本"
+    "Page {page} of {pages} · {per} articles a page": "{pages}ページ中 {page}ページ · 1ページ{per}本",
+    "Amazon": "Amazon",
+    "Kyobo": "教保文庫",
+    "YES24": "YES24",
+    "Aladin": "アラジン"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -839,7 +847,11 @@
     "Newer articles": "Mga bagong artikulo",
     "Older articles": "Mga lumang artikulo",
     "Pagination": "Paglipat ng pahina",
-    "Page {page} of {pages} · {per} articles a page": "Pahina {page} ng {pages} · {per} artikulo bawat pahina"
+    "Page {page} of {pages} · {per} articles a page": "Pahina {page} ng {pages} · {per} artikulo bawat pahina",
+    "Amazon": "Amazon",
+    "Kyobo": "Kyobo",
+    "YES24": "YES24",
+    "Aladin": "Aladin"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1117,7 +1129,11 @@
     "Newer articles": "Neuere Beiträge",
     "Older articles": "Ältere Beiträge",
     "Pagination": "Seitennavigation",
-    "Page {page} of {pages} · {per} articles a page": "Seite {page} von {pages} · {per} Beiträge pro Seite"
+    "Page {page} of {pages} · {per} articles a page": "Seite {page} von {pages} · {per} Beiträge pro Seite",
+    "Amazon": "Amazon",
+    "Kyobo": "Kyobo",
+    "YES24": "YES24",
+    "Aladin": "Aladin"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1395,7 +1411,11 @@
     "Newer articles": "Articles récents",
     "Older articles": "Articles plus anciens",
     "Pagination": "Pagination",
-    "Page {page} of {pages} · {per} articles a page": "Page {page} sur {pages} · {per} articles par page"
+    "Page {page} of {pages} · {per} articles a page": "Page {page} sur {pages} · {per} articles par page",
+    "Amazon": "Amazon",
+    "Kyobo": "Kyobo",
+    "YES24": "YES24",
+    "Aladin": "Aladin"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1673,7 +1693,11 @@
     "Newer articles": "Artículos recientes",
     "Older articles": "Artículos anteriores",
     "Pagination": "Paginación",
-    "Page {page} of {pages} · {per} articles a page": "Página {page} de {pages} · {per} artículos por página"
+    "Page {page} of {pages} · {per} articles a page": "Página {page} de {pages} · {per} artículos por página",
+    "Amazon": "Amazon",
+    "Kyobo": "Kyobo",
+    "YES24": "YES24",
+    "Aladin": "Aladin"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -1951,6 +1975,10 @@
     "Newer articles": "Artigos recentes",
     "Older articles": "Artigos anteriores",
     "Pagination": "Paginação",
-    "Page {page} of {pages} · {per} articles a page": "Página {page} de {pages} · {per} artigos por página"
+    "Page {page} of {pages} · {per} articles a page": "Página {page} de {pages} · {per} artigos por página",
+    "Amazon": "Amazon",
+    "Kyobo": "Kyobo",
+    "YES24": "YES24",
+    "Aladin": "Aladin"
   }
 }

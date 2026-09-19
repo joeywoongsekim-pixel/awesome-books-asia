@@ -24,15 +24,15 @@
     "meta": "Coreano · Inglés · Japonés · en cualquier dispositivo",
     "ctaPrimary": "Abrir Awesome Reader",
     "ctaSecondary": "Ver la librería",
-    "tags": {
-      "four": "Coreano · Inglés · Japonés",
-      "pages": "Amazon · Kyobo",
-      "ai": "La estantería en tu navegador",
-      "coupons": "Una pequeña editorial en Seúl y Tokio"
-    },
     "announce": "Historias de Asia en los idiomas del mundo",
     "explore": "Sobre el libro",
-    "month": "Libro del mes"
+    "month": "Libro del mes",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "Kyobo",
+      "yes24": "YES24",
+      "aladin": "Aladin"
+    }
   },
   "books": {
     "eyebrow": "La estantería",

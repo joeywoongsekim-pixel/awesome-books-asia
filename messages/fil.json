@@ -24,15 +24,15 @@
     "meta": "Korean · English · Japanese · sa anumang device",
     "ctaPrimary": "Buksan ang Awesome Reader",
     "ctaSecondary": "Tingnan ang bookstore",
-    "tags": {
-      "four": "Korean · English · Japanese",
-      "pages": "Amazon · Kyobo",
-      "ai": "Ang istante sa iyong browser",
-      "coupons": "Maliit na press sa Seoul at Tokyo"
-    },
     "announce": "Mga kuwentong Asyano sa mga wika ng mundo",
     "explore": "Tungkol sa aklat",
-    "month": "Aklat ng buwan"
+    "month": "Aklat ng buwan",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "Kyobo",
+      "yes24": "YES24",
+      "aladin": "Aladin"
+    }
   },
   "books": {
     "eyebrow": "Ang istante",

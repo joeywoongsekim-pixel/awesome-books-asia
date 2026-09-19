@@ -24,15 +24,15 @@
     "meta": "Korean · English · Japanese · any device",
     "ctaPrimary": "Open Awesome Reader",
     "ctaSecondary": "Browse the bookstore",
-    "tags": {
-      "four": "Korean · English · Japanese",
-      "pages": "Amazon · Kyobo",
-      "ai": "The shelf in your browser",
-      "coupons": "A small press in Seoul and Tokyo"
-    },
     "announce": "Asian stories in the world's languages",
     "explore": "About the book",
-    "month": "Book of the month"
+    "month": "Book of the month",
+    "stores": {
+      "amazon": "Amazon",
+      "kyobo": "Kyobo",
+      "yes24": "YES24",
+      "aladin": "Aladin"
+    }
   },
   "books": {
     "eyebrow": "The shelf",
