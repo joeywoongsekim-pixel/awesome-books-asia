@@ -13,6 +13,11 @@ export type EditionLink = {
   // from here and a guess would be a claim about someone's subscription.
   // It matters most in India, where KU carries more weight than the price.
   ku?: boolean;
+  // Cover art for this edition, where it differs from the book's. A Book
+  // carries one img, which is whichever edition the shelf stands up; an
+  // edition in another language is a different jacket and must not borrow
+  // that one. Set it and anything showing the edition uses it.
+  img?: string;
   // List price as the store shows it, checked 2026-09-17. Amazon quotes
   // international buyers in USD, so those carry a $ figure.
   price?: string;
@@ -27,7 +32,10 @@ export const EDITIONS: Record<string, EditionLink[]> = {
       format: 'ebook',
       note: 'What Do Humans Add to AI’s Answers?',
       url: 'https://www.amazon.in/dp/B0HK79Y7KK',
-      price: '₹199'
+      price: '₹199',
+      // The English jacket, which says India Special Edition on it. The
+      // book's own img is the Japanese one.
+      img: '/covers/ai-answer-en.jpg'
     }
   ],
   'quantum-econ': [

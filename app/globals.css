@@ -7343,23 +7343,11 @@ html[lang='hi'] {
      the philosophy hero is already painted in it — and it lifts the panel
      without giving up the white type, which sits on it at 7.4:1.
 
-     The photograph is optional. It is layered under a scrim that carries
-     the type on its own, so if /promo/india-launch.jpg is not on disk the
-     card is simply solid lapis — nothing to guard, nothing to break, and
-     dropping the file in switches it on. The scrim deepens toward the
-     foot, where the book rows and their thin outlined buttons sit. */
+     The artwork does not go behind the words. It is bright and saturated
+     on purpose, and a scrim heavy enough to carry type over it would take
+     exactly the colour that makes it worth having. It gets .pmo-art
+     instead, a band across the top at full strength. */
   background-color: var(--lapis);
-  background-image:
-    linear-gradient(
-      180deg,
-      rgb(35 64 181 / 0.5) 0%,
-      rgb(35 64 181 / 0.78) 44%,
-      rgb(26 49 144 / 0.93) 100%
-    ),
-    url('/promo/india-launch.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   animation: pmoUp 0.26s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 @keyframes pmoUp {
@@ -7369,23 +7357,45 @@ html[lang='hi'] {
 .pmo:focus-visible {
   outline: none;
 }
+/* The close sits over the artwork band, which can be any colour at all,
+   so it carries its own dark disc rather than trusting what is behind it. */
 .pmo-x {
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 12px;
-  width: 40px;
-  height: 40px;
+  width: 34px;
+  height: 34px;
   border: 0;
-  background: transparent;
+  border-radius: 50%;
+  background: rgb(17 19 23 / 0.42);
   color: var(--paper);
-  opacity: 0.6;
-  font-size: 26px;
+  opacity: 0.86;
+  font-size: 22px;
   line-height: 1;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: 0.2s;
 }
 .pmo-x:hover {
   opacity: 1;
+  background: rgb(17 19 23 / 0.66);
+}
+/* Bled out through the card's padding to all three edges. The height is
+   held by an aspect ratio rather than a fixed px so the crop is the same
+   shape on a phone as on a desktop, and a 3:2 original loses the same
+   top and bottom in both. */
+.pmo-art {
+  margin: calc(clamp(30px, 4.2vw, 46px) * -1) calc(clamp(30px, 4.2vw, 46px) * -1)
+    clamp(24px, 3vw, 32px);
+  aspect-ratio: 16 / 6;
+  overflow: hidden;
+  background: var(--lapis-dk);
+}
+.pmo-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .pmo-kick {
   color: var(--aba-gold-l);

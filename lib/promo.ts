@@ -30,21 +30,24 @@ export type IndiaEdition = {
   link: EditionLink;
   /** The edition's own title where it differs from the book's. */
   title: string;
-  /** False when the cover art on file is for a different language. */
-  coverFits: boolean;
+  /** This edition's jacket, or null when none is on file for it. */
+  cover: string | null;
 };
 
-/* Cover files are named by edition: ai-answer-ja.jpg, isekai-ko.jpg, and
-   the base English one with no suffix at all. The India editions are in
-   English, so a cover carrying a -ja or -ko suffix belongs to a different
-   edition of the same book and must not stand under an English title —
-   that is the trap the 신간 shelf already avoids. Where it does not fit,
-   the card falls back to BookCover's typographic face, which is a designed
-   cover rather than the wrong one. */
-function coverMatches(book: Book, lang: EditionLink['lang']) {
-  if (!book.img) return false;
+/* Which jacket belongs to this edition.
+
+   An edition's own img wins outright. Otherwise the book's img is used
+   only if it is for the same language: cover files are named by edition —
+   ai-answer-ja.jpg, isekai-ko.jpg, and the base English one with no suffix
+   at all — so a -ja file under an English title is the wrong jacket, which
+   is the trap the 신간 shelf already avoids. With nothing that fits, the
+   card falls back to a brand tile, which is a designed placeholder rather
+   than the wrong book. */
+function coverFor(book: Book, link: EditionLink) {
+  if (link.img) return link.img;
+  if (!book.img) return null;
   const m = /-(ja|ko|en)\.[a-z]+$/i.exec(book.img);
-  return (m ? m[1].toUpperCase() : 'EN') === lang;
+  return (m ? m[1].toUpperCase() : 'EN') === link.lang ? book.img : null;
 }
 
 /* The books in the popup are not a hand-written list: they are every
@@ -59,7 +62,7 @@ export function indiaEditions(): IndiaEdition[] {
         book,
         link,
         title: link.note ?? book.title,
-        coverFits: coverMatches(book, link.lang)
+        cover: coverFor(book, link)
       });
     }
   }

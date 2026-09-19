@@ -25,6 +25,9 @@ function alreadyDismissed() {
 export default function PromoPopup() {
   const t = useTranslations('promo');
   const [open, setOpen] = useState(false);
+  // The artwork is optional. If the file is not on disk the band removes
+  // itself rather than leaving a gap, so the popup ships either way.
+  const [hasArt, setHasArt] = useState(true);
   const panel = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
   const editions = indiaEditions();
@@ -81,6 +84,21 @@ export default function PromoPopup() {
           ×
         </button>
 
+        {/* A band, not a backdrop. The artwork is bright and saturated, and
+            anything behind the type needs a scrim heavy enough to kill
+            exactly that. Given its own strip at the top it keeps every bit
+            of its colour, and the words keep a plain lapis ground. */}
+        {hasArt && (
+          <div className="pmo-art" aria-hidden="true">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/promo/india-launch.jpg"
+              alt=""
+              onError={() => setHasArt(false)}
+            />
+          </div>
+        )}
+
         <p className="eyebrow pmo-kick">{t('kicker')}</p>
         <h2 id="pmo-h" className="pmo-h">
           {t('title')}
@@ -90,11 +108,11 @@ export default function PromoPopup() {
         <p className="pmo-lead">{t('lead')}</p>
 
         <ul className="pmo-books">
-          {editions.map(({book, link, title, coverFits}) => (
+          {editions.map(({book, link, title, cover}) => (
             <li key={`${book.id}-${link.url}`} className="pmo-b">
               <Link href={`/books/${book.id}`} className="pmo-b-cv" onClick={close}>
-                {coverFits ? (
-                  <BookCover book={book} />
+                {cover ? (
+                  <BookCover book={{...book, img: cover}} />
                 ) : (
                   /* BookCover's typographic face wants about 200px and
                      clips to nonsense in a 74px column, so the card that
