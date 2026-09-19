@@ -118,7 +118,9 @@ export default function PromoPopup() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Amazon.in{link.price ? <i>{link.price}</i> : null}
+                  Amazon.in
+                  {link.ku ? <em>{t('ku')}</em> : null}
+                  {link.price ? <i>{link.price}</i> : null}
                 </a>
               </div>
             </li>

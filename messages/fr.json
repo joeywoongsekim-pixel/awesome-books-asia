@@ -120,7 +120,8 @@
     "stores": "Où acheter",
     "fmtPrint": "Papier",
     "fmtEbook": "Ebook",
-    "priceNote": "prix indicatif ebook"
+    "priceNote": "prix indicatif ebook",
+    "ku": "Kindle Unlimited"
   },
   "reader": {
     "back": "← Bibliothèque",
@@ -480,6 +481,7 @@
     "sub": "Événement de lancement en Inde.",
     "lead": "Nouvelle maison, nouvelle étagère, nouvelle liseuse. Nos éditions indiennes sont sur Amazon India.",
     "cta": "Voir toute l’étagère",
-    "close": "Fermer"
+    "close": "Fermer",
+    "ku": "Kindle Unlimited"
   }
 }

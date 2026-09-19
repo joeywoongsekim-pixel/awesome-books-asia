@@ -120,7 +120,8 @@
     "stores": "Where to buy",
     "fmtPrint": "Print",
     "fmtEbook": "Ebook",
-    "priceNote": "ebook guide price"
+    "priceNote": "ebook guide price",
+    "ku": "Kindle Unlimited"
   },
   "reader": {
     "back": "← Library",
@@ -480,6 +481,7 @@
     "sub": "Launching event in India.",
     "lead": "The new house, the new shelf, the new reader. Our India editions are on Amazon India now.",
     "cta": "See the whole shelf",
-    "close": "Close"
+    "close": "Close",
+    "ku": "Kindle Unlimited"
   }
 }

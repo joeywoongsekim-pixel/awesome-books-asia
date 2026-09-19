@@ -120,7 +120,8 @@
     "stores": "Saan bibili",
     "fmtPrint": "Print",
     "fmtEbook": "Ebook",
-    "priceNote": "gabay na presyo ng ebook"
+    "priceNote": "gabay na presyo ng ebook",
+    "ku": "Kindle Unlimited"
   },
   "reader": {
     "back": "← Aklatan",
@@ -480,6 +481,7 @@
     "sub": "Launching event sa India.",
     "lead": "Bagong bahay-palimbagan, bagong istante, bagong reader. Nasa Amazon India na ang aming mga edisyong Indian.",
     "cta": "Tingnan ang buong istante",
-    "close": "Isara"
+    "close": "Isara",
+    "ku": "Kindle Unlimited"
   }
 }

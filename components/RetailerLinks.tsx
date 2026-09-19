@@ -47,6 +47,11 @@ export default function RetailerLinks({
               {e.store} · {e.lang}
               {e.format === 'print' ? ` · ${t('fmtPrint')}` : ''}
               {e.note ? ` (${e.note})` : ''}
+              {/* Kindle Unlimited is not a price, so it is not set in the
+                  price slot: a reader with a subscription pays nothing and
+                  one without pays the figure beside it. Both are true at
+                  once, and the chip shows both. */}
+              {e.ku ? <b className="store-ku">{t('ku')}</b> : null}
               {e.price ? <b className="store-price">{e.price}</b> : null} ↗
             </a>
           ))}

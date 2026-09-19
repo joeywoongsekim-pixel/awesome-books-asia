@@ -120,7 +120,8 @@
     "stores": "Bezugsquellen",
     "fmtPrint": "Gedruckt",
     "fmtEbook": "E-Book",
-    "priceNote": "E-Book-Richtpreis"
+    "priceNote": "E-Book-Richtpreis",
+    "ku": "Kindle Unlimited"
   },
   "reader": {
     "back": "← Bibliothek",
@@ -480,6 +481,7 @@
     "sub": "Launch-Event in Indien.",
     "lead": "Neuer Verlag, neues Regal, neuer Reader. Unsere Indien-Ausgaben gibt es jetzt bei Amazon India.",
     "cta": "Das ganze Regal ansehen",
-    "close": "Schließen"
+    "close": "Schließen",
+    "ku": "Kindle Unlimited"
   }
 }

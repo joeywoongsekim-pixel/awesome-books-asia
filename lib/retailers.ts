@@ -8,6 +8,11 @@ export type EditionLink = {
   format: 'ebook' | 'print';
   note?: string; // regional edition label, e.g. 'UK Edition'
   url: string;
+  // Included in Kindle Unlimited. Set only where the listing has been seen
+  // saying so — Amazon blocks automated reads, so this cannot be checked
+  // from here and a guess would be a claim about someone's subscription.
+  // It matters most in India, where KU carries more weight than the price.
+  ku?: boolean;
   // List price as the store shows it, checked 2026-09-17. Amazon quotes
   // international buyers in USD, so those carry a $ figure.
   price?: string;
@@ -37,7 +42,7 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   // India — the old $2.18 was amazon.com quoting an international one,
   // which is a different number for the same book.
   'quantum-econ-in': [
-    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9', price: '₹199'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9', price: '₹199', ku: true}
   ],
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},
