@@ -1,6 +1,6 @@
 import {setRequestLocale, getTranslations} from 'next-intl/server';
-import {Link} from '../../../../../i18n/navigation';
-import {createSupabaseServer} from '../../../../../lib/supabase/server';
+import {Link} from '../../../../i18n/navigation';
+import {createSupabaseServer} from '../../../../lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
 
@@ -45,10 +45,13 @@ export default async function AdminBooks({
 
   return (
     <>
-      <div className="adm-bar">
-        <Link href="/admin/books/new" className="btn-g adm-btn">
-          + {t('newBook')}
-        </Link>
+      <div className="ac-head">
+        <h1 className="ac-h1">{t('books')}</h1>
+        <div className="ac-acts">
+          <Link href="/admin/books/new" className="ac-btn primary">
+            + {t('newBook')}
+          </Link>
+        </div>
       </div>
 
       <div className="bks">

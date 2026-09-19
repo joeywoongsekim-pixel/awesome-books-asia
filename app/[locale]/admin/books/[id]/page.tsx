@@ -1,12 +1,12 @@
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
-import {createSupabaseServer} from '../../../../../../lib/supabase/server';
+import {createSupabaseServer} from '../../../../../lib/supabase/server';
 import BookStudio, {
   type AdminBook,
   type AdminContent,
   type AdminEdition
-} from '../../../../../../components/admin/BookStudio';
-import type {StudioContent} from '../../../../../../components/admin/ChapterStudio';
+} from '../../../../../components/admin/BookStudio';
+import type {StudioContent} from '../../../../../components/admin/ChapterStudio';
 
 export const dynamic = 'force-dynamic';
 

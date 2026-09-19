@@ -43,6 +43,7 @@ Supabase dashboard → project → **Authentication**:
 ### Admin accounts
 `joey.woongse.kim@awesomeai.asia` and `akira.murata@awesomeai.asia` can both sign in with e-mail and password, and both are on the `admin_emails` allowlist, so `/en/admin` opens for them. Passwords are not kept in this repository — change yours from the Supabase dashboard after the first sign-in.
 After the first sign-in the password can be changed on the site itself (`/en/account/password`, "Password" in the top bar) — it asks for the current password before changing anything. Accounts still on a password we handed out get a strip at the top of the page.
+The console is a separate **admin mode**, not another page of the shop — enter it from the "Admin mode" button in the top bar, leave it with "Back to site" in the console's own bar. Only an admin sees that button.
 Signing in opens the console in each admin's own language (Joey → `/ko/admin`, Akira → `/ja/admin`). The language lives in `admin_emails.locale`; change that value to change where they land.
 
 ---

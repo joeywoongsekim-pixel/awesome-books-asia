@@ -1,6 +1,6 @@
 import {setRequestLocale, getTranslations} from 'next-intl/server';
-import {createSupabaseServer} from '../../../../../lib/supabase/server';
-import CouponGenerator from '../../../../../components/admin/CouponGenerator';
+import {createSupabaseServer} from '../../../../lib/supabase/server';
+import CouponGenerator from '../../../../components/admin/CouponGenerator';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,6 +42,9 @@ export default async function AdminCoupons({
 
   return (
     <>
+      <div className="ac-head">
+        <h1 className="ac-h1">{t('coupons')}</h1>
+      </div>
       <CouponGenerator books={books ?? []} />
       <table className="adm-table">
         <thead>

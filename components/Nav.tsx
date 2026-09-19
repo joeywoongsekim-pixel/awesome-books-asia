@@ -6,6 +6,7 @@ import {Link, usePathname} from '../i18n/navigation';
 import BrandLogo from './BrandLogo';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavAuth from './NavAuth';
+import AdminSwitch from './AdminSwitch';
 
 export default function Nav() {
   const t = useTranslations('nav');
@@ -76,6 +77,8 @@ export default function Nav() {
       </Link>
 
       <div className="nav-right">
+        {/* Only an admin sees this, and only they can use it. */}
+        <AdminSwitch />
         <LanguageSwitcher />
         <NavAuth />
       </div>
@@ -96,6 +99,7 @@ export default function Nav() {
               for the logo, the language flag and the burger. */}
           <div className="nav-sheet-auth" onClick={() => setOpen(false)}>
             <NavAuth />
+            <AdminSwitch />
           </div>
         </div>
       )}
