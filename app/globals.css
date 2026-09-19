@@ -7304,3 +7304,227 @@ html[lang='hi'] {
   font-family: var(--font-display);
   font-synthesis-weight: none;
 }
+
+/* ── M101: the renewal / India launch popup ──────────────────────────────
+   One dialog, live from 19 to 24 September (lib/promo.ts holds the window,
+   so no style here knows a date). It carries the announcement and the
+   editions Amazon India sells, and it retires itself.
+
+   The panel sits on the dark ground the footer uses rather than the page's
+   near-white: a popup that matches the page behind it does not read as an
+   announcement, and this one has to survive appearing over a full-bleed
+   photograph. */
+.pmo-wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 240;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgb(17 19 23 / 0.62);
+  backdrop-filter: blur(3px);
+  animation: pmoIn 0.22s ease-out;
+}
+@keyframes pmoIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.pmo {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  padding: clamp(30px, 4.2vw, 46px);
+  background: var(--night);
+  color: var(--paper);
+  box-shadow: 0 28px 70px rgb(17 19 23 / 0.45);
+  animation: pmoUp 0.26s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+@keyframes pmoUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.pmo:focus-visible {
+  outline: none;
+}
+.pmo-x {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: var(--paper);
+  opacity: 0.6;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.pmo-x:hover {
+  opacity: 1;
+}
+.pmo-kick {
+  color: var(--aba-gold-l);
+  margin: 0 0 14px;
+}
+.pmo-h {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-synthesis-weight: none;
+  letter-spacing: -0.012em;
+  font-size: clamp(25px, 3.4vw, 33px);
+  line-height: 1.24;
+  margin: 0;
+}
+/* The second line is the event, and it is the thing a reader in India is
+   being told. It gets the accent rather than a smaller grey. */
+.pmo-sub {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-synthesis-weight: none;
+  letter-spacing: -0.012em;
+  font-size: clamp(25px, 3.4vw, 33px);
+  line-height: 1.24;
+  margin: 0;
+  color: var(--aba-gold-l);
+  opacity: 0.66;
+}
+.pmo-lead {
+  margin: 18px 0 0;
+  font-size: 14.5px;
+  line-height: 1.72;
+  opacity: 0.72;
+  max-width: 44ch;
+}
+.pmo-books {
+  list-style: none;
+  margin: 26px 0 0;
+  padding: 24px 0 0;
+  border-top: 1px solid rgb(246 248 252 / 0.16);
+  display: grid;
+  gap: 20px;
+}
+.pmo-b {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 18px;
+  align-items: center;
+}
+.pmo-b-cv {
+  display: block;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.4);
+}
+.pmo-b-cv .cv {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+}
+/* The stand-in for an edition whose own cover art is not on file yet. */
+.pmo-b-mini {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 2 / 3;
+  padding: 9px 8px;
+  background: var(--lapis);
+  color: var(--paper);
+}
+.pmo-b-mini i,
+.pmo-b-mini b {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 7px;
+  line-height: 1.35;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pmo-b-mini i {
+  opacity: 0.8;
+}
+.pmo-b-t {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.pmo-b-n {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-synthesis-weight: none;
+  font-size: 15.5px;
+  line-height: 1.38;
+  color: var(--paper);
+  text-decoration: none;
+}
+.pmo-b-n:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.pmo-b-a {
+  font-size: 12.5px;
+  opacity: 0.6;
+}
+/* The buy line is a link to a shop, not a button on this site, so it is
+   drawn as a rule rather than a filled control. */
+.pmo-b-buy {
+  margin-top: 6px;
+  align-self: start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  border: 1px solid rgb(246 248 252 / 0.3);
+  color: var(--paper);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.pmo-b-buy:hover {
+  border-color: var(--paper);
+  background: rgb(246 248 252 / 0.08);
+}
+.pmo-b-buy i {
+  font-style: normal;
+  opacity: 0.68;
+}
+.pmo-cta {
+  display: inline-block;
+  margin-top: 26px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-synthesis-weight: none;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  text-decoration: none;
+  border-bottom: 1px solid rgb(246 248 252 / 0.4);
+  padding-bottom: 4px;
+  transition: 0.2s;
+}
+.pmo-cta:hover {
+  border-bottom-color: var(--paper);
+}
+@media (max-width: 560px) {
+  .pmo-wrap {
+    padding: 14px;
+    align-items: flex-end;
+  }
+  .pmo {
+    max-height: calc(100dvh - 28px);
+  }
+  .pmo-b {
+    grid-template-columns: 60px 1fr;
+    gap: 14px;
+  }
+}
+/* Respect a reader who has asked the interface to stop moving. */
+@media (prefers-reduced-motion: reduce) {
+  .pmo-wrap,
+  .pmo {
+    animation: none;
+  }
+}
