@@ -57,7 +57,7 @@ export const PEOPLE: Person[] = [
     name: 'Joey Kim',
     credits: {author: [], translator: []},
     forthcoming: ['author', 'translator'],
-    wip: {author: 'North Shore', translator: 'Akira Murata'},
+    wip: {author: 'Introduction to Cricket · Introduction to Rugby', translator: 'Akira Murata'},
     hasBio: true,
     photo: true
   },

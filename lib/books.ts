@@ -444,11 +444,12 @@ export type Forthcoming = {
 
 /** The 커밍순 row, in order. */
 export const COMING_SOON: Forthcoming[] = [
-  {title: 'Economics of AI Token', cover: '/covers/soon-ai-token.jpg'},
-  // Joey Kim's, per his own profile — he is writing it now.
-  {title: 'North Shore', author: 'Joey Kim', cover: '/covers/soon-north-shore.jpg'},
-  {title: 'Introduction to Cricket', cover: '/covers/soon-cricket.jpg'},
-  {title: 'Introduction to Rugby', cover: '/covers/soon-rugby.jpg'}
+  {title: 'Economics of AI Token', author: 'Akira Murata', cover: '/covers/soon-ai-token.jpg'},
+  // Mira Halloran is one of the house's invented authors, like Lyra Mizuki
+  // and Orion Carter — and, like them, named for a star.
+  {title: 'North Shore', author: 'Mira Halloran', cover: '/covers/soon-north-shore.jpg'},
+  {title: 'Introduction to Cricket', author: 'Joey W. Kim', cover: '/covers/soon-cricket.jpg'},
+  {title: 'Introduction to Rugby', author: 'Joey W. Kim', cover: '/covers/soon-rugby.jpg'}
 ];
 
 /** The cover art that exists per language, by the files in /public/covers. */
