@@ -19,6 +19,12 @@ export type EditionLink = {
 };
 
 export const EDITIONS: Record<string, EditionLink[]> = {
+  // Japanese only for now; the ASIN is the Kindle edition published
+  // 19 September 2026. No price recorded — amazon.co.jp renders it
+  // after load, and the site shows no prices anyway.
+  'ai-token': [
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HKCDCZTF', ku: true}
+  ],
   'ai-answer': [
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'},
     {

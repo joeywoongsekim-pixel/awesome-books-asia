@@ -81,6 +81,33 @@ export type Book = {
 };
 
 export const BOOKS: Book[] = [
+  /* Published 19 September 2026 on Amazon Japan, in Japanese. It stood in
+     COMING_SOON as "Economics of AI Token" until this morning.
+
+     Filed under AI rather than ECON: the economics here are the tools, but
+     what the book teaches is how to use a model well enough to know what a
+     piece of work cost you. It belongs with the AI-literacy line. */
+  {
+    id: "ai-token",
+    img: '/covers/ai-token-ja.jpg',
+    ic: "🪙",
+    cover: "c4",
+    title: "AIトークン経済入門",
+    author: "Akira Murata",
+    cat: "AI",
+    catLabel: "AI & Technology",
+    price: 0,
+    langs: ["JA"],
+    isNew: true,
+    level: 2,
+    angle: "as a unit cost — what one finished piece of work takes in money, time and checking",
+    blurb:
+      "AI looks cheap by the hour, until you count the checking and the fixing. For people who make documents with AI, and for students of economics and management, this reader follows one piece of work from brief to finished and asks what it actually cost: the quality of the result, the money paid to the model, and the hours a person spent. Through Takashi, an office worker, and Kyoko, a student, it separates how many times you generated something from how much of it you could use, explains what a token is and how billing follows it, and adds back the human time nobody invoices. Eight chapters with practice notes, eighteen graded challenges with worked answers, and a closing look at the chips, power and data centres underneath.",
+    pages: 409,
+    published: "2026-09",
+    toc: [],
+    sp: [],
+  },
   {
     id: "ai-answer",
     img: '/covers/ai-answer-ja.jpg',
@@ -407,6 +434,7 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 
 /** The 신간 row, in order. Curated: the house decides what is current. */
 export const NEW_RELEASES: Pick[] = [
+  {id: 'ai-token'},
   {id: 'ai-answer'},
   // The English edition, on amazon.in as the India Special Edition. It was
   // kept off this shelf while there was no /covers/ai-answer-en.jpg, since
@@ -446,7 +474,6 @@ export type Forthcoming = {
 
 /** The 커밍순 row, in order. */
 export const COMING_SOON: Forthcoming[] = [
-  {title: 'Economics of AI Token', author: 'Akira Murata', cover: '/covers/soon-ai-token.jpg'},
   /* A coming-of-age novel. Students from Hawaii, Japan, Korea, the US,
      Australia, Mexico and Brazil meet at a high school on O'ahu's North
      Shore and start a band.
@@ -475,6 +502,7 @@ export const COMING_SOON: Forthcoming[] = [
 
 /** The cover art that exists per language, by the files in /public/covers. */
 const COVERS: Record<string, Partial<Record<Lang, string>>> = {
+  'ai-token': {JA: '/covers/ai-token-ja.jpg'},
   'ai-answer': {JA: '/covers/ai-answer-ja.jpg', EN: '/covers/ai-answer-en.jpg'},
   'ai-bible': {EN: '/covers/ai-bible.jpg', JA: '/covers/ai-bible-ja.jpg'},
   'quantum-econ': {EN: '/covers/quantum-econ.jpg', JA: '/covers/quantum-econ-ja.jpg'},
