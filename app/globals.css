@@ -8627,6 +8627,16 @@ button.adm-link {
   gap: 14px;
   white-space: nowrap;
 }
+/* The translator's count, while it is running. It reads as work in
+   progress rather than as a result, which is what it is. */
+.adm-run {
+  color: var(--lapis);
+  font-weight: 600;
+}
+.adm-row-acts button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
 /* The preview shows what the HTML will actually look like on the page. */
 .mz-prev {
   margin-top: 24px;

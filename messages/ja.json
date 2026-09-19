@@ -397,7 +397,13 @@
     "mzPreview": "プレビュー",
     "mzNew": "新しい記事",
     "mzSlugBad": "アドレスに使えるのは英小文字・数字・ハイフンだけです。",
-    "mzTitleNeeded": "この言語のタイトルが必要です。"
+    "mzTitleNeeded": "この言語のタイトルが必要です。",
+    "mzAuto": "他の言語に翻訳",
+    "mzTranslate": "翻訳",
+    "mzTranslating": "翻訳中… {done}/{total} · {lang}",
+    "mzTranslated": "{n}言語に翻訳しました。",
+    "mzTranslatedSome": "{n}言語に翻訳しました。失敗: {failed}",
+    "mzAllLangs": "9言語"
   },
   "paywall": {
     "title": "試し読みはここまでです",

@@ -397,7 +397,13 @@
     "mzPreview": "Silip",
     "mzNew": "Bagong artikulo",
     "mzSlugBad": "Maliliit na titik, numero at gitling lamang ang puwede sa address.",
-    "mzTitleNeeded": "Kailangan ng pamagat sa wikang ito."
+    "mzTitleNeeded": "Kailangan ng pamagat sa wikang ito.",
+    "mzAuto": "Isalin sa ibang mga wika",
+    "mzTranslate": "Isalin",
+    "mzTranslating": "Isinasalin… {done}/{total} · {lang}",
+    "mzTranslated": "Naisalin sa {n} wika.",
+    "mzTranslatedSome": "Naisalin sa {n}. Hindi nagawa: {failed}",
+    "mzAllLangs": "lahat ng siyam"
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",

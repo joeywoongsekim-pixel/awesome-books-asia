@@ -397,7 +397,13 @@
     "mzPreview": "Aperçu",
     "mzNew": "Nouvel article",
     "mzSlugBad": "L'adresse n'accepte que les minuscules, les chiffres et les tirets.",
-    "mzTitleNeeded": "Un titre est nécessaire dans cette langue."
+    "mzTitleNeeded": "Un titre est nécessaire dans cette langue.",
+    "mzAuto": "Traduire dans les autres langues",
+    "mzTranslate": "Traduire",
+    "mzTranslating": "Traduction… {done}/{total} · {lang}",
+    "mzTranslated": "Traduit en {n} langues.",
+    "mzTranslatedSome": "Traduit en {n}. Échec : {failed}",
+    "mzAllLangs": "les neuf"
   },
   "paywall": {
     "title": "L'extrait se termine ici",

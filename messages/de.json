@@ -397,7 +397,13 @@
     "mzPreview": "Vorschau",
     "mzNew": "Neuer Beitrag",
     "mzSlugBad": "Die Adresse darf nur Kleinbuchstaben, Ziffern und Bindestriche enthalten.",
-    "mzTitleNeeded": "In dieser Sprache fehlt der Titel."
+    "mzTitleNeeded": "In dieser Sprache fehlt der Titel.",
+    "mzAuto": "In die übrigen Sprachen übersetzen",
+    "mzTranslate": "Übersetzen",
+    "mzTranslating": "Übersetzt… {done}/{total} · {lang}",
+    "mzTranslated": "In {n} Sprachen übersetzt.",
+    "mzTranslatedSome": "In {n} übersetzt. Nicht möglich: {failed}",
+    "mzAllLangs": "alle neun"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

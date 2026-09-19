@@ -397,7 +397,13 @@
     "mzPreview": "Preview",
     "mzNew": "New article",
     "mzSlugBad": "The address may use lower-case letters, numbers and hyphens only.",
-    "mzTitleNeeded": "A title is needed in this language."
+    "mzTitleNeeded": "A title is needed in this language.",
+    "mzAuto": "Translate into the other languages",
+    "mzTranslate": "Translate",
+    "mzTranslating": "Translating… {done}/{total} · {lang}",
+    "mzTranslated": "Translated into {n} languages.",
+    "mzTranslatedSome": "Translated into {n}. Could not do: {failed}",
+    "mzAllLangs": "all nine"
   },
   "paywall": {
     "title": "The sample ends here",

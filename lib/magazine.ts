@@ -1,4 +1,5 @@
 import {createClient, type SupabaseClient} from '@supabase/supabase-js';
+import sanitizeHtml from 'sanitize-html';
 
 // M152 — Awesome Magazine. Articles live in public.posts; title, dek and
 // body are keyed by locale, so an article written in Korean is readable
@@ -37,22 +38,37 @@ export function languagesOf(post: Post): string[] {
   return Object.keys(post.title).filter((k) => post.title[k]?.trim());
 }
 
-/* The body is HTML an admin typed. Only an admin can write it, but stored
-   markup that reaches a reader's browser should not be able to run — one
-   mistaken paste should not become everyone's problem. Whole elements that
-   execute or embed are dropped, along with the two ways an attribute can
-   carry script. */
-const DANGEROUS_TAGS = /<\s*\/?\s*(script|style|iframe|object|embed|form|input|link|meta|base)\b[^>]*>/gi;
-const SCRIPT_BLOCK = /<\s*(script|style)\b[\s\S]*?<\s*\/\s*\1\s*>/gi;
-const EVENT_ATTR = /\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi;
-const JS_URL = /\s+(href|src|xlink:href)\s*=\s*("\s*javascript:[^"]*"|'\s*javascript:[^']*'|javascript:[^\s>]+)/gi;
+/* The body is HTML — typed in the console by an admin, and since M156 also
+   written by a model translating that admin's Korean. Neither is a reason
+   to hand a reader's browser something that can run, so an allow-list, not
+   a list of things to strip: anything not named here does not survive.
+   sanitize-html parses the markup rather than pattern-matching it, which a
+   set of regexes cannot do safely.
+
+   The list is exactly what the article stylesheet draws. */
+export const ARTICLE_TAGS = [
+  'p', 'h2', 'h3', 'h4', 'ul', 'ol', 'li', 'blockquote', 'figure', 'figcaption',
+  'img', 'a', 'strong', 'b', 'em', 'i', 'code', 'pre', 'hr', 'br', 'span'
+];
 
 export function safeHtml(html: string): string {
-  return html
-    .replace(SCRIPT_BLOCK, '')
-    .replace(DANGEROUS_TAGS, '')
-    .replace(EVENT_ATTR, '')
-    .replace(JS_URL, '');
+  return sanitizeHtml(html, {
+    allowedTags: ARTICLE_TAGS,
+    allowedAttributes: {
+      a: ['href', 'title', 'target', 'rel'],
+      img: ['src', 'alt', 'title', 'width', 'height', 'loading']
+    },
+    // no data: URIs — an <img src="data:text/html,…"> is a page, not a picture
+    allowedSchemes: ['http', 'https', 'mailto'],
+    allowedSchemesAppliedToAttributes: ['href', 'src'],
+    // a link that leaves the site should not hand over the opener
+    transformTags: {
+      a: (tagName, attribs) =>
+        /^https?:/i.test(attribs.href ?? '')
+          ? {tagName, attribs: {...attribs, target: '_blank', rel: 'noopener noreferrer'}}
+          : {tagName, attribs}
+    }
+  });
 }
 
 /* A cookie-free client, so the home page and the article list stay

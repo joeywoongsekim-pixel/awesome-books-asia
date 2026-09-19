@@ -397,7 +397,13 @@
     "mzPreview": "Pré-visualizar",
     "mzNew": "Novo artigo",
     "mzSlugBad": "O endereço aceita apenas minúsculas, números e hífens.",
-    "mzTitleNeeded": "Falta o título neste idioma."
+    "mzTitleNeeded": "Falta o título neste idioma.",
+    "mzAuto": "Traduzir para os outros idiomas",
+    "mzTranslate": "Traduzir",
+    "mzTranslating": "Traduzindo… {done}/{total} · {lang}",
+    "mzTranslated": "Traduzido para {n} idiomas.",
+    "mzTranslatedSome": "Traduzido para {n}. Não foi possível: {failed}",
+    "mzAllLangs": "todos os nove"
   },
   "paywall": {
     "title": "A amostra termina aqui",

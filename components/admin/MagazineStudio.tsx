@@ -20,7 +20,14 @@ const BLANK = {
 /* An article is written in one language and gains the others later, so the
    console edits one language at a time: pick the language, fill the three
    fields, save. Saving merges that language into the article and leaves
-   every other language it already has alone. */
+   every other language it already has alone.
+
+   Since M156 the others usually arrive by themselves: save with 자동 번역
+   ticked and the article is translated into the remaining eight, one at a
+   time, with the count filling in as they land. One language at a time
+   because a single request for eight is the one that times out on a long
+   article, and because a failure should cost one language, not all of
+   them — whatever fails is named and can be run again on its own. */
 export default function MagazineStudio({posts}: {posts: Post[]}) {
   const t = useTranslations('admin');
   const router = useRouter();
@@ -32,6 +39,37 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
   const [msg, setMsg] = useState('');
   const [busy, setBusy] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [auto, setAuto] = useState(true);
+  const [running, setRunning] = useState<string | null>(null);
+
+  /** Translate one article out of `from` into every other locale. */
+  async function translateAll(slug: string, from: string) {
+    const targets = routing.locales.filter((l) => l !== from);
+    const failed: string[] = [];
+    for (const [n, to] of targets.entries()) {
+      setRunning(t('mzTranslating', {done: n, total: targets.length, lang: to}));
+      try {
+        const res = await fetch('/api/admin/translate-post', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({slug, from, to})
+        });
+        if (!res.ok) {
+          const {error} = (await res.json().catch(() => ({}))) as {error?: string};
+          failed.push(`${to}${error ? ` (${error})` : ''}`);
+        }
+      } catch {
+        failed.push(to);
+      }
+    }
+    setRunning(null);
+    setMsg(
+      failed.length
+        ? t('mzTranslatedSome', {n: targets.length - failed.length, failed: failed.join(', ')})
+        : t('mzTranslated', {n: targets.length})
+    );
+    router.refresh();
+  }
 
   const set = (k: keyof typeof BLANK, v: string | boolean) =>
     setF((prev) => ({...prev, [k]: v}));
@@ -110,11 +148,15 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
       : await supabase.from('posts').insert(row);
 
     setBusy(false);
-    setMsg(error ? error.message : t('saved'));
-    if (!error) {
-      startNew();
-      router.refresh();
+    if (error) {
+      setMsg(error.message);
+      return;
     }
+    setMsg(t('saved'));
+    startNew();
+    router.refresh();
+    // The article is saved either way; translating is what happens next.
+    if (auto) await translateAll(slug, lang);
   }
 
   async function remove(post: Post) {
@@ -198,7 +240,20 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
             />
             {t('publish')}
           </label>
-          <button type="button" className="ac-btn" onClick={save} disabled={busy}>
+          <label className="adm-check">
+            <input
+              type="checkbox"
+              checked={auto}
+              onChange={(e) => setAuto(e.target.checked)}
+            />
+            {t('mzAuto')}
+          </label>
+          <button
+            type="button"
+            className="ac-btn"
+            onClick={save}
+            disabled={busy || running !== null}
+          >
             {busy ? t('uploading') : t('save')}
           </button>
           <button
@@ -213,7 +268,8 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
               {t('mzNew')}
             </button>
           )}
-          {msg && <span className="adm-msg">{msg}</span>}
+          {running && <span className="adm-msg adm-run">{running}</span>}
+          {!running && msg && <span className="adm-msg">{msg}</span>}
         </div>
 
         {preview && (
@@ -246,11 +302,28 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
               <tr key={p.id}>
                 <td className="adm-mono">{p.published_at.slice(0, 10)}</td>
                 <td>{p.title[lang] ?? p.title.en ?? Object.values(p.title)[0] ?? p.slug}</td>
-                <td className="adm-mono">{langs.join(' · ') || '—'}</td>
+                <td className="adm-mono">
+                  {langs.length === routing.locales.length ? (
+                    <span className="ac-pill on">{t('mzAllLangs')}</span>
+                  ) : (
+                    langs.join(' · ') || '—'
+                  )}
+                </td>
                 <td>{p.published ? t('live') : t('draft')}</td>
                 <td className="adm-row-acts">
                   <button type="button" className="adm-link" onClick={() => load(p)}>
                     {t('edit')}
+                  </button>
+                  {/* Fills in whatever is missing, from the language the
+                      article already has — for articles written before the
+                      translator existed, and for retrying one that failed. */}
+                  <button
+                    type="button"
+                    className="adm-link"
+                    disabled={running !== null}
+                    onClick={() => translateAll(p.slug, langs.includes(lang) ? lang : langs[0])}
+                  >
+                    {t('mzTranslate')}
                   </button>
                   <button type="button" className="adm-link warn" onClick={() => remove(p)}>
                     {t('delete')}

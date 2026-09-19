@@ -284,7 +284,13 @@
     "Kyobo": "교보문고",
     "YES24": "예스24",
     "Aladin": "알라딘",
-    "Kindle Unlimited": "킨들 언리미티드"
+    "Kindle Unlimited": "킨들 언리미티드",
+    "Translate into the other languages": "나머지 언어로 번역",
+    "Translate": "번역",
+    "Translating… {done}/{total} · {lang}": "번역 중… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "{n}개 언어로 번역했습니다.",
+    "Translated into {n}. Could not do: {failed}": "{n}개 언어로 번역했습니다. 실패: {failed}",
+    "all nine": "9개 언어"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -571,7 +577,13 @@
     "Kyobo": "教保文庫",
     "YES24": "YES24",
     "Aladin": "アラジン",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "他の言語に翻訳",
+    "Translate": "翻訳",
+    "Translating… {done}/{total} · {lang}": "翻訳中… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "{n}言語に翻訳しました。",
+    "Translated into {n}. Could not do: {failed}": "{n}言語に翻訳しました。失敗: {failed}",
+    "all nine": "9言語"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -854,7 +866,13 @@
     "Kyobo": "Kyobo",
     "YES24": "YES24",
     "Aladin": "Aladin",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "Isalin sa ibang mga wika",
+    "Translate": "Isalin",
+    "Translating… {done}/{total} · {lang}": "Isinasalin… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "Naisalin sa {n} wika.",
+    "Translated into {n}. Could not do: {failed}": "Naisalin sa {n}. Hindi nagawa: {failed}",
+    "all nine": "lahat ng siyam"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1137,7 +1155,13 @@
     "Kyobo": "Kyobo",
     "YES24": "YES24",
     "Aladin": "Aladin",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "In die übrigen Sprachen übersetzen",
+    "Translate": "Übersetzen",
+    "Translating… {done}/{total} · {lang}": "Übersetzt… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "In {n} Sprachen übersetzt.",
+    "Translated into {n}. Could not do: {failed}": "In {n} übersetzt. Nicht möglich: {failed}",
+    "all nine": "alle neun"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1420,7 +1444,13 @@
     "Kyobo": "Kyobo",
     "YES24": "YES24",
     "Aladin": "Aladin",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "Traduire dans les autres langues",
+    "Translate": "Traduire",
+    "Translating… {done}/{total} · {lang}": "Traduction… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "Traduit en {n} langues.",
+    "Translated into {n}. Could not do: {failed}": "Traduit en {n}. Échec : {failed}",
+    "all nine": "les neuf"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1703,7 +1733,13 @@
     "Kyobo": "Kyobo",
     "YES24": "YES24",
     "Aladin": "Aladin",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "Traducir a los demás idiomas",
+    "Translate": "Traducir",
+    "Translating… {done}/{total} · {lang}": "Traduciendo… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "Traducido a {n} idiomas.",
+    "Translated into {n}. Could not do: {failed}": "Traducido a {n}. No se pudo: {failed}",
+    "all nine": "los nueve"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -1986,6 +2022,12 @@
     "Kyobo": "Kyobo",
     "YES24": "YES24",
     "Aladin": "Aladin",
-    "Kindle Unlimited": "Kindle Unlimited"
+    "Kindle Unlimited": "Kindle Unlimited",
+    "Translate into the other languages": "Traduzir para os outros idiomas",
+    "Translate": "Traduzir",
+    "Translating… {done}/{total} · {lang}": "Traduzindo… {done}/{total} · {lang}",
+    "Translated into {n} languages.": "Traduzido para {n} idiomas.",
+    "Translated into {n}. Could not do: {failed}": "Traduzido para {n}. Não foi possível: {failed}",
+    "all nine": "todos os nove"
   }
 }

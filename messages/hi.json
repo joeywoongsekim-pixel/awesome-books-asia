@@ -397,7 +397,13 @@
     "mzPreview": "पूर्वावलोकन",
     "mzNew": "नया लेख",
     "mzSlugBad": "पते में केवल छोटे अक्षर, अंक और हाइफ़न चल सकते हैं।",
-    "mzTitleNeeded": "इस भाषा में शीर्षक चाहिए।"
+    "mzTitleNeeded": "इस भाषा में शीर्षक चाहिए।",
+    "mzAuto": "बाक़ी भाषाओं में अनुवाद करें",
+    "mzTranslate": "अनुवाद",
+    "mzTranslating": "अनुवाद हो रहा है… {done}/{total} · {lang}",
+    "mzTranslated": "{n} भाषाओं में अनुवाद हुआ।",
+    "mzTranslatedSome": "{n} भाषाओं में अनुवाद हुआ। नहीं हो सका: {failed}",
+    "mzAllLangs": "सभी नौ"
   },
   "paywall": {
     "title": "नमूना यहीं ख़त्म होता है",
