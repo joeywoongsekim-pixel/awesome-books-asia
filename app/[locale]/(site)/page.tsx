@@ -5,18 +5,18 @@ import Shelf from '../../../components/home/Shelf';
 import Categories from '../../../components/home/Categories';
 import People from '../../../components/home/People';
 import Spotlights from '../../../components/home/Spotlights';
-import Plans from '../../../components/home/Plans';
 import Newsletter from '../../../components/home/Newsletter';
 import Journal from '../../../components/home/Journal';
 import RecentlyViewed from '../../../components/home/RecentlyViewed';
 import UspBar from '../../../components/home/UspBar';
 
 // Homepage skeleton: book hero (one title at a time, full-bleed) → the
-// shelf (tabbed, books standing) → categories → the people → the web
-// reader → how to
-// buy → newsletter → journal → USP bar → the philosophy carousel, which
-// closes the page just above the footer. The announce bar and sticky nav
-// live in the (site) layout.
+// shelf (tabbed, books standing) → categories → the people → Awesome
+// Reader → newsletter → journal → USP bar → the philosophy carousel,
+// which closes the page just above the footer. How-to-buy used to sit
+// after the reader; it moved to its own page, because a visitor who has
+// not seen a book yet does not need the terms first. The announce bar and
+// sticky nav live in the (site) layout.
 export default async function HomePage({
   params
 }: {
@@ -33,7 +33,6 @@ export default async function HomePage({
       <Categories />
       <People />
       <Spotlights />
-      <Plans />
       <Newsletter />
       <Journal />
       <RecentlyViewed />

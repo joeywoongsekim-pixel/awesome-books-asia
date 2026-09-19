@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
     metadata: {user_id: user.id, plan: body.plan},
     subscription_data: {metadata: {user_id: user.id}},
     success_url: successUrl,
-    cancel_url: `${origin}/${locale}/#plans`
+    cancel_url: `${origin}/${locale}/plans`
   });
   return NextResponse.json({url: session.url});
 }

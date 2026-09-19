@@ -507,7 +507,7 @@ export default function Reader({
                   </Link>
                 </>
               )}
-              <Link href="/#plans" className="rd-pay-alt">
+              <Link href="/plans" className="rd-pay-alt">
                 {tPay('plans')}
               </Link>
             </div>

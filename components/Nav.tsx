@@ -32,12 +32,13 @@ export default function Nav() {
   // on every route, from the first pixel of scroll.
   const className = 'nav solid';
 
-  // Reader and Plans anchor to their home sections (per prototype).
+  // The reader still anchors to its home section; how-to-buy has its own
+  // page now, so it links there.
   const items = [
     {key: 'home', href: '/'},
     {key: 'bookstore', href: '/books'},
     {key: 'reader', href: '/#reader'},
-    {key: 'plans', href: '/#plans'}
+    {key: 'plans', href: '/plans'}
   ] as const;
 
   return (
