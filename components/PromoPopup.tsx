@@ -132,6 +132,12 @@ export default function PromoPopup() {
           ))}
         </ul>
 
+        {/* The chips point at the Indian storefront, because that is the
+            listing the ₹ price belongs to. The edition is not confined to
+            it — the same ASIN sells on every Amazon store — so the list
+            says so rather than letting the .in links imply otherwise. */}
+        <p className="pmo-note">{t('worldwide')}</p>
+
         <Link href="/books" className="pmo-cta" onClick={close}>
           {t('cta')}
         </Link>

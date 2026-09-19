@@ -7415,6 +7415,7 @@ html[lang='hi'] {
 .pmo-lead,
 .pmo-b-n,
 .pmo-b-a,
+.pmo-note,
 .pmo-cta {
   text-shadow: 0 1px 14px rgb(17 19 23 / 0.62);
 }
@@ -7541,9 +7542,16 @@ html[lang='hi'] {
   font-style: normal;
   opacity: 0.68;
 }
+.pmo-note {
+  margin: 16px 0 0;
+  font-size: 12px;
+  line-height: 1.6;
+  opacity: 0.74;
+  max-width: 46ch;
+}
 .pmo-cta {
   display: inline-block;
-  margin-top: 26px;
+  margin-top: 20px;
   font-family: var(--font-display);
   font-weight: 600;
   font-synthesis-weight: none;
