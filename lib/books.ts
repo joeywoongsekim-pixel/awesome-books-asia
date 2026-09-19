@@ -537,14 +537,24 @@ const COVERS: Record<string, Partial<Record<Lang, string>>> = {
   'ninja-cat': {KO: '/covers/ninja-cat-ko.jpg', JA: '/covers/ninja-cat.jpg'}
 };
 
-/* Which edition a reader of this page would expect to be shown first: the
-   one in their own language where the book has it, otherwise whichever the
-   house lists first. Lives here rather than beside the tabs because the
-   server page chooses the opening edition and the client component renders
-   it — a function both use can belong to neither. */
-export function preferredEdition(langs: Lang[], locale: string): Lang {
-  const wanted: Lang = locale === 'ko' ? 'KO' : locale === 'ja' ? 'JA' : 'EN';
-  return langs.includes(wanted) ? wanted : langs[0];
+/* Which edition to open a book page on.
+
+   `asked` wins: a card that showed the English jacket and the English
+   title links here saying so, and landing on the Japanese edition instead
+   — which is what used to happen — makes the card a lie.
+
+   Otherwise the reader's own language, then English, then whatever the
+   house lists first. English before the first entry matters: AI's Answers
+   lists JA before EN, so a German reader used to be shown a Japanese book.
+
+   Lives here rather than beside the tabs because the server page chooses
+   the opening edition and the client component renders it — a function
+   both use can belong to neither. */
+export function preferredEdition(langs: Lang[], locale: string, asked?: string): Lang {
+  const want = (l: string): Lang | undefined =>
+    langs.find((x) => x === l.toUpperCase());
+  const reader = locale === 'ko' ? 'KO' : locale === 'ja' ? 'JA' : 'EN';
+  return (asked && want(asked)) || want(reader) || want('EN') || langs[0];
 }
 
 export function coverFor(id: string, lang?: Lang): string | undefined {

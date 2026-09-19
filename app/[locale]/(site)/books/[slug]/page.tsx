@@ -42,7 +42,7 @@ export async function generateMetadata({
 
 // Sync server component so useTranslations works; the async page below
 // resolves params first.
-function BookDetail({book}: {book: Book}) {
+function BookDetail({book, asked}: {book: Book; asked?: string}) {
   const t = useTranslations('detail');
   const tNav = useTranslations('nav');
   const tBooks = useTranslations('books');
@@ -69,7 +69,7 @@ function BookDetail({book}: {book: Book}) {
 
       {/* The chosen edition decides the jacket, so the cover and the tabs —
           which sit in different columns — share one piece of state. */}
-      <EditionProvider initial={preferredEdition(book.langs, locale)}>
+      <EditionProvider initial={preferredEdition(book.langs, locale, asked)}>
       <div className="d-top">
         <div className="d-cover-wrap">
           <EditionCover book={book} />
@@ -173,11 +173,17 @@ function BookDetail({book}: {book: Book}) {
 }
 
 export default async function BookDetailPage({
-  params
+  params,
+  searchParams
 }: {
   params: Promise<{locale: string; slug: string}>;
+  /* ?ed=EN opens the English edition. Every place that shows one edition's
+     jacket — the shelf, the store's spines, the launch popup — links with
+     it, so the page a reader lands on is the book they clicked. */
+  searchParams: Promise<{ed?: string}>;
 }) {
   const {locale, slug} = await params;
+  const {ed} = await searchParams;
   // Mandatory in every page.tsx, not just the layout.
   setRequestLocale(locale);
 
@@ -188,7 +194,7 @@ export default async function BookDetailPage({
     <>
       <JsonLd data={bookJsonLd(book)} />
       <JsonLd data={breadcrumbJsonLd(locale, book)} />
-      <BookDetail book={book} />
+      <BookDetail book={book} asked={ed} />
     </>
   );
 }

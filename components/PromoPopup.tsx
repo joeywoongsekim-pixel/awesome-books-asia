@@ -136,9 +136,9 @@ export default function PromoPopup() {
         <ul className="pmo-books">
           {editions.map(({book, link, title, cover, storeLabel, url}) => (
             <li key={`${book.id}-${link.url}`} className="pmo-b">
-              <Link href={`/books/${book.id}`} className="pmo-b-cv" onClick={close}>
+              <Link href={`/books/${book.id}?ed=${link.lang}`} className="pmo-b-cv" onClick={close}>
                 {cover ? (
-                  <BookCover book={{...book, img: cover}} />
+                  <BookCover book={book} src={cover} />
                 ) : (
                   /* BookCover's typographic face wants about 200px and
                      clips to nonsense in a 74px column, so the card that
@@ -152,7 +152,7 @@ export default function PromoPopup() {
                 )}
               </Link>
               <div className="pmo-b-t">
-                <Link href={`/books/${book.id}`} className="pmo-b-n" onClick={close}>
+                <Link href={`/books/${book.id}?ed=${link.lang}`} className="pmo-b-n" onClick={close}>
                   {title}
                 </Link>
                 <span className="pmo-b-a">{book.author}</span>

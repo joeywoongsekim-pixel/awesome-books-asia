@@ -1,13 +1,14 @@
 'use client';
 
 import {useState} from 'react';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import {
   BESTSELLERS,
   COMING_SOON,
   NEW_RELEASES,
   coverFor,
+  preferredEdition,
   BOOKS,
   type Forthcoming,
   type Pick
@@ -26,6 +27,7 @@ const byId = (id: string) => BOOKS.find((b) => b.id === id);
 
 export default function Shelf() {
   const t = useTranslations('shelf');
+  const locale = useLocale();
 
   /* 신간 and 베스트셀러 point at the catalogue; 커밍순 cannot, because the
      books are not written. The two shapes are kept apart here rather than
@@ -69,9 +71,20 @@ export default function Shelf() {
         <div className="nsh-row">
           {shown.rows.map(({pick, book}, n) => {
             const b = book!;
-            const cover = coverFor(b.id, pick.lang);
+            /* A pick that names an edition shows that edition's jacket, so
+               its link has to open that edition too. A pick that names none
+               shows — and opens — whichever edition this reader gets, which
+               is not the same as the book's filed jacket: AI's Answers is
+               filed under its Japanese cover, and an English reader clicking
+               it was landing on the English page, cover changed under them. */
+            const ed = pick.lang ?? preferredEdition(b.langs, locale);
+            const cover = coverFor(b.id, ed);
             return (
-              <Link href={`/books/${b.id}`} className="nsh-bk" key={`${b.id}-${pick.lang ?? n}`}>
+              <Link
+                href={`/books/${b.id}?ed=${ed}`}
+                className="nsh-bk"
+                key={`${b.id}-${pick.lang ?? n}`}
+              >
                 <span className="nsh-3d">
                   <span className="nsh-blk">
                     <span className="nsh-spine" aria-hidden="true" />
