@@ -447,13 +447,21 @@ export type Forthcoming = {
 /** The 커밍순 row, in order. */
 export const COMING_SOON: Forthcoming[] = [
   {title: 'Economics of AI Token', author: 'Akira Murata', cover: '/covers/soon-ai-token.jpg'},
-  // A coming-of-age novel: students from Hawaii, Japan, Korea, the US,
-  // Australia, Mexico and Brazil meet at a high school on O'ahu's North
-  // Shore and form a band out of the instruments their countries gave
-  // them. Halley Brooks is one of the house's invented authors, like Lyra
-  // Mizuki and Orion Carter — and, like them, named for something in the
-  // sky. Recorded here because the blurb has nowhere else to live until
-  // the book becomes a catalogue entry.
+  /* A coming-of-age novel. Students from Hawaii, Japan, Korea, the US,
+     Australia, Mexico and Brazil meet at a high school on O'ahu's North
+     Shore and start a band.
+
+     The band is a mixed one, not a row of national instruments. A few
+     things came from home, but what it plays is what happens when the
+     cultures are in the same room — We Are the World, as the house
+     describes it. The first version of this note had them each bring an
+     instrument from their own country, which made the wrong book.
+
+     Halley Brooks is one of the house's invented authors, like Lyra
+     Mizuki and Orion Carter — and, like them, named for something in the
+     sky. All of this is recorded here because a forthcoming title has no
+     blurb field, and the last time the premise lived only in a chat log
+     it was lost and took an author with it. */
   {
     title: 'North Shore',
     author: 'Halley Brooks',
