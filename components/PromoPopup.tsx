@@ -3,7 +3,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {createPortal} from 'react-dom';
 import {useLocale, useTranslations} from 'next-intl';
-import {Link} from '../i18n/navigation';
+import {Link, usePathname} from '../i18n/navigation';
 import BookCover, {seriesNo} from './BookCover';
 import {PROMO, indiaEditions, promoIsLive} from '../lib/promo';
 
@@ -49,6 +49,7 @@ function alreadyDismissed() {
 export default function PromoPopup() {
   const t = useTranslations('promo');
   const locale = useLocale();
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const panel = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
@@ -57,12 +58,19 @@ export default function PromoPopup() {
   // The window is read on mount, never during render: these pages are
   // prerendered, and a server that decided this would bake one answer into
   // the HTML for the life of the deploy.
+  /* Not over a page where someone is part-way through something. It opened
+     on top of the signup form, where a visitor is holding a coupon code and
+     trying to type it — which at a launch event is the worst place on the
+     site to put a dialog in front of somebody. Same for redeeming a code
+     and for the reader, where they are reading a book. */
+  const midTask = /^\/(auth|redeem|read)(\/|$)/.test(pathname);
+
   useEffect(() => {
-    if (!promoIsLive() || alreadyDismissed() || editions.length === 0) return;
+    if (midTask || !promoIsLive() || alreadyDismissed() || editions.length === 0) return;
     lastFocus.current = document.activeElement as HTMLElement | null;
     const id = window.setTimeout(() => setOpen(true), 900);
     return () => window.clearTimeout(id);
-  }, [editions.length]);
+  }, [editions.length, midTask]);
 
   const close = useCallback(() => {
     setOpen(false);
