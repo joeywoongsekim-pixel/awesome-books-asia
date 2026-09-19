@@ -140,6 +140,16 @@ export default function People() {
                           {c.langs?.length ? <i className="pc-ed">{c.langs.join(' · ')}</i> : null}
                         </li>
                       ))}
+                      {/* Published work and work in progress belong under the
+                          same heading — it is the same role — but a title that
+                          is not out yet says so rather than sitting in the list
+                          as though it were. */}
+                      {(open.soon?.[r] ?? []).map((title) => (
+                        <li className="pc-wip" key={`${r}-soon-${title}`}>
+                          {title}
+                          <i className="pc-ed">{t('inProgress')}</i>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 ))}
@@ -154,7 +164,7 @@ export default function People() {
                     <div className="pc-cr-h">{ROLE_LABEL[r]}</div>
                     <p className="pc-bio pc-soon">
                       {open.forthcoming?.includes(r) ? t('inProgress') : t('noCredits')}
-                      {open.wip?.[r] ? ` · ${open.wip[r]}` : ''}
+                      {open.soon?.[r]?.length ? ` · ${open.soon[r]!.join(' · ')}` : ''}
                     </p>
                   </div>
                 ))}

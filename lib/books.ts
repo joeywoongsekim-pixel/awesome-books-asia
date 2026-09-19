@@ -438,6 +438,8 @@ export const BESTSELLERS: Pick[] = [
 export type Forthcoming = {
   title: string;
   author?: string;
+  illustrator?: string;
+  translator?: string;
   /** Cover art, once there is any. Until then the shelf sets a blank one. */
   cover?: string;
 };
@@ -452,7 +454,13 @@ export const COMING_SOON: Forthcoming[] = [
   // Mizuki and Orion Carter — and, like them, named for something in the
   // sky. Recorded here because the blurb has nowhere else to live until
   // the book becomes a catalogue entry.
-  {title: 'North Shore', author: 'Halley Brooks', cover: '/covers/soon-north-shore.jpg'},
+  {
+    title: 'North Shore',
+    author: 'Halley Brooks',
+    illustrator: 'Orion Carter',
+    translator: 'Vega Choi',
+    cover: '/covers/soon-north-shore.jpg'
+  },
   {title: 'Introduction to Cricket', author: 'Joey W. Kim', cover: '/covers/soon-cricket.jpg'},
   {title: 'Introduction to Rugby', author: 'Joey W. Kim', cover: '/covers/soon-rugby.jpg'}
 ];

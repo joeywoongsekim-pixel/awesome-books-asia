@@ -24,8 +24,11 @@ export type Person = {
   /** the profile lives in messages as people.bio.<id>, paragraphs split on
       a blank line, so it is written once per locale like everything else */
   hasBio?: boolean;
-  /** working title shown beside "at work on" for a forthcoming role */
-  wip?: Partial<Record<Role, string>>;
+  /** Titles at work on, per role. It shows under a role that already has
+      credits as well as under one that has none, because "has published
+      before and is working on another" is the common case and the old
+      field could not say it. */
+  soon?: Partial<Record<Role, string[]>>;
   /** /public/people/<id>.webp — a monogram stands in until one exists */
   photo?: boolean;
 };
@@ -57,7 +60,7 @@ export const PEOPLE: Person[] = [
     name: 'Joey W. Kim',
     credits: {author: [], translator: []},
     forthcoming: ['author', 'translator'],
-    wip: {author: 'Introduction to Cricket · Introduction to Rugby', translator: 'Akira Murata'},
+    soon: {author: ['Introduction to Cricket', 'Introduction to Rugby'], translator: ['Akira Murata’s books']},
     hasBio: true,
     photo: true
   },
@@ -65,6 +68,7 @@ export const PEOPLE: Person[] = [
     id: 'orion-carter',
     name: 'Orion Carter',
     credits: {illustrator: [{id: 'isekai'}, {id: 'ninja-cat'}]},
+    soon: {illustrator: ['North Shore']},
     hasBio: true,
     photo: true
   },
@@ -74,6 +78,7 @@ export const PEOPLE: Person[] = [
     credits: {
       translator: [{id: 'isekai', langs: ['KO', 'EN']}, {id: 'ninja-cat', langs: ['KO']}]
     },
+    soon: {translator: ['North Shore']},
     hasBio: true,
     photo: true
   }

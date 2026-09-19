@@ -7704,3 +7704,10 @@ html[lang='hi'] {
     font-size: 17px;
   }
 }
+
+/* A title under a role heading that is not published yet. Same list, same
+   weight as the credits above it — only the tag on the end differs, so the
+   eye reads one body of work rather than two. */
+.pc-wip {
+  opacity: 0.78;
+}
