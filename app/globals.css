@@ -6453,10 +6453,42 @@ html[lang='ja'] .vh-t {
 }
 
 /* ── the newsletter stops being a coloured wall ───────────────────────── */
+/* The band carries a photograph: linen, window shadow at the left, paper
+   and a cobalt binding at the right, and a deliberately empty middle where
+   the type goes. The picture is high key, so the ink stays black — a dark
+   image here would have meant white type and a second set of colours. */
 .nlband {
-  background: var(--bg);
+  position: relative;
+  background: var(--bg) url("/spot/newsletter.webp") center / cover no-repeat;
   border-top: 1px solid var(--hair-soft);
+  border-bottom: 1px solid var(--hair-soft);
   padding: 88px 32px;
+}
+/* A breath of linen under the copy. The photograph's middle is already
+   light enough for black ink; this only guards the crops where the window
+   shadow reaches further in than it does at full width. */
+.nlband::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    62% 78% at 50% 50%,
+    rgb(246 244 240 / 0.82) 0%,
+    rgb(246 244 240 / 0.55) 55%,
+    rgb(246 244 240 / 0) 100%
+  );
+  pointer-events: none;
+}
+.nlband > * {
+  position: relative;
+}
+/* Everything worth seeing in the picture sits at its edges, and a phone
+   keeps only the middle — which is bare linen. Sliding the crop left
+   brings the window shadow in, so the band still has something in it. */
+@media (max-width: 760px) {
+  .nlband {
+    background-position: 26% center;
+  }
 }
 .nl-logo {
   background: transparent;
