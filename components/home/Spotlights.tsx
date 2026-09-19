@@ -5,11 +5,12 @@ import MiniDesk from './MiniDesk';
 
 // §9.7 — Awesome Reader, on a live demo desk: tap a book and it comes down.
 //
-// Written from the reader's side. This section has carried, in turn, a
-// feature list, a claim about browsers and installs, and a price sticker
-// under the button — none of which anyone came here to read. What is left
-// is the thing a reader actually feels at a desk like this one: the book
-// you put down is still open where you left it.
+// The section says where the books come from and what they are for: you
+// subscribe to Awesome Books Asia here and read it in Awesome Reader, and
+// what you are reading is what a changing era is about to ask of you.
+// Earlier passes described the software instead — how many books it holds
+// open, that it needs no install, what it costs. None of that is the
+// reason anyone reads these books.
 export default function Spotlights() {
   const t = useTranslations();
 
