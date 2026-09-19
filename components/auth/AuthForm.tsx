@@ -7,6 +7,7 @@ import {Link, useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import {INVITE_KEY} from '../../lib/invite';
 import {ADMIN_MAIL} from '../../lib/contact';
+import {adminHome} from '../../lib/admin';
 
 // Where to go once a session exists. The reader sends people here with
 // ?next=/read/<slug>; anything that is not a local path falls back to the
@@ -81,7 +82,12 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
       const {error} = await supabase.auth.signInWithPassword({email, password});
       if (error) setError(error.message);
       else {
-        router.push(next);
+        // An admin lands in the console, in the language they work in —
+        // unless the reader sent them here for a particular book, which
+        // still wins; only the language carries over then.
+        const home = await adminHome(supabase);
+        if (home) router.push(gated ? next : '/admin', {locale: home});
+        else router.push(next);
         router.refresh();
       }
     }
