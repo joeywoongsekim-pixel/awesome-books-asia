@@ -17,22 +17,8 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Les livres s'ouvrent <em>dans le navigateur</em>. Rien à télécharger, rien à installer.",
-    "subtitle": "Awesome Reader, c'est là que lisent nos membres. Choisissez un livre : il s'ouvre à la page que vous aviez quittée.",
-    "points": {
-      "desk": {
-        "t": "Quatre livres à la fois",
-        "d": "Gardez-en plusieurs ouverts et passez de l’un à l’autre sans rien fermer."
-      },
-      "langs": {
-        "t": "Trois langues dans un livre",
-        "d": "Les éditions coréenne, anglaise et japonaise sont dans le même livre. Changez, la page reste."
-      },
-      "resume": {
-        "t": "Votre page est gardée",
-        "d": "Fermez sur un portable, ouvrez sur un téléphone : vous repartez de la même page."
-      }
-    },
+    "title": "Nos livres se lisent <em>ici même</em>.",
+    "subtitle": "Awesome Reader, c'est là que lisent nos membres. Il s'ouvre dans le navigateur — rien à télécharger, rien à installer.",
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",
     "ctaPrimary": "Ouvrir Awesome Reader",
     "ctaNote": "Abonnement découverte gratuit — connectez-vous et le livre s’ouvre.",

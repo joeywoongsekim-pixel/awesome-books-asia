@@ -17,22 +17,8 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Books open <em>in the browser</em>. Nothing to download, nothing to install.",
-    "subtitle": "Awesome Reader is where members read. Pick a book and it opens on the page you left.",
-    "points": {
-      "desk": {
-        "t": "Four books at a time",
-        "d": "Keep several open and move between them without closing anything."
-      },
-      "langs": {
-        "t": "Three languages in one book",
-        "d": "The Korean, English and Japanese editions live in the same book. Switch and keep your page."
-      },
-      "resume": {
-        "t": "Your page is saved",
-        "d": "Close it on a laptop, open it on a phone, and you start on the same page."
-      }
-    },
+    "title": "Our books are read <em>right here</em>.",
+    "subtitle": "Awesome Reader is where members read. It opens in the browser — nothing to download, nothing to install.",
     "meta": "Korean · English · Japanese · any device",
     "ctaPrimary": "Open Awesome Reader",
     "ctaNote": "Free sample subscription — sign in and the book opens.",

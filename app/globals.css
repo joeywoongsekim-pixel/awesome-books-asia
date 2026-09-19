@@ -6365,30 +6365,7 @@ html[lang='ja'] .vh-t {
   color: var(--stone);
   margin-bottom: 30px;
 }
-/* What the reader actually gives you, three lines instead of a paragraph:
-   the lead says what the room is, these say what you do in it. */
-.spot-points {
-  list-style: none;
-  display: grid;
-  gap: 15px;
-  margin: 0 0 30px;
-}
-.spot-points li {
-  display: grid;
-  gap: 3px;
-  padding-left: 15px;
-  border-left: 2px solid var(--hair);
-}
-.spot-pt {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--night);
-}
-.spot-pd {
-  font-size: 13.5px;
-  line-height: 1.7;
-  color: var(--stone);
-}
+/* the line under the button: what it costs, and that signing in comes first */
 .spot-note {
   margin-top: 16px;
   font-size: 12.5px;

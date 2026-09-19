@@ -17,22 +17,8 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Bumubukas ang mga aklat <em>sa browser</em>. Walang ida-download, walang i-install.",
-    "subtitle": "Dito nagbabasa ang mga miyembro sa Awesome Reader. Pumili ng aklat at bubukas ito sa pahinang iniwan mo.",
-    "points": {
-      "desk": {
-        "t": "Apat na aklat nang sabay",
-        "d": "Panatilihing bukas ang ilan at lumipat sa pagitan nila nang walang isinasara."
-      },
-      "langs": {
-        "t": "Tatlong wika sa isang aklat",
-        "d": "Nasa iisang aklat ang edisyong Koreano, Ingles at Hapon. Lumipat nang hindi nawawala ang pahina."
-      },
-      "resume": {
-        "t": "Naitatago ang pahina mo",
-        "d": "Isara sa laptop, buksan sa telepono — sa parehong pahina ka magsisimula."
-      }
-    },
+    "title": "Dito <em>mismo binabasa</em> ang mga aklat namin.",
+    "subtitle": "Sa Awesome Reader nagbabasa ang mga miyembro. Bumubukas ito sa browser — walang ida-download, walang i-install.",
     "meta": "Korean · English · Japanese · sa anumang device",
     "ctaPrimary": "Buksan ang Awesome Reader",
     "ctaNote": "Libreng sample subscription — mag-sign in at bubukas ang aklat.",
