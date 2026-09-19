@@ -45,8 +45,12 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   'quantum-econ-in': [
     {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9', price: '₹199', ku: true}
   ],
+  // One edition on three storefronts: the English ASIN is the same book on
+  // .com and on .in, listed twice because the price a reader is quoted is
+  // not the same. ₹449 to buy there, or nothing with a subscription.
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0GPPXFTYG', price: '₹449', ku: true},
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0GMW6FV26', price: '$6.31'}
   ],
   isekai: [
