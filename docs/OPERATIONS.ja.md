@@ -42,6 +42,7 @@ Supabaseダッシュボード → プロジェクト → **Authentication**：
 
 ### 管理者アカウント
 `joey.woongse.kim@awesomeai.asia`と`akira.murata@awesomeai.asia`の2件がメールとパスワードでログインでき、いずれも`admin_emails`の許可リストにあるため`/ja/admin`がそのまま開きます。パスワードはリポジトリには置いていません — 初回ログイン後、Supabaseダッシュボードから各自で変更してください。
+初回ログイン後は、サイト上の**パスワード変更**（`/ja/account/password`、上部メニューの「パスワード」）から各自で変更できます — 変更前に現在のパスワードを確認します。お渡ししたパスワードのままのアカウントには、ページ上部に案内の帯が出ます。
 ログインすると、それぞれの言語で管理画面が開きます（Joey → `/ko/admin`、Akira → `/ja/admin`）。言語は`admin_emails.locale`に保存されており、その値を変えれば遷移先も変わります。
 
 ---

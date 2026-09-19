@@ -198,6 +198,24 @@
     "inviteHint": "Estamos em período de testes, então o cadastro é apenas por convite. <mail>Escreva ao administrador</mail> para receber um código de cupom e digite-o abaixo.",
     "membersOnly": "O leitor web é para membros. Faça login e o livro abrirá."
   },
+  "account": {
+    "link": "Senha",
+    "title": "Alterar a senha",
+    "intro": "Sua conta começou com uma senha escolhida por nós. Escolha a sua — pelo menos {min} caracteres.",
+    "current": "Senha atual",
+    "next": "Nova senha",
+    "confirm": "Repita a nova senha",
+    "submit": "Alterar a senha",
+    "done": "Pronto. A partir de agora vale a sua nova senha.",
+    "back": "Ir para a minha biblioteca",
+    "wrongCurrent": "Essa não é a sua senha atual.",
+    "mismatch": "As duas novas senhas não coincidem.",
+    "tooShort": "Use pelo menos {min} caracteres.",
+    "sameAsOld": "Essa é a senha que você já tem.",
+    "signedOut": "Você está desconectado. Entre novamente e tente de novo.",
+    "nudge": "Você ainda está usando a senha que demos a você.",
+    "nudgeCta": "Escolha a sua →"
+  },
   "library": {
     "title": "Minha biblioteca",
     "continue": "Continuar lendo",

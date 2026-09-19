@@ -198,6 +198,24 @@
     "inviteHint": "Nous sommes en période d'essai : l'inscription se fait sur invitation. <mail>Écrivez à l'administrateur</mail> pour recevoir un code, puis saisissez-le ci-dessous.",
     "membersOnly": "La liseuse est réservée aux membres. Connectez-vous et le livre s'ouvrira."
   },
+  "account": {
+    "link": "Mot de passe",
+    "title": "Changer de mot de passe",
+    "intro": "Votre compte a démarré avec un mot de passe que nous avons choisi. Prenez le vôtre — au moins {min} caractères.",
+    "current": "Mot de passe actuel",
+    "next": "Nouveau mot de passe",
+    "confirm": "Nouveau mot de passe (confirmation)",
+    "submit": "Changer le mot de passe",
+    "done": "C'est fait. Votre nouveau mot de passe est actif dès maintenant.",
+    "back": "Aller à ma bibliothèque",
+    "wrongCurrent": "Ce n'est pas votre mot de passe actuel.",
+    "mismatch": "Les deux nouveaux mots de passe ne correspondent pas.",
+    "tooShort": "Utilisez au moins {min} caractères.",
+    "sameAsOld": "C'est le mot de passe que vous avez déjà.",
+    "signedOut": "Vous êtes déconnecté. Reconnectez-vous et réessayez.",
+    "nudge": "Vous utilisez encore le mot de passe que nous vous avons donné.",
+    "nudgeCta": "Choisir le vôtre →"
+  },
   "library": {
     "title": "Ma bibliothèque",
     "continue": "Reprendre la lecture",

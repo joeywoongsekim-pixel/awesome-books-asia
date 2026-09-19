@@ -62,8 +62,9 @@ export default function PromoPopup() {
      on top of the signup form, where a visitor is holding a coupon code and
      trying to type it — which at a launch event is the worst place on the
      site to put a dialog in front of somebody. Same for redeeming a code
-     and for the reader, where they are reading a book. */
-  const midTask = /^\/(auth|redeem|read)(\/|$)/.test(pathname);
+     and for the reader, where they are reading a book, and for the account
+     pages, where they are typing a new password. */
+  const midTask = /^\/(auth|account|redeem|read)(\/|$)/.test(pathname);
 
   useEffect(() => {
     if (midTask || !promoIsLive() || alreadyDismissed() || editions.length === 0) return;

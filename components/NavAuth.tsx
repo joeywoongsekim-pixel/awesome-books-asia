@@ -42,6 +42,10 @@ export default function NavAuth() {
       <Link href="/library" className="nav-lang-btn nav-auth-link">
         {t('nav.library')}
       </Link>
+      {/* The only way to change your own password without the dashboard. */}
+      <Link href="/account/password" className="nav-lang-btn nav-auth-link">
+        {t('account.link')}
+      </Link>
       <button type="button" className="nav-lang-btn" onClick={signOut}>
         {t('auth.signOut')}
       </button>

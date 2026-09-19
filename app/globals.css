@@ -3850,6 +3850,37 @@ footer {
   margin-bottom: 18px;
 }
 
+/* Sits under the nav for anyone still on a password we handed out.
+   Quiet enough to live on every page, loud enough to be acted on. */
+.pw-nudge {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  align-items: baseline;
+  justify-content: center;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: var(--ink-1);
+  background: var(--aba-cream);
+  border-bottom: 1px solid var(--hair);
+}
+.pw-nudge a {
+  color: var(--aba-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+.pw-nudge a:hover {
+  color: var(--aba-gold);
+}
+/* the confirmation's "back to my library" reuses the submit button */
+.acc-back {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
 /* admin: process button + content status */
 .adm-process {
   background: var(--aba-navy);

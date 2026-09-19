@@ -198,6 +198,24 @@
     "inviteHint": "Nasa trial period kami, kaya sa imbitasyon lamang ang pagpaparehistro. <mail>Mag-email sa administrador</mail> para makatanggap ng coupon code, at ilagay ito sa ibaba.",
     "membersOnly": "Para sa mga miyembro ang web reader. Mag-sign in at bubukas ang aklat."
   },
+  "account": {
+    "link": "Password",
+    "title": "Palitan ang password",
+    "intro": "Nagsimula ang account mo sa password na kami ang pumili. Pumili ng sarili mo — hindi bababa sa {min} karakter.",
+    "current": "Kasalukuyang password",
+    "next": "Bagong password",
+    "confirm": "Ulitin ang bagong password",
+    "submit": "Palitan ang password",
+    "done": "Tapos na. Ang bago mong password na ang gamitin mula ngayon.",
+    "back": "Pumunta sa aking library",
+    "wrongCurrent": "Hindi iyan ang kasalukuyan mong password.",
+    "mismatch": "Hindi magkatugma ang dalawang bagong password.",
+    "tooShort": "Gumamit ng hindi bababa sa {min} karakter.",
+    "sameAsOld": "Iyan na ang password na mayroon ka.",
+    "signedOut": "Naka-sign out ka. Mag-sign in ulit at subukan muli.",
+    "nudge": "Ginagamit mo pa rin ang password na ibinigay namin.",
+    "nudgeCta": "Pumili ng sarili mo →"
+  },
   "library": {
     "title": "Aking Aklatan",
     "continue": "Ituloy ang pagbabasa",

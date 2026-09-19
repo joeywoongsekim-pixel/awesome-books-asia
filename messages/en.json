@@ -198,6 +198,24 @@
     "inviteHint": "We are in trial, so sign-up is invitation-only. <mail>Email the administrator</mail> to receive a coupon code, then enter it below.",
     "membersOnly": "The web reader is for members. Sign in — or sign up — and the book opens."
   },
+  "account": {
+    "link": "Password",
+    "title": "Change your password",
+    "intro": "Your account started on a password we chose. Pick your own — at least {min} characters.",
+    "current": "Current password",
+    "next": "New password",
+    "confirm": "New password again",
+    "submit": "Change password",
+    "done": "Done. Your new password is in use from now on.",
+    "back": "Go to my library",
+    "wrongCurrent": "That is not your current password.",
+    "mismatch": "The two new passwords do not match.",
+    "tooShort": "Use at least {min} characters.",
+    "sameAsOld": "That is the password you already have.",
+    "signedOut": "You are signed out. Sign in again and retry.",
+    "nudge": "You are still using the password we gave you.",
+    "nudgeCta": "Choose your own →"
+  },
   "library": {
     "title": "My Library",
     "continue": "Continue reading",

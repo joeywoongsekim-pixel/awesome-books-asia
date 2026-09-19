@@ -198,6 +198,24 @@
     "inviteHint": "Wir sind in der Testphase, die Anmeldung erfolgt daher nur auf Einladung. <mail>Schreiben Sie dem Administrator</mail>, um einen Gutscheincode zu erhalten, und geben Sie ihn unten ein.",
     "membersOnly": "Der Web-Reader ist Mitgliedern vorbehalten. Melden Sie sich an, dann öffnet sich das Buch."
   },
+  "account": {
+    "link": "Passwort",
+    "title": "Passwort ändern",
+    "intro": "Ihr Konto startete mit einem Passwort, das wir vergeben haben. Wählen Sie ein eigenes — mindestens {min} Zeichen.",
+    "current": "Aktuelles Passwort",
+    "next": "Neues Passwort",
+    "confirm": "Neues Passwort wiederholen",
+    "submit": "Passwort ändern",
+    "done": "Erledigt. Ab jetzt gilt Ihr neues Passwort.",
+    "back": "Zu meiner Bibliothek",
+    "wrongCurrent": "Das ist nicht Ihr aktuelles Passwort.",
+    "mismatch": "Die beiden neuen Passwörter stimmen nicht überein.",
+    "tooShort": "Verwenden Sie mindestens {min} Zeichen.",
+    "sameAsOld": "Das ist das Passwort, das Sie bereits haben.",
+    "signedOut": "Sie sind abgemeldet. Melden Sie sich erneut an und versuchen Sie es noch einmal.",
+    "nudge": "Sie nutzen noch das Passwort, das wir Ihnen gegeben haben.",
+    "nudgeCta": "Eigenes wählen →"
+  },
   "library": {
     "title": "Meine Bibliothek",
     "continue": "Weiterlesen",
