@@ -7085,6 +7085,11 @@ html[lang='ko'] .bh-t {
   height: 100%;
   object-fit: cover;
   display: block;
+  /* Every portrait in the set is framed with the head in the upper part of
+     the picture, so a box shorter than 4:5 must crop from the bottom. The
+     default centre crop took the face off on a phone and left a shot of
+     somebody's knees. */
+  object-position: center 22%;
 }
 .pc-txt {
   padding: clamp(28px, 3vw, 48px);
@@ -7148,8 +7153,11 @@ html[lang='ko'] .bh-t {
     grid-template-columns: 1fr;
     max-height: 88vh;
   }
+  /* Square rather than landscape: 3/2 on a 4:5 portrait threw away nearly
+     half the picture. This keeps the head and the shoulders and still
+     leaves the profile itself starting on the first screen. */
   .pc-img {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: 1 / 1;
     min-height: 0;
   }
 }
