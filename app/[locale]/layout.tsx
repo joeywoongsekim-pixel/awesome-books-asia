@@ -86,6 +86,20 @@ export default async function LocaleLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-jp-dynamic-subset.css"
         />
+        {/* The display layer — section headings, tab rows, labels and the two
+            hero titles. Hahmlet sets Latin and Hangul, Zen Old Mincho the
+            kana and kanji beside it. Both come from Google rather than
+            next/font because their Korean and Japanese coverage is split
+            into hundreds of unicode-range files: fetching every one at build
+            time is what this link avoids, and the browser then downloads only
+            the ranges a page actually uses — the same arrangement Pretendard
+            is on above. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@400..700&family=Zen+Old+Mincho:wght@400;700&display=swap"
+        />
       </head>
       <body>
         <JsonLd data={orgJsonLd} />

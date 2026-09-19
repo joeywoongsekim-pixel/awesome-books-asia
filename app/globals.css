@@ -7209,22 +7209,38 @@ html[lang='hi'] .bh-t {
   line-height: 1.26;
 }
 
-/* ── M97 → M98: the display layer ────────────────────────────────────────
+/* ── M97 → M99: the display layer ────────────────────────────────────────
    The display layer is everything that announces rather than explains:
    section headings, tab rows, small labels and the two hero titles. It is
    held apart from the body face on purpose.
 
-   M97 handed it the wordmark, Righteous, and it read futuristic — the
-   wrong genre for a publisher. M98 swaps in Instrument Serif: a
-   high-contrast editorial serif, the face a bookshop sets its section
-   headings in. The wordmark keeps Righteous (--font-mark), so the corner
-   stays geometric and everything below it reads as print.
+   M97 handed it the wordmark, Righteous, which read futuristic. M98 tried
+   Instrument Serif, which read right — but only in English. Both were Latin
+   faces, so on ko/ja the layer fell straight through to Pretendard and two
+   thirds of the site got none of it. A display face that cannot set Hangul
+   is not a decision about this site; it is a decision about a third of it.
 
-   The two constraints are unchanged — Latin glyphs only, one weight — so
-   anything this touches is set at 400, and the locales it cannot serve
-   (ko/ja/hi fall through to Pretendard) get their weight back below. */
+   M99 picks a pair that covers the lot. Hahmlet sets Latin and Hangul in
+   one voice — a blocky, flat-topped myeongjo whose Latin is cut to match —
+   and Zen Old Mincho takes the kana and kanji beside it, chosen over
+   Shippori Mincho because Shippori's high contrast turns cold again next
+   to Hahmlet's weight. The photographs on this site are grey markets and
+   winter stadiums; the type is where the heat comes back.
+
+   The wordmark keeps Righteous (--font-mark), so the corner stays
+   geometric and everything under it reads as print.                      */
+/* Zen Old Mincho is in the stack on every locale, not only Japanese: a
+   Japanese book title turns up on the Korean and English shelves too, and
+   Hahmlet carries hanja but almost no kana — so without it one title came
+   out with its kanji in a serif and its kana in Pretendard's sans, two
+   faces inside a single line. */
 :root {
-  --font-display: var(--font-display-serif), var(--pretendard);
+  --font-display: 'Hahmlet', 'Zen Old Mincho', var(--pretendard);
+}
+/* On the Japanese site the order flips, or Hahmlet's hanja would set
+   Japanese kanji in Korean shapes. */
+html[lang='ja'] {
+  --font-display: 'Zen Old Mincho', 'Hahmlet', var(--pretendard);
 }
 .cats-h,
 .nsh-tabs button,
@@ -7234,16 +7250,14 @@ html[lang='hi'] .bh-t {
 .h2,
 .spot-t,
 .pc-n,
-.bh-t.lat,
+.bh-t,
 .vh-t {
   font-family: var(--font-display);
-  font-weight: 400;
-  /* The ko/ja/hi rules below ask for 700 so Pretendard does not go thin.
-     But a string like "Awesome Author" is Latin on every locale, so the
-     serif serves it there too and the browser would smear a fake bold over
-     a face that has one weight. Switching synthesis off settles it per
-     run: Latin stays at the serif's 400, the scripts it cannot set fall
-     through to Pretendard and get a real 700. */
+  font-weight: 600;
+  /* Hahmlet is variable 400–700 and takes 600 exactly. Zen Old Mincho and
+     Noto Devanagari ship 400/700, so 600 resolves up to their real 700
+     rather than being faked — which is what this switches off. Without it
+     the browser smears a synthetic bold over faces that have no 600. */
   font-synthesis-weight: none;
 }
 /* A serif fits its own words together; the tracking Righteous needed only
@@ -7257,46 +7271,12 @@ html[lang='hi'] .bh-t {
 .pc-n {
   letter-spacing: 0;
 }
-.bh-t.lat,
+.bh-t,
 .vh-t {
   letter-spacing: -0.012em;
 }
-/* The exception: small tracked capitals. Instrument Serif is narrower than
-   Righteous, so these need the air back or the words close up. */
+/* The exception: small tracked capitals, which need the air kept open. */
 .ppl-role,
 .eyebrow {
   letter-spacing: 0.16em;
-}
-/* Pretendard is doing the work on these, and at 400 it goes thin. */
-html[lang='ko'] .cats-h,
-html[lang='ja'] .cats-h,
-html[lang='hi'] .cats-h,
-html[lang='ko'] .nsh-tabs button,
-html[lang='ja'] .nsh-tabs button,
-html[lang='hi'] .nsh-tabs button,
-html[lang='ko'] .nsh-one,
-html[lang='ja'] .nsh-one,
-html[lang='hi'] .nsh-one,
-html[lang='ko'] .h2,
-html[lang='ja'] .h2,
-html[lang='hi'] .h2,
-html[lang='ko'] .spot-t,
-html[lang='ja'] .spot-t,
-html[lang='hi'] .spot-t,
-html[lang='ko'] .pc-n,
-html[lang='ja'] .pc-n,
-html[lang='hi'] .pc-n,
-html[lang='ko'] .vh-t,
-html[lang='ja'] .vh-t,
-html[lang='hi'] .vh-t {
-  font-weight: 700;
-}
-html[lang='ko'] .ppl-role,
-html[lang='ja'] .ppl-role,
-html[lang='hi'] .ppl-role,
-html[lang='ko'] .eyebrow,
-html[lang='ja'] .eyebrow,
-html[lang='hi'] .eyebrow {
-  font-weight: 700;
-  letter-spacing: 0.18em;
 }

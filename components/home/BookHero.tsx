@@ -17,9 +17,6 @@ const SLIDES = [
 ] as const;
 const INTERVAL_MS = 7000;
 
-// any Hiragana, Katakana, Han or Hangul makes a title non-Latin
-const LATIN = /^[^\u3040-\u30ff\u4e00-\u9fff\uac00-\ud7af]+$/;
-
 export default function BookHero() {
   const t = useTranslations('bookHero');
   const [i, setI] = useState(0);
@@ -83,13 +80,13 @@ export default function BookHero() {
               aria-hidden={n !== i}
               tabIndex={n === i ? undefined : -1}
             >
-              {/* The logo's face has no CJK glyphs, so a Japanese or Korean
-                  title set in it would render half Righteous, half
-                  Pretendard — two faces inside one book title. The title's
-                  own script decides, not the interface language. */}
-              <span className={`bh-t${LATIN.test(t(`${s.id}.t`)) ? ' lat' : ''}`}>
-                {t(`${s.id}.t`)}
-              </span>
+              {/* This used to test the title's own script and set only the
+                  Latin ones in the display face, because the display face
+                  had no CJK glyphs and a Japanese title would have come out
+                  half one face and half another. The display stack now
+                  covers Latin, Hangul, kana and kanji, so every title goes
+                  in it and the test is gone. */}
+              <span className="bh-t">{t(`${s.id}.t`)}</span>
               <span className="bh-d">{t(`${s.id}.d`)}</span>
             </Link>
           ))}
