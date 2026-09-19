@@ -1,6 +1,7 @@
 'use client';
 
 import {useState} from 'react';
+import {useSearchParams} from 'next/navigation';
 import {useTranslations} from 'next-intl';
 import {BOOKS, CATEGORIES, CAT_KEY, catsOf, type Category, type Lang} from '../../lib/books';
 import StoreCard from './StoreCard';
@@ -11,7 +12,13 @@ type LangFilter = 'all' | Lang;
 
 export default function StoreGrid() {
   const t = useTranslations('store');
-  const [cat, setCat] = useState<CatFilter>('all');
+  /* A subject tile on the landing page links here with ?cat=ECON, so the
+     store opens on what was clicked rather than on everything. An unknown
+     or absent subject is simply 'all'. */
+  const asked = useSearchParams().get('cat');
+  const [cat, setCat] = useState<CatFilter>(
+    asked && (CATEGORIES as string[]).includes(asked) ? (asked as Category) : 'all'
+  );
   const [lang, setLang] = useState<LangFilter>('all');
 
   // A book answers to every subject it carries, not just the one it

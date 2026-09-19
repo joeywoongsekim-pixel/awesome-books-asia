@@ -3,11 +3,15 @@ import {notFound} from 'next/navigation';
 import {useLocale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
-import {BOOKS, CAT_KEY, catsOf, type Book} from '../../../../../lib/books';
+import {BOOKS, CAT_KEY, catsOf, preferredEdition, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import BookCover from '../../../../../components/BookCover';
 import RetailerLinks from '../../../../../components/RetailerLinks';
-import LangTabs from '../../../../../components/store/LangTabs';
+import {
+  EditionCover,
+  EditionProvider,
+  EditionTabs
+} from '../../../../../components/store/Editions';
 import {blurbOf, tocOf} from '../../../../../lib/blurbs';
 import {EDITIONS, fromPrice} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
@@ -64,9 +68,12 @@ function BookDetail({book}: {book: Book}) {
         <span className="crumb-here">{book.title}</span>
       </div>
 
+      {/* The chosen edition decides the jacket, so the cover and the tabs —
+          which sit in different columns — share one piece of state. */}
+      <EditionProvider initial={preferredEdition(book.langs, locale)}>
       <div className="d-top">
         <div className="d-cover-wrap">
-          <BookCover book={book} />
+          <EditionCover book={book} />
         </div>
         <div>
           {/* Every subject the book answers to, in the reader's language —
@@ -75,7 +82,7 @@ function BookDetail({book}: {book: Book}) {
           <h1 className="d-title">{book.title}</h1>
           <div className="d-author">{book.author}</div>
           <p className="d-blurb">{blurbOf(book, locale)}</p>
-          <LangTabs langs={book.langs} />
+          <EditionTabs langs={book.langs} />
           <div className="d-buy">
             {book.sp.length > 0 ? (
               <>
@@ -102,6 +109,7 @@ function BookDetail({book}: {book: Book}) {
           </div>
         </div>
       </div>
+      </EditionProvider>
 
       <div className="d-cols">
         <div>

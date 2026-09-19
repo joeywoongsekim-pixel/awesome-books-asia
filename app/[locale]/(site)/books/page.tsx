@@ -1,4 +1,5 @@
 import type {Metadata} from 'next';
+import {Suspense} from 'react';
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import StoreGrid from '../../../../components/store/StoreGrid';
 
@@ -21,5 +22,12 @@ export default async function BooksPage({
   // Mandatory in every page.tsx, not just the layout.
   setRequestLocale(locale);
 
-  return <StoreGrid />;
+  /* The grid reads ?cat= to open on a subject, and a component that reads
+     the query string has to sit behind a boundary or the page cannot be
+     prerendered at all. */
+  return (
+    <Suspense>
+      <StoreGrid />
+    </Suspense>
+  );
 }

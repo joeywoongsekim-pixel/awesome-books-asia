@@ -12,17 +12,22 @@ export function seriesNo(book: Book) {
 
 export default function BookCover({
   book,
-  className
+  className,
+  /* Which jacket, where the book has more than one. The detail page passes
+     the edition a reader chose; everywhere else the book's own is right. */
+  src
 }: {
   book: Book;
   className?: string;
+  src?: string;
 }) {
   const idx = Math.max(0, BOOKS.findIndex((b) => b.id === book.id));
-  if (book.img) {
+  const art = src ?? book.img;
+  if (art) {
     // Published titles show their real cover art.
     return (
       <div className={`cv cv-img ${className ?? ''}`}>
-        <img src={book.img} alt="" loading="lazy" decoding="async" />
+        <img src={art} alt="" loading="lazy" decoding="async" />
       </div>
     );
   }

@@ -529,8 +529,23 @@ const COVERS: Record<string, Partial<Record<Lang, string>>> = {
   'quantum-econ-uk': {EN: '/covers/quantum-econ.jpg'},
   'quantum-econ-in': {EN: '/covers/quantum-econ.jpg'},
   isekai: {EN: '/covers/isekai.jpg', KO: '/covers/isekai-ko.jpg', JA: '/covers/isekai-ja.jpg'},
-  'ninja-cat': {EN: '/covers/ninja-cat.jpg', KO: '/covers/ninja-cat-ko.jpg'}
+  /* The cat has no English edition — langs is KO·JA — and the jacket filed
+     here under EN is the Japanese one, 「おっちょこ忍キャット クロの巻」. Labelled
+     EN it was unreachable: KO found its own and JA fell through to the
+     book's default, which happens to be the same file, so the mistake was
+     invisible until the tabs started choosing the jacket. */
+  'ninja-cat': {KO: '/covers/ninja-cat-ko.jpg', JA: '/covers/ninja-cat.jpg'}
 };
+
+/* Which edition a reader of this page would expect to be shown first: the
+   one in their own language where the book has it, otherwise whichever the
+   house lists first. Lives here rather than beside the tabs because the
+   server page chooses the opening edition and the client component renders
+   it — a function both use can belong to neither. */
+export function preferredEdition(langs: Lang[], locale: string): Lang {
+  const wanted: Lang = locale === 'ko' ? 'KO' : locale === 'ja' ? 'JA' : 'EN';
+  return langs.includes(wanted) ? wanted : langs[0];
+}
 
 export function coverFor(id: string, lang?: Lang): string | undefined {
   const set = COVERS[id];
