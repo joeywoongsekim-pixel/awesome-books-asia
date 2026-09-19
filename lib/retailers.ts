@@ -33,10 +33,11 @@ export const EDITIONS: Record<string, EditionLink[]> = {
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H86W24T9', price: '$3.34'}
   ],
   // The India edition is sold on Amazon India. Its ASIN was always right;
-  // only the domain was wrong. Price pending — the old $2.18 was what
-  // amazon.com quoted an international buyer, not the ₹ figure on .in.
+  // only the domain was wrong. ₹199 is what amazon.in shows a buyer in
+  // India — the old $2.18 was amazon.com quoting an international one,
+  // which is a different number for the same book.
   'quantum-econ-in': [
-    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0H86YMQG9', price: '₹199'}
   ],
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},
