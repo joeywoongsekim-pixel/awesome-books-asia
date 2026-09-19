@@ -9,6 +9,27 @@ import {safeHtml, type LocaleText, type Post} from '../../lib/magazine';
 import {inlineImageCount, liftImages, uploadImage} from '../../lib/postImages';
 import ArticleImages from './ArticleImages';
 
+/* The form takes a date; the list is ordered by an instant. Stamping every
+   article at the same hour of its day meant two pieces put up on one
+   afternoon were indistinguishable, and the second could come out under
+   the first. So:
+
+   — editing an article without moving its date leaves the instant alone,
+     because saving a typo should not reorder the magazine;
+   — a date of today is stamped with the time of day, so this afternoon's
+     piece sits above this morning's;
+   — any other date keeps a settled hour, which is what backdating means.
+
+   The queries break ties on creation time as well, so the order holds even
+   for rows written straight into the table. */
+function stamp(date: string, was?: string): string {
+  if (was && was.slice(0, 10) === date) return was;
+  const today = new Date().toISOString().slice(0, 10);
+  return date === today
+    ? new Date().toISOString()
+    : new Date(`${date}T09:00:00Z`).toISOString();
+}
+
 const BLANK = {
   slug: '',
   cover: '',
@@ -228,7 +249,7 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
       dek: merge(current?.dek, f.dek),
       body: {...bodies, ...merge(bodies, body)},
       published: f.published,
-      published_at: new Date(`${f.date}T09:00:00Z`).toISOString()
+      published_at: stamp(f.date, current?.published_at)
     };
 
     const {error} = id

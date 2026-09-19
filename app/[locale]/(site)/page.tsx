@@ -25,9 +25,10 @@ import UspBar from '../../../components/home/UspBar';
 // live in the (site) layout.
 //
 // The magazine reads the database, so the page refreshes on a timer rather
-// than staying frozen at build: a new article appears within ten minutes
-// without a deploy, and the HTML stays prerendered for everyone else.
-export const revalidate = 600;
+// than staying frozen at build: a new article reaches the home page within
+// the minute without a deploy, and the HTML stays prerendered for everyone
+// else — one query per regeneration, not one per visitor.
+export const revalidate = 60;
 
 export default async function HomePage({
   params

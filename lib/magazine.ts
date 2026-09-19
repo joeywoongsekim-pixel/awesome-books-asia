@@ -23,6 +23,14 @@ export type Post = {
 
 const COLUMNS = 'id, slug, cover, title, dek, body, published, published_at';
 
+/* Newest first, and "newest" has to be decided every time.
+   published_at is a date the writer chooses, so two articles put up on the
+   same day used to carry the identical stamp and Postgres was free to
+   return them either way round — the new one could come out underneath the
+   old one, and differently on each request. The moment an article was
+   created breaks the tie, so the second piece of the day sits above the
+   first and stays there. */
+
 /** The visitor's language, then English, then whatever the article has. */
 export function pick(field: LocaleText | null | undefined, locale: string): string {
   if (!field) return '';
@@ -107,8 +115,9 @@ export function safeHtml(html: string): string {
    all. They are dynamic already: nothing is saved by caching them and a
    stale magazine is the one thing this must never be. The home band, which
    is a prerendered page refreshed on its own timer, keeps the cached read
-   — its page-level revalidate is what governs, and one query per
-   regeneration is the right number. */
+   — one query per regeneration is the right number — and its minute
+   matches the page's, so a new article reaches the home page about as fast
+   as it reaches the magazine. */
 export function publicClient(fresh = false): SupabaseClient | null {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -119,7 +128,7 @@ export function publicClient(fresh = false): SupabaseClient | null {
       fetch: (input, init) =>
         fetch(input as RequestInfo, {
           ...init,
-          ...(fresh ? {cache: 'no-store'} : {next: {revalidate: 600}})
+          ...(fresh ? {cache: 'no-store'} : {next: {revalidate: 60}})
         } as RequestInit)
     }
   });
@@ -135,6 +144,7 @@ export async function livePosts(limit: number, offset = 0, fresh = false): Promi
     .select(COLUMNS)
     .eq('published', true)
     .order('published_at', {ascending: false})
+    .order('created_at', {ascending: false})
     .range(offset, offset + limit - 1);
   return error ? [] : ((data ?? []) as Post[]);
 }
@@ -149,6 +159,7 @@ export async function livePage(page: number): Promise<{posts: Post[]; pages: num
     .select(COLUMNS, {count: 'exact'})
     .eq('published', true)
     .order('published_at', {ascending: false})
+    .order('created_at', {ascending: false})
     .range(from, from + PAGE_SIZE - 1);
   if (error) return {posts: [], pages: 0};
   return {posts: (data ?? []) as Post[], pages: Math.ceil((count ?? 0) / PAGE_SIZE)};

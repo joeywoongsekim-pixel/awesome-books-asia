@@ -21,7 +21,10 @@ export default async function AdminMagazine({
   const {data} = await supabase
     .from('posts')
     .select('id, slug, cover, title, dek, body, published, published_at')
+    // the same tie-break the site uses, so the console lists them in the
+    // order a reader meets them
     .order('published_at', {ascending: false})
+    .order('created_at', {ascending: false})
     .limit(200);
 
   return (
