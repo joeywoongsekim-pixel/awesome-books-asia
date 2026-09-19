@@ -8,7 +8,7 @@
     "tagline": "Biblioteca digital · Ásia",
     "home": "Início",
     "bookstore": "Livraria",
-    "reader": "Leitor web",
+    "reader": "Awesome Reader",
     "plans": "Onde comprar",
     "library": "Minha biblioteca",
     "language": "Português",
@@ -16,7 +16,7 @@
     "menu": "Menu"
   },
   "home": {
-    "badge": "Leitor web",
+    "badge": "Awesome Reader",
     "title": "Sua estante abre <em>no navegador</em>. Nada para instalar.",
     "subtitle": "É a sala onde nossos membros leem — uma mesa em que quatro livros ficam abertos e você circula entre eles.",
     "points": {
@@ -78,7 +78,7 @@
       "cta": "Ver edições impressas"
     },
     "reader": {
-      "name": "Leitor web",
+      "name": "Awesome Reader",
       "where": "awesomebooks.asia",
       "desc": "Assinatura de amostra gratuita. Ao criar uma conta, as amostras abrem no navegador; o livro resgatado com cupom abre por inteiro.",
       "cta": "Entre para ler"
@@ -163,7 +163,7 @@
     "ghostLift": "levante até a estante",
     "ghostDrop": "solte onde quiser",
     "bookmark": "Marcar esta página",
-    "noPrint": "A impressão está desativada. Este livro é protegido — leia-o no leitor Awesome Books Asia."
+    "noPrint": "A impressão está desativada. Este livro é protegido — leia-o no Awesome Reader."
   },
   "footer": {
     "brand": "Awesome Books Asia",
@@ -211,7 +211,7 @@
     "signOut": "Sair",
     "invite": "Código de convite",
     "inviteHint": "Estamos em período de testes, então o cadastro é apenas por convite. <mail>Escreva ao administrador</mail> para receber um código de cupom e digite-o abaixo.",
-    "membersOnly": "O leitor web é para membros. Faça login e o livro abrirá."
+    "membersOnly": "Awesome Reader é para membros. Faça login e o livro abrirá."
   },
   "account": {
     "link": "Senha",

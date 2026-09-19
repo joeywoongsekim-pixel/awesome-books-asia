@@ -19,10 +19,10 @@
 
 **Current business model**
 - Single-copy sales: not sold on-site → the detail page links out to retail partners (Amazon · Kyobo · YES24 · Aladin)
-- Reading access: **sign-in required.** The web reader is members-only, samples included; anonymous visits are sent to `/auth/login?next=…`
+- Reading access: **sign-in required.** Awesome Reader is members-only, samples included; anonymous visits are sent to `/auth/login?next=…`
 - Sign-up: **invitation coupons only.** We are in trial, so a reader has to e-mail the administrator (contact@awesomebooks.asia) for a coupon
 - Price: **free sample subscription.** Free until the shelf reaches 30 books, a free sample subscription until it reaches 100 (stated on the site)
-- Amazon agreement: a new title is exclusive to Amazon for its first 90 days, so it reaches the web reader 90 days after publication (stated on the site)
+- Amazon agreement: a new title is exclusive to Amazon for its first 90 days, so it reaches Awesome Reader 90 days after publication (stated on the site)
 - Paid subscriptions: the checkout code is ready and dormant
 
 ---

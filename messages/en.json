@@ -8,7 +8,7 @@
     "tagline": "Digital Library · Asia",
     "home": "Home",
     "bookstore": "Bookstore",
-    "reader": "Web reader",
+    "reader": "Awesome Reader",
     "plans": "How to buy",
     "library": "My Library",
     "language": "English",
@@ -16,7 +16,7 @@
     "menu": "Menu"
   },
   "home": {
-    "badge": "Web reader",
+    "badge": "Awesome Reader",
     "title": "Your shelf opens <em>in the browser</em>. Nothing to install.",
     "subtitle": "This is the room our members read in — a desk you can leave four books open on and move between.",
     "points": {
@@ -78,7 +78,7 @@
       "cta": "See print editions"
     },
     "reader": {
-      "name": "Web reader",
+      "name": "Awesome Reader",
       "where": "awesomebooks.asia",
       "desc": "Free sample subscription. Create an account and the samples open in your browser; a book redeemed with a coupon opens in full.",
       "cta": "Sign in to read"
@@ -163,7 +163,7 @@
     "ghostLift": "lift to the shelf",
     "ghostDrop": "drop it anywhere",
     "bookmark": "Bookmark this page",
-    "noPrint": "Printing is disabled. This book is protected — please read it in the Awesome Books Asia reader."
+    "noPrint": "Printing is disabled. This book is protected — please read it in Awesome Reader."
   },
   "footer": {
     "brand": "Awesome Books Asia",
@@ -211,7 +211,7 @@
     "signOut": "Sign out",
     "invite": "Invite coupon code",
     "inviteHint": "We are in trial, so sign-up is invitation-only. <mail>Email the administrator</mail> to receive a coupon code, then enter it below.",
-    "membersOnly": "The web reader is for members. Sign in — or sign up — and the book opens."
+    "membersOnly": "Awesome Reader is for members. Sign in — or sign up — and the book opens."
   },
   "account": {
     "link": "Password",

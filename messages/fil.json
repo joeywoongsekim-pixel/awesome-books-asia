@@ -8,7 +8,7 @@
     "tagline": "Digital na Aklatan · Asya",
     "home": "Home",
     "bookstore": "Tindahan ng Libro",
-    "reader": "Web reader",
+    "reader": "Awesome Reader",
     "plans": "Paano bumili",
     "library": "Aking Aklatan",
     "language": "Filipino",
@@ -16,7 +16,7 @@
     "menu": "Menu"
   },
   "home": {
-    "badge": "Web reader",
+    "badge": "Awesome Reader",
     "title": "Bumubukas ang istante mo <em>sa browser</em>. Walang i-install.",
     "subtitle": "Dito nagbabasa ang aming mga miyembro — isang mesa kung saan puwedeng nakabukas ang apat na aklat at makalipat-lipat ka.",
     "points": {
@@ -78,7 +78,7 @@
       "cta": "Tingnan ang print"
     },
     "reader": {
-      "name": "Web reader",
+      "name": "Awesome Reader",
       "where": "awesomebooks.asia",
       "desc": "Libreng sample subscription. Gumawa ng account at bubukas ang mga sample sa browser; ang aklat na na-redeem gamit ang kupon ay bubukas nang buo.",
       "cta": "Mag-sign in para magbasa"
@@ -163,7 +163,7 @@
     "ghostLift": "iangat sa istante",
     "ghostDrop": "ibaba kahit saan",
     "bookmark": "I-bookmark ang pahinang ito",
-    "noPrint": "Hindi pinapayagan ang pag-print. Protektado ang aklat na ito — basahin ito sa Awesome Books Asia reader."
+    "noPrint": "Hindi pinapayagan ang pag-print. Protektado ang aklat na ito — basahin ito sa Awesome Reader."
   },
   "footer": {
     "brand": "Awesome Books Asia",
@@ -211,7 +211,7 @@
     "signOut": "Mag-sign out",
     "invite": "Invite coupon code",
     "inviteHint": "Nasa trial period kami, kaya sa imbitasyon lamang ang pagpaparehistro. <mail>Mag-email sa administrador</mail> para makatanggap ng coupon code, at ilagay ito sa ibaba.",
-    "membersOnly": "Para sa mga miyembro ang web reader. Mag-sign in at bubukas ang aklat."
+    "membersOnly": "Para sa mga miyembro ang Awesome Reader. Mag-sign in at bubukas ang aklat."
   },
   "account": {
     "link": "Password",

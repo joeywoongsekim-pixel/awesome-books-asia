@@ -8,7 +8,7 @@
     "tagline": "Digitale Bibliothek · Asien",
     "home": "Startseite",
     "bookstore": "Buchladen",
-    "reader": "Web-Reader",
+    "reader": "Awesome Reader",
     "plans": "So kaufen Sie",
     "library": "Meine Bibliothek",
     "language": "Deutsch",
@@ -16,7 +16,7 @@
     "menu": "Menü"
   },
   "home": {
-    "badge": "Web-Reader",
+    "badge": "Awesome Reader",
     "title": "Ihr Regal öffnet sich <em>im Browser</em>. Nichts zu installieren.",
     "subtitle": "Hier lesen unsere Mitglieder — ein Tisch, auf dem vier Bücher offen liegen bleiben und zwischen denen Sie wechseln.",
     "points": {
@@ -78,7 +78,7 @@
       "cta": "Druckausgaben ansehen"
     },
     "reader": {
-      "name": "Web-Reader",
+      "name": "Awesome Reader",
       "where": "awesomebooks.asia",
       "desc": "Kostenloses Probe-Abo. Mit einem Konto öffnen sich die Leseproben direkt im Browser; ein mit Gutschein eingelöstes Buch öffnet sich vollständig.",
       "cta": "Zum Lesen anmelden"
@@ -163,7 +163,7 @@
     "ghostLift": "ins Regal heben",
     "ghostDrop": "überall ablegen",
     "bookmark": "Diese Seite merken",
-    "noPrint": "Drucken ist deaktiviert. Dieses Buch ist geschützt — bitte lesen Sie es im Awesome Books Asia-Reader."
+    "noPrint": "Drucken ist deaktiviert. Dieses Buch ist geschützt — bitte lesen Sie es in Awesome Reader."
   },
   "footer": {
     "brand": "Awesome Books Asia",
@@ -211,7 +211,7 @@
     "signOut": "Abmelden",
     "invite": "Einladungs-Gutscheincode",
     "inviteHint": "Wir sind in der Testphase, die Anmeldung erfolgt daher nur auf Einladung. <mail>Schreiben Sie dem Administrator</mail>, um einen Gutscheincode zu erhalten, und geben Sie ihn unten ein.",
-    "membersOnly": "Der Web-Reader ist Mitgliedern vorbehalten. Melden Sie sich an, dann öffnet sich das Buch."
+    "membersOnly": "Awesome Reader ist Mitgliedern vorbehalten. Melden Sie sich an, dann öffnet sich das Buch."
   },
   "account": {
     "link": "Passwort",

@@ -8,7 +8,7 @@
     "tagline": "Bibliothèque numérique · Asie",
     "home": "Accueil",
     "bookstore": "Librairie",
-    "reader": "Liseuse web",
+    "reader": "Awesome Reader",
     "plans": "Où acheter",
     "library": "Ma bibliothèque",
     "language": "Français",
@@ -16,7 +16,7 @@
     "menu": "Menu"
   },
   "home": {
-    "badge": "Liseuse web",
+    "badge": "Awesome Reader",
     "title": "Votre bibliothèque s'ouvre <em>dans le navigateur</em>. Rien à installer.",
     "subtitle": "C'est la pièce où lisent nos membres — un bureau où quatre livres restent ouverts et entre lesquels vous circulez.",
     "points": {
@@ -34,7 +34,7 @@
       }
     },
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",
-    "ctaPrimary": "Ouvrir la liseuse",
+    "ctaPrimary": "Ouvrir Awesome Reader",
     "ctaNote": "Abonnement découverte gratuit — connectez-vous et le livre s’ouvre.",
     "ctaSecondary": "Voir la librairie",
     "tags": {
@@ -78,7 +78,7 @@
       "cta": "Voir les éditions papier"
     },
     "reader": {
-      "name": "Liseuse web",
+      "name": "Awesome Reader",
       "where": "awesomebooks.asia",
       "desc": "Abonnement découverte gratuit. Créez un compte et les extraits s'ouvrent dans votre navigateur ; un livre validé par un code s'ouvre en entier.",
       "cta": "Se connecter pour lire"
@@ -163,7 +163,7 @@
     "ghostLift": "soulever vers l'étagère",
     "ghostDrop": "posez-le où vous voulez",
     "bookmark": "Marquer cette page",
-    "noPrint": "L'impression est désactivée. Ce livre est protégé — veuillez le lire dans le lecteur Awesome Books Asia."
+    "noPrint": "L'impression est désactivée. Ce livre est protégé — veuillez le lire dans Awesome Reader."
   },
   "footer": {
     "brand": "Awesome Books Asia",
@@ -211,7 +211,7 @@
     "signOut": "Se déconnecter",
     "invite": "Code d'invitation",
     "inviteHint": "Nous sommes en période d'essai : l'inscription se fait sur invitation. <mail>Écrivez à l'administrateur</mail> pour recevoir un code, puis saisissez-le ci-dessous.",
-    "membersOnly": "La liseuse est réservée aux membres. Connectez-vous et le livre s'ouvrira."
+    "membersOnly": "Awesome Reader est réservé aux membres. Connectez-vous et le livre s'ouvrira."
   },
   "account": {
     "link": "Mot de passe",
