@@ -10,6 +10,7 @@
     "bookstore": "Librairie",
     "reader": "Awesome Reader",
     "plans": "Où acheter",
+    "contact": "Contact",
     "library": "Ma bibliothèque",
     "language": "Français",
     "cta": "Lire un extrait",
@@ -227,7 +228,21 @@
     "eyebrow": "Lettre",
     "title": "Elle arrive avant le livre.",
     "lead": "Ce qui change, et pourquoi cela nous a fait commencer ce livre — écrit par ceux qui le font.",
-    "placeholder": "Votre adresse e-mail"
+    "placeholder": "Votre adresse e-mail",
+    "cta": "Envoyez-la-moi",
+    "thanks": "Merci — la prochaine lettre partira à cette adresse.",
+    "failed": "L'envoi a échoué. Écrivez-nous à <mail>contact@awesomebooks.asia</mail>."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Écrivez-nous.",
+    "lead": "Droits, presse, un code d'inscription, ou une erreur trouvée dans l'un de nos livres — cela arrive à toute l'équipe.",
+    "name": "Votre nom",
+    "email": "E-mail",
+    "message": "Message",
+    "send": "Envoyer",
+    "thanks": "Merci — c'est bien arrivé, nous vous répondrons.",
+    "failed": "L'envoi a échoué. Écrivez-nous à <mail>contact@awesomebooks.asia</mail>."
   },
   "journal": {
     "title": "Du côté des éditeurs",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} chapter {n}: repeated word \"{w} {w}\"",
     "ckDoubleSpace": "{loc} chapter {n} contains doubled spaces",
     "ckSpacePunct": "{loc} chapter {n} has a space before punctuation",
-    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
+    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair",
+    "inbox": "Réception",
+    "when": "Date",
+    "email": "E-mail",
+    "messageCol": "Message",
+    "kindLetter": "Lettre",
+    "kindContact": "Contact",
+    "mailAll": "Écrire aux {n}"
   },
   "paywall": {
     "title": "L'extrait se termine ici",

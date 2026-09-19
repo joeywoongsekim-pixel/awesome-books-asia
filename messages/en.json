@@ -10,6 +10,7 @@
     "bookstore": "Bookstore",
     "reader": "Awesome Reader",
     "plans": "How to buy",
+    "contact": "Contact",
     "library": "My Library",
     "language": "English",
     "cta": "Read a sample",
@@ -227,7 +228,21 @@
     "eyebrow": "Letter",
     "title": "It arrives before the book does.",
     "lead": "What is changing, and why it made us start this book — written by the people making it.",
-    "placeholder": "Your email address"
+    "placeholder": "Your email address",
+    "cta": "Send it to me",
+    "thanks": "Thank you — the next letter goes to that address.",
+    "failed": "That did not go through. Please write to <mail>contact@awesomebooks.asia</mail>."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Write to us.",
+    "lead": "Rights, press, an invitation coupon, or a mistake you found in one of our books — this reaches the whole team.",
+    "name": "Your name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "thanks": "Thank you — we have it, and we will write back.",
+    "failed": "That did not go through. Please write to <mail>contact@awesomebooks.asia</mail>."
   },
   "journal": {
     "title": "From the editors",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} chapter {n}: repeated word \"{w} {w}\"",
     "ckDoubleSpace": "{loc} chapter {n} contains doubled spaces",
     "ckSpacePunct": "{loc} chapter {n} has a space before punctuation",
-    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
+    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair",
+    "inbox": "Inbox",
+    "when": "When",
+    "email": "Email",
+    "messageCol": "Message",
+    "kindLetter": "Letter",
+    "kindContact": "Contact",
+    "mailAll": "Mail all {n}"
   },
   "paywall": {
     "title": "The sample ends here",

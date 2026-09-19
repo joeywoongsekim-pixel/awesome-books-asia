@@ -10,6 +10,7 @@
     "bookstore": "書店",
     "reader": "オーサムリーダー",
     "plans": "購入案内",
+    "contact": "お問い合わせ",
     "library": "マイライブラリー",
     "language": "日本語",
     "cta": "試し読み",
@@ -227,7 +228,21 @@
     "eyebrow": "手紙",
     "title": "本より先に届きます。",
     "lead": "何が変わりつつあって、なぜこの本を作っているのか。作っている本人が書きます。",
-    "placeholder": "メールアドレス"
+    "placeholder": "メールアドレス",
+    "cta": "手紙を受け取る",
+    "thanks": "ありがとうございます — 次の手紙をそのアドレスにお送りします。",
+    "failed": "送信できませんでした。<mail>contact@awesomebooks.asia</mail>までお送りください。"
+  },
+  "contact": {
+    "eyebrow": "お問い合わせ",
+    "title": "お気軽にお書きください。",
+    "lead": "版権、取材、登録クーポン、本の中で見つけた誤り — どれもチーム全員で拝見します。",
+    "name": "お名前",
+    "email": "メールアドレス",
+    "message": "内容",
+    "send": "送信",
+    "thanks": "ありがとうございます — 確かに受け取りました。お返事いたします。",
+    "failed": "送信できませんでした。<mail>contact@awesomebooks.asia</mail>までお送りください。"
   },
   "journal": {
     "title": "編集室から",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} 第{n}章: 同じ語が連続しています「{w} {w}」",
     "ckDoubleSpace": "{loc} 第{n}章に二重スペースがあります",
     "ckSpacePunct": "{loc} 第{n}章に句読点前のスペースがあります",
-    "ckPairs": "{loc} 第{n}章に対応しない括弧・引用符があります"
+    "ckPairs": "{loc} 第{n}章に対応しない括弧・引用符があります",
+    "inbox": "受信",
+    "when": "日付",
+    "email": "メール",
+    "messageCol": "内容",
+    "kindLetter": "手紙申込",
+    "kindContact": "お問い合わせ",
+    "mailAll": "{n}件にメール"
   },
   "paywall": {
     "title": "試し読みはここまでです",

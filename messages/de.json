@@ -10,6 +10,7 @@
     "bookstore": "Buchladen",
     "reader": "Awesome Reader",
     "plans": "So kaufen Sie",
+    "contact": "Kontakt",
     "library": "Meine Bibliothek",
     "language": "Deutsch",
     "cta": "Leseprobe",
@@ -227,7 +228,21 @@
     "eyebrow": "Brief",
     "title": "Er kommt vor dem Buch an.",
     "lead": "Was sich ändert, und warum wir deshalb dieses Buch begonnen haben — geschrieben von denen, die es machen.",
-    "placeholder": "Ihre E-Mail-Adresse"
+    "placeholder": "Ihre E-Mail-Adresse",
+    "cta": "Schicken Sie ihn mir",
+    "thanks": "Danke — der nächste Brief geht an diese Adresse.",
+    "failed": "Das ging nicht durch. Bitte schreiben Sie an <mail>contact@awesomebooks.asia</mail>."
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "Schreiben Sie uns.",
+    "lead": "Rechte, Presse, ein Einladungsgutschein oder ein Fehler, den Sie in einem unserer Bücher gefunden haben — das erreicht das ganze Team.",
+    "name": "Ihr Name",
+    "email": "E-Mail",
+    "message": "Nachricht",
+    "send": "Senden",
+    "thanks": "Danke — wir haben es, und wir antworten.",
+    "failed": "Das ging nicht durch. Bitte schreiben Sie an <mail>contact@awesomebooks.asia</mail>."
   },
   "journal": {
     "title": "Aus der Redaktion",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} chapter {n}: repeated word \"{w} {w}\"",
     "ckDoubleSpace": "{loc} chapter {n} contains doubled spaces",
     "ckSpacePunct": "{loc} chapter {n} has a space before punctuation",
-    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
+    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair",
+    "inbox": "Posteingang",
+    "when": "Wann",
+    "email": "E-Mail",
+    "messageCol": "Nachricht",
+    "kindLetter": "Brief",
+    "kindContact": "Kontakt",
+    "mailAll": "An alle {n} mailen"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

@@ -10,6 +10,7 @@
     "bookstore": "Tindahan ng Libro",
     "reader": "Awesome Reader",
     "plans": "Paano bumili",
+    "contact": "Makipag-ugnayan",
     "library": "Aking Aklatan",
     "language": "Filipino",
     "cta": "Basahin ang sample",
@@ -227,7 +228,21 @@
     "eyebrow": "Sulat",
     "title": "Nauuna itong dumating kaysa sa aklat.",
     "lead": "Kung ano ang nagbabago, at kung bakit doon nagsimula ang aklat na ito — sulat mismo ng gumagawa nito.",
-    "placeholder": "Iyong email address"
+    "placeholder": "Iyong email address",
+    "cta": "Ipadala sa akin",
+    "thanks": "Salamat — doon ipapadala ang susunod na sulat.",
+    "failed": "Hindi naipadala. Sumulat po sa <mail>contact@awesomebooks.asia</mail>."
+  },
+  "contact": {
+    "eyebrow": "Makipag-ugnayan",
+    "title": "Sumulat sa amin.",
+    "lead": "Karapatan, press, kupon ng pag-sign up, o maling nakita mo sa isa sa aming mga aklat — nakakarating ito sa buong koponan.",
+    "name": "Pangalan mo",
+    "email": "Email",
+    "message": "Mensahe",
+    "send": "Ipadala",
+    "thanks": "Salamat — natanggap namin, at sasagot kami.",
+    "failed": "Hindi naipadala. Sumulat po sa <mail>contact@awesomebooks.asia</mail>."
   },
   "journal": {
     "title": "Mula sa mga editor",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} chapter {n}: repeated word \"{w} {w}\"",
     "ckDoubleSpace": "{loc} chapter {n} contains doubled spaces",
     "ckSpacePunct": "{loc} chapter {n} has a space before punctuation",
-    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair"
+    "ckPairs": "{loc} chapter {n} has an unmatched bracket or quote pair",
+    "inbox": "Inbox",
+    "when": "Kailan",
+    "email": "Email",
+    "messageCol": "Mensahe",
+    "kindLetter": "Sulat",
+    "kindContact": "Contact",
+    "mailAll": "I-mail ang {n}"
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",

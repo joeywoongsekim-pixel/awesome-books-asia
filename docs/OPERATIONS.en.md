@@ -40,6 +40,10 @@ Supabase dashboard → project → **Authentication**:
    - Off: instant sign-up — the invite coupon already acts as the gatekeeper, so turning it off is safe (recommended for convenience)
 3. **Google login** (optional): register an OAuth client ID/secret under Providers → Google. Until that is done the button can only error, so it is hidden on the login and sign-up screens — once the provider is registered, add `NEXT_PUBLIC_GOOGLE_AUTH=1` to the Vercel environment and redeploy to bring it back
 
+### Inbox (contact and letter sign-ups)
+Anything left on the letter band or at `/en/contact` is stored in `public.inbox` and read from **Inbox** in the console. Clicking an address opens a reply; the button at the top right opens one mail with every letter sign-up in BCC. Only admins can read it; anyone can write to it, which is what a contact form is.
+**It is not forwarded to contact@awesomebooks.asia automatically** — there is no mail service wired up yet. Add a Resend API key and a notification to that address can be attached.
+
 ### Admin accounts
 `joey.woongse.kim@awesomeai.asia` and `akira.murata@awesomeai.asia` can both sign in with e-mail and password, and both are on the `admin_emails` allowlist, so `/en/admin` opens for them. Passwords are not kept in this repository — change yours from the Supabase dashboard after the first sign-in.
 After the first sign-in the password can be changed on the site itself (`/en/account/password`, "Password" in the top bar) — it asks for the current password before changing anything. Accounts still on a password we handed out get a strip at the top of the page.

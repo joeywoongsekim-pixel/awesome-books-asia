@@ -10,6 +10,7 @@
     "bookstore": "서점",
     "reader": "어썸 리더",
     "plans": "구매 안내",
+    "contact": "문의",
     "library": "내 서재",
     "language": "한국어",
     "cta": "샘플 읽기",
@@ -227,7 +228,21 @@
     "eyebrow": "편지",
     "title": "책보다 먼저 도착합니다.",
     "lead": "무엇이 바뀌고 있어서 이 책을 만들고 있는지, 만드는 사람이 직접 씁니다.",
-    "placeholder": "이메일 주소"
+    "placeholder": "이메일 주소",
+    "cta": "편지 받기",
+    "thanks": "고맙습니다 — 다음 편지를 그 주소로 보내드리겠습니다.",
+    "failed": "전송되지 않았습니다. <mail>contact@awesomebooks.asia</mail>으로 보내 주세요."
+  },
+  "contact": {
+    "eyebrow": "문의",
+    "title": "편하게 적어 주세요.",
+    "lead": "판권, 취재, 가입 쿠폰, 책에서 발견한 오류 — 무엇이든 팀 전체가 함께 봅니다.",
+    "name": "성함",
+    "email": "이메일",
+    "message": "내용",
+    "send": "보내기",
+    "thanks": "고맙습니다 — 잘 받았습니다. 답장 드리겠습니다.",
+    "failed": "전송되지 않았습니다. <mail>contact@awesomebooks.asia</mail>으로 보내 주세요."
   },
   "journal": {
     "title": "편집실에서",
@@ -382,7 +397,14 @@
     "ckRepeatWord": "{loc} {n}번 챕터: 같은 단어가 반복됩니다 \"{w} {w}\"",
     "ckDoubleSpace": "{loc} {n}번 챕터에 이중 공백이 있습니다",
     "ckSpacePunct": "{loc} {n}번 챕터에 문장부호 앞 공백이 있습니다",
-    "ckPairs": "{loc} {n}번 챕터에 짝이 맞지 않는 괄호/따옴표가 있습니다"
+    "ckPairs": "{loc} {n}번 챕터에 짝이 맞지 않는 괄호/따옴표가 있습니다",
+    "inbox": "받은 편지",
+    "when": "날짜",
+    "email": "이메일",
+    "messageCol": "내용",
+    "kindLetter": "편지 신청",
+    "kindContact": "문의",
+    "mailAll": "{n}명에게 메일"
   },
   "paywall": {
     "title": "샘플은 여기까지입니다",

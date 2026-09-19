@@ -9,7 +9,8 @@ import {Link, usePathname} from '../../i18n/navigation';
 const SECTIONS = [
   {href: '/admin', key: 'overview', exact: true},
   {href: '/admin/books', key: 'books', exact: false},
-  {href: '/admin/coupons', key: 'coupons', exact: false}
+  {href: '/admin/coupons', key: 'coupons', exact: false},
+  {href: '/admin/inbox', key: 'inbox', exact: false}
 ] as const;
 
 export default function AdminNav() {

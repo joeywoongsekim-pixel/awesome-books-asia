@@ -3727,6 +3727,73 @@ a.ac-list-t:hover {
   color: var(--ink-3);
 }
 
+/* the inbox's message column: long text, kept from stretching the table */
+.ac-msg {
+  max-width: 420px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Writing to us. The width has to out-specify the later .sec-in rule,
+   which resets every section to 1280px further down the sheet. */
+.sec-in.ct {
+  max-width: 560px;
+  text-align: center;
+}
+.ct-mail {
+  margin-bottom: 26px;
+  font-size: 15px;
+}
+.ct-mail a {
+  color: var(--aba-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ct-mail a:hover {
+  color: var(--aba-gold);
+}
+.ct-card {
+  text-align: left;
+  border: 1px solid var(--hair);
+  background: var(--card);
+  padding: 30px 28px;
+}
+.ct-card textarea {
+  width: 100%;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-1);
+  background: var(--card);
+  border: 1px solid var(--hair);
+  padding: 11px 13px;
+  resize: vertical;
+}
+.ct-card textarea:focus {
+  outline: none;
+  border-color: var(--aba-navy);
+}
+
+/* the letter band's answer, in place of the form */
+.nl-done {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ink-1);
+}
+.nl-fail {
+  color: var(--aba-red);
+}
+.nl-fail a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* The switch into the console, in the site's own bar. Filled rather than
    outlined: it is the one thing in that group that changes mode, and next
    to the account menu an outline reads as just another chip. */

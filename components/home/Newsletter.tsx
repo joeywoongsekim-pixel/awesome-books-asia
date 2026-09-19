@@ -1,17 +1,31 @@
 'use client';
 
 import {useState} from 'react';
-import {useTranslations} from 'next-intl';
-import {useRouter} from '../../i18n/navigation';
+import {useLocale, useTranslations} from 'next-intl';
 import BrandLogo from '../BrandLogo';
+import {sendToInbox} from '../../lib/inbox';
+import {ADMIN_MAIL} from '../../lib/contact';
 
-// §9.8 — a 라피스 band carrying the symbol, the title and one field.
-// Submitting hands off to the signup page.
+// §9.8 — the letter band.
+//
+// The field used to be decorative: it pushed to the signup page and the
+// address went nowhere, which also dropped anyone who wanted the letter
+// but had no coupon. It now records into public.inbox, where the console
+// reads it and the address can be written to.
 export default function Newsletter() {
   const t = useTranslations('newsletter');
-  const tAuth = useTranslations('auth');
-  const router = useRouter();
+  const locale = useLocale();
   const [email, setEmail] = useState('');
+  const [state, setState] = useState<'idle' | 'sending' | 'done' | 'failed'>('idle');
+
+  async function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (state === 'sending') return;
+    setState('sending');
+    const {ok} = await sendToInbox({kind: 'letter', email, locale});
+    setState(ok ? 'done' : 'failed');
+    if (ok) setEmail('');
+  }
 
   return (
     <section className="nlband">
@@ -20,22 +34,33 @@ export default function Newsletter() {
         <div className="nl-eyebrow">{t('eyebrow')}</div>
         <h2 className="nl-t">{t('title')}</h2>
         <p className="nl-lead">{t('lead')}</p>
-        <form
-          className="nl-form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            router.push('/auth/signup');
-          }}
-        >
-          <input
-            type="email"
-            required
-            placeholder={t('placeholder')}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button type="submit">{tAuth('signupTitle')}</button>
-        </form>
+
+        {state === 'done' ? (
+          <p className="nl-done">{t('thanks')}</p>
+        ) : (
+          <>
+            <form className="nl-form" onSubmit={submit}>
+              <input
+                type="email"
+                required
+                placeholder={t('placeholder')}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                autoComplete="email"
+              />
+              <button type="submit" disabled={state === 'sending'}>
+                {t('cta')}
+              </button>
+            </form>
+            {state === 'failed' && (
+              <p className="nl-done nl-fail">
+                {t.rich('failed', {
+                  mail: (chunks) => <a href={`mailto:${ADMIN_MAIL}`}>{chunks}</a>
+                })}
+              </p>
+            )}
+          </>
+        )}
       </div>
     </section>
   );
