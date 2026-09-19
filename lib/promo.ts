@@ -4,21 +4,25 @@ import {EDITIONS, type EditionLink} from './retailers';
 /* The renewal / India launch popup (M101).
 
    One campaign, one window, defined here so the component carries no dates
-   of its own. The end is the close of 24 September in India, written as the
-   UTC instant it falls on: the event is in India, so the popup should not
-   vanish at teatime there because a clock in Seoul has already turned over.
-   A visitor in Seoul therefore keeps it a few hours into the 25th, which is
-   the harmless direction to be wrong in.
+   of its own. The window is now the event itself — 21 to 23 September — and
+   both ends are written as the UTC instants those days begin and end on in
+   India. The event is in India, so the popup should not open or close at
+   teatime there because a clock in Seoul has already turned over. A visitor
+   in Seoul keeps it a few hours into the 24th, which is the harmless
+   direction to be wrong in.
+
+   The dates a reader sees are the `promo.kicker` string, translated per
+   locale; the two must be changed together.
 
    The window is checked in the browser, not at build time. These pages are
    prerendered, so a build-time check would freeze whatever was true the
    moment the site was built and the popup would never expire on its own. */
 export const PROMO = {
   id: 'india-launch-2026-09',
-  /** Inclusive. 2026-09-19T00:00+05:30. */
-  from: Date.parse('2026-09-18T18:30:00Z'),
-  /** Exclusive: the first instant of 25 September in India. */
-  until: Date.parse('2026-09-24T18:30:00Z')
+  /** Inclusive: the first instant of 21 September in India. */
+  from: Date.parse('2026-09-20T18:30:00Z'),
+  /** Exclusive: the first instant of 24 September in India. */
+  until: Date.parse('2026-09-23T18:30:00Z')
 } as const;
 
 export function promoIsLive(now: number = Date.now()) {

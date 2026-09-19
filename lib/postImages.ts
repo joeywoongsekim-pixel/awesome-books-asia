@@ -27,6 +27,47 @@ const EXT: Record<string, string> = {
   'image/avif': 'avif'
 };
 
+/* Photographs come off a camera or a generator at whatever size they were
+   made, which is several times what any screen here will use: the article
+   column is 920 CSS pixels, so 1800 covers it on a retina display with
+   nothing to spare and nothing wasted. A five-article page carrying
+   originals is tens of megabytes; the same page in WebP is a couple.
+
+   The conversion happens in the browser, before the upload — the bytes
+   never travel full size at all. */
+const MAX_EDGE = 1800;
+const QUALITY = 0.82;
+
+async function shrink(file: Blob): Promise<{blob: Blob; type: string}> {
+  const keep = {blob: file, type: (file.type || '').toLowerCase()};
+  // A GIF may be animated, and a canvas would keep only its first frame.
+  if (keep.type === 'image/gif') return keep;
+  try {
+    const bitmap = await createImageBitmap(file);
+    const scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height));
+    const w = Math.round(bitmap.width * scale);
+    const h = Math.round(bitmap.height * scale);
+    const canvas = document.createElement('canvas');
+    canvas.width = w;
+    canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return keep;
+    ctx.drawImage(bitmap, 0, 0, w, h);
+    bitmap.close?.();
+    const out = await new Promise<Blob | null>((done) =>
+      canvas.toBlob(done, 'image/webp', QUALITY)
+    );
+    // If nothing was gained the original stands — a small PNG of flat
+    // colour can already beat WebP, and re-encoding it would only lose.
+    if (!out || out.size >= file.size) return keep;
+    return {blob: out, type: 'image/webp'};
+  } catch {
+    // No createImageBitmap, no WebP encoder, a picture the decoder refuses:
+    // the upload should still happen, just without the saving.
+    return keep;
+  }
+}
+
 export type LiftResult = {
   html: string;
   /** photographs moved into our own storage */
@@ -58,12 +99,10 @@ function decodeDataUrl(src: string): {bytes: Uint8Array; type: string} | null {
   }
 }
 
-async function put(
-  supabase: SupabaseClient,
-  slug: string,
-  bytes: Uint8Array,
-  type: string
-): Promise<string> {
+async function put(supabase: SupabaseClient, slug: string, file: Blob): Promise<string> {
+  const {blob, type} = await shrink(file);
+  if (!EXT[type]) throw new Error(`${type || 'that file'} is not a picture we can store`);
+  const bytes = new Uint8Array(await blob.arrayBuffer());
   const name = `${slug}/${await digest(bytes.buffer as ArrayBuffer)}.${EXT[type]}`;
   // upsert, because the same photograph in two articles is the same file
   const {error} = await supabase.storage
@@ -86,8 +125,7 @@ export async function uploadImage(
   if (!EXT[type]) {
     throw new Error(`${type || 'that file'} is not a picture we can store`);
   }
-  const bytes = new Uint8Array(await file.arrayBuffer());
-  return put(supabase, slug, bytes, type);
+  return put(supabase, slug, file);
 }
 
 /** Every <img src> in the markup, in the order they appear. */
@@ -152,7 +190,8 @@ export async function liftImages(
     const inline = decodeDataUrl(src);
     if (inline) {
       try {
-        img.setAttribute('src', await put(supabase, slug, inline.bytes, inline.type));
+        const blob = new Blob([inline.bytes as BlobPart], {type: inline.type});
+        img.setAttribute('src', await put(supabase, slug, blob));
         stored++;
       } catch (e) {
         skipped.push(e instanceof Error ? e.message : 'upload failed');

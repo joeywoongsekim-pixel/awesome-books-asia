@@ -304,7 +304,8 @@
     "That is not a picture.": "이미지 파일이 아닙니다.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "이 글의 이미지 {n}장이 아직 어디에도 없습니다. 각 자리에 파일을 끌어다 놓으세요.",
     "Use a file": "파일 넣기",
-    "paste a picture, or /hero/s5.webp": "이미지를 붙여넣거나 /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "이미지를 붙여넣거나 /hero/s5.webp",
+    "21 — 23 September": "9월 21일 — 23일"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -611,7 +612,8 @@
     "That is not a picture.": "画像ファイルではありません。",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "この記事の画像{n}点がまだどこにもありません。それぞれにファイルをドロップしてください。",
     "Use a file": "ファイルを入れる",
-    "paste a picture, or /hero/s5.webp": "画像を貼り付けるか /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "画像を貼り付けるか /hero/s5.webp",
+    "21 — 23 September": "9月21日 — 23日"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -914,7 +916,8 @@
     "That is not a picture.": "Hindi iyon larawan.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "Ang {n} larawan sa artikulong ito ay wala pa kahit saan. I-drop ang tamang file sa bawat isa.",
     "Use a file": "Gumamit ng file",
-    "paste a picture, or /hero/s5.webp": "idikit ang larawan, o /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "idikit ang larawan, o /hero/s5.webp",
+    "21 — 23 September": "21 — 23 Setyembre"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1217,7 +1220,8 @@
     "That is not a picture.": "Das ist kein Bild.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} Bild(er) dieses Beitrags liegen noch nirgends. Ziehen Sie die passende Datei auf jedes.",
     "Use a file": "Datei einsetzen",
-    "paste a picture, or /hero/s5.webp": "Bild einfügen oder /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "Bild einfügen oder /hero/s5.webp",
+    "21 — 23 September": "21. — 23. September"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1520,7 +1524,8 @@
     "That is not a picture.": "Ce n'est pas une image.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} image(s) de cet article ne sont encore nulle part. Déposez le bon fichier sur chacune.",
     "Use a file": "Utiliser un fichier",
-    "paste a picture, or /hero/s5.webp": "collez une image, ou /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "collez une image, ou /hero/s5.webp",
+    "21 — 23 September": "21 — 23 septembre"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1823,7 +1828,8 @@
     "That is not a picture.": "Eso no es una imagen.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} imagen(es) de este artículo no están en ningún sitio todavía. Suelta el archivo correcto en cada una.",
     "Use a file": "Usar un archivo",
-    "paste a picture, or /hero/s5.webp": "pega una imagen, o /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "pega una imagen, o /hero/s5.webp",
+    "21 — 23 September": "21 — 23 de septiembre"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -2126,6 +2132,7 @@
     "That is not a picture.": "Isso não é uma imagem.",
     "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} imagem(ns) deste artigo ainda não estão em lugar nenhum. Solte o arquivo certo em cada uma.",
     "Use a file": "Usar um arquivo",
-    "paste a picture, or /hero/s5.webp": "cole uma imagem, ou /hero/s5.webp"
+    "paste a picture, or /hero/s5.webp": "cole uma imagem, ou /hero/s5.webp",
+    "21 — 23 September": "21 — 23 de setembro"
   }
 }
