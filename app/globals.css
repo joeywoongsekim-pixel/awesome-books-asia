@@ -8425,10 +8425,34 @@ html[lang='hi'] {
   background: var(--bg);
   padding: 44px 0 80px;
 }
+/* Two kinds of article share this page. One is prose, and wants a reading
+   measure. The other arrives already laid out — its own wrapper, its own
+   width, its own captions — and wants room to be what it is.
+
+   So the column is wide, and the narrow measure is put back on the header
+   and on any prose that sits directly in the body. A wrapper element is
+   not in that list, so a laid-out article gets the full width and limits
+   itself to whatever its author set. */
 .art-in {
-  max-width: 760px;
+  max-width: 920px;
   margin: 0 auto;
   padding: 0 24px;
+}
+.art-in > .crumb,
+.art-k,
+.art-t,
+.art-d,
+.art-more,
+.art-body > p,
+.art-body > h2,
+.art-body > h3,
+.art-body > h4,
+.art-body > ul,
+.art-body > ol,
+.art-body > blockquote,
+.art-body > pre {
+  max-width: 760px;
+  margin-inline: auto;
 }
 .art-k {
   font-family: var(--font-label);

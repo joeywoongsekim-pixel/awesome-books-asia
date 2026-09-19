@@ -45,20 +45,43 @@ export function languagesOf(post: Post): string[] {
    sanitize-html parses the markup rather than pattern-matching it, which a
    set of regexes cannot do safely.
 
-   The list is exactly what the article stylesheet draws. */
+   An article here is not a run of paragraphs for the site's stylesheet to
+   dress. It arrives as a finished piece — the writer lays it out, sets its
+   measure and its captions, and pastes the whole thing in. So the list
+   carries the elements and the attributes that layout is made of, style
+   among them.
+
+   That is a deliberate line, not an oversight. CSS cannot run anything in
+   any current browser, and the only people who can write here are the two
+   admins. What stays out is what executes or fetches: script, iframe,
+   object, embed, form, link, meta, base — and any scheme that is not http,
+   https or mailto, so a data: or javascript: URL never reaches a reader. */
 export const ARTICLE_TAGS = [
-  'p', 'h2', 'h3', 'h4', 'ul', 'ol', 'li', 'blockquote', 'figure', 'figcaption',
-  'img', 'a', 'strong', 'b', 'em', 'i', 'code', 'pre', 'hr', 'br', 'span'
+  'p', 'div', 'section', 'article', 'span',
+  'h2', 'h3', 'h4', 'h5', 'h6',
+  'ul', 'ol', 'li', 'dl', 'dt', 'dd',
+  'blockquote', 'figure', 'figcaption', 'img', 'a',
+  'strong', 'b', 'em', 'i', 'u', 's', 'small', 'sup', 'sub', 'mark',
+  'code', 'pre', 'hr', 'br',
+  'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td', 'caption', 'colgroup', 'col'
 ];
 
 export function safeHtml(html: string): string {
   return sanitizeHtml(html, {
     allowedTags: ARTICLE_TAGS,
     allowedAttributes: {
-      a: ['href', 'title', 'target', 'rel'],
-      img: ['src', 'alt', 'title', 'width', 'height', 'loading']
+      // layout and language belong to every element the writer lays out
+      '*': ['style', 'class', 'lang', 'dir', 'title', 'role', 'aria-label', 'aria-hidden'],
+      a: ['href', 'target', 'rel'],
+      img: ['src', 'alt', 'width', 'height', 'loading', 'decoding', 'sizes'],
+      td: ['colspan', 'rowspan'],
+      th: ['colspan', 'rowspan', 'scope'],
+      col: ['span'],
+      colgroup: ['span']
     },
-    // no data: URIs — an <img src="data:text/html,…"> is a page, not a picture
+    // no data: URIs — an <img src="data:text/html,…"> is a page, not a
+    // picture. Pasted-in photographs are lifted into storage before this
+    // runs (lib/postImages.ts), so by now there are none left to lose.
     allowedSchemes: ['http', 'https', 'mailto'],
     allowedSchemesAppliedToAttributes: ['href', 'src'],
     // a link that leaves the site should not hand over the opener
