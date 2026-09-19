@@ -1,10 +1,26 @@
 'use client';
 
 import {useState} from 'react';
+import {useSearchParams} from 'next/navigation';
 import {useLocale, useTranslations} from 'next-intl';
 import {Link, useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import {INVITE_KEY} from '../../lib/invite';
+import {ADMIN_MAIL} from '../../lib/contact';
+
+// Where to go once a session exists. The reader sends people here with
+// ?next=/read/<slug>; anything that is not a local path falls back to the
+// library, so the parameter can never bounce someone off the site.
+function safeNext(raw: string | null): string {
+  if (!raw || !raw.startsWith('/') || raw.startsWith('//')) return '/library';
+  return raw;
+}
+
+// Google is not enabled on the Supabase project, so the button can only end
+// in "Unsupported provider". Now that the reader sends everyone through this
+// page, that dead end costs us accounts — so the button appears only once
+// NEXT_PUBLIC_GOOGLE_AUTH=1 says the provider is actually configured.
+const GOOGLE = process.env.NEXT_PUBLIC_GOOGLE_AUTH === '1';
 
 // Launch phase is invitation-only: signing up (e-mail or Google) requires a
 // valid coupon code. The code is checked anonymously via check_invite(), then
@@ -15,6 +31,10 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
   const tRedeem = useTranslations('redeem');
   const locale = useLocale();
   const router = useRouter();
+  const params = useSearchParams();
+  const next = safeNext(params.get('next'));
+  // Set only when something sent them here — the reader, not a nav click.
+  const gated = next !== '/library';
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [invite, setInvite] = useState('');
@@ -51,7 +71,9 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
       const {error} = await supabase.auth.signUp({
         email,
         password,
-        options: {emailRedirectTo: `${location.origin}/api/auth/callback?next=/${locale}/library`}
+        options: {
+          emailRedirectTo: `${location.origin}/api/auth/callback?next=/${locale}${next}`
+        }
       });
       if (error) setError(error.message);
       else setNotice(t('checkEmail'));
@@ -59,7 +81,7 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
       const {error} = await supabase.auth.signInWithPassword({email, password});
       if (error) setError(error.message);
       else {
-        router.push('/library');
+        router.push(next);
         router.refresh();
       }
     }
@@ -72,7 +94,7 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
     const supabase = createSupabaseBrowser();
     const {error} = await supabase.auth.signInWithOAuth({
       provider: 'google',
-      options: {redirectTo: `${location.origin}/api/auth/callback?next=/${locale}/library`}
+      options: {redirectTo: `${location.origin}/api/auth/callback?next=/${locale}${next}`}
     });
     if (error) setError(error.message);
   }
@@ -82,9 +104,15 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
       <div className="auth-card">
         <h1 className="auth-title">{mode === 'login' ? t('loginTitle') : t('signupTitle')}</h1>
 
+        {gated && <p className="auth-gate">{t('membersOnly')}</p>}
+
         {mode === 'signup' && (
           <>
-            <p className="auth-hint">{t('inviteHint')}</p>
+            <p className="auth-hint">
+              {t.rich('inviteHint', {
+                mail: (chunks) => <a href={`mailto:${ADMIN_MAIL}`}>{chunks}</a>
+              })}
+            </p>
             <label className="auth-label">
               {t('invite')}
               <input
@@ -98,15 +126,19 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
           </>
         )}
 
-        <button
-          type="button"
-          className="btn-o auth-google"
-          onClick={google}
-          disabled={mode === 'signup' && !invite}
-        >
-          {t('google')}
-        </button>
-        <div className="auth-or">{t('or')}</div>
+        {GOOGLE && (
+          <>
+            <button
+              type="button"
+              className="btn-o auth-google"
+              onClick={google}
+              disabled={mode === 'signup' && !invite}
+            >
+              {t('google')}
+            </button>
+            <div className="auth-or">{t('or')}</div>
+          </>
+        )}
 
         <form onSubmit={submit}>
           <label className="auth-label">
@@ -142,11 +174,18 @@ export default function AuthForm({mode}: {mode: 'login' | 'signup'}) {
         <div className="auth-switch">
           {mode === 'login' ? (
             <>
-              {t('noAccount')} <Link href="/auth/signup">{t('signupTitle')}</Link>
+              {t('noAccount')}{' '}
+              {/* carry the destination across, or the reader is forgotten */}
+              <Link href={{pathname: '/auth/signup', query: gated ? {next} : {}}}>
+                {t('signupTitle')}
+              </Link>
             </>
           ) : (
             <>
-              {t('haveAccount')} <Link href="/auth/login">{t('loginTitle')}</Link>
+              {t('haveAccount')}{' '}
+              <Link href={{pathname: '/auth/login', query: gated ? {next} : {}}}>
+                {t('loginTitle')}
+              </Link>
             </>
           )}
         </div>

@@ -1617,6 +1617,39 @@ footer {
 .pc-g:hover {
   background: var(--aba-deep);
 }
+/* The terms behind the reader card: free-until-30, sample-until-100, the
+   90-day Amazon window, and how to get an account during the trial. Plain
+   list, left-aligned inside a centred section. */
+.plan-notes {
+  margin: 28px auto 0;
+  padding: 0;
+  max-width: 760px;
+  list-style: none;
+  text-align: left;
+  display: grid;
+  gap: 10px;
+}
+.plan-notes li {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-2);
+  padding-left: 16px;
+  border-left: 2px solid var(--hair);
+}
+.plan-notes b {
+  color: var(--ink-1);
+}
+.plan-notes a {
+  color: var(--aba-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: 0.2s;
+}
+.plan-notes a:hover {
+  color: var(--aba-gold);
+}
+
 .coupon {
   margin-top: 30px;
   padding: 20px 26px;
@@ -3799,6 +3832,22 @@ footer {
   border: 1px solid var(--hair);
   padding: 10px 14px;
   margin-bottom: 16px;
+}
+.auth-hint a {
+  color: var(--aba-navy);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* shown only when the reader sent them here, so it reads as an
+   explanation rather than a scolding */
+.auth-gate {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-1);
+  border-left: 3px solid var(--aba-gold);
+  padding: 2px 0 2px 12px;
+  margin-bottom: 18px;
 }
 
 /* admin: process button + content status */

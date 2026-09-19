@@ -65,9 +65,12 @@
     "reader": {
       "name": "Web reader",
       "where": "awesomebooks.asia",
-      "desc": "Mababasa ng kahit sino ang mga sample. Ang aklat na na-redeem gamit ang coupon ay bubukas nang buo. Inihahanda pa ang bayad na subscription.",
-      "cta": "Basahin ang sample"
+      "desc": "Libreng sample subscription. Gumawa ng account at bubukas ang mga sample sa browser; ang aklat na na-redeem gamit ang kupon ay bubukas nang buo.",
+      "cta": "Mag-sign in para magbasa"
     },
+    "noteFree": "<b>Libre muna.</b> Mananatiling libre ang reader hanggang umabot sa 30 aklat ang aming istante, at mananatiling libreng sample subscription hanggang umabot ito sa 100.",
+    "noteAmazon": "<b>Dumarating ang bagong aklat pagkalipas ng 90 araw.</b> Sa ilalim ng aming kasunduan sa Amazon, doon lamang makukuha ang bagong aklat sa unang 90 araw, kaya lumalabas ito rito 90 araw pagkatapos ng paglalathala.",
+    "noteInvite": "<b>Nasa trial period pa kami.</b> Sa imbitasyon lamang ang pagpaparehistro — <mail>mag-email sa administrador</mail> para sa kupon ng pag-sign up.",
     "coupon": "<b>May gift coupon ka?</b> Ilagay ang code at bubukas ang aklat sa library mo.",
     "couponCta": "I-redeem ang coupon →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Tingnan ang inbox mo — nagpadala kami ng confirmation link.",
     "signOut": "Mag-sign out",
     "invite": "Invite coupon code",
-    "inviteHint": "Sa ngayon ay invitation-only ang pag-sign up — ilagay ang coupon code na natanggap mo."
+    "inviteHint": "Nasa trial period kami, kaya sa imbitasyon lamang ang pagpaparehistro. <mail>Mag-email sa administrador</mail> para makatanggap ng coupon code, at ilagay ito sa ibaba.",
+    "membersOnly": "Para sa mga miyembro ang web reader. Mag-sign in at bubukas ang aklat."
   },
   "library": {
     "title": "Aking Aklatan",

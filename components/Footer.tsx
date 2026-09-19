@@ -3,8 +3,7 @@ import {Link} from '../i18n/navigation';
 import BrandLogo from './BrandLogo';
 import FooterLangs from './FooterLangs';
 import AdminLink from './AdminLink';
-
-const CONTACT = 'contact@awesomebooks.asia';
+import {ADMIN_MAIL as CONTACT} from '../lib/contact';
 
 export default function Footer() {
   const t = useTranslations('footer');

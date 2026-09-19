@@ -65,9 +65,12 @@
     "reader": {
       "name": "Web-Reader",
       "where": "awesomebooks.asia",
-      "desc": "Die Leseproben kann jeder lesen. Ein mit Gutschein eingelöstes Buch öffnet sich vollständig. Bezahlte Abos sind in Vorbereitung.",
-      "cta": "Leseprobe lesen"
+      "desc": "Kostenloses Probe-Abo. Mit einem Konto öffnen sich die Leseproben direkt im Browser; ein mit Gutschein eingelöstes Buch öffnet sich vollständig.",
+      "cta": "Zum Lesen anmelden"
     },
+    "noteFree": "<b>Vorerst kostenlos.</b> Der Reader bleibt kostenlos, bis unser Regal 30 Bücher umfasst, und bleibt bis 100 Bücher ein kostenloses Probe-Abo.",
+    "noteAmazon": "<b>Neue Titel erscheinen 90 Tage später.</b> Unsere Vereinbarung mit Amazon hält ein neues Buch die ersten 90 Tage exklusiv dort, deshalb steht es hier erst 90 Tage nach Erscheinen.",
+    "noteInvite": "<b>Wir sind in der Testphase.</b> Die Anmeldung erfolgt nur auf Einladung — <mail>schreiben Sie dem Administrator</mail> und erhalten Sie einen Gutscheincode.",
     "coupon": "<b>Haben Sie einen Geschenkgutschein?</b> Code eingeben, und das Buch öffnet sich in Ihrer Bibliothek.",
     "couponCta": "Gutschein einlösen →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Prüfen Sie Ihren Posteingang — wir haben einen Bestätigungslink gesendet.",
     "signOut": "Abmelden",
     "invite": "Einladungs-Gutscheincode",
-    "inviteHint": "Die Registrierung ist derzeit nur auf Einladung möglich — geben Sie Ihren Gutscheincode ein."
+    "inviteHint": "Wir sind in der Testphase, die Anmeldung erfolgt daher nur auf Einladung. <mail>Schreiben Sie dem Administrator</mail>, um einen Gutscheincode zu erhalten, und geben Sie ihn unten ein.",
+    "membersOnly": "Der Web-Reader ist Mitgliedern vorbehalten. Melden Sie sich an, dann öffnet sich das Buch."
   },
   "library": {
     "title": "Meine Bibliothek",

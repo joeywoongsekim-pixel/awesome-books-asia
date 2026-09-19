@@ -65,9 +65,12 @@
     "reader": {
       "name": "Leitor web",
       "where": "awesomebooks.asia",
-      "desc": "Qualquer pessoa pode ler as amostras. Um livro resgatado com cupom abre por inteiro. As assinaturas pagas estão em preparação.",
-      "cta": "Ler uma amostra"
+      "desc": "Assinatura de amostra gratuita. Ao criar uma conta, as amostras abrem no navegador; o livro resgatado com cupom abre por inteiro.",
+      "cta": "Entre para ler"
     },
+    "noteFree": "<b>Gratuito por enquanto.</b> A leitura continua gratuita até nossa estante chegar a 30 livros e permanece como assinatura de amostra gratuita até os 100.",
+    "noteAmazon": "<b>Os lançamentos chegam 90 dias depois.</b> Nosso acordo com a Amazon mantém cada lançamento exclusivo lá nos primeiros 90 dias, por isso ele aparece aqui 90 dias após a publicação.",
+    "noteInvite": "<b>Estamos em período de testes.</b> O cadastro é apenas por convite — <mail>escreva ao administrador</mail> para receber um cupom de cadastro.",
     "coupon": "<b>Tem um cupom de presente?</b> Digite o código e o livro abre na sua biblioteca.",
     "couponCta": "Resgatar cupom →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Confira sua caixa de entrada — enviamos um link de confirmação.",
     "signOut": "Sair",
     "invite": "Código de convite",
-    "inviteHint": "Por enquanto o cadastro é apenas por convite — insira o código que você recebeu."
+    "inviteHint": "Estamos em período de testes, então o cadastro é apenas por convite. <mail>Escreva ao administrador</mail> para receber um código de cupom e digite-o abaixo.",
+    "membersOnly": "O leitor web é para membros. Faça login e o livro abrirá."
   },
   "library": {
     "title": "Minha biblioteca",

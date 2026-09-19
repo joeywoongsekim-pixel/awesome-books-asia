@@ -65,9 +65,12 @@
     "reader": {
       "name": "Liseuse web",
       "where": "awesomebooks.asia",
-      "desc": "Les extraits sont ouverts à tous. Un livre activé avec un coupon s'ouvre en entier. Les abonnements payants sont en préparation.",
-      "cta": "Lire un extrait"
+      "desc": "Abonnement découverte gratuit. Créez un compte et les extraits s'ouvrent dans votre navigateur ; un livre validé par un code s'ouvre en entier.",
+      "cta": "Se connecter pour lire"
     },
+    "noteFree": "<b>Gratuit pour le moment.</b> La lecture reste gratuite jusqu'à ce que notre catalogue atteigne 30 livres, et demeure un abonnement découverte gratuit jusqu'à 100 livres.",
+    "noteAmazon": "<b>Les nouveautés arrivent 90 jours plus tard.</b> Notre accord avec Amazon y réserve chaque nouveauté pendant ses 90 premiers jours ; elle paraît donc ici 90 jours après sa publication.",
+    "noteInvite": "<b>Nous sommes en période d'essai.</b> L'inscription se fait sur invitation — <mail>écrivez à l'administrateur</mail> pour recevoir un code d'inscription.",
     "coupon": "<b>Vous avez un coupon cadeau ?</b> Saisissez le code et le livre s'ouvre dans votre bibliothèque.",
     "couponCta": "Utiliser un coupon →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Vérifiez votre boîte mail — nous vous avons envoyé un lien de confirmation.",
     "signOut": "Se déconnecter",
     "invite": "Code d'invitation",
-    "inviteHint": "L'inscription est sur invitation pour le moment — saisissez le code que vous avez reçu."
+    "inviteHint": "Nous sommes en période d'essai : l'inscription se fait sur invitation. <mail>Écrivez à l'administrateur</mail> pour recevoir un code, puis saisissez-le ci-dessous.",
+    "membersOnly": "La liseuse est réservée aux membres. Connectez-vous et le livre s'ouvrira."
   },
   "library": {
     "title": "Ma bibliothèque",

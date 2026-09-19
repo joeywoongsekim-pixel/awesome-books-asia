@@ -65,9 +65,12 @@
     "reader": {
       "name": "Lector web",
       "where": "awesomebooks.asia",
-      "desc": "Cualquiera puede leer las muestras. Un libro canjeado con cupón se abre completo. Las suscripciones de pago están en preparación.",
-      "cta": "Leer una muestra"
+      "desc": "Suscripción de muestra gratuita. Al crear una cuenta, las muestras se abren en el navegador; el libro canjeado con un cupón se abre completo.",
+      "cta": "Inicia sesión para leer"
     },
+    "noteFree": "<b>Gratis por ahora.</b> La lectura sigue siendo gratuita hasta que nuestro catálogo llegue a 30 libros, y se mantiene como suscripción de muestra gratuita hasta los 100.",
+    "noteAmazon": "<b>Las novedades llegan 90 días después.</b> Nuestro acuerdo con Amazon reserva allí cada novedad durante sus primeros 90 días, así que aquí aparece 90 días después de su publicación.",
+    "noteInvite": "<b>Estamos en periodo de prueba.</b> El registro es solo por invitación: <mail>escribe al administrador</mail> para recibir un cupón de registro.",
     "coupon": "<b>¿Tienes un cupón regalo?</b> Introduce el código y el libro se abre en tu biblioteca.",
     "couponCta": "Canjear cupón →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Revisa tu bandeja de entrada: te enviamos un enlace de confirmación.",
     "signOut": "Cerrar sesión",
     "invite": "Código de invitación",
-    "inviteHint": "Por ahora el registro es solo con invitación: introduce el código que recibiste."
+    "inviteHint": "Estamos en periodo de prueba, así que el registro es solo por invitación. <mail>Escribe al administrador</mail> para recibir un código de cupón e introdúcelo abajo.",
+    "membersOnly": "El lector web es para miembros. Inicia sesión y el libro se abrirá."
   },
   "library": {
     "title": "Mi biblioteca",

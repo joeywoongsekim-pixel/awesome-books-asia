@@ -65,9 +65,12 @@
     "reader": {
       "name": "Web reader",
       "where": "awesomebooks.asia",
-      "desc": "Anyone can read the samples. A book redeemed with a coupon opens in full. Paid subscriptions are still in preparation.",
-      "cta": "Read a sample"
+      "desc": "Free sample subscription. Create an account and the samples open in your browser; a book redeemed with a coupon opens in full.",
+      "cta": "Sign in to read"
     },
+    "noteFree": "<b>Free for now.</b> The reader stays free until our shelf reaches 30 books, and remains a free sample subscription until it reaches 100.",
+    "noteAmazon": "<b>New titles arrive 90 days later.</b> Our agreement with Amazon keeps a new book exclusive there for its first 90 days, so it appears in this reader 90 days after publication.",
+    "noteInvite": "<b>We are in trial.</b> Accounts are invitation-only — <mail>email the administrator</mail> for a sign-up coupon.",
     "coupon": "<b>Have a gift coupon?</b> Enter the code and the book opens in your library.",
     "couponCta": "Redeem a coupon →"
   },
@@ -192,7 +195,8 @@
     "checkEmail": "Check your inbox — we sent a confirmation link.",
     "signOut": "Sign out",
     "invite": "Invite coupon code",
-    "inviteHint": "Sign-up is invitation-only for now — enter the coupon code you received."
+    "inviteHint": "We are in trial, so sign-up is invitation-only. <mail>Email the administrator</mail> to receive a coupon code, then enter it below.",
+    "membersOnly": "The web reader is for members. Sign in — or sign up — and the book opens."
   },
   "library": {
     "title": "My Library",

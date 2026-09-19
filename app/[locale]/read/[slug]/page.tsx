@@ -46,10 +46,13 @@ export default async function ReadPage({
   const noSample = () =>
     inCatalogue ? redirect({href: `/books/${slug}`, locale}) : notFound();
 
-  if (!hasSupabaseEnv()) {
-    if (index === -1) return noSample();
-    return <Reader initialIndex={index} locale={locale} bookId={null} />;
-  }
+  // The reader is members-only, samples included: nobody opens a book here
+  // without an account. `next` brings them back to this page afterwards.
+  const toLogin = () =>
+    redirect({href: {pathname: '/auth/login', query: {next: `/read/${slug}`}}, locale});
+
+  // Without Supabase there is no session to check, so the gate fails closed.
+  if (!hasSupabaseEnv()) return toLogin();
 
   const supabase = await createSupabaseServer();
   const [
@@ -65,7 +68,8 @@ export default async function ReadPage({
     // sample chapters and full=false; entitled ones the whole book.
     supabase.rpc('get_book_content', {p_slug: slug, p_locale: locale})
   ]);
-  const signedIn = Boolean(user);
+  if (!user) return toLogin();
+  const signedIn = true;
 
   // Pipeline-processed book → the DB-backed reader.
   if (content && bookRow) {
