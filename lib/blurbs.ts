@@ -1,13 +1,25 @@
-// M33 — localized book introductions. The catalogue data (lib/books.ts)
-// is authored in English; these are the Korean and Japanese versions
-// shown on the homepage hero and the detail pages. Other locales read
-// the English blurb.
+// M33 — localized book copy. The catalogue data (lib/books.ts) is
+// authored in English; these are the Korean and Japanese versions shown
+// on the homepage hero and the detail pages — the blurb and, since M149,
+// the table of contents. Other locales read the English.
 
 import type {Book} from './books';
 
 type Tri = {ko: string; ja: string};
 
 const BLURBS: Record<string, Tri> = {
+  'ai-token': {
+    ko: 'AI 이용료는 싸 보입니다. 그런데 확인하고 손보는 데 시간이 듭니다. 그래도 이득이라고 할 수 있을까요. AI로 문서와 자료를 만드는 직장인, 그리고 AI·경제학·경영학에 관심 있는 대학생을 위한 입문서입니다. 일 하나를 끝까지 마치는 과정에서 성과의 질, AI에 내는 돈, 사람이 쓰는 시간을 하나씩 가늠합니다. 회사원 다카시와 대학생 쿄코의 이야기, 가까운 예의 도해, 가상의 계산을 통해 “몇 번 만들었는가”와 “쓸 수 있는 결과”를 나누어 봅니다. AI가 문장을 처리하는 단위인 토큰과 요금의 관계를 짚고, 월정액과 종량 요금에 더해 사람이 확인하고 고치는 시간까지 시야에 넣습니다. 여덟 장에 실천 노트와, 힌트·예시 답이 붙은 18개의 과제. 마지막에는 AI를 떠받치는 반도체·전력·데이터센터까지 시야를 넓힙니다.',
+    ja: 'AIの利用料は安く見える。でも、確認と手直しに時間がかかる。それでも、得をしたと言えるだろうか。AIで文書・資料を作る社会人と、AI・経済学・経営学に関心のある大学生へ。一つの仕事を仕上げる過程から、成果の質・AIに払う費用・人が使う時間を見極める入門書です。会社員たかしと大学生きょうこの物語、身近な図解、仮想の計算例を通して、生成した回数と使える成果を分けて考えます。文章を処理する単位「トークン」と料金の関係を押さえ、月額・従量の支払に加えて、人が確かめ、直す時間まで視野に入れます。全八章に実践ノートと、ヒント・解答例付きの18のチャレンジ課題。巻末では、AIを支える半導体・電力・データセンターへと視野を広げます。'
+  },
+  'quantum-econ-uk': {
+    ko: '『Quantum Economics』의 영국판입니다. 중첩·측정·얽힘을 도구 삼아 우리가 왜 그것을 선택하는지를 다시 설명하는 의사결정 경제학으로, 영국 독자를 위한 사례와 표기를 씁니다. 본문은 영어입니다.',
+    ja: '『Quantum Economics』の英国版です。重ね合わせ・測定・もつれを道具に、なぜ私たちはそれを選ぶのかを説明し直す意思決定の経済学で、英国の読者に向けた事例と綴りを用いています。本文は英語です。'
+  },
+  'quantum-econ-in': {
+    ko: '『Quantum Economics』의 인도판입니다. 중첩·측정·얽힘을 도구 삼아 우리가 왜 그것을 선택하는지를 다시 설명하는 의사결정 경제학으로, 인도의 독자와 시장에 맞춘 사례를 씁니다. 본문은 영어입니다.',
+    ja: '『Quantum Economics』のインド版です。重ね合わせ・測定・もつれを道具に、なぜ私たちはそれを選ぶのかを説明し直す意思決定の経済学で、インドの読者と市場に合わせた事例を用いています。本文は英語です。'
+  },
   'ai-answer': {
     ko: 'AI의 답은 나왔다. 그런데 어디까지 쓸 수 있을까? 보고서와 탐구 활동, 기획 회의에서 "쓸 수 있는 이유"를 자기 말로 설명하기 위한 책입니다. 물리학·생명과학·사회 시뮬레이션 이야기에서 출발해, 사람이 더해야 할 세 가지 — 목적을 정하고, 근거로 돌아가는 질문을 갖고, 쓸지 말지를 고르는 일 — 를 도해 80점과 짧은 연습, 두 인물의 이야기 여덟 편으로 익힙니다. 고등학생의 탐구 학습부터 대학 세미나, AI를 일에 쓰려는 직장인까지.',
     ja: 'AIの答えは出た。では、どこまで使える？ レポートで、探究で、企画会議で、「使える理由」を自分の言葉で説明するための一冊。物理学・生命科学・社会シミュレーションの話から、人間が足す三つのこと — 目的を決める、根拠へ戻る問いを持つ、使い方を選ぶ — を、80点の図版と短い演習、大学生きょうこと社会人たかしの八つの物語で身につけます。高校生の探究学習から大学のゼミ、AIを仕事に使いたい社会人まで。'
@@ -35,4 +47,63 @@ export function blurbOf(book: Book, locale: string): string {
   if (locale === 'ko' && t?.ko) return t.ko;
   if (locale === 'ja' && t?.ja) return t.ja;
   return book.blurb;
+}
+
+/* The contents list, which is catalogue data and therefore English. Four
+   books carry one; a reader on the Korean or Japanese page was reading
+   seven English chapter titles under a Korean heading. */
+const TOCS: Record<string, {ko: string[]; ja: string[]}> = {
+  'ai-bible': {
+    ko: [
+      '생성형 AI란 무엇인가',
+      '도구를 고르는 법',
+      '프롬프트의 구조',
+      '같은 프롬프트, 다른 답',
+      '검증과 환각',
+      '일에 쓰기',
+      '맡기지 말아야 할 것'
+    ],
+    ja: [
+      '生成AIとは何か',
+      'ツールの選び方',
+      'プロンプトの構造',
+      '同じプロンプト、違う答え',
+      '検証とハルシネーション',
+      '仕事で使う',
+      '任せてはいけないこと'
+    ]
+  },
+  'quantum-econ': {
+    ko: [
+      '고전 모형이 놓치는 것',
+      '중첩으로서의 선택',
+      '측정으로서의 가격',
+      '얽힌 시장',
+      '터널링과 혁신',
+      '양자 경제의 정책'
+    ],
+    ja: [
+      '古典モデルが取りこぼすもの',
+      '重ね合わせとしての選択',
+      '測定としての価格',
+      'もつれ合う市場',
+      'トンネル効果とイノベーション',
+      '量子経済の政策'
+    ]
+  },
+  isekai: {
+    ko: ['소환', '첫 손님', '길드 전쟁', '확장', '겨울', '귀환'],
+    ja: ['召喚', '最初のお客', 'ギルド戦争', '拡大', '冬', '帰還']
+  },
+  'ninja-cat': {
+    ko: ['마을', '지붕 시험', '떨어뜨린 수리검', '대추격', '쿠로, 다시 한번'],
+    ja: ['村', '屋根の試験', '落とした手裏剣', '大追跡', 'クロ、もういちど']
+  }
+};
+
+export function tocOf(book: Book, locale: string): string[] {
+  const t = TOCS[book.id];
+  if (locale === 'ko' && t?.ko) return t.ko;
+  if (locale === 'ja' && t?.ja) return t.ja;
+  return book.toc;
 }

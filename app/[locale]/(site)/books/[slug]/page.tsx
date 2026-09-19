@@ -9,7 +9,7 @@ import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
-import {blurbOf} from '../../../../../lib/blurbs';
+import {blurbOf, tocOf} from '../../../../../lib/blurbs';
 import {EDITIONS, fromPrice} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
 import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
@@ -104,11 +104,11 @@ function BookDetail({book}: {book: Book}) {
 
       <div className="d-cols">
         <div>
-          {book.toc.length > 0 && (
+          {tocOf(book, locale).length > 0 && (
             <>
               <div className="d-h3">{t('contents')}</div>
               <ul className="toc">
-                {book.toc.map((item, i) => (
+                {tocOf(book, locale).map((item, i) => (
                   <li key={item}>
                     <s>{String(i + 1).padStart(2, '0')}</s>
                     {item}
