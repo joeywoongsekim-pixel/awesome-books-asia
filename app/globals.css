@@ -605,24 +605,18 @@ h3 {
   margin: 0;
   padding: 0;
 }
+/* Each shop's own mark. Nothing between them but air: a separator earns
+   its place between words, and between logos it only adds a third colour
+   to a row that already has several. */
 .usp-run li {
-  position: relative;
-  padding: 0 40px;
-  white-space: nowrap;
-  font-size: 13px;
-  color: var(--ink-2);
+  display: flex;
+  align-items: center;
+  padding: 0 38px;
 }
-/* a small lozenge after each name, which is what keeps the run reading as
-   a list once the ends have slid off both sides of the screen */
-.usp-run li::after {
-  content: "";
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  width: 5px;
-  height: 5px;
-  transform: translateY(-50%) rotate(45deg);
-  background: var(--lapis);
+.usp-run img {
+  display: block;
+  width: auto;
+  max-width: none;
 }
 @keyframes usp-slide {
   from {
@@ -637,6 +631,13 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   .usp-track {
     animation: none;
+  }
+}
+/* A phone only ever holds two or three marks at a time; 38px each side
+   leaves it looking half empty, so the run closes up. */
+@media (max-width: 560px) {
+  .usp-run li {
+    padding: 0 22px;
   }
 }
 /* the accessible copy: present to a screen reader, absent to everyone else */
@@ -6483,12 +6484,7 @@ html[lang='ja'] .vh-t {
   background: var(--bg);
   border-top: 1px solid var(--hair-soft);
 }
-.usp-run li {
-  font-size: 11px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
+
 
 @media (max-width: 1080px) {
   .cats {
@@ -7832,8 +7828,7 @@ html[lang='hi'] {
    Righteous — that is the one thing on the page that should not match. */
 .nav-menu a,
 .nav-sheet a,
-.f-ct,
-.usp-run li {
+.f-ct {
   font-family: var(--font-display);
   font-synthesis-weight: none;
 }

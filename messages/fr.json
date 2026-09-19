@@ -29,6 +29,7 @@
     "month": "Le livre du mois",
     "stores": {
       "amazon": "Amazon",
+      "ku": "Kindle Unlimited",
       "kyobo": "Kyobo",
       "yes24": "YES24",
       "aladin": "Aladin"

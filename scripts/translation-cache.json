@@ -283,7 +283,8 @@
     "Amazon": "Amazon",
     "Kyobo": "교보문고",
     "YES24": "예스24",
-    "Aladin": "알라딘"
+    "Aladin": "알라딘",
+    "Kindle Unlimited": "킨들 언리미티드"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -569,7 +570,8 @@
     "Amazon": "Amazon",
     "Kyobo": "教保文庫",
     "YES24": "YES24",
-    "Aladin": "アラジン"
+    "Aladin": "アラジン",
+    "Kindle Unlimited": "Kindle Unlimited"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -851,7 +853,8 @@
     "Amazon": "Amazon",
     "Kyobo": "Kyobo",
     "YES24": "YES24",
-    "Aladin": "Aladin"
+    "Aladin": "Aladin",
+    "Kindle Unlimited": "Kindle Unlimited"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1133,7 +1136,8 @@
     "Amazon": "Amazon",
     "Kyobo": "Kyobo",
     "YES24": "YES24",
-    "Aladin": "Aladin"
+    "Aladin": "Aladin",
+    "Kindle Unlimited": "Kindle Unlimited"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1415,7 +1419,8 @@
     "Amazon": "Amazon",
     "Kyobo": "Kyobo",
     "YES24": "YES24",
-    "Aladin": "Aladin"
+    "Aladin": "Aladin",
+    "Kindle Unlimited": "Kindle Unlimited"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1697,7 +1702,8 @@
     "Amazon": "Amazon",
     "Kyobo": "Kyobo",
     "YES24": "YES24",
-    "Aladin": "Aladin"
+    "Aladin": "Aladin",
+    "Kindle Unlimited": "Kindle Unlimited"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -1979,6 +1985,7 @@
     "Amazon": "Amazon",
     "Kyobo": "Kyobo",
     "YES24": "YES24",
-    "Aladin": "Aladin"
+    "Aladin": "Aladin",
+    "Kindle Unlimited": "Kindle Unlimited"
   }
 }
