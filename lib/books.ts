@@ -445,8 +445,13 @@ export type Forthcoming = {
 /** The 커밍순 row, in order. */
 export const COMING_SOON: Forthcoming[] = [
   {title: 'Economics of AI Token', author: 'Akira Murata', cover: '/covers/soon-ai-token.jpg'},
-  // Halley Brooks is one of the house's invented authors, like Lyra Mizuki
-  // and Orion Carter — and, like them, named for something in the sky.
+  // A coming-of-age novel: students from Hawaii, Japan, Korea, the US,
+  // Australia, Mexico and Brazil meet at a high school on O'ahu's North
+  // Shore and form a band out of the instruments their countries gave
+  // them. Halley Brooks is one of the house's invented authors, like Lyra
+  // Mizuki and Orion Carter — and, like them, named for something in the
+  // sky. Recorded here because the blurb has nowhere else to live until
+  // the book becomes a catalogue entry.
   {title: 'North Shore', author: 'Halley Brooks', cover: '/covers/soon-north-shore.jpg'},
   {title: 'Introduction to Cricket', author: 'Joey W. Kim', cover: '/covers/soon-cricket.jpg'},
   {title: 'Introduction to Rugby', author: 'Joey W. Kim', cover: '/covers/soon-rugby.jpg'}
