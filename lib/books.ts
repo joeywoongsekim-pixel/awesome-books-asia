@@ -458,7 +458,7 @@ export const COMING_SOON: Forthcoming[] = [
     title: 'North Shore',
     author: 'Halley Brooks',
     illustrator: 'Orion Carter',
-    translator: 'Vega Choi',
+    translator: 'Joey W. Kim',
     cover: '/covers/soon-north-shore.jpg'
   },
   {title: 'Introduction to Cricket', author: 'Joey W. Kim', cover: '/covers/soon-cricket.jpg'},

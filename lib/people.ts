@@ -60,7 +60,13 @@ export const PEOPLE: Person[] = [
     name: 'Joey W. Kim',
     credits: {author: [], translator: []},
     forthcoming: ['author', 'translator'],
-    soon: {author: ['Introduction to Cricket', 'Introduction to Rugby'], translator: ['Akira Murata’s books']},
+    soon: {
+      author: ['Introduction to Cricket', 'Introduction to Rugby'],
+      // Both are English into Korean, which is the direction his profile
+      // already describes. North Shore moved here off Vega Choi, who
+      // carries Japanese and only Japanese.
+      translator: ['Akira Murata’s books', 'North Shore']
+    },
     hasBio: true,
     photo: true
   },
@@ -78,7 +84,6 @@ export const PEOPLE: Person[] = [
     credits: {
       translator: [{id: 'isekai', langs: ['KO', 'EN']}, {id: 'ninja-cat', langs: ['KO']}]
     },
-    soon: {translator: ['North Shore']},
     hasBio: true,
     photo: true
   }
