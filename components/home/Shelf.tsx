@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from 'react';
-import {useTranslations} from 'next-intl';
+import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import {
   BESTSELLERS,
@@ -26,6 +26,7 @@ const byId = (id: string) => BOOKS.find((b) => b.id === id);
 
 export default function Shelf() {
   const t = useTranslations('shelf');
+  const locale = useLocale();
 
   const tabs = (
     [
@@ -71,7 +72,7 @@ export default function Shelf() {
         <div className="nsh-row">
           {shown.rows.map(({pick, book}, n) => {
             const b = book!;
-            const price = priceForLang(b.id, pick.lang);
+            const price = priceForLang(b.id, pick.lang, locale);
             const cover = coverFor(b.id, pick.lang);
             return (
               <Link href={`/books/${b.id}`} className="nsh-bk" key={`${b.id}-${pick.lang ?? n}`}>

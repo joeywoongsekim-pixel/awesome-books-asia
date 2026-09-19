@@ -44,11 +44,25 @@ export function promoIsLive(now: number = Date.now()) {
 
 const AMAZON_IN = 'www.amazon.in';
 
-/* Verified: the ASINs resolve to the right book on each of these. Locales
-   with no Amazon of their own (ko, fil) and those whose store would not
-   answer (en → .com, pt → .com.br, both behind the bot wall) stay on the
-   launch storefront, which is at least known to work. */
+const AMAZON_US = 'www.amazon.com';
+
+/* The ASINs were checked on each of these and resolve to the right book,
+   with one exception noted below. Locales with no store of their own (fil)
+   and one whose store would not answer (pt → .com.br, behind the bot wall)
+   stay on the launch storefront, which is at least known to work.
+
+   Korea has no Amazon, so a reader there buys from Amazon US as an
+   international customer — which is the rule the Korean pages follow for
+   prices too (see fromPrice in retailers.ts). English goes to the same
+   place for the same reason: it is the default store, not a regional one.
+
+   The exception: amazon.com blocks reads from here. One ASIN got through
+   (B0GPPXFTYG, the AI Bible, which the catalogue has carried a .com listing
+   for since M10) and the other two are inference from the six stores that
+   did answer. If either turns out to be wrong, it is one line. */
 const STORE_BY_LOCALE: Record<string, string> = {
+  en: AMAZON_US,
+  ko: AMAZON_US,
   hi: AMAZON_IN,
   ja: 'www.amazon.co.jp',
   de: 'www.amazon.de',
@@ -57,13 +71,21 @@ const STORE_BY_LOCALE: Record<string, string> = {
 };
 
 /* Read from each store, in that store's own currency, on 2026-09-19.
-   amazon.co.jp, .de, .co.uk and .com answered in USD or not at all, so they
-   have no entry here and show no figure. */
+   amazon.co.jp, .de and .co.uk answered in USD — an international buyer's
+   quote, not a local reader's — so they have no entry here and show no
+   figure. The US column is not read from here either: it comes from the
+   catalogue's own Amazon listing, which is where a verified .com price
+   already lives. A book with no .com listing therefore shows no figure
+   rather than a converted one. */
 const PRICE_BY_STORE: Record<string, Record<string, string>> = {
   [AMAZON_IN]: {'ai-answer': '₹199', 'ai-bible': '₹449', 'quantum-econ-in': '₹199'},
   'www.amazon.fr': {'ai-answer': '2,69 €', 'ai-bible': '8,99 €', 'quantum-econ-in': '2,69 €'},
   'www.amazon.es': {'ai-answer': '2,69 €', 'ai-bible': '8,99 €', 'quantum-econ-in': '2,69 €'}
 };
+
+/** The catalogue's own Amazon US price for a book, where it has one. */
+const usPrice = (bookId: string) =>
+  (EDITIONS[bookId] ?? []).find((e) => e.store === 'Amazon' && e.price)?.price ?? null;
 
 const asinOf = (url: string) => /\/dp\/([A-Z0-9]{10})/.exec(url)?.[1] ?? null;
 
@@ -104,7 +126,10 @@ export function indiaEditions(locale: string): IndiaEdition[] {
         // Without a parsable ASIN the original link stands rather than a
         // guessed one; every entry in the catalogue has one today.
         url: asin ? `https://${host}/dp/${asin}` : link.url,
-        price: (asin && PRICE_BY_STORE[host]?.[book.id]) || null
+        price:
+          host === AMAZON_US
+            ? usPrice(book.id)
+            : (asin && PRICE_BY_STORE[host]?.[book.id]) || null
       });
     }
   }

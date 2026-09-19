@@ -85,34 +85,81 @@ export const EDITIONS: Record<string, EditionLink[]> = {
 
 // ── price helpers ───────────────────────────────────────────────────────
 const CURRENCY_ORDER: Record<string, string[]> = {
-  ko: ['원', '$', '¥'],
   ja: ['¥', '$', '원'],
   default: ['$', '¥', '원']
 };
 
+/** The Korean bookshops, as against the Amazons. */
+const KOREAN_STORES: ReadonlySet<EditionLink['store']> = new Set([
+  '교보문고',
+  '교보 eBook',
+  'YES24',
+  '알라딘'
+]);
+
 const numeric = (p: string) => Number(p.replace(/[^\d.]/g, '')) || Infinity;
+const cheapest = (links: EditionLink[]) =>
+  links.sort((a, b) => numeric(a.price!) - numeric(b.price!))[0].price!;
 
 /**
- * Cheapest listed price for a book, in the currency closest to the reader:
- * Korean pages quote 원, Japanese ¥ (then $), everyone else $.
+ * Cheapest listed price for a book, in the currency closest to the reader.
+ *
+ * Korean pages have a rule of their own, because Korea has no Amazon of its
+ * own: a title the Korean bookshops carry is quoted in 원, and anything they
+ * do not carry is quoted in dollars off Amazon US, which is where a reader
+ * here would buy it as an international customer. If neither exists the card
+ * shows no price at all rather than quoting ₹ or ¥ at someone who cannot
+ * pay in either.
  */
 export function fromPrice(bookId: string, locale: string): string | null {
   const priced = (EDITIONS[bookId] ?? []).filter((e) => e.price);
   if (!priced.length) return null;
+
+  if (locale === 'ko') {
+    const won = priced.filter((e) => KOREAN_STORES.has(e.store));
+    if (won.length) return cheapest(won);
+    const us = priced.filter((e) => e.store === 'Amazon');
+    if (us.length) return cheapest(us);
+    // No .com listing on file. A dollar figure from another Amazon is an
+    // international buyer's quote, which is what a reader in Korea is, so
+    // it stands in — but only a dollar one. Quoting ₹ or ¥ at someone who
+    // can pay in neither is the thing this rule exists to stop.
+    const dollars = priced.filter((e) => e.price!.includes('$'));
+    return dollars.length ? cheapest(dollars) : null;
+  }
+
   for (const symbol of CURRENCY_ORDER[locale] ?? CURRENCY_ORDER.default) {
     const inCurrency = priced.filter((e) => e.price!.includes(symbol));
-    if (inCurrency.length) {
-      return inCurrency.sort((a, b) => numeric(a.price!) - numeric(b.price!))[0].price!;
-    }
+    if (inCurrency.length) return cheapest(inCurrency);
   }
   return priced[0].price!;
 }
 
-/** The cheapest listing for one language edition of a book, as printed. */
-export function priceForLang(bookId: string, lang?: string): string | null {
-  const links = (EDITIONS[bookId] ?? []).filter((l) => !lang || l.lang === lang);
-  const priced = links.map((l) => l.price).filter(Boolean) as string[];
-  if (!priced.length) return null;
-  const num = (p: string) => Number(p.replace(/[^\d.]/g, '')) || Infinity;
-  return priced.sort((a, b) => num(a) - num(b))[0];
+/**
+ * The cheapest listing for one language edition of a book, as printed.
+ *
+ * Takes the locale too, because the shelf stands on the same ground as the
+ * cards beside it: a Korean page quotes 원 where a Korean bookshop carries
+ * that edition and dollars where none does, rather than whatever currency
+ * happens to be cheapest.
+ */
+export function priceForLang(
+  bookId: string,
+  lang?: string,
+  locale?: string
+): string | null {
+  const links = (EDITIONS[bookId] ?? []).filter(
+    (l) => (!lang || l.lang === lang) && l.price
+  );
+  if (!links.length) return null;
+
+  if (locale === 'ko') {
+    const won = links.filter((e) => KOREAN_STORES.has(e.store));
+    if (won.length) return cheapest(won);
+    const us = links.filter((e) => e.store === 'Amazon');
+    if (us.length) return cheapest(us);
+    const dollars = links.filter((e) => e.price!.includes('$'));
+    return dollars.length ? cheapest(dollars) : null;
+  }
+  return cheapest(links);
 }
