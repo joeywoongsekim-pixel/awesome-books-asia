@@ -70,7 +70,6 @@ export default function NewReleases() {
           </button>
 
           {slides.map((book, n) => {
-            const price = fromPrice(book.id, locale);
             return (
               <div
                 key={book.id}
@@ -89,12 +88,6 @@ export default function NewReleases() {
                   <div className="nr-a">{book.author}</div>
                   <p className="nr-d">{blurbOf(book, locale)}</p>
                   <div className="nr-foot">
-                    {price && (
-                      <span className="nr-p">
-                        {price}
-                        <small>{tDetail('priceNote')}</small>
-                      </span>
-                    )}
                     <Link
                       href={`/books/${book.id}`}
                       className="btn-g"

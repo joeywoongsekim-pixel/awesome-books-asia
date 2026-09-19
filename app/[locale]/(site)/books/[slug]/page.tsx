@@ -76,12 +76,6 @@ function BookDetail({book}: {book: Book}) {
           <p className="d-blurb">{blurbOf(book, locale)}</p>
           <LangTabs langs={book.langs} />
           <div className="d-buy">
-            {fromPrice(book.id, locale) && (
-              <div className="d-price">
-                {fromPrice(book.id, locale)}
-                <small>{t('priceNote')}</small>
-              </div>
-            )}
             {book.sp.length > 0 ? (
               <>
                 <Link href={`/read/${book.id}`} className="btn-g">

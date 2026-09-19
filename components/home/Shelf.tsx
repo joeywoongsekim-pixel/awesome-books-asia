@@ -1,7 +1,7 @@
 'use client';
 
 import {useState} from 'react';
-import {useLocale, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import {
   BESTSELLERS,
@@ -11,7 +11,6 @@ import {
   BOOKS,
   type Pick
 } from '../../lib/books';
-import {priceForLang} from '../../lib/retailers';
 
 // The shelf under the hero: three tabs, four books to a row, each cover
 // standing as an object rather than lying flat as a card.
@@ -26,7 +25,6 @@ const byId = (id: string) => BOOKS.find((b) => b.id === id);
 
 export default function Shelf() {
   const t = useTranslations('shelf');
-  const locale = useLocale();
 
   const tabs = (
     [
@@ -72,7 +70,6 @@ export default function Shelf() {
         <div className="nsh-row">
           {shown.rows.map(({pick, book}, n) => {
             const b = book!;
-            const price = priceForLang(b.id, pick.lang, locale);
             const cover = coverFor(b.id, pick.lang);
             return (
               <Link href={`/books/${b.id}`} className="nsh-bk" key={`${b.id}-${pick.lang ?? n}`}>
@@ -90,7 +87,6 @@ export default function Shelf() {
                     <span className="nsh-ed"> · {t(`ed${pick.lang}`)}</span>
                   )}
                 </span>
-                {price && <span className="nsh-p">{price}</span>}
               </Link>
             );
           })}

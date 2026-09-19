@@ -1,5 +1,5 @@
 import {Fragment} from 'react';
-import {useLocale, useTranslations} from 'next-intl';
+import {useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
 import type {Book} from '../../lib/books';
 import BookCover from '../BookCover';
@@ -12,9 +12,7 @@ const LANGS = ['KO', 'EN', 'JA'] as const;
 export default function StoreCard({book}: {book: Book}) {
   const t = useTranslations('books');
   const ts = useTranslations('store');
-  const locale = useLocale();
   const eds = EDITIONS[book.id] ?? [];
-  const price = fromPrice(book.id, locale);
   const has = (lang: string, format: 'ebook' | 'print') =>
     eds.some((e) => e.lang === lang && e.format === format);
 
@@ -48,16 +46,6 @@ export default function StoreCard({book}: {book: Book}) {
               </span>
             </Fragment>
           ))}
-        </div>
-        <div className="bk-f">
-          <div className="bk-p">
-            {price
-              ? t.rich('priceFrom', {
-                  price,
-                  em: (chunks) => <em>{chunks}</em>
-                })
-              : null}
-          </div>
         </div>
       </div>
     </Link>

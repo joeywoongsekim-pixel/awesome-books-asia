@@ -62,7 +62,7 @@ export default function RetailerLinks({
                   <img src="/brand/kindle-unlimited.svg" alt={t('ku')} />
                 </b>
               ) : null}
-              {e.price ? <b className="store-price">{e.price}</b> : null} ↗
+ ↗
             </a>
           ))}
         </div>

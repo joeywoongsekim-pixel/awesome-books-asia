@@ -125,7 +125,7 @@ export default function PromoPopup() {
         <p className="pmo-lead">{t('lead')}</p>
 
         <ul className="pmo-books">
-          {editions.map(({book, link, title, cover, storeLabel, url, price}) => (
+          {editions.map(({book, link, title, cover, storeLabel, url}) => (
             <li key={`${book.id}-${link.url}`} className="pmo-b">
               <Link href={`/books/${book.id}`} className="pmo-b-cv" onClick={close}>
                 {cover ? (
@@ -160,10 +160,6 @@ export default function PromoPopup() {
                       <img src="/brand/kindle-unlimited.svg" alt={t('ku')} />
                     </em>
                   ) : null}
-                  {/* No figure where the store would not name one in its own
-                      currency. Amazon then shows the reader theirs, which is
-                      better than a number that is not. */}
-                  {price ? <i>{price}</i> : null}
                 </a>
               </div>
             </li>
