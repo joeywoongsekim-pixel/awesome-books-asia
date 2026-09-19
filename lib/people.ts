@@ -54,7 +54,7 @@ export const PEOPLE: Person[] = [
   {id: 'fumi-yamaneko', name: 'Fumi Yamaneko', credits: {author: [{id: 'ninja-cat'}]}, hasBio: true, photo: true},
   {
     id: 'joey-kim',
-    name: 'Joey Kim',
+    name: 'Joey W. Kim',
     credits: {author: [], translator: []},
     forthcoming: ['author', 'translator'],
     wip: {author: 'Introduction to Cricket · Introduction to Rugby', translator: 'Akira Murata'},

@@ -445,9 +445,9 @@ export type Forthcoming = {
 /** The 커밍순 row, in order. */
 export const COMING_SOON: Forthcoming[] = [
   {title: 'Economics of AI Token', author: 'Akira Murata', cover: '/covers/soon-ai-token.jpg'},
-  // Mira Halloran is one of the house's invented authors, like Lyra Mizuki
-  // and Orion Carter — and, like them, named for a star.
-  {title: 'North Shore', author: 'Mira Halloran', cover: '/covers/soon-north-shore.jpg'},
+  // Halley Brooks is one of the house's invented authors, like Lyra Mizuki
+  // and Orion Carter — and, like them, named for something in the sky.
+  {title: 'North Shore', author: 'Halley Brooks', cover: '/covers/soon-north-shore.jpg'},
   {title: 'Introduction to Cricket', author: 'Joey W. Kim', cover: '/covers/soon-cricket.jpg'},
   {title: 'Introduction to Rugby', author: 'Joey W. Kim', cover: '/covers/soon-rugby.jpg'}
 ];
