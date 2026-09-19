@@ -407,7 +407,17 @@
     "mzImages": "Storing pictures… {done}/{total}",
     "mzImagesStored": "{n} picture(s) stored on the site.",
     "mzImagesFound": "{n} pasted-in picture(s) will be stored on the site when you save.",
-    "mzImagesFailed": "Nothing was saved — a picture could not be stored: {why}"
+    "mzImagesFailed": "Nothing was saved — a picture could not be stored: {why}",
+    "mzDropHint": "Paste a picture here, or drop one in",
+    "mzChooseFile": "Choose a file",
+    "mzCopy": "Copy address",
+    "mzCopied": "Copied",
+    "mzCopyFailed": "Could not reach the clipboard — select the address and copy it.",
+    "mzPasted": "pasted",
+    "mzNotAPicture": "That is not a picture.",
+    "mzMissing": "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.",
+    "mzFillSlot": "Use a file",
+    "mzCoverHint": "paste a picture, or /hero/s5.webp"
   },
   "paywall": {
     "title": "The sample ends here",

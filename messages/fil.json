@@ -407,7 +407,17 @@
     "mzImages": "Iniimbak ang mga larawan… {done}/{total}",
     "mzImagesStored": "{n} larawan ang naimbak sa site.",
     "mzImagesFound": "Ang {n} idinikit na larawan ay maiimbak sa site kapag nag-save ka.",
-    "mzImagesFailed": "Walang na-save — hindi maimbak ang isang larawan: {why}"
+    "mzImagesFailed": "Walang na-save — hindi maimbak ang isang larawan: {why}",
+    "mzDropHint": "Idikit dito ang larawan, o i-drag papasok",
+    "mzChooseFile": "Pumili ng file",
+    "mzCopy": "Kopyahin ang address",
+    "mzCopied": "Nakopya",
+    "mzCopyFailed": "Hindi maabot ang clipboard — piliin at kopyahin ang address.",
+    "mzPasted": "idinikit na larawan",
+    "mzNotAPicture": "Hindi iyon larawan.",
+    "mzMissing": "Ang {n} larawan sa artikulong ito ay wala pa kahit saan. I-drop ang tamang file sa bawat isa.",
+    "mzFillSlot": "Gumamit ng file",
+    "mzCoverHint": "idikit ang larawan, o /hero/s5.webp"
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",

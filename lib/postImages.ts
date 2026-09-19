@@ -74,6 +74,52 @@ async function put(
 }
 
 /**
+ * Put one picture — pasted from the clipboard, or dropped on the form —
+ * into storage and hand back its URL.
+ */
+export async function uploadImage(
+  file: File | Blob,
+  slug: string,
+  supabase: SupabaseClient
+): Promise<string> {
+  const type = (file.type || '').toLowerCase();
+  if (!EXT[type]) {
+    throw new Error(`${type || 'that file'} is not a picture we can store`);
+  }
+  const bytes = new Uint8Array(await file.arrayBuffer());
+  return put(supabase, slug, bytes, type);
+}
+
+/** Every <img src> in the markup, in the order they appear. */
+export function imageSources(html: string): string[] {
+  return [...html.matchAll(/<img[^>]+src="([^"]+)"/gi)].map((m) => m[1]);
+}
+
+/**
+ * Which of those pictures a reader would not see. A src that is already in
+ * our storage is fine by construction; everything else is asked for, which
+ * is how a path typed in before the file existed gets caught.
+ */
+export async function missingImages(html: string): Promise<string[]> {
+  const out: string[] = [];
+  for (const src of new Set(imageSources(html))) {
+    if (src.startsWith('data:') || src.includes(`/${BUCKET}/`)) continue;
+    try {
+      const res = await fetch(src, {method: 'HEAD'});
+      if (!res.ok) out.push(src);
+    } catch {
+      out.push(src);
+    }
+  }
+  return out;
+}
+
+/** Point every copy of one src at another, leaving the rest of the markup alone. */
+export function replaceSource(html: string, from: string, to: string): string {
+  return html.replaceAll(`src="${from}"`, `src="${to}"`);
+}
+
+/**
  * Rewrite every <img> in `html` to point at our own storage.
  *
  * Pasted-in photographs (data:) are decoded and uploaded from here.

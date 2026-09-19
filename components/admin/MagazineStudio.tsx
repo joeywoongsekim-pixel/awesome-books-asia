@@ -1,12 +1,13 @@
 'use client';
 
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import {routing} from '../../i18n/routing';
 import {safeHtml, type LocaleText, type Post} from '../../lib/magazine';
-import {inlineImageCount, liftImages} from '../../lib/postImages';
+import {inlineImageCount, liftImages, uploadImage} from '../../lib/postImages';
+import ArticleImages from './ArticleImages';
 
 const BLANK = {
   slug: '',
@@ -42,6 +43,54 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
   const [preview, setPreview] = useState(false);
   const [auto, setAuto] = useState(true);
   const [running, setRunning] = useState<string | null>(null);
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
+  /* Pictures filled in on this visit: a dead address and the copy that now
+     answers for it. The same dead address sits in the other eight
+     languages, so the swap is applied to all of them on save. */
+  const [swaps, setSwaps] = useState<Record<string, string>>({});
+
+  /* Paste a photograph straight into the markup: it goes to storage and an
+     <img> tag lands where the cursor was. The alternative — the browser's
+     own behaviour — is nothing at all, because a textarea drops an image
+     on the floor. */
+  async function pasteImage(files: File[]) {
+    const pictures = files.filter((x) => x.type.startsWith('image/'));
+    if (pictures.length === 0) return false;
+    const el = bodyRef.current;
+    const at = el?.selectionStart ?? f.body.length;
+    const to = el?.selectionEnd ?? at;
+    setRunning(t('mzImages', {done: 0, total: pictures.length}));
+    const tags: string[] = [];
+    try {
+      for (const [n, file] of pictures.entries()) {
+        setRunning(t('mzImages', {done: n, total: pictures.length}));
+        const url = await uploadImage(file, f.slug.trim() || 'untitled', supabase);
+        tags.push(`<img src="${url}" alt="" loading="lazy">`);
+      }
+      setF((prev) => ({
+        ...prev,
+        body: prev.body.slice(0, at) + tags.join('\n') + prev.body.slice(to)
+      }));
+      setMsg(t('mzImagesStored', {n: tags.length}));
+    } catch (e) {
+      setMsg(t('mzImagesFailed', {why: e instanceof Error ? e.message : 'unknown'}));
+    }
+    setRunning(null);
+    return true;
+  }
+
+  /** The same, for the one picture that lives in a field rather than the body. */
+  async function coverImage(file: File) {
+    setRunning(t('mzImages', {done: 0, total: 1}));
+    try {
+      const url = await uploadImage(file, f.slug.trim() || 'untitled', supabase);
+      setF((prev) => ({...prev, cover: url}));
+      setMsg(t('mzImagesStored', {n: 1}));
+    } catch (e) {
+      setMsg(t('mzImagesFailed', {why: e instanceof Error ? e.message : 'unknown'}));
+    }
+    setRunning(null);
+  }
 
   /** Translate one article out of `from` into every other locale. */
   async function translateAll(slug: string, from: string) {
@@ -160,12 +209,24 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
     }
 
     const current = posts.find((p) => p.id === id);
+
+    /* Every language's body carries the same picture addresses, because the
+       translator copies them across untouched. A picture filled in above is
+       therefore fixed in all nine at once — otherwise the Korean article
+       would come right and the other eight would stay broken. */
+    const bodies: LocaleText = {...((current?.body ?? {}) as LocaleText)};
+    for (const [from, to] of Object.entries(swaps)) {
+      for (const loc of Object.keys(bodies)) {
+        bodies[loc] = bodies[loc].replaceAll(`src="${from}"`, `src="${to}"`);
+      }
+    }
+
     const row = {
       slug,
       cover: f.cover.trim() || null,
       title: merge(current?.title, f.title),
       dek: merge(current?.dek, f.dek),
-      body: merge(current?.body, body),
+      body: {...bodies, ...merge(bodies, body)},
       published: f.published,
       published_at: new Date(`${f.date}T09:00:00Z`).toISOString()
     };
@@ -180,6 +241,7 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
       return;
     }
     setMsg(pictures ? `${t('saved')} ${pictures}` : t('saved'));
+    setSwaps({});
     startNew();
     router.refresh();
     // The article is saved either way; translating is what happens next.
@@ -209,12 +271,32 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
               disabled={Boolean(id)}
             />
           </label>
+          {/* The cover takes a paste or a drop as well — it is a picture
+              like any other, and typing a path for a file that does not
+              exist yet is how the last one ended up blank. */}
           <label>
             {t('mzCover')}
             <input
               value={f.cover}
               onChange={(e) => set('cover', e.target.value)}
-              placeholder="/hero/s5.webp"
+              onPaste={(e) => {
+                const files = [...e.clipboardData.files];
+                if (files.some((x) => x.type.startsWith('image/'))) {
+                  e.preventDefault();
+                  void coverImage(files[0]);
+                }
+              }}
+              onDragOver={(e) => {
+                if (e.dataTransfer.types.includes('Files')) e.preventDefault();
+              }}
+              onDrop={(e) => {
+                const file = e.dataTransfer.files[0];
+                if (file?.type.startsWith('image/')) {
+                  e.preventDefault();
+                  void coverImage(file);
+                }
+              }}
+              placeholder={t('mzCoverHint')}
             />
           </label>
           <label>
@@ -248,10 +330,28 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
         <label className="adm-wide">
           {t('mzBody')}
           <textarea
+            ref={bodyRef}
             className="mz-html"
             rows={16}
             value={f.body}
             onChange={(e) => set('body', e.target.value)}
+            onPaste={(e) => {
+              const files = [...e.clipboardData.files];
+              if (files.some((x) => x.type.startsWith('image/'))) {
+                e.preventDefault();
+                void pasteImage(files);
+              }
+            }}
+            onDragOver={(e) => {
+              if (e.dataTransfer.types.includes('Files')) e.preventDefault();
+            }}
+            onDrop={(e) => {
+              const files = [...e.dataTransfer.files];
+              if (files.some((x) => x.type.startsWith('image/'))) {
+                e.preventDefault();
+                void pasteImage(files);
+              }
+            }}
             placeholder="<p>…</p>"
             spellCheck={false}
           />
@@ -267,6 +367,14 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
             </>
           )}
         </p>
+
+        <ArticleImages
+          slug={f.slug}
+          body={f.body}
+          onBody={(next) => set('body', next)}
+          onReplace={(from, to) => setSwaps((s) => ({...s, [from]: to}))}
+          supabase={supabase}
+        />
 
         <div className="adm-actions">
           <label className="adm-check">

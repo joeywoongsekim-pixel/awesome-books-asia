@@ -294,7 +294,17 @@
     "Storing pictures… {done}/{total}": "사진 저장 중… {done}/{total}",
     "{n} picture(s) stored on the site.": "사진 {n}장을 사이트에 저장했습니다.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "붙여넣은 사진 {n}장은 저장할 때 사이트에 올라갑니다.",
-    "Nothing was saved — a picture could not be stored: {why}": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}",
+    "Paste a picture here, or drop one in": "여기에 이미지를 붙여넣거나 끌어다 놓으세요",
+    "Choose a file": "파일 고르기",
+    "Copy address": "주소 복사",
+    "Copied": "복사했습니다",
+    "Could not reach the clipboard — select the address and copy it.": "클립보드에 접근하지 못했습니다 — 주소를 직접 선택해 복사해 주세요.",
+    "pasted": "붙여넣은 이미지",
+    "That is not a picture.": "이미지 파일이 아닙니다.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "이 글의 이미지 {n}장이 아직 어디에도 없습니다. 각 자리에 파일을 끌어다 놓으세요.",
+    "Use a file": "파일 넣기",
+    "paste a picture, or /hero/s5.webp": "이미지를 붙여넣거나 /hero/s5.webp"
   },
   "ja": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — 机全体を読む",
@@ -591,7 +601,17 @@
     "Storing pictures… {done}/{total}": "画像を保存中… {done}/{total}",
     "{n} picture(s) stored on the site.": "画像{n}点をサイトに保存しました。",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "貼り付けた画像{n}点は保存時にサイトへ格納されます。",
-    "Nothing was saved — a picture could not be stored: {why}": "保存しませんでした — 画像を格納できません: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "保存しませんでした — 画像を格納できません: {why}",
+    "Paste a picture here, or drop one in": "ここに画像を貼り付けるか、ドラッグしてください",
+    "Choose a file": "ファイルを選ぶ",
+    "Copy address": "アドレスをコピー",
+    "Copied": "コピーしました",
+    "Could not reach the clipboard — select the address and copy it.": "クリップボードに接続できません — アドレスを選んでコピーしてください。",
+    "pasted": "貼り付けた画像",
+    "That is not a picture.": "画像ファイルではありません。",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "この記事の画像{n}点がまだどこにもありません。それぞれにファイルをドロップしてください。",
+    "Use a file": "ファイルを入れる",
+    "paste a picture, or /hero/s5.webp": "画像を貼り付けるか /hero/s5.webp"
   },
   "fil": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Basahin ang buong mesa",
@@ -884,7 +904,17 @@
     "Storing pictures… {done}/{total}": "Iniimbak ang mga larawan… {done}/{total}",
     "{n} picture(s) stored on the site.": "{n} larawan ang naimbak sa site.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "Ang {n} idinikit na larawan ay maiimbak sa site kapag nag-save ka.",
-    "Nothing was saved — a picture could not be stored: {why}": "Walang na-save — hindi maimbak ang isang larawan: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "Walang na-save — hindi maimbak ang isang larawan: {why}",
+    "Paste a picture here, or drop one in": "Idikit dito ang larawan, o i-drag papasok",
+    "Choose a file": "Pumili ng file",
+    "Copy address": "Kopyahin ang address",
+    "Copied": "Nakopya",
+    "Could not reach the clipboard — select the address and copy it.": "Hindi maabot ang clipboard — piliin at kopyahin ang address.",
+    "pasted": "idinikit na larawan",
+    "That is not a picture.": "Hindi iyon larawan.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "Ang {n} larawan sa artikulong ito ay wala pa kahit saan. I-drop ang tamang file sa bawat isa.",
+    "Use a file": "Gumamit ng file",
+    "paste a picture, or /hero/s5.webp": "idikit ang larawan, o /hero/s5.webp"
   },
   "de": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lesen Sie den ganzen Schreibtisch",
@@ -1177,7 +1207,17 @@
     "Storing pictures… {done}/{total}": "Bilder werden gespeichert… {done}/{total}",
     "{n} picture(s) stored on the site.": "{n} Bild(er) auf der Website gespeichert.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "{n} eingefügte(s) Bild(er) werden beim Speichern auf der Website abgelegt.",
-    "Nothing was saved — a picture could not be stored: {why}": "Nichts gespeichert — ein Bild ließ sich nicht ablegen: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "Nichts gespeichert — ein Bild ließ sich nicht ablegen: {why}",
+    "Paste a picture here, or drop one in": "Bild hier einfügen oder hineinziehen",
+    "Choose a file": "Datei wählen",
+    "Copy address": "Adresse kopieren",
+    "Copied": "Kopiert",
+    "Could not reach the clipboard — select the address and copy it.": "Zwischenablage nicht erreichbar — Adresse markieren und kopieren.",
+    "pasted": "eingefügtes Bild",
+    "That is not a picture.": "Das ist kein Bild.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} Bild(er) dieses Beitrags liegen noch nirgends. Ziehen Sie die passende Datei auf jedes.",
+    "Use a file": "Datei einsetzen",
+    "paste a picture, or /hero/s5.webp": "Bild einfügen oder /hero/s5.webp"
   },
   "fr": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lisez tout le bureau",
@@ -1470,7 +1510,17 @@
     "Storing pictures… {done}/{total}": "Enregistrement des images… {done}/{total}",
     "{n} picture(s) stored on the site.": "{n} image(s) enregistrée(s) sur le site.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "{n} image(s) collée(s) seront déposées sur le site à l'enregistrement.",
-    "Nothing was saved — a picture could not be stored: {why}": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}",
+    "Paste a picture here, or drop one in": "Collez une image ici, ou déposez-la",
+    "Choose a file": "Choisir un fichier",
+    "Copy address": "Copier l'adresse",
+    "Copied": "Copié",
+    "Could not reach the clipboard — select the address and copy it.": "Presse-papiers inaccessible — sélectionnez l'adresse et copiez-la.",
+    "pasted": "image collée",
+    "That is not a picture.": "Ce n'est pas une image.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} image(s) de cet article ne sont encore nulle part. Déposez le bon fichier sur chacune.",
+    "Use a file": "Utiliser un fichier",
+    "paste a picture, or /hero/s5.webp": "collez une image, ou /hero/s5.webp"
   },
   "es": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Lee el escritorio entero",
@@ -1763,7 +1813,17 @@
     "Storing pictures… {done}/{total}": "Guardando imágenes… {done}/{total}",
     "{n} picture(s) stored on the site.": "{n} imagen(es) guardada(s) en el sitio.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "Las {n} imagen(es) pegadas se guardarán en el sitio al guardar.",
-    "Nothing was saved — a picture could not be stored: {why}": "No se guardó nada — no se pudo guardar una imagen: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "No se guardó nada — no se pudo guardar una imagen: {why}",
+    "Paste a picture here, or drop one in": "Pega una imagen aquí, o suéltala dentro",
+    "Choose a file": "Elegir archivo",
+    "Copy address": "Copiar dirección",
+    "Copied": "Copiado",
+    "Could not reach the clipboard — select the address and copy it.": "No se pudo acceder al portapapeles — selecciona la dirección y cópiala.",
+    "pasted": "imagen pegada",
+    "That is not a picture.": "Eso no es una imagen.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} imagen(es) de este artículo no están en ningún sitio todavía. Suelta el archivo correcto en cada una.",
+    "Use a file": "Usar un archivo",
+    "paste a picture, or /hero/s5.webp": "pega una imagen, o /hero/s5.webp"
   },
   "pt": {
     "AwesomeBooks — Read the whole desk": "AwesomeBooks — Leia a mesa inteira",
@@ -2056,6 +2116,16 @@
     "Storing pictures… {done}/{total}": "Guardando imagens… {done}/{total}",
     "{n} picture(s) stored on the site.": "{n} imagem(ns) guardada(s) no site.",
     "{n} pasted-in picture(s) will be stored on the site when you save.": "As {n} imagem(ns) coladas serão guardadas no site ao salvar.",
-    "Nothing was saved — a picture could not be stored: {why}": "Nada foi salvo — não foi possível guardar uma imagem: {why}"
+    "Nothing was saved — a picture could not be stored: {why}": "Nada foi salvo — não foi possível guardar uma imagem: {why}",
+    "Paste a picture here, or drop one in": "Cole uma imagem aqui, ou arraste para dentro",
+    "Choose a file": "Escolher arquivo",
+    "Copy address": "Copiar endereço",
+    "Copied": "Copiado",
+    "Could not reach the clipboard — select the address and copy it.": "Não foi possível acessar a área de transferência — selecione o endereço e copie.",
+    "pasted": "imagem colada",
+    "That is not a picture.": "Isso não é uma imagem.",
+    "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.": "{n} imagem(ns) deste artigo ainda não estão em lugar nenhum. Solte o arquivo certo em cada uma.",
+    "Use a file": "Usar um arquivo",
+    "paste a picture, or /hero/s5.webp": "cole uma imagem, ou /hero/s5.webp"
   }
 }

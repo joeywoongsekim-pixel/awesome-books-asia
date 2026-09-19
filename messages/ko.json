@@ -407,7 +407,17 @@
     "mzImages": "사진 저장 중… {done}/{total}",
     "mzImagesStored": "사진 {n}장을 사이트에 저장했습니다.",
     "mzImagesFound": "붙여넣은 사진 {n}장은 저장할 때 사이트에 올라갑니다.",
-    "mzImagesFailed": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}"
+    "mzImagesFailed": "저장하지 않았습니다 — 사진을 올리지 못했습니다: {why}",
+    "mzDropHint": "여기에 이미지를 붙여넣거나 끌어다 놓으세요",
+    "mzChooseFile": "파일 고르기",
+    "mzCopy": "주소 복사",
+    "mzCopied": "복사했습니다",
+    "mzCopyFailed": "클립보드에 접근하지 못했습니다 — 주소를 직접 선택해 복사해 주세요.",
+    "mzPasted": "붙여넣은 이미지",
+    "mzNotAPicture": "이미지 파일이 아닙니다.",
+    "mzMissing": "이 글의 이미지 {n}장이 아직 어디에도 없습니다. 각 자리에 파일을 끌어다 놓으세요.",
+    "mzFillSlot": "파일 넣기",
+    "mzCoverHint": "이미지를 붙여넣거나 /hero/s5.webp"
   },
   "paywall": {
     "title": "샘플은 여기까지입니다",

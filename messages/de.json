@@ -407,7 +407,17 @@
     "mzImages": "Bilder werden gespeichert… {done}/{total}",
     "mzImagesStored": "{n} Bild(er) auf der Website gespeichert.",
     "mzImagesFound": "{n} eingefügte(s) Bild(er) werden beim Speichern auf der Website abgelegt.",
-    "mzImagesFailed": "Nichts gespeichert — ein Bild ließ sich nicht ablegen: {why}"
+    "mzImagesFailed": "Nichts gespeichert — ein Bild ließ sich nicht ablegen: {why}",
+    "mzDropHint": "Bild hier einfügen oder hineinziehen",
+    "mzChooseFile": "Datei wählen",
+    "mzCopy": "Adresse kopieren",
+    "mzCopied": "Kopiert",
+    "mzCopyFailed": "Zwischenablage nicht erreichbar — Adresse markieren und kopieren.",
+    "mzPasted": "eingefügtes Bild",
+    "mzNotAPicture": "Das ist kein Bild.",
+    "mzMissing": "{n} Bild(er) dieses Beitrags liegen noch nirgends. Ziehen Sie die passende Datei auf jedes.",
+    "mzFillSlot": "Datei einsetzen",
+    "mzCoverHint": "Bild einfügen oder /hero/s5.webp"
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

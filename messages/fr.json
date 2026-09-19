@@ -407,7 +407,17 @@
     "mzImages": "Enregistrement des images… {done}/{total}",
     "mzImagesStored": "{n} image(s) enregistrée(s) sur le site.",
     "mzImagesFound": "{n} image(s) collée(s) seront déposées sur le site à l'enregistrement.",
-    "mzImagesFailed": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}"
+    "mzImagesFailed": "Rien n'a été enregistré — une image n'a pas pu être déposée : {why}",
+    "mzDropHint": "Collez une image ici, ou déposez-la",
+    "mzChooseFile": "Choisir un fichier",
+    "mzCopy": "Copier l'adresse",
+    "mzCopied": "Copié",
+    "mzCopyFailed": "Presse-papiers inaccessible — sélectionnez l'adresse et copiez-la.",
+    "mzPasted": "image collée",
+    "mzNotAPicture": "Ce n'est pas une image.",
+    "mzMissing": "{n} image(s) de cet article ne sont encore nulle part. Déposez le bon fichier sur chacune.",
+    "mzFillSlot": "Utiliser un fichier",
+    "mzCoverHint": "collez une image, ou /hero/s5.webp"
   },
   "paywall": {
     "title": "L'extrait se termine ici",

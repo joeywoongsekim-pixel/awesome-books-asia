@@ -407,7 +407,17 @@
     "mzImages": "Guardando imagens… {done}/{total}",
     "mzImagesStored": "{n} imagem(ns) guardada(s) no site.",
     "mzImagesFound": "As {n} imagem(ns) coladas serão guardadas no site ao salvar.",
-    "mzImagesFailed": "Nada foi salvo — não foi possível guardar uma imagem: {why}"
+    "mzImagesFailed": "Nada foi salvo — não foi possível guardar uma imagem: {why}",
+    "mzDropHint": "Cole uma imagem aqui, ou arraste para dentro",
+    "mzChooseFile": "Escolher arquivo",
+    "mzCopy": "Copiar endereço",
+    "mzCopied": "Copiado",
+    "mzCopyFailed": "Não foi possível acessar a área de transferência — selecione o endereço e copie.",
+    "mzPasted": "imagem colada",
+    "mzNotAPicture": "Isso não é uma imagem.",
+    "mzMissing": "{n} imagem(ns) deste artigo ainda não estão em lugar nenhum. Solte o arquivo certo em cada uma.",
+    "mzFillSlot": "Usar um arquivo",
+    "mzCoverHint": "cole uma imagem, ou /hero/s5.webp"
   },
   "paywall": {
     "title": "A amostra termina aqui",

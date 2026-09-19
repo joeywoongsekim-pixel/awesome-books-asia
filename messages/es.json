@@ -407,7 +407,17 @@
     "mzImages": "Guardando imágenes… {done}/{total}",
     "mzImagesStored": "{n} imagen(es) guardada(s) en el sitio.",
     "mzImagesFound": "Las {n} imagen(es) pegadas se guardarán en el sitio al guardar.",
-    "mzImagesFailed": "No se guardó nada — no se pudo guardar una imagen: {why}"
+    "mzImagesFailed": "No se guardó nada — no se pudo guardar una imagen: {why}",
+    "mzDropHint": "Pega una imagen aquí, o suéltala dentro",
+    "mzChooseFile": "Elegir archivo",
+    "mzCopy": "Copiar dirección",
+    "mzCopied": "Copiado",
+    "mzCopyFailed": "No se pudo acceder al portapapeles — selecciona la dirección y cópiala.",
+    "mzPasted": "imagen pegada",
+    "mzNotAPicture": "Eso no es una imagen.",
+    "mzMissing": "{n} imagen(es) de este artículo no están en ningún sitio todavía. Suelta el archivo correcto en cada una.",
+    "mzFillSlot": "Usar un archivo",
+    "mzCoverHint": "pega una imagen, o /hero/s5.webp"
   },
   "paywall": {
     "title": "La muestra termina aquí",
