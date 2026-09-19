@@ -14,7 +14,8 @@
     "library": "My Library",
     "language": "English",
     "cta": "Read a sample",
-    "menu": "Menu"
+    "menu": "Menu",
+    "magazine": "Awesome Magazine"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -244,28 +245,6 @@
     "thanks": "Thank you — we have it, and we will write back.",
     "failed": "That did not go through. Please write to <mail>contact@awesomebooks.asia</mail>."
   },
-  "journal": {
-    "title": "From the editors",
-    "readMore": "Go to the book →",
-    "p1": {
-      "no": "Note 01",
-      "title": "A prompt isn't a question.<br>It's a work order.",
-      "desc": "Chapter 3 was the one we rewrote most while making Awesome AI Bible 2026. Role, context, task, format, constraint — write all five down and the same result comes back the next time. That is the difference between a hobby and work."
-    },
-    "p2": {
-      "no": "Note 02",
-      "title": "Why the ninja cat<br>fails every time",
-      "desc": "Kuro is the clumsiest ninja cat in the village. Every mission goes wrong, and it goes wrong in exactly the way a child hopes it will. A picture book for ages 4–8, published in Korean and Japanese together."
-    },
-    "p3": {
-      "no": "Note 03",
-      "title": "Learning to start a business<br>in a kingdom with no prices",
-      "desc": "An Introduction to ISEKAI Entrepreneurship teaches business without a textbook in sight. A founder lands in a kingdom that has never heard of a fixed price and builds its markets one at a time."
-    }
-  },
-  "recent": {
-    "title": "Recently viewed"
-  },
   "admin": {
     "title": "Admin",
     "overview": "Overview",
@@ -404,7 +383,20 @@
     "messageCol": "Message",
     "kindLetter": "Letter",
     "kindContact": "Contact",
-    "mailAll": "Mail all {n}"
+    "mailAll": "Mail all {n}",
+    "magazine": "Magazine",
+    "mzCover": "Cover image",
+    "mzDate": "Date",
+    "mzLang": "Writing in",
+    "mzLangs": "Languages",
+    "mzDek": "Standfirst",
+    "mzDekHint": "One line, shown on the home page and in the list",
+    "mzBody": "Article (HTML)",
+    "mzBodyHint": "Plain HTML: <p>, <h2>, <ul>, <blockquote>, <img>, <a>. Scripts and embeds are stripped before the page is served.",
+    "mzPreview": "Preview",
+    "mzNew": "New article",
+    "mzSlugBad": "The address may use lower-case letters, numbers and hyphens only.",
+    "mzTitleNeeded": "A title is needed in this language."
   },
   "paywall": {
     "title": "The sample ends here",
@@ -538,5 +530,19 @@
     "ku": "Kindle Unlimited",
     "worldwide": "One edition, on every Amazon store. The link opens yours, where Amazon shows you its own price.",
     "hideToday": "Don't show today"
+  },
+  "magazine": {
+    "title": "Awesome Magazine",
+    "eyebrow": "The magazine",
+    "lead": "Notes from the editors — on the books we are making, the ideas behind them, and what a changing era is about to ask of the people who read them.",
+    "read": "Read the article →",
+    "all": "All articles →",
+    "more": "More from the magazine",
+    "backToList": "Back to the magazine",
+    "empty": "The first article is on its way.",
+    "prev": "Newer articles",
+    "next": "Older articles",
+    "pagesLabel": "Pagination",
+    "count": "Page {page} of {pages} · {per} articles a page"
   }
 }

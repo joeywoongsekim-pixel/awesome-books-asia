@@ -6,17 +6,25 @@ import Categories from '../../../components/home/Categories';
 import People from '../../../components/home/People';
 import Spotlights from '../../../components/home/Spotlights';
 import Newsletter from '../../../components/home/Newsletter';
-import Journal from '../../../components/home/Journal';
-import RecentlyViewed from '../../../components/home/RecentlyViewed';
+import Magazine from '../../../components/home/Magazine';
 import UspBar from '../../../components/home/UspBar';
 
 // Homepage skeleton: book hero (one title at a time, full-bleed) → the
 // shelf (tabbed, books standing) → categories → the people → Awesome
-// Reader → newsletter → journal → USP bar → the philosophy carousel,
-// which closes the page just above the footer. How-to-buy used to sit
-// after the reader; it moved to its own page, because a visitor who has
-// not seen a book yet does not need the terms first. The announce bar and
-// sticky nav live in the (site) layout.
+// Reader → newsletter → Awesome Magazine → USP bar → the philosophy
+// carousel, which closes the page just above the footer. How-to-buy used
+// to sit after the reader; it moved to its own page, because a visitor who
+// has not seen a book yet does not need the terms first. The editors'
+// notes and the recently-viewed shelf stood where the magazine is now: the
+// first was three cards frozen into the translation files, the second
+// showed most visitors nothing at all. The announce bar and the sticky nav
+// live in the (site) layout.
+//
+// The magazine reads the database, so the page refreshes on a timer rather
+// than staying frozen at build: a new article appears within ten minutes
+// without a deploy, and the HTML stays prerendered for everyone else.
+export const revalidate = 600;
+
 export default async function HomePage({
   params
 }: {
@@ -34,8 +42,7 @@ export default async function HomePage({
       <People />
       <Spotlights />
       <Newsletter />
-      <Journal />
-      <RecentlyViewed />
+      <Magazine locale={locale} />
       <UspBar />
       <HeroVision />
     </>

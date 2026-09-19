@@ -6,7 +6,6 @@ import {Link} from '../../../../../i18n/navigation';
 import {BOOKS, CAT_KEY, catsOf, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import BookCover from '../../../../../components/BookCover';
-import RecordVisit from '../../../../../components/RecordVisit';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import LangTabs from '../../../../../components/store/LangTabs';
 import {blurbOf, tocOf} from '../../../../../lib/blurbs';
@@ -57,7 +56,6 @@ function BookDetail({book}: {book: Book}) {
 
   return (
     <div className="detail">
-      <RecordVisit slug={book.id} />
       <div className="crumb">
         <Link href="/">{tNav('home')}</Link>
         <i>›</i>

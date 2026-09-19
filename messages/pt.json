@@ -14,7 +14,8 @@
     "library": "Minha biblioteca",
     "language": "Português",
     "cta": "Ler uma amostra",
-    "menu": "Menu"
+    "menu": "Menu",
+    "magazine": "Awesome Magazine"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -244,28 +245,6 @@
     "thanks": "Obrigado — recebemos e vamos responder.",
     "failed": "Não foi enviado. Escreva para <mail>contact@awesomebooks.asia</mail>."
   },
-  "journal": {
-    "title": "Da redação",
-    "readMore": "Ir ao livro →",
-    "p1": {
-      "no": "Nota 01",
-      "title": "Um prompt não é uma pergunta.<br>É uma ordem de serviço.",
-      "desc": "O capítulo 3 foi o que mais reescrevemos ao fazer Awesome AI Bible 2026. Papel, contexto, tarefa, formato, restrição — escreva os cinco e o mesmo resultado volta da próxima vez. Essa é a diferença entre um passatempo e um trabalho."
-    },
-    "p2": {
-      "no": "Nota 02",
-      "title": "Por que o gato ninja<br>falha sempre",
-      "desc": "Kuro é o gato ninja mais desastrado da aldeia. Toda missão dá errado, e dá errado exatamente como uma criança espera. Um livro ilustrado para 4–8 anos, publicado em coreano e japonês ao mesmo tempo."
-    },
-    "p3": {
-      "no": "Nota 03",
-      "title": "Aprender a empreender<br>num reino sem preços",
-      "desc": "An Introduction to ISEKAI Entrepreneurship ensina negócios sem nenhum manual. Um fundador cai num reino que nunca ouviu falar de preço fixo e constrói seus mercados um a um."
-    }
-  },
-  "recent": {
-    "title": "Vistos recentemente"
-  },
   "admin": {
     "title": "Admin",
     "overview": "Visão geral",
@@ -404,7 +383,20 @@
     "messageCol": "Mensagem",
     "kindLetter": "Carta",
     "kindContact": "Contato",
-    "mailAll": "Enviar para {n}"
+    "mailAll": "Enviar para {n}",
+    "magazine": "Revista",
+    "mzCover": "Imagem de capa",
+    "mzDate": "Data",
+    "mzLang": "Idioma de redação",
+    "mzLangs": "Idiomas",
+    "mzDek": "Linha de apoio",
+    "mzDekHint": "Uma linha, mostrada na home e na lista",
+    "mzBody": "Artigo (HTML)",
+    "mzBodyHint": "HTML simples: <p>, <h2>, <ul>, <blockquote>, <img>, <a>. Scripts e incorporações são removidos antes de servir a página.",
+    "mzPreview": "Pré-visualizar",
+    "mzNew": "Novo artigo",
+    "mzSlugBad": "O endereço aceita apenas minúsculas, números e hífens.",
+    "mzTitleNeeded": "Falta o título neste idioma."
   },
   "paywall": {
     "title": "A amostra termina aqui",
@@ -538,5 +530,19 @@
     "ku": "Kindle Unlimited",
     "worldwide": "Uma só edição, em todas as lojas Amazon. O link abre a sua, onde a Amazon mostra o preço de lá.",
     "hideToday": "Não mostrar hoje"
+  },
+  "magazine": {
+    "title": "Awesome Magazine",
+    "eyebrow": "A revista",
+    "lead": "Notas da redação — sobre os livros que estamos fazendo, as ideias por trás deles e o que um tempo em mudança está prestes a pedir de quem os lê.",
+    "read": "Ler o artigo →",
+    "all": "Todos os artigos →",
+    "more": "Mais da revista",
+    "backToList": "Voltar à revista",
+    "empty": "O primeiro artigo está a caminho.",
+    "prev": "Artigos recentes",
+    "next": "Artigos anteriores",
+    "pagesLabel": "Paginação",
+    "count": "Página {page} de {pages} · {per} artigos por página"
   }
 }

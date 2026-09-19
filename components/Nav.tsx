@@ -38,6 +38,7 @@ export default function Nav() {
     {key: 'home', href: '/'},
     {key: 'bookstore', href: '/books'},
     {key: 'reader', href: '/#reader'},
+    {key: 'magazine', href: '/magazine'},
     {key: 'plans', href: '/plans'},
     {key: 'contact', href: '/contact'}
   ] as const;

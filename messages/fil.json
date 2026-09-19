@@ -14,7 +14,8 @@
     "library": "Aking Aklatan",
     "language": "Filipino",
     "cta": "Basahin ang sample",
-    "menu": "Menu"
+    "menu": "Menu",
+    "magazine": "Awesome Magazine"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -244,28 +245,6 @@
     "thanks": "Salamat — natanggap namin, at sasagot kami.",
     "failed": "Hindi naipadala. Sumulat po sa <mail>contact@awesomebooks.asia</mail>."
   },
-  "journal": {
-    "title": "Mula sa mga editor",
-    "readMore": "Pumunta sa aklat →",
-    "p1": {
-      "no": "Tala 01",
-      "title": "Ang prompt ay hindi tanong.<br>Ito ay work order.",
-      "desc": "Ang Kabanata 3 ang pinakamaraming beses naming muling isinulat sa Awesome AI Bible 2026. Role, context, task, format, constraint — isulat ang lahat ng lima at babalik ang parehong resulta sa susunod. Iyan ang pagkakaiba ng libangan at trabaho."
-    },
-    "p2": {
-      "no": "Tala 02",
-      "title": "Bakit laging nabibigo<br>ang ninja cat",
-      "desc": "Si Kuro ang pinakamalikot na ninja cat sa nayon. Bawat misyon ay nagkakamali — at nagkakamali nang eksaktong inaasahan ng bata. Isang picture book para sa edad 4–8, sabay na inilathala sa Korean at Japanese."
-    },
-    "p3": {
-      "no": "Tala 03",
-      "title": "Pag-aaral ng negosyo<br>sa kahariang walang presyo",
-      "desc": "Ang An Introduction to ISEKAI Entrepreneurship ay nagtuturo ng negosyo nang walang textbook. Isang founder ang napadpad sa kahariang hindi pa nakarinig ng fixed price at itinatayo ang mga pamilihan nito isa-isa."
-    }
-  },
-  "recent": {
-    "title": "Kamakailang tiningnan"
-  },
   "admin": {
     "title": "Admin",
     "overview": "Pangkalahatan",
@@ -404,7 +383,20 @@
     "messageCol": "Mensahe",
     "kindLetter": "Sulat",
     "kindContact": "Contact",
-    "mailAll": "I-mail ang {n}"
+    "mailAll": "I-mail ang {n}",
+    "magazine": "Magasin",
+    "mzCover": "Larawang pantakip",
+    "mzDate": "Petsa",
+    "mzLang": "Wikang isinusulat",
+    "mzLangs": "Mga wika",
+    "mzDek": "Isang linya",
+    "mzDekHint": "Isang linyang lumalabas sa home at sa listahan",
+    "mzBody": "Artikulo (HTML)",
+    "mzBodyHint": "Payak na HTML: <p>, <h2>, <ul>, <blockquote>, <img>, <a>. Inaalis ang script at embed bago ihain ang pahina.",
+    "mzPreview": "Silip",
+    "mzNew": "Bagong artikulo",
+    "mzSlugBad": "Maliliit na titik, numero at gitling lamang ang puwede sa address.",
+    "mzTitleNeeded": "Kailangan ng pamagat sa wikang ito."
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",
@@ -538,5 +530,19 @@
     "ku": "Kindle Unlimited",
     "worldwide": "Iisang edisyon, nasa bawat Amazon store. Bubuksan ng link ang sa inyo, at doon ipapakita ng Amazon ang sarili nitong presyo.",
     "hideToday": "Huwag ipakita ngayong araw"
+  },
+  "magazine": {
+    "title": "Awesome Magazine",
+    "eyebrow": "Ang magasin",
+    "lead": "Mga tala mula sa mga editor — tungkol sa mga aklat na ginagawa namin, sa mga ideyang nasa likod ng mga ito, at sa itatanong ng nagbabagong panahon sa mga bumabasa.",
+    "read": "Basahin ang artikulo →",
+    "all": "Lahat ng artikulo →",
+    "more": "Iba pa mula sa magasin",
+    "backToList": "Balik sa magasin",
+    "empty": "Paparating na ang unang artikulo.",
+    "prev": "Mga bagong artikulo",
+    "next": "Mga lumang artikulo",
+    "pagesLabel": "Paglipat ng pahina",
+    "count": "Pahina {page} ng {pages} · {per} artikulo bawat pahina"
   }
 }

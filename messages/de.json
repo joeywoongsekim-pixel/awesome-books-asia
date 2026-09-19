@@ -14,7 +14,8 @@
     "library": "Meine Bibliothek",
     "language": "Deutsch",
     "cta": "Leseprobe",
-    "menu": "Menü"
+    "menu": "Menü",
+    "magazine": "Awesome Magazine"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -244,28 +245,6 @@
     "thanks": "Danke — wir haben es, und wir antworten.",
     "failed": "Das ging nicht durch. Bitte schreiben Sie an <mail>contact@awesomebooks.asia</mail>."
   },
-  "journal": {
-    "title": "Aus der Redaktion",
-    "readMore": "Zum Buch →",
-    "p1": {
-      "no": "Notiz 01",
-      "title": "Ein Prompt ist keine Frage.<br>Er ist ein Arbeitsauftrag.",
-      "desc": "Kapitel 3 haben wir bei Awesome AI Bible 2026 am häufigsten umgeschrieben. Rolle, Kontext, Aufgabe, Format, Einschränkung — schreibt man alle fünf auf, kommt beim nächsten Mal dasselbe Ergebnis zurück. Das ist der Unterschied zwischen Hobby und Arbeit."
-    },
-    "p2": {
-      "no": "Notiz 02",
-      "title": "Warum die Ninja-Katze<br>jedes Mal scheitert",
-      "desc": "Kuro ist die tollpatschigste Ninja-Katze im Dorf. Jede Mission geht schief — genau so, wie ein Kind es sich wünscht. Ein Bilderbuch für 4 bis 8 Jahre, zugleich auf Koreanisch und Japanisch erschienen."
-    },
-    "p3": {
-      "no": "Notiz 03",
-      "title": "Gründen lernen in einem Königreich<br>ohne Preise",
-      "desc": "An Introduction to ISEKAI Entrepreneurship lehrt Wirtschaft ganz ohne Lehrbuch. Ein Gründer landet in einem Königreich, das noch nie von einem Festpreis gehört hat, und baut dessen Märkte einen nach dem anderen auf."
-    }
-  },
-  "recent": {
-    "title": "Zuletzt angesehen"
-  },
   "admin": {
     "title": "Admin",
     "overview": "Übersicht",
@@ -404,7 +383,20 @@
     "messageCol": "Nachricht",
     "kindLetter": "Brief",
     "kindContact": "Kontakt",
-    "mailAll": "An alle {n} mailen"
+    "mailAll": "An alle {n} mailen",
+    "magazine": "Magazin",
+    "mzCover": "Titelbild",
+    "mzDate": "Datum",
+    "mzLang": "Sprache",
+    "mzLangs": "Sprachen",
+    "mzDek": "Vorspann",
+    "mzDekHint": "Eine Zeile, auf der Startseite und in der Liste",
+    "mzBody": "Beitrag (HTML)",
+    "mzBodyHint": "Einfaches HTML: <p>, <h2>, <ul>, <blockquote>, <img>, <a>. Skripte und Einbettungen werden vor der Auslieferung entfernt.",
+    "mzPreview": "Vorschau",
+    "mzNew": "Neuer Beitrag",
+    "mzSlugBad": "Die Adresse darf nur Kleinbuchstaben, Ziffern und Bindestriche enthalten.",
+    "mzTitleNeeded": "In dieser Sprache fehlt der Titel."
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",
@@ -538,5 +530,19 @@
     "ku": "Kindle Unlimited",
     "worldwide": "Eine Ausgabe, in jedem Amazon-Store. Der Link öffnet Ihren, wo Amazon Ihnen den dort gültigen Preis zeigt.",
     "hideToday": "Heute nicht mehr zeigen"
+  },
+  "magazine": {
+    "title": "Awesome Magazine",
+    "eyebrow": "Das Magazin",
+    "lead": "Notizen aus der Redaktion — über die Bücher, an denen wir arbeiten, die Gedanken dahinter und das, was eine sich wandelnde Zeit von ihren Leserinnen und Lesern verlangen wird.",
+    "read": "Beitrag lesen →",
+    "all": "Alle Beiträge →",
+    "more": "Mehr aus dem Magazin",
+    "backToList": "Zurück zum Magazin",
+    "empty": "Der erste Beitrag ist in Arbeit.",
+    "prev": "Neuere Beiträge",
+    "next": "Ältere Beiträge",
+    "pagesLabel": "Seitennavigation",
+    "count": "Seite {page} von {pages} · {per} Beiträge pro Seite"
   }
 }

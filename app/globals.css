@@ -1721,108 +1721,6 @@ footer {
   color: var(--aba-gold);
 }
 
-/* ══════════ JOURNAL (§9.9) ══════════ */
-.jr-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 40px;
-}
-.jr-card {
-  display: flex;
-  flex-direction: column;
-  background: var(--card);
-  border: 1px solid var(--hair-soft);
-  border-top: 3px solid var(--aba-navy);
-  border-radius: 0;
-  padding: 0 0 26px;
-  text-decoration: none;
-  color: inherit;
-  transition: 0.25s;
-}
-.jr-card.gold {
-  border-top-color: var(--aba-gold);
-}
-.jr-card:hover {
-  box-shadow: var(--shadow-navy);
-}
-.jr-vis {
-  height: 220px;
-  display: grid;
-  place-items: center;
-  background: var(--aba-navy);
-  color: var(--aba-cream);
-}
-.jr-card.gold .jr-vis {
-  background: var(--aba-cream);
-  color: var(--aba-navy);
-  border-bottom: 1px solid var(--hair-soft);
-}
-.jr-card:nth-child(3) .jr-vis {
-  background: var(--aba-deep);
-}
-.jr-num {
-  font-family: var(--font-heading);
-  font-size: 46px;
-  font-weight: 900;
-  position: relative;
-  padding-bottom: 12px;
-}
-.jr-num::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  width: 26px;
-  height: 2px;
-  background: var(--lapis);
-}
-.jr-body {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1;
-  padding: 22px 28px 0;
-}
-.jr-k {
-  font-family: var(--font-label);
-  font-size: 9.5px;
-  font-weight: 700;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--aba-gold);
-}
-.jr-t {
-  font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--ink-1);
-}
-.jr-x {
-  font-size: 13.5px;
-  line-height: 1.8;
-  color: var(--ink-2);
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-.jr-l {
-  font-family: var(--font-label);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--aba-navy);
-  transition: 0.2s;
-}
-.jr-card:hover .jr-l {
-  color: var(--aba-gold);
-}
-
 /* ══════════ STORE ══════════ */
 .store-hero {
   padding: 56px 32px 32px;
@@ -3360,8 +3258,7 @@ footer {
   .spot-txt {
     padding: 40px 28px;
   }
-  .plans,
-.jr-grid {
+  .plans {
     grid-template-columns: 1fr;
   }
   .books-head {
@@ -6461,62 +6358,8 @@ html[lang='ja'] .vh-t {
   border-color: var(--lapis-dk);
   color: var(--paper);
 }
-.plan.hot,
-.jr-card.gold {
+.plan.hot {
   border-top-color: var(--night);
-}
-
-/* ── editors' notes: a photograph, then the note ──────────────────────── */
-.jr-card {
-  background: transparent;
-  border: 0;
-  border-top: 0;
-}
-.jr-vis {
-  aspect-ratio: 4 / 3;
-  background: var(--tint);
-  overflow: hidden;
-  display: block;
-  padding: 0;
-}
-.jr-vis img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.6s ease;
-}
-.jr-card:hover .jr-vis img {
-  transform: scale(1.04);
-}
-.jr-body {
-  padding: 18px 0 0;
-}
-.jr-k {
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--stone);
-}
-.jr-t {
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--night);
-  margin: 8px 0 8px;
-}
-.jr-x {
-  font-size: 14.5px;
-  line-height: 1.7;
-  color: var(--stone);
-}
-.jr-l {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--lapis);
 }
 
 /* ── the newsletter stops being a coloured wall ───────────────────────── */
@@ -8348,4 +8191,492 @@ html[lang='hi'] {
    eye reads one body of work rather than two. */
 .pc-wip {
   opacity: 0.78;
+}
+
+/* ══════════ AWESOME MAGAZINE ══════════ */
+/* Two bands on the home page and five down the list, the picture changing
+   sides as you go: one long headline, one line under it, nothing else.
+   The editors' notes this replaces were three equal cards in a row, which
+   read as furniture — a band the width of the page reads as an article. */
+.mz-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.mz-all {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lapis);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mz-all:hover {
+  color: var(--lapis-dk);
+}
+.mz-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  padding: 56px 0;
+  border-top: 1px solid var(--hair-soft);
+}
+.mz-head + * .mz-band,
+.mz-band:first-of-type {
+  border-top: 0;
+}
+/* Picture right by default; .flip puts it left. The markup keeps the
+   picture first either way, so the two orders are a CSS concern and the
+   reading order stays headline-then-picture for a screen reader. */
+.mz-vis {
+  order: 2;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--tint);
+}
+.mz-txt {
+  order: 1;
+}
+.mz-band.flip .mz-vis {
+  order: 1;
+}
+.mz-band.flip .mz-txt {
+  order: 2;
+}
+.mz-vis img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.mz-band:hover .mz-vis img {
+  transform: scale(1.04);
+}
+.mz-k {
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--stone);
+}
+.mz-t {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 12px 0 14px;
+}
+.mz-t a {
+  color: var(--night);
+  text-decoration: none;
+}
+.mz-t a:hover {
+  color: var(--lapis);
+}
+.mz-x {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--stone);
+  margin-bottom: 22px;
+}
+.mz-l {
+  font-family: var(--font-label);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lapis);
+  text-decoration: none;
+}
+.mz-l:hover {
+  color: var(--lapis-dk);
+}
+
+/* the list page */
+.mz-page {
+  background: var(--bg);
+  /* the side gutter a .sec would have given it — without one, the copy on
+     a phone runs into the edge of the screen */
+  padding: 0 32px 72px;
+}
+/* The house centres an .h2 and leaves everything else at the left margin,
+   which reads as a mistake over a 1280 column with no filter row under it.
+   The magazine's own masthead is centred as one block. */
+.mz-page .store-hero {
+  text-align: center;
+  padding: 56px 0 10px;
+}
+.mz-page .store-hero .lead {
+  margin: 0 auto;
+}
+/* .eyebrow is a flex row, so the parent's text-align does not reach it */
+.mz-page .store-hero .eyebrow {
+  justify-content: center;
+}
+
+/* Five to a page, then the arrows with the numbers between them. */
+.mz-pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hair-soft);
+}
+.mz-arrow {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--hair);
+  background: var(--card);
+  color: var(--night);
+  font-size: 17px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.mz-arrow:hover {
+  border-color: var(--lapis);
+  color: var(--lapis);
+}
+.mz-arrow.off {
+  opacity: 0.28;
+}
+.mz-nums {
+  display: flex;
+  gap: 6px;
+}
+.mz-num {
+  display: grid;
+  place-items: center;
+  min-width: 38px;
+  height: 42px;
+  padding: 0 8px;
+  border: 1px solid var(--hair);
+  background: var(--card);
+  color: var(--stone);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.mz-num:hover {
+  border-color: var(--lapis);
+  color: var(--lapis);
+}
+.mz-num.on {
+  background: var(--lapis);
+  border-color: var(--lapis);
+  color: var(--paper);
+}
+.mz-count {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--stone);
+}
+
+/* ── one article ──────────────────────────────────────────────────────── */
+.art {
+  background: var(--bg);
+  padding: 44px 0 80px;
+}
+.art-in {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.art-k {
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--stone);
+  margin-top: 26px;
+}
+.art-t {
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--night);
+  margin: 14px 0 16px;
+}
+.art-d {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--stone);
+  margin-bottom: 32px;
+}
+.art-vis {
+  margin: 0 0 36px;
+  overflow: hidden;
+  background: var(--tint);
+}
+.art-vis img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* The body is HTML someone typed in the console, so the page styles the
+   elements rather than trusting the markup to carry classes. */
+.art-body {
+  font-size: 17px;
+  line-height: 1.85;
+  color: var(--ink-1);
+}
+.art-body > * + * {
+  margin-top: 1.1em;
+}
+.art-body h2 {
+  font-family: var(--font-heading);
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--night);
+  margin-top: 1.9em;
+}
+.art-body h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--night);
+  margin-top: 1.7em;
+}
+.art-body a {
+  color: var(--lapis);
+  text-underline-offset: 3px;
+}
+.art-body ul,
+.art-body ol {
+  padding-left: 1.3em;
+}
+.art-body li + li {
+  margin-top: 0.5em;
+}
+.art-body blockquote {
+  border-left: 3px solid var(--lapis);
+  padding-left: 20px;
+  color: var(--stone);
+  font-size: 18px;
+}
+.art-body img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.art-body figcaption {
+  font-size: 13px;
+  color: var(--stone);
+  margin-top: 8px;
+}
+.art-body hr {
+  border: 0;
+  border-top: 1px solid var(--hair-soft);
+  margin: 2.2em 0;
+}
+.art-body code {
+  font-family: var(--font-label);
+  font-size: 0.9em;
+  background: var(--tint);
+  padding: 2px 5px;
+}
+.art-more {
+  margin-top: 64px;
+  padding-top: 28px;
+  border-top: 1px solid var(--hair-soft);
+}
+.art-more-l {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+}
+.art-more-l li + li {
+  border-top: 1px solid var(--hair-soft);
+}
+.art-more-l a {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  text-decoration: none;
+}
+.art-more-k {
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--stone);
+  white-space: nowrap;
+}
+.art-more-t {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--night);
+}
+.art-more-l a:hover .art-more-t {
+  color: var(--lapis);
+}
+.art-back {
+  display: inline-block;
+  margin-top: 40px;
+}
+
+/* ── the console's side of it ─────────────────────────────────────────── */
+.adm-wide {
+  display: block;
+  margin-top: 16px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.adm-wide input,
+.adm-wide textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  padding: 10px 12px;
+  color: var(--ink-1);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.adm-wide input:focus,
+.adm-wide textarea:focus {
+  border-color: var(--aba-gold);
+}
+.mz-html {
+  font-family: var(--font-label);
+  font-size: 13px !important;
+  line-height: 1.7;
+  resize: vertical;
+}
+.adm-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--ink-2);
+}
+.mz-studio .adm-check {
+  padding-top: 0;
+}
+/* Not .ghost — that name is taken by the drag ghost further up, which is
+   position: fixed and would tear this button out of its row. */
+.ac-btn.quiet {
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  cursor: pointer;
+}
+button.adm-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  cursor: pointer;
+}
+.adm-link.warn {
+  color: var(--aba-red);
+}
+.adm-row-acts {
+  display: flex;
+  gap: 14px;
+  white-space: nowrap;
+}
+/* The preview shows what the HTML will actually look like on the page. */
+.mz-prev {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--hair-soft);
+  background: var(--bg);
+}
+
+@media (max-width: 860px) {
+  /* One column, picture first on every band — alternating sides means
+     nothing when there is only one column to be on. */
+  .mz-band {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 40px 0;
+  }
+  .mz-vis,
+  .mz-band.flip .mz-vis {
+    order: 1;
+  }
+  .mz-txt,
+  .mz-band.flip .mz-txt {
+    order: 2;
+  }
+  .mz-pager {
+    gap: 10px;
+  }
+  .mz-nums {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* The magazine made the menu six items long, and between the burger
+   breakpoint and a wide desktop the row ran into the centred wordmark —
+   worst in German and Filipino, whose words are longest. The bar keeps its
+   shape; the menu just sets tighter until there is room to breathe. */
+@media (min-width: 1081px) and (max-width: 1700px) {
+  .nav-menu {
+    gap: 15px;
+  }
+  .nav-menu a {
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+  }
+  /* A menu item that wraps is not a menu item — "So kaufen Sie" was
+     stacking into three lines rather than admitting the bar was full. */
+  .nav-menu a,
+  .nav-menu li {
+    white-space: nowrap;
+  }
+  /* The bar is 1fr auto 1fr, so the mark sits dead centre however wide the
+     menu grows — and .nav-left may shrink below its contents, which is how
+     a long menu ended up printed over the wordmark. Letting the first
+     track claim its content instead means the mark gives ground when the
+     menu needs it, and stays centred whenever there is room. */
+  .nav-left {
+    min-width: auto;
+  }
+}
+/* Six items, the wordmark and the account menu need about 1400px once the
+   words are German or Filipino, so below that the burger takes over. Korean
+   and Japanese write the same menu in half the width and keep the row down
+   to the ordinary 1080 breakpoint — which is the console's own language and
+   the one this bar is read in most. Everything else about the narrow layout
+   still turns over at 1080. */
+@media (max-width: 1400px) {
+  .nav-menu {
+    display: none;
+  }
+  .nav-burger,
+  .nav-sheet {
+    display: flex;
+  }
+}
+@media (min-width: 1081px) and (max-width: 1400px) {
+  html[lang="ko"] .nav-menu,
+  html[lang="ja"] .nav-menu {
+    display: flex;
+  }
+  html[lang="ko"] .nav-burger,
+  html[lang="ja"] .nav-burger,
+  html[lang="ko"] .nav-sheet,
+  html[lang="ja"] .nav-sheet {
+    display: none;
+  }
 }
