@@ -7242,6 +7242,14 @@ html[lang='hi'] .bh-t {
 html[lang='ja'] {
   --font-display: 'Zen Old Mincho', 'Hahmlet', var(--pretendard);
 }
+/* Hindi needs its own entry: nothing else in the stack carries Devanagari,
+   and Pretendard does not either, so without this the Hindi display layer
+   drops all the way to whatever font the device happens to have — the
+   exact thing --font-devanagari was added to stop. Hahmlet stays in front
+   for the Latin strings that appear on every locale. */
+html[lang='hi'] {
+  --font-display: 'Hahmlet', var(--font-devanagari), var(--pretendard);
+}
 .cats-h,
 .nsh-tabs button,
 .nsh-one,
@@ -7279,4 +7287,20 @@ html[lang='ja'] {
 .ppl-role,
 .eyebrow {
   letter-spacing: 0.16em;
+}
+
+/* The chrome belongs to the display layer too. The nav, the footer's
+   column headings and the strip above it are all the same kind of small
+   tracked label as .eyebrow, so leaving them on the body face split the
+   page in two: editorial serif in the middle, interface sans around the
+   edge. They keep their own sizes and tracking, which are tuned for
+   capitals; only the face changes. The wordmark between them stays
+   Righteous — that is the one thing on the page that should not match. */
+.nav-menu a,
+.nav-sheet a,
+.f-ct,
+.usp-in,
+.usp-city {
+  font-family: var(--font-display);
+  font-synthesis-weight: none;
 }
