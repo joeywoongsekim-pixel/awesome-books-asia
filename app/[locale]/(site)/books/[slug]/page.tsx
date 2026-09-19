@@ -5,7 +5,6 @@ import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
 import {BOOKS, CAT_KEY, catsOf, preferredEdition, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
-import BookCover from '../../../../../components/BookCover';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import {
   EditionCover,
