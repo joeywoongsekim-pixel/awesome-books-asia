@@ -50,8 +50,18 @@ export default function RetailerLinks({
               {/* Kindle Unlimited is not a price, so it is not set in the
                   price slot: a reader with a subscription pays nothing and
                   one without pays the figure beside it. Both are true at
-                  once, and the chip shows both. */}
-              {e.ku ? <b className="store-ku">{t('ku')}</b> : null}
+                  once, and the chip shows both.
+
+                  Amazon's own mark, on the white pill its brand guidance
+                  asks for — the file is the on-white version and its grey
+                  would sink into anything darker. Hosted here rather than
+                  hotlinked off Amazon, which can and does block that. */}
+              {e.ku ? (
+                <b className="store-ku">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src="/brand/kindle-unlimited.svg" alt={t('ku')} />
+                </b>
+              ) : null}
               {e.price ? <b className="store-price">{e.price}</b> : null} ↗
             </a>
           ))}

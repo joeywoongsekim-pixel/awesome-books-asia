@@ -7584,25 +7584,25 @@ html[lang='hi'] {
    Not a price and not a discount: it says a subscriber reads it at no
    further cost, while the figure next to it is what everyone else pays.
    Drawn as an outlined tag so it cannot be mistaken for the price. */
-.store-ku {
-  margin-left: 8px;
-  padding: 1px 6px;
-  border: 1px solid currentColor;
-  border-radius: 2px;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  opacity: 0.72;
-}
-/* The same mark inside the launch popup, which is white on dark. */
+/* Amazon's own mark rather than the words. The file is the on-white
+   version — its wordmark is grey and would sink into a dark chip — so it
+   sits on a small white pill on both surfaces, which is also what Amazon's
+   brand guidance asks for. Its aspect is about 7.75:1, so the height is
+   what is set and the width follows. */
+.store-ku,
 .pmo-b-buy em {
-  font-style: normal;
-  padding: 1px 6px;
-  border: 1px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 3px 7px;
   border-radius: 2px;
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
-  opacity: 0.66;
+  background: #fff;
+  font-style: normal;
+  line-height: 0;
+}
+.store-ku img,
+.pmo-b-buy em img {
+  height: 10px;
+  width: auto;
+  display: block;
 }

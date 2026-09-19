@@ -27,7 +27,8 @@ export const EDITIONS: Record<string, EditionLink[]> = {
       format: 'ebook',
       note: 'What Do Humans Add to AI’s Answers?',
       url: 'https://www.amazon.in/dp/B0HK79Y7KK',
-      price: '₹199'
+      price: '₹199',
+      ku: true
     }
   ],
   'quantum-econ': [

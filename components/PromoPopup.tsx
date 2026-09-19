@@ -119,7 +119,12 @@ export default function PromoPopup() {
                   rel="noopener noreferrer"
                 >
                   Amazon.in
-                  {link.ku ? <em>{t('ku')}</em> : null}
+                  {link.ku ? (
+                    <em>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src="/brand/kindle-unlimited.svg" alt={t('ku')} />
+                    </em>
+                  ) : null}
                   {link.price ? <i>{link.price}</i> : null}
                 </a>
               </div>
