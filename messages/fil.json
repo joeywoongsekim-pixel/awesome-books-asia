@@ -17,10 +17,25 @@
   },
   "home": {
     "badge": "Web reader",
-    "title": "Bubukas ang aklatan mo <em>sa mismong browser</em>. Walang i-i-install.",
-    "subtitle": "Dito magbabasa ang mga subscriber. Bubukas dito mismo ang alinmang aklat sa katalogo — hanggang apat sa mesa nang sabay, sa Koreano, Ingles o Hapon, at natatandaan nito kung saan ka huminto kahit saang device mo ipagpatuloy. Inihahanda pa ang subscription; hangga't hindi pa ito bukas, libre sa lahat ang mga sample.",
+    "title": "Bumubukas ang istante mo <em>sa browser</em>. Walang i-install.",
+    "subtitle": "Dito nagbabasa ang aming mga miyembro — isang mesa kung saan puwedeng nakabukas ang apat na aklat at makalipat-lipat ka.",
+    "points": {
+      "desk": {
+        "t": "Apat na aklat nang sabay",
+        "d": "Iwang nakabukas nang magkatabi at lumipat habang tumatakbo ang isip mo."
+      },
+      "langs": {
+        "t": "Isang aklat, tatlong wika",
+        "d": "Koreano, Ingles at Hapon — lumipat nang hindi nawawala ang pahina."
+      },
+      "resume": {
+        "t": "Itutuloy kung saan ka huminto",
+        "d": "Buksan sa kahit anong device at naroon pa rin ang pahina."
+      }
+    },
     "meta": "Korean · English · Japanese · sa anumang device",
-    "ctaPrimary": "Silipin ang reader",
+    "ctaPrimary": "Buksan ang reader",
+    "ctaNote": "Libreng sample subscription — mag-sign in at bubukas ang aklat.",
     "ctaSecondary": "Tingnan ang bookstore",
     "tags": {
       "four": "Korean · English · Japanese",

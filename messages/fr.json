@@ -17,10 +17,25 @@
   },
   "home": {
     "badge": "Liseuse web",
-    "title": "Votre bibliothèque <em>s'ouvre dans le navigateur</em>. Rien à installer.",
-    "subtitle": "C'est ici que liront les abonnés. N'importe quel livre du catalogue s'ouvre directement — jusqu'à quatre à la fois sur le bureau, en coréen, en anglais ou en japonais, et il retient où vous vous êtes arrêté, quel que soit l'appareil sur lequel vous reprenez. Les abonnements sont encore en préparation ; d'ici là, les extraits restent libres pour tous.",
+    "title": "Votre bibliothèque s'ouvre <em>dans le navigateur</em>. Rien à installer.",
+    "subtitle": "C'est la pièce où lisent nos membres — un bureau où quatre livres restent ouverts et entre lesquels vous circulez.",
+    "points": {
+      "desk": {
+        "t": "Quatre livres à la fois",
+        "d": "Laissez-les ouverts côte à côte et passez de l’un à l’autre en pleine réflexion."
+      },
+      "langs": {
+        "t": "Un livre, trois langues",
+        "d": "Coréen, anglais et japonais — changez sans perdre la page."
+      },
+      "resume": {
+        "t": "Reprend où vous vous êtes arrêté",
+        "d": "Ouvrez-le sur n’importe quel appareil : la page vous attend."
+      }
+    },
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",
-    "ctaPrimary": "Voir le lecteur",
+    "ctaPrimary": "Ouvrir la liseuse",
+    "ctaNote": "Abonnement découverte gratuit — connectez-vous et le livre s’ouvre.",
     "ctaSecondary": "Voir la librairie",
     "tags": {
       "four": "Coréen · Anglais · Japonais",

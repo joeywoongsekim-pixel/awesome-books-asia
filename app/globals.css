@@ -876,7 +876,7 @@ footer {
   right: 0;
   text-align: center;
   font-size: 9.5px;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(240 238 233 / 0.55);
   transform: rotateX(-20deg);
   white-space: nowrap;
   overflow: hidden;
@@ -1046,13 +1046,16 @@ footer {
 
 
 /* ══════════ SPOTLIGHT DEMO STAGE ══════════ */
-/* The interactive mini desk keeps its dark styling; it sits in the deep-navy
-   spotlight panel, presented like a plate in a printed book. */
+/* The desk draws cream pages, a gold hover glow and pale captions — it was
+   built to sit on the deep-navy spotlight panel. A later editorial pass
+   made .spot-vis transparent, which left the shelf labels white on white
+   and the caption all but invisible. The plate now belongs to the desk, so
+   it carries its own ground wherever it is placed. */
 .demo {
-  background: transparent;
+  background: linear-gradient(168deg, var(--aba-deep), var(--night));
   border-radius: 0;
-  padding: 0;
-  box-shadow: none;
+  padding: 44px 26px 34px;
+  box-shadow: 0 26px 60px rgb(18 22 34 / 0.26);
 }
 
 /* ══════════ TYPOGRAPHIC BOOK COVER (§9.5) ══════════ */
@@ -6361,6 +6364,36 @@ html[lang='ja'] .vh-t {
   line-height: 1.75;
   color: var(--stone);
   margin-bottom: 30px;
+}
+/* What the reader actually gives you, three lines instead of a paragraph:
+   the lead says what the room is, these say what you do in it. */
+.spot-points {
+  list-style: none;
+  display: grid;
+  gap: 15px;
+  margin: 0 0 30px;
+}
+.spot-points li {
+  display: grid;
+  gap: 3px;
+  padding-left: 15px;
+  border-left: 2px solid var(--hair);
+}
+.spot-pt {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--night);
+}
+.spot-pd {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+.spot-note {
+  margin-top: 16px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--stone);
 }
 /* one solid button where an action is offered */
 .spot-txt .btn-o {

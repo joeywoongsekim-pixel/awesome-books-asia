@@ -17,10 +17,25 @@
   },
   "home": {
     "badge": "Leitor web",
-    "title": "Sua biblioteca <em>abre no navegador</em>. Nada para instalar.",
-    "subtitle": "É aqui que os assinantes vão ler. Qualquer livro do catálogo abre neste mesmo lugar — até quatro de uma vez sobre a mesa, em coreano, inglês ou japonês, e ele lembra onde você parou em qualquer aparelho. As assinaturas ainda estão sendo preparadas; até lá, as amostras são gratuitas para todos.",
+    "title": "Sua estante abre <em>no navegador</em>. Nada para instalar.",
+    "subtitle": "É a sala onde nossos membros leem — uma mesa em que quatro livros ficam abertos e você circula entre eles.",
+    "points": {
+      "desk": {
+        "t": "Quatro livros ao mesmo tempo",
+        "d": "Deixe-os abertos lado a lado e passe de um para outro no meio do raciocínio."
+      },
+      "langs": {
+        "t": "Um livro, três idiomas",
+        "d": "Coreano, inglês e japonês — troque sem perder a página."
+      },
+      "resume": {
+        "t": "Continua de onde você parou",
+        "d": "Abra em qualquer aparelho e a página está esperando."
+      }
+    },
     "meta": "Coreano · Inglês · Japonês · em qualquer aparelho",
-    "ctaPrimary": "Ver o leitor",
+    "ctaPrimary": "Abrir o leitor",
+    "ctaNote": "Assinatura de amostra gratuita — entre e o livro abre.",
     "ctaSecondary": "Ver a livraria",
     "tags": {
       "four": "Coreano · Inglês · Japonês",

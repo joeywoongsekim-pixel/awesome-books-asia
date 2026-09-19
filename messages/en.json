@@ -17,10 +17,25 @@
   },
   "home": {
     "badge": "Web reader",
-    "title": "Your library <em>opens in the browser</em>. Nothing to install.",
-    "subtitle": "This is where subscribers will read. Any book in the catalogue opens right here — up to four on the desk at once, in Korean, English or Japanese, and it remembers where you stopped whatever you pick up next. Subscriptions are still being set up; until they open, the samples are free for everyone.",
+    "title": "Your shelf opens <em>in the browser</em>. Nothing to install.",
+    "subtitle": "This is the room our members read in — a desk you can leave four books open on and move between.",
+    "points": {
+      "desk": {
+        "t": "Four books at once",
+        "d": "Leave them open side by side and move between them mid-thought."
+      },
+      "langs": {
+        "t": "One book, three languages",
+        "d": "Korean, English and Japanese — switch without losing the page."
+      },
+      "resume": {
+        "t": "Picks up where you stopped",
+        "d": "Open it on any device and the page is waiting."
+      }
+    },
     "meta": "Korean · English · Japanese · any device",
-    "ctaPrimary": "Look inside the reader",
+    "ctaPrimary": "Open the reader",
+    "ctaNote": "Free sample subscription — sign in and the book opens.",
     "ctaSecondary": "Browse the bookstore",
     "tags": {
       "four": "Korean · English · Japanese",

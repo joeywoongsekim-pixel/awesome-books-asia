@@ -17,10 +17,25 @@
   },
   "home": {
     "badge": "Web-Reader",
-    "title": "Ihre Bibliothek <em>öffnet sich im Browser</em>. Nichts zu installieren.",
-    "subtitle": "Hier werden Abonnentinnen und Abonnenten lesen. Jedes Buch des Katalogs öffnet sich direkt hier — bis zu vier gleichzeitig auf dem Tisch, auf Koreanisch, Englisch oder Japanisch, und es merkt sich, wo Sie aufgehört haben, an welchem Gerät Sie auch weiterlesen. Die Abonnements werden noch eingerichtet; bis dahin sind die Leseproben für alle frei.",
+    "title": "Ihr Regal öffnet sich <em>im Browser</em>. Nichts zu installieren.",
+    "subtitle": "Hier lesen unsere Mitglieder — ein Tisch, auf dem vier Bücher offen liegen bleiben und zwischen denen Sie wechseln.",
+    "points": {
+      "desk": {
+        "t": "Vier Bücher zugleich",
+        "d": "Nebeneinander offen liegen lassen und mitten im Gedanken wechseln."
+      },
+      "langs": {
+        "t": "Ein Buch, drei Sprachen",
+        "d": "Koreanisch, Englisch und Japanisch — ohne die Seite zu verlieren."
+      },
+      "resume": {
+        "t": "Weiter, wo Sie aufgehört haben",
+        "d": "Auf jedem Gerät öffnen, und die Seite wartet schon."
+      }
+    },
     "meta": "Koreanisch · Englisch · Japanisch · auf jedem Gerät",
-    "ctaPrimary": "In den Reader schauen",
+    "ctaPrimary": "Reader öffnen",
+    "ctaNote": "Kostenloses Probe-Abo — anmelden, und das Buch öffnet sich.",
     "ctaSecondary": "Buchhandlung ansehen",
     "tags": {
       "four": "Koreanisch · Englisch · Japanisch",
