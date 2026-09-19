@@ -7322,7 +7322,7 @@ html[lang='hi'] {
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background: rgb(17 19 23 / 0.62);
+  background: rgb(17 19 23 / 0.5);
   backdrop-filter: blur(3px);
   animation: pmoIn 0.22s ease-out;
 }
@@ -7338,19 +7338,23 @@ html[lang='hi'] {
   padding: clamp(30px, 4.2vw, 46px);
   color: var(--paper);
   box-shadow: 0 28px 70px rgb(17 19 23 / 0.45);
-  /* The photograph is optional. It is layered under a scrim that carries
-     the white type on its own, so if /promo/india-launch.jpg is not on
-     disk the card is simply the solid dark it was before — nothing to
-     guard, nothing to break, and dropping the file in switches it on. The
-     scrim deepens toward the foot because that is where the book rows and
-     their thin outlined buttons sit. */
-  background-color: var(--night);
+  /* Lapis, not near-black. The card was built on 나이트 and read as a
+     hole in the page; lapis is the brand's own ground for a full block —
+     the philosophy hero is already painted in it — and it lifts the panel
+     without giving up the white type, which sits on it at 7.4:1.
+
+     The photograph is optional. It is layered under a scrim that carries
+     the type on its own, so if /promo/india-launch.jpg is not on disk the
+     card is simply solid lapis — nothing to guard, nothing to break, and
+     dropping the file in switches it on. The scrim deepens toward the
+     foot, where the book rows and their thin outlined buttons sit. */
+  background-color: var(--lapis);
   background-image:
     linear-gradient(
       180deg,
-      rgb(17 19 23 / 0.58) 0%,
-      rgb(17 19 23 / 0.84) 46%,
-      rgb(17 19 23 / 0.95) 100%
+      rgb(35 64 181 / 0.5) 0%,
+      rgb(35 64 181 / 0.78) 44%,
+      rgb(26 49 144 / 0.93) 100%
     ),
     url('/promo/india-launch.jpg');
   background-size: cover;
@@ -7407,13 +7411,13 @@ html[lang='hi'] {
   line-height: 1.24;
   margin: 0;
   color: var(--aba-gold-l);
-  opacity: 0.66;
+  opacity: 0.78;
 }
 .pmo-lead {
   margin: 18px 0 0;
   font-size: 14.5px;
   line-height: 1.72;
-  opacity: 0.72;
+  opacity: 0.84;
   max-width: 44ch;
 }
 .pmo-books {
@@ -7438,15 +7442,18 @@ html[lang='hi'] {
   width: 100%;
   aspect-ratio: 2 / 3;
 }
-/* The stand-in for an edition whose own cover art is not on file yet. */
+/* The stand-in for an edition whose own cover art is not on file yet.
+   Paper ground with lapis type, not the reverse: the card itself is lapis
+   now, and a lapis tile on it vanished. Paper is also what a cover on this
+   shelf actually looks like. */
 .pmo-b-mini {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   aspect-ratio: 2 / 3;
   padding: 9px 8px;
-  background: var(--lapis);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--lapis);
 }
 .pmo-b-mini i,
 .pmo-b-mini b {
@@ -7481,7 +7488,7 @@ html[lang='hi'] {
 }
 .pmo-b-a {
   font-size: 12.5px;
-  opacity: 0.6;
+  opacity: 0.74;
 }
 /* The buy line is a link to a shop, not a button on this site, so it is
    drawn as a rule rather than a filled control. */
