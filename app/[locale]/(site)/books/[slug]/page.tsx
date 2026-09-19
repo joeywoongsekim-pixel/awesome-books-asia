@@ -3,7 +3,7 @@ import {notFound} from 'next/navigation';
 import {useLocale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
-import {BOOKS, type Book} from '../../../../../lib/books';
+import {BOOKS, CAT_KEY, catsOf, type Book} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import BookCover from '../../../../../components/BookCover';
 import RecordVisit from '../../../../../components/RecordVisit';
@@ -44,6 +44,7 @@ function BookDetail({book}: {book: Book}) {
   const t = useTranslations('detail');
   const tNav = useTranslations('nav');
   const tBooks = useTranslations('books');
+  const tStore = useTranslations('store');
   const locale = useLocale();
   const eds = EDITIONS[book.id] ?? [];
   const formats = [
@@ -70,7 +71,9 @@ function BookDetail({book}: {book: Book}) {
           <BookCover book={book} />
         </div>
         <div>
-          <div className="d-cat">{book.catLabel}</div>
+          {/* Every subject the book answers to, in the reader's language —
+              this line used to print the English catalogue label. */}
+          <div className="d-cat">{catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' · ')}</div>
           <h1 className="d-title">{book.title}</h1>
           <div className="d-author">{book.author}</div>
           <p className="d-blurb">{blurbOf(book, locale)}</p>

@@ -3,7 +3,7 @@
 // detail pages, so search engines and AI answer engines can read the
 // publisher and catalogue as typed entities instead of prose.
 
-import type {Book} from './books';
+import {CAT_EN, catsOf, type Book} from './books';
 import {EDITIONS} from './retailers';
 
 export const SITE = 'https://www.awesomebooks.asia';
@@ -47,7 +47,7 @@ export function bookJsonLd(book: Book) {
     inLanguage: book.langs.map((l) => LANG_TAG[l] ?? l.toLowerCase()),
     numberOfPages: book.pages,
     datePublished: book.published,
-    genre: book.catLabel,
+    genre: catsOf(book).map((c) => CAT_EN[c]),
     url: `${SITE}/en/books/${book.id}`,
     // Verified retailer listings for this work's editions.
     sameAs: links.map((e) => e.url),

@@ -4,7 +4,8 @@
 
 export type Lang = "EN" | "KO" | "JA";
 /* The house's shelf, as the publisher defines it. Twelve subjects; a book
-   belongs to exactly one. Order is the order they are shown in. */
+   stands under one and may answer to others. Order is the order they are
+   shown in. */
 export type Category =
   | "AI"
   | "ECON"
@@ -49,6 +50,27 @@ export const CAT_KEY: Record<Category, string> = {
   ART: "catART",
   TRAVEL: "catTRAVEL"
 };
+
+/** English subject names, for the structured data search engines read. */
+export const CAT_EN: Record<Category, string> = {
+  AI: "AI & Technology",
+  ECON: "Economics",
+  BIZ: "Business",
+  PICTURE: "Picture books",
+  ELEM: "Primary education",
+  SECOND: "Secondary education",
+  HIGHER: "Higher & adult education",
+  SPORT: "Sport",
+  FICTION: "Fiction",
+  WELLNESS: "Wellness",
+  ART: "Art",
+  TRAVEL: "Travel"
+};
+
+/** Every subject a book answers to, its own first. */
+export function catsOf(book: {cat: Category; also?: Category[]}): Category[] {
+  return [book.cat, ...(book.also ?? [])];
+}
 export type Cover = "c1" | "c2" | "c3" | "c4" | "c5" | "c6";
 
 export type Spread = {
@@ -65,7 +87,11 @@ export type Book = {
   title: string;
   author: string;
   cat: Category;
-  catLabel: string;
+  /* A book rarely sits in exactly one subject. `cat` is where it lives —
+     the shelf row it stands on — and `also` holds the rest, so the store
+     filter turns it up under every subject it really belongs to while it
+     still stands in one place on the shelf. */
+  also?: Category[];
   price: number; // 0 means subscription-only
   langs: Lang[];
   isNew: boolean;
@@ -84,9 +110,9 @@ export const BOOKS: Book[] = [
   /* Published 19 September 2026 on Amazon Japan, in Japanese. It stood in
      COMING_SOON as "Economics of AI Token" until this morning.
 
-     Filed under AI rather than ECON: the economics here are the tools, but
-     what the book teaches is how to use a model well enough to know what a
-     piece of work cost you. It belongs with the AI-literacy line. */
+     It lives on the AI shelf — what it teaches is how to use a model well
+     enough to know what a piece of work cost you — and it answers to the
+     economics filter too, which is the other half of its title. */
   {
     id: "ai-token",
     img: '/covers/ai-token-ja.jpg',
@@ -95,7 +121,7 @@ export const BOOKS: Book[] = [
     title: "AIトークン経済入門",
     author: "Akira Murata",
     cat: "AI",
-    catLabel: "AI & Technology",
+    also: ["ECON"],
     price: 0,
     langs: ["JA"],
     isNew: true,
@@ -116,7 +142,6 @@ export const BOOKS: Book[] = [
     title: "AIの答えに、人間は何を足すのか",
     author: "Akira Murata",
     cat: "AI",
-    catLabel: "AI & Technology",
     price: 0,
     langs: ["JA", "EN"],
     isNew: true,
@@ -137,7 +162,6 @@ export const BOOKS: Book[] = [
     title: "Awesome AI Bible 2026",
     author: "Akira Murata",
     cat: "AI",
-    catLabel: "AI & Technology",
     price: 12,
     langs: ["EN", "KO", "JA"],
     isNew: true,
@@ -204,7 +228,6 @@ export const BOOKS: Book[] = [
     title: "Quantum Economics: Foundations and Applications",
     author: "Akira Murata",
     cat: "ECON",
-    catLabel: "Economics",
     price: 12,
     langs: ["EN", "JA"],
     isNew: true,
@@ -255,7 +278,6 @@ export const BOOKS: Book[] = [
     title: "Quantum Economics: Foundations and Applications (UK Edition)",
     author: "Akira Murata",
     cat: "ECON",
-    catLabel: "Economics",
     price: 0,
     langs: ["EN"],
     isNew: false,
@@ -276,7 +298,6 @@ export const BOOKS: Book[] = [
     title: "Quantum Economics: Foundations and Applications (India Edition)",
     author: "Akira Murata",
     cat: "ECON",
-    catLabel: "Economics",
     price: 0,
     langs: ["EN"],
     isNew: false,
@@ -297,7 +318,7 @@ export const BOOKS: Book[] = [
     title: "An Introduction to ISEKAI Entrepreneurship",
     author: "Lyra Mizuki · Orion Carter",
     cat: "BIZ",
-    catLabel: "Business × Isekai Fantasy",
+    also: ["FICTION"], // the title already says both: it is a light novel
     price: 9,
     langs: ["EN", "KO", "JA"],
     isNew: true,
@@ -360,7 +381,6 @@ export const BOOKS: Book[] = [
     title: "Clumsy Ninja Cat Kuro",
     author: "Fumi Yamaneko · Orion Carter",
     cat: "PICTURE",
-    catLabel: "Picture book · Animal Comedy",
     price: 7,
     langs: ["KO", "JA"],
     isNew: false,

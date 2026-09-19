@@ -3,7 +3,7 @@
 import {useCallback, useEffect, useRef, useState} from 'react';
 import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '../../i18n/navigation';
-import {BOOKS} from '../../lib/books';
+import {BOOKS, CAT_KEY, catsOf} from '../../lib/books';
 import {blurbOf} from '../../lib/blurbs';
 import {fromPrice} from '../../lib/retailers';
 import BookCover from '../BookCover';
@@ -16,6 +16,7 @@ export default function NewReleases() {
   const t = useTranslations('newrel');
   const tDetail = useTranslations('detail');
   const tBooks = useTranslations('books');
+  const tStore = useTranslations('store');
   const locale = useLocale();
 
   // Newest by publication date; regional twins of the same work are skipped
@@ -83,7 +84,9 @@ export default function NewReleases() {
                   {book.isNew && <span className="nr-badge">{tBooks('new')}</span>}
                 </Link>
                 <div className="nr-txt">
-                  <div className="nr-cat">{book.catLabel}</div>
+                  <div className="nr-cat">
+                    {catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' · ')}
+                  </div>
                   <h3 className="nr-t">{book.title}</h3>
                   <div className="nr-a">{book.author}</div>
                   <p className="nr-d">{blurbOf(book, locale)}</p>
