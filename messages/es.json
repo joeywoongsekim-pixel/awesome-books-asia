@@ -17,25 +17,25 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Tu estantería se abre <em>en el navegador</em>. Nada que instalar.",
-    "subtitle": "Es la sala donde leen nuestros miembros: un escritorio donde cuatro libros quedan abiertos y puedes moverte entre ellos.",
+    "title": "Los libros se abren <em>en el navegador</em>. Nada que descargar, nada que instalar.",
+    "subtitle": "En Awesome Reader leen nuestros miembros. Elige un libro y se abre en la página que dejaste.",
     "points": {
       "desk": {
         "t": "Cuatro libros a la vez",
-        "d": "Déjalos abiertos uno junto a otro y pasa de uno a otro sin cortar la idea."
+        "d": "Ten varios abiertos y pasa de uno a otro sin cerrar ninguno."
       },
       "langs": {
-        "t": "Un libro, tres idiomas",
-        "d": "Coreano, inglés y japonés: cambia sin perder la página."
+        "t": "Tres idiomas en un libro",
+        "d": "Las ediciones coreana, inglesa y japonesa están en el mismo libro. Cambia y conserva la página."
       },
       "resume": {
-        "t": "Sigue donde lo dejaste",
-        "d": "Ábrelo en cualquier dispositivo y la página te está esperando."
+        "t": "Tu página queda guardada",
+        "d": "Ciérralo en el portátil, ábrelo en el móvil: empiezas en la misma página."
       }
     },
     "meta": "Coreano · Inglés · Japonés · en cualquier dispositivo",
-    "ctaPrimary": "Abrir el lector",
-    "ctaNote": "Suscripción de muestra gratuita: inicia sesión y el libro se abre.",
+    "ctaPrimary": "Abrir Awesome Reader",
+    "ctaNote": "Suscripción de muestra gratuita — inicia sesión y el libro se abre.",
     "ctaSecondary": "Ver la librería",
     "tags": {
       "four": "Coreano · Inglés · Japonés",

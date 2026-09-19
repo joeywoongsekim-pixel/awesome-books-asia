@@ -17,20 +17,20 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Votre bibliothèque s'ouvre <em>dans le navigateur</em>. Rien à installer.",
-    "subtitle": "C'est la pièce où lisent nos membres — un bureau où quatre livres restent ouverts et entre lesquels vous circulez.",
+    "title": "Les livres s'ouvrent <em>dans le navigateur</em>. Rien à télécharger, rien à installer.",
+    "subtitle": "Awesome Reader, c'est là que lisent nos membres. Choisissez un livre : il s'ouvre à la page que vous aviez quittée.",
     "points": {
       "desk": {
         "t": "Quatre livres à la fois",
-        "d": "Laissez-les ouverts côte à côte et passez de l’un à l’autre en pleine réflexion."
+        "d": "Gardez-en plusieurs ouverts et passez de l’un à l’autre sans rien fermer."
       },
       "langs": {
-        "t": "Un livre, trois langues",
-        "d": "Coréen, anglais et japonais — changez sans perdre la page."
+        "t": "Trois langues dans un livre",
+        "d": "Les éditions coréenne, anglaise et japonaise sont dans le même livre. Changez, la page reste."
       },
       "resume": {
-        "t": "Reprend où vous vous êtes arrêté",
-        "d": "Ouvrez-le sur n’importe quel appareil : la page vous attend."
+        "t": "Votre page est gardée",
+        "d": "Fermez sur un portable, ouvrez sur un téléphone : vous repartez de la même page."
       }
     },
     "meta": "Coréen · Anglais · Japonais · sur tout appareil",

@@ -17,24 +17,24 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Ihr Regal öffnet sich <em>im Browser</em>. Nichts zu installieren.",
-    "subtitle": "Hier lesen unsere Mitglieder — ein Tisch, auf dem vier Bücher offen liegen bleiben und zwischen denen Sie wechseln.",
+    "title": "Bücher öffnen sich <em>im Browser</em>. Nichts herunterladen, nichts installieren.",
+    "subtitle": "In Awesome Reader lesen unsere Mitglieder. Buch auswählen, und es öffnet sich auf der Seite, die Sie verlassen haben.",
     "points": {
       "desk": {
-        "t": "Vier Bücher zugleich",
-        "d": "Nebeneinander offen liegen lassen und mitten im Gedanken wechseln."
+        "t": "Vier Bücher gleichzeitig",
+        "d": "Lassen Sie mehrere offen und wechseln Sie, ohne eines zu schließen."
       },
       "langs": {
-        "t": "Ein Buch, drei Sprachen",
-        "d": "Koreanisch, Englisch und Japanisch — ohne die Seite zu verlieren."
+        "t": "Drei Sprachen in einem Buch",
+        "d": "Die koreanische, englische und japanische Ausgabe stecken im selben Buch. Wechseln Sie, die Seite bleibt."
       },
       "resume": {
-        "t": "Weiter, wo Sie aufgehört haben",
-        "d": "Auf jedem Gerät öffnen, und die Seite wartet schon."
+        "t": "Ihre Seite wird gemerkt",
+        "d": "Am Laptop schließen, am Telefon öffnen — Sie beginnen auf derselben Seite."
       }
     },
     "meta": "Koreanisch · Englisch · Japanisch · auf jedem Gerät",
-    "ctaPrimary": "Reader öffnen",
+    "ctaPrimary": "Awesome Reader öffnen",
     "ctaNote": "Kostenloses Probe-Abo — anmelden, und das Buch öffnet sich.",
     "ctaSecondary": "Buchhandlung ansehen",
     "tags": {

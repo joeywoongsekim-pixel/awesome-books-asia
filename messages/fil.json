@@ -17,24 +17,24 @@
   },
   "home": {
     "badge": "Awesome Reader",
-    "title": "Bumubukas ang istante mo <em>sa browser</em>. Walang i-install.",
-    "subtitle": "Dito nagbabasa ang aming mga miyembro — isang mesa kung saan puwedeng nakabukas ang apat na aklat at makalipat-lipat ka.",
+    "title": "Bumubukas ang mga aklat <em>sa browser</em>. Walang ida-download, walang i-install.",
+    "subtitle": "Dito nagbabasa ang mga miyembro sa Awesome Reader. Pumili ng aklat at bubukas ito sa pahinang iniwan mo.",
     "points": {
       "desk": {
         "t": "Apat na aklat nang sabay",
-        "d": "Iwang nakabukas nang magkatabi at lumipat habang tumatakbo ang isip mo."
+        "d": "Panatilihing bukas ang ilan at lumipat sa pagitan nila nang walang isinasara."
       },
       "langs": {
-        "t": "Isang aklat, tatlong wika",
-        "d": "Koreano, Ingles at Hapon — lumipat nang hindi nawawala ang pahina."
+        "t": "Tatlong wika sa isang aklat",
+        "d": "Nasa iisang aklat ang edisyong Koreano, Ingles at Hapon. Lumipat nang hindi nawawala ang pahina."
       },
       "resume": {
-        "t": "Itutuloy kung saan ka huminto",
-        "d": "Buksan sa kahit anong device at naroon pa rin ang pahina."
+        "t": "Naitatago ang pahina mo",
+        "d": "Isara sa laptop, buksan sa telepono — sa parehong pahina ka magsisimula."
       }
     },
     "meta": "Korean · English · Japanese · sa anumang device",
-    "ctaPrimary": "Buksan ang reader",
+    "ctaPrimary": "Buksan ang Awesome Reader",
     "ctaNote": "Libreng sample subscription — mag-sign in at bubukas ang aklat.",
     "ctaSecondary": "Tingnan ang bookstore",
     "tags": {
