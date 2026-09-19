@@ -408,11 +408,12 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 /** The 신간 row, in order. Curated: the house decides what is current. */
 export const NEW_RELEASES: Pick[] = [
   {id: 'ai-answer'},
-  // The English edition (What Do Humans Add to AI’s Answers?, amazon.in) is
-  // published and linked on the book's page, but it is not on this shelf
-  // yet: there is no /covers/ai-answer-en.jpg, so it would stand here under
-  // the Japanese cover — two identical spines, which is exactly why the UK
-  // edition was pulled. Add the cover, then add the pick.
+  // The English edition, on amazon.in as the India Special Edition. It was
+  // kept off this shelf while there was no /covers/ai-answer-en.jpg, since
+  // it would have stood here under the Japanese cover — two identical
+  // spines, which is why the UK edition was pulled. Its own jacket is on
+  // file now, so it stands.
+  {id: 'ai-answer', lang: 'EN', title: 'What Do Humans Add to AI’s Answers?'},
   {id: 'quantum-econ-in'},
   {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
   // The UK edition is out: every English edition of Quantum Economics —
@@ -435,7 +436,7 @@ export const COMING_SOON: Pick[] = [];
 
 /** The cover art that exists per language, by the files in /public/covers. */
 const COVERS: Record<string, Partial<Record<Lang, string>>> = {
-  'ai-answer': {JA: '/covers/ai-answer-ja.jpg'},
+  'ai-answer': {JA: '/covers/ai-answer-ja.jpg', EN: '/covers/ai-answer-en.jpg'},
   'ai-bible': {EN: '/covers/ai-bible.jpg', JA: '/covers/ai-bible-ja.jpg'},
   'quantum-econ': {EN: '/covers/quantum-econ.jpg', JA: '/covers/quantum-econ-ja.jpg'},
   'quantum-econ-uk': {EN: '/covers/quantum-econ.jpg'},

@@ -1,4 +1,4 @@
-import {BOOKS, type Book} from './books';
+import {BOOKS, coverFor, type Book} from './books';
 import {EDITIONS, type EditionLink} from './retailers';
 
 /* The renewal / India launch popup (M101).
@@ -34,22 +34,6 @@ export type IndiaEdition = {
   cover: string | null;
 };
 
-/* Which jacket belongs to this edition.
-
-   An edition's own img wins outright. Otherwise the book's img is used
-   only if it is for the same language: cover files are named by edition —
-   ai-answer-ja.jpg, isekai-ko.jpg, and the base English one with no suffix
-   at all — so a -ja file under an English title is the wrong jacket, which
-   is the trap the 신간 shelf already avoids. With nothing that fits, the
-   card falls back to a brand tile, which is a designed placeholder rather
-   than the wrong book. */
-function coverFor(book: Book, link: EditionLink) {
-  if (link.img) return link.img;
-  if (!book.img) return null;
-  const m = /-(ja|ko|en)\.[a-z]+$/i.exec(book.img);
-  return (m ? m[1].toUpperCase() : 'EN') === link.lang ? book.img : null;
-}
-
 /* The books in the popup are not a hand-written list: they are every
    edition the catalogue sells on Amazon India. Add a third India edition to
    lib/retailers.ts and it appears here with no further edit. */
@@ -62,7 +46,7 @@ export function indiaEditions(): IndiaEdition[] {
         book,
         link,
         title: link.note ?? book.title,
-        cover: coverFor(book, link)
+        cover: coverFor(book.id, link.lang) ?? null
       });
     }
   }

@@ -25,9 +25,6 @@ function alreadyDismissed() {
 export default function PromoPopup() {
   const t = useTranslations('promo');
   const [open, setOpen] = useState(false);
-  // The artwork is optional. If the file is not on disk the band removes
-  // itself rather than leaving a gap, so the popup ships either way.
-  const [hasArt, setHasArt] = useState(true);
   const panel = useRef<HTMLDivElement>(null);
   const lastFocus = useRef<HTMLElement | null>(null);
   const editions = indiaEditions();
@@ -83,21 +80,6 @@ export default function PromoPopup() {
         <button type="button" className="pmo-x" onClick={close} aria-label={t('close')}>
           ×
         </button>
-
-        {/* A band, not a backdrop. The artwork is bright and saturated, and
-            anything behind the type needs a scrim heavy enough to kill
-            exactly that. Given its own strip at the top it keeps every bit
-            of its colour, and the words keep a plain lapis ground. */}
-        {hasArt && (
-          <div className="pmo-art" aria-hidden="true">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/promo/india-launch.jpg"
-              alt=""
-              onError={() => setHasArt(false)}
-            />
-          </div>
-        )}
 
         <p className="eyebrow pmo-kick">{t('kicker')}</p>
         <h2 id="pmo-h" className="pmo-h">

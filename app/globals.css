@@ -7343,11 +7343,34 @@ html[lang='hi'] {
      the philosophy hero is already painted in it — and it lifts the panel
      without giving up the white type, which sits on it at 7.4:1.
 
-     The artwork does not go behind the words. It is bright and saturated
-     on purpose, and a scrim heavy enough to carry type over it would take
-     exactly the colour that makes it worth having. It gets .pmo-art
-     instead, a band across the top at full strength. */
+     The artwork is the card's background. It is meant to be bright, so
+     the wash over it is kept light — enough to hold the type, not enough
+     to grey the picture — and the type carries a shadow of its own so it
+     survives whatever lands underneath. The wash deepens toward the foot,
+     where the book rows and their thin outlined buttons sit.
+
+     The wash is neutral, not lapis. A tinted one looks right on paper and
+     then drags every warm hue in the picture toward blue: the launch art
+     is a sunset, and a lapis scrim turned its orange and pink to violet —
+     the exact drabness the artwork was commissioned to avoid. Neutral
+     darkens without moving the hue. Lapis stays as the colour underneath,
+     for when there is no artwork at all.
+
+     The file is optional: with nothing at /promo/india-launch.jpg the card
+     is simply solid lapis, so the popup ships either way and dropping one
+     in switches it on. */
   background-color: var(--lapis);
+  background-image:
+    linear-gradient(
+      180deg,
+      rgb(17 19 23 / 0.22) 0%,
+      rgb(17 19 23 / 0.44) 42%,
+      rgb(17 19 23 / 0.78) 100%
+    ),
+    url('/promo/india-launch.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   animation: pmoUp 0.26s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 @keyframes pmoUp {
@@ -7379,27 +7402,21 @@ html[lang='hi'] {
   opacity: 1;
   background: rgb(17 19 23 / 0.66);
 }
-/* Bled out through the card's padding to all three edges. The height is
-   held by an aspect ratio rather than a fixed px so the crop is the same
-   shape on a phone as on a desktop, and a 3:2 original loses the same
-   top and bottom in both. */
-.pmo-art {
-  margin: calc(clamp(30px, 4.2vw, 46px) * -1) calc(clamp(30px, 4.2vw, 46px) * -1)
-    clamp(24px, 3vw, 32px);
-  aspect-ratio: 16 / 6;
-  overflow: hidden;
-  background: var(--lapis-dk);
-}
-.pmo-art img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-}
 .pmo-kick {
   color: var(--aba-gold-l);
   margin: 0 0 14px;
+}
+/* With a photograph underneath, a light wash alone cannot be trusted at
+   every point of the frame. A soft shadow costs nothing on flat lapis and
+   rescues the type wherever the picture goes pale. */
+.pmo-kick,
+.pmo-h,
+.pmo-sub,
+.pmo-lead,
+.pmo-b-n,
+.pmo-b-a,
+.pmo-cta {
+  text-shadow: 0 1px 14px rgb(17 19 23 / 0.62);
 }
 .pmo-h {
   font-family: var(--font-display);
