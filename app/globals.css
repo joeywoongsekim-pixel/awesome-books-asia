@@ -7654,3 +7654,53 @@ html[lang='hi'] {
   width: auto;
   display: block;
 }
+
+/* ── M117: the 커밍순 jacket ─────────────────────────────────────────────
+   A book that is not written has no cover, so it stands as a blank one in
+   the house's own colours rather than borrowing another book's art or a
+   grey box. It matches the standing covers beside it in height and takes
+   the same spine, so the row reads as one shelf. */
+.nsh-soon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  width: 200px;
+  max-width: 100%;
+  padding: 20px 18px;
+  background: var(--lapis);
+  color: var(--paper);
+  text-align: left;
+  box-shadow: 16px 20px 34px rgb(17 19 23 / 0.26), 2px 3px 8px rgb(17 19 23 / 0.16);
+}
+.nsh-soon i {
+  font-style: normal;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.72;
+}
+.nsh-soon b {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-synthesis-weight: none;
+  font-size: 20px;
+  line-height: 1.28;
+}
+/* Nothing to open, so nothing lifts under the pointer. */
+.nsh-bk-soon {
+  cursor: default;
+}
+.nsh-bk-soon:hover .nsh-blk {
+  transform: rotateY(13deg);
+}
+@media (max-width: 720px) {
+  .nsh-soon {
+    width: 160px;
+    padding: 16px 14px;
+  }
+  .nsh-soon b {
+    font-size: 17px;
+  }
+}

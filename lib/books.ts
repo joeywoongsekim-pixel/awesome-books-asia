@@ -431,8 +431,20 @@ export const BESTSELLERS: Pick[] = [
   {id: 'isekai', lang: 'EN'}
 ];
 
-/** Nothing forthcoming is recorded anywhere here yet. */
-export const COMING_SOON: Pick[] = [];
+/* A book that is not written yet is not a catalogue entry. It has a title
+   and, where the house has said so, an author — no cover, no blurb, no page
+   count, no ISBN. Giving it a Book would mean inventing all of those, so it
+   gets a type of its own and the shelf stands it as a blank jacket. */
+export type Forthcoming = {title: string; author?: string};
+
+/** The 커밍순 row, in order. */
+export const COMING_SOON: Forthcoming[] = [
+  {title: 'Economics of AI Token'},
+  // Joey Kim's, per his own profile — he is writing it now.
+  {title: 'North Shore', author: 'Joey Kim'},
+  {title: 'Introduction to Cricket'},
+  {title: 'Introduction to Rugby'}
+];
 
 /** The cover art that exists per language, by the files in /public/covers. */
 const COVERS: Record<string, Partial<Record<Lang, string>>> = {

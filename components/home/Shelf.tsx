@@ -9,6 +9,7 @@ import {
   NEW_RELEASES,
   coverFor,
   BOOKS,
+  type Forthcoming,
   type Pick
 } from '../../lib/books';
 
@@ -26,20 +27,18 @@ const byId = (id: string) => BOOKS.find((b) => b.id === id);
 export default function Shelf() {
   const t = useTranslations('shelf');
 
-  const tabs = (
-    [
-      {key: 'new', picks: NEW_RELEASES},
-      {key: 'best', picks: BESTSELLERS},
-      {key: 'soon', picks: COMING_SOON}
-    ] as const
-  )
-    .map((tab) => ({
-      ...tab,
-      rows: tab.picks
-        .map((p: Pick) => ({pick: p, book: byId(p.id)}))
-        .filter((r) => r.book)
-    }))
-    .filter((tab) => tab.rows.length > 0);
+  /* 신간 and 베스트셀러 point at the catalogue; 커밍순 cannot, because the
+     books are not written. The two shapes are kept apart here rather than
+     forced into one, so a forthcoming title never has to pretend it has a
+     cover, an author or a page to link to. */
+  const shelved = (picks: Pick[]) =>
+    picks.map((p) => ({pick: p, book: byId(p.id)})).filter((r) => r.book);
+
+  const tabs = [
+    {key: 'new' as const, rows: shelved(NEW_RELEASES), soon: [] as Forthcoming[]},
+    {key: 'best' as const, rows: shelved(BESTSELLERS), soon: [] as Forthcoming[]},
+    {key: 'soon' as const, rows: [] as ReturnType<typeof shelved>, soon: COMING_SOON}
+  ].filter((tab) => tab.rows.length + tab.soon.length > 0);
 
   const [active, setActive] = useState(0);
   const shown = tabs[Math.min(active, tabs.length - 1)];
@@ -90,6 +89,24 @@ export default function Shelf() {
               </Link>
             );
           })}
+
+          {/* A blank jacket with the title on it. Not a link: there is
+              nothing to open yet, and a dead page is worse than none. */}
+          {shown.soon.map((f: Forthcoming) => (
+            <span className="nsh-bk nsh-bk-soon" key={f.title}>
+              <span className="nsh-3d">
+                <span className="nsh-blk">
+                  <span className="nsh-spine" aria-hidden="true" />
+                  <span className="nsh-soon">
+                    <i>Awesome Books Asia</i>
+                    <b>{f.title}</b>
+                  </span>
+                </span>
+              </span>
+              <span className="nsh-im">{f.author ?? '\u00a0'}</span>
+              <span className="nsh-t">{f.title}</span>
+            </span>
+          ))}
         </div>
 
         <div className="nsh-all">
