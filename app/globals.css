@@ -6365,6 +6365,20 @@ html[lang='ja'] .vh-t {
   color: var(--stone);
   margin-bottom: 30px;
 }
+/* The still life carries its own dark ground, so it needs no panel behind
+   it — the frame is the picture's own edge. 4:3 on a desk, squarer on a
+   phone so the open book keeps its scale. */
+.spot-photo {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--night);
+}
+.spot-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 /* one solid button where an action is offered */
 .spot-txt .btn-o {
   background: var(--lapis);

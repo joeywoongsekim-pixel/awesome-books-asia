@@ -390,7 +390,7 @@ export const BOOKS: Book[] = [
 ];
 
 // Titles with built-in sample spreads — the only ones the demo desk
-// (home MiniDesk, legacy Reader, AI panel) can show.
+// (the legacy Reader and the AI panel) can show.
 export const DEMO_BOOKS = BOOKS.filter((b) => b.sp.length > 0);
 
 /* ── Homepage shelf tabs ──────────────────────────────────────────────────
