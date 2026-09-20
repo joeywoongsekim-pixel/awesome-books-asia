@@ -4754,6 +4754,12 @@ a.ac-list-t:hover {
   min-height: 232px;
   padding-top: 20px;
 }
+/* A shelf of standing books is 232px tall so that every shelf lines up.
+   A shelf where the books lie down has no spines to make room for, and at
+   232 it was 160px of empty air over a two-inch pile. */
+.shf-books-pile {
+  min-height: 104px;
+}
 .shf-sp {
   writing-mode: vertical-rl;
   text-orientation: mixed;
