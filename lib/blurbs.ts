@@ -4,7 +4,7 @@
 // detail page shows. M150 filled in the six locales that were still
 // falling back to English.
 
-import type {Book} from './books';
+import type {Book, Lang} from './books';
 
 type Copy = Partial<Record<'ko' | 'ja' | 'hi' | 'fil' | 'de' | 'fr' | 'es' | 'pt', string>>;
 type List = Partial<Record<'ko' | 'ja' | 'hi' | 'fil' | 'de' | 'fr' | 'es' | 'pt', string[]>>;
@@ -63,6 +63,28 @@ const BLURBS: Record<string, Copy> = {
       "La IA ya dio su respuesta — ¿hasta dónde puedes usarla? Un lector ilustrado y narrado que parte de la física, las ciencias de la vida y la simulación social para enseñar las tres cosas que añade una persona: fijar el propósito, volver a la evidencia y decidir cómo usar el resultado. Ochenta figuras, ejercicios breves y ocho interludios que siguen a dos lectores a lo largo de un año. Para la indagación en secundaria, los seminarios universitarios y cualquiera que ponga la IA a trabajar.",
     pt:
       "A IA já deu sua resposta — até onde você pode usá-la? Um livro ilustrado e conduzido por histórias que parte da física, das ciências da vida e da simulação social para ensinar as três coisas que a pessoa acrescenta: definir o propósito, voltar às evidências e escolher o que fazer com o resultado. Oitenta figuras, exercícios curtos e oito interlúdios que acompanham dois leitores ao longo de um ano. Para a investigação no ensino médio, seminários universitários e quem quer pôr a IA para trabalhar."
+  },
+  /* The India Special Edition, which is a different book from the
+     Japanese one above: 303 pages, rupee equivalents beside the yen, and
+     its own practice tasks. Keyed by edition so the English tab stops
+     showing the Japanese book's description. */
+  'ai-answer:EN': {
+    ko:
+      "AI는 답을 내놓습니다 — 그런데 왜 그 답을 써도 되는지 설명할 수 있습니까? 매끄러운 문단, 자신만만한 예측, 설득력 있는 도표. 근거를 확인하기 전에는 무엇이든 그럴듯해 보입니다. 삽화로 풀어낸 이 인도 스페셜 에디션은 무엇이 예측이고 무엇이 설명이며 무엇이 검증되었는지, 그리고 그 답을 어디에 쓸 것인지를 묻는 법을 가르칩니다. 고등학교 고학년과 대학생, 그리고 AI가 궁금한 직장인을 위해 물리학·생명과학·가상 사회를 쉬운 영어로 다룹니다. 프로그래밍 지식도 고급 물리학도 필요 없습니다. 분명한 질문을 세우고, 주장을 출처까지 따라가고, 오해를 부르는 숫자를 가려내고, 시뮬레이션과 실제 사람에 대한 근거를 구분하는 연습을 한 뒤, 그 습관을 과제와 팀 프로젝트와 업무 제안서로 가져갑니다. 여덟 장의 실습 과제에 힌트와 모범 답안이 붙어 있고, 일본어 용어 설명과 엔화 옆에 날짜를 밝힌 루피 환산이 인도 독자를 돕되 일본이라는 배경은 그대로 둡니다. 장과 장 사이에서는 대학생 쿄코와 직장인 다카시가 봄에서 다음 봄까지 일본의 한 해를 건너갑니다.",
+    ja:
+      "AIは答えを出す。では、なぜそれを使ってよいのかを説明できますか。整った文章、自信ありげな予測、説得力のある図表——どれも、根拠を確かめる前は説得力があるように見えます。図解で読むこのインド特別版は、何が予測され、何が説明され、何が検証されたのか、そしてその答えを何に使うのかを問う力を養います。高校上級生・大学生、そしてAIに関心のある社会人へ向けて、物理学・生命科学・仮想社会をやさしい英語で扱います。プログラミングの知識も高度な物理も前提にしません。明確な問いを立てる、主張を出典までたどる、誤解を招く数字を見抜く、シミュレーションと実在の人々についての根拠を分ける——その練習を重ね、課題やグループワーク、職場の提案へ持ち込みます。八章の実践課題にはヒントと解答例つき。日本語の用語解説と、円の横に日付を明示したルピー換算がインドの読者を助けつつ、日本という舞台はそのまま保たれます。章の合間では、大学生きょうこと社会人たかしが、春から次の春までの一年を歩きます。",
+    hi:
+      "AI आपको जवाब दे सकता है — पर क्या आप बता सकते हैं कि आप उसे क्यों इस्तेमाल करेंगे? सधा हुआ अनुच्छेद, आत्मविश्वास से भरी भविष्यवाणी, असरदार ग्राफ़ — प्रमाण जाँचे जाने से पहले हर चीज़ भरोसेमंद लगती है। सचित्र यह इंडिया स्पेशल एडिशन यह पूछना सिखाती है कि क्या पूर्वानुमान था, क्या व्याख्या, क्या जाँचा गया, और उस जवाब का इस्तेमाल किस काम में होगा। वरिष्ठ माध्यमिक छात्रों, विश्वविद्यालय के विद्यार्थियों और AI में रुचि रखने वाले पेशेवरों के लिए, यह भौतिकी, जीवविज्ञान और आभासी समाजों को सरल अंग्रेज़ी में खोलती है — न प्रोग्रामिंग चाहिए, न उन्नत भौतिकी। स्पष्ट प्रश्न खोजना, दावों को स्रोत तक ले जाना, भ्रामक आँकड़े पहचानना, और सिमुलेशन को असली लोगों के प्रमाण से अलग करना सीखिए; फिर यही आदतें असाइनमेंट, समूह परियोजना या कार्यस्थल के प्रस्ताव तक ले जाइए। आठ अध्यायों के अभ्यास, संकेत और उत्तर सहित। जापानी शब्दों की व्याख्या और येन के साथ तिथि सहित रुपये का समतुल्य भारतीय पाठकों की मदद करते हैं, जबकि किताब का जापानी परिवेश बना रहता है। अध्यायों के बीच क्योको और ताकाशी एक वसंत से अगले वसंत तक जापान का एक बरस पार करते हैं।",
+    fil:
+      "Makapagbibigay ng sagot ang AI — kaya mo bang ipaliwanag kung bakit mo ito gagamitin? Ang makinis na talata, ang tiwalang hula, ang nakakakumbinsing tsart: lahat ay mukhang kapani-paniwala bago pa masuri ang ebidensiya. Tinutulungan ka ng may-larawang India Special Edition na ito na itanong kung ano ang hinulaan, ano ang ipinaliwanag, ano ang sinuri, at saan gagamitin ang sagot. Para sa mga senior high school, mag-aaral sa unibersidad at mga propesyonal na interesado sa AI, sinisiyasat nito ang pisika, agham-buhay at mga birtuwal na lipunan sa madaling Ingles — walang kailangang programming o advanced na pisika. Magsanay sa paghahanap ng malinaw na tanong, pagsubaybay sa mga pahayag hanggang sa pinagmulan, pagtukoy sa mga nakalilinlang na numero, at paghihiwalay ng simulation sa ebidensiya tungkol sa tunay na tao; pagkatapos ay dalhin ang mga gawi na iyon sa takdang-aralin, proyektong pangkat o panukala sa trabaho. Walong kabanata ng pagsasanay, may mga pahiwatig at sagot. Ang paliwanag sa mga salitang Hapon at ang may-petsang katumbas sa rupee katabi ng yen ay tumutulong sa mambabasang Indiyano nang hindi inaalis ang tagpuang Hapon. Sa pagitan ng mga kabanata, tinatahak nina Kyoko at Takashi ang isang taon sa Japan, mula tagsibol hanggang sa susunod.",
+    de:
+      "Die KI gibt eine Antwort — können Sie erklären, warum Sie sie verwenden würden? Ein geschliffener Absatz, eine selbstbewusste Prognose, ein überzeugendes Diagramm: Alles wirkt schlüssig, ehe die Belege geprüft sind. Diese illustrierte India Special Edition hilft zu fragen, was vorhergesagt, was erklärt, was geprüft wurde und wofür die Antwort dienen soll. Für die Oberstufe, für Studierende und für berufstätige Neugierige erschließt sie Physik, Lebenswissenschaften und virtuelle Gesellschaften in zugänglichem britischem Englisch — ohne Programmierkenntnisse und ohne höhere Physik. Üben Sie, eine klare Frage zu finden, Behauptungen bis zu ihren Quellen zu verfolgen, irreführende Zahlen zu erkennen und eine Simulation von Belegen über wirkliche Menschen zu trennen; und nehmen Sie diese Gewohnheiten mit in eine Hausarbeit, ein Gruppenprojekt oder einen Vorschlag im Beruf. Acht Kapitel mit Übungsaufgaben, Hinweisen und Lösungen. Erläuterungen japanischer Begriffe und datierte Rupien-Entsprechungen neben den Yen-Beträgen helfen indischen Leserinnen und Lesern, ohne den japanischen Schauplatz aufzugeben. Zwischen den Kapiteln gehen Kyoko und Takashi durch ein Jahr in Japan, von einem Frühling zum nächsten.",
+    fr:
+      "L'IA vous donne une réponse — sauriez-vous expliquer pourquoi vous l'utiliseriez ? Un paragraphe soigné, une prévision assurée, un graphique convaincant : tout paraît solide tant que les preuves n'ont pas été vérifiées. Cette India Special Edition illustrée apprend à demander ce qui a été prédit, ce qui a été expliqué, ce qui a été vérifié, et à quoi la réponse va servir. Destinée aux lycéens des dernières années, aux étudiants et aux professionnels curieux d'IA, elle explore la physique, les sciences du vivant et les sociétés virtuelles dans un anglais britannique accessible — sans programmation ni physique avancée. Entraînez-vous à formuler une question claire, à remonter des affirmations jusqu'à leurs sources, à repérer les chiffres trompeurs et à distinguer une simulation d'une preuve portant sur des personnes réelles ; puis emportez ces habitudes dans un devoir, un projet de groupe ou une proposition au travail. Huit chapitres d'exercices, avec indices et corrigés. Les explications de termes japonais et les équivalents en roupies, datés, à côté des montants en yens accompagnent le lecteur indien sans quitter le décor japonais. Entre les chapitres, Kyoko et Takashi traversent une année au Japon, d'un printemps à l'autre.",
+    es:
+      "La IA da una respuesta — ¿sabría explicar por qué la usaría? Un párrafo pulido, una predicción segura, un gráfico persuasivo: todo parece sólido antes de comprobar las pruebas. Esta India Special Edition ilustrada enseña a preguntar qué se predijo, qué se explicó, qué se comprobó y para qué va a servir la respuesta. Pensada para los últimos cursos de secundaria, para estudiantes universitarios y para profesionales con curiosidad por la IA, recorre la física, las ciencias de la vida y las sociedades virtuales en un inglés británico accesible, sin programación ni física avanzada. Practique formular una pregunta clara, seguir las afirmaciones hasta sus fuentes, detectar cifras engañosas y separar una simulación de la evidencia sobre personas reales; después lleve esos hábitos a un trabajo de clase, un proyecto de grupo o una propuesta en la oficina. Ocho capítulos de tareas prácticas, con pistas y soluciones. Las explicaciones de términos japoneses y los equivalentes en rupias, con fecha, junto a las cifras en yenes acompañan al lector indio sin renunciar al escenario japonés. Entre capítulo y capítulo, Kyoko y Takashi atraviesan un año en Japón, de una primavera a la siguiente.",
+    pt:
+      "A IA dá uma resposta — você sabe explicar por que a usaria? Um parágrafo bem-acabado, uma previsão confiante, um gráfico persuasivo: tudo parece sólido antes de as evidências serem conferidas. Esta India Special Edition ilustrada ensina a perguntar o que foi previsto, o que foi explicado, o que foi verificado e para que a resposta vai servir. Escrita para os últimos anos do ensino médio, para estudantes universitários e para profissionais curiosos sobre IA, percorre a física, as ciências da vida e as sociedades virtuais em inglês britânico acessível — sem programação e sem física avançada. Pratique formular uma pergunta clara, seguir afirmações até suas fontes, identificar números enganosos e separar uma simulação de evidências sobre pessoas reais; depois leve esses hábitos para um trabalho de aula, um projeto em grupo ou uma proposta no trabalho. Oito capítulos de tarefas práticas, com dicas e respostas. As explicações de termos japoneses e os equivalentes em rupias, datados, ao lado dos valores em ienes apoiam o leitor indiano sem abrir mão do cenário japonês. Entre os capítulos, Kyoko e Takashi atravessam um ano no Japão, de uma primavera à seguinte."
   },
   'ai-bible': {
     ko:
@@ -176,6 +198,30 @@ const BLURBS: Record<string, Copy> = {
 
 export function blurbOf(book: Book, locale: string): string {
   return BLURBS[book.id]?.[locale as keyof Copy] ?? book.blurb;
+}
+
+/**
+ * The description of one edition, in the reader's language.
+ *
+ * These editions are different books rather than one text translated, so
+ * the aim is the right book — but not at the price of printing English on
+ * a Korean page, which is how a half-finished translation looks to a
+ * reader who cannot read it.
+ *
+ * So: this edition's description in the reader's own language if it has
+ * been written; otherwise the book-level copy, which is translated but
+ * describes whichever edition the book is filed under; and the edition's
+ * own English only for a reader who is reading in English anyway.
+ *
+ * Editions still wanting translated copy: quantum-econ EN and JA,
+ * ai-bible EN and JA, isekai EN. Their English is already here and moves
+ * into place as each translation lands.
+ */
+export function blurbOfEdition(book: Book, lang: Lang, locale: string): string {
+  const own = BLURBS[`${book.id}:${lang}`]?.[locale as keyof Copy];
+  if (own) return own;
+  if (locale === 'en') return book.editions?.[lang]?.blurb ?? book.blurb;
+  return blurbOf(book, locale);
 }
 
 /* The contents list, which is catalogue data and therefore English. Four

@@ -14,11 +14,16 @@ import {
 import BookCard from '../../../../../components/BookCard';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import {
+  EditionBlurb,
+  EditionTitle,
   EditionCover,
+  EditionPages,
   EditionProvider,
-  EditionTabs
+  EditionPublished,
+  EditionTabs,
+  type Facts
 } from '../../../../../components/store/Editions';
-import {blurbOf, tocOf} from '../../../../../lib/blurbs';
+import {blurbOfEdition, tocOf} from '../../../../../lib/blurbs';
 import {EDITIONS, fromPrice} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
 import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
@@ -65,6 +70,26 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
     .join(' · ') || t('fmtEbook');
   const others = BOOKS.filter((b) => b.id !== book.id).slice(0, 3);
 
+  /* Each edition's own title, length, date and description — the last in
+     the reader's language, which needs the message catalogue and so has
+     to happen here rather than in the browser. An edition that names none
+     of its own uses the book's, which describes the edition it is filed
+     under. */
+  const facts: Record<string, Facts> = Object.fromEntries(
+    book.langs.map((lang) => {
+      const own = book.editions?.[lang];
+      return [
+        lang,
+        {
+          title: own?.title ?? book.title,
+          pages: own?.pages ?? book.pages,
+          published: own?.published ?? book.published,
+          blurb: blurbOfEdition(book, lang, locale)
+        }
+      ];
+    })
+  );
+
   return (
     <div className="detail">
       <div className="crumb">
@@ -88,9 +113,9 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
               "AI · 테크" and "대학 · 성인교육", so a middot between them
               made one line of five things out of two subjects. */}
           <div className="d-cat">{catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' / ')}</div>
-          <h1 className="d-title">{book.title}</h1>
+          <EditionTitle facts={facts} />
           <div className="d-author">{book.author}</div>
-          <p className="d-blurb">{blurbOf(book, locale)}</p>
+          <EditionBlurb facts={facts} />
           <EditionTabs langs={book.langs} />
           {/* A book inside its Kindle Unlimited window keeps its page and
               its shops; what it loses is the button that opens it here.
@@ -134,7 +159,6 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
           </div>
         </div>
       </div>
-      </EditionProvider>
 
       <div className="d-cols">
         <div>
@@ -161,7 +185,9 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
             </div>
             <div className="meta-row">
               <dt>{t('pages')}</dt>
-              <dd>{book.pages}</dd>
+              <dd>
+                <EditionPages facts={facts} />
+              </dd>
             </div>
             <div className="meta-row">
               <dt>{t('editions')}</dt>
@@ -169,7 +195,9 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
             </div>
             <div className="meta-row">
               <dt>{t('published')}</dt>
-              <dd>{book.published}</dd>
+              <dd>
+                <EditionPublished facts={facts} />
+              </dd>
             </div>
             <div className="meta-row">
               <dt>{t('publisher')}</dt>
@@ -182,6 +210,8 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
           </dl>
         </div>
       </div>
+
+      </EditionProvider>
 
       <div className="more-books">
         <div className="eyebrow">{t('keepGoing')}</div>
