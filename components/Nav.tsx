@@ -32,12 +32,16 @@ export default function Nav() {
   // on every route, from the first pixel of scroll.
   const className = 'nav solid';
 
-  // The reader still anchors to its home section; how-to-buy has its own
-  // page now, so it links there.
+  /* 어썸 리더 goes to the reader, not to the paragraph about it. It pointed
+     at #reader, a section of the landing page, so clicking the product in
+     the menu scrolled you to an advertisement for it. The shelf is where
+     the reader is entered — pick a book and it opens — and a visitor who
+     is not signed in is sent to sign in and lands back there, which the
+     login page already does by default. How-to-buy has its own page. */
   const items = [
     {key: 'home', href: '/'},
     {key: 'bookstore', href: '/books'},
-    {key: 'reader', href: '/#reader'},
+    {key: 'reader', href: '/library'},
     {key: 'magazine', href: '/magazine'},
     {key: 'news', href: '/news'},
     {key: 'plans', href: '/plans'},
