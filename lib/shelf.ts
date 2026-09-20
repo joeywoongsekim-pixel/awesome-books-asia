@@ -102,7 +102,15 @@ const ROWS: ShelfRow[] = [
 ];
 
 /* Rows are shown in the taxonomy's own order, whatever order they are
-   written in above, so adding a subject never means re-sorting by hand. */
-export const SHELF: ShelfRow[] = CATEGORIES.map((c) =>
-  ROWS.find((r) => r.cat === c)
-).filter((r): r is ShelfRow => Boolean(r));
+   written in above, so adding a subject never means re-sorting by hand.
+
+   Every subject gets a shelf, including the eight with nothing on them
+   yet: the bookcase is the house's plan, and an empty shelf under a
+   nameplate says a subject is coming far better than its absence does.
+   A row with no books is three dashed slots, which is what `ghosts` has
+   always drawn for the gaps in a part-filled row. */
+const EMPTY_SHELF_GHOSTS = 3;
+
+export const SHELF: ShelfRow[] = CATEGORIES.map(
+  (c) => ROWS.find((r) => r.cat === c) ?? {cat: c, items: [], ghosts: EMPTY_SHELF_GHOSTS}
+);

@@ -28,15 +28,15 @@ export default function StoreGrid() {
       (cat === 'all' || catsOf(b).includes(cat)) && (lang === 'all' || b.langs.includes(lang))
   );
 
-  // Twelve subjects are defined; a chip is only offered for the ones that
-  // have a book behind them, so the filter never leads to an empty shelf.
-  const stocked = new Set(BOOKS.flatMap(catsOf));
+  /* All twelve, matching the subject tiles on the landing page and the
+     shelves in the bookcase above. A chip only for the stocked five made
+     the store read as a shorter catalogue than the rest of the site
+     advertises — and a tile arriving as ?cat=SPORT had no chip to light
+     up, so the shelf emptied with nothing saying which subject was on or
+     any way back to everything. */
   const cats: {key: CatFilter; label: string}[] = [
     {key: 'all', label: t('all')},
-    ...CATEGORIES.filter((c) => stocked.has(c)).map((c) => ({
-      key: c as CatFilter,
-      label: t(CAT_KEY[c])
-    }))
+    ...CATEGORIES.map((c) => ({key: c as CatFilter, label: t(CAT_KEY[c])}))
   ];
   const langs: {key: LangFilter; label: string}[] = [
     {key: 'all', label: t('any')},
@@ -44,6 +44,11 @@ export default function StoreGrid() {
     {key: 'KO', label: 'KO'},
     {key: 'JA', label: 'JA'}
   ];
+
+  /* Two different emptinesses, and telling somebody to widen the language
+     filter when the subject has no book in any language is advice that
+     cannot work. A subject with nothing in it says so. */
+  const subjectEmpty = cat !== 'all' && !BOOKS.some((b) => catsOf(b).includes(cat));
 
   return (
     <>
@@ -91,7 +96,7 @@ export default function StoreGrid() {
         {list.length ? (
           list.map((book) => <StoreCard key={book.id} book={book} />)
         ) : (
-          <div className="empty">{t('empty')}</div>
+          <div className="empty">{t(subjectEmpty ? 'emptySubject' : 'empty')}</div>
         )}
       </div>
     </>

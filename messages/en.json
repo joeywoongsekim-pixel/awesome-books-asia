@@ -89,6 +89,7 @@
     "catAI": "AI & Technology",
     "catBIZ": "Business",
     "empty": "Nothing matches those filters yet. Try setting language to 'Any'.",
+    "emptySubject": "No books in this subject yet. They are on the way.",
     "shelfSoon": "Coming soon",
     "fmtPrint": "Print",
     "shelfDetail": "Full details",
