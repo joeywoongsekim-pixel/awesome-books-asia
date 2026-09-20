@@ -2,28 +2,20 @@ import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {useFormatter, useLocale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
-import {Link} from '../../../../../i18n/navigation';
+import {Link, redirect} from '../../../../../i18n/navigation';
 import {
   BOOKS,
   CAT_KEY,
   catsOf,
-  preferredEdition,
+  editionsOf,
   readerOpen,
   type Book
 } from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import RetailerLinks from '../../../../../components/RetailerLinks';
-import {
-  EditionBlurb,
-  EditionTitle,
-  EditionCover,
-  EditionPages,
-  EditionProvider,
-  EditionPublished,
-  EditionTabs,
-  type Facts
-} from '../../../../../components/store/Editions';
-import {blurbOfEdition, tocOf} from '../../../../../lib/blurbs';
+import BookCover from '../../../../../components/BookCover';
+import OtherEditions from '../../../../../components/store/Editions';
+import {blurbOf, tocOf} from '../../../../../lib/blurbs';
 import {EDITIONS, fromPrice} from '../../../../../lib/retailers';
 import JsonLd from '../../../../../components/JsonLd';
 import {bookJsonLd, breadcrumbJsonLd} from '../../../../../lib/jsonld';
@@ -54,7 +46,7 @@ export async function generateMetadata({
 
 // Sync server component so useTranslations works; the async page below
 // resolves params first.
-function BookDetail({book, asked}: {book: Book; asked?: string}) {
+function BookDetail({book}: {book: Book}) {
   const t = useTranslations('detail');
   const tNav = useTranslations('nav');
   const tBooks = useTranslations('books');
@@ -70,25 +62,6 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
     .join(' · ') || t('fmtEbook');
   const others = BOOKS.filter((b) => b.id !== book.id).slice(0, 3);
 
-  /* Each edition's own title, length, date and description — the last in
-     the reader's language, which needs the message catalogue and so has
-     to happen here rather than in the browser. An edition that names none
-     of its own uses the book's, which describes the edition it is filed
-     under. */
-  const facts: Record<string, Facts> = Object.fromEntries(
-    book.langs.map((lang) => {
-      const own = book.editions?.[lang];
-      return [
-        lang,
-        {
-          title: own?.title ?? book.title,
-          pages: own?.pages ?? book.pages,
-          published: own?.published ?? book.published,
-          blurb: blurbOfEdition(book, lang, locale)
-        }
-      ];
-    })
-  );
 
   return (
     <div className="detail">
@@ -100,12 +73,9 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
         <span className="crumb-here">{book.title}</span>
       </div>
 
-      {/* The chosen edition decides the jacket, so the cover and the tabs —
-          which sit in different columns — share one piece of state. */}
-      <EditionProvider initial={preferredEdition(book.langs, locale, asked)}>
       <div className="d-top">
         <div className="d-cover-wrap">
-          <EditionCover book={book} />
+          <BookCover book={book} />
         </div>
         <div>
           {/* Every subject the book answers to, in the reader's language.
@@ -113,10 +83,10 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
               "AI · 테크" and "대학 · 성인교육", so a middot between them
               made one line of five things out of two subjects. */}
           <div className="d-cat">{catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' / ')}</div>
-          <EditionTitle facts={facts} />
+          <h1 className="d-title">{book.title}</h1>
           <div className="d-author">{book.author}</div>
-          <EditionBlurb facts={facts} />
-          <EditionTabs langs={book.langs} />
+          <p className="d-blurb">{blurbOf(book, locale)}</p>
+          <OtherEditions book={book} />
           {/* A book inside its Kindle Unlimited window keeps its page and
               its shops; what it loses is the button that opens it here.
               Naming the day is the point — the reader is coming, and in
@@ -185,9 +155,7 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
             </div>
             <div className="meta-row">
               <dt>{t('pages')}</dt>
-              <dd>
-                <EditionPages facts={facts} />
-              </dd>
+              <dd>{book.pages}</dd>
             </div>
             <div className="meta-row">
               <dt>{t('editions')}</dt>
@@ -195,9 +163,7 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
             </div>
             <div className="meta-row">
               <dt>{t('published')}</dt>
-              <dd>
-                <EditionPublished facts={facts} />
-              </dd>
+              <dd>{book.published}</dd>
             </div>
             <div className="meta-row">
               <dt>{t('publisher')}</dt>
@@ -210,8 +176,6 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
           </dl>
         </div>
       </div>
-
-      </EditionProvider>
 
       <div className="more-books">
         <div className="eyebrow">{t('keepGoing')}</div>
@@ -233,9 +197,10 @@ export default async function BookDetailPage({
   searchParams
 }: {
   params: Promise<{locale: string; slug: string}>;
-  /* ?ed=EN opens the English edition. Every place that shows one edition's
-     jacket — the shelf, the store's spines, the launch popup — links with
-     it, so the page a reader lands on is the book they clicked. */
+  /* ?ed=EN used to pick an edition on a shared page. Every edition has a
+     page of its own now, but links carrying it are out in the world — on
+     the launch popup, in anything anybody saved — so the old address
+     still arrives at the right book instead of the wrong one. */
   searchParams: Promise<{ed?: string}>;
 }) {
   const {locale, slug} = await params;
@@ -246,11 +211,16 @@ export default async function BookDetailPage({
   const book = BOOKS.find((b) => b.id === slug);
   if (!book) notFound();
 
+  if (ed && !book.langs.includes(ed.toUpperCase() as never)) {
+    const wanted = editionsOf(book).find((b) => b.langs[0] === ed.toUpperCase());
+    if (wanted) redirect({href: `/books/${wanted.id}`, locale});
+  }
+
   return (
     <>
       <JsonLd data={bookJsonLd(book)} />
       <JsonLd data={breadcrumbJsonLd(locale, book)} />
-      <BookDetail book={book} asked={ed} />
+      <BookDetail book={book} />
     </>
   );
 }

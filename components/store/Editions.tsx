@@ -1,19 +1,18 @@
-'use client';
+import {useTranslations} from 'next-intl';
+import {Link} from '../../i18n/navigation';
+import {editionsOf, type Book, type Lang} from '../../lib/books';
 
-import {createContext, useContext, useState} from 'react';
-import BookCover from '../BookCover';
-import {coverFor, type Book, type Lang} from '../../lib/books';
-
-// M164 — the edition tabs now choose the jacket.
+// M175 — the other editions of this book, as links.
 //
-// They were a row of buttons with a state of their own that nothing read:
-// whichever edition you picked, the page kept showing book.img. So the
-// Korean page of the ninja cat showed the Japanese jacket, and six cover
-// files that exist on disk — the Korean 쿠로, the Japanese 量子経済学, the
-// English AI's Answers among them — had never been on screen at all.
+// These used to be tabs that swapped the jacket in place on one page. They
+// are not tabs any more because the editions are not one book: the
+// Japanese Quantum Economics is "for Japan" and runs 369 pages to the
+// English 278, and the English AI's Answers is the India Special Edition
+// at 303 to the Japanese 337. Each has its own page, its own address and
+// its own entry in the shop, which is what a different book gets.
 //
-// The tabs and the cover sit in different columns of the layout, so the
-// choice lives in a context between them rather than in either one.
+// What a reader loses in that move is the way across, so it is given back
+// here: every sibling edition, named by its language, one click away.
 
 const LABELS: Record<Lang, string> = {
   EN: 'English',
@@ -21,82 +20,43 @@ const LABELS: Record<Lang, string> = {
   JA: '日本語'
 };
 
-const Chosen = createContext<{lang: Lang; set: (l: Lang) => void} | null>(null);
+export default function OtherEditions({book}: {book: Book}) {
+  const t = useTranslations('detail');
+  const all = editionsOf(book);
+  if (all.length < 2) return null;
 
-export function EditionProvider({
-  initial,
-  children
-}: {
-  initial: Lang;
-  children: React.ReactNode;
-}) {
-  const [lang, set] = useState<Lang>(initial);
-  return <Chosen.Provider value={{lang, set}}>{children}</Chosen.Provider>;
-}
-
-export function EditionCover({book}: {book: Book}) {
-  const chosen = useContext(Chosen);
-  // coverFor falls back to the book's own jacket when an edition has none
-  // of its own, which is what the regional twins of Quantum Economics do.
-  return <BookCover book={book} src={chosen ? coverFor(book.id, chosen.lang) : undefined} />;
-}
-
-// M174 — what the tabs change besides the jacket.
-//
-// These editions are not one text in several languages. The Japanese
-// Quantum Economics is "for Japan" and runs 369 pages to the English 278;
-// the English AI's Answers is the India Special Edition at 303 to the
-// Japanese 337. Until now the tabs swapped the cover and nothing else, so
-// picking English left the Japanese title, the Japanese description and
-// the Japanese page count on screen under an English jacket.
-//
-// The server works out every edition's facts — including the description
-// in the reader's language, which only it can do — and hands them over as
-// one object. These components choose which of them to show.
-
-export type Facts = {title: string; blurb: string; pages: number; published: string};
-
-function pick(facts: Record<string, Facts>, lang: Lang | undefined): Facts {
-  return (lang && facts[lang]) || Object.values(facts)[0];
-}
-
-export function EditionTitle({facts}: {facts: Record<string, Facts>}) {
-  const chosen = useContext(Chosen);
-  return <h1 className="d-title">{pick(facts, chosen?.lang).title}</h1>;
-}
-
-export function EditionBlurb({facts}: {facts: Record<string, Facts>}) {
-  const chosen = useContext(Chosen);
-  return <p className="d-blurb">{pick(facts, chosen?.lang).blurb}</p>;
-}
-
-export function EditionPages({facts}: {facts: Record<string, Facts>}) {
-  const chosen = useContext(Chosen);
-  return <>{pick(facts, chosen?.lang).pages}</>;
-}
-
-export function EditionPublished({facts}: {facts: Record<string, Facts>}) {
-  const chosen = useContext(Chosen);
-  return <>{pick(facts, chosen?.lang).published}</>;
-}
-
-export function EditionTabs({langs}: {langs: Lang[]}) {
-  const chosen = useContext(Chosen);
-  if (!chosen || langs.length === 0) return null;
   return (
-    <div className="d-langs" role="tablist">
-      {langs.map((lang) => (
-        <button
-          type="button"
-          key={lang}
-          role="tab"
-          aria-selected={lang === chosen.lang}
-          className={lang === chosen.lang ? 'd-lang on' : 'd-lang'}
-          onClick={() => chosen.set(lang)}
-        >
-          {LABELS[lang]}
-        </button>
-      ))}
+    <div className="d-eds">
+      <span className="d-eds-l">{t('otherEditions')}</span>
+      <div className="d-langs">
+        {all.map((ed) => {
+          const here = ed.id === book.id;
+          /* Two editions can share a language — Quantum Economics has an
+             English base, a UK and an India — so the language alone does
+             not name them. Where it repeats, the edition's own note comes
+             with it. */
+          const region = regionOf(ed);
+          const label = region ? `${LABELS[ed.langs[0]]} · ${region}` : LABELS[ed.langs[0]];
+          return here ? (
+            <span key={ed.id} className="d-lang on" aria-current="page">
+              {label}
+            </span>
+          ) : (
+            <Link key={ed.id} href={`/books/${ed.id}`} className="d-lang">
+              {label}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
+}
+
+/* Which region an edition is for, where its id says so. Quantum
+   Economics has three English editions — the base one, a UK and an India
+   — so the language alone does not tell them apart. The base carries no
+   suffix and is named by its language alone. */
+function regionOf(book: Book): string | null {
+  const tail = /-(uk|in|us)$/.exec(book.id)?.[1];
+  return tail ? tail.toUpperCase() : null;
 }

@@ -125,7 +125,7 @@ export default function ShelfHero() {
                       </a>
                     ))}
                   </div>
-                  <Link className="shf-more" href={`/books/${open.slug}?ed=${open.lang}`}>
+                  <Link className="shf-more" href={`/books/${open.slug}`}>
                     {t('shelfDetail')} →
                   </Link>
                 </div>

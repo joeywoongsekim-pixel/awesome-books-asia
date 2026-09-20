@@ -124,7 +124,7 @@ export function indiaEditions(locale: string): IndiaEdition[] {
         book,
         link,
         title: link.note ?? book.title,
-        cover: coverFor(book.id, link.lang) ?? null,
+        cover: coverFor(book.id) ?? null,
         host,
         storeLabel: host.replace(/^www\./, '').replace(/^amazon/, 'Amazon'),
         // Without a parsable ASIN the original link stands rather than a

@@ -80,30 +80,14 @@ export type Spread = {
   fig?: { i: string; t: string }; // inline figure: emoji + caption (may contain <br>)
 };
 
-/* What actually differs between one edition of a book and another.
-
-   These are not translations of each other. The Japanese Quantum
-   Economics is "for Japan" and runs 369 pages against the English 278;
-   the English AI's Answers is the India Special Edition at 303 against
-   the Japanese 337, with rupee equivalents and its own practice tasks.
-   So an edition carries its own title, its own length and its own
-   description, and the tabs on the detail page swap all of it rather
-   than only the jacket.
-
-   `blurb` here is the English source. Its translations live in
-   lib/blurbs.ts under `${id}:${lang}`; where one has not been written
-   yet the page falls back to the edition's own English, which is the
-   right book in the wrong language rather than the wrong book in the
-   right one. */
-export type EditionFacts = {
-  title: string;
-  pages: number;
-  published?: string;
-  blurb?: string;
-};
-
 export type Book = {
   id: string;
+  /* Which book this is an edition of. Editions are separate entries with
+     separate pages, because they are separate books — the Japanese
+     Quantum Economics is "for Japan" and runs 369 pages to the English
+     278 — and this is the thread that lets one find the others. A work
+     with a single edition may leave it out. */
+  work?: string;
   ic: string;
   cover: Cover;
   title: string;
@@ -141,9 +125,6 @@ export type Book = {
      bodies of text live in two places; both are set when a book is
      registered. */
   readerFrom?: string;
-  /* Per-edition facts, keyed by language. A language left out uses the
-     fields above, which describe the edition the book is filed under. */
-  editions?: Partial<Record<Lang, EditionFacts>>;
   toc: string[];
   sp: Spread[];
 };
@@ -157,6 +138,7 @@ export const BOOKS: Book[] = [
      economics filter too, which is the other half of its title. */
   {
     id: "ai-token",
+    work: "ai-token",
     img: '/covers/ai-token-ja.jpg',
     ic: "🪙",
     cover: "c4",
@@ -186,6 +168,7 @@ export const BOOKS: Book[] = [
      answer to the economics filter. */
   {
     id: "ai-token-in",
+    work: "ai-token",
     img: '/covers/ai-token-in.jpg',
     ic: "🪙",
     cover: "c4",
@@ -211,6 +194,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "ai-answer",
+    work: "ai-answer",
     img: '/covers/ai-answer-ja.jpg',
     ic: "🔎",
     cover: "c2",
@@ -223,7 +207,7 @@ export const BOOKS: Book[] = [
        work. */
     also: ["BIZ", "SECOND", "HIGHER"],
     price: 0,
-    langs: ["JA", "EN"],
+    langs: ["JA"],
     isNew: true,
     level: 2,
     angle: "as three human additions — purpose, evidence, and the decision to use",
@@ -231,37 +215,20 @@ export const BOOKS: Book[] = [
       "AI has given its answer — now how far can you use it? A visual, story-led AI-literacy reader that draws on physics, life science and social simulation to teach the three things people add: setting the purpose, tracing the evidence, and choosing how to use the result. Eighty figures, short exercises, and eight interludes following two readers through a Japanese year. For high-school inquiry, university seminars, and anyone putting AI to work.",
     pages: 337,
     published: "2026-09",
-    /* Two books, not one text in two languages. The English is the India
-       Special Edition: 303 pages against 337, rupee equivalents beside the
-       yen, and its own practice tasks. Checked against both listings on
-       20 September 2026. */
-    editions: {
-      JA: {
-        title: "AIの答えに、人間は何を足すのか",
-        pages: 337,
-        published: "2026-09"
-      },
-      EN: {
-        title: "What Do Humans Add to AI\u2019s Answers?: Understanding and Judgement through Physics, Life Science and Social Simulation (India Special Edition)",
-        pages: 303,
-        published: "2026-09",
-        blurb:
-          "AI can give you an answer \u2014 can you explain why you would use it? A polished paragraph, a confident prediction, a persuasive chart: each can look convincing before its evidence has been checked. This illustrated India Special Edition helps you ask what was predicted, what was explained, what was checked, and what the answer will be used for. Written for senior secondary students, university learners and AI-curious professionals, it explores physics, life science and virtual societies in accessible British English, assuming no programming and no advanced physics. Practise finding a clear question, tracing claims to sources, spotting misleading numbers and separating a simulation from evidence about real people, then bring those habits to an assignment, a group project or a workplace proposal. Eight chapters of practice tasks with hints and answer keys; explanations of Japanese terms and dated rupee equivalents beside the yen support Indian readers while keeping the book\u2019s Japanese setting. Between chapters, Kyoko and Takashi carry a year in Japan from one spring to the next."
-      }
-    },
     toc: [],
     sp: [],
   },
   {
     id: "ai-bible",
+    work: "ai-bible",
     img: '/covers/ai-bible.jpg',
     ic: "🧠",
     cover: "c1",
-    title: "Awesome AI Bible 2026",
+    title: "Awesome AI Bible 2026: The Complete Guide to Mastering Generative AI from Zero",
     author: "Akira Murata",
     cat: "AI",
     price: 12,
-    langs: ["EN", "KO", "JA"],
+    langs: ["EN"],
     isNew: true,
     level: 2,
     angle:
@@ -270,25 +237,6 @@ export const BOOKS: Book[] = [
       "The complete guide to generative AI, from your first prompt to organisational policy. Twelve chapters covering ChatGPT, Claude, Gemini and Copilot, with the verification habits that keep the output trustworthy.",
     pages: 549,
     published: "2026-02",
-    /* The Japanese edition runs 583 pages to the English 549 and is
-       organised for Japanese study and job-hunting, down to a chapter on
-       career strategy. Checked against both listings on 20 September 2026. */
-    editions: {
-      EN: {
-        title: "Awesome AI Bible 2026: The Complete Guide to Mastering Generative AI from Zero",
-        pages: 549,
-        published: "2026-02",
-        blurb:
-          "Master ChatGPT, Gemini, Claude and Copilot with the most comprehensive and up-to-date guide available. Whether you are a student writing a first thesis, a job seeker shaping a r\u00e9sum\u00e9, or a professional trying to get more out of a working day, this book gives you what you need to start using AI well. Try AI in three minutes with a zero-setup quick start; master advanced prompting and the CO-STAR framework; work through Gemini\u2019s deep research and long-context reading, Copilot\u2019s Excel agent and Microsoft 365 integration, and Claude\u2019s ethical and security ground. Twelve chapters, each with something to try while you read, and a closing look at what all of this asks of a career."
-      },
-      JA: {
-        title: "Awesome AI Bible 2026\uff1a\u751f\u6210AI\u5b8c\u5168\u30ac\u30a4\u30c9",
-        pages: 583,
-        published: "2026-02",
-        blurb:
-          "The Japanese edition, written for study and job-hunting in Japan. Twelve chapters and a summing-up cover ChatGPT, Gemini, Claude, Copilot and Perplexity from no knowledge at all; every chapter carries a three-minute challenge you can try while reading. The CO-STAR framework for professional prompting, a five-step workflow for reports and dissertations, five rules for using AI ethically, and a chapter on career strategy from job-hunting to what comes after. For undergraduates and postgraduates using AI on coursework and applications, for secondary and vocational students building AI literacy early, and for people one to three years into work."
-      }
-    },
     toc: [
       "What generative AI actually is",
       "Choosing between the tools",
@@ -339,6 +287,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "quantum-econ",
+    work: "quantum-econ",
     img: '/covers/quantum-econ.jpg',
     ic: "⚛️",
     cover: "c4",
@@ -346,36 +295,15 @@ export const BOOKS: Book[] = [
     author: "Akira Murata",
     cat: "ECON",
     price: 12,
-    langs: ["EN", "JA"],
+    langs: ["EN"],
     isNew: true,
     level: 4,
     angle:
       "as measurement — a price is not discovered, it is collapsed by the act of asking",
     blurb:
       "What if the economy obeys quantum rules? Superposition, measurement and entanglement as a working toolkit for the new economics of decision-making — why you choose what you choose. The Japanese edition (量子経済学) applies the same lens to the BOJ, consumption tax and fan economies.",
-    pages: 342,
+    pages: 278,
     published: "2026-08",
-    /* The Japanese edition is a different book: "for Japan", 369 pages
-       against the English 278, with two chapters the English does not
-       have \u2014 the Bank of Japan, and consumption tax on a rice ball
-       eaten in or taken away \u2014 and every example rebuilt around
-       Japanese life. Checked against both listings on 20 September 2026. */
-    editions: {
-      EN: {
-        title: "Quantum Economics: Foundations and Applications",
-        pages: 278,
-        published: "2026-08",
-        blurb:
-          "What if the economy obeys quantum rules? Change the order of two survey questions and the answers change. One sentence from the Fed Chair moves markets in minutes. Give shoppers two good reasons to buy and watch the purchase rate drop. Traditional economics files these under anomalies and noise; this book says they are not exceptions but the new economics of measurement. A rigorous yet friendly introduction to one of the most exciting fields in social science \u2014 the probability theory of quantum mechanics applied to human decision-making \u2014 built entirely on American examples. Four tools decode everyday puzzles: superposition, measurement, interference and entanglement. The price tag on the cover is not falling apart; it is showing what a price always was, one collapsed outcome among many interfering possibilities."
-      },
-      JA: {
-        title: "\u91cf\u5b50\u7d4c\u6e08\u5b66\uff1a\u57fa\u790e\u3068\u65e5\u672c\u3078\u306e\u5fdc\u7528",
-        pages: 369,
-        published: "2026-08",
-        blurb:
-          "The Japanese edition, built entirely on Japanese examples. Change the order of the questions and the survey answers change; one sentence from the Governor of the Bank of Japan moves the market in minutes; put two good reasons side by side and the sign-up rate falls. Four tools \u2014 superposition, measurement, interference and entanglement \u2014 make everyday puzzles legible, and two chapters belong to this edition alone: the Bank of Japan\u2019s policy meeting read as a measurement taken on the market, and the consumption tax that charges 8% to eat in and 10% to take away the same rice ball. Twelve chapters in all, with convenience stores, gacha probability disclosures, Mercari pricing, NISA and the economics of fandom. Each chapter carries review questions, with model answers at the back, and the mathematics starts from high school and moves one step at a time."
-      }
-    },
     toc: [
       "Why classical models miss",
       "Choice as superposition",
@@ -410,6 +338,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "quantum-econ-uk",
+    work: "quantum-econ",
     img: '/covers/quantum-econ.jpg',
     ic: "⚛️",
     cover: "c4",
@@ -430,6 +359,7 @@ export const BOOKS: Book[] = [
   },
   {
     id: "quantum-econ-in",
+    work: "quantum-econ",
     img: '/covers/quantum-econ.jpg',
     ic: "⚛️",
     cover: "c4",
@@ -450,34 +380,24 @@ export const BOOKS: Book[] = [
   },
   {
     id: "isekai",
+    work: "isekai",
     img: '/covers/isekai.jpg',
     ic: "🚀",
     cover: "c2",
-    title: "An Introduction to ISEKAI Entrepreneurship",
+    title: "An Introduction to ISEKAI Entrepreneurship: Business × Isekai Fantasy",
     author: "Lyra Mizuki · Orion Carter",
     cat: "BIZ",
     also: ["FICTION"], // the title already says both: it is a light novel
     price: 9,
-    langs: ["EN", "KO", "JA"],
+    langs: ["EN"],
     isNew: true,
     level: 3,
     angle:
       "as negotiation — getting what you need from someone who does not share your assumptions",
     blurb:
       "A quest-driven light novel that teaches initiative, strategy and startup thinking without a textbook in sight. A modern founder wakes up in a kingdom that has never heard of a fixed price.",
-    pages: 312,
+    pages: 377,
     published: "2025-07",
-    /* Same story, two tellings, and the English is the longer one at 377
-       pages. Checked on 20 September 2026. */
-    editions: {
-      EN: {
-        title: "An Introduction to ISEKAI Entrepreneurship: Business \u00d7 Isekai Fantasy",
-        pages: 377,
-        published: "2026-07",
-        blurb:
-          "The school library after class became a gateway to another world. High school students Yuu and Aki were supposed to be working on their assignment for Entrepreneurship, but a sudden flash of light carried them into a ruined, unfamiliar place where magic and the remnants of civilisation sit side by side and people struggle through each day. Their only tools are the seven habits they learned in class and their own willingness to act. A new kind of isekai fantasy, where what you learned is the weapon you brought."
-      }
-    },
     toc: [
       "Summoned",
       "The first customer",
@@ -524,21 +444,22 @@ export const BOOKS: Book[] = [
   },
   {
     id: "ninja-cat",
+    work: "ninja-cat",
     img: '/covers/ninja-cat.jpg',
     ic: "🐱",
     cover: "c5",
-    title: "Clumsy Ninja Cat Kuro",
+    title: "おっちょこ忍キャット クロの巻",
     author: "Fumi Yamaneko · Orion Carter",
     cat: "PICTURE",
     price: 7,
-    langs: ["KO", "JA"],
+    langs: ["JA"],
     isNew: false,
     level: 1,
     kids: true,
     angle: "as a comedy about trying again after every spectacular failure",
     blurb:
       "Kuro is a ninja cat — probably the clumsiest one in the village. Every mission goes wrong in exactly the way you hope it will. A picture-book animal comedy for ages 4–8. Published in Korean (덜렁이 닌자 고양이) and Japanese (おっちょこ忍キャット).",
-    pages: 44,
+    pages: 116,
     published: "2025-07",
     toc: [
       "The village",
@@ -583,6 +504,147 @@ export const BOOKS: Book[] = [
       },
     ],
   },
+  /* The India Special Edition in English, and a different book from the
+     Japanese one: 303 pages against 337, rupee equivalents beside the
+     yen, and practice tasks of its own. */
+  {
+    id: "ai-answer-in",
+    work: "ai-answer",
+    img: '/covers/ai-answer-en.jpg',
+    ic: "\ud83d\udd0e",
+    cover: "c2",
+    title: "What Do Humans Add to AI\u2019s Answers?: Understanding and Judgement through Physics, Life Science and Social Simulation (India Special Edition)",
+    author: "Akira Murata",
+    cat: "AI",
+    also: ["BIZ", "SECOND", "HIGHER"],
+    price: 0,
+    langs: ["EN"],
+    isNew: true,
+    level: 2,
+    angle: "as three human additions \u2014 purpose, evidence, and the decision to use",
+    blurb:
+      "AI can give you an answer \u2014 can you explain why you would use it? A polished paragraph, a confident prediction, a persuasive chart: each can look convincing before its evidence has been checked. This illustrated India Special Edition helps you ask what was predicted, what was explained, what was checked, and what the answer will be used for. Written for senior secondary students, university learners and AI-curious professionals, it explores physics, life science and virtual societies in accessible British English, assuming no programming and no advanced physics. Practise finding a clear question, tracing claims to sources, spotting misleading numbers and separating a simulation from evidence about real people, then bring those habits to an assignment, a group project or a workplace proposal. Eight chapters of practice tasks with hints and answer keys; explanations of Japanese terms and dated rupee equivalents beside the yen support Indian readers while keeping the book\u2019s Japanese setting. Between chapters, Kyoko and Takashi carry a year in Japan from one spring to the next.",
+    pages: 303,
+    published: "2026-09",
+    toc: [],
+    sp: [],
+  },
+  /* "For Japan": 369 pages to the English 278, with two chapters the
+     English does not have \u2014 the Bank of Japan, and the consumption
+     tax that splits one rice ball into two rates \u2014 and every example
+     rebuilt around Japanese life. */
+  {
+    id: "quantum-econ-ja",
+    work: "quantum-econ",
+    img: '/covers/quantum-econ-ja.jpg',
+    ic: "\u269b\ufe0f",
+    cover: "c4",
+    title: "\u91cf\u5b50\u7d4c\u6e08\u5b66\uff1a\u57fa\u790e\u3068\u65e5\u672c\u3078\u306e\u5fdc\u7528",
+    author: "Akira Murata",
+    cat: "ECON",
+    price: 12,
+    langs: ["JA"],
+    isNew: true,
+    level: 4,
+    angle: "as measurement \u2014 a price is not discovered, it is collapsed by the act of asking",
+    blurb:
+      "The Japanese edition, built entirely on Japanese examples. Change the order of the questions and the survey answers change; one sentence from the Governor of the Bank of Japan moves the market in minutes; put two good reasons side by side and the sign-up rate falls. Four tools \u2014 superposition, measurement, interference and entanglement \u2014 make everyday puzzles legible, and two chapters belong to this edition alone: the Bank of Japan\u2019s policy meeting read as a measurement taken on the market, and the consumption tax that charges 8% to eat in and 10% to take away the same rice ball. Twelve chapters in all, with convenience stores, gacha probability disclosures, Mercari pricing, NISA and the economics of fandom. Each chapter carries review questions, with model answers at the back, and the mathematics starts from high school and moves one step at a time.",
+    pages: 369,
+    published: "2026-08",
+    toc: [],
+    sp: [],
+  },
+  /* 583 pages to the English 549, organised for study and job-hunting in
+     Japan down to a chapter on career strategy. */
+  {
+    id: "ai-bible-ja",
+    work: "ai-bible",
+    img: '/covers/ai-bible-ja.jpg',
+    ic: "\ud83e\udde0",
+    cover: "c1",
+    title: "Awesome AI Bible 2026\uff1a\u751f\u6210AI\u5b8c\u5168\u30ac\u30a4\u30c9",
+    author: "Akira Murata",
+    cat: "AI",
+    price: 12,
+    langs: ["JA"],
+    isNew: true,
+    level: 2,
+    angle: "as a five-part work order \u2014 role, context, task, format, constraint",
+    blurb:
+      "The Japanese edition, written for study and job-hunting in Japan. Twelve chapters and a summing-up cover ChatGPT, Gemini, Claude, Copilot and Perplexity from no knowledge at all; every chapter carries a three-minute challenge you can try while reading. The CO-STAR framework for professional prompting, a five-step workflow for reports and dissertations, five rules for using AI ethically, and a chapter on career strategy from job-hunting to what comes after. For undergraduates and postgraduates using AI on coursework and applications, for secondary and vocational students building AI literacy early, and for people one to three years into work.",
+    pages: 583,
+    published: "2026-02",
+    toc: [],
+    sp: [],
+  },
+  {
+    id: "isekai-ko",
+    work: "isekai",
+    img: '/covers/isekai-ko.jpg',
+    ic: "\ud83d\ude80",
+    cover: "c2",
+    title: "\uc774\uc138\uacc4 \uc5d4\ud130\ud504\ub9ac\ub108\uc2ed \uc785\ubb38",
+    author: "Lyra Mizuki \u00b7 Orion Carter",
+    cat: "BIZ",
+    also: ["FICTION"],
+    price: 9,
+    langs: ["KO"],
+    isNew: true,
+    level: 3,
+    angle:
+      "as negotiation \u2014 getting what you need from someone who does not share your assumptions",
+    blurb:
+      "The Korean edition, 314 pages. The school library after class became a gateway to another world. High school students Yuu and Aki were supposed to be working on their entrepreneurship assignment when a flash of light carried them into a ruined place where magic and the remnants of civilisation sit side by side. Their only tools are the seven habits they learned in class and their own willingness to act.",
+    pages: 314,
+    published: "2025-07",
+    toc: [],
+    sp: [],
+  },
+  {
+    id: "isekai-ja",
+    work: "isekai",
+    img: '/covers/isekai-ja.jpg',
+    ic: "\ud83d\ude80",
+    cover: "c2",
+    title: "\u7570\u4e16\u754c\u30a2\u30f3\u30c8\u30ec\u30d7\u30ec\u30ca\u30fc\u30b7\u30c3\u30d7\u5165\u9580",
+    author: "Lyra Mizuki \u00b7 Orion Carter",
+    cat: "BIZ",
+    also: ["FICTION"],
+    price: 9,
+    langs: ["JA"],
+    isNew: true,
+    level: 3,
+    angle:
+      "as negotiation \u2014 getting what you need from someone who does not share your assumptions",
+    blurb:
+      "The Japanese edition, 221 pages. The school library after class became a gateway to another world. High school students Yuu and Aki were supposed to be working on their entrepreneurship assignment when a flash of light carried them into a ruined place where magic and the remnants of civilisation sit side by side. Their only tools are the seven habits they learned in class and their own willingness to act.",
+    pages: 221,
+    published: "2025-07",
+    toc: [],
+    sp: [],
+  },
+  {
+    id: "ninja-cat-ko",
+    work: "ninja-cat",
+    img: '/covers/ninja-cat-ko.jpg',
+    ic: "\ud83d\udc31",
+    cover: "c5",
+    title: "덜렁이 닌자 고양이 쿠로편",
+    author: "Fumi Yamaneko",
+    cat: "PICTURE",
+    price: 7,
+    langs: ["KO"],
+    isNew: false,
+    kids: true,
+    level: 1,
+    angle: "as practice \u2014 the same mistake, made smaller each time",
+    blurb:
+      "The Korean edition, 141 pages. The village\u2019s clumsiest ninja cat fails every mission in the best possible way, and learns something from each of them.",
+    pages: 141,
+    published: "2025-07",
+    toc: [],
+    sp: [],
+  },
 ];
 
 // Titles with built-in sample spreads — the only ones the demo desk
@@ -604,30 +666,16 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 /** The 신간 row, in order. Curated: the house decides what is current. */
 export const NEW_RELEASES: Pick[] = [
   {id: 'ai-token'},
-  /* Named as Japanese on purpose. This pick used to carry no edition and
-     show the book's filed jacket, which is the Japanese one — but since
-     M165 a pick without an edition resolves to the reader's own, and for
-     an English reader that is the EN edition. It then stood beside the
-     English pick below: the same jacket and the same link twice, under
-     the Japanese title. */
-  {id: 'ai-answer', lang: 'JA'},
-  // The English edition, on amazon.in as the India Special Edition. It was
-  // kept off this shelf while there was no /covers/ai-answer-en.jpg, since
-  // it would have stood here under the Japanese cover — two identical
-  // spines, which is why the UK edition was pulled. Its own jacket is on
-  // file now, so it stands.
-  {id: 'ai-answer', lang: 'EN', title: 'What Do Humans Add to AI’s Answers?'},
-  // Out today, with a jacket of its own, so it stands beside the
-  // Japanese edition rather than under its cover.
-  {id: 'ai-token-in', lang: 'EN', title: 'The AI Token Economy'},
-  {id: 'quantum-econ-in'},
-  {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
-  // The UK edition is out: every English edition of Quantum Economics —
-  // base, UK and India — is published under the same cover art, so two of
-  // them side by side read as the same book printed twice. India stays as
-  // the edition released today. A fourth pick can go here once there is
-  // one with cover art of its own.
+  {id: 'ai-token-in'},
+  {id: 'ai-answer'},
+  {id: 'ai-answer-in'},
+  {id: 'quantum-econ-in'}
+  /* Editions are entries now, so a pick is just an id: the jacket, the
+     title and the page all follow from it. The UK edition stays off —
+     base, UK and India are published under one cover, and two of them
+     side by side read as the same book printed twice. */
 ];
+
 
 /** The 베스트셀러 row, in order. */
 export const BESTSELLERS: Pick[] = [
@@ -679,42 +727,7 @@ export const COMING_SOON: Forthcoming[] = [
 ];
 
 /** The cover art that exists per language, by the files in /public/covers. */
-const COVERS: Record<string, Partial<Record<Lang, string>>> = {
-  'ai-token': {JA: '/covers/ai-token-ja.jpg'},
-  'ai-token-in': {EN: '/covers/ai-token-in.jpg'},
-  'ai-answer': {JA: '/covers/ai-answer-ja.jpg', EN: '/covers/ai-answer-en.jpg'},
-  'ai-bible': {EN: '/covers/ai-bible.jpg', JA: '/covers/ai-bible-ja.jpg'},
-  'quantum-econ': {EN: '/covers/quantum-econ.jpg', JA: '/covers/quantum-econ-ja.jpg'},
-  'quantum-econ-uk': {EN: '/covers/quantum-econ.jpg'},
-  'quantum-econ-in': {EN: '/covers/quantum-econ.jpg'},
-  isekai: {EN: '/covers/isekai.jpg', KO: '/covers/isekai-ko.jpg', JA: '/covers/isekai-ja.jpg'},
-  /* The cat has no English edition — langs is KO·JA — and the jacket filed
-     here under EN is the Japanese one, 「おっちょこ忍キャット クロの巻」. Labelled
-     EN it was unreachable: KO found its own and JA fell through to the
-     book's default, which happens to be the same file, so the mistake was
-     invisible until the tabs started choosing the jacket. */
-  'ninja-cat': {KO: '/covers/ninja-cat-ko.jpg', JA: '/covers/ninja-cat.jpg'}
-};
 
-/* Which edition to open a book page on.
-
-   `asked` wins: a card that showed the English jacket and the English
-   title links here saying so, and landing on the Japanese edition instead
-   — which is what used to happen — makes the card a lie.
-
-   Otherwise the reader's own language, then English, then whatever the
-   house lists first. English before the first entry matters: AI's Answers
-   lists JA before EN, so a German reader used to be shown a Japanese book.
-
-   Lives here rather than beside the tabs because the server page chooses
-   the opening edition and the client component renders it — a function
-   both use can belong to neither. */
-export function preferredEdition(langs: Lang[], locale: string, asked?: string): Lang {
-  const want = (l: string): Lang | undefined =>
-    langs.find((x) => x === l.toUpperCase());
-  const reader = locale === 'ko' ? 'KO' : locale === 'ja' ? 'JA' : 'EN';
-  return (asked && want(asked)) || want(reader) || want('EN') || langs[0];
-}
 
 /**
  * Whether this book may be opened in our reader yet.
@@ -729,9 +742,21 @@ export function readerOpen(book: {readerFrom?: string}, now = new Date()): boole
   return now.toISOString().slice(0, 10) >= book.readerFrom;
 }
 
-export function coverFor(id: string, lang?: Lang): string | undefined {
-  const set = COVERS[id];
-  return (lang && set?.[lang]) || BOOKS.find((b) => b.id === id)?.img;
+/** The jacket of one edition. An entry is one edition, so this is its own. */
+export function coverFor(id: string): string | undefined {
+  return BOOKS.find((b) => b.id === id)?.img;
+}
+
+/**
+ * Every edition of the same book, in catalogue order, this one included.
+ *
+ * Editions are separate entries with separate pages, because they are
+ * separate books; this is the thread that lets a reader on one find the
+ * others rather than having to go looking.
+ */
+export function editionsOf(book: Book): Book[] {
+  if (!book.work) return [book];
+  return BOOKS.filter((b) => b.work === book.work);
 }
 
 /** Newest first, regional twins folded into one entry. */

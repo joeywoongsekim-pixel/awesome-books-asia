@@ -4,7 +4,7 @@
 // detail page shows. M150 filled in the six locales that were still
 // falling back to English.
 
-import type {Book, Lang} from './books';
+import type {Book} from './books';
 
 type Copy = Partial<Record<'ko' | 'ja' | 'hi' | 'fil' | 'de' | 'fr' | 'es' | 'pt', string>>;
 type List = Partial<Record<'ko' | 'ja' | 'hi' | 'fil' | 'de' | 'fr' | 'es' | 'pt', string[]>>;
@@ -68,7 +68,7 @@ const BLURBS: Record<string, Copy> = {
      Japanese one above: 303 pages, rupee equivalents beside the yen, and
      its own practice tasks. Keyed by edition so the English tab stops
      showing the Japanese book's description. */
-  'ai-answer:EN': {
+  'ai-answer-in': {
     ko:
       "AI는 답을 내놓습니다 — 그런데 왜 그 답을 써도 되는지 설명할 수 있습니까? 매끄러운 문단, 자신만만한 예측, 설득력 있는 도표. 근거를 확인하기 전에는 무엇이든 그럴듯해 보입니다. 삽화로 풀어낸 이 인도 스페셜 에디션은 무엇이 예측이고 무엇이 설명이며 무엇이 검증되었는지, 그리고 그 답을 어디에 쓸 것인지를 묻는 법을 가르칩니다. 고등학교 고학년과 대학생, 그리고 AI가 궁금한 직장인을 위해 물리학·생명과학·가상 사회를 쉬운 영어로 다룹니다. 프로그래밍 지식도 고급 물리학도 필요 없습니다. 분명한 질문을 세우고, 주장을 출처까지 따라가고, 오해를 부르는 숫자를 가려내고, 시뮬레이션과 실제 사람에 대한 근거를 구분하는 연습을 한 뒤, 그 습관을 과제와 팀 프로젝트와 업무 제안서로 가져갑니다. 여덟 장의 실습 과제에 힌트와 모범 답안이 붙어 있고, 일본어 용어 설명과 엔화 옆에 날짜를 밝힌 루피 환산이 인도 독자를 돕되 일본이라는 배경은 그대로 둡니다. 장과 장 사이에서는 대학생 쿄코와 직장인 다카시가 봄에서 다음 봄까지 일본의 한 해를 건너갑니다.",
     ja:
@@ -196,33 +196,19 @@ const BLURBS: Record<string, Copy> = {
   }
 };
 
+/* An edition with copy of its own uses it — the India Special Edition of
+   AI's Answers is a different book and says so. An edition without falls
+   back to the work's, which is translated and close enough to be worth
+   more than English on a Korean page; the English in the entry is the
+   last resort. */
 export function blurbOf(book: Book, locale: string): string {
-  return BLURBS[book.id]?.[locale as keyof Copy] ?? book.blurb;
+  return (
+    BLURBS[book.id]?.[locale as keyof Copy] ??
+    (book.work ? BLURBS[book.work]?.[locale as keyof Copy] : undefined) ??
+    book.blurb
+  );
 }
 
-/**
- * The description of one edition, in the reader's language.
- *
- * These editions are different books rather than one text translated, so
- * the aim is the right book — but not at the price of printing English on
- * a Korean page, which is how a half-finished translation looks to a
- * reader who cannot read it.
- *
- * So: this edition's description in the reader's own language if it has
- * been written; otherwise the book-level copy, which is translated but
- * describes whichever edition the book is filed under; and the edition's
- * own English only for a reader who is reading in English anyway.
- *
- * Editions still wanting translated copy: quantum-econ EN and JA,
- * ai-bible EN and JA, isekai EN. Their English is already here and moves
- * into place as each translation lands.
- */
-export function blurbOfEdition(book: Book, lang: Lang, locale: string): string {
-  const own = BLURBS[`${book.id}:${lang}`]?.[locale as keyof Copy];
-  if (own) return own;
-  if (locale === 'en') return book.editions?.[lang]?.blurb ?? book.blurb;
-  return blurbOf(book, locale);
-}
 
 /* The contents list, which is catalogue data and therefore English. Four
    books carry one; a reader on a translated page was looking at English
@@ -495,5 +481,9 @@ const TOCS: Record<string, List> = {
 };
 
 export function tocOf(book: Book, locale: string): string[] {
-  return TOCS[book.id]?.[locale as keyof List] ?? book.toc;
+  return (
+    TOCS[book.id]?.[locale as keyof List] ??
+    (book.work ? TOCS[book.work]?.[locale as keyof List] : undefined) ??
+    book.toc
+  );
 }

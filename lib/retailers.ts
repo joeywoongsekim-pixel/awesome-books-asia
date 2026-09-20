@@ -36,20 +36,10 @@ export const EDITIONS: Record<string, EditionLink[]> = {
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0HKG3PKRG'}
   ],
   'ai-answer': [
-    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'},
-    {
-      store: 'Amazon IN',
-      lang: 'EN',
-      format: 'ebook',
-      note: 'What Do Humans Add to AI’s Answers?',
-      url: 'https://www.amazon.in/dp/B0HK79Y7KK',
-      price: '₹199',
-      ku: true
-    }
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'}
   ],
   'quantum-econ': [
-    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H7RMWBCM', price: '$3.11'},
-    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0H7RW5W13', price: '$1.93'}
+    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H7RMWBCM', price: '$3.11'}
   ],
   'quantum-econ-uk': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0H86W24T9', price: '$3.34'}
@@ -66,36 +56,59 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   // not the same. ₹449 to buy there, or nothing with a subscription.
   'ai-bible': [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0GPPXFTYG', price: '$8.05'},
-    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0GPPXFTYG', price: '₹449', ku: true},
-    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0GMW6FV26', price: '$6.31'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0GPPXFTYG', price: '₹449', ku: true}
   ],
   isekai: [
     {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0FJFJT89D', price: '$8.05'},
-    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0FHZMZ5MW', price: '¥1,800'},
-    {store: 'Amazon JP', lang: 'JA', format: 'print', url: 'https://www.amazon.co.jp/dp/B0FHZLF8Q7', price: '$19.13'},
-    {store: '교보 eBook', lang: 'KO', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011635511', price: '21,000원'},
     {store: '교보 eBook', lang: 'EN', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011603438', price: '21,000원'},
-    {store: '교보 eBook', lang: 'JA', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011603290', price: '14,000원'},
-    {store: '교보문고', lang: 'KO', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000216966371', price: '42,000원'},
     {store: '교보문고', lang: 'EN', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000216966370', price: '42,000원'},
-    {store: '교보문고', lang: 'JA', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000216966360', price: '28,000원'},
-    {store: 'YES24', lang: 'KO', format: 'ebook', url: 'https://www.yes24.com/product/goods/148366162', price: '21,000원'},
     {store: 'YES24', lang: 'EN', format: 'ebook', url: 'https://www.yes24.com/product/goods/148366166', price: '21,000원'},
-    {store: 'YES24', lang: 'JA', format: 'ebook', url: 'https://www.yes24.com/product/goods/148366167', price: '14,000원'},
-    {store: '알라딘', lang: 'KO', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367051986', price: '21,000원'},
-    {store: '알라딘', lang: 'EN', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367023520', price: '21,000원'},
-    {store: '알라딘', lang: 'JA', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367023574', price: '14,000원'}
+    {store: '알라딘', lang: 'EN', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367023520', price: '21,000원'}
   ],
   'ninja-cat': [
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0FJFSLV5X', price: '$7.73'},
-    {store: '교보 eBook', lang: 'KO', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011701844', price: '18,000원'},
     {store: '교보 eBook', lang: 'JA', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011691326', price: '18,000원'},
-    {store: '교보문고', lang: 'KO', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000217178206', price: '20,000원'},
     {store: '교보문고', lang: 'JA', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000217095912', price: '20,000원'},
-    {store: 'YES24', lang: 'KO', format: 'ebook', url: 'https://www.yes24.com/product/goods/149224600', price: '18,000원'},
     {store: 'YES24', lang: 'JA', format: 'ebook', url: 'https://www.yes24.com/product/goods/149109850', price: '18,000원'},
-    {store: '알라딘', lang: 'KO', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=368007844', price: '18,000원'},
     {store: '알라딘', lang: 'JA', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367918844', price: '18,000원'}
+  ],
+  /* The India Special Edition carries an ASIN of its own: a different
+     book from the Japanese one, not a translation of it. */
+  'ai-answer-in': [
+    {
+      store: 'Amazon IN',
+      lang: 'EN',
+      format: 'ebook',
+      url: 'https://www.amazon.in/dp/B0HK79Y7KK',
+      price: '₹199',
+      ku: true
+    }
+  ],
+  'quantum-econ-ja': [
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0H7RW5W13', price: '$1.93'}
+  ],
+  'ai-bible-ja': [
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0GMW6FV26', price: '$6.31'}
+  ],
+  'isekai-ko': [
+    {store: '교보 eBook', lang: 'KO', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011635511', price: '21,000원'},
+    {store: '교보문고', lang: 'KO', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000216966371', price: '42,000원'},
+    {store: 'YES24', lang: 'KO', format: 'ebook', url: 'https://www.yes24.com/product/goods/148366162', price: '21,000원'},
+    {store: '알라딘', lang: 'KO', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367051986', price: '21,000원'}
+  ],
+  'isekai-ja': [
+    {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0FHZMZ5MW', price: '¥1,800'},
+    {store: 'Amazon JP', lang: 'JA', format: 'print', url: 'https://www.amazon.co.jp/dp/B0FHZLF8Q7', price: '$19.13'},
+    {store: '교보 eBook', lang: 'JA', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011603290', price: '14,000원'},
+    {store: '교보문고', lang: 'JA', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000216966360', price: '28,000원'},
+    {store: 'YES24', lang: 'JA', format: 'ebook', url: 'https://www.yes24.com/product/goods/148366167', price: '14,000원'},
+    {store: '알라딘', lang: 'JA', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=367023574', price: '14,000원'}
+  ],
+  'ninja-cat-ko': [
+    {store: '교보 eBook', lang: 'KO', format: 'ebook', url: 'https://ebook-product.kyobobook.co.kr/dig/epd/ebook/E000011701844', price: '18,000원'},
+    {store: '교보문고', lang: 'KO', format: 'print', url: 'https://product.kyobobook.co.kr/detail/S000217178206', price: '20,000원'},
+    {store: 'YES24', lang: 'KO', format: 'ebook', url: 'https://www.yes24.com/product/goods/149224600', price: '18,000원'},
+    {store: '알라딘', lang: 'KO', format: 'ebook', url: 'https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=368007844', price: '18,000원'}
   ]
 };
 

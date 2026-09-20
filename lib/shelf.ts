@@ -79,9 +79,9 @@ const NINJA_DESC: Tri = {
    degree, reads as a mistake rather than as one book on two shelves. */
 function isekaiEditions(): ShelfEdition[] {
   return [
-    {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
+    {slug: 'isekai-ko', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
     {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},
-    {slug: 'isekai', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
+    {slug: 'isekai-ja', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
   ];
 }
 
@@ -93,7 +93,7 @@ const ROWS: ShelfRow[] = [
       {slug: 'quantum-econ', lang: 'EN', title: 'Quantum Economics', cover: '/covers/quantum-econ.jpg', bg: '#ece7db', fg: '#20242c', desc: QUANTUM_DESC, w: 44, h: 196},
       {slug: 'quantum-econ-uk', lang: 'EN', title: 'Quantum Economics (UK)', cover: '/covers/quantum-econ.jpg', bg: '#dcd6c6', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 188},
       {slug: 'quantum-econ-in', lang: 'EN', title: 'Quantum Economics (India)', cover: '/covers/quantum-econ.jpg', bg: '#cfc7b4', fg: '#20242c', desc: QUANTUM_DESC, w: 40, h: 184, tilt: 3},
-      {slug: 'quantum-econ', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184}
+      {slug: 'quantum-econ-ja', lang: 'JA', title: '量子経済学', cover: '/covers/quantum-econ-ja.jpg', bg: '#1a1440', fg: '#f2df66', desc: QUANTUM_DESC, w: 40, h: 184}
     ]
   },
   {
@@ -117,7 +117,7 @@ const ROWS: ShelfRow[] = [
     items: [
       {slug: 'ai-answer', lang: 'JA', title: 'AIの答えに、人間は何を足すのか', cover: '/covers/ai-answer-ja.jpg', bg: '#f1ede2', fg: '#1f2a3a', desc: ANSWER_DESC, w: 44, h: 200},
       {slug: 'ai-bible', lang: 'EN', title: 'Awesome AI Bible 2026', cover: '/covers/ai-bible.jpg', bg: '#101c36', fg: '#e9c568', desc: BIBLE_DESC, w: 46, h: 206},
-      {slug: 'ai-bible', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5},
+      {slug: 'ai-bible-ja', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5},
       // out 20 September; the jacket's own blue and white
       {slug: 'ai-token-in', lang: 'EN', title: 'The AI Token Economy', cover: '/covers/ai-token-in.jpg', bg: '#1b4f8f', fg: '#f4f7fb', desc: TOKEN_IN_DESC, w: 44, h: 198}
     ]
@@ -126,7 +126,7 @@ const ROWS: ShelfRow[] = [
     cat: 'PICTURE',
     ghosts: 1,
     items: [
-      {slug: 'ninja-cat', lang: 'KO', title: '덜렁이 닌자 고양이 쿠로편', cover: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', fg: '#3a2a1a', desc: NINJA_DESC, w: 178, h: 34, flat: true},
+      {slug: 'ninja-cat-ko', lang: 'KO', title: '덜렁이 닌자 고양이 쿠로편', cover: '/covers/ninja-cat-ko.jpg', bg: '#f2cf5b', fg: '#3a2a1a', desc: NINJA_DESC, w: 178, h: 34, flat: true},
       {slug: 'ninja-cat', lang: 'JA', title: 'おっちょこ忍キャット クロの巻', cover: '/covers/ninja-cat.jpg', bg: '#e8b64a', fg: '#3a2a1a', desc: NINJA_DESC, w: 166, h: 32, flat: true}
     ]
   }
