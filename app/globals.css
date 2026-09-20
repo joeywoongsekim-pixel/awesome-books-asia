@@ -8478,6 +8478,30 @@ html[lang='hi'] {
   border-color: var(--lapis);
   color: var(--paper);
 }
+/* The store's pager is buttons, not links: its pages are filter state
+   rather than addresses. Same furniture as the magazine's, with the bits
+   a <button> brings of its own taken back off. */
+.st-pager .mz-arrow,
+.st-pager .mz-num {
+  font: inherit;
+  cursor: pointer;
+  appearance: none;
+}
+.st-pager .mz-num {
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+}
+.st-pager .mz-arrow:disabled,
+.st-pager .mz-num:disabled {
+  cursor: default;
+}
+.st-pager {
+  margin: 0 auto 72px;
+  max-width: 1280px;
+  padding-inline: 32px;
+}
+
 .mz-count {
   margin-top: 16px;
   text-align: center;
