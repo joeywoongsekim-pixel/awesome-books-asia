@@ -25,6 +25,16 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   'ai-token': [
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HKCDCZTF', ku: true}
   ],
+  /* Published 20 September 2026. One ASIN on two storefronts: .in is the
+     one the India launch points at, .com is where the rest of the world
+     buys the same file. No `ku` on either — the .com listing's only
+     mention of Kindle Unlimited is the site's own navigation link, not a
+     badge on this book, and this flag is a claim about somebody's
+     subscription. No price either: both storefronts render it after load. */
+  'ai-token-in': [
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0HKG3PKRG'},
+    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0HKG3PKRG'}
+  ],
   'ai-answer': [
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'},
     {

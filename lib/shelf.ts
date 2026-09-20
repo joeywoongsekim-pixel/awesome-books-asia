@@ -56,6 +56,11 @@ const ANSWER_DESC: Tri = {
   en: 'After AI answers, what do humans add? Purpose, evidence and the decision to use — an illustrated AI-literacy reader.',
   ja: 'AIの答えを受け取ったあと、人間は何を足すのか。目的・根拠・使い方を選ぶ技術を、図解と物語で。'
 };
+const TOKEN_IN_DESC: Tri = {
+  ko: 'AI가 내놓은 초안, 그대로 내도 될까 — 품질·비용·시간을 재는 법. 인도 스페셜 에디션.',
+  en: 'An AI draft arrives in seconds; knowing it is ready takes judgement. The India Special Edition.',
+  ja: 'AIの下書きは数秒で届く。出せるかどうかを決めるのは人の判断。インド特別版。'
+};
 const NINJA_DESC: Tri = {
   ko: '마을에서 제일 덜렁대는 닌자 고양이 쿠로의 좌충우돌 수련기.',
   en: "The village's clumsiest ninja cat fails every mission in the best possible way.",
@@ -112,7 +117,9 @@ const ROWS: ShelfRow[] = [
     items: [
       {slug: 'ai-answer', lang: 'JA', title: 'AIの答えに、人間は何を足すのか', cover: '/covers/ai-answer-ja.jpg', bg: '#f1ede2', fg: '#1f2a3a', desc: ANSWER_DESC, w: 44, h: 200},
       {slug: 'ai-bible', lang: 'EN', title: 'Awesome AI Bible 2026', cover: '/covers/ai-bible.jpg', bg: '#101c36', fg: '#e9c568', desc: BIBLE_DESC, w: 46, h: 206},
-      {slug: 'ai-bible', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5}
+      {slug: 'ai-bible', lang: 'JA', title: 'AIバイブル 2026', cover: '/covers/ai-bible-ja.jpg', bg: '#16233d', fg: '#e9c568', desc: BIBLE_DESC, w: 40, h: 188, tilt: 5},
+      // out 20 September; the jacket's own blue and white
+      {slug: 'ai-token-in', lang: 'EN', title: 'The AI Token Economy', cover: '/covers/ai-token-in.jpg', bg: '#1b4f8f', fg: '#f4f7fb', desc: TOKEN_IN_DESC, w: 44, h: 198}
     ]
   },
   {

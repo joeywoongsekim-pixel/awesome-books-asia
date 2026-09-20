@@ -151,6 +151,39 @@ export const BOOKS: Book[] = [
     toc: [],
     sp: [],
   },
+  /* Published 20 September 2026, the day the India launch opens. The
+     English India Special Edition of the AI token book, and a separate
+     entry rather than an EN edition of ai-token because it is a different
+     book: 384 pages against 409, the worked examples moved to Indian
+     college and early-workplace scenarios, and eighteen India exercises
+     that the Japanese edition does not carry. Same shelf as its sibling —
+     what it teaches is what a finished piece of work cost — and the same
+     answer to the economics filter. */
+  {
+    id: "ai-token-in",
+    img: '/covers/ai-token-in.jpg',
+    ic: "🪙",
+    cover: "c4",
+    title: "The AI Token Economy: Making Better Decisions about Quality, Cost and Time (India Special Edition)",
+    author: "Akira Murata",
+    cat: "AI",
+    also: ["ECON"],
+    price: 0,
+    langs: ["EN"],
+    isNew: true,
+    level: 2,
+    /* Enrolled in KDP Select, so the ebook cannot be read here until the
+       ninety days are up. Counted from publication on 20 September.
+       Remove this line if the title was never enrolled. */
+    readerFrom: "2026-12-19",
+    angle: "as a unit cost — what one finished piece of work takes in money, time and checking",
+    blurb:
+      "An AI draft arrives in seconds; knowing whether it is ready to submit, share or use takes judgement. The India Special Edition of The AI Token Economy, written for college projects, internships and a first job. Follow Takashi and Kyoko through an illustrated story set in Japan, then work the same ideas through Indian college and early-workplace scenarios: setting acceptance criteria and checking a draft against its sources, understanding tokens and usage charges without mistaking a low price for a useful result, recording the checking time and the failed attempts nobody invoices, and deciding what to delegate, who checks it and when to stop. Nine practice notebooks, eighteen chapter challenges and eighteen India exercises, with hints and worked answers. No economics, no programming and no paid AI account needed — the exercises work on paper.",
+    pages: 384,
+    published: "2026-09",
+    toc: [],
+    sp: [],
+  },
   {
     id: "ai-answer",
     img: '/covers/ai-answer-ja.jpg',
@@ -472,13 +505,22 @@ export type Pick = {id: string; lang?: Lang; title?: string};
 /** The 신간 row, in order. Curated: the house decides what is current. */
 export const NEW_RELEASES: Pick[] = [
   {id: 'ai-token'},
-  {id: 'ai-answer'},
+  /* Named as Japanese on purpose. This pick used to carry no edition and
+     show the book's filed jacket, which is the Japanese one — but since
+     M165 a pick without an edition resolves to the reader's own, and for
+     an English reader that is the EN edition. It then stood beside the
+     English pick below: the same jacket and the same link twice, under
+     the Japanese title. */
+  {id: 'ai-answer', lang: 'JA'},
   // The English edition, on amazon.in as the India Special Edition. It was
   // kept off this shelf while there was no /covers/ai-answer-en.jpg, since
   // it would have stood here under the Japanese cover — two identical
   // spines, which is why the UK edition was pulled. Its own jacket is on
   // file now, so it stands.
   {id: 'ai-answer', lang: 'EN', title: 'What Do Humans Add to AI’s Answers?'},
+  // Out today, with a jacket of its own, so it stands beside the
+  // Japanese edition rather than under its cover.
+  {id: 'ai-token-in', lang: 'EN', title: 'The AI Token Economy'},
   {id: 'quantum-econ-in'},
   {id: 'quantum-econ', lang: 'JA', title: '量子経済学'}
   // The UK edition is out: every English edition of Quantum Economics —
@@ -540,6 +582,7 @@ export const COMING_SOON: Forthcoming[] = [
 /** The cover art that exists per language, by the files in /public/covers. */
 const COVERS: Record<string, Partial<Record<Lang, string>>> = {
   'ai-token': {JA: '/covers/ai-token-ja.jpg'},
+  'ai-token-in': {EN: '/covers/ai-token-in.jpg'},
   'ai-answer': {JA: '/covers/ai-answer-ja.jpg', EN: '/covers/ai-answer-en.jpg'},
   'ai-bible': {EN: '/covers/ai-bible.jpg', JA: '/covers/ai-bible-ja.jpg'},
   'quantum-econ': {EN: '/covers/quantum-econ.jpg', JA: '/covers/quantum-econ-ja.jpg'},
