@@ -10,12 +10,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{locale: string}>;
 }): Promise<Metadata> {
-  return listMetadata('magazine', (await params).locale);
+  return listMetadata('news', (await params).locale);
 }
 
-// M152 — the magazine: five articles to a page, each one whole rather
-// than a teaser, and under them the arrows and the page numbers.
-export default async function MagazinePage({
+// M166 — the news, cut into fives the same way the magazine is.
+export default async function NewsPage({
   params,
   searchParams
 }: {
@@ -28,5 +27,5 @@ export default async function MagazinePage({
   const asked = Number((await searchParams).page ?? '1');
   const page = Number.isFinite(asked) && asked >= 1 ? Math.floor(asked) : 1;
 
-  return <PostList kind="magazine" locale={locale} page={page} />;
+  return <PostList kind="news" locale={locale} page={page} />;
 }

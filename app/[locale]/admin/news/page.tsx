@@ -5,11 +5,11 @@ import {COLUMNS, type Post} from '../../../../lib/posts';
 
 export const dynamic = 'force-dynamic';
 
-// Where the magazine is written. The session client is the right one here:
+// Where the news is written. The session client is the right one here:
 // RLS lets an admin see drafts as well as what is live, which is the whole
 // point of the list below. The two sections share one studio and one
 // table, so this page is the studio pointed at one of them.
-export default async function AdminMagazine({
+export default async function AdminNews({
   params
 }: {
   params: Promise<{locale: string}>;
@@ -22,7 +22,7 @@ export default async function AdminMagazine({
   const {data} = await supabase
     .from('posts')
     .select(COLUMNS)
-    .eq('kind', 'magazine')
+    .eq('kind', 'news')
     // the same tie-break the site uses, so the console lists them in the
     // order a reader meets them
     .order('published_at', {ascending: false})
@@ -32,9 +32,9 @@ export default async function AdminMagazine({
   return (
     <>
       <div className="ac-head">
-        <h1 className="ac-h1">{t('magazine')}</h1>
+        <h1 className="ac-h1">{t('news')}</h1>
       </div>
-      <PostStudio kind="magazine" posts={(data ?? []) as Post[]} />
+      <PostStudio kind="news" posts={(data ?? []) as Post[]} />
     </>
   );
 }

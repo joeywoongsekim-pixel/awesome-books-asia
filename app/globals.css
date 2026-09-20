@@ -8448,6 +8448,106 @@ html[lang='hi'] {
   color: var(--stone);
 }
 
+/* ══════════ AWESOME NEWS ══════════ */
+/* Sits directly under the magazine, and has to read as a different thing
+   at a glance or the page looks like it repeated itself. So: three short
+   rows under one heading rather than two more full-width bands. A book
+   out, a fair, a price — the date leads, the headline carries it, and the
+   picture is a stamp beside the text rather than half the page.
+
+   The section borrows the magazine's heading row (.mz-head / .mz-all): it
+   is the same gesture, and a second set of rules for it would be two
+   places to change on the day the heading changes. */
+.nw-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--hair-soft);
+}
+.nw-link {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  align-items: center;
+  gap: 26px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--hair-soft);
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+/* Not every item carries a picture, and the ones that do not still line up
+   with the ones that do — a row starting 132px to the left of the row
+   above it reads as a mistake. The column is simply empty, which shows as
+   nothing, because the frame is only drawn where there is a picture.
+
+   When no item in the section has one, the whole list gives the column
+   back rather than indenting every row past an empty gutter. */
+.nw-vis {
+  grid-column: 1;
+}
+.nw-txt {
+  grid-column: 2;
+}
+.nw-list.flush .nw-link {
+  grid-template-columns: 1fr;
+}
+.nw-list.flush .nw-txt {
+  grid-column: 1;
+}
+.nw-link:hover {
+  background: var(--tint);
+}
+.nw-vis {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--tint);
+}
+.nw-vis img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+.nw-link:hover .nw-vis img {
+  transform: scale(1.04);
+}
+.nw-txt {
+  display: block;
+  min-width: 0;
+}
+.nw-k {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--stone);
+}
+.nw-t {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 1.7vw, 23px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--night);
+  margin: 7px 0 6px;
+}
+.nw-link:hover .nw-t {
+  color: var(--lapis);
+}
+.nw-x {
+  /* Two lines of standfirst at most: a news dek is a sentence, and a row
+     that grows to four lines has stopped being a row. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
 /* ── one article ──────────────────────────────────────────────────────── */
 .art {
   background: var(--bg);
@@ -8835,6 +8935,12 @@ button.adm-link {
   .mz-nums {
     flex-wrap: wrap;
     justify-content: center;
+  }
+  /* The news thumbnail keeps its column on a phone — it is a stamp, not a
+     picture to be looked at, so it shrinks rather than stacking. */
+  .nw-link {
+    grid-template-columns: 92px 1fr;
+    gap: 16px;
   }
 }
 

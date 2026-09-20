@@ -15,7 +15,8 @@
     "language": "Filipino",
     "cta": "Basahin ang sample",
     "menu": "Menu",
-    "magazine": "Awesome Magazine"
+    "magazine": "Awesome Magazine",
+    "news": "Awesome News"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -386,6 +387,7 @@
     "kindContact": "Contact",
     "mailAll": "I-mail ang {n}",
     "magazine": "Magasin",
+    "news": "Balita",
     "mzCover": "Larawang pantakip",
     "mzDate": "Petsa",
     "mzLang": "Wikang isinusulat",
@@ -565,5 +567,19 @@
     "next": "Mga lumang artikulo",
     "pagesLabel": "Paglipat ng pahina",
     "count": "Pahina {page} ng {pages} · {per} artikulo bawat pahina"
+  },
+  "news": {
+    "title": "Awesome News",
+    "eyebrow": "Ang balita",
+    "lead": "Mga bagong aklat, ang mga pagdiriwang at kaganapang sinasalihan namin, at balita mula sa mga tanggapan sa Seoul at Tokyo.",
+    "read": "Basahin ito →",
+    "all": "Lahat ng balita →",
+    "more": "Iba pang balita",
+    "backToList": "Balik sa balita",
+    "empty": "Paparating na ang unang balita.",
+    "prev": "Mga bagong balita",
+    "next": "Mga lumang balita",
+    "pagesLabel": "Paglipat ng pahina",
+    "count": "Pahina {page} ng {pages} · {per} balita bawat pahina"
   }
 }

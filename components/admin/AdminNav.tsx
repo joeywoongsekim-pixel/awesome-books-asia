@@ -10,6 +10,7 @@ const SECTIONS = [
   {href: '/admin', key: 'overview', exact: true},
   {href: '/admin/books', key: 'books', exact: false},
   {href: '/admin/magazine', key: 'magazine', exact: false},
+  {href: '/admin/news', key: 'news', exact: false},
   {href: '/admin/coupons', key: 'coupons', exact: false},
   {href: '/admin/inbox', key: 'inbox', exact: false}
 ] as const;

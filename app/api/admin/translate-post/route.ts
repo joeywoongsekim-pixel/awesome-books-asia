@@ -3,10 +3,12 @@ import {NextResponse} from 'next/server';
 import {createSupabaseServer} from '../../../../lib/supabase/server';
 import {isAdmin} from '../../../../lib/admin';
 import {routing} from '../../../../i18n/routing';
-import {safeHtml, type LocaleText} from '../../../../lib/magazine';
+import {safeHtml, type LocaleText} from '../../../../lib/posts';
 
-// M156 — write an article once, in whichever language it came to you in,
-// and have the other eight follow.
+// M156 — write a piece once, in whichever language it came to you in, and
+// have the other eight follow. Since M166 it serves the news as well as
+// the magazine: a slug is unique across the table, so the route needs no
+// telling which of the two it is looking at.
 //
 // One locale per request, on purpose. Eight translations in a single call
 // would be one long function invocation that either times out on a long
@@ -36,7 +38,7 @@ const FIELDS: Field[] = ['title', 'dek', 'body'];
 /* The house's own names, and the books', are titles rather than words: a
    reader looking for 『AIトークン経済入門』 on Amazon needs the string that is
    printed on it, not a rendering of what it means. */
-const SYSTEM = `You are the staff translator for Awesome Books Asia, a small publisher in Seoul and Tokyo. You translate its magazine articles.
+const SYSTEM = `You are the staff translator for Awesome Books Asia, a small publisher in Seoul and Tokyo. You translate its magazine articles and its news items.
 
 You will receive JSON with three fields: title, dek (a one-line standfirst) and body (HTML).
 
@@ -46,7 +48,7 @@ Rules:
 - Translate the meaning, not the words. These are editorial pieces; they should read as though written in the target language by the person who wrote the original, not as a translation of it. Keep the register, the rhythm, and the length of the sentences.
 - body is HTML. Preserve every tag, attribute and href exactly as given; translate only the text between tags. Do not add, remove or reorder tags. Do not wrap the result in anything.
 - Leave untranslated: the publisher's name (Awesome Books Asia), retailer names (Amazon, Kindle Unlimited, Kyobo, YES24, Aladin), and the titles of books exactly as they are printed — including Japanese and Korean titles inside 『』. A book title is a name, not a phrase to be rendered.
-- The two products have a name in each language, and it is the one the site's own menu uses. Korean: 어썸 리더, 어썸 매거진. Japanese: オーサムリーダー, オーサムマガジン. Every other language: Awesome Reader, Awesome Magazine.
+- The house's own sections have a name in each language, and it is the one the site's own menu uses. Korean: 어썸 리더, 어썸 매거진, 어썸 뉴스. Japanese: オーサムリーダー, オーサムマガジン, オーサムニュース. Every other language: Awesome Reader, Awesome Magazine, Awesome News.
 - Personal names stay as they are written in Latin script (Takashi, Kyoko, Akira Murata, Kuro).
 - Numbers, dates and prices keep their values; format them the way the target language does.
 - If a sentence relies on a pun or a rhythm that does not survive, write the sentence the author would have written in that language to make the same point.`;
@@ -154,7 +156,7 @@ export async function POST(req: Request) {
     .select('id, title, dek, body')
     .eq('slug', slug)
     .maybeSingle();
-  if (readError || !post) return jsonError(404, 'no such article');
+  if (readError || !post) return jsonError(404, 'no such piece');
 
   const source = {
     title: (post.title as LocaleText)?.[from] ?? '',

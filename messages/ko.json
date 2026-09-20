@@ -15,7 +15,8 @@
     "language": "한국어",
     "cta": "샘플 읽기",
     "menu": "메뉴",
-    "magazine": "어썸 매거진"
+    "magazine": "어썸 매거진",
+    "news": "어썸 뉴스"
   },
   "home": {
     "badge": "어썸 리더",
@@ -386,6 +387,7 @@
     "kindContact": "문의",
     "mailAll": "{n}명에게 메일",
     "magazine": "매거진",
+    "news": "뉴스",
     "mzCover": "커버 이미지",
     "mzDate": "날짜",
     "mzLang": "작성 언어",
@@ -563,6 +565,20 @@
     "empty": "첫 아티클을 준비하고 있습니다.",
     "prev": "최신 글",
     "next": "이전 글",
+    "pagesLabel": "페이지 넘기기",
+    "count": "{pages}페이지 중 {page}페이지 · 한 페이지에 {per}개"
+  },
+  "news": {
+    "title": "어썸 뉴스",
+    "eyebrow": "뉴스",
+    "lead": "새로 나온 책, 함께하는 행사, 그리고 서울과 도쿄의 편집실에서 전하는 소식.",
+    "read": "소식 읽기 →",
+    "all": "전체 뉴스 →",
+    "more": "다른 소식",
+    "backToList": "뉴스로 돌아가기",
+    "empty": "첫 소식을 준비하고 있습니다.",
+    "prev": "최신 소식",
+    "next": "지난 소식",
     "pagesLabel": "페이지 넘기기",
     "count": "{pages}페이지 중 {page}페이지 · 한 페이지에 {per}개"
   }

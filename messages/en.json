@@ -15,7 +15,8 @@
     "language": "English",
     "cta": "Read a sample",
     "menu": "Menu",
-    "magazine": "Awesome Magazine"
+    "magazine": "Awesome Magazine",
+    "news": "Awesome News"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -386,6 +387,7 @@
     "kindContact": "Contact",
     "mailAll": "Mail all {n}",
     "magazine": "Magazine",
+    "news": "News",
     "mzCover": "Cover image",
     "mzDate": "Date",
     "mzLang": "Writing in",
@@ -565,5 +567,19 @@
     "next": "Older articles",
     "pagesLabel": "Pagination",
     "count": "Page {page} of {pages} · {per} articles a page"
+  },
+  "news": {
+    "title": "Awesome News",
+    "eyebrow": "The news",
+    "lead": "New books, the fairs and events we are at, and word from the desks in Seoul and Tokyo.",
+    "read": "Read this →",
+    "all": "All news →",
+    "more": "More news",
+    "backToList": "Back to the news",
+    "empty": "The first item is on its way.",
+    "prev": "Newer items",
+    "next": "Older items",
+    "pagesLabel": "Pagination",
+    "count": "Page {page} of {pages} · {per} items a page"
   }
 }

@@ -15,7 +15,8 @@
     "language": "हिन्दी",
     "cta": "नमूना पढ़ें",
     "menu": "मेन्यू",
-    "magazine": "Awesome Magazine"
+    "magazine": "Awesome Magazine",
+    "news": "Awesome News"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -386,6 +387,7 @@
     "kindContact": "संपर्क",
     "mailAll": "{n} को मेल करें",
     "magazine": "पत्रिका",
+    "news": "समाचार",
     "mzCover": "कवर छवि",
     "mzDate": "तारीख़",
     "mzLang": "लिखने की भाषा",
@@ -565,5 +567,19 @@
     "next": "पुराने लेख",
     "pagesLabel": "पृष्ठ क्रम",
     "count": "{pages} में से पृष्ठ {page} · हर पृष्ठ पर {per} लेख"
+  },
+  "news": {
+    "title": "Awesome News",
+    "eyebrow": "समाचार",
+    "lead": "नई किताबें, जिन आयोजनों में हम शामिल हैं, और सोल तथा टोक्यो के दफ़्तरों से ख़बरें।",
+    "read": "पढ़ें →",
+    "all": "सभी समाचार →",
+    "more": "और समाचार",
+    "backToList": "समाचार पर लौटें",
+    "empty": "पहली ख़बर आने ही वाली है।",
+    "prev": "नई ख़बरें",
+    "next": "पुरानी ख़बरें",
+    "pagesLabel": "पृष्ठ क्रम",
+    "count": "{pages} में से पृष्ठ {page} · हर पृष्ठ पर {per} ख़बरें"
   }
 }

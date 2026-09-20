@@ -7,11 +7,13 @@ import People from '../../../components/home/People';
 import Spotlights from '../../../components/home/Spotlights';
 import Newsletter from '../../../components/home/Newsletter';
 import Magazine from '../../../components/home/Magazine';
+import News from '../../../components/home/News';
 import UspBar from '../../../components/home/UspBar';
 
 // Homepage skeleton: book hero (one title at a time, full-bleed) → the
 // shelf (tabbed, books standing) → categories → the people → Awesome
-// Reader → newsletter → Awesome Magazine → the philosophy carousel → the
+// Reader → newsletter → Awesome Magazine → Awesome News → the philosophy
+// carousel → the
 // shops that carry the books, a quiet ticker that closes the page just
 // above the footer. The carousel used to sit last; a claim about what
 // books are for is a better note to end the reading on than a list of
@@ -24,9 +26,9 @@ import UspBar from '../../../components/home/UspBar';
 // showed most visitors nothing at all. The announce bar and the sticky nav
 // live in the (site) layout.
 //
-// The magazine reads the database, so the page refreshes on a timer rather
-// than staying frozen at build: a new article reaches the home page within
-// the minute without a deploy, and the HTML stays prerendered for everyone
+// The magazine and the news read the database, so the page refreshes on a
+// timer rather than staying frozen at build: a new piece reaches the home
+// page within the minute without a deploy, and the HTML stays prerendered for everyone
 // else — one query per regeneration, not one per visitor.
 export const revalidate = 60;
 
@@ -48,6 +50,7 @@ export default async function HomePage({
       <Spotlights />
       <Newsletter />
       <Magazine locale={locale} />
+      <News locale={locale} />
       <HeroVision />
       <UspBar />
     </>

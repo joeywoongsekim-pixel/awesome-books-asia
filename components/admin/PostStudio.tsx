@@ -5,7 +5,7 @@ import {useTranslations} from 'next-intl';
 import {useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import {routing} from '../../i18n/routing';
-import {safeHtml, type LocaleText, type Post} from '../../lib/magazine';
+import {safeHtml, type Kind, type LocaleText, type Post} from '../../lib/posts';
 import {inlineImageCount, liftImages, uploadImage} from '../../lib/postImages';
 import ArticleImages from './ArticleImages';
 
@@ -51,7 +51,7 @@ const BLANK = {
    because a single request for eight is the one that times out on a long
    article, and because a failure should cost one language, not all of
    them — whatever fails is named and can be run again on its own. */
-export default function MagazineStudio({posts}: {posts: Post[]}) {
+export default function PostStudio({kind, posts}: {kind: Kind; posts: Post[]}) {
   const t = useTranslations('admin');
   const router = useRouter();
   const supabase = createSupabaseBrowser();
@@ -244,6 +244,10 @@ export default function MagazineStudio({posts}: {posts: Post[]}) {
 
     const row = {
       slug,
+      // Which masthead this is published under. Set on every save, not
+      // only on insert: the column has a default, and a default is what
+      // would quietly file a news item as a magazine article.
+      kind,
       cover: f.cover.trim() || null,
       title: merge(current?.title, f.title),
       dek: merge(current?.dek, f.dek),

@@ -1,7 +1,7 @@
 import {getTranslations} from 'next-intl/server';
 import {Link} from '../../i18n/navigation';
 import Reveal from '../Reveal';
-import {livePosts, pick} from '../../lib/magazine';
+import {livePosts, pick} from '../../lib/posts';
 
 // M152 — the two newest articles from Awesome Magazine, one band each:
 // the first with its picture on the right, the second with its picture on
@@ -12,7 +12,7 @@ import {livePosts, pick} from '../../lib/magazine';
 // leave no gap between the newsletter and the USP bar.
 export default async function Magazine({locale}: {locale: string}) {
   const t = await getTranslations('magazine');
-  const posts = await livePosts(2);
+  const posts = await livePosts('magazine', 2);
   if (posts.length === 0) return null;
 
   return (

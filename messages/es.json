@@ -15,7 +15,8 @@
     "language": "Español",
     "cta": "Leer una muestra",
     "menu": "Menú",
-    "magazine": "Awesome Magazine"
+    "magazine": "Awesome Magazine",
+    "news": "Awesome News"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -386,6 +387,7 @@
     "kindContact": "Contacto",
     "mailAll": "Escribir a {n}",
     "magazine": "Revista",
+    "news": "Noticias",
     "mzCover": "Imagen de portada",
     "mzDate": "Fecha",
     "mzLang": "Idioma de redacción",
@@ -565,5 +567,19 @@
     "next": "Artículos anteriores",
     "pagesLabel": "Paginación",
     "count": "Página {page} de {pages} · {per} artículos por página"
+  },
+  "news": {
+    "title": "Awesome News",
+    "eyebrow": "Las noticias",
+    "lead": "Los libros que acaban de salir, las ferias y encuentros en los que estamos, y noticias de las redacciones de Seúl y Tokio.",
+    "read": "Leer →",
+    "all": "Todas las noticias →",
+    "more": "Más noticias",
+    "backToList": "Volver a las noticias",
+    "empty": "La primera noticia está en camino.",
+    "prev": "Noticias recientes",
+    "next": "Noticias anteriores",
+    "pagesLabel": "Paginación",
+    "count": "Página {page} de {pages} · {per} noticias por página"
   }
 }

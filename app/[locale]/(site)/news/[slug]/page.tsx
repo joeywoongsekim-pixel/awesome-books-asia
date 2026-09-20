@@ -11,15 +11,15 @@ export async function generateMetadata({
   params: Promise<{locale: string; slug: string}>;
 }): Promise<Metadata> {
   const {locale, slug} = await params;
-  return articleMetadata('magazine', locale, slug);
+  return articleMetadata('news', locale, slug);
 }
 
-export default async function ArticlePage({
+export default async function NewsItemPage({
   params
 }: {
   params: Promise<{locale: string; slug: string}>;
 }) {
   const {locale, slug} = await params;
   setRequestLocale(locale);
-  return <PostArticle kind="magazine" locale={locale} slug={slug} />;
+  return <PostArticle kind="news" locale={locale} slug={slug} />;
 }

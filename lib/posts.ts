@@ -4,15 +4,33 @@ import sanitizeHtml from 'sanitize-html';
 // M152 — Awesome Magazine. Articles live in public.posts; title, dek and
 // body are keyed by locale, so an article written in Korean is readable
 // everywhere and gains its other languages later.
+//
+// M166 — Awesome News is the same object under a different masthead: short
+// dated pieces rather than long editorial ones. It shares this table, this
+// sanitiser and this studio, and differs by one column. Everything either
+// section gains — the nine languages, the pictures, the ordering — both
+// gain at once, which a second table would have made a job to do twice.
 
 /** Five to a page, which is what the arrows at the foot of the list step by. */
 export const PAGE_SIZE = 5;
+
+/** Which masthead a piece is published under. */
+export type Kind = 'magazine' | 'news';
+
+export const KINDS: Kind[] = ['magazine', 'news'];
+
+/** Where a section lives, so a slug becomes a link from anywhere. */
+export const SECTION: Record<Kind, {path: string; ns: string}> = {
+  magazine: {path: '/magazine', ns: 'magazine'},
+  news: {path: '/news', ns: 'news'}
+};
 
 export type LocaleText = Record<string, string>;
 
 export type Post = {
   id: string;
   slug: string;
+  kind: Kind;
   cover: string | null;
   title: LocaleText;
   dek: LocaleText;
@@ -21,7 +39,8 @@ export type Post = {
   published_at: string;
 };
 
-const COLUMNS = 'id, slug, cover, title, dek, body, published, published_at';
+export const COLUMNS =
+  'id, slug, kind, cover, title, dek, body, published, published_at';
 
 /* Newest first, and "newest" has to be decided every time.
    published_at is a date the writer chooses, so two articles put up on the
@@ -134,14 +153,21 @@ export function publicClient(fresh = false): SupabaseClient | null {
   });
 }
 
-/** Newest published articles. Returns [] if the database is unreachable —
-    a magazine that cannot be read is a quiet section, not a broken page. */
-export async function livePosts(limit: number, offset = 0, fresh = false): Promise<Post[]> {
+/** Newest published pieces from one section. Returns [] if the database is
+    unreachable — a magazine that cannot be read is a quiet section on the
+    home page, not a broken one. */
+export async function livePosts(
+  kind: Kind,
+  limit: number,
+  offset = 0,
+  fresh = false
+): Promise<Post[]> {
   const supabase = publicClient(fresh);
   if (!supabase) return [];
   const {data, error} = await supabase
     .from('posts')
     .select(COLUMNS)
+    .eq('kind', kind)
     .eq('published', true)
     .order('published_at', {ascending: false})
     .order('created_at', {ascending: false})
@@ -149,14 +175,18 @@ export async function livePosts(limit: number, offset = 0, fresh = false): Promi
   return error ? [] : ((data ?? []) as Post[]);
 }
 
-/** One page of the list, plus how many pages there are in total. */
-export async function livePage(page: number): Promise<{posts: Post[]; pages: number}> {
+/** One page of a section's list, plus how many pages there are in total. */
+export async function livePage(
+  kind: Kind,
+  page: number
+): Promise<{posts: Post[]; pages: number}> {
   const supabase = publicClient(true);
   if (!supabase) return {posts: [], pages: 0};
   const from = (page - 1) * PAGE_SIZE;
   const {data, count, error} = await supabase
     .from('posts')
     .select(COLUMNS, {count: 'exact'})
+    .eq('kind', kind)
     .eq('published', true)
     .order('published_at', {ascending: false})
     .order('created_at', {ascending: false})
@@ -165,12 +195,16 @@ export async function livePage(page: number): Promise<{posts: Post[]; pages: num
   return {posts: (data ?? []) as Post[], pages: Math.ceil((count ?? 0) / PAGE_SIZE)};
 }
 
-export async function livePost(slug: string): Promise<Post | null> {
+/* Slugs are unique across the table, not within a section, so asking for
+   the section as well is what stops /news/<a magazine slug> rendering the
+   magazine piece under the news masthead. */
+export async function livePost(kind: Kind, slug: string): Promise<Post | null> {
   const supabase = publicClient(true);
   if (!supabase) return null;
   const {data, error} = await supabase
     .from('posts')
     .select(COLUMNS)
+    .eq('kind', kind)
     .eq('slug', slug)
     .eq('published', true)
     .maybeSingle();

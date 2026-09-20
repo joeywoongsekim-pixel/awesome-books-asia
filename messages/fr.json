@@ -15,7 +15,8 @@
     "language": "Français",
     "cta": "Lire un extrait",
     "menu": "Menu",
-    "magazine": "Awesome Magazine"
+    "magazine": "Awesome Magazine",
+    "news": "Awesome News"
   },
   "home": {
     "badge": "Awesome Reader",
@@ -386,6 +387,7 @@
     "kindContact": "Contact",
     "mailAll": "Écrire aux {n}",
     "magazine": "Magazine",
+    "news": "Actualités",
     "mzCover": "Image de couverture",
     "mzDate": "Date",
     "mzLang": "Langue d'écriture",
@@ -565,5 +567,19 @@
     "next": "Articles plus anciens",
     "pagesLabel": "Pagination",
     "count": "Page {page} sur {pages} · {per} articles par page"
+  },
+  "news": {
+    "title": "Awesome News",
+    "eyebrow": "Les actualités",
+    "lead": "Les nouveaux livres, les salons et les rencontres où nous sommes, et des nouvelles des bureaux de Séoul et de Tokyo.",
+    "read": "Lire →",
+    "all": "Toutes les actualités →",
+    "more": "Autres actualités",
+    "backToList": "Retour aux actualités",
+    "empty": "La première annonce arrive bientôt.",
+    "prev": "Actualités récentes",
+    "next": "Actualités plus anciennes",
+    "pagesLabel": "Pagination",
+    "count": "Page {page} sur {pages} · {per} actualités par page"
   }
 }
