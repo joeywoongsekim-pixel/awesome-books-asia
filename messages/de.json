@@ -108,6 +108,7 @@
   },
   "detail": {
     "sample": "Leseprobe",
+    "readerFrom": "Dieses Buch lässt sich ab dem {date} im Awesome Reader lesen. Bis dahin finden Sie es bei Amazon.",
     "buy": "Bezugsquellen",
     "subscribeCta": "Bezugsquellen",
     "included": "Gratis-Leseprobe",
@@ -422,7 +423,9 @@
     "mzNotAPicture": "Das ist kein Bild.",
     "mzMissing": "{n} Bild(er) dieses Beitrags liegen noch nirgends. Ziehen Sie die passende Datei auf jedes.",
     "mzFillSlot": "Datei einsetzen",
-    "mzCoverHint": "Bild einfügen oder /hero/s5.webp"
+    "mzCoverHint": "Bild einfügen oder /hero/s5.webp",
+    "bkReaderFrom": "Reader öffnet am",
+    "bkReaderFromHint": "Der Tag, an dem die KDP-Select-Frist endet und das E-Book hier gelesen werden darf. Leer lassen für keine Beschränkung."
   },
   "paywall": {
     "title": "Hier endet die Leseprobe",

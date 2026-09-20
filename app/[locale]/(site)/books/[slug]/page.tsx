@@ -1,9 +1,16 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
-import {useLocale, useTranslations} from 'next-intl';
+import {useFormatter, useLocale, useTranslations} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
 import {Link} from '../../../../../i18n/navigation';
-import {BOOKS, CAT_KEY, catsOf, preferredEdition, type Book} from '../../../../../lib/books';
+import {
+  BOOKS,
+  CAT_KEY,
+  catsOf,
+  preferredEdition,
+  readerOpen,
+  type Book
+} from '../../../../../lib/books';
 import BookCard from '../../../../../components/BookCard';
 import RetailerLinks from '../../../../../components/RetailerLinks';
 import {
@@ -48,6 +55,7 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
   const tBooks = useTranslations('books');
   const tStore = useTranslations('store');
   const locale = useLocale();
+  const format = useFormatter();
   const eds = EDITIONS[book.id] ?? [];
   const formats = [
     eds.some((e) => e.format === 'ebook') ? t('fmtEbook') : null,
@@ -82,8 +90,12 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
           <div className="d-author">{book.author}</div>
           <p className="d-blurb">{blurbOf(book, locale)}</p>
           <EditionTabs langs={book.langs} />
+          {/* A book inside its Kindle Unlimited window keeps its page and
+              its shops; what it loses is the button that opens it here.
+              Naming the day is the point — the reader is coming, and in
+              the meantime there is somewhere to buy it. */}
           <div className="d-buy">
-            {book.sp.length > 0 ? (
+            {book.sp.length > 0 && readerOpen(book) ? (
               <>
                 <Link href={`/read/${book.id}`} className="btn-g">
                   {t('sample')}
@@ -98,6 +110,18 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
               </a>
             )}
           </div>
+          {book.sp.length > 0 && !readerOpen(book) && book.readerFrom && (
+            <div className="d-waiting">
+              {t('readerFrom', {
+                date: format.dateTime(new Date(`${book.readerFrom}T00:00:00Z`), {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                  timeZone: 'UTC'
+                })
+              })}
+            </div>
+          )}
           <div id="stores">
             <RetailerLinks bookId={book.id} title={book.title} />
           </div>

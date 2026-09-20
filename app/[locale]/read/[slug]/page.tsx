@@ -1,7 +1,7 @@
 import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {setRequestLocale} from 'next-intl/server';
-import {BOOKS, DEMO_BOOKS} from '../../../../lib/books';
+import {BOOKS, DEMO_BOOKS, readerOpen} from '../../../../lib/books';
 import {redirect} from '../../../../i18n/navigation';
 import Reader from '../../../../components/reader/Reader';
 import DbReader, {type DbContent} from '../../../../components/reader/DbReader';
@@ -46,6 +46,15 @@ export default async function ReadPage({
   const noSample = () =>
     inCatalogue ? redirect({href: `/books/${slug}`, locale}) : notFound();
 
+  /* M169 — a book still inside its Kindle Unlimited window is not opened
+     here, however it was reached. The book's own page says which day it
+     opens, so that is where the reader goes; there is nothing to explain
+     twice. Typing the address in does not get past it either. */
+  const catalogued = BOOKS.find((b) => b.id === slug);
+  if (catalogued && !readerOpen(catalogued)) {
+    return redirect({href: `/books/${slug}`, locale});
+  }
+
   // The reader is members-only, samples included: nobody opens a book here
   // without an account. `next` brings them back to this page afterwards.
   const toLogin = () =>
@@ -70,6 +79,14 @@ export default async function ReadPage({
   ]);
   if (!user) return toLogin();
   const signedIn = true;
+
+  /* The database says the ebook is still inside its exclusivity window.
+     get_book_content returns this instead of chapters — the check lives
+     in the function, not here, so it holds for anything calling the RPC
+     with the anon key and not only for this page. */
+  if (content && (content as {locked?: boolean}).locked) {
+    return redirect({href: `/books/${slug}`, locale});
+  }
 
   // Pipeline-processed book → the DB-backed reader.
   if (content && bookRow) {

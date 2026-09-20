@@ -108,6 +108,7 @@
   },
   "detail": {
     "sample": "試し読み",
+    "readerFrom": "この本は{date}よりオーサムリーダーでお読みいただけます。それまでは Amazon でご覧ください。",
     "buy": "購入先を見る",
     "subscribeCta": "購入先を見る",
     "included": "試し読み無料",
@@ -422,7 +423,9 @@
     "mzNotAPicture": "画像ファイルではありません。",
     "mzMissing": "この記事の画像{n}点がまだどこにもありません。それぞれにファイルをドロップしてください。",
     "mzFillSlot": "ファイルを入れる",
-    "mzCoverHint": "画像を貼り付けるか /hero/s5.webp"
+    "mzCoverHint": "画像を貼り付けるか /hero/s5.webp",
+    "bkReaderFrom": "リーダー公開日",
+    "bkReaderFromHint": "KDP 独占（KU）期間が明け、オーサムリーダーで読めるようになる日。空欄なら制限なし。"
   },
   "paywall": {
     "title": "試し読みはここまでです",

@@ -108,6 +108,7 @@
   },
   "detail": {
     "sample": "Lire un extrait",
+    "readerFrom": "Ce livre s'ouvrira dans l'Awesome Reader le {date}. D'ici là, vous le trouverez sur Amazon.",
     "buy": "Où acheter",
     "subscribeCta": "Où acheter",
     "included": "Extrait gratuit",
@@ -422,7 +423,9 @@
     "mzNotAPicture": "Ce n'est pas une image.",
     "mzMissing": "{n} image(s) de cet article ne sont encore nulle part. Déposez le bon fichier sur chacune.",
     "mzFillSlot": "Utiliser un fichier",
-    "mzCoverHint": "collez une image, ou /hero/s5.webp"
+    "mzCoverHint": "collez une image, ou /hero/s5.webp",
+    "bkReaderFrom": "Ouverture du lecteur",
+    "bkReaderFromHint": "Le jour où la période KDP Select prend fin et où le livre numérique peut être lu ici. Laisser vide s'il n'y a pas de restriction."
   },
   "paywall": {
     "title": "L'extrait se termine ici",

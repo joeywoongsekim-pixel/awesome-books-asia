@@ -25,6 +25,9 @@ export type AdminBook = {
   price_cents: number;
   page_count: number | null;
   published_at: string | null;
+  /* The day the KDP Select window ends and the ebook may be opened in
+     our reader. Enforced inside get_book_content, not here. */
+  reader_from: string | null;
   cover_url: string | null;
 };
 export type AdminContent = {locale: string; kind: string; processed_at: string};
@@ -66,7 +69,9 @@ export default function BookStudio({
     published: book?.published ?? false,
     priceUsd: book ? (book.price_cents / 100).toString() : '0',
     page_count: book?.page_count?.toString() ?? '',
-    published_at: book?.published_at ?? ''
+    published_at: book?.published_at ?? '',
+    // stored as a timestamp, edited as a day
+    reader_from: book?.reader_from ? book.reader_from.slice(0, 10) : ''
   });
   const [coverUrl, setCoverUrl] = useState(book?.cover_url ?? null);
   const [msg, setMsg] = useState('');
@@ -91,7 +96,10 @@ export default function BookStudio({
       published: form.published,
       price_cents: Math.round(Number(form.priceUsd || '0') * 100),
       page_count: form.page_count ? Number(form.page_count) : null,
-      published_at: form.published_at || null
+      published_at: form.published_at || null,
+      /* Midnight UTC on the chosen day: the exclusivity ends on a date,
+         not at an hour, and the book should open at the start of it. */
+      reader_from: form.reader_from ? `${form.reader_from}T00:00:00Z` : null
     };
     if (book) {
       const {error} = await supabase.from('books').update(row).eq('id', book.id);
@@ -287,6 +295,18 @@ export default function BookStudio({
                 value={form.published_at}
                 onChange={(e) => set('published_at')(e.target.value)}
               />
+            </div>
+            {/* Empty for a book that was never in KDP Select, which is
+                most of them. Set it and the reader refuses the book until
+                that morning, whoever is asking and whatever they own. */}
+            <div className="kdp-field">
+              <label>{t('bkReaderFrom')}</label>
+              <input
+                type="date"
+                value={form.reader_from}
+                onChange={(e) => set('reader_from')(e.target.value)}
+              />
+              <p className="adm-hint">{t('bkReaderFromHint')}</p>
             </div>
           </div>
           <label className="adm-check">

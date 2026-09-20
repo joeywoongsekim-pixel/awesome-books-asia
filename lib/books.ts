@@ -102,6 +102,23 @@ export type Book = {
   pages: number;
   published: string;
   img?: string; // real cover in /public/covers
+  /* M169 — the day this book's sample may be opened in our own reader,
+     as YYYY-MM-DD. A title in KDP Select / Kindle Unlimited may not be
+     distributed digitally anywhere else for ninety days, and this site's
+     reader is anywhere else. Its page, cover, blurb and retailer links
+     are not distribution and stay up from the first day; only reading it
+     here waits.
+
+     Left out, there is nothing to wait for — which is every book that
+     never went into KDP Select.
+
+     This governs the sample in `sp` below and the button that opens it.
+     The finished ebook is chapters in the database, held back by
+     books.reader_from and checked inside get_book_content, where nobody
+     holding the anon key can call around it. Two dates because the two
+     bodies of text live in two places; both are set when a book is
+     registered. */
+  readerFrom?: string;
   toc: string[];
   sp: Spread[];
 };
@@ -555,6 +572,19 @@ export function preferredEdition(langs: Lang[], locale: string, asked?: string):
     langs.find((x) => x === l.toUpperCase());
   const reader = locale === 'ko' ? 'KO' : locale === 'ja' ? 'JA' : 'EN';
   return (asked && want(asked)) || want(reader) || want('EN') || langs[0];
+}
+
+/**
+ * Whether this book may be opened in our reader yet.
+ *
+ * No date means yes. A date that has passed means yes. Comparing whole
+ * days rather than instants, because `readerFrom` is a calendar day the
+ * exclusivity ends on, and a book should open at the start of that day
+ * wherever the reader happens to be standing.
+ */
+export function readerOpen(book: {readerFrom?: string}, now = new Date()): boolean {
+  if (!book.readerFrom) return true;
+  return now.toISOString().slice(0, 10) >= book.readerFrom;
 }
 
 export function coverFor(id: string, lang?: Lang): string | undefined {

@@ -1976,6 +1976,18 @@ footer {
   margin-top: 7px;
   letter-spacing: 0.02em;
 }
+/* The line that stands in for the read button while a book is inside its
+   Kindle Unlimited window. Quiet: it is an explanation, not an offer. */
+.d-waiting {
+  margin: 14px 0 0;
+  padding: 12px 16px;
+  border-left: 2px solid var(--wheat, var(--lapis));
+  background: var(--tint);
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--stone);
+}
+
 .d-subnote {
   font-size: 13px;
   color: var(--ink-2);

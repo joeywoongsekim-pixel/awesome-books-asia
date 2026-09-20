@@ -108,6 +108,7 @@
   },
   "detail": {
     "sample": "Basahin ang sample",
+    "readerFrom": "Mababasa ang aklat na ito sa Awesome Reader simula {date}. Hanggang doon, makikita ninyo ito sa Amazon.",
     "buy": "Saan bibili",
     "subscribeCta": "Saan bibili",
     "included": "Libreng sample",
@@ -422,7 +423,9 @@
     "mzNotAPicture": "Hindi iyon larawan.",
     "mzMissing": "Ang {n} larawan sa artikulong ito ay wala pa kahit saan. I-drop ang tamang file sa bawat isa.",
     "mzFillSlot": "Gumamit ng file",
-    "mzCoverHint": "idikit ang larawan, o /hero/s5.webp"
+    "mzCoverHint": "idikit ang larawan, o /hero/s5.webp",
+    "bkReaderFrom": "Pagbukas ng reader",
+    "bkReaderFromHint": "Ang araw na natatapos ang KDP Select at mababasa na rito ang ebook. Iwanang blangko kung walang restriksiyon."
   },
   "paywall": {
     "title": "Dito nagtatapos ang sample",

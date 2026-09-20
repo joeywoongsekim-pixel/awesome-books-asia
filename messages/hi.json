@@ -108,6 +108,7 @@
   },
   "detail": {
     "sample": "नमूना पढ़ें",
+    "readerFrom": "यह किताब {date} से Awesome Reader में पढ़ी जा सकेगी। तब तक इसे Amazon पर देखिए।",
     "buy": "कहाँ से खरीदें",
     "subscribeCta": "कहाँ से खरीदें",
     "included": "मुफ़्त नमूना",
@@ -422,7 +423,9 @@
     "mzNotAPicture": "यह तस्वीर नहीं है।",
     "mzMissing": "इस लेख की {n} तस्वीर(ें) अभी कहीं नहीं हैं। हर जगह पर सही फ़ाइल छोड़ें।",
     "mzFillSlot": "फ़ाइल डालें",
-    "mzCoverHint": "तस्वीर चिपकाएँ, या /hero/s5.webp"
+    "mzCoverHint": "तस्वीर चिपकाएँ, या /hero/s5.webp",
+    "bkReaderFrom": "रीडर खुलने की तिथि",
+    "bkReaderFromHint": "जिस दिन KDP Select अवधि समाप्त होती है और ईबुक यहाँ पढ़ी जा सकती है। खाली छोड़ें तो कोई रोक नहीं।"
   },
   "paywall": {
     "title": "नमूना यहीं ख़त्म होता है",
