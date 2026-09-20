@@ -16,7 +16,6 @@ export default function BookCard({book}: {book: Book}) {
     <Link href={`/books/${book.id}`} className="bk">
       <div className="bk-cvwrap">
         <BookCover book={book} />
-        {book.isNew && <div className="bk-new">{t('new')}</div>}
         <div className="bk-lang">
           {book.langs.map((lang) => (
             <span key={lang}>{lang}</span>
