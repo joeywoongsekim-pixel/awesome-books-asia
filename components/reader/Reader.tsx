@@ -212,16 +212,20 @@ export default function Reader({
       <Watermark owner={owner} />
 
       <div className="rd-tb">
-        <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
+        <div className="rd-tb-l">
           <Link href="/books" className="rd-back">
             {t('back')}
           </Link>
-          <div>
+          {/* A title as long as "Awesome AI Bible 2026: The Complete Guide to
+              Mastering Generative AI from Zero" wrapped onto a third line and
+              was cut off by the bar's fixed height. It gives way now: one
+              line each, ellipsis at the end, and the buttons keep their room. */}
+          <div className="rd-who" title={main.title}>
             <div className="rd-title">{main.title}</div>
             <div className="rd-sub">{main.author}</div>
           </div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+        <div className="rd-tb-r">
           {canSync && (
             <button
               type="button"

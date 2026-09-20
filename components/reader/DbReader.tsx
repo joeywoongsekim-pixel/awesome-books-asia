@@ -235,16 +235,20 @@ export default function DbReader({
       <Watermark owner={owner} />
 
       <div className="rd-tb">
-        <div style={{display: 'flex', alignItems: 'center', gap: 14}}>
+        <div className="rd-tb-l">
           <Link href="/books" className="rd-back">
             {t('back')}
           </Link>
-          <div>
+          {/* One line each, cut with an ellipsis: a title the length of
+              "Awesome AI Bible 2026: The Complete Guide to Mastering
+              Generative AI from Zero" wrapped onto a third line and was
+              clipped by the bar's fixed height. */}
+          <div className="rd-who" title={title}>
             <div className="rd-title">{title}</div>
             <div className="rd-sub">{author}</div>
           </div>
         </div>
-        <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+        <div className="rd-tb-r">
           {!isPdf && (content.toc?.length ?? 0) > 0 && (
             <button
               type="button"
