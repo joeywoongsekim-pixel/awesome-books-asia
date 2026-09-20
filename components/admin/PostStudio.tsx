@@ -262,6 +262,32 @@ export default function PostStudio({kind, posts}: {kind: Kind; posts: Post[]}) {
 
     setBusy(false);
     if (error) {
+      /* An address is unique across the whole table rather than within a
+         section, so the piece already holding one may be a piece this
+         studio does not list: you are writing news, the address is taken
+         by a magazine article, and nothing on the screen says so.
+         Postgres calls it a duplicate key, which is the right answer to
+         the wrong question — what a writer needs to know is where it went
+         and that the fix is a rename. */
+      if (error.code === '23505') {
+        const {data: owner} = await supabase
+          .from('posts')
+          .select('kind')
+          .eq('slug', slug)
+          .maybeSingle();
+        /* A whole sentence per section rather than the section's name
+           dropped into one. "in Magazin" is not German and "en Revista"
+           is not Spanish; which article the noun takes is part of the
+           sentence, so each language writes both of them. */
+        setMsg(
+          owner
+            ? owner.kind === 'news'
+              ? t('mzSlugTakenNews')
+              : t('mzSlugTakenMagazine')
+            : t('mzSlugTaken')
+        );
+        return;
+      }
       setMsg(error.message);
       return;
     }
