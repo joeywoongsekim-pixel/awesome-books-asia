@@ -428,6 +428,8 @@
     "mzNotAPicture": "이미지 파일이 아닙니다.",
     "mzMissing": "이 글의 이미지 {n}장이 아직 어디에도 없습니다. 각 자리에 파일을 끌어다 놓으세요.",
     "mzFillSlot": "파일 넣기",
+    "mzSwapHint": "이 글의 사진입니다. 바꿀 사진 위에 파일을 끌어다 놓거나, 눌러서 붙여넣기 하세요. 아홉 개 언어 전부에서 교체됩니다.",
+    "mzReplace": "교체",
     "mzCoverHint": "이미지를 붙여넣거나 /hero/s5.webp",
     "bkReaderFrom": "리더 공개일",
     "bkReaderFromHint": "KDP 독점(KU) 기간이 끝나 어썸 리더에서 읽을 수 있게 되는 날. 비워두면 제한 없음."

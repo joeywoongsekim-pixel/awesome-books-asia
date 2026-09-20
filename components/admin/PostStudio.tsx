@@ -422,7 +422,9 @@ export default function PostStudio({kind, posts}: {kind: Kind; posts: Post[]}) {
         <ArticleImages
           slug={f.slug}
           body={f.body}
+          cover={f.cover}
           onBody={(next) => set('body', next)}
+          onCover={(url) => set('cover', url)}
           onReplace={(from, to) => setSwaps((s) => ({...s, [from]: to}))}
           supabase={supabase}
         />

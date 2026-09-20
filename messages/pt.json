@@ -428,6 +428,8 @@
     "mzNotAPicture": "Isso não é uma imagem.",
     "mzMissing": "{n} imagem(ns) deste artigo ainda não estão em lugar nenhum. Solte o arquivo certo em cada uma.",
     "mzFillSlot": "Usar um arquivo",
+    "mzSwapHint": "As imagens desta peça. Solte um arquivo sobre uma, ou clique nela e cole. Ela é trocada nos nove idiomas.",
+    "mzReplace": "Substituir",
     "mzCoverHint": "cole uma imagem, ou /hero/s5.webp",
     "bkReaderFrom": "Abertura do leitor",
     "bkReaderFromHint": "O dia em que termina o período do KDP Select e o e-book pode ser lido aqui. Deixe vazio se não houver restrição."

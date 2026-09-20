@@ -428,6 +428,8 @@
     "mzNotAPicture": "That is not a picture.",
     "mzMissing": "{n} picture(s) in this article are not anywhere yet. Drop the right file on each.",
     "mzFillSlot": "Use a file",
+    "mzSwapHint": "The pictures in this piece. Drop a file on one, or click it and paste. It is swapped in all nine languages.",
+    "mzReplace": "Replace",
     "mzCoverHint": "paste a picture, or /hero/s5.webp",
     "bkReaderFrom": "Reader opens",
     "bkReaderFromHint": "The day the KDP Select window ends and the ebook may be read here. Leave empty for no restriction."

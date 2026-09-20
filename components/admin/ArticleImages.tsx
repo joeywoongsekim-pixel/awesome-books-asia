@@ -1,9 +1,9 @@
 'use client';
 
-import {useCallback, useEffect, useState} from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import type {SupabaseClient} from '@supabase/supabase-js';
-import {missingImages, replaceSource, uploadImage} from '../../lib/postImages';
+import {imageSources, missingImages, replaceSource, uploadImage} from '../../lib/postImages';
 
 // M160 — pictures, by paste.
 //
@@ -22,16 +22,25 @@ import {missingImages, replaceSource, uploadImage} from '../../lib/postImages';
 
 type Shot = {url: string; name: string};
 
+/* The cover is not in the markup, so it has no address to swap; this
+   stands in for one when a file is aimed at it. */
+const COVER = '\u0000cover';
+
 export default function ArticleImages({
   slug,
   body,
+  cover,
   onBody,
+  onCover,
   onReplace,
   supabase
 }: {
   slug: string;
   body: string;
+  /** The one picture that lives in a field rather than in the markup. */
+  cover: string;
   onBody: (next: string) => void;
+  onCover: (url: string) => void;
   /* A picture filled in here is the same picture in every language: the
      translator copies an address across untouched, so the broken path sits
      in all nine bodies. The studio is told about the swap so it can apply
@@ -48,6 +57,15 @@ export default function ArticleImages({
   const [copied, setCopied] = useState('');
 
   const named = slug.trim() || 'untitled';
+
+  /* Every picture the body carries, in the order a reader meets them.
+     Pasted-in ones are still data: URIs until the article is saved; they
+     are left out because there is nothing to swap them for yet — save
+     first and they become addresses like the rest. */
+  const inBody = useMemo(
+    () => [...new Set(imageSources(body))].filter((src) => !src.startsWith('data:')),
+    [body]
+  );
 
   // Which pictures this article names but nobody serves. Re-checked as the
   // body is edited, but not on every keystroke.
@@ -74,7 +92,9 @@ export default function ArticleImages({
         setBusy(t('mzImages', {done: n, total: pictures.length}));
         try {
           const url = await uploadImage(file, named, supabase);
-          if (into) {
+          if (into === COVER) {
+            onCover(url);
+          } else if (into) {
             onBody(replaceSource(body, into, url));
             onReplace(into, url);
             setMissing((m) => m.filter((s) => s !== into));
@@ -90,7 +110,7 @@ export default function ArticleImages({
       }
       setBusy('');
     },
-    [body, named, onBody, onReplace, supabase, t]
+    [body, named, onBody, onCover, onReplace, supabase, t]
   );
 
   async function copy(url: string) {
@@ -175,6 +195,40 @@ export default function ArticleImages({
         </div>
       )}
 
+
+      {/* Every picture in the article, as it will appear. Drop a file on
+          one — or click it and paste — and it is swapped for the new one
+          everywhere it appears, in all nine languages, on save. */}
+      {(cover.trim() || inBody.length > 0) && (
+        <div className="mz-swaps">
+          <p className="adm-hint">{t('mzSwapHint')}</p>
+          <ul className="mz-swap-l">
+            {cover.trim() && (
+              <li>
+                <Tile
+                  src={cover.trim()}
+                  label={t('mzCover')}
+                  busy={busy}
+                  onFiles={(files) => void take(files, COVER)}
+                  replaceLabel={t('mzReplace')}
+                />
+              </li>
+            )}
+            {inBody.map((src, i) => (
+              <li key={src}>
+                <Tile
+                  src={src}
+                  label={`${i + 1}`}
+                  busy={busy}
+                  onFiles={(files) => void take(files, src)}
+                  replaceLabel={t('mzReplace')}
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {shots.length > 0 && (
         <ul className="mz-shots">
           {shots.map((s) => (
@@ -189,6 +243,63 @@ export default function ArticleImages({
           ))}
         </ul>
       )}
+    </div>
+  );
+}
+
+/* One picture, with a way to put another in its place. Dropping a file on
+   it works; so does clicking it and pressing paste, which is how a
+   screenshot gets here without ever being a file on disk. */
+function Tile({
+  src,
+  label,
+  busy,
+  onFiles,
+  replaceLabel
+}: {
+  src: string;
+  label: string;
+  busy: string;
+  onFiles: (files: File[]) => void;
+  replaceLabel: string;
+}) {
+  const [over, setOver] = useState(false);
+  return (
+    <div
+      className={over ? 'mz-tile on' : 'mz-tile'}
+      tabIndex={0}
+      onPaste={(e) => {
+        const files = [...e.clipboardData.files];
+        if (files.length) {
+          e.preventDefault();
+          onFiles(files);
+        }
+      }}
+      onDragOver={(e) => {
+        e.preventDefault();
+        setOver(true);
+      }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => {
+        e.preventDefault();
+        setOver(false);
+        onFiles([...e.dataTransfer.files]);
+      }}
+    >
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt="" />
+      <span className="mz-tile-n">{label}</span>
+      <label className="mz-pick mz-tile-b">
+        {busy || replaceLabel}
+        <input
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            onFiles([...(e.target.files ?? [])]);
+            e.target.value = '';
+          }}
+        />
+      </label>
     </div>
   );
 }

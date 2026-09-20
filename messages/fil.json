@@ -428,6 +428,8 @@
     "mzNotAPicture": "Hindi iyon larawan.",
     "mzMissing": "Ang {n} larawan sa artikulong ito ay wala pa kahit saan. I-drop ang tamang file sa bawat isa.",
     "mzFillSlot": "Gumamit ng file",
+    "mzSwapHint": "Ang mga larawan sa piyesang ito. Mag-drop ng file sa isa, o i-click ito at i-paste. Papalitan ito sa lahat ng siyam na wika.",
+    "mzReplace": "Palitan",
     "mzCoverHint": "idikit ang larawan, o /hero/s5.webp",
     "bkReaderFrom": "Pagbukas ng reader",
     "bkReaderFromHint": "Ang araw na natatapos ang KDP Select at mababasa na rito ang ebook. Iwanang blangko kung walang restriksiyon."

@@ -428,6 +428,8 @@
     "mzNotAPicture": "Das ist kein Bild.",
     "mzMissing": "{n} Bild(er) dieses Beitrags liegen noch nirgends. Ziehen Sie die passende Datei auf jedes.",
     "mzFillSlot": "Datei einsetzen",
+    "mzSwapHint": "Die Bilder in diesem Beitrag. Ziehen Sie eine Datei auf eines, oder klicken Sie es an und fügen Sie ein. Es wird in allen neun Sprachen ersetzt.",
+    "mzReplace": "Ersetzen",
     "mzCoverHint": "Bild einfügen oder /hero/s5.webp",
     "bkReaderFrom": "Reader öffnet am",
     "bkReaderFromHint": "Der Tag, an dem die KDP-Select-Frist endet und das E-Book hier gelesen werden darf. Leer lassen für keine Beschränkung."
