@@ -62,6 +62,24 @@ const NINJA_DESC: Tri = {
   ja: '村いちばんのおっちょこちょい忍者猫、クロの修行記。'
 };
 
+/* ISEKAI stands on two shelves, because the book is two things: it is
+   filed under 경영 and answers to 소설 as well, which is what the store's
+   subject filter has always said about it.
+
+   The copies are separate objects rather than the same ones twice. The
+   modal finds which shelf a spine came from with items.includes(), so
+   sharing them would caption the 소설 copy as 경영 — the reader would
+   click a novel and be told they were in business. The second set leans
+   differently too: the same three spines twice over, identical to the
+   degree, reads as a mistake rather than as one book on two shelves. */
+function isekaiEditions(): ShelfEdition[] {
+  return [
+    {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
+    {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},
+    {slug: 'isekai', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
+  ];
+}
+
 const ROWS: ShelfRow[] = [
   {
     cat: 'ECON',
@@ -76,11 +94,17 @@ const ROWS: ShelfRow[] = [
   {
     cat: 'BIZ',
     ghosts: 0,
-    items: [
-      {slug: 'isekai', lang: 'KO', title: '이세계 엔터프리너십 입문', cover: '/covers/isekai-ko.jpg', bg: '#b98f3a', fg: '#241b0e', desc: ISEKAI_DESC, w: 42, h: 192},
-      {slug: 'isekai', lang: 'EN', title: 'ISEKAI Entrepreneurship', cover: '/covers/isekai.jpg', bg: '#233f37', fg: '#f2c94c', desc: ISEKAI_DESC, w: 46, h: 200},
-      {slug: 'isekai', lang: 'JA', title: '異世界アントレプレナーシップ入門', cover: '/covers/isekai-ja.jpg', bg: '#44502a', fg: '#f2e4b8', desc: ISEKAI_DESC, w: 42, h: 190, tilt: -4}
-    ]
+    items: isekaiEditions()
+  },
+  {
+    cat: 'FICTION',
+    ghosts: 1,
+    // the same three, leaning their own way
+    items: isekaiEditions().map((ed, i) => ({
+      ...ed,
+      tilt: [4, undefined, -2][i],
+      h: ed.h - 4
+    }))
   },
   {
     cat: 'AI',
