@@ -192,6 +192,11 @@ export const BOOKS: Book[] = [
     title: "AIの答えに、人間は何を足すのか",
     author: "Akira Murata",
     cat: "AI",
+    /* It is taught as well as read: the book names high-school inquiry and
+       university seminars alongside the working reader, so it answers to
+       both teaching shelves, and to 경영 for the people bringing it to
+       work. */
+    also: ["BIZ", "SECOND", "HIGHER"],
     price: 0,
     langs: ["JA", "EN"],
     isNew: true,

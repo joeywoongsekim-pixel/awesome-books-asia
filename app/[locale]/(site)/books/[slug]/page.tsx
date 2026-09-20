@@ -83,9 +83,11 @@ function BookDetail({book, asked}: {book: Book; asked?: string}) {
           <EditionCover book={book} />
         </div>
         <div>
-          {/* Every subject the book answers to, in the reader's language —
-              this line used to print the English catalogue label. */}
-          <div className="d-cat">{catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' · ')}</div>
+          {/* Every subject the book answers to, in the reader's language.
+              Not joined with a middot: two of the subjects are called
+              "AI · 테크" and "대학 · 성인교육", so a middot between them
+              made one line of five things out of two subjects. */}
+          <div className="d-cat">{catsOf(book).map((c) => tStore(CAT_KEY[c])).join(' / ')}</div>
           <h1 className="d-title">{book.title}</h1>
           <div className="d-author">{book.author}</div>
           <p className="d-blurb">{blurbOf(book, locale)}</p>
