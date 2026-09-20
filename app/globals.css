@@ -8449,56 +8449,37 @@ html[lang='hi'] {
 }
 
 /* ══════════ AWESOME NEWS ══════════ */
-/* Sits directly under the magazine, and has to read as a different thing
-   at a glance or the page looks like it repeated itself. So: three short
-   rows under one heading rather than two more full-width bands. A book
-   out, a fair, a price — the date leads, the headline carries it, and the
-   picture is a stamp beside the text rather than half the page.
+/* Sits directly under the magazine and takes the room of exactly one of
+   its bands — a band is 568px on a laptop, and this comes to about the
+   same — but spends it the other way up: the picture across the full
+   column, the words beneath it.
 
-   The section borrows the magazine's heading row (.mz-head / .mz-all): it
-   is the same gesture, and a second set of rules for it would be two
-   places to change on the day the heading changes. */
-.nw-list {
-  list-style: none;
-  margin: 8px 0 0;
-  padding: 0;
+   Stacked rather than side by side is what stops the two sections reading
+   as the same section printed twice, and one item rather than a list is
+   what stops the news taking more of the page than the magazine it sits
+   under.
+
+   The picture is 16/5 rather than the band's 4/3 because it is now the
+   width of the whole column: at 4/3 it would stand 960px tall and dwarf
+   everything above it.
+
+   The heading row is the magazine's (.mz-head / .mz-all) — the same
+   gesture, and a second set of rules for it would be two places to change
+   on the day the heading changes. */
+.nw-lead {
+  /* These three numbers are what bring the block to a band's height:
+     570px against the magazine's 568 on a 1440 screen. */
+  margin-top: 4px;
   border-top: 1px solid var(--hair-soft);
+  padding-top: 24px;
 }
 .nw-link {
-  display: grid;
-  grid-template-columns: 132px 1fr;
-  align-items: center;
-  gap: 26px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--hair-soft);
+  display: block;
   text-decoration: none;
-  transition: background 0.2s ease;
-}
-/* Not every item carries a picture, and the ones that do not still line up
-   with the ones that do — a row starting 132px to the left of the row
-   above it reads as a mistake. The column is simply empty, which shows as
-   nothing, because the frame is only drawn where there is a picture.
-
-   When no item in the section has one, the whole list gives the column
-   back rather than indenting every row past an empty gutter. */
-.nw-vis {
-  grid-column: 1;
-}
-.nw-txt {
-  grid-column: 2;
-}
-.nw-list.flush .nw-link {
-  grid-template-columns: 1fr;
-}
-.nw-list.flush .nw-txt {
-  grid-column: 1;
-}
-.nw-link:hover {
-  background: var(--tint);
 }
 .nw-vis {
   display: block;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 5;
   overflow: hidden;
   background: var(--tint);
 }
@@ -8510,11 +8491,11 @@ html[lang='hi'] {
   transition: transform 0.6s ease;
 }
 .nw-link:hover .nw-vis img {
-  transform: scale(1.04);
+  transform: scale(1.03);
 }
 .nw-txt {
   display: block;
-  min-width: 0;
+  padding-top: 20px;
 }
 .nw-k {
   display: block;
@@ -8527,23 +8508,23 @@ html[lang='hi'] {
 .nw-t {
   display: block;
   font-family: var(--font-heading);
-  font-size: clamp(18px, 1.7vw, 23px);
+  font-size: clamp(22px, 2.3vw, 31px);
   font-weight: 700;
-  line-height: 1.35;
+  line-height: 1.3;
   color: var(--night);
-  margin: 7px 0 6px;
+  margin: 10px 0 8px;
 }
 .nw-link:hover .nw-t {
   color: var(--lapis);
 }
 .nw-x {
-  /* Two lines of standfirst at most: a news dek is a sentence, and a row
-     that grows to four lines has stopped being a row. */
+  /* One sentence. The article itself is a click away; this is the line
+     that decides whether anybody takes it. */
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  font-size: 14.5px;
+  font-size: 15.5px;
   line-height: 1.7;
   color: var(--stone);
 }
@@ -8936,11 +8917,10 @@ button.adm-link {
     flex-wrap: wrap;
     justify-content: center;
   }
-  /* The news thumbnail keeps its column on a phone — it is a stamp, not a
-     picture to be looked at, so it shrinks rather than stacking. */
-  .nw-link {
-    grid-template-columns: 92px 1fr;
-    gap: 16px;
+  /* A 16/5 strip is 78px tall on a phone, which is a band of colour
+     rather than a photograph. Narrower screens get a squarer crop. */
+  .nw-vis {
+    aspect-ratio: 3 / 2;
   }
 }
 
