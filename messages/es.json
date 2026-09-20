@@ -137,14 +137,9 @@
   },
   "reader": {
     "back": "← Biblioteca",
-    "deskMode": "Modo escritorio · 4 libros abiertos",
     "focusMode": "Modo enfoque · 1 libro",
     "focusBtn": "Enfoque",
     "aiBtn": "Escritorio IA",
-    "grip": "Mueve este libro",
-    "dropMain": "Suelta aquí → principal",
-    "bringDown": "Bajar",
-    "hintPick": "<b>Coge un libro</b> y suéltalo donde quieras",
     "hintCorner": "Arrastra la esquina de la página para pasarla",
     "aiTitle": "Asistente IA del escritorio",
     "aiNote": "No un libro: lee <b>todo tu escritorio</b>.",
@@ -154,8 +149,6 @@
     "sugg1": "¿Cómo enfoca cada libro de mi escritorio la misma idea?",
     "sugg2": "¿Cuál de estos le daría a un niño de diez años?",
     "sugg3": "Ordena estos cuatro en un plan de estudios de un semestre.",
-    "ghostLift": "levanta hasta el estante",
-    "ghostDrop": "suéltalo donde quieras",
     "bookmark": "Marca esta página",
     "noPrint": "La impresión está desactivada. Este libro está protegido — léelo en Awesome Reader."
   },

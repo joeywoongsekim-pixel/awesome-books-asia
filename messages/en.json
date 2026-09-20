@@ -137,14 +137,9 @@
   },
   "reader": {
     "back": "← Library",
-    "deskMode": "Desk mode · 4 books open",
     "focusMode": "Focus mode · 1 book",
     "focusBtn": "Focus",
     "aiBtn": "AI desk",
-    "grip": "Move this book",
-    "dropMain": "Drop here → main",
-    "bringDown": "Bring down",
-    "hintPick": "<b>Pick a book up</b> and drop it anywhere",
     "hintCorner": "Drag the page corner to turn",
     "aiTitle": "AI desk assistant",
     "aiNote": "Not one book — it reads your <b>whole desk</b>.",
@@ -154,8 +149,6 @@
     "sugg1": "How do the books on my desk each frame the same idea?",
     "sugg2": "Which of these should I hand to a ten-year-old?",
     "sugg3": "Order these four into a term-long curriculum.",
-    "ghostLift": "lift to the shelf",
-    "ghostDrop": "drop it anywhere",
     "bookmark": "Bookmark this page",
     "noPrint": "Printing is disabled. This book is protected — please read it in Awesome Reader."
   },

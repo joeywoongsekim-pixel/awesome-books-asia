@@ -137,14 +137,9 @@
   },
   "reader": {
     "back": "← Aklatan",
-    "deskMode": "Desk mode · 4 na librong bukas",
     "focusMode": "Focus mode · 1 libro",
     "focusBtn": "Focus",
     "aiBtn": "AI desk",
-    "grip": "Ilipat ang librong ito",
-    "dropMain": "Ibaba dito → main",
-    "bringDown": "Ibaba",
-    "hintPick": "<b>Damputin ang libro</b> at ibaba kahit saan",
     "hintCorner": "I-drag ang sulok ng pahina para lumipat",
     "aiTitle": "AI desk assistant",
     "aiNote": "Hindi lang isang libro — binabasa nito ang <b>buong mesa mo</b>.",
@@ -154,8 +149,6 @@
     "sugg1": "Paano tinatalakay ng bawat libro sa mesa ko ang iisang ideya?",
     "sugg2": "Alin dito ang dapat kong ibigay sa sampung-taong-gulang?",
     "sugg3": "Ayusin ang apat na ito bilang kurikulum para sa isang semestre.",
-    "ghostLift": "iangat sa istante",
-    "ghostDrop": "ibaba kahit saan",
     "bookmark": "I-bookmark ang pahinang ito",
     "noPrint": "Hindi pinapayagan ang pag-print. Protektado ang aklat na ito — basahin ito sa Awesome Reader."
   },

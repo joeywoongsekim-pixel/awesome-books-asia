@@ -137,14 +137,9 @@
   },
   "reader": {
     "back": "← Bibliothèque",
-    "deskMode": "Mode bureau · 4 livres ouverts",
     "focusMode": "Mode focus · 1 livre",
     "focusBtn": "Focus",
     "aiBtn": "Bureau IA",
-    "grip": "Déplacer ce livre",
-    "dropMain": "Déposer ici → principal",
-    "bringDown": "Faire descendre",
-    "hintPick": "<b>Saisissez un livre</b> et posez-le où vous voulez",
     "hintCorner": "Tirez le coin de la page pour tourner",
     "aiTitle": "Assistant IA de bureau",
     "aiNote": "Pas un seul livre — elle lit <b>tout votre bureau</b>.",
@@ -154,8 +149,6 @@
     "sugg1": "Comment chaque livre de mon bureau aborde-t-il la même idée ?",
     "sugg2": "Lequel donnerais-je à un enfant de dix ans ?",
     "sugg3": "Organisez ces quatre livres en un programme d'un semestre.",
-    "ghostLift": "soulever vers l'étagère",
-    "ghostDrop": "posez-le où vous voulez",
     "bookmark": "Marquer cette page",
     "noPrint": "L'impression est désactivée. Ce livre est protégé — veuillez le lire dans Awesome Reader."
   },

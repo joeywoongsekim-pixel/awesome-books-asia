@@ -137,14 +137,9 @@
   },
   "reader": {
     "back": "← Bibliothek",
-    "deskMode": "Schreibtisch-Modus · 4 Bücher offen",
     "focusMode": "Fokus-Modus · 1 Buch",
     "focusBtn": "Fokus",
     "aiBtn": "KI-Desk",
-    "grip": "Dieses Buch verschieben",
-    "dropMain": "Hier ablegen → Hauptplatz",
-    "bringDown": "Herunterholen",
-    "hintPick": "<b>Nehmen Sie ein Buch auf</b> und legen Sie es überall ab",
     "hintCorner": "Zum Blättern die Seitenecke ziehen",
     "aiTitle": "KI-Desk-Assistent",
     "aiNote": "Nicht ein Buch — sie liest Ihren <b>ganzen Schreibtisch</b>.",
@@ -154,8 +149,6 @@
     "sugg1": "Wie rahmt jedes Buch auf meinem Schreibtisch dieselbe Idee?",
     "sugg2": "Welches davon sollte ich einem Zehnjährigen geben?",
     "sugg3": "Ordnen Sie diese vier zu einem Lehrplan für ein Semester.",
-    "ghostLift": "ins Regal heben",
-    "ghostDrop": "überall ablegen",
     "bookmark": "Diese Seite merken",
     "noPrint": "Drucken ist deaktiviert. Dieses Buch ist geschützt — bitte lesen Sie es in Awesome Reader."
   },
