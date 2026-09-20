@@ -4754,12 +4754,6 @@ a.ac-list-t:hover {
   min-height: 232px;
   padding-top: 20px;
 }
-/* A shelf of standing books is 232px tall so that every shelf lines up.
-   A shelf where the books lie down has no spines to make room for, and at
-   232 it was 160px of empty air over a two-inch pile. */
-.shf-books-pile {
-  min-height: 104px;
-}
 .shf-sp {
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -4804,34 +4798,6 @@ a.ac-list-t:hover {
 .shf-ghost:hover {
   transform: none;
   box-shadow: none;
-}
-.shf-pile {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-right: 22px;
-}
-.shf-flat {
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgb(30 58 95 / 0.2);
-  transition: transform 0.22s ease;
-}
-.shf-flat:nth-child(odd) {
-  transform: rotate(-1.2deg);
-}
-.shf-flat:nth-child(even) {
-  transform: rotate(0.8deg);
-}
-.shf-flat:hover,
-.shf-flat:focus-visible {
-  transform: translateY(-6px);
 }
 .shf-board {
   position: relative;

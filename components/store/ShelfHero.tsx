@@ -51,36 +51,13 @@ export default function ShelfHero() {
       <div className="shf-frame">
         {SHELF.map((row) => (
           <div className="shf-row" key={row.cat}>
-            <div
-              className={
-                row.items.length && row.items.every((ed) => ed.flat)
-                  ? 'shf-books shf-books-pile'
-                  : 'shf-books'
-              }
-            >
-              {/* Books that lie down rather than stand go in a pile above
-                  the shelf. Which those are is a property of the book, not
-                  of the subject it is filed under. */}
-              {row.items.some((ed) => ed.flat) ? (
-                <div className="shf-pile">
-                  {row.items
-                    .filter((ed) => ed.flat)
-                    .map((ed) => (
-                      <button
-                        key={ed.slug}
-                        type="button"
-                        className="shf-flat"
-                        style={{width: ed.w, height: ed.h, background: ed.bg, color: ed.fg}}
-                        onClick={(e) => pick(ed, e.currentTarget)}
-                      >
-                        {ed.title}
-                      </button>
-                    ))}
-                </div>
-              ) : null}
-              {row.items
-                .filter((ed) => !ed.flat)
-                .map((ed) => (
+            <div className="shf-books">
+              {/* Every book stands, the picture books among them — shorter
+                  and broader across the spine than the textbooks beside
+                  them, which is what a picture book is. They used to lie
+                  in a pile, which read as a different kind of object
+                  rather than as a shorter book. */}
+              {row.items.map((ed) => (
                   <button
                     key={ed.slug}
                     type="button"

@@ -37,7 +37,6 @@ export interface ShelfEdition {
   w: number; // spine width px
   h: number; // spine height px
   tilt?: number; // leaning angle (deg)
-  flat?: boolean; // lying in the horizontal pile
 }
 
 export interface ShelfRow {
@@ -92,7 +91,6 @@ type Spine = {
   w: number;
   h: number;
   tilt?: number;
-  flat?: boolean;
 };
 
 const SPINES: Record<string, Spine> = {
@@ -109,10 +107,12 @@ const SPINES: Record<string, Spine> = {
   isekai: {title: 'ISEKAI Entrepreneurship', bg: '#233f37', fg: '#f2c94c', w: 46, h: 200},
   'isekai-ko': {title: '이세계 엔터프리너십 입문', bg: '#b98f3a', fg: '#241b0e', w: 42, h: 192},
   'isekai-ja': {title: '異世界アントレプレナーシップ入門', bg: '#44502a', fg: '#f2e4b8', w: 42, h: 190, tilt: -4},
-  // The picture books lie in a pile rather than standing; they are too
-  // short to stand and too wide to read sideways.
-  'ninja-cat': {title: 'おっちょこ忍キャット クロの巻', bg: '#e8b64a', fg: '#3a2a1a', w: 172, h: 36, flat: true},
-  'ninja-cat-ko': {title: '덜렁이 닌자 고양이 쿠로편', bg: '#f2cf5b', fg: '#3a2a1a', w: 178, h: 34, flat: true}
+  /* The picture books stand with the rest. They are shorter than the
+     textbooks beside them and broader across the spine, which is what a
+     picture book is — and they used to lie in a pile, which read as a
+     different kind of thing rather than as a shorter book. */
+  'ninja-cat': {title: 'おっちょこ忍キャット クロの巻', bg: '#e8b64a', fg: '#3a2a1a', w: 50, h: 174},
+  'ninja-cat-ko': {title: '덜렁이 닌자 고양이 쿠로편', bg: '#f2cf5b', fg: '#3a2a1a', w: 52, h: 168, tilt: 4}
 };
 
 /* A book with no spine written for it still stands, in the house's paper
