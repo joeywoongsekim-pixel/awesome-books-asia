@@ -6,6 +6,8 @@ import {useRouter} from '../../i18n/navigation';
 import {createSupabaseBrowser} from '../../lib/supabase/client';
 import ChapterStudio, {type StudioContent} from './ChapterStudio';
 import PrePubCheck from './PrePubCheck';
+import {CATEGORIES, CAT_KEY, type Category} from '../../lib/books';
+import {suggestSlug, unusedShelfSlugs} from '../../lib/slug';
 
 // M29 — the KDP-style book setup flow (modelled on Amazon KDP's title
 // setup): three steps across the top — Details, Content, Pricing — each a
@@ -26,7 +28,9 @@ export type AdminBook = {
   author: string;
   illustrator: string | null;
   translator: string | null;
-  category: string;
+  /* One to three of the shelf's twelve subjects. A book stands under
+     the first and answers to the rest, the way the shelf itself works. */
+  categories: string[] | null;
   is_new: boolean;
   published: boolean;
   price_cents: number;
@@ -46,21 +50,31 @@ export type AdminEdition = {
 };
 
 const EDITION_LOCALES = ['en', 'ko', 'ja'] as const;
-const CATEGORIES = ['biz', 'ai', 'edu', 'kids'];
+
+/* Past three, a subject stops narrowing anything. The database holds the
+   same rule as a check constraint, so this is the polite half of it. */
+const MAX_CATEGORIES = 3;
 
 export default function BookStudio({
   book,
   editions,
   contents = [],
-  studio = []
+  studio = [],
+  takenSlugs = []
 }: {
   book: AdminBook | null;
   editions: AdminEdition[];
   contents?: AdminContent[];
   studio?: StudioContent[];
+  /* Slugs the database already holds, so the shelf entries offered in
+     the slug box are only the ones still waiting for a book. */
+  takenSlugs?: string[];
 }) {
   const t = useTranslations('admin');
   const tDetail = useTranslations('detail');
+  // The shelf's own words for its subjects, so the console and the
+  // storefront call the same shelf by the same name.
+  const tStore = useTranslations('store');
   const router = useRouter();
   const supabase = createSupabaseBrowser();
 
@@ -72,7 +86,7 @@ export default function BookStudio({
     author: book?.author ?? '',
     illustrator: book?.illustrator ?? '',
     translator: book?.translator ?? '',
-    category: book?.category ?? 'biz',
+    categories: (book?.categories ?? ['AI']) as string[],
     is_new: book?.is_new ?? false,
     published: book?.published ?? false,
     priceUsd: book ? (book.price_cents / 100).toString() : '0',
@@ -88,7 +102,31 @@ export default function BookStudio({
   const set = (k: keyof typeof form) => (v: string | boolean) =>
     setForm((f) => ({...f, [k]: v}));
 
+  /* Tick to add, tick again to remove, and the last one will not come
+     off — a book has to stand somewhere. Beyond three the boxes go quiet
+     rather than disappearing, so it is clear the limit was reached and
+     not that the subject went missing. */
+  const toggleCategory = (c: Category) =>
+    setForm((f) => {
+      const on = f.categories.includes(c);
+      if (on) {
+        return f.categories.length === 1 ? f : {...f, categories: f.categories.filter((x) => x !== c)};
+      }
+      if (f.categories.length >= MAX_CATEGORIES) return f;
+      return {...f, categories: [...f.categories, c]};
+    });
+
+  /* The web name is worked out from the title rather than typed: it has
+     to match the shelf entry's id or the store's "read" button looks up
+     a book that is not there. Only while creating, and only until the
+     box is touched — an existing book's slug is a live URL. */
+  const [slugTouched, setSlugTouched] = useState(Boolean(book));
+  const onTitle = (v: string) =>
+    setForm((f) => ({...f, title: v, slug: slugTouched ? f.slug : suggestSlug(v)}));
+
   const hasContent = contents.length > 0 || studio.some((s) => s.chapters?.length);
+  // This book's own slug stays on the list while editing it.
+  const shelfChoices = unusedShelfSlugs(takenSlugs.filter((x) => x !== book?.slug));
 
   async function save(goNext = false) {
     setBusy(true);
@@ -102,7 +140,7 @@ export default function BookStudio({
          leave the column null rather than storing "". */
       illustrator: form.illustrator.trim() || null,
       translator: form.translator.trim() || null,
-      category: form.category,
+      categories: form.categories,
       is_new: form.is_new,
       published: form.published,
       price_cents: Math.round(Number(form.priceUsd || '0') * 100),
@@ -249,7 +287,7 @@ export default function BookStudio({
           <h2 className="kdp-h">{t('stepDetails')}</h2>
           <div className="kdp-field">
             <label>{t('fieldTitle')}</label>
-            <input value={form.title} onChange={(e) => set('title')(e.target.value)} />
+            <input value={form.title} onChange={(e) => onTitle(e.target.value)} />
             <p className="kdp-hint">{t('titleHint')}</p>
           </div>
           <div className="kdp-field">
@@ -288,22 +326,54 @@ export default function BookStudio({
               <label>{t('slug')}</label>
               <input
                 value={form.slug}
-                onChange={(e) => set('slug')(e.target.value)}
+                list="shelf-slugs"
+                onChange={(e) => {
+                  setSlugTouched(true);
+                  set('slug')(e.target.value);
+                }}
                 placeholder="my-new-book"
               />
+              {/* The entries on the shelf that have no book behind them
+                  yet. Picking one is the whole job: it is the id the
+                  store's "read" button will ask this database for. */}
+              <datalist id="shelf-slugs">
+                {shelfChoices.map((c) => (
+                  <option key={c.id} value={c.id}>
+                    {c.title}
+                  </option>
+                ))}
+              </datalist>
               <p className="kdp-hint">{t('slugHint')}</p>
             </div>
           </div>
           <div className="kdp-row">
-            <div className="kdp-field">
-              <label>{t('category')}</label>
-              <select value={form.category} onChange={(e) => set('category')(e.target.value)}>
-                {CATEGORIES.map((c) => (
-                  <option key={c} value={c}>
-                    {t(`cat_${c}`)}
-                  </option>
-                ))}
-              </select>
+            <div className="kdp-field kdp-wide">
+              <label>
+                {t('category')} <span className="kdp-count">{form.categories.length}/{MAX_CATEGORIES}</span>
+              </label>
+              {/* The shelf's twelve subjects, not a list of four kept
+                  separately from it — and several at once, because the
+                  token book is AI and economics and the shelf has always
+                  known that. */}
+              <div className="kdp-chips">
+                {CATEGORIES.map((c) => {
+                  const on = form.categories.includes(c);
+                  const full = !on && form.categories.length >= MAX_CATEGORIES;
+                  return (
+                    <button
+                      key={c}
+                      type="button"
+                      className={`kdp-chip${on ? ' on' : ''}`}
+                      aria-pressed={on}
+                      disabled={full}
+                      onClick={() => toggleCategory(c)}
+                    >
+                      {tStore(CAT_KEY[c])}
+                    </button>
+                  );
+                })}
+              </div>
+              <p className="kdp-hint">{t('categoryHint')}</p>
             </div>
             {/* No difficulty and no page count. The first was a 1-3
                 number typed by hand that nothing ever read; the second

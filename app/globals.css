@@ -5183,6 +5183,48 @@ img {
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 0 18px;
 }
+/* Twelve subjects will not sit in a column beside three other fields,
+   so this one field takes the whole row and lets the chips wrap. */
+.kdp-wide {
+  grid-column: 1 / -1;
+}
+.kdp-count {
+  margin-left: 6px;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--ink-3, #8b8574);
+}
+.kdp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.kdp-chip {
+  border: 1px solid var(--hair);
+  background: var(--tint, #fcfaf4);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--ink-2, #5c6672);
+  cursor: pointer;
+  transition: 0.15s;
+}
+.kdp-chip:hover:not(:disabled) {
+  border-color: var(--aba-navy, #1e3a5f);
+  color: var(--aba-navy, #1e3a5f);
+}
+.kdp-chip.on {
+  background: var(--aba-navy, #1e3a5f);
+  border-color: var(--aba-navy, #1e3a5f);
+  color: #fff;
+}
+/* Once three are picked the rest go quiet rather than vanishing: the
+   limit should look like a limit, not like a subject that went missing. */
+.kdp-chip:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
 .kdp-hint {
   margin: 2px 0 0;
   font-size: 0.78rem;

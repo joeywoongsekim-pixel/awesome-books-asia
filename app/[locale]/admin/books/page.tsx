@@ -1,6 +1,7 @@
 import {setRequestLocale, getTranslations} from 'next-intl/server';
 import {Link} from '../../../../i18n/navigation';
 import {createSupabaseServer} from '../../../../lib/supabase/server';
+import {CAT_KEY, type Category} from '../../../../lib/books';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,7 +18,7 @@ type ShelfBook = {
   author: string;
   illustrator: string | null;
   translator: string | null;
-  category: string;
+  categories: string[] | null;
   price_cents: number;
   is_new: boolean;
   published: boolean;
@@ -36,12 +37,14 @@ export default async function AdminBooks({
   const {locale} = await params;
   setRequestLocale(locale);
   const t = await getTranslations('admin');
+  // The shelf's own names for its subjects, same as the form uses.
+  const tStore = await getTranslations('store');
 
   const supabase = await createSupabaseServer();
   const {data} = await supabase
     .from('books')
     .select(
-      'id, slug, title, subtitle, author, illustrator, translator, category, price_cents, is_new, published, cover_url, book_editions(locale, pdf_path, epub_path), book_content(locale, kind)'
+      'id, slug, title, subtitle, author, illustrator, translator, categories, price_cents, is_new, published, cover_url, book_editions(locale, pdf_path, epub_path), book_content(locale, kind)'
     )
     .order('created_at', {ascending: true});
   const books = (data ?? []) as unknown as ShelfBook[];
@@ -82,7 +85,8 @@ export default async function AdminBooks({
                       box can be seen from the list rather than only by
                       opening the book again. */}
                   {[b.author, b.illustrator, b.translator].filter(Boolean).join(' · ')} ·{' '}
-                  <span className="adm-mono">{b.slug}</span> · {b.category}
+                  <span className="adm-mono">{b.slug}</span> ·{' '}
+                  {(b.categories ?? []).map((c) => tStore(CAT_KEY[c as Category])).join(' · ')}
                 </div>
                 <div className="bks-formats">
                   {!anyFile && <span className="bks-fmt none">{t('noFiles')}</span>}

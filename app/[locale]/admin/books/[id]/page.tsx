@@ -18,13 +18,20 @@ export default async function AdminBookEdit({
   const {locale, id} = await params;
   setRequestLocale(locale);
 
-  if (id === 'new') return <BookStudio book={null} editions={[]} />;
-
   const supabase = await createSupabaseServer();
+
+  /* Which shelf entries already have a book, so the slug box can offer
+     the ones that do not. Asked for on both paths, since a new book
+     needs the list most. */
+  const {data: slugRows} = await supabase.from('books').select('slug');
+  const takenSlugs = (slugRows ?? []).map((r) => r.slug as string);
+
+  if (id === 'new') return <BookStudio book={null} editions={[]} takenSlugs={takenSlugs} />;
+
   const {data: book} = await supabase
     .from('books')
     .select(
-      'id, slug, title, subtitle, author, illustrator, translator, category, is_new, published, price_cents, published_at, reader_from, cover_url'
+      'id, slug, title, subtitle, author, illustrator, translator, categories, is_new, published, price_cents, published_at, reader_from, cover_url'
     )
     .eq('id', id)
     .maybeSingle();
@@ -49,6 +56,7 @@ export default async function AdminBookEdit({
       editions={(editions ?? []) as AdminEdition[]}
       contents={(contents ?? []) as AdminContent[]}
       studio={(contents ?? []) as unknown as StudioContent[]}
+      takenSlugs={takenSlugs}
     />
   );
 }
