@@ -150,6 +150,13 @@ export const BOOKS: Book[] = [
     langs: ["JA"],
     isNew: true,
     level: 2,
+    /* In Kindle Unlimited, like its English sibling, so the ebook cannot
+       be read here until the ninety days are up. Counted from publication
+       on 19 September — a day before the India edition, hence a day
+       before its date. The retailer link has said `ku: true` since this
+       book was added; the wait that follows from it was missed.
+       Remove this line if the title was never enrolled. */
+    readerFrom: "2026-12-18",
     angle: "as a unit cost — what one finished piece of work takes in money, time and checking",
     blurb:
       "AI looks cheap by the hour, until you count the checking and the fixing. For people who make documents with AI, and for students of economics and management, this reader follows one piece of work from brief to finished and asks what it actually cost: the quality of the result, the money paid to the model, and the hours a person spent. Through Takashi, an office worker, and Kyoko, a student, it separates how many times you generated something from how much of it you could use, explains what a token is and how billing follows it, and adds back the human time nobody invoices. Eight chapters with practice notes, eighteen graded challenges with worked answers, and a closing look at the chips, power and data centres underneath.",

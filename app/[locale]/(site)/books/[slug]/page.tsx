@@ -169,10 +169,19 @@ function BookDetail({book}: {book: Book}) {
               <dt>{t('publisher')}</dt>
               <dd>Awesome Books Asia</dd>
             </div>
-            <div className="meta-row">
-              <dt>{t('reader')}</dt>
-              <dd>{t('readerValue')}</dd>
-            </div>
+            {/* Only where it is true. This row was printed on every book,
+                so a title with no sample loaded, or one inside its Kindle
+                Unlimited window, promised a reader in the facts while the
+                buttons above withheld it — on the very page whose job is
+                to say the reader is waiting. A book that is waiting says
+                so in the note by the buttons, with the day; a book with
+                nothing to open says nothing. */}
+            {book.sp.length > 0 && readerOpen(book) && (
+              <div className="meta-row">
+                <dt>{t('reader')}</dt>
+                <dd>{t('readerValue')}</dd>
+              </div>
+            )}
           </dl>
         </div>
       </div>

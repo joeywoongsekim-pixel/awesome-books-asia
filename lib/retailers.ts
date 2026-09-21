@@ -27,13 +27,17 @@ export const EDITIONS: Record<string, EditionLink[]> = {
   ],
   /* Published 20 September 2026. One ASIN on two storefronts: .in is the
      one the India launch points at, .com is where the rest of the world
-     buys the same file. No `ku` on either — the .com listing's only
-     mention of Kindle Unlimited is the site's own navigation link, not a
-     badge on this book, and this flag is a claim about somebody's
-     subscription. No price either: both storefronts render it after load. */
+     buys the same file. No price on either: both render it after load.
+
+     In Kindle Unlimited, on the publisher's word. The flag was left off
+     when this was added because the .com page's only mention of Kindle
+     Unlimited was the site's own navigation link — but amazon.in answers
+     this address with a robot check, and .com now does too, so the
+     storefront was never going to settle it. The person who enrolled the
+     book is a better source than a page we cannot load. */
   'ai-token-in': [
-    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0HKG3PKRG'},
-    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0HKG3PKRG'}
+    {store: 'Amazon IN', lang: 'EN', format: 'ebook', url: 'https://www.amazon.in/dp/B0HKG3PKRG', ku: true},
+    {store: 'Amazon', lang: 'EN', format: 'ebook', url: 'https://www.amazon.com/dp/B0HKG3PKRG', ku: true}
   ],
   'ai-answer': [
     {store: 'Amazon JP', lang: 'JA', format: 'ebook', url: 'https://www.amazon.co.jp/dp/B0HJZL583W', price: '$4.96'}
