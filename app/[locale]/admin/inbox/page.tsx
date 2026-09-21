@@ -61,7 +61,11 @@ export default async function AdminInbox({
             <tr>
               <th>{t('when')}</th>
               <th>{t('type')}</th>
-              <th>{t('fieldAuthor')}</th>
+              {/* Its own word. This column holds the name of a person who
+                  wrote in, and it was borrowing the book form's "author"
+                  label to say so — wrong before the book form had three
+                  kinds of credit, and unusable after. */}
+              <th>{t('senderName')}</th>
               <th>{t('email')}</th>
               <th>{t('messageCol')}</th>
             </tr>

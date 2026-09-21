@@ -17,13 +17,16 @@ export type AdminBook = {
   id: string;
   slug: string;
   title: string;
+  /* The three names the trade prints. Only the author is asked for:
+     a book with no pictures and no translator leaves the other two
+     empty, which is most books. */
   author: string;
+  illustrator: string | null;
+  translator: string | null;
   category: string;
-  level: number;
   is_new: boolean;
   published: boolean;
   price_cents: number;
-  page_count: number | null;
   published_at: string | null;
   /* The day the KDP Select window ends and the ebook may be opened in
      our reader. Enforced inside get_book_content, not here. */
@@ -63,12 +66,12 @@ export default function BookStudio({
     slug: book?.slug ?? '',
     title: book?.title ?? '',
     author: book?.author ?? '',
+    illustrator: book?.illustrator ?? '',
+    translator: book?.translator ?? '',
     category: book?.category ?? 'biz',
-    level: book?.level ?? 2,
     is_new: book?.is_new ?? false,
     published: book?.published ?? false,
     priceUsd: book ? (book.price_cents / 100).toString() : '0',
-    page_count: book?.page_count?.toString() ?? '',
     published_at: book?.published_at ?? '',
     // stored as a timestamp, edited as a day
     reader_from: book?.reader_from ? book.reader_from.slice(0, 10) : ''
@@ -90,12 +93,14 @@ export default function BookStudio({
       slug: form.slug.trim(),
       title: form.title.trim(),
       author: form.author.trim(),
+      /* Empty means nobody, not an empty name: an unfilled box should
+         leave the column null rather than storing "". */
+      illustrator: form.illustrator.trim() || null,
+      translator: form.translator.trim() || null,
       category: form.category,
-      level: Number(form.level) || 2,
       is_new: form.is_new,
       published: form.published,
       price_cents: Math.round(Number(form.priceUsd || '0') * 100),
-      page_count: form.page_count ? Number(form.page_count) : null,
       published_at: form.published_at || null,
       /* Midnight UTC on the chosen day: the exclusivity ends on a date,
          not at an hour, and the book should open at the start of it. */
@@ -242,12 +247,33 @@ export default function BookStudio({
             <input value={form.title} onChange={(e) => set('title')(e.target.value)} />
             <p className="kdp-hint">{t('titleHint')}</p>
           </div>
+          {/* Three names, because a picture book has two people on its
+              cover and a translated one has three. Only the first is
+              required; the other two stay empty for most books. */}
           <div className="kdp-row">
             <div className="kdp-field">
               <label>{t('fieldAuthor')}</label>
               <input value={form.author} onChange={(e) => set('author')(e.target.value)} />
               <p className="kdp-hint">{t('authorHint')}</p>
             </div>
+            <div className="kdp-field">
+              <label>{t('fieldIllustrator')}</label>
+              <input
+                value={form.illustrator}
+                onChange={(e) => set('illustrator')(e.target.value)}
+              />
+              <p className="kdp-hint">{t('illustratorHint')}</p>
+            </div>
+            <div className="kdp-field">
+              <label>{t('fieldTranslator')}</label>
+              <input
+                value={form.translator}
+                onChange={(e) => set('translator')(e.target.value)}
+              />
+              <p className="kdp-hint">{t('translatorHint')}</p>
+            </div>
+          </div>
+          <div className="kdp-row">
             <div className="kdp-field">
               <label>{t('slug')}</label>
               <input
@@ -269,25 +295,10 @@ export default function BookStudio({
                 ))}
               </select>
             </div>
-            <div className="kdp-field">
-              <label>{t('level')}</label>
-              <input
-                type="number"
-                min="1"
-                max="3"
-                value={form.level}
-                onChange={(e) => set('level')(e.target.value)}
-              />
-            </div>
-            <div className="kdp-field">
-              <label>{tDetail('pages')}</label>
-              <input
-                type="number"
-                min="0"
-                value={form.page_count}
-                onChange={(e) => set('page_count')(e.target.value)}
-              />
-            </div>
+            {/* No difficulty and no page count. The first was a 1-3
+                number typed by hand that nothing ever read; the second
+                is worked out from the uploaded file, and a person
+                guessing at it could only be wrong. */}
             <div className="kdp-field">
               <label>{tDetail('published')}</label>
               <input

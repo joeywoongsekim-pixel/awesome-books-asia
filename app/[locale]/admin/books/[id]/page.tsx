@@ -24,7 +24,7 @@ export default async function AdminBookEdit({
   const {data: book} = await supabase
     .from('books')
     .select(
-      'id, slug, title, author, category, level, is_new, published, price_cents, page_count, published_at, reader_from, cover_url'
+      'id, slug, title, author, illustrator, translator, category, is_new, published, price_cents, published_at, reader_from, cover_url'
     )
     .eq('id', id)
     .maybeSingle();
