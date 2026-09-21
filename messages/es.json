@@ -306,6 +306,8 @@
     "stepContent": "Content",
     "stepPricing": "Pricing & publish",
     "titleHint": "The title readers see everywhere — store, reader, receipts.",
+    "fieldSubtitle": "Subtítulo",
+    "subtitleHint": "La parte que sigue a los dos puntos. Déjalo vacío si no tiene.",
     "authorHint": "Use one consistent spelling across all books (e.g. Akira Murata).",
     "fieldIllustrator": "Ilustrador",
     "illustratorHint": "Solo para libros con ilustraciones; déjalo vacío si no las hay.",

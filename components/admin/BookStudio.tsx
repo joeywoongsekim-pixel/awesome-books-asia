@@ -17,6 +17,9 @@ export type AdminBook = {
   id: string;
   slug: string;
   title: string;
+  /* The half after the colon, kept apart from the title so a listing can
+     show one without the other. Optional — plenty of books are a title. */
+  subtitle: string | null;
   /* The three names the trade prints. Only the author is asked for:
      a book with no pictures and no translator leaves the other two
      empty, which is most books. */
@@ -65,6 +68,7 @@ export default function BookStudio({
   const [form, setForm] = useState({
     slug: book?.slug ?? '',
     title: book?.title ?? '',
+    subtitle: book?.subtitle ?? '',
     author: book?.author ?? '',
     illustrator: book?.illustrator ?? '',
     translator: book?.translator ?? '',
@@ -92,6 +96,7 @@ export default function BookStudio({
     const row = {
       slug: form.slug.trim(),
       title: form.title.trim(),
+      subtitle: form.subtitle.trim() || null,
       author: form.author.trim(),
       /* Empty means nobody, not an empty name: an unfilled box should
          leave the column null rather than storing "". */
@@ -246,6 +251,11 @@ export default function BookStudio({
             <label>{t('fieldTitle')}</label>
             <input value={form.title} onChange={(e) => set('title')(e.target.value)} />
             <p className="kdp-hint">{t('titleHint')}</p>
+          </div>
+          <div className="kdp-field">
+            <label>{t('fieldSubtitle')}</label>
+            <input value={form.subtitle} onChange={(e) => set('subtitle')(e.target.value)} />
+            <p className="kdp-hint">{t('subtitleHint')}</p>
           </div>
           {/* Three names, because a picture book has two people on its
               cover and a translated one has three. Only the first is

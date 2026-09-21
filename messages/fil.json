@@ -306,6 +306,8 @@
     "stepContent": "Content",
     "stepPricing": "Pricing & publish",
     "titleHint": "The title readers see everywhere — store, reader, receipts.",
+    "fieldSubtitle": "Subtitulo",
+    "subtitleHint": "Ang bahaging kasunod ng tutuldok. Iwang blangko kung wala.",
     "authorHint": "Use one consistent spelling across all books (e.g. Akira Murata).",
     "fieldIllustrator": "Ilustrador",
     "illustratorHint": "Para lamang sa mga aklat na may larawan — iwang blangko kung wala.",

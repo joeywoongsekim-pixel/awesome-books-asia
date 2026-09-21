@@ -306,6 +306,8 @@
     "stepContent": "Content",
     "stepPricing": "Pricing & publish",
     "titleHint": "The title readers see everywhere — store, reader, receipts.",
+    "fieldSubtitle": "Sous-titre",
+    "subtitleHint": "La partie après les deux-points. Laissez vide s’il n’y en a pas.",
     "authorHint": "Use one consistent spelling across all books (e.g. Akira Murata).",
     "fieldIllustrator": "Illustrateur",
     "illustratorHint": "Uniquement pour les livres illustrés — laissez vide sinon.",

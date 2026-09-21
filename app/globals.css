@@ -4694,6 +4694,13 @@ a.ac-list-t:hover {
   align-items: center;
   gap: 8px;
 }
+/* The half after the colon: below the title and quieter than it, but
+   louder than the credits line, which is the order a cover reads in. */
+.bks-sub {
+  margin-top: 2px;
+  font-size: 13.5px;
+  color: rgb(30 58 95 / 0.72);
+}
 .bks-by {
   margin-top: 3px;
   font-size: 12.5px;

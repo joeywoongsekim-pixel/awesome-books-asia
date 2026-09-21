@@ -306,6 +306,8 @@
     "stepContent": "콘텐츠",
     "stepPricing": "가격 및 발행",
     "titleHint": "서점·리더·영수증 등 모든 곳에 표시되는 제목입니다.",
+    "fieldSubtitle": "부제",
+    "subtitleHint": "제목 뒤 콜론 다음에 오는 부분. 없으면 비워두세요.",
     "authorHint": "모든 책에서 같은 표기를 사용하세요 (예: Akira Murata).",
     "fieldIllustrator": "일러스트레이터",
     "illustratorHint": "그림이 있는 책에만. 없으면 비워두세요.",

@@ -13,7 +13,10 @@ type ShelfBook = {
   id: string;
   slug: string;
   title: string;
+  subtitle: string | null;
   author: string;
+  illustrator: string | null;
+  translator: string | null;
   category: string;
   price_cents: number;
   is_new: boolean;
@@ -38,7 +41,7 @@ export default async function AdminBooks({
   const {data} = await supabase
     .from('books')
     .select(
-      'id, slug, title, author, category, price_cents, is_new, published, cover_url, book_editions(locale, pdf_path, epub_path), book_content(locale, kind)'
+      'id, slug, title, subtitle, author, illustrator, translator, category, price_cents, is_new, published, cover_url, book_editions(locale, pdf_path, epub_path), book_content(locale, kind)'
     )
     .order('created_at', {ascending: true});
   const books = (data ?? []) as unknown as ShelfBook[];
@@ -73,8 +76,13 @@ export default async function AdminBooks({
                   {b.title}
                   {b.is_new && <span className="adm-new">NEW</span>}
                 </div>
+                {b.subtitle && <div className="bks-sub">{b.subtitle}</div>}
                 <div className="bks-by">
-                  {b.author} · <span className="adm-mono">{b.slug}</span> · {b.category}
+                  {/* Whoever is credited, so a name typed into the wrong
+                      box can be seen from the list rather than only by
+                      opening the book again. */}
+                  {[b.author, b.illustrator, b.translator].filter(Boolean).join(' · ')} ·{' '}
+                  <span className="adm-mono">{b.slug}</span> · {b.category}
                 </div>
                 <div className="bks-formats">
                   {!anyFile && <span className="bks-fmt none">{t('noFiles')}</span>}

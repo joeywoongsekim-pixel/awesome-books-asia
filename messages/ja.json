@@ -306,6 +306,8 @@
     "stepContent": "コンテンツ",
     "stepPricing": "価格と出版",
     "titleHint": "ストア・リーダーなどすべての場所に表示されるタイトルです。",
+    "fieldSubtitle": "サブタイトル",
+    "subtitleHint": "タイトルのコロンより後の部分。なければ空欄のままで。",
     "authorHint": "全書籍で同じ表記を使ってください（例: Akira Murata）。",
     "fieldIllustrator": "イラストレーター",
     "illustratorHint": "絵のある本のみ。なければ空欄のままで。",

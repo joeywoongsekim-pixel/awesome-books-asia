@@ -306,6 +306,8 @@
     "stepContent": "Content",
     "stepPricing": "Pricing & publish",
     "titleHint": "The title readers see everywhere — store, reader, receipts.",
+    "fieldSubtitle": "Untertitel",
+    "subtitleHint": "Der Teil nach dem Doppelpunkt. Leer lassen, wenn es keinen gibt.",
     "authorHint": "Use one consistent spelling across all books (e.g. Akira Murata).",
     "fieldIllustrator": "Illustrator",
     "illustratorHint": "Nur für Bücher mit Bildern — sonst leer lassen.",
