@@ -7,6 +7,7 @@ import {DEMO_BOOKS as BOOKS, type Book} from '../../lib/books';
 import BigPage from './BigPage';
 import AiPanel from './AiPanel';
 import {useReadGuard, Watermark} from './guard';
+import {PLANS_PAGE_LIVE} from '../../lib/flags';
 
 const SNAP_MS = 500; // matches .flipper.snap transform transition
 const COMMIT_DEG = 78; // release past this angle commits the turn
@@ -346,9 +347,11 @@ export default function Reader({
                   </Link>
                 </>
               )}
-              <Link href="/plans" className="rd-pay-alt">
-                {tPay('plans')}
-              </Link>
+              {PLANS_PAGE_LIVE && (
+                <Link href="/plans" className="rd-pay-alt">
+                  {tPay('plans')}
+                </Link>
+              )}
             </div>
             <button type="button" className="rd-pay-x" onClick={() => setPaywall(false)}>
               {tPay('close')}

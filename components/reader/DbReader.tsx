@@ -4,6 +4,7 @@ import {useCallback, useEffect, useRef, useState} from 'react';
 import {useTranslations} from 'next-intl';
 import {Link, useRouter} from '../../i18n/navigation';
 import {useReadGuard, Watermark} from './guard';
+import {PLANS_PAGE_LIVE} from '../../lib/flags';
 
 // Reader for pipeline-processed books (book_content via get_book_content).
 // EPUB editions arrive as sanitised chapter HTML and are laid out as a
@@ -337,9 +338,11 @@ export default function DbReader({
                   </Link>
                 </>
               )}
-              <Link href="/plans" className="rd-pay-alt">
-                {tPay('plans')}
-              </Link>
+              {PLANS_PAGE_LIVE && (
+                <Link href="/plans" className="rd-pay-alt">
+                  {tPay('plans')}
+                </Link>
+              )}
             </div>
             <button type="button" className="rd-pay-x" onClick={() => setPaywall(false)}>
               {tPay('close')}

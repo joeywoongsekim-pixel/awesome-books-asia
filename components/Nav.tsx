@@ -7,6 +7,7 @@ import BrandLogo from './BrandLogo';
 import LanguageSwitcher from './LanguageSwitcher';
 import NavAuth from './NavAuth';
 import AdminSwitch from './AdminSwitch';
+import {PLANS_PAGE_LIVE} from '../lib/flags';
 
 export default function Nav() {
   const t = useTranslations('nav');
@@ -44,7 +45,9 @@ export default function Nav() {
     {key: 'reader', href: '/library'},
     {key: 'magazine', href: '/magazine'},
     {key: 'news', href: '/news'},
-    {key: 'plans', href: '/plans'},
+    /* How-to-buy is built but not shown — see lib/flags.ts. Filtered
+       rather than deleted so it returns with one edit. */
+    ...(PLANS_PAGE_LIVE ? [{key: 'plans', href: '/plans'} as const] : []),
     {key: 'contact', href: '/contact'}
   ] as const;
 

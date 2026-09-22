@@ -70,7 +70,10 @@ export async function POST(req: NextRequest) {
     metadata: {user_id: user.id, plan: body.plan},
     subscription_data: {metadata: {user_id: user.id}},
     success_url: successUrl,
-    cancel_url: `${origin}/${locale}/plans`
+    /* The how-to-buy page is hidden (lib/flags.ts), so a cancelled
+       checkout would have been sent to a 404. The shelf is where
+       somebody who changed their mind actually wants to be. */
+    cancel_url: `${origin}/${locale}/books`
   });
   return NextResponse.json({url: session.url});
 }
