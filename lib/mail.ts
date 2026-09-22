@@ -10,6 +10,9 @@
 //                      have verified, so until awesomebooks.asia has its
 //                      DNS records this falls back to Resend's own test
 //                      sender, which can reach the account's own address.
+//   INBOX_MAIL_TO    — optional. Who gets told. Defaults to the published
+//                      house address; set it to a personal address while
+//                      testing, or to several separated by commas.
 
 const ENDPOINT = 'https://api.resend.com/emails';
 
@@ -24,8 +27,19 @@ export function mailConfigured(): boolean {
   return Boolean(process.env.RESEND_API_KEY);
 }
 
+/** Who to tell, given the address the caller would use by default.
+    Comma-separated so a notification can reach more than one person —
+    the house address and whoever is on duty, say. */
+export function recipients(fallback: string): string[] {
+  const set = (process.env.INBOX_MAIL_TO || '')
+    .split(',')
+    .map((a) => a.trim())
+    .filter(Boolean);
+  return set.length ? set : [fallback];
+}
+
 export async function sendMail(mail: {
-  to: string;
+  to: string[];
   subject: string;
   text: string;
   /** So hitting reply in the mail client writes to the person, not to us. */
@@ -41,7 +55,7 @@ export async function sendMail(mail: {
       headers: {Authorization: `Bearer ${key}`, 'Content-Type': 'application/json'},
       body: JSON.stringify({
         from: process.env.INBOX_MAIL_FROM || FALLBACK_FROM,
-        to: [mail.to],
+        to: mail.to,
         subject: mail.subject,
         text: mail.text,
         ...(mail.replyTo ? {reply_to: [mail.replyTo]} : {})

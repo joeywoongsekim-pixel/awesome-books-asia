@@ -1,7 +1,7 @@
 import {NextRequest, NextResponse} from 'next/server';
 import {createSupabaseService} from '../../../lib/supabase/service';
 import {ADMIN_MAIL} from '../../../lib/contact';
-import {sendMail, mailConfigured} from '../../../lib/mail';
+import {sendMail, mailConfigured, recipients} from '../../../lib/mail';
 
 // M189 — telling the house that somebody wrote in.
 //
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
   ];
 
   const sent = await sendMail({
-    to: ADMIN_MAIL,
+    to: recipients(ADMIN_MAIL),
     subject,
     text: lines.join('\n'),
     replyTo: row.email
