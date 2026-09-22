@@ -27,12 +27,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ok: false, reason: 'bad id'}, {status: 400});
   }
 
-  if (!mailConfigured()) {
-    return NextResponse.json({ok: false, reason: 'mail not configured'});
-  }
+  /* Both pieces of setup are reported at once. Checked one after the
+     other, adding the first missing variable only reveals the second,
+     which is two deploys to learn one thing. */
   const supabase = createSupabaseService();
-  if (!supabase) {
-    return NextResponse.json({ok: false, reason: 'service key missing'});
+  const missing = [
+    ...(mailConfigured() ? [] : ['RESEND_API_KEY']),
+    ...(supabase ? [] : ['SUPABASE_SERVICE_ROLE_KEY'])
+  ];
+  if (missing.length || !supabase) {
+    return NextResponse.json({ok: false, reason: 'not configured', missing});
   }
 
   /* Claim the row before sending. Filtering on notified_at being null and
