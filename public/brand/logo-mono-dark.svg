@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 692.76 100" width="692.76" height="100" role="img" aria-label="Awesome Books Asia">
   <title>Awesome Books Asia</title>
   <!--
-    Awesome Books Asia — horizontal lockup, for light backgrounds.
+    Awesome Books Asia — single ink, dark on light.
     Drawn by scripts/build-logo.py; edit that and run it again.
 
     The symbol is the brand guide's 100x100 grid: a lapis square with
@@ -16,12 +16,12 @@
     Smallest usable width 180px. Below that use brand/symbol-small.svg.
   -->
   <g>
-    <rect width="100" height="100" rx="23" fill="#2340B5"/>
+    <rect width="100" height="100" rx="23" fill="#111317"/>
     <g stroke="#F0EEE9" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round" fill="none">
       <path d="M55 28H28v27"/>
       <path d="M45 72h27V45"/>
     </g>
-    <rect x="46.5" y="37" width="7" height="26" rx="3.5" fill="#C9A23A"/>
+    <rect x="46.5" y="37" width="7" height="26" rx="3.5" fill="#F0EEE9"/>
   </g>
   <g fill="#111317" transform="translate(120.69 71.58)">
     <path d="M27.67 -16.23V-24.36Q27.67 -26.03 27.03 -27.51Q26.39 -29.00 25.29 -30.10Q24.19 -31.21 22.70 -31.85Q21.21 -32.48 19.54 -32.48Q17.87 -32.48 16.38 -31.85Q14.90 -31.21 13.79 -30.10Q12.69 -29.00 12.05 -27.51Q11.41 -26.03 11.41 -24.36V-16.23ZM35.80 0.00H27.67V-8.13H11.41V0.00H3.31V-24.36Q3.31 -27.73 4.59 -30.69Q5.86 -33.64 8.06 -35.85Q10.25 -38.06 13.21 -39.34Q16.17 -40.61 19.54 -40.61Q22.91 -40.61 25.87 -39.34Q28.83 -38.06 31.04 -35.85Q33.25 -33.64 34.52 -30.69Q35.80 -27.73 35.80 -24.36Z"/>
